@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2A — Tweede jaar A-stroom | Leermateriaal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --terracotta: #C1440E; --gold: #D4A017; --oker: #C8923A;
+    --darkblue: #1A2B4A; --creme: #FAF6EF; --sand: #E8DCC8;
+    --text-dark: #1E1A14; --text-light: #6B5F4A;
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px; line-height: 1.75;
+    color: var(--text-dark); background: var(--creme);
+    min-height: 100vh; display: flex; flex-direction: column;
+  }
+  h1, h2, h3 { font-family: 'Playfair Display', serif; line-height: 1.25; }
+
+  .site-header {
+    background: var(--darkblue); color: var(--gold);
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0.65rem 2.5rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+  .label {
+    font-size: 0.82rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gold);
+    text-decoration: none; transition: opacity .15s;
+  }
+  .label:hover { opacity: .75; }
+  .label-right { color: rgba(232,220,200,.55); font-size: .78rem; }
+
+  .hero {
+    background: var(--darkblue); color: white;
+    padding: 5rem 2.5rem 5.5rem; text-align: center;
+    position: relative; overflow: hidden; flex: 1;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(212,160,23,0.07) 1px, transparent 1px);
+    background-size: 28px 28px; pointer-events: none;
+  }
+  .hero-kicker {
+    font-size: .78rem; font-weight: 700; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 1rem;
+  }
+  .hero h1 { font-size: clamp(2.4rem, 5vw, 3.8rem); color: white; margin-bottom: .75rem; }
+  .hero-subtitle { font-size: 1.05rem; color: rgba(255,255,255,.55); max-width: 480px; margin: 0 auto 2.5rem; }
+
+  .back-link {
+    display: inline-flex; align-items: center; gap: .4rem;
+    font-size: .85rem; font-weight: 600; letter-spacing: .06em;
+    color: rgba(255,255,255,.5); text-decoration: none;
+    border: 1px solid rgba(255,255,255,.2); border-radius: 4px;
+    padding: .45rem 1rem; transition: all .15s;
+  }
+  .back-link:hover { color: var(--gold); border-color: rgba(212,160,23,.5); }
+
+  .site-footer {
+    background: var(--darkblue); color: rgba(255,255,255,.4);
+    text-align: center; padding: 1.5rem 2rem; font-size: .82rem;
+    letter-spacing: .04em;
+  }
+  .site-footer strong { color: var(--gold); font-weight: 600; }
+
+  @media (max-width: 600px) {
+    .site-header { padding: .65rem 1.25rem; }
+    .hero { padding: 3.5rem 1.25rem 4rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a class="label" href="../index.html">← Eerste Graad</a>
+  <span class="label label-right">2A &nbsp;·&nbsp; Tweede jaar</span>
+</header>
+
+<section class="hero">
+  <p class="hero-kicker">Tweede jaar &nbsp;·&nbsp; A-stroom</p>
+  <h1>2A</h1>
+  <p class="hero-subtitle">Het leermateriaal voor het tweede jaar A-stroom is momenteel in voorbereiding.</p>
+  <a href="../index.html" class="back-link">← Terug naar overzicht</a>
+</section>
+
+<footer class="site-footer">
+  <strong>Leermateriaal</strong> &nbsp;·&nbsp; Eerste Graad A-stroom &nbsp;·&nbsp; © 2026
+</footer>
+
+</body>
+</html>

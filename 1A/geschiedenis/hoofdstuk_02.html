@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoofdstuk 2 — Hoe orden je de ruimte? | Geschiedenis 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE / OPENING STORY
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament {
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--gold);
+    opacity: 0.7;
+    margin: 1.5rem 0;
+    letter-spacing: 0.4em;
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-dialogue {
+    font-style: italic;
+    color: #FFFDF8;
+    padding-left: 1.4rem;
+    border-left: 3px solid rgba(212,160,23,0.4);
+    margin: 1rem 0;
+  }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+    filter: sepia(0.3);
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     ILLUSTRATIE PLACEHOLDERS
+  ============================================================ */
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+    cursor: default;
+    transition: background var(--transition);
+  }
+
+  .illustratie:hover { background: #EDE7D8; }
+
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     SCALE DIAGRAM
+  ============================================================ */
+  .scale-diagram {
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .scale-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .scale-bar-wrap {
+    flex: 1;
+    position: relative;
+  }
+
+  .scale-bar {
+    height: 38px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #fff;
+    transition: filter var(--transition);
+  }
+
+  .scale-bar:hover { filter: brightness(1.1); }
+
+  .scale-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-light);
+    min-width: 80px;
+    text-align: right;
+  }
+
+  .sb-1 { background: var(--terracotta); width: 20%; min-width: 120px; }
+  .sb-2 { background: var(--oker); width: 35%; min-width: 160px; }
+  .sb-3 { background: #4A7A8A; width: 52%; min-width: 200px; }
+  .sb-4 { background: #2A5C7A; width: 70%; min-width: 240px; }
+  .sb-5 { background: var(--darkblue); width: 90%; min-width: 280px; }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong {
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition), opacity var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover {
+    background: var(--darkblue-light);
+    transform: translateY(-3px);
+  }
+
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     UTILITY / MISC
+  ============================================================ */
+  .prose-text { max-width: 100%; }
+
+  .highlighted-para {
+    background: rgba(212,160,23,0.08);
+    border-left: 3px solid var(--gold);
+    padding: 0.8rem 1.1rem;
+    border-radius: 0 4px 4px 0;
+    margin: 1.2rem 0;
+    font-size: 0.97rem;
+    color: var(--text-mid);
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .scale-bar { height: 30px; font-size: 0.78rem; }
+    .scale-label { min-width: 60px; font-size: 0.68rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <a class="label" href="index.html">Geschiedenis 1A</a>
+  <span class="label label-right">Hoofdstuk 2</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Geschiedenis &nbsp;·&nbsp; 1A &nbsp;·&nbsp; Eerste graad</div>
+  <h1>Hoofdstuk 2<br>Hoe orden je de ruimte?</h1>
+  <p class="subtitle">Van jouw straat tot het Middellandse-Zeegebied — een gereedschapskist voor historische geografie</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- PROLOGUE -->
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Stel je voor &hellip;</span>
+
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+
+    <p>Het is het jaar 325 voor Christus. De haven van Sidon, aan de kust van het huidige Libanon, gonst van activiteit. Een Fenicische koopman genaamd Hanno staat op de kade en strijkt zijn mantel glad tegen de zoute wind. Voor hem ligt de haven vol met schepen, touwen en kreten van zeelieden. Achter hem: de stad, de markt, de smalle straatjes.</p>
+
+    <p>Hanno is al twintig jaar zeeman. Hij kent de kusten van de Middellandse Zee als zijn eigen hand. Hij weet waar de ondiepten zijn ten noorden van Sicilië, welke wind je in de zomer meeneemt van Kreta naar Egypte, en welke havenbaas je in Carthago niet kunt vertrouwen.</p>
+
+    <p>Maar vandaag is er iets anders. Een jonge Griekse geleerde — hij stelt zichzelf voor als een leerling van de filosoof Aristoteles — legt een stuk papyrus op de kade-plank en vraagt Hanno ernaar te kijken.</p>
+
+    <p class="prologue-dialogue">"Dit is een kaart," zegt de Griek. "Hier, dit is de Middellandse Zee. En hier" — hij wijst naar een puntje in het oosten — "dat ben jij. Sidon."</p>
+
+    <p>Hanno staart naar het papyrus. Hij herkent de omtrek van de kust, de grote eilanden, de rivieren. Maar hij ziet ook hoe klein zijn wereld is. De kustlijn die hij in twintig jaar varen heeft leren kennen, past op een handpalm. En rondom die vertrouwde wateren liggen landmassa's waarvan hij de namen niet eens kent.</p>
+
+    <p class="prologue-dialogue">"Wat is dat daarboven?" vraagt hij, en wijst naar het noorden.</p>
+
+    <p class="prologue-dialogue">"Dat noemen wij Keltisch gebied," antwoordt de Griek. "Barbaren. Ze leven ver van de zee, in de bossen. Helemaal anders dan wij — helemaal anders dan jij."</p>
+
+    <p>Hanno schudt zijn hoofd. Anders dan wij. Helemaal anders dan jij. Terwijl hij de kaart bestudeert, begrijpt hij voor het eerst hoe je de wereld kunt verdelen: mensen die leven aan het water, en mensen die leven van het land. Mensen in steden, en mensen verspreid over het platteland. En dan die vage zones aan de rand van de kaart, ver van alles wat hij kent.</p>
+
+    <p><strong style="color: var(--gold);">Hoe orden je de ruimte? Dat is de vraag van dit hoofdstuk.</strong></p>
+
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 2.1
+  ============================================================ -->
+  <section class="section-block" id="s2-1">
+    <div class="section-heading">
+      <span class="section-num">2.1</span>
+      <h2 class="section-title">Van jouw straat tot het continent: structuurbegrippen rond ruimte</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>In het vorige hoofdstuk leerde je hoe historici de <em>tijd</em> ordenen: met periodes, scharnierpunten, eeuwen en millennia. Maar historici ordenen ook de <em>ruimte</em>. Want een gebeurtenis vindt niet alleen <em>wanneer</em> plaats, maar ook <em>waar</em>. En dat "waar" is niet zo eenvoudig als het lijkt.</p>
+
+      <p>Denk eens na over jezelf. Je woont in een straat. Die straat ligt in een gemeente. Die gemeente ligt in een provincie. Die provincie ligt in een land. Dat land ligt in Europa. En Europa ligt op het Euraziatische continent. Elke keer als je dat "uitzoomen" doet, verander je het schaalniveau waarop je naar de ruimte kijkt.</p>
+
+      <p>Historici doen precies hetzelfde. Ze zoomen in en uit op de ruimte, afhankelijk van de vraag die ze stellen. Bestudeert een historicus de dagelijkse buurtleven in een middeleeuws dorp? Dan werkt hij op een <em>lokaal</em> schaalniveau. Onderzoekt hij hoe het Romeinse Rijk zijn grenzen beheerde? Dan werkt hij op een <em>continentaal</em> schaalniveau. Hoe groter de schaal, hoe meer je ziet — maar hoe minder detail.</p>
+
+      <p>Historici hebben zes sleutelbegrippen om de ruimte te beschrijven. Die begrippen zijn als een gereedschapskist: elk woord zegt meteen iets over de omvang, de ligging of het karakter van een plek. Wie ze kent, kan historische teksten en kaarten veel sneller en beter lezen.</p>
+    </div>
+
+    <h3 class="sub-heading">Van klein naar groot: schaal in de ruimte</h3>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Lokaal</span>
+        <p class="begrip-def">Lokaal verwijst naar het kleinste schaalniveau: de directe omgeving van een plek. Een straat, een wijk, een dorp of een kleine gemeente. Als iets "lokaal" speelt, gaat het over wat er vlak bij huis, vlak bij de tempel, vlak bij de markt gebeurt. Historici spreken van een lokale samenleving als mensen nauw met elkaar verbonden zijn in een beperkt geografisch gebied.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Regionaal</span>
+        <p class="begrip-def">Regionaal is het schaalniveau tussen lokaal en nationaal. Een regio is een groter gebied — een provincie, een streek, een cluster van steden — dat gemeenschappelijke kenmerken heeft: dezelfde taal of dialect, dezelfde landbouwtraditie, dezelfde handelsroutes. In de Griekse wereld was de regio Attika — het gebied rondom Athene — een duidelijk regionaal geheel met een eigen karakter.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Continentaal</span>
+        <p class="begrip-def">Continentaal verwijst naar alles wat te maken heeft met een heel continent, of met grote landmassa's ver van de zee. Een continentale samenleving leeft in het binnenland: haar economie draait op landbouw en veeteelt, haar contacten met andere volkeren verlopen over land. Continentale rijken — zoals dat van Alexander de Grote op zijn hoogtepunt — strekken zich uit over enorme landoppervlakten.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Maritiem</span>
+        <p class="begrip-def">Maritiem betekent "verbonden met de zee". Een maritieme samenleving leeft aan de kust of op eilanden, vaart om te handelen of te vissen, en oriënteert zich op de zee als levensader. De Fenicische kooplieden uit ons openingsverhaal zijn een typisch voorbeeld: hun hele bestaan draaide om havens, schepen en zeeroutes. Athene was in de klassieke oudheid een overwegend maritieme polis.</p>
+      </div>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: kaart van de Middellandse Zee met maritieme en continentale zones">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Kaart van de Middellandse Zee en omgeving. Kustgebieden zijn lichtblauw gekleurd (maritiem gebied). Binnenlandse gebieden zijn lichtgroen of lichtbruin gekleurd (continentaal gebied). Steden aan de kust zijn gemarkeerd met een ankerpictogram; steden in het binnenland met een huispictogram. De kaart toont o.a. Athene (maritiem), Sparta (gemengd, maar met continentale kenmerken), Carthago (maritiem) en de Perzische binnenlanden (continentaal).</p>
+    </div>
+
+    <h3 class="sub-heading">Stedelijk en ruraal: de tegenstelling die de antieke wereld verdeelde</h3>
+
+    <div class="prose-text">
+      <p>Naast de tegenstelling tussen maritiem en continentaal is er een tweede tegenstelling die voor historici minstens even belangrijk is: de tegenstelling tussen stad en platteland. In de antieke wereld was dit verschil enorm. Steden waren plaatsen van handel, bestuur, cultuur en religie. Het platteland was de plek waar het voedsel werd geproduceerd — en waar de overgrote meerderheid van de bevolking leefde.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Stedelijk</span>
+        <p class="begrip-def">Stedelijk verwijst naar alles wat te maken heeft met een stad (in het Latijn: <em>urbs</em>, vandaar ook het woord "urban"). Een stedelijke samenleving concentreert zich in een dichte bebouwing met markten, tempels, bestuursinstellingen, ambachten en een groot bevolkingsaantal op een beperkte oppervlakte. In de Griekse wereld noemde men de stad een <em>polis</em>: een stadstaat die zichzelf bestuurde.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Ruraal</span>
+        <p class="begrip-def">Ruraal betekent "verbonden met het platteland" (van het Latijnse <em>ruralis</em>, afgeleid van <em>rus</em>: platteland). Een rurale samenleving of zone kenmerkt zich door verspreide bewoning, landbouw en veeteelt, een trage levensritmiek gebonden aan de seizoenen, en weinig voorzieningen. In de oudheid leefden dikwijls negentig procent of meer van de mensen ruraal — ook al hoor je in de geschiedenisboeken vooral over de steden.</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>Het verschil tussen stedelijk en ruraal klinkt eenvoudig, maar het heeft verreikende gevolgen voor hoe een samenleving functioneert. Stedelijke mensen hadden toegang tot markten, konden ambachten uitoefenen, hoorden nieuws van verre handelaren, namen deel aan politieke debatten. Rurale mensen werkten hard van zonsopgang tot zonsondergang, waren afhankelijk van het weer en de oogst, en konden soms hun hele leven in een straal van tien kilometer doorbrengen.</p>
+
+      <p>In het Griekenland van de klassieke oudheid was het contrast bijzonder scherp. De polis Athene had een indrukwekkende stedelijke kern — de Akropolis, de Agora, de Pnyx — maar het grootste deel van de Atheense burgerbevolking woonde verspreid over het platteland van Attika. Alleen als de volksvergadering bijeenkwam, zakten ze naar de stad af. Dan was Athene even echt "stedelijk" in de volle betekenis van het woord.</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: vergelijking Atheense polis en ruraal Attika">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Twee schetsen naast elkaar. Links: de stedelijke kern van Athene met de Akropolis, de Agora en dichte bebouwing. Rechts: het rurale Attika met verspreide boerderijen, olijfgaarden en wijngaarden. Een pijl verbindt de twee beelden met het bijschrift: "90% van de Atheners woonde op het platteland."</p>
+    </div>
+
+    <h3 class="sub-heading">De zes begrippen in één blik</h3>
+
+    <div class="prose-text">
+      <p>Laten we de zes begrippen even naast elkaar zetten. Ze zijn niet altijd tegenpolen van elkaar — een stad kan zowel stedelijk als maritiem zijn, zoals Athene. Een regio kan zowel ruraal als continentaal zijn, zoals de Perzische binnenlanden. De begrippen werken als overlappende lenzen: elk belicht een ander aspect van de ruimte.</p>
+    </div>
+
+    <!-- SCALE DIAGRAM -->
+    <div class="scale-diagram" role="img" aria-label="Schaaldiagram van lokaal naar continentaal">
+      <div class="scale-row">
+        <span class="scale-label">Lokaal</span>
+        <div class="scale-bar-wrap">
+          <div class="scale-bar sb-1">Straat &nbsp;·&nbsp; Wijk &nbsp;·&nbsp; Dorp</div>
+        </div>
+      </div>
+      <div class="scale-row">
+        <span class="scale-label">Regionaal</span>
+        <div class="scale-bar-wrap">
+          <div class="scale-bar sb-2">Provincie &nbsp;·&nbsp; Streek &nbsp;·&nbsp; Attika</div>
+        </div>
+      </div>
+      <div class="scale-row">
+        <span class="scale-label">Stedelijk</span>
+        <div class="scale-bar-wrap">
+          <div class="scale-bar sb-3">Stad &nbsp;·&nbsp; Polis &nbsp;·&nbsp; Handelscentrum</div>
+        </div>
+      </div>
+      <div class="scale-row">
+        <span class="scale-label">Ruraal</span>
+        <div class="scale-bar-wrap">
+          <div class="scale-bar sb-4">Platteland &nbsp;·&nbsp; Boerderijen &nbsp;·&nbsp; Seizoensritme</div>
+        </div>
+      </div>
+      <div class="scale-row">
+        <span class="scale-label">Continentaal</span>
+        <div class="scale-bar-wrap">
+          <div class="scale-bar sb-5">Binnenland &nbsp;·&nbsp; Rijk &nbsp;·&nbsp; Landroutes</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="highlighted-para">
+      <strong>Maritiem staat los van de schaal:</strong> het zegt niet hoe groot een gebied is, maar <em>hoe het geori&euml;nteerd is</em>. Een kleine havenstad en een groot zeerijk zijn allebei maritiem. Maritiem beschrijft de relatie met de zee, niet de omvang van het gebied.
+    </div>
+
+    <h3 class="sub-heading">Was Sparta continentaal of maritiem?</h3>
+
+    <div class="prose-text">
+      <p>Hier is een vraag die historici al eeuwen stellen: was Sparta, de bekendste krijgerstaat van het oude Griekenland, nu een continentale of een maritieme samenleving?</p>
+
+      <p>Sparta lag in de Peloponnesos, het grote schiereiland dat via een smalle landengte verbonden was met het vasteland van Griekenland. Technisch gezien was Sparta niet ver van de zee — de Lacedaemonische Golf lag op een dagtocht te voet. Maar Sparta gedroeg zich als een continentale macht.</p>
+
+      <p>De Spartanen bouwden nauwelijks schepen. Handel over zee interesseerde hen weinig: ze hadden de heloten — de onderworpen bevolking die het land bewerkte — en die produceerden wat de stad nodig had. Sparta's kracht lag in zijn landleger: de beroemde hoplieten, zwaar bewapende infanteristen die in gesloten formatie vochten. De grote overwinning van Sparta op Athene in de Peloponnesische Oorlog (431-404 v.Chr.) was uiteindelijk pas mogelijk dankzij de hulp van Perzisch geld om een vloot te bouwen — want vanuit zichzelf had Sparta die maritieme capaciteit niet.</p>
+
+      <p>Athene was precies het omgekeerde. De stad lag aan de Saronische Golf, haar haven Piraeus was een van de drukste van de Middellandse Zee, en haar rijkdom en macht kwamen voor een groot deel uit de maritieme handel. De Atheense democratie was mede mogelijk door de zeevloot: de arme roeiers van de triremen waren de spil van de militaire macht en eisten daarvoor politieke rechten.</p>
+
+      <p>Sparta: overwegend <strong>continentaal</strong>. Athene: overwegend <strong>maritiem</strong>. Die fundamentele tegenstelling verklaart voor een groot deel waarom de twee stadstaten zo anders waren — en waarom ze zo lang met elkaar in conflict waren.</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: vergelijkingskaart Sparta en Athene">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Kaart van de Peloponnesos en Attika. Sparta is gemarkeerd met een schildpictogram (continentaal, landleger) en een bruine tint voor het binnenland. Athene is gemarkeerd met een scheepspictogram (maritiem) en een blauwe tint voor de nabijheid van de zee. Een vergelijkingstabel naast de kaart: Sparta — geen vloot, sterk landleger, ruraal georganiseerd; Athene — sterke vloot, haven Piraeus, stedelijke democratie.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">💭 Denkvraag</div>
+      <p class="dv-text">Denk aan jouw eigen gemeente of stad. Is ze stedelijk of ruraal? En is ze continentaal of maritiem? Wat is het dichtstbijzijnde water? Speelt dat water een rol in het leven van de mensen daar? Bespreek je antwoord met een klasgenoot en kijk of jullie het eens zijn.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 2.2
+  ============================================================ -->
+  <section class="section-alt" id="s2-2">
+    <div class="section-heading">
+      <span class="section-num">2.2</span>
+      <h2 class="section-title">Kaarten als vensters op het verleden</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Hanno, de Fenicische zeeman uit ons openingsverhaal, staarde naar een kaart en zag zijn wereld plotseling anders. Een kaart is geen neutraal stukje papier. Het is een keuze — een keuze over wat je toont en wat je weglaat, wat groot en wat klein lijkt, wat centraal staat en wat aan de rand staat.</p>
+
+      <p>Historici gebruiken kaarten als bronnen. Net zoals een kleitablet of een schilderij, vertelt een kaart iets over de mensen die hem maakten: wat wisten zij? Wat vonden zij belangrijk? En wat wisten zij <em>niet</em>? Maar kaarten zijn ook gereedschappen voor historici zelf: ze helpen om gebeurtenissen te situeren, bewegingen te volgen, en de omvang van rijken en invloedsferen te begrijpen.</p>
+
+      <p>In dit subhoofdstuk leer je twee dingen: hoe je een historische kaart leest, en hoe je een historische kaart vergelijkt met een hedendaagse kaart.</p>
+    </div>
+
+    <h3 class="sub-heading">Hoe lees je een historische kaart?</h3>
+
+    <div class="prose-text">
+      <p>Een goede kaartlezer stelt altijd dezelfde vragen. Die vragen zijn een soort checklist die je kunt toepassen op elke kaart die je tegenkomt — of het nu een kaart van het Griekse kolonisatiegebied is, of een kaart van het rijk van Alexander de Grote, of een hedendaagse staatkundige kaart.</p>
+    </div>
+
+    <ul style="margin: 0.5rem 0 1.5rem 0; list-style: none; padding: 0;">
+      <li style="display:flex;gap:0.7rem;margin-bottom:1rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:1.6rem;">1.</span>
+        <span><strong>Wat stelt de kaart voor?</strong> Gaat het om een politieke kaart (grenzen en staten), een fysische kaart (bergen, rivieren, zeeën), een economische kaart (handelsroutes, grondstoffen) of een combinatie? Historische kaarten combineren dikwijls meerdere lagen.</span>
+      </li>
+      <li style="display:flex;gap:0.7rem;margin-bottom:1rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:1.6rem;">2.</span>
+        <span><strong>Wanneer?</strong> Voor welk tijdstip of welke periode geldt de kaart? Grenzen veranderen. Het Romeinse Rijk op zijn hoogtepunt in 117 n.Chr. ziet er heel anders uit dan het Romeinse Rijk in 395 n.Chr., vlak voor de splitsing in oost en west.</span>
+      </li>
+      <li style="display:flex;gap:0.7rem;margin-bottom:1rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:1.6rem;">3.</span>
+        <span><strong>Welke legenda?</strong> Kleuren, symbolen en lijnen hebben altijd een betekenis. Lees de legenda zorgvuldig voor je conclusies trekt. Een rode zone op een kaart kan "bezet gebied" betekenen, maar ook "hoge bevolkingsdichtheid" of "belangrijkste landbouwgronden" — afhankelijk van de kaart.</span>
+      </li>
+      <li style="display:flex;gap:0.7rem;margin-bottom:1rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:1.6rem;">4.</span>
+        <span><strong>Wie maakte de kaart en waarom?</strong> Een kaart gemaakt door een Griek plaatst de Griekse wereld in het centrum. Een kaart gemaakt door een Perziër plaatst Persepolis in het centrum. Elke kaartmaker heeft een perspectief. Historici noemen dit het <em>standpunt van de bron</em>.</span>
+      </li>
+    </ul>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Staatkundige kaart</span>
+        <p class="begrip-def">Een staatkundige kaart toont de politieke grenzen van landen, gebieden of rijken op een bepaald moment. Ze geeft aan welk gezag een bepaald grondgebied controleert. Staatkundige kaarten veranderen voortdurend doorheen de geschiedenis: rijken groeien, vallen uiteen, worden veroverd of verdwijnen.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Het rijk van Alexander de Grote versus de hedendaagse wereld</h3>
+
+    <div class="prose-text">
+      <p>Alexander de Grote (356-323 v.Chr.) veroverde in amper twaalf jaar tijd een van de grootste rijken die de wereld ooit had gezien. Hij begon als koning van Macedonië, een koninkrijk ten noorden van Griekenland, en eindigde met een rijk dat zich uitstrekte van de Adriatische Zee tot aan de grenzen van het huidige Pakistan en India.</p>
+
+      <p>Als je de kaart van Alexanders rijk naast een hedendaagse staatkundige kaart legt, word je duizelig van hoeveel landen er vandaag liggen op wat eens één enkel rijk was.</p>
+    </div>
+
+    <div class="highlighted-para">
+      <strong>Hedendaagse landen op de kaart van Alexanders rijk (selectie):</strong> Griekenland, Noord-Macedonië, Albanië, Bulgarije (gedeeltelijk), Turkije, Syrië, Libanon, Israël, Palestina, Jordanië, Egypte, Irak, Iran, Afghanistan, Pakistan, een deel van Oezbekistan, Tadzjikistan en het noordwesten van India. In totaal overlappen meer dan twintig hedendaagse landen volledig of gedeeltelijk met het rijk dat Alexander tussen 336 en 323 v.Chr. samenstelde.
+    </div>
+
+    <div class="prose-text">
+      <p>Wat je meteen ziet als je die vergelijking maakt: de grenzen van Alexanders rijk volgden geen etnische of taalkundige lijnen — die bestonden in de moderne zin van het woord nog niet. Ze volgden de logica van de verovering: welke stad had zich overgegeven, welk leger was verslagen, welk satraap (provinciegouverneur) had Alexander zijn trouw gezworen?</p>
+
+      <p>Toen Alexander stierf in 323 v.Chr. — hij was pas 32 jaar — viel zijn rijk al snel uiteen. Zijn generaals (de diadochen) verdeelden het onderling. Drie grote rijken kwamen in de plaats: het Macedonische, het Ptolemeïsche (Egypte) en het Seleucidische (het Midden-Oosten en Perzië). Maar zelfs die rijken hadden niets te maken met de grenzen van de landen die er vandaag liggen.</p>
+
+      <p>Dit is meteen een krachtige les over ruimte en geschiedenis: grenzen zijn niet natuurlijk of eeuwig. Ze zijn mensenwerk, en ze veranderen. Wie een historische kaart vergelijkt met een hedendaagse, ziet dat overduidelijk.</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: vergelijking kaart Alexanders rijk en hedendaagse staatkundige kaart">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Twee kaarten naast of onder elkaar. Boven: het rijk van Alexander de Grote op zijn hoogtepunt (ca. 323 v.Chr.), met een rode omtrek en de veroverde gebieden in licht oranje. Steden als Alexandrië (Egypte), Persepolis, Babylon en Taxila zijn aangeduid. Onder: dezelfde regio vandaag, met de hedendaagse staatsgrenzen en landnamen. Een aanduiding toont welke huidige landen overeenkomen met het antieke rijk.</p>
+    </div>
+
+    <h3 class="sub-heading">Kaarten als bronnen: de vroegste Griekse wereldkaarten</h3>
+
+    <div class="prose-text">
+      <p>De Grieken waren grote liefhebbers van kaarten. De filosoof Anaximander van Milete (ca. 610-546 v.Chr.) maakte wat historici beschouwen als de eerste min of meer systematische wereldkaart van de westerse traditie. Zijn kaart toonde de wereld als een schijf, omgeven door de oceaan, met Griekenland in het centrum.</p>
+
+      <p>Later maakte Hekataios van Milete (ca. 550-476 v.Chr.) een verbeterde versie, en in de 2de eeuw na Christus zou de Griekse geleerde Ptolemaeus een wereldkaart samenstellen die zo nauwkeurig was dat ze in Europa tot in de middeleeuwen als standaardwerk gold.</p>
+
+      <p>Wat is er interessant aan die vroegste kaarten? Ten eerste: ze plaatsten de Griekse wereld in het centrum van de wereld. Dat was geen bewuste leugen — de Grieken wisten gewoon het meest van de gebieden die ze zelf kenden. Maar het toont hoe kaarten altijd een perspectief hebben. Ten tweede: de randen van die vroege kaarten zijn vaag en onzeker. Voorbij de bekende wereld beginnen de mythen: hier wonen de Hyperboreeërs (mensen die voorbij de noordenwind leven), hier stroomt de Nijl uit een onbekende bron, hier heeft de aarde een rand.</p>
+
+      <p>Die onzekerheid is op zichzelf al historisch interessant. Wat een samenleving <em>niet weet</em>, zegt net zoveel over haar als wat ze <em>wel weet</em>.</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: reconstructie van een vroege Griekse wereldkaart">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Reconstructie van de wereldkaart van Hekataios van Milete (ca. 500 v.Chr.). De wereld wordt getoond als een ronde schijf omgeven door de oceaan. De Middellandse Zee ligt in het midden. Griekenland en Ionië zijn duidelijk herkenbaar en centraal geplaatst. De randen van de kaart zijn vaag en bevatten namen van mythische volkeren. Een vergelijkende moderne kaart van dezelfde regio staat ernaast.</p>
+    </div>
+
+    <h3 class="sub-heading">Wat verandert en wat blijft?</h3>
+
+    <div class="prose-text">
+      <p>Als je historische kaarten vergelijkt met hedendaagse kaarten, vallen twee dingen op: wat er enorm veranderd is, en wat er verbazingwekkend hetzelfde is gebleven.</p>
+
+      <p><strong>Wat veranderde:</strong> Staatkundige grenzen, namen van landen en steden, de talen die er gesproken worden, de religies die er beoefend worden. De stad die de Grieken <em>Byzantion</em> noemden, heette later <em>Constantinopel</em> en heet nu <em>Istanbul</em>. Het land dat Alexander veroverde als <em>Persis</em> heet nu Iran. Grenzen zijn menselijk maakwerk — en menselijk maakwerk verandert.</p>
+
+      <p><strong>Wat bleef:</strong> De fysische geografie — bergen, rivieren, zeeën, woestijnen — verandert nauwelijks op de schaal van menselijke geschiedenis. De Middellandse Zee ligt er vandaag precies zo bij als in de tijd van de Fenicische zeelieden. De rivier de Eufraat stroomt nog altijd door Irak. De Alpen scheiden nog altijd het noorden van het zuiden van Europa. Dat is waarom fysische geografie zo'n sterke verklarende kracht heeft in de geschiedenis: de omgeving bepaalt mee welke samenlevingen er konden ontstaan, welke handelsroutes er liepen, en welke rijken konden groeien.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">💭 Denkvraag</div>
+      <p class="dv-text">Kijk naar een hedendaagse kaart van het Midden-Oosten. Welke landen herken je? Welke steden liggen er vandaag op de plek van antieke steden die je in dit hoofdstuk tegenkwam? Zoek dan op: welke hedendaagse steden liggen op of vlak bij de plek van Babylon, Persepolis en Alexandrië? Wat zegt dat over de rol van geografie in de keuze van steden?</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">💭 Denkvraag</div>
+      <p class="dv-text">De Grieken plaatsten hun eigen land in het centrum van hun wereldkaart. Als jij een kaart van de wereld zou tekenen zonder te kijken naar een bestaande kaart — welk land of welk continent zou je dan in het centrum zetten? Waarom? Wat zegt dat over hoe wij allemaal de wereld bekijken?</p>
+    </div>
+  </section>
+
+</div><!-- end page-wrapper -->
+
+<!-- ============================================================
+     EXERCISES
+============================================================ -->
+<div class="exercises-section" id="oefeningen">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <div class="exercise-card">
+      <div class="ex-title">Oefening 1</div>
+      <div class="ex-name">Van lokaal naar continentaal</div>
+      <p style="font-size:0.97rem;color:var(--text-mid);margin-bottom:0.7rem;">Orden de onderstaande plaatsen van het kleinste (meest lokale) naar het grootste (meest continentale) schaalniveau. Geef bij elk niveau aan welk begrip je gebruikt: lokaal, regionaal, continentaal.</p>
+      <ol>
+        <li>De Europese Unie</li>
+        <li>Jouw straat</li>
+        <li>De provincie Antwerpen (of jouw eigen provincie)</li>
+        <li>Belgi&euml;</li>
+        <li>Jouw gemeente</li>
+        <li>Het Euraziatische continent</li>
+      </ol>
+      <p style="font-size:0.97rem;color:var(--text-mid);margin: 0.9rem 0 0.5rem 0;">Doe daarna hetzelfde voor de antieke wereld. Orden deze plaatsen van lokaal naar continentaal:</p>
+      <ol>
+        <li>De Agora van Athene (het centrale marktplein)</li>
+        <li>De Griekse wereld (alle poleis samen)</li>
+        <li>De regio Attika</li>
+        <li>Het rijk van Alexander de Grote</li>
+        <li>De polis Athene</li>
+      </ol>
+      <p class="ex-tip">Tip: let op het verschil tussen een stad (polis), een regio (Attika) en een heel rijk. Een polis is een stadsstaat — ze is zowel een stad als een kleine staatsvorm.</p>
+    </div>
+
+    <div class="exercise-card">
+      <div class="ex-title">Oefening 2</div>
+      <div class="ex-name">Kaart vergelijken: Alexander de Grote en de hedendaagse wereld</div>
+      <p style="font-size:0.97rem;color:var(--text-mid);margin-bottom:0.7rem;">Gebruik een kaart van het rijk van Alexander de Grote (ca. 323 v.Chr.) en een hedendaagse staatkundige kaart van het Midden-Oosten en Azië.</p>
+      <ol>
+        <li>Noteer vijf hedendaagse landen waarvan het grondgebied volledig of gedeeltelijk overlapte met het rijk van Alexander.</li>
+        <li>Welke hedendaagse landen die nu bestaan, lagen in de tijd van Alexander <em>buiten</em> zijn rijk? Denk aan landen die hij niet veroverde.</li>
+        <li>Welke grote rivieren op de hedendaagse kaart herken je ook op de historische kaart? Noem er minstens twee.</li>
+        <li>Alexandri&euml;, de stad die Alexander zelf stichtte in Egypte, bestaat nog altijd. Zoek op welke hedendaagse naam de stad heeft en hoe groot ze vandaag is.</li>
+      </ol>
+      <p class="ex-tip">Tip: let op het verschil tussen een politieke grens (mensenwerk, verandert) en een fysische grens zoals een rivier of een bergketen (natuur, blijft veel langer hetzelfde).</p>
+
+      <div class="illustratie" role="img" aria-label="Kaartplaceholder voor oefening 2" style="margin-top:1.2rem;">
+        <span class="ill-icon">🖼️</span>
+        <p class="ill-caption">Twee kaarten naast elkaar. Links: blinde kaart van het rijk van Alexander de Grote met lege vakjes voor de namen van de veroverde gebieden. Rechts: blinde staatkundige kaart van dezelfde regio vandaag, met lege vakjes voor de hedendaagse landnamen. Leerlingen vullen beide kaarten in en trekken verbindingslijnen tussen overeenkomstige gebieden.</p>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="ex-title">Oefening 3</div>
+      <div class="ex-name">Continentaal of maritiem? Drie samenlevingen vergeleken</div>
+      <p style="font-size:0.97rem;color:var(--text-mid);margin-bottom:0.7rem;">Hieronder staan drie historische samenlevingen uit de klassieke oudheid. Beslis voor elk of ze overwegend <strong>continentaal</strong>, overwegend <strong>maritiem</strong>, of <strong>gemengd</strong> zijn. Onderbouw je antwoord met minstens twee argumenten.</p>
+      <ol>
+        <li>
+          <strong>Sparta</strong> — Gelegen in de Peloponnesos (binnenland), geen grote vloot, sterk landleger (hoplieten), afhankelijk van heloten die het land bewerkten, weinig handelscontacten over zee.
+        </li>
+        <li>
+          <strong>Athene</strong> — Gelegen aan de Saronische Golf, grote vloot (triremen), haven Piraeus een van de drukste van de Middellandse Zee, rijkdom uit zeehandel en zilvermijnen, democratie mede gedragen door de roeiers van de vloot.
+        </li>
+        <li>
+          <strong>Rome</strong> — Gelegen aan de rivier de Tiber, aanvankelijk een landbouwnatie, later een groot rijk dat de hele Middellandse Zee omsloot en zowel een sterk landleger als een vloot onderhield.
+        </li>
+      </ol>
+      <p style="font-size:0.97rem;color:var(--text-mid);margin-top:0.8rem;">Maak daarna een overzichtstabel: zet de drie samenlevingen in de kolommen, en gebruik de rijen voor: ligging (kust/binnenland), economie (handel/landbouw), militaire kracht (vloot/landleger) en uw eindoordeel (continentaal/maritiem/gemengd).</p>
+      <p class="ex-tip">Tip: een samenleving kan in de loop van haar geschiedenis veranderen van karakter. Rome was aanvankelijk continentaal, maar werd maritiem nadat het in de Punische Oorlogen (264-146 v.Chr.) een grote vloot opbouwde.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     SUMMARY
+============================================================ -->
+<div class="summary-section" id="samenvatting">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li>Historici ordenen de ruimte met zes <strong>structuurbegrippen</strong>: <strong>lokaal</strong> (de directe omgeving), <strong>regionaal</strong> (een grotere streek), <strong>stedelijk</strong> (verbonden met de stad), <strong>ruraal</strong> (verbonden met het platteland), <strong>continentaal</strong> (verbonden met de grote landmassa) en <strong>maritiem</strong> (verbonden met de zee).</li>
+      <li><strong>Stedelijk</strong> en <strong>ruraal</strong> beschrijven het karakter van een samenleving of gebied: de stad tegenover het platteland. In de oudheid leefde de grote meerderheid ruraal, ook al waren de steden cultureel en politiek dominant.</li>
+      <li><strong>Continentaal</strong> en <strong>maritiem</strong> beschrijven de ori&euml;ntatie van een samenleving: richt ze zich op het land of op de zee? Sparta was overwegend <strong>continentaal</strong> (sterk landleger, weinig handel over zee); Athene was overwegend <strong>maritiem</strong> (grote vloot, rijke haven, zeehandel).</li>
+      <li>Een <strong>kaart</strong> is een bron die je kritisch moet lezen: wanneer is ze gemaakt, door wie, vanuit welk perspectief, en wat laat ze weg? De vroegste Griekse kaarten plaatsten Griekenland in het centrum van de wereld &mdash; niet uit oneerlijkheid, maar omdat ze het meest wisten van de wereld die ze zelf kenden.</li>
+      <li>Het rijk van <strong>Alexander de Grote</strong> (336&ndash;323 v.Chr.) strekte zich uit over meer dan twintig hedendaagse landen, van Griekenland tot aan de grens van India. Een vergelijking met een hedendaagse kaart toont hoe politieke grenzen veranderen, terwijl de fysische geografie (rivieren, zeeën, bergketens) grotendeels hetzelfde blijft.</li>
+      <li>Een <strong>staatkundige kaart</strong> toont politieke grenzen op een bepaald moment. Die grenzen zijn mensenwerk en veranderen voortdurend. Wie historische kaarten vergelijkt met hedendaagse kaarten, begrijpt beter hoe de wereld die we kennen is ontstaan uit een lang proces van verovering, splitsing en herindeling.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  // Back to top button
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) {
+        btn.classList.add('visible');
+      } else {
+        btn.classList.remove('visible');
+      }
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

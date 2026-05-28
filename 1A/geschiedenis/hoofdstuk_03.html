@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoofdstuk 3 — De vier werelden van de mens | Geschiedenis 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE / OPENING STORY
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament {
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--gold);
+    opacity: 0.7;
+    margin: 1.5rem 0;
+    letter-spacing: 0.4em;
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-dialogue {
+    font-style: italic;
+    color: #FFFDF8;
+    padding-left: 1.4rem;
+    border-left: 3px solid rgba(212,160,23,0.4);
+    margin: 1rem 0;
+  }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+    filter: sepia(0.3);
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     ILLUSTRATIE PLACEHOLDERS
+  ============================================================ */
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+    cursor: default;
+    transition: background var(--transition);
+  }
+
+  .illustratie:hover { background: #EDE7D8; }
+
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong {
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition), opacity var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover {
+    background: var(--darkblue-light);
+    transform: translateY(-3px);
+  }
+
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     UTILITY / MISC
+  ============================================================ */
+  .prose-text { max-width: 100%; }
+
+  .highlighted-para {
+    background: rgba(212,160,23,0.08);
+    border-left: 3px solid var(--gold);
+    padding: 0.8rem 1.1rem;
+    border-radius: 0 4px 4px 0;
+    margin: 1.2rem 0;
+    font-size: 0.97rem;
+    color: var(--text-mid);
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <a class="label" href="index.html">Geschiedenis 1A</a>
+  <span class="label label-right">Hoofdstuk 3</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Geschiedenis &nbsp;·&nbsp; 1A &nbsp;·&nbsp; Eerste graad</div>
+  <h1>Hoofdstuk 3<br>De vier werelden van de mens</h1>
+  <p class="subtitle">Politiek, economie, samenleving en cultuur — de vier brillen waarmee historici elk tijdperk bekijken</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- PROLOGUE -->
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Een dag in Athene &mdash; 431 voor Christus</span>
+
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+
+    <p>De zon is nauwelijks opgekomen wanneer Nikias zijn ogen opent. Zijn vrouw slaapt nog; de kinderen ook. Hij staat zachtjes op, kleedt zich aan in zijn wollen chiton en loopt de binnenplaats op. Het water in de kruik is koud. Hij wast zijn handen en gezicht en denkt al aan de dag die voor hem ligt.</p>
+
+    <p>Eerst: de markt. De <em>agora</em> van Athene bruist al van het leven. Vissers schreeuwen de vangst van vannacht aan. Een pottenbakker uit Korinthe heeft zijn werk uitgestald — rode vazen met zwarte figuren, gladder dan alles wat Nikias zelf kan maken. Nikias verkoopt olijfolie. Goed spul, geperst van zijn eigen bomen. Hij ruilt een kruik voor twee vissen en betaalt de belasting in bronzen munten aan de ambtenaar van de stad. Geld maakt alles makkelijker dan vroeger, denkt hij — vroeger moest je hopen dat de visser ook olie nodig had.</p>
+
+    <p>Daarna: de volksvergadering. Op de Pnyx-heuvel verdringen zich duizenden burgers. Vandaag wordt er gestemd: moeten de Atheners ten oorlog trekken tegen Sparta? Nikias luistert. Een redenaar schreeuwt dat Sparta een bedreiging is. Een ander roept dat oorlog armoede brengt. Nikias steekt zijn hand op. Hij stemt. Hij — een gewone olijvenboer — heeft zojuist mee beslist over de toekomst van zijn stad. Dat noemen ze democratie.</p>
+
+    <p>'s Middags loopt Nikias naar de tempel van Athena op de Akropolis. Hij legt een kleine honingkoek neer voor de godin. Zij beschermt de stad, geloven ze allemaal. Vandaag nog meer dan anders, want als er oorlog komt, zullen de goden aan hun kant moeten staan.</p>
+
+    <p>'s Avonds thuis: zijn vrouw heeft linzensoep gekookt. Zijn dochter zingt een lied. Zijn oudste zoon oefent zijn letters op een wastablet. Nikias kijkt om zich heen naar zijn gezin en zijn huis. Dit is zijn wereld.</p>
+
+    <p>In die ene dag beleefde Nikias vier verschillende werelden: de wereld van het <strong style="color: var(--gold);">handelen en geld verdienen</strong>, de wereld van <strong style="color: var(--gold);">macht en bestuur</strong>, de wereld van <strong style="color: var(--gold);">geloof en kunst</strong>, en de wereld van <strong style="color: var(--gold);">gezin en samenleving</strong>. Historici geven die vier werelden een naam. En die namen leer je in dit hoofdstuk.</p>
+
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 3.1
+  ============================================================ -->
+  <section class="section-block" id="s3-1">
+    <div class="section-heading">
+      <span class="section-num">3.1</span>
+      <h2 class="section-title">Politiek: wie heeft de macht?</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Elke samenleving — of het nu gaat om een klein dorpje in het oude Mesopotamië of om een modern land — heeft mensen nodig die beslissingen nemen. Wie bepaalt de regels? Wie int de belastingen? Wie stuurt het leger? Wie beslist over oorlog en vrede? Al die vragen horen thuis in het <strong>politieke domein</strong>.</p>
+
+      <p>Politiek gaat over macht: wie heeft die macht, hoe heeft hij die gekregen, en hoe gebruikt hij ze. Soms is dat één persoon die alles alleen beslist. Soms is het een kleine groep van rijke families. Soms — en dat was in de oudheid verrassend zeldzaam — mogen gewone mensen meepraten.</p>
+
+      <p>Historici kijken naar de politieke structuur van een samenleving door te vragen: <em>hoe was de macht georganiseerd?</em> Daarvoor gebruiken ze een reeks begrippen. We bekijken de belangrijkste.</p>
+    </div>
+
+    <h3 class="sub-heading">De bouwstenen van politieke organisatie</h3>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Stadstaat</span>
+        <p class="begrip-def">Een stadstaat is een zelfstandige stad met het omliggende platteland als eigen grondgebied en eigen bestuur. De stad regeert zichzelf, heeft haar eigen wetten, haar eigen leger en soms haar eigen munt. Het oude Griekenland bestond uit honderden stadstaten, zoals Athene, Sparta en Korinthe. Ze werkten soms samen, vochten soms tegen elkaar, maar erkenden geen gemeenschappelijk gezag boven zich.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Rijk</span>
+        <p class="begrip-def">Een rijk is een groot gebied onder het gezag van één heerser of één centraal bestuur, dat vaak meerdere volkeren en regio's omvat. Rijken ontstaan doorgaans door verovering. Het Perzische Rijk, het Macedonische Rijk van Alexander de Grote en het Romeinse Rijk zijn bekende voorbeelden. Rijken zijn veel groter dan stadstaten en vereisen een uitgebreid bestuursapparaat om al die verspreide gebieden te beheersen.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Republiek</span>
+        <p class="begrip-def">Een republiek is een staatsvorm waarbij geen erfelijke monarch aan het hoofd staat, maar waarbij het gezag berust bij gekozen of aangewezen vertegenwoordigers. Het vroege Rome was een republiek: twee consuls werden jaarlijks verkozen door de rijke burgers. "Republiek" komt van het Latijnse <em>res publica</em>, wat letterlijk "zaak van het volk" betekent — al had "het volk" in de Romeinse republiek een veel beperktere betekenis dan wij vandaag zouden denken.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Autocratie</span>
+        <p class="begrip-def">Een autocratie is een regeringsvorm waarbij één persoon de absolute macht heeft. Alle beslissingen komen van boven. Er zijn geen parlementen, geen verkiezingen, geen controle op de heerser. Denk aan de farao's van Egypte of de Perzische grootkoningen: hun woord was wet. De term komt van het Griekse <em>autos</em> (zelf) en <em>kratos</em> (macht).</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Aristocratie</span>
+        <p class="begrip-def">Een aristocratie is een bestuursvorm waarbij een kleine groep van rijke, adellijke of gegoede families de macht heeft. "Aristos" betekent in het Grieks "de besten" — al namen die families zelf die naam wel erg letterlijk. In de vroege Atheense democratie hadden aristocratische families lange tijd het monopolie op politieke functies. De Griekse filosoof Aristoteles noemde aristocratie een van de drie "goede" bestuurdsvormen, naast monarchie en democratie.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Democratie</span>
+        <p class="begrip-def">Een democratie is een bestuursvorm waarbij het volk — of een deel ervan — meebeslisst over het bestuur. "Demos" betekent volk, "kratos" betekent macht. De Atheense democratie (ingevoerd ca. 508 v.Chr.) was de eerste gekende democratie in de westerse geschiedenis. Alle mannelijke volwassen burgers (niet slaven, niet vrouwen, niet vreemdelingen) konden meestemmen in de volksvergadering. Dat was revolutionair voor die tijd, al was het verre van gelijkheid zoals wij die vandaag kennen.</p>
+      </div>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: de Pnyx-heuvel in Athene">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">De Pnyx-heuvel in Athene, waar de volksvergadering plaatsvond. Op de rotsen staat een spreeksteen (bema) van waaraf redenaars het woord namen. Duizenden burgers zaten op de hellingen en stemden door hun hand op te steken. Reconstructietekening van de heuvel ca. 430 v.Chr.</p>
+    </div>
+
+    <h3 class="sub-heading">Expansie: imperialisme en kolonisatie</h3>
+
+    <div class="prose-text">
+      <p>Politieke macht bleef zelden stilstaan binnen vaste grenzen. Sterk geworden stadstaten en rijken breidden hun invloed uit. Dat gebeurde op twee manieren die historici scherp onderscheiden.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Imperialisme</span>
+        <p class="begrip-def">Imperialisme is het streven van een staat om zijn macht, gezag of invloed uit te breiden over andere gebieden of volkeren — vaak met militaire middelen. Een imperium ontstaat wanneer dat streven succesvol is. Het Romeinse Rijk is een klassiek voorbeeld: Rome veroverde stap voor stap de kusten van de Middellandse Zee en legde zijn wetten, zijn taal en zijn bestuur op aan de bevolking.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Kolonisatie</span>
+        <p class="begrip-def">Kolonisatie is het vestigen van nederzettingen (kolonies) in nieuwe gebieden, vaak ver van het moederland. In de Griekse wereld stuurden overbevolkte stadstaten groepen burgers weg om nieuwe steden te stichten: zo ontstonden Griekse kolonies in Zuid-Italië, op Sicilië, langs de Zwarte Zee en in Noord-Afrika. Die kolonies bleven cultureel en soms economisch verbonden met hun moederstad, maar bestuurden zichzelf.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Het bestuur in de praktijk: ambtenaren</h3>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Ambtenaren</span>
+        <p class="begrip-def">Ambtenaren zijn mensen die namens de overheid taken uitvoeren: belastingen innen, recht spreken, wegen aanleggen, graanvoorraden bijhouden. Hoe groter een rijk, hoe meer ambtenaren er nodig zijn. Het Romeinse Rijk had duizenden ambtenaren die de administratie van tientallen provincies beheerden. Zonder hen kon het centrale gezag in Rome niet functioneren — de keizer kon onmogelijk elk detail zelf beslissen.</p>
+      </div>
+    </div>
+
+    <div class="highlighted-para">
+      <strong>Het beeld van Aulus Metellus</strong> — een bronzen beeld uit de 1ste eeuw v.Chr., gevonden bij het Trasimenomeer in Italië — stelt een Romeinse senator voor die zijn arm opheft om het woord te vragen in de volksvergadering. Het beeld is politiek (het toont een man die macht uitoefent), maar ook cultureel (het is een kunstwerk dat ons inzicht geeft in hoe Romeinen zich wilden tonen). In sectie 3.4 kom je hier op terug.
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">💭 Denkvraag</div>
+      <p class="dv-text">Vergelijk de Atheense democratie met de democratie in België vandaag. Wat is hetzelfde? Wat is anders? Denk na over wie er mocht meestemmen in Athene en wie er vandaag mag stemmen in ons land. Is democratie altijd hetzelfde geweest?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 3.2
+  ============================================================ -->
+  <section class="section-alt" id="s3-2">
+    <div class="section-heading">
+      <span class="section-num">3.2</span>
+      <h2 class="section-title">Economie: hoe verdienen mensen hun brood?</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Ieder mens heeft voedsel nodig, onderdak, kleding. Maar hoe zorg je daarvoor? Ga je zelf op zoek? Verbouw je het zelf? Maak je het zelf? Of ruil je iets wat jij hebt voor iets wat een ander heeft? En hoe betaal je eigenlijk?</p>
+
+      <p>Het <strong>economische domein</strong> gaat over de manier waarop mensen hun levensonderhoud verdienen en hoe goederen en diensten worden geproduceerd, verdeeld en verhandeld. Economie is veel ouder dan geld, markten of winkels. Ook de allereerste mensen hadden een economie — al was die heel anders dan de onze.</p>
+
+      <p>Als je de economische geschiedenis van de mensheid wilt begrijpen, moet je weten dat die in grote stappen is veranderd. We volgen die stappen van het begin.</p>
+    </div>
+
+    <h3 class="sub-heading">De oudste economie: jagen en verzamelen</h3>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Jager-verzamelaar</span>
+        <p class="begrip-def">Een jager-verzamelaar is iemand die zijn voedsel haalt door wild te jagen, vis te vangen en planten, vruchten, noten en wortels te verzamelen in de natuur. Jager-verzamelaars verbouwen niets en houden geen vee. Ze zijn afhankelijk van wat de natuur hen biedt en trekken mee met de seizoenen en de dierenmigratiepatronen. Dit was de economische strategie van de mens voor het grootste deel van de prehistorie — ruwweg meer dan drie miljoen jaar lang.</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>Jager-verzamelaars hadden geen voedseloverschot, geen magazijnen, geen markt. Ze produceerden net genoeg voor de groep. Toch was hun leven niet primitief of ellendig: onderzoek naar hedendaagse jager-verzamelaarsgemeenschappen wijst erop dat ze gemiddeld maar drie à vier uur per dag besteedden aan voedsel zoeken. De rest van de tijd was er voor rust, sociaal contact, kunst en rituelen.</p>
+    </div>
+
+    <h3 class="sub-heading">De grote omslag: landbouw</h3>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Agrarische revolutie</span>
+        <p class="begrip-def">De agrarische revolutie (ook: neolithische revolutie) is de overgang van jagen en verzamelen naar landbouw en veeteelt, beginnend ca. 10.000 v.Chr. in het "Vruchtbare Halfrond" (het gebied van modern Israël en Palestina via Syrië en Irak naar Iran). Mensen begonnen planten te zaaien en te oogsten, en dieren te temmen en te fokken. Dit was geen plotse omwenteling maar een geleidelijk proces dat duizenden jaren duurde. Het woord "revolutie" verwijst hier naar de enorme impact, niet naar de snelheid.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Landbouw</span>
+        <p class="begrip-def">Landbouw is het systematisch bewerken van de grond om voedsel te kweken. Akkerbouw (graan, groenten) en veeteelt (rundvee, schapen, geiten) zijn de twee pijlers. Landbouw maakt voedseloverschotten mogelijk: je kan meer produceren dan je onmiddellijk nodig hebt. Die overschotten zijn de basis van alle latere economische en politieke complexiteit.</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>Zodra er overschotten waren, veranderde alles. Niet iedereen hoefde nog zelf voedsel te produceren. Sommige mensen konden zich specialiseren in andere taken: aardewerk maken, metaal smeden, tempels bouwen. Zo ontstond het ambacht.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Ambacht</span>
+        <p class="begrip-def">Ambacht is het met de hand maken van producten door gespecialiseerde vaklieden: pottenbakkers, smeden, wevers, timmermannen, schoenmakers. Een ambachtsman leert zijn vak jaren lang en wordt er goed in — beter dan een boer die het als bijtaak zou doen. Steden en rijken kunnen pas groot worden als er genoeg ambachtslieden zijn om de bevolking te voorzien van gereedschap, kleding, wapens en gebouwen.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Handelen: van ruil naar geld</h3>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Handel</span>
+        <p class="begrip-def">Handel is het uitwisselen van goederen of diensten. Handel maakt het mogelijk dat mensen profiteren van elkaars specialisatie: een visser ruilt vis voor graan van een boer, beiden worden beter af dan wanneer ze alles zelf zouden moeten doen. Handel verbindt regio's en beschavingen met elkaar, verspreidt ideeën en technologie, en is de drijvende kracht achter de groei van steden en rijken.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Ruileconomie</span>
+        <p class="begrip-def">In een ruileconomie worden goederen direct voor andere goederen uitgewisseld, zonder gebruik van geld. "Ik geef jou mijn olijfolie, jij geeft mij jouw vis." Dat werkt goed in kleine gemeenschappen waar iedereen elkaar kent, maar heeft een groot probleem: je moet iemand vinden die precies heeft wat jij wil, en jou precies wil geven wat hij heeft — het zogenaamde "dubbele toeval van behoeften". Naarmate handel groeit en complexer wordt, voldoet de ruileconomie niet meer.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Geldeconomie</span>
+        <p class="begrip-def">In een geldeconomie worden goederen en diensten betaald met geld: munten, later ook bankbiljetten, tegoeden. Geld is een algemeen aanvaard ruilmiddel dat iedereen accepteert, zodat je niet meer direct iets hoeft te ruilen. De eerste metalen munten verschenen ca. 700 v.Chr. in Lydië (het huidige Turkije). Rome sloeg enorme hoeveelheden munten in goud, zilver en koper. Een geldeconomie maakt langdurige handel over grote afstanden mogelijk en is de basis voor complexe economische systemen.</p>
+      </div>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: Griekse agora met marktkramen en handelaren">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Reconstructietekening van de agora van Athene ca. 430 v.Chr. Op de voorgrond handelaren met aardewerk, vis en olijfolie. Op de achtergrond overheidskantoren en de stoa (overdekte galerij). Links een ambtenaar die belasting int aan een kleine tafel met gewichten en munten.</p>
+    </div>
+
+    <h3 class="sub-heading">Economie en politiek: onlosmakelijk verbonden</h3>
+
+    <div class="prose-text">
+      <p>Economie en politiek zijn nooit ver van elkaar. Wie de graanvoorraden controleert, heeft macht. Wie belasting int, kan een leger betalen. Wie handel controleert, wordt rijk — en rijkdom geeft politieke invloed.</p>
+
+      <p>In het Romeinse Rijk was dit duidelijk zichtbaar. De veroveringen van Rome waren niet alleen politiek gemotiveerd: nieuw veroverd gebied betekende nieuwe belastingbetalers, nieuwe slaven voor de latifundia (grote landbouwbedrijven) en nieuwe handelsroutes. Omgekeerd was een zwakke economie een politiek probleem: als er te weinig geld was om het leger te betalen, brak er chaos uit. Meerdere keizers zijn ten val gekomen omdat ze de staatskas niet op orde hadden.</p>
+
+      <p>Dit verband is een van de rode draden die je in de geschiedenis terugziet: <em>politieke macht vereist economische middelen, en economische macht zoekt politieke bescherming</em>.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">💭 Denkvraag</div>
+      <p class="dv-text">Stel je voor dat je in het oude Athene woont. Je bent een pottenbakker. Bedenk drie manieren waarop de politieke beslissingen van de volksvergadering jouw economische leven kunnen beïnvloeden. Denk aan belastingen, oorlog, handel en wetgeving. Zoek ook het omgekeerde: hoe zou jouw economische situatie jouw politieke gedrag beïnvloeden?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 3.3
+  ============================================================ -->
+  <section class="section-block" id="s3-3">
+    <div class="section-heading">
+      <span class="section-num">3.3</span>
+      <h2 class="section-title">Sociaal: wie woont er samen en hoe?</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Mensen leven zelden alleen. Ze vormen gezinnen, stammen, dorpen, steden en rijken. Ze verdelen taken, sluiten vriendschappen, sluiten vijandschappen, trouwen, ruziën, helpen elkaar en onderdrukken elkaar. Al die verhoudingen tussen mensen — hoe ze samenleven, welke groepen er zijn, wie boven staat en wie onder, wie erbij hoort en wie buitengesloten wordt — dat is het <strong>sociale domein</strong>.</p>
+
+      <p>Het sociale domein is bijzonder interessant omdat het ons iets vertelt over de alledaagse werkelijkheid van gewone mensen. Politiek gaat vaak over koningen en keizers. Economie over handelscijfers en graanprijzen. Maar het sociale domein toont ons hoe Nikias' dochter haar dag beleefde, hoe een slaaf in Rome zijn bestaan doorstond, of hoe een nomadisch kind op de steppe sliep.</p>
+    </div>
+
+    <h3 class="sub-heading">Bewegen of settelen: twee manieren van leven</h3>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Nomadische samenleving</span>
+        <p class="begrip-def">Een nomadische samenleving is een samenleving waarin mensen regelmatig van plaats veranderen, op zoek naar voedsel, water of weidegrond voor hun dieren. Nomaden hebben geen permanente huizen, maar tenten of andere draagbare woningen. Ze leven in kleine groepen van verwanten. In de prehistorie waren alle mensen nomaden. Ook in de klassieke oudheid leefden er nog nomadische volkeren, zoals de Scythen op de Oekraïnse steppe.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Sedentaire samenleving</span>
+        <p class="begrip-def">Een sedentaire (of gevestigde) samenleving is een samenleving waarin mensen op een vaste plaats wonen. Sedentair zijn werd mogelijk dankzij de landbouw: als je je voedsel zelf verbouwt, moet je bij je akkers blijven. Sedentaire gemeenschappen groeien uit tot dorpen, steden en uiteindelijk rijken. Ze kunnen grotere bevolkingen onderhouden, meer specialisatie toelaten en complexere politieke structuren opbouwen.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Lagen in de samenleving</h3>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Standenmaatschappij</span>
+        <p class="begrip-def">Een standenmaatschappij is een samenleving die officieel is ingedeeld in vaste, erfelijke lagen (standen of klassen) met elk hun eigen rechten en plichten. Je werd geboren in een stand en bleef er je hele leven in. In het oude Rome bestonden er patriciërs (de oude adellijke families), plebejers (gewone burgers), vrijgelatenen (voormalige slaven) en slaven. In het oude Egypte had de farao de hoogste stand, gevolgd door priesters en ambtenaren, vervolgens ambachtslieden en boeren, en onderaan slaven.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Patriarchale samenleving</span>
+        <p class="begrip-def">Een patriarchale samenleving is een samenleving waarin mannen de dominante positie innemen in het gezin, de politiek en de economie. "Pater" betekent "vader" in het Latijn. In de meeste antieke samenlevingen hadden vrouwen weinig of geen politieke rechten, konden ze zelden zelfstandig eigendommen bezitten en hadden ze in de wet een inferieure positie ten opzichte van mannen. Zowel het oude Griekenland als Rome waren sterk patriarchale samenlevingen.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Beweging en ongelijkheid</h3>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Migratie</span>
+        <p class="begrip-def">Migratie is de verplaatsing van mensen van de ene regio naar de andere, al dan niet permanent. Migratie is zo oud als de mens zelf: de eerste mensen verspreidden zich vanuit Afrika over de hele aarde. In de klassieke oudheid migreerden mensen door oorlog, hongersnood, handel of slavernij. Grote migratiegolven veranderden de sociale samenstelling van samenlevingen en brachten nieuwe talen, gebruiken en religies mee.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Ongelijkheid</span>
+        <p class="begrip-def">Sociale ongelijkheid verwijst naar de ongelijke verdeling van rijkdom, status, rechten en kansen tussen mensen in een samenleving. Ongelijkheid bestond in alle antieke samenlevingen: de rijkdom van een Romeinse senator stond in schril contrast met het leven van een arme stadsbewoner of een slaaf. Historici bestuderen ongelijkheid door te vragen: wie had de meeste macht, rijkdom en rechten, en wie het minst? En hoe rechtvaardigde de samenleving die ongelijkheid?</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Vrijheid en onvrijheid — slavernij</span>
+        <p class="begrip-def">Slavernij is een systeem waarbij mensen worden behandeld als eigendom van andere mensen: ze kunnen worden gekocht, verkocht, verhuurd en geërfd. Slaven hadden geen rechten, geen vrijheid en konden hun situatie zelden veranderen. In het Romeinse Rijk waren naar schatting een derde van de bevolking slaven. Ze werkten in huishoudens, op landbouwbedrijven, in mijnen en als roeiers op galeien. Slavernij was economisch onmisbaar voor Rome, maar had ook enorme sociale gevolgen: angst voor opstand, sociale spanningen en een samenleving gebouwd op fundamentele onrechtvaardigheid.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Burgerrechten</span>
+        <p class="begrip-def">Burgerrechten zijn de rechten die iemand heeft als lid van een politieke gemeenschap: het recht om te stemmen, een ambt te bekleden, in de rechtbank te getuigen, eigendom te bezitten. In de klassieke oudheid waren burgerrechten niet voor iedereen: in Athene hadden alleen volwassen mannen met Atheense ouders burgerrechten. Vrouwen, slaven en vreemdelingen (metics) hadden ze niet. In Rome konden mensen het burgerrecht verdienen, kopen of erven — en de keizerlijke uitbreiding van het burgerrecht in 212 n.Chr. gaf het aan (bijna) alle vrije inwoners van het Rijk.</p>
+      </div>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: Romeinse maatschappijpiramide">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Piramidediagram van de Romeinse samenleving ca. 100 n.Chr. Van boven naar onder: keizer, senatoriale klasse, ridders (equites), gewone burgers (plebejers), vrijgelatenen, slaven. Bij elke laag een korte omschrijving van rechten en levensomstandigheden. De breedte van de laag stelt de relatieve omvang van de groep voor.</p>
+    </div>
+
+    <h3 class="sub-heading">Een voorbeeld uit de klassieke oudheid: de vrijgelaten slaaf</h3>
+
+    <div class="prose-text">
+      <p>Om het sociale domein concreet te maken, bekijken we een voorbeeld: de positie van een vrijgelaten slaaf (<em>libertus</em>) in het Romeinse Rijk.</p>
+
+      <p>Stel je voor: je bent geboren als slaaf. Je ouders waren slaven, je bent het eigendom van een rijke Romein. Na twintig jaar trouwe dienst laat je meester je vrij — een vrij gewone praktijk in Rome. Wat betekent dat nu eigenlijk?</p>
+
+      <p>Sociaal: je bent niet langer eigendom, maar een vrij mens. Je mag trouwen, je mag een eigen handel beginnen. Maar je bent ook niet gelijk aan een geboren burger: je draagt de naam van je voormalige meester, je bent hem respect en soms diensten verschuldigd, en sommige hogere ambten zijn voor jou gesloten.</p>
+
+      <p>Economisch: je moet nu zelf je brood verdienen. Veel vrijgelaten slaven werden handelaren, bankiers of ambachtslieden — en sommigen werden zelfs heel rijk. De vrijgelatene Trimalchio in de Satyricon van Petronius is een literaire karikatuur van zulke parvenu's: een voormalige slaaf die praalziek zijn rijkdom tentoonspreid.</p>
+
+      <p>Politiek: je mag stemmen in de volksvergadering (al had die in de keizertijd weinig macht meer), maar je kan geen hoge politieke functies bekleden.</p>
+
+      <p>Dit ene voorbeeld toont hoe alle domeinen met elkaar verweven zijn. De sociale positie van de vrijgelaten slaaf is onlosmakelijk verbonden met zijn economische mogelijkheden en zijn politieke rechten.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">💭 Denkvraag</div>
+      <p class="dv-text">In welke maatschappelijke domeinen speelt het onderwijs dat jij vandaag volgt? Is onderwijs politiek? Economisch? Sociaal? Cultureel? Geef voor elk domein een concreet voorbeeld van hoe jouw schoolleven daarmee te maken heeft. Wat denk je: zou een kind in het oude Athene hetzelfde antwoord hebben gegeven?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 3.4
+  ============================================================ -->
+  <section class="section-alt" id="s3-4">
+    <div class="section-heading">
+      <span class="section-num">3.4</span>
+      <h2 class="section-title">Cultuur: wat geloven en maken mensen?</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Als je aan "cultuur" denkt, denk je misschien aan musea, opera's of schilderijen. Maar voor historici heeft cultuur een veel bredere betekenis. Alles wat mensen denken, geloven, maken en doorgeven aan de volgende generatie — hun taal, hun religie, hun kunst, hun normen en waarden — dat is cultuur.</p>
+
+      <p>Het <strong>culturele domein</strong> is in zekere zin het meest menselijke van de vier domeinen. Dieren hebben ook een economie (ze zoeken voedsel), een sociale structuur (kuddes, paren, rangorde) en iets wat op politiek lijkt (dominantie, territorium). Maar geen enkel dier bouwt tempels, schrijft gedichten over de sterfelijkheid of maakt muziek om zijn goden te vereren.</p>
+    </div>
+
+    <h3 class="sub-heading">Cultuur en religie</h3>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Mythologie</span>
+        <p class="begrip-def">Mythologie is het geheel van verhalen over goden, helden en het ontstaan van de wereld die door een volk worden verteld en doorgegeven. Mythologische verhalen leggen uit waarom de wereld is zoals ze is, geven morele lessen en verbinden de gemeenschap. De Griekse mythologie met Zeus, Athena, Hera en Achilles is een bekend voorbeeld, maar elk antiek volk had zijn eigen mythologie. Mythologie is niet hetzelfde als "onwaarheden" — voor de mensen die erin geloofden, was mythologie de diepste waarheid over de werkelijkheid.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Polytheïsme</span>
+        <p class="begrip-def">Polytheïsme is het geloof in meerdere goden. "Poly" betekent "veel", "theos" betekent "god". De Grieken hadden een pantheon van twaalf hoofdgoden (Zeus, Hera, Poseidon, Demeter, Athena, Apollo, Artemis, Ares, Hefaistos, Afrodite, Hermes en Dionysus), maar eigenlijk honderden goden en halfgoden. De Romeinen namen dit pantheon grotendeels over, maar gaven de goden Latijnse namen (Zeus werd Jupiter, Poseidon werd Neptunus). Polytheïsme was de dominante religieuze vorm in de klassieke oudheid.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Monotheïsme</span>
+        <p class="begrip-def">Monotheïsme is het geloof in één God. De drie grote monotheïstische religies — jodendom, christendom en islam — zijn alle drie ontstaan in het Midden-Oosten. Het jodendom was al in de klassieke oudheid aanwezig; het christendom ontstond in de 1ste eeuw n.Chr. en verspreidde zich door het Romeinse Rijk. Aanvankelijk werden christenen vervolgd door de Romeinse autoriteiten, maar onder keizer Constantijn (4de eeuw n.Chr.) werd het christendom staatsgodsdienst — een enorme culturele en politieke omwenteling.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Staatsgodsdienst</span>
+        <p class="begrip-def">Een staatsgodsdienst is een religie die officieel door de staat wordt erkend, beschermd of bevorderd, en soms aan de bevolking opgelegd. In het Romeinse Rijk werd de keizer later ook als godheid vereerd — de zogenaamde keizercultus. Dat was niet alleen religieus, maar ook politiek: de keizercultus bond de diverse volkeren van het Rijk symbolisch aan de keizer. Wanneer christenen weigerden offers te brengen aan de keizer, was dat politiek gevaarlijk en werd het zwaar gestraft.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Cultuur als brede menselijke activiteit</h3>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Cultuur</span>
+        <p class="begrip-def">Cultuur (in brede zin) is het geheel van kennis, overtuigingen, kunst, moraal, wetten, gebruiken en gewoonten die mensen als leden van een samenleving verwerven en doorgeven. Cultuur is wat mensen van dieren onderscheidt: niet alleen de biologie, maar ook de betekenissen die mensen aan de wereld geven. Elke samenleving heeft haar eigen cultuur, maar culturen beïnvloeden elkaar ook voortdurend door handel, oorlog en migratie.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Kunstuiting</span>
+        <p class="begrip-def">Een kunstuiting is alles wat mensen maken om iets te communiceren, te verbeelden of te herdenken: beeldhouwwerk, schilderkunst, architectuur, muziek, literatuur, theater. Kunst is een bron voor historici: een oud beeld, een reliëf of een mozaïek vertelt iets over de waarden, de schoonheidsidealen en de machtsverhoudingen van zijn tijd. Kunst is nooit "neutraal" — ze is altijd gemaakt vanuit een bepaald perspectief, voor een bepaald publiek, in een bepaalde context.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Multiculturele samenleving</span>
+        <p class="begrip-def">Een multiculturele samenleving is een samenleving waarin meerdere culturen, talen, religies en tradities naast elkaar bestaan. Het Romeinse Rijk was in die zin een multiculturele samenleving: in de stad Rome leefden Egyptenaren, Grieken, Joden, Germanen en Afrikanen naast Italianen. Ze hadden elk hun eigen taal, geloof en gebruiken. Rome reageerde op die diversiteit soms met integratie (Latijn als gemeenschappelijke taal), soms met tolerantie (meerdere religies toegestaan) en soms met onderdrukking (verbod op bepaalde religieuze praktijken).</p>
+      </div>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: het bronzen beeld van Aulus Metellus">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Het bronzen beeld van de Romeinse senator Aulus Metellus (ook gekend als de "Arringatore" of "Redenaar"), gevonden bij het Trasimenomeer in Umbrië, Italië, ca. 1ste eeuw v.Chr. De senator staat rechtop, zijn rechterarm uitgestrekt in het gebaar van de redenaar die het woord vraagt. Hij draagt een toga. Het beeld staat nu in het Nationaal Archeologisch Museum in Florence. Inscriptie in het Etruskisch op de voet.</p>
+    </div>
+
+    <h3 class="sub-heading">Aulus Metellus: een beeld in meerdere domeinen</h3>
+
+    <div class="prose-text">
+      <p>Kijk goed naar het beeld van Aulus Metellus. Het is gemaakt in brons, waarschijnlijk in de 1ste eeuw v.Chr. Een man in een toga, zijn rechterarm uitgestrekt. Hij vraagt het woord. Maar wat vertelt dit beeld ons — en in welke domeinen?</p>
+
+      <ul style="margin: 1rem 0 1rem 1.2rem; list-style: none; padding: 0;">
+        <li style="display:flex;gap:0.7rem;margin-bottom:0.9rem;align-items:flex-start;">
+          <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;">Politiek:</span>
+          <span>Het gebaar is het gebaar van de <em>orator</em>, de redenaar in de volksvergadering of de rechtbank. Door een senator zo af te beelden, communiceert het beeld macht en politieke deelname. Het zegt: deze man had het recht om te spreken en beslissingen te beïnvloeden.</span>
+        </li>
+        <li style="display:flex;gap:0.7rem;margin-bottom:0.9rem;align-items:flex-start;">
+          <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;">Cultureel:</span>
+          <span>Het beeld is een kunstwerk. De toga, het gebaar, de realistische weergave van het gezicht — dat zijn allemaal culturele keuzes. Romans maakten portretten realistisch, inclusief rimpels en ouderdom: dat was een cultureel ideaal van <em>dignitas</em> (waardigheid). Het beeld toont ook een religieus-cultureel aspect: het eerlijk herdenken van een voorouder was in Rome een religieuze plicht.</span>
+        </li>
+        <li style="display:flex;gap:0.7rem;margin-bottom:0.9rem;align-items:flex-start;">
+          <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;">Sociaal:</span>
+          <span>Alleen rijke, invloedrijke families lieten dure bronzen beelden maken. Het beeld vertelt ons iets over de standenmaatschappij: dit is geen gewone burger, geen vrijgelaten slaaf, geen vrouw. Dit is een man van de elite die zijn status ook na zijn dood wilde vastleggen.</span>
+        </li>
+        <li style="display:flex;gap:0.7rem;margin-bottom:0.9rem;align-items:flex-start;">
+          <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;">Economisch:</span>
+          <span>Brons is een waardevol materiaal. Een bronzen beeld laten maken vereiste economische middelen. Bovendien was de Etruskische inscriptie op de voet — in een taal die op dat moment al bijna uitgestorven was — een teken van cultureel prestige dat ook economische status communiceerde.</span>
+        </li>
+      </ul>
+
+      <p>Dit toont wat de kracht is van het werken met de vier domeinen: een enkel object — één beeld van brons — wordt rijker en rijker naarmate je het door meer brillen bekijkt. Elk domein voegt een laag toe aan het begrip. En misschien het belangrijkste: de domeinen overlappen. Je kunt ze niet helemaal van elkaar loshaken.</p>
+    </div>
+
+    <h3 class="sub-heading">Verbanden tussen cultuur en de andere domeinen</h3>
+
+    <div class="prose-text">
+      <p>Cultuur beïnvloedt alles. Een samenleving met een monotheïstische religie organiseert haar politiek anders dan een polytheïstische: als er maar één God is, die zijn wetten aan mensen dicteert, dan is de wetgever ook een religieuze figuur. In Rome was de keizercultus een manier om politieke macht te heiligen door haar religieus te maken: de keizer was niet alleen de machtigste man, hij was ook een god.</p>
+
+      <p>Economisch heeft cultuur ook een grote rol. De bouwcampagnes van de Atheense strategos Perikles in de 5de eeuw v.Chr. — de bouw van het Parthenon en de andere tempels op de Akropolis — waren enorme economische investeringen. Duizenden ambachtslieden, steenhouwers, schilders en arbeiders werden er door aan het werk gezet. Cultuur (de behoefte aan indrukwekkende heilige gebouwen) dreef zo de economie.</p>
+
+      <p>En omgekeerd: economische rijkdom maakt culturele bloei mogelijk. Rijke steden zoals Athene en Rome konden het zich veroorloven filosofen, dichters en architecten te steunen. De cultuur van de klassieke oudheid die wij zo bewonderen, was voor een groot deel het product van economische welvaart — en die welvaart was zelf het product van politieke macht en sociale ongelijkheid.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">💭 Denkvraag</div>
+      <p class="dv-text">Bekijk het beeld van Aulus Metellus nog eens goed (in een afbeelding of beschrijving). Is dit beeld in de eerste plaats politiek of cultureel? Of allebei even sterk? Schrijf twee argumenten op voor "politiek" en twee argumenten voor "cultureel". Bespreek daarna met een klasgenoot: kunnen de twee domeinen ooit echt gescheiden worden?</p>
+    </div>
+  </section>
+
+</div><!-- end page-wrapper -->
+
+<!-- ============================================================
+     EXERCISES
+============================================================ -->
+<div class="exercises-section" id="oefeningen">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <div class="exercise-card">
+      <div class="ex-title">Oefening 1</div>
+      <div class="ex-name">Sorteren: welk domein hoort hierbij?</div>
+      <p style="font-size:0.97rem;color:var(--text-mid);margin-bottom:0.7rem;">Hieronder staan tien historische feiten. Schrijf bij elk feit welk maatschappelijk domein (politiek, economisch, sociaal, cultureel) het best past. Let op: sommige feiten horen bij <strong>meerdere</strong> domeinen tegelijk. Geef in dat geval alle domeinen op en leg kort uit waarom.</p>
+      <ol>
+        <li>Alexander de Grote verovert het Perzische Rijk (334–323 v.Chr.)</li>
+        <li>De Grieken beginnen munten te slaan in zilver (ca. 700 v.Chr.)</li>
+        <li>In Rome worden slaven bij de volkstelling niet meegeteld als burgers</li>
+        <li>De Parthenon-tempel wordt gebouwd op de Atheense Akropolis (447–432 v.Chr.)</li>
+        <li>Griekse kolonisten stichten de stad Massalia (het huidige Marseille, ca. 600 v.Chr.)</li>
+        <li>Vrouwen mogen in Athene niet deelnemen aan de volksvergadering</li>
+        <li>De Iliaden van Homerus worden per generatie mondeling doorgegeven</li>
+        <li>Keizer Constantijn maakt het christendom staatsgodsdienst (313 n.Chr.)</li>
+        <li>Grote Romeinse landbouwbedrijven (latifundia) worden uitgebaat door slaven</li>
+        <li>Een vrijgelaten slaaf opent een eigen winkel in Rome</li>
+      </ol>
+      <p class="ex-tip">Tip: vraag jezelf telkens: gaat dit over macht en bestuur? Over geld en voedsel? Over wie samenleeft en hoe? Of over geloof, kunst en waarden? Soms zijn meerdere antwoorden correct.</p>
+    </div>
+
+    <div class="exercise-card">
+      <div class="ex-title">Oefening 2</div>
+      <div class="ex-name">De invoering van het schrift door vier brillen</div>
+      <p style="font-size:0.97rem;color:var(--text-mid);margin-bottom:0.7rem;">Je hebt in Hoofdstuk 1 al geleerd dat het schrift (ca. 3200 v.Chr. in Mesopotamië) een scharnierpunt is in de geschiedenis. Nu pas je de vier maatschappelijke domeinen toe op deze uitvinding. Beantwoord voor elk domein de volgende vraag: <em>Hoe veranderde de invoering van het schrift dit domein?</em> Schrijf per domein minstens twee zinnen.</p>
+      <ul>
+        <li><strong>Politiek:</strong> hoe veranderde het schrift de uitoefening van macht?</li>
+        <li><strong>Economisch:</strong> hoe veranderde het schrift de manier waarop mensen handel dreven?</li>
+        <li><strong>Sociaal:</strong> welke nieuwe sociale groepen of ongelijkheden ontstonden door het schrift?</li>
+        <li><strong>Cultureel:</strong> hoe veranderde het schrift de manier waarop kennis en verhalen werden bewaard?</li>
+      </ul>
+      <p class="ex-tip">Tip: gebruik de informatie uit sectie 1.3 (scharnierpunten) samen met wat je in dit hoofdstuk hebt geleerd over de vier domeinen.</p>
+    </div>
+
+    <div class="exercise-card">
+      <div class="ex-title">Oefening 3</div>
+      <div class="ex-name">Economie en politiek in het Romeinse Rijk</div>
+      <p style="font-size:0.97rem;color:var(--text-mid);margin-bottom:0.7rem;">In dit hoofdstuk heb je gelezen dat economie en politiek onlosmakelijk verbonden zijn. Gebruik de onderstaande feiten over het Romeinse Rijk om die these te illustreren. Leg in een tekst van vijf tot acht zinnen uit hoe de economie de politiek beïnvloedde en hoe de politiek de economie beïnvloedde.</p>
+      <ul>
+        <li>Rome veroverde nieuwe gebieden en maakte de bevolking belastingplichtig</li>
+        <li>Slaven (verkregen door oorlog) werkten op grote landbouwbedrijven en leverden goedkoop voedsel</li>
+        <li>Keizers financierden spektakelshows (gladiatorengevechten, wagenrennen) om de stadsbevolking tevreden te houden</li>
+        <li>Als het leger niet uitbetaald kon worden, volgden opstanden en staatsgrepen</li>
+        <li>Rijke handelaren en senatoren financierden politieke campagnes van kandidaten</li>
+      </ul>
+      <p class="ex-tip">Tip: gebruik de begrippen "autocratie", "standenmaatschappij", "slavernij" en "geldeconomie" in je antwoord.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     SUMMARY
+============================================================ -->
+<div class="summary-section" id="samenvatting">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li>Historici analyseren elke samenleving door vier <strong>maatschappelijke domeinen</strong> te onderscheiden: het <strong>politieke</strong>, het <strong>economische</strong>, het <strong>sociale</strong> en het <strong>culturele</strong> domein. Elk domein stelt een andere vraag: wie heeft de macht? Hoe verdienen mensen hun brood? Wie woont er samen en hoe? Wat geloven en maken mensen?</li>
+      <li>Het <strong>politieke domein</strong> omvat begrippen zoals stadstaat, rijk, republiek, autocratie, aristocratie en democratie. De Atheense democratie (ca. 508 v.Chr.) was een vroeg en revolutionair experiment waarbij mannelijke burgers mee konden beslissen over het bestuur van hun stad.</li>
+      <li>Het <strong>economische domein</strong> evolueerde van <strong>jager-verzamelaar</strong> naar <strong>landbouw</strong> (agrarische revolutie ca. 10.000 v.Chr.), waarna <strong>ambacht</strong> en <strong>handel</strong> konden groeien. De overgang van <strong>ruileconomie</strong> naar <strong>geldeconomie</strong> (ca. 700 v.Chr.) maakte complexe handel over grote afstanden mogelijk.</li>
+      <li>Het <strong>sociale domein</strong> omvat de verhoudingen tussen mensen: nomadische vs. sedentaire samenleving, standenmaatschappij, patriarchale samenleving, migratie, ongelijkheid, <strong>slavernij</strong> en <strong>burgerrechten</strong>. In het Romeinse Rijk was naar schatting een derde van de bevolking slaaf — economisch onmisbaar, maar sociaal een bron van spanning en onrechtvaardigheid.</li>
+      <li>Het <strong>culturele domein</strong> omvat religie (polytheïsme, monotheïsme, staatsgodsdienst), mythologie, kunst en de bredere overdracht van waarden en kennis. De Grieks-Romeinse cultuur was <strong>multicultureel</strong>: meerdere volkeren, talen en religies leefden naast elkaar onder één politiek bestuur.</li>
+      <li>De vier domeinen zijn <strong>met elkaar verbonden</strong>: economische rijkdom maakt politieke macht mogelijk, politieke macht beschermt handelswegen, sociale ongelijkheid (slavernij) drijft de economie, en religie heiligt politiek gezag. Elk historisch fenomeen raakt meerdere domeinen tegelijk.</li>
+      <li>Het bronzen beeld van senator <strong>Aulus Metellus</strong> (1ste eeuw v.Chr.) is tegelijk een politiek document (macht van de redenaar), een sociale verklaring (elite-status), een cultureel kunstwerk (Romeins ideaal van <em>dignitas</em>) en een economisch gegeven (rijkdom nodig om brons te laten gieten).</li>
+    </ul>
+  </div>
+</div>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  // Back to top button
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) {
+        btn.classList.add('visible');
+      } else {
+        btn.classList.remove('visible');
+      }
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

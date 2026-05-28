@@ -1,0 +1,1558 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoofdstuk 11 — Het oude Egypte: het geschenk van de Nijl | Geschiedenis 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE / OPENING STORY
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament {
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--gold);
+    opacity: 0.7;
+    margin: 1.5rem 0;
+    letter-spacing: 0.4em;
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-dialogue {
+    font-style: italic;
+    color: #FFFDF8;
+    padding-left: 1.4rem;
+    border-left: 3px solid rgba(212,160,23,0.4);
+    margin: 1rem 0;
+  }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+    filter: sepia(0.3);
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     ILLUSTRATIE PLACEHOLDERS
+  ============================================================ */
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+    cursor: default;
+    transition: background var(--transition);
+  }
+
+  .illustratie:hover { background: #EDE7D8; }
+
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     INTERACTIVE TIMELINE — 7 PERIODS
+  ============================================================ */
+  .timeline-7 {
+    margin: 2rem 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .timeline-7-inner {
+    display: flex;
+    min-width: 680px;
+    height: 110px;
+    border-radius: var(--border-radius);
+    overflow: visible;
+    position: relative;
+  }
+
+  .tl-period {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 0 0.5rem;
+    cursor: pointer;
+    transition: filter var(--transition), transform var(--transition);
+    min-width: 0;
+  }
+
+  .tl-period:hover { filter: brightness(1.08); transform: translateY(-3px); z-index: 2; }
+
+  .tl-period .tl-bar {
+    position: absolute;
+    bottom: 0;
+    left: 1px;
+    right: 1px;
+    border-radius: 4px 4px 0 0;
+    transition: height var(--transition);
+  }
+
+  /* Featured periods (1–3) are taller */
+  .tl-period.featured .tl-bar { box-shadow: 0 0 0 2px rgba(255,255,255,0.6), 0 4px 14px rgba(0,0,0,0.25); }
+
+  .tl-period .tl-label {
+    position: absolute;
+    top: -2.4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 0.7rem;
+    font-weight: 700;
+    font-family: 'Source Sans 3', sans-serif;
+    text-align: center;
+    color: var(--darkblue);
+    pointer-events: none;
+  }
+
+  .tl-period.featured .tl-label { color: var(--terracotta); font-size: 0.75rem; }
+
+  .tl-period .tl-span {
+    position: absolute;
+    bottom: -1.7rem;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 0.63rem;
+    color: var(--text-light);
+    font-family: 'Source Sans 3', sans-serif;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  /* Tooltip */
+  .tl-period .tl-tooltip {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 2.8rem);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--darkblue);
+    color: var(--creme);
+    font-size: 0.8rem;
+    font-family: 'Source Sans 3', sans-serif;
+    padding: 0.55rem 0.85rem;
+    border-radius: 5px;
+    white-space: nowrap;
+    z-index: 20;
+    pointer-events: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+
+  .tl-period .tl-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: var(--darkblue);
+  }
+
+  .tl-period:hover .tl-tooltip { display: block; }
+
+  .timeline-7-labels {
+    margin-top: 2.4rem;
+    font-size: 0.78rem;
+    color: var(--text-light);
+    text-align: center;
+    font-style: italic;
+  }
+
+  /* Period colors */
+  .tl-p1 { background: #5B3D2E; }
+  .tl-p2 { background: #8B5A2B; }
+  .tl-p3 { background: var(--terracotta); }
+  .tl-p4 { background: #6B7F5E; }
+  .tl-p5 { background: #4A7A8A; }
+  .tl-p6 { background: #2A5C7A; }
+  .tl-p7 { background: var(--darkblue); }
+
+  /* Responsive timeline */
+  @media (max-width: 680px) {
+    .timeline-7-inner {
+      flex-direction: column;
+      height: auto;
+      min-width: 0;
+    }
+    .tl-period {
+      height: 52px;
+      flex-direction: row;
+      align-items: center;
+      padding: 0 1rem;
+      margin-bottom: 4px;
+      border-radius: 4px;
+    }
+    .tl-period .tl-bar {
+      position: absolute;
+      top: 0; bottom: 0; left: 0; right: 0;
+      border-radius: 4px;
+    }
+    .tl-period .tl-label {
+      position: relative;
+      top: auto; left: auto; transform: none;
+      z-index: 1;
+      color: #fff;
+      font-size: 0.82rem;
+      margin-right: auto;
+    }
+    .tl-period .tl-span {
+      position: relative;
+      bottom: auto; left: auto; transform: none;
+      z-index: 1;
+      color: rgba(255,255,255,0.75);
+      font-size: 0.7rem;
+    }
+    .tl-period .tl-tooltip { display: none !important; }
+    .tl-period.featured .tl-label { font-size: 0.85rem; }
+  }
+
+  /* ============================================================
+     v.Chr. / n.Chr. TIMELINE
+  ============================================================ */
+  .vchr-timeline {
+    margin: 2rem 0 3rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .vchr-inner {
+    min-width: 580px;
+    padding: 2.5rem 1rem 2rem;
+    position: relative;
+  }
+
+  /* The horizontal bar */
+  .vchr-bar {
+    position: relative;
+    height: 6px;
+    background: linear-gradient(90deg, #3A1A0A, var(--terracotta), #FAF6EF, var(--darkblue), #091529);
+    border-radius: 3px;
+    margin: 0 20px;
+  }
+
+  /* Zero point */
+  .vchr-zero {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 16px;
+    height: 16px;
+    background: var(--gold);
+    border: 3px solid var(--creme);
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px var(--gold), 0 0 10px rgba(212,160,23,0.6);
+    z-index: 2;
+  }
+
+  .vchr-zero-label {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -1.5rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--gold);
+    font-family: 'Source Sans 3', sans-serif;
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  /* Section labels */
+  .vchr-section-label {
+    position: absolute;
+    top: -2rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-family: 'Source Sans 3', sans-serif;
+  }
+
+  .vchr-section-label.left {
+    left: 0;
+    color: var(--terracotta);
+  }
+
+  .vchr-section-label.right {
+    right: 0;
+    color: var(--darkblue);
+  }
+
+  /* Tick marks */
+  .vchr-tick {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+  }
+
+  .vchr-tick .tick-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    border: 2px solid;
+    background: var(--creme);
+    margin-top: -1px;
+  }
+
+  .vchr-tick.vchr-left .tick-dot { border-color: var(--terracotta); }
+  .vchr-tick.vchr-right .tick-dot { border-color: var(--darkblue); }
+
+  .vchr-tick .tick-label {
+    position: absolute;
+    bottom: 1.1rem;
+    white-space: nowrap;
+    font-size: 0.68rem;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    text-align: center;
+    transform: translateX(-50%);
+    left: 50%;
+  }
+
+  .vchr-tick.vchr-left .tick-label { color: var(--terracotta); }
+  .vchr-tick.vchr-right .tick-label { color: var(--darkblue); }
+
+  .vchr-tick .tick-sublabel {
+    position: absolute;
+    top: 1.3rem;
+    white-space: nowrap;
+    font-size: 0.6rem;
+    font-family: 'Source Sans 3', sans-serif;
+    color: var(--text-light);
+    font-style: italic;
+    transform: translateX(-50%);
+    left: 50%;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong {
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition), opacity var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover {
+    background: var(--darkblue-light);
+    transform: translateY(-3px);
+  }
+
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     UTILITY / MISC
+  ============================================================ */
+  .prose-text { max-width: 100%; }
+
+  .highlighted-para {
+    background: rgba(212,160,23,0.08);
+    border-left: 3px solid var(--gold);
+    padding: 0.8rem 1.1rem;
+    border-radius: 0 4px 4px 0;
+    margin: 1.2rem 0;
+    font-size: 0.97rem;
+    color: var(--text-mid);
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <a class="label" href="index.html">Geschiedenis 1A</a>
+  <span class="label label-right">Hoofdstuk 11</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Geschiedenis &nbsp;·&nbsp; 1A &nbsp;·&nbsp; Eerste graad</div>
+  <h1>Hoofdstuk 11<br>Het oude Egypte: het geschenk van de Nijl</h1>
+  <p class="subtitle">Van piramides en farao's tot hiërogliefen en mummificatie — een beschaving die leefde voor de eeuwigheid</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- PROLOGUE -->
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Stel je voor &hellip;</span>
+
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+
+    <p>Het is vroeg in de ochtend, rond het jaar 1300 voor Christus. In de tempel van Karnak, aan de oevers van de Nijl, is de lucht nog koel. De zon heeft zojuist haar eerste gouden strepen over de rotsachtige heuvels van het westen gegooid, maar binnen, achter de enorme pylonen van zandsteen, heerst nog de halfduisternis van de nacht.</p>
+
+    <p>Imhotep — geen architect, maar een jonge tempelschrijver van nauwelijks zeventien jaar — schuifelt door de smalle gang die naar het heiligdom leidt. Zijn voeten zijn gewassen. Zijn linnen kleed is spierwit. In zijn handen draagt hij een klein aardewerken schaaltje met wierook, dat reeds begint te roken. Één verkeerde stap, één onrein moment, en de toorn van de god zou neerdalen — niet alleen over hem, maar over het hele land.</p>
+
+    <p>Want Amon slaapt nog. Elk jaar trekken de farao's ten oorlog, elk jaar stijgt de Nijl en elk jaar daalt hij weer. Maar dat alles begint hier, in dit heiligdom, bij de eerste dagelijkse ritue dat de schrijvers en priesters al duizend jaar lang uitvoeren. Als de god niet gewekt, niet gewassen, niet gekleed en niet gevoed wordt — wie zou er dan garant staan voor de overstroming? Wie zou de vruchtbaarheid van de akkers waarborgen? Wie zou het kwaos van de woestijn buiten de oevers houden?</p>
+
+    <p class="prologue-dialogue">"Ont-waak, schone god," fluistert Imhotep terwijl hij het kleine vergulde standbeeld van Amon voor zich ziet staan in het donker van de aller-binnenste kamer. "Het land wacht op jou."</p>
+
+    <p>Hij weet dat hij ooit misschien zelf hogepriester wordt. Hij weet dat de teksten die hij dagelijks kopieert — de spreuken, de hymnen, de lijsten van offers — het land in stand houden. Zonder schrift, geen ritueel. Zonder ritueel, geen overstroming. Zonder overstroming, geen Egypte.</p>
+
+    <p><strong style="color: var(--gold);">Dit is de wereld die we gaan verkennen: een beschaving die alles deed voor de eeuwigheid.</strong></p>
+
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 11.1
+  ============================================================ -->
+  <section class="section-block" id="s11-1">
+    <div class="section-heading">
+      <span class="section-num">11.1</span>
+      <h2 class="section-title">Situering in tijd en ruimte</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Wanneer we spreken over het "oude Egypte", bedoelen we een beschaving die meer dan drieduizend jaar heeft bestaan — van ongeveer 3100 voor Christus tot de verovering door Alexander de Grote in 332 voor Christus, en zelfs daarna nog een tijdlang verder. Geen enkele andere beschaving uit de oudheid heeft zo lang standgehouden. Ter vergelijking: het Romeinse Rijk duurde minder dan duizend jaar, en ook dat beschouwen we als indrukwekkend lang.</p>
+
+      <p>Historici verdelen de Egyptische geschiedenis traditioneel in drie grote bloeiperiodes, van elkaar gescheiden door onrustige tussenperiodes.</p>
+    </div>
+
+    <h3 class="sub-heading">De drie grote rijken</h3>
+
+    <div class="prose-text">
+      <p>Het <strong>Oude Rijk</strong> (ca. 2686–2181 v.Chr.) was de periode van de grote piramidebouw. De farao's werden beschouwd als levende goden, en hun macht was absoluut. De piramiden van Gizeh, gebouwd voor Cheops, Chefren en Menkaure, dateren uit deze tijd. Ze zijn het meest bekende symbool van de Egyptische beschaving.</p>
+
+      <p>Het <strong>Middenrijk</strong> (ca. 2055–1650 v.Chr.) was een periode van relatieve stabiliteit na een eeuwlange burgeroorlog. De farao's van het Middenrijk breidden de handel uit naar Nubië in het zuiden en de Levant in het noorden. De Egyptische literatuur en kunst bloeiden opnieuw op.</p>
+
+      <p>Het <strong>Nieuwe Rijk</strong> (ca. 1550–1070 v.Chr.) was de periode van militaire expansie. Egypte bouwde een echt keizerrijk op, met veldtochten tot diep in Syrië en Palestina. Dit is ook de periode van de beroemdste farao's: de vrouwelijke farao <strong>Hatsjepsoet</strong> (ca. 1473–1458 v.Chr.), de krijgsheer-farao <strong>Toetmosis III</strong>, en de meest beroemde van allen: <strong>Ramses II</strong> (ca. 1279–1213 v.Chr.), die zichzelf liet afbeelden op tempels van Abu Simbel tot Memphis. <strong>Toetanchamon</strong>, wiens bijna-ongeschonden graf in 1922 werd ontdekt, regeerde ook in dit tijdvak.</p>
+    </div>
+
+    <!-- Tijdlijn Egyptische periodes -->
+    <div class="timeline-7" role="region" aria-label="Tijdlijn van de drie grote Egyptische rijken">
+      <div class="timeline-7-inner" id="tl-egypte">
+
+        <div class="tl-period featured" style="flex: 2.5;" aria-label="Vroeg-dynastieke periode">
+          <div class="tl-label">Vroeg-dynastiek</div>
+          <div class="tl-bar tl-p1" style="height:58px;"></div>
+          <div class="tl-span">ca. 3100–2686 v.Chr.</div>
+          <div class="tl-tooltip"><strong>Vroeg-dynastieke periode</strong><br>Eerste farao's, eenwording van Egypte</div>
+        </div>
+
+        <div class="tl-period featured" style="flex: 3.5;" aria-label="Oude Rijk">
+          <div class="tl-label">Oude Rijk<br><span style="font-weight:400;font-size:0.62rem;color:var(--text-light);">&#9733; piramides</span></div>
+          <div class="tl-bar tl-p2" style="height:90px;"></div>
+          <div class="tl-span">ca. 2686–2181 v.Chr.</div>
+          <div class="tl-tooltip"><strong>Oude Rijk</strong><br>Piramides van Gizeh, farao als god</div>
+        </div>
+
+        <div class="tl-period" style="flex: 1.5;" aria-label="Eerste Tussenperiode">
+          <div class="tl-label">Tussen-<br>periode I</div>
+          <div class="tl-bar" style="height:42px;background:#9A8070;"></div>
+          <div class="tl-span">2181–2055 v.Chr.</div>
+          <div class="tl-tooltip"><strong>Eerste Tussenperiode</strong><br>Burgeroorlog en versnippering</div>
+        </div>
+
+        <div class="tl-period featured" style="flex: 3;" aria-label="Middenrijk">
+          <div class="tl-label">Middenrijk<br><span style="font-weight:400;font-size:0.62rem;color:var(--text-light);">&#9733; handel</span></div>
+          <div class="tl-bar tl-p3" style="height:80px;"></div>
+          <div class="tl-span">ca. 2055–1650 v.Chr.</div>
+          <div class="tl-tooltip"><strong>Middenrijk</strong><br>Uitbreiding handel, bloei literatuur</div>
+        </div>
+
+        <div class="tl-period" style="flex: 1.5;" aria-label="Tweede Tussenperiode">
+          <div class="tl-label">Tussen-<br>periode II</div>
+          <div class="tl-bar" style="height:42px;background:#9A8070;"></div>
+          <div class="tl-span">1650–1550 v.Chr.</div>
+          <div class="tl-tooltip"><strong>Tweede Tussenperiode</strong><br>Hyksos-invasie uit het noorden</div>
+        </div>
+
+        <div class="tl-period featured" style="flex: 3.5;" aria-label="Nieuwe Rijk">
+          <div class="tl-label">Nieuwe Rijk<br><span style="font-weight:400;font-size:0.62rem;color:var(--text-light);">&#9733; expansie</span></div>
+          <div class="tl-bar tl-p5" style="height:90px;"></div>
+          <div class="tl-span">ca. 1550–1070 v.Chr.</div>
+          <div class="tl-tooltip"><strong>Nieuwe Rijk</strong><br>Ramses II, Toetanchamon, Abu Simbel</div>
+        </div>
+
+        <div class="tl-period" style="flex: 2;" aria-label="Late Periode">
+          <div class="tl-label">Late<br>Periode</div>
+          <div class="tl-bar tl-p7" style="height:58px;"></div>
+          <div class="tl-span">1070–332 v.Chr.</div>
+          <div class="tl-tooltip"><strong>Late Periode</strong><br>Achteruitgang, Perzische en Griekse invloed</div>
+        </div>
+
+      </div>
+      <p class="timeline-7-labels">De tijdlijn toont de grote periodes van het oude Egypte. &#9733; = periodes behandeld in dit hoofdstuk. Beweeg over een balk voor meer info.</p>
+    </div>
+
+    <h3 class="sub-heading">De geografie: het geschenk van de Nijl</h3>
+
+    <div class="prose-text">
+      <p>Egypte is een van de droogste gebieden ter wereld. Wie naar een satellietfoto kijkt, ziet het onmiddellijk: een eindeloze gele woestijn, en daarin een smalle, weldadige groene streep — de Nijlvallei. Bijna alle Egyptenaren leefden — en leven nog steeds — in die smalle strook vruchtbare grond langs de rivier.</p>
+
+      <p>De Griekse geschiedschrijver Herodotos schreef in de vijfde eeuw voor Christus een zin die we vandaag nog citeren: <em>"Egypte is het geschenk van de Nijl."</em> Hij had gelijk. Zonder de Nijl was er geen Egypte. De rivier leverde water voor irrigatie, vis als voedsel, papyrusriet voor schrijven en papier, slib voor het bouwen van huizen, en — het allerbelangrijkst — de jaarlijkse overstroming die de akkers vruchtbaar hield.</p>
+    </div>
+
+    <div class="highlighted-para">
+      <strong>Twee Egyptes in één:</strong> De Egyptenaren maakten zelf een onderscheid tussen <em>Kemet</em> ("het zwarte land") — de vruchtbare Nijlvallei met zijn donkere slib — en <em>Deshret</em> ("het rode land") — de dorre woestijn die aan beide kanten begon waar de irrigatie ophield. Kemet was leven; Deshret was dood.
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: satellietfoto of kaart van de Nijlvallei">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Kaart van Egypte met de Nijlvallei in groen en de omringende woestijn in geel-bruin. Aangeduid: de Nijldelta in het noorden, het Nijldal van Aswan tot Caïro, de belangrijkste steden (Memphis, Thebe/Karnak, Abu Simbel) en de aangrenzende gebieden Nubië, Levant en de Rode Zee.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 11.2
+  ============================================================ -->
+  <section class="section-alt" id="s11-2">
+    <div class="section-heading">
+      <span class="section-num">11.2</span>
+      <h2 class="section-title">Leven en werken aan de Nijl: irrigatie, tempel en handel</h2>
+    </div>
+
+    <h3 class="sub-heading">De jaarlijkse overstroming</h3>
+
+    <div class="prose-text">
+      <p>Elk jaar, van juni tot september, trad de Nijl buiten zijn oevers. De Egyptenaren noemden dit seizoen <em>akhet</em> — de overstroming. Het water stroomde de velden op en liet bij zijn terugtrekken een laag vruchtbaar slib achter. Op dat slib groeiden de granen — gerst en emmer — die het basisvoedsel van het volk vormden.</p>
+
+      <p>De overstroming was niet altijd perfect. Een te lage overstroming betekende droogte en hongersnood. Een te hoge overstroming verwoestte dorpen en kanalen. De farao's en de priesters observeerden de Nijlstanden nauwgezet, maten de hoogte van het water met zogeheten "Nijlometers" en berekenden de oogstverwachtingen.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Irrigatie</span>
+        <p class="begrip-def">Irrigatie is het kunstmatig begeleiden van water naar landbouwvelden via een netwerk van kanalen, sluizen en dijken. De Egyptenaren bouwden een uitgebreid irrigatiesysteem om het overstromingswater te verdelen over de akkers en het zo lang mogelijk vast te houden.</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>De boeren groeven een netwerk van irrigatiekanalen die het overstromingswater naar afgelegen velden leidden. Na de overstroming, wanneer het water terugliep, bleef het slib liggen op de akkers. In november begon het zaaiseizoen (<em>peret</em>), en in maart-april was de oogst (<em>shemu</em>). Het was een driefasig ritme waarop het hele Egyptische jaar was afgestemd.</p>
+    </div>
+
+    <h3 class="sub-heading">De tempeleconomie</h3>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Tempeleconomie</span>
+        <p class="begrip-def">In Egypte speelden de grote tempels een centrale economische rol. Ze fungeerden als opslagplaatsen van overschotten (graan, olie, textiel), als werkgevers van ambachtslieden en schrijvers, en als herverdelers van rijkdommen. De priesterklasse beheerde deze rijkdommen in naam van de goden.</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>De grote tempels van Karnak en Luxor waren niet alleen heilige plaatsen — ze waren ook economische centra. Ze bezaten enorme hoeveelheden landbouwgrond, vee en slaven. Belastingen werden betaald in natura: graan, linnen, goud, vee. Al die goederen werden opgeslagen in de tempelmagazijnen en verdeeld onder priesters, ambtenaren en arbeiders.</p>
+
+      <p>De tempel was de werkgever van schrijvers, beeldhouwers, schilders, bakkers en wevers. Bouwprojecten werden gefinancierd door de tempelschatten. In tijden van hongersnood konden de tempels voedsel uitdelen. De tempel was, met andere woorden, het hart van de lokale economie.</p>
+    </div>
+
+    <h3 class="sub-heading">Handel en rijkdom</h3>
+
+    <div class="prose-text">
+      <p>Egypte was rijk aan graan en linnen, maar had weinig hout, weinig metalen en weinig luxeproducten. Dat leidde tot een levendige buitenlandse handel. Egyptische schepen voeren naar <strong>Nubië</strong> in het zuiden voor goud, ivoor en exotische dieren. Ze trokken naar het <strong>land Punt</strong> (vermoedelijk aan de kust van het huidige Somalië of Eritrea) voor wierook en mirre. Ze handelden met de <strong>Levant</strong> (het huidige Libanon, Syrië en Israël) voor cederhout. Via de Rode Zee bereikte Egypte Arabië en misschien zelfs India.</p>
+
+      <p>Intern circuleerden goederen via de Nijl — de snelste en goedkoopste transportroute in het hele land. De farao hief belastingen op die handel en kon zo enorme bouwprojecten financieren.</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: irrigatiekanalen en tempelmagazijn">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Twee afbeeldingen naast elkaar. Links: reconstructietekening van Egyptische irrigatiekanalen tijdens de overstromingsperiode, met boeren die sluizen openen. Rechts: plattegrond van een tempelcomplex met aanduiding van de magazijnen, het heiligdom en de pylonen.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">Denkvraag</div>
+      <p class="dv-text">De Egyptenaren bouwden piramides voor hun doden, terwijl boeren in het dal hard moesten werken voor weinig voedsel. Was dat eerlijk? Of had de bouw van piramides ook andere functies — economisch, sociaal, religieus — die de samenleving als geheel ten goede kwamen? Bespreek dit vanuit meerdere perspectieven.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 11.3
+  ============================================================ -->
+  <section class="section-block" id="s11-3">
+    <div class="section-heading">
+      <span class="section-num">11.3</span>
+      <h2 class="section-title">De farao: god, koning en veldheer</h2>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Farao</span>
+        <p class="begrip-def">De farao was de absolute heerser van het oude Egypte. Het woord "farao" komt van het Egyptische <em>per-aa</em>, wat "groot huis" betekent. De farao was tegelijk een politieke leider, een militaire bevelhebber en een religieus hoofd. Hij werd beschouwd als de levende god Horus en als de zoon van de zonnegod Ra.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Goddelijke dubbele natuur</h3>
+
+    <div class="prose-text">
+      <p>In de ogen van de Egyptenaren was de farao geen gewone sterveling. Hij was de levende incarnatie van de god <strong>Horus</strong> — de hemelgod met het valkenhoofd. Bij zijn dood werd hij één met <strong>Osiris</strong>, de god van de dood en de opstanding. Zijn opvolger nam dan de rol van Horus over, en de kringloop begon opnieuw.</p>
+
+      <p>Tegelijk was de farao de <strong>zoon van Ra</strong>, de zonnegod. Dit betekende dat hij de schakel was tussen de goddelijke en de menselijke wereld. Zonder de farao zou de kosmische orde — die de Egyptenaren <em>Ma'at</em> noemden — in chaos vervallen. De dagelijkse tempeldiensten, die priesters namens de farao uitvoerden, waren dus geen vrijblijvende rituelen: ze hielden de wereld draaiende.</p>
+    </div>
+
+    <h3 class="sub-heading">De vier taken van de farao</h3>
+
+    <div class="prose-text">
+      <p>De farao had taken in elk van de vier maatschappelijke domeinen:</p>
+    </div>
+
+    <ul style="margin: 1rem 0 1.5rem 0; list-style: none; padding: 0;">
+      <li style="display:flex;gap:0.7rem;margin-bottom:1rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:100px;">Politiek:</span>
+        <span>De farao was de absolute wetgever. Zijn woord was wet. Hij benoemde gouverneurs (<em>nomarchs</em>) voor de provincies (<em>nomen</em>) en kon hen afzetten. Alle grond in Egypte behoorde in theorie aan hem toe.</span>
+      </li>
+      <li style="display:flex;gap:0.7rem;margin-bottom:1rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:100px;">Economisch:</span>
+        <span>De farao beheerde de belasting op de Nijloverstroming, controleerde de handel, financierde bouwprojecten en verdeelde goederen via de tempeleconomie. Hij was de beheerder van de rijkdommen van het land.</span>
+      </li>
+      <li style="display:flex;gap:0.7rem;margin-bottom:1rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:100px;">Militair:</span>
+        <span>De farao leidde zijn leger persoonlijk ten strijde, althans in theorie. Afbeeldingen op tempelmuren tonen hem altijd als de heldhaftige overwinnaar, hoog te paard of te voet tussen zijn vijanden. Ramses II liet zijn overwinning in de Slag bij Kades (ca. 1274 v.Chr.) in steen vereeuwigen — hoewel het gevecht feitelijk op een gelijkspel uitliep.</span>
+      </li>
+      <li style="display:flex;gap:0.7rem;margin-bottom:1rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:100px;">Religieus:</span>
+        <span>De farao was het hoofd van de eredienst. Alleen hij mocht officieel offeren aan de goden — in de praktijk deden priesters dit namens hem. Hij financierde de bouw en het onderhoud van alle grote tempels.</span>
+      </li>
+    </ul>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Vizier</span>
+        <p class="begrip-def">De vizier was de hoogste ambtenaar na de farao, vergelijkbaar met een eerste minister. Hij coördineerde het bestuur van het land, ontving de rapporten van de provinciegouverneurs, beheerde de belastinginning en stond aan het hoofd van de rechtbanken. In grote periodes waren er twee viziers: één voor Opper-Egypte (het zuiden) en één voor Beneden-Egypte (de delta).</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Een vrouwelijke farao: Hatsjepsoet</h3>
+
+    <div class="prose-text">
+      <p>Het koningschap was in theorie voorbehouden aan mannen — maar de realiteit was soms anders. De meest beroemde vrouwelijke farao was <strong>Hatsjepsoet</strong>, die regeerde van ca. 1473 tot 1458 v.Chr. Ze begon als regentes voor haar jonge stiefzoon Toetmosis III, maar nam al snel de volledige koninklijke titels en regalia aan. Ze liet zichzelf afbeelden als man, met de traditionele valse baard van de farao.</p>
+
+      <p>Hatsjepsoet was een bekwame heerser: ze leidde een succesvolle expeditie naar het land Punt en liet talrijke bouwwerken oprichten, waaronder haar indrukwekkende dodentempel bij Deir el-Bahari. Na haar dood probeerde Toetmosis III haar naam uit de tempels te laten wissen — maar haar erfenis bleef bewaard.</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: farao op troon en Hatsjepsoet">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Links: traditionele afbeelding van een farao op zijn troon met de dubbele kroon (pschent), de staf en de gesel — symbolen van macht over Opper- en Beneden-Egypte. Rechts: standbeeld van Hatsjepsoet met de gebruikelijke koninklijke attributen inclusief de valse baard.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">Denkvraag</div>
+      <p class="dv-text">Als je zelf een Egyptische farao was, hoe zou je bewerkstelligen dat gewone mensen jou als een god zien? Denk aan beelden, teksten, rituelen, bouwwerken en kleding. Welke van deze middelen werken vandaag nog steeds om macht te tonen?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 11.4
+  ============================================================ -->
+  <section class="section-alt" id="s11-4">
+    <div class="section-heading">
+      <span class="section-num">11.4</span>
+      <h2 class="section-title">Hiërogliefen: het schrift van de farao's</h2>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Hiërogliefen</span>
+        <p class="begrip-def">Hiërogliefen zijn de tekens van het Egyptische schrijfsysteem. Het woord komt van het Grieks: <em>hieros</em> (heilig) en <em>glyphos</em> (gegraveerd). Het hiërogliefenschrift telde meer dan 700 verschillende tekens en werd gebruikt van ca. 3100 v.Chr. tot in de 4de eeuw n.Chr. — een periode van meer dan drieduizend jaar.</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>Het Egyptische schrift ontstond rond 3100 voor Christus — iets later dan het Mesopotamische spijkerschrift, maar onafhankelijk daarvan. Het bestaat uit drie soorten tekens, die vaak samen worden gebruikt:</p>
+    </div>
+
+    <h3 class="sub-heading">Drie soorten tekens</h3>
+
+    <ul style="margin: 1rem 0 1.5rem 0; list-style: none; padding: 0;">
+      <li style="display:flex;gap:0.7rem;margin-bottom:1rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:130px;">Ideogrammen:</span>
+        <span>Tekens die een woord of begrip direct afbeelden. Een afbeelding van een zon betekent "zon" of "dag". Een afbeelding van een man die loopt, betekent "lopen" of "gaan".</span>
+      </li>
+      <li style="display:flex;gap:0.7rem;margin-bottom:1rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:130px;">Fonogrammen:</span>
+        <span>Tekens die klanken voorstellen, niet betekenissen. Ze werken als letters of lettergrepen. Zo kon het Egyptische schrift ook abstracte woorden schrijven die je niet kunt afbeelden.</span>
+      </li>
+      <li style="display:flex;gap:0.7rem;margin-bottom:1rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:130px;">Determinatieven:</span>
+        <span>Zwijgende tekens die aan het einde van een woord werden geplaatst om de categorie aan te geven. Een klein teken van een man na een woord betekende dat het over een mannelijk persoon ging. Een teken van een boekrol betekende dat het een abstract begrip was.</span>
+      </li>
+    </ul>
+
+    <div class="prose-text">
+      <p>Het hiërogliefenschrift werd gebruikt voor officiële en religieuze teksten op tempelmuren, grafstenen en papyrusrollen. Naast dit formele schrift bestonden er ook twee vereenvoudigde schrijfstijlen: het <em>hiëratisch</em> schrift voor dagdagelijkse teksten op papyrus, en het latere <em>demotisch</em> schrift voor zakelijke en administratieve documenten.</p>
+    </div>
+
+    <h3 class="sub-heading">Schrijvers: de machtigste klasse</h3>
+
+    <div class="prose-text">
+      <p>Slechts een kleine minderheid van de Egyptische bevolking — schatting: één tot vijf procent — was geletterd. Schrijvers (<em>scribes</em>) doorliepen een lange en strenge opleiding in speciale schrijversscholen (<em>huizen van leven</em>) die verbonden waren aan tempels. Ze kopieerden teksten, voerden belastingregisters bij, schreven brieven voor de farao en stelden contracten op.</p>
+
+      <p>Hun kennis gaf hen een enorme maatschappelijke macht. Een schrijver hoefde niet in de zon te staan zweten op het veld. Hij kon bij het leger assistent-officier worden, belastingontvanger, priester of hoge ambtenaar. Schrijvers konden klimmen op de maatschappelijke ladder — iets wat voor boeren bijna onmogelijk was.</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: hiërogliefentekens en schrijver">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Links: een selectie van veelgebruikte hiërogliefentekens met hun betekenis of klankwaarde — een oog, een uil, een water-zigzaglijn, een slang, een hand. Rechts: de beroemde "zittende schrijver" uit het Louvre — een oud-egyptisch standbeeld van een schrijver op zijn hurken met een papyrusrol op zijn schoot.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 11.5
+  ============================================================ -->
+  <section class="section-block" id="s11-5">
+    <div class="section-heading">
+      <span class="section-num">11.5</span>
+      <h2 class="section-title">Een samenleving van standen</h2>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Standenmaatschappij</span>
+        <p class="begrip-def">Een standenmaatschappij is een samenleving waarbij mensen worden ingedeeld in hiërarchische groepen (standen) op basis van geboorte, beroep of rijkdom. De meeste oude beschavingen, waaronder Egypte, kenden zo'n gelaagde structuur waarbij de bovenste standen meer rechten, rijkdom en macht hadden dan de onderste.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">De piramide van de samenleving</h3>
+
+    <div class="prose-text">
+      <p>De Egyptische samenleving was sterk gelaagd. Bovenaan stond de farao met zijn koningsfamilie — de onomstreden heer van het land. Vlak onder hem stonden de <strong>hogepriester en de vizier</strong>, de machtigste mannen na de farao. Zij controleerden respectievelijk de religieuze en de bestuurlijke structuren van het land.</p>
+
+      <p>De <strong>schrijvers en hoge ambtenaren</strong> vormden de volgende laag. Zij waren geletterd, genoten een aanzienlijk inkomen uit de tempel of het staatsapparaat, en konden in theorie verder doorstijgen als ze voldoende bekwaam waren. Onder hen stonden de <strong>soldaten</strong>, die in het Nieuwe Rijk een steeds grotere rol kregen naarmate Egypte militair actiever werd.</p>
+
+      <p>Het grootste deel van de bevolking bestond uit <strong>ambachtslieden, kooplieden en boeren</strong>. Boeren betaalden belasting in natura — een deel van hun oogst — en leverden ook arbeid voor grote bouwprojecten. Het is een misverstand dat de piramides werden gebouwd door slaven: archeologisch onderzoek toont dat het eerder goed gevoede, betaalde arbeiders waren, al dan niet in dienst van de tempel.</p>
+
+      <p><strong>Slaven</strong> bestonden ook in Egypte, maar waren minder centraal dan in het latere Griekenland of Rome. Ze kwamen vaak terecht in gevangenschap als gevolg van militaire campagnes. Ze werkten in tempels, privéhuishoudens en op boerderijen.</p>
+    </div>
+
+    <h3 class="sub-heading">De positie van vrouwen</h3>
+
+    <div class="prose-text">
+      <p>In vergelijking met veel andere oude beschavingen hadden Egyptische vrouwen opmerkelijk veel rechten. Ze konden land en andere eigendommen bezitten, contracten sluiten, zelfstandig voor de rechter optreden en scheiden. Dat was in het oude Griekenland of Mesopotamië niet mogelijk.</p>
+
+      <p>Dit had wellicht te maken met de Egyptische religie: godinnen als Isis speelden een centrale en positieve rol in de mythologie. Vrouwen konden ook priesteressen worden, al waren de hoogste functies vrijwel altijd voor mannen. In de praktijk werkten de meeste vrouwen als wever, bakker of brouwer — maar de juridische gelijkheid was opmerkelijk voor haar tijd.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">Denkvraag</div>
+      <p class="dv-text">Waarom hadden Egyptische vrouwen meer rechten dan Griekse of Mesopotamische vrouwen? Speelde de religie daarin een rol? Of waren er andere factoren — economisch, geografisch of politiek — die dit kunnen verklaren? Gebruik informatie uit dit hoofdstuk én uit eerdere hoofdstukken over Mesopotamië.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 11.6
+  ============================================================ -->
+  <section class="section-alt" id="s11-6">
+    <div class="section-heading">
+      <span class="section-num">11.6</span>
+      <h2 class="section-title">Goden, mummificatie en het leven na de dood</h2>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Polytheïsme</span>
+        <p class="begrip-def">Polytheïsme is het geloof in meerdere goden. Het woord komt van het Grieks: <em>polys</em> (veel) en <em>theos</em> (god). De Egyptenaren vereerden honderden goden, elk met eigen domein, verschijningsvorm en mythen. De meeste goden hadden een dierlijk of deels dierlijk uiterlijk.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">De grote goden</h3>
+
+    <div class="prose-text">
+      <p>Het Egyptische pantheon telde honderden goden, maar een aantal speelde een centrale rol:</p>
+    </div>
+
+    <ul style="margin: 1rem 0 1.5rem 0; list-style: none; padding: 0;">
+      <li style="display:flex;gap:0.7rem;margin-bottom:0.9rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:90px;">Amon-Re:</span>
+        <span>De belangrijkste god van het Nieuwe Rijk — een fusie van de lokale god Amon van Thebe en de zonnegod Re. "Koning van de goden", vader van de farao.</span>
+      </li>
+      <li style="display:flex;gap:0.7rem;margin-bottom:0.9rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:90px;">Osiris:</span>
+        <span>God van de dood, de opstanding en de vruchtbaarheid. Zijn mythe — vermoord door zijn broer Seth, herrezen door zijn zuster-echtgenote Isis — was het centrale verhaal van de Egyptische religie.</span>
+      </li>
+      <li style="display:flex;gap:0.7rem;margin-bottom:0.9rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:90px;">Isis:</span>
+        <span>Godin van moederschap, magie en genezing. Ze herstelde het lichaam van Osiris en baarde de god Horus. Een van de populairste godinnen in de hele antieke wereld.</span>
+      </li>
+      <li style="display:flex;gap:0.7rem;margin-bottom:0.9rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:90px;">Horus:</span>
+        <span>God van de hemel, met een valkenhoofd. De levende farao was zijn incarnatie. Hij wraaklastig zijn vader Osiris op diens moordenaar Seth.</span>
+      </li>
+      <li style="display:flex;gap:0.7rem;margin-bottom:0.9rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:90px;">Seth:</span>
+        <span>God van chaos, de woestijn en stormen. Niet louter kwaad: hij beschermde de zonnegod Re tegen de grote slang Apep. Symbool van de onoverwinnelijke woestijn.</span>
+      </li>
+      <li style="display:flex;gap:0.7rem;margin-bottom:0.9rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:90px;">Anoebis:</span>
+        <span>God van de balseming en het dodenrijk, met een jakhalsenhoofd. Hij begeleidde de zielen der doden en woog hun hart in het oordeel van de doden.</span>
+      </li>
+      <li style="display:flex;gap:0.7rem;margin-bottom:0.9rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:90px;">Toth:</span>
+        <span>God van wijsheid, het schrift en de maan — met een ibiskophoofd of als baviaan. Hij was de schrijver van de goden en noteerde de uitkomst van de weging van het hart.</span>
+      </li>
+      <li style="display:flex;gap:0.7rem;margin-bottom:0.9rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:90px;">Sobek:</span>
+        <span>Krokodillengod van de Nijl, vruchtbaarheid en kracht. Vereerd in gebieden waar krokodillen leefden. Soms afgebeeld met de dubbele kroon van de farao.</span>
+      </li>
+    </ul>
+
+    <h3 class="sub-heading">De ka: de ziel die blijft</h3>
+
+    <div class="prose-text">
+      <p>De Egyptenaren geloofden dat elk mens meerdere geestelijke componenten bezat. De belangrijkste was de <em>ka</em> — de levenskracht of ziel die bij de dood het lichaam verliet maar ernaar terugkeerde. Opdat de ka na de dood verder kon leven, moest het lichaam bewaard blijven. Dit was de religieuze verklaring voor mummificatie: zonder lichaam kon de ka niet terugkeren, en dan was de dood definitief.</p>
+
+      <p>De Egyptenaren geloofden ook in een <em>ba</em> — het persoonlijkheidsaspect van de ziel, dat vrij kon ronddwalen — en in de <em>akh</em>, de verheerlijkte geest van een geslaagde overledene die in het hiernamaals woonde.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Mummificatie</span>
+        <p class="begrip-def">Mummificatie was het proces waarmee het lichaam van een overledene werd bewaard. Het doel was religieus: het lichaam moest intact blijven zodat de ka van de overledene er naar kon terugkeren. Het volledige mummificatieproces duurde zeventig dagen en was voorbehouden aan wie het kon betalen — de rijkste mummies waren die van farao's en hoge priesten.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Het mummificatieproces</h3>
+
+    <div class="prose-text">
+      <p>Het mummificatieproces verliep in verschillende stadia, elk met een religieuze betekenis:</p>
+    </div>
+
+    <ul style="margin: 1rem 0 1.5rem 0; list-style: disc; padding-left: 1.4rem;">
+      <li style="margin-bottom:0.7rem;font-size:0.97rem;color:var(--text-mid);">Het lichaam werd grondig gereinigd en gewassen met palmolie en natriumoplossing.</li>
+      <li style="margin-bottom:0.7rem;font-size:0.97rem;color:var(--text-mid);">De hersenen werden via de neus verwijderd met een speciale haak — zij werden als onbelangrijk beschouwd en weggegooid.</li>
+      <li style="margin-bottom:0.7rem;font-size:0.97rem;color:var(--text-mid);">De inwendige organen (lever, longen, maag, darmen) werden verwijderd en bewaard in <strong>kanopische potten</strong> — vier kruiken elk beschermd door een andere zoonsgod van Horus. Het hart bleef in het lichaam: het werd beschouwd als de zetel van de intelligentie en het geweten.</li>
+      <li style="margin-bottom:0.7rem;font-size:0.97rem;color:var(--text-mid);">Het lichaam werd volledig ingepakt in <strong>natron</strong> — een droogzout dat van nature langs de Nijl voorkwam — en veertig dagen laten drogen.</li>
+      <li style="margin-bottom:0.7rem;font-size:0.97rem;color:var(--text-mid);">Na het drogen werd het lichaam gevuld met linnen, zaagsel of specerijen om de vorm te herstellen, en vervolgens in honderden meters linnen gewikkeld. Tussen de lagen werden amuletten en spreuken verborgen.</li>
+      <li style="margin-bottom:0.7rem;font-size:0.97rem;color:var(--text-mid);">De mummie werd geplaatst in een of meerdere geneste doodskisten — voor rijke Egyptenaren versierd met goud en hiërogliefenteksten.</li>
+    </ul>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Dodenboek</span>
+        <p class="begrip-def">Het Egyptische Dodenboek was een verzameling spreuken en instructies op papyrus, meegelegd in het graf van een overledene. De spreuken moesten de overledene begeleiden op zijn gevaarlijke reis door het hiernamaals, beschermen tegen demonen, en helpen bij het cruciale oordeel van de doden. Het bekendste onderdeel is de "weging van het hart".</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">De weging van het hart</h3>
+
+    <div class="prose-text">
+      <p>In het oordeel van de doden — indrukwekkend afgebeeld in talloze Dodenboeken — werd het hart van de overledene gewogen op een weegschaal tegenover de veer van <em>Ma'at</em>, de godin van waarheid en gerechtigheid. Was het hart zo licht als de veer — had de overledene een goed leven geleid — dan mocht hij het hiernamaals betreden. Was het hart zwaarder dan de veer — door schuld, leugens of zonden — dan werd het verscheurd door het monster Ammit, dat deels krokodil, deels leeuw en deels nijlpaard was, en was de overledene definitief dood.</p>
+
+      <p>De god Anoebis hield de weegschaal, de god Toth noteerde de uitkomst, en de god Osiris presideerde als rechter. De overledene werd ook geacht 42 zonden niet begaan te hebben — een soort negatieve geloofsbelijdenis die wordt aangeduid als de "Negatieve Confessie".</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: weging van het hart en kanopische potten">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Links: afbeelding uit het Dodenboek van Ani (ca. 1275 v.Chr.) waarop de weging van het hart wordt getoond: Anoebis houdt de weegschaal vast, Toth noteert het resultaat, het monster Ammit wacht rechts. Rechts: de vier kanopische potten met de dierkoppen van de vier zonen van Horus — Imsety (mens), Hapy (baviaan), Duamutef (jakhals) en Qebehsenuef (valk).</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 11.7
+  ============================================================ -->
+  <section class="section-block" id="s11-7">
+    <div class="section-heading">
+      <span class="section-num">11.7</span>
+      <h2 class="section-title">Bouwen voor de eeuwigheid: tempels, piramides en kunst</h2>
+    </div>
+
+    <h3 class="sub-heading">De piramides van Gizeh</h3>
+
+    <div class="prose-text">
+      <p>De bekendste bouwwerken van het oude Egypte — en misschien van de hele menselijke beschaving — zijn de drie grote piramiden van Gizeh (ca. 2560–2510 v.Chr.). Ze werden gebouwd voor de farao's <strong>Cheops</strong> (de grootste, met een oorspronkelijke hoogte van 146,5 meter), <strong>Chefren</strong> en <strong>Menkaure</strong>. Tot de bouw van de Eiffeltoren in 1889 was de piramide van Cheops het hoogste door mensen gebouwde bouwwerk ter wereld.</p>
+
+      <p>De piramide was geen louter graf. Ze was een religieus complex: een tempel voor de dodendienst van de farao, omgeven door mastaba's voor hoge ambtenaren, verbonden via een verhoogde processieweg met een valleitempel aan de Nijl. De <strong>Grote Sfinx</strong> van Gizeh — een leeuw met een menselijk hoofd, gehouwen uit de levende rots — bewaakte het geheel als symbool van koninklijke kracht.</p>
+
+      <p>Hoeveel arbeiders bouwden de piramiden? Schattingen lopen uiteen van 20.000 tot 100.000 arbeiders in het hoogseizoen. Archeologisch bewijs — gevonden arbeiderskampen met resten van brood, bier en vlees — suggereert dat de arbeiders goed gevoed werden en beloond. Dit waren geen uitgemergelde slaven, maar georganiseerde bouwploegen.</p>
+    </div>
+
+    <h3 class="sub-heading">De grote tempels</h3>
+
+    <div class="prose-text">
+      <p>In het Nieuwe Rijk verschoof de nadruk van piramides naar tempels. De twee grootste tempelcomplexen stonden beide in Thebe (het huidige Luxor):</p>
+
+      <p><strong>Karnak</strong> was het grootste religieuze complex ooit gebouwd. Het groeide over meer dan duizend jaar aan, waarbij elke farao zijn eigen zalen, pylonen en obelisken toevoegde. De hypostyle hal van Seti I en Ramses II — een bos van 134 reusachtige zuilen, sommige meer dan 20 meter hoog — is vandaag nog altijd overweldigend.</p>
+
+      <p><strong>Abu Simbel</strong>, hoog boven de Nijl in Nubië, liet Ramses II voor zichzelf bouwen: twee in de rots uitgehakte tempels, geflankeerd door vier sittende kolossale standbeelden van de farao, elk 20 meter hoog. Éénmaal per jaar, op de verjaardag van zijn kroning, valt het eerste ochtendlicht precies in het heiligdom en verlicht vier godenbeelden — drie goden plus Ramses zelf.</p>
+    </div>
+
+    <h3 class="sub-heading">Kunst: vaste regels voor de eeuwigheid</h3>
+
+    <div class="prose-text">
+      <p>De Egyptische kunst valt direct op door haar uitzonderlijke regelmaat. Of je nu een muurschildering in een klein graf uit 2500 v.Chr. bekijkt of een reliëf van Ramses II uit 1270 v.Chr. — de stijl is nagenoeg identiek. Dat was geen artistiek onvermogen, maar een bewuste keuze: de kunst moest begrijpelijk zijn voor iedereen, en moest de werkelijkheid zo volledig mogelijk weergeven, ook al was dat niet hoe het menselijk oog de wereld ziet.</p>
+
+      <p>De <strong>beeldhouwkunst</strong> volgde vaste canons: frontale lichaamshouding, ideaallichaam (jong, gespierd, zonder tekortkomingen), strikte hiërarchische schaal (hoe groter de figuur, hoe belangrijker). Farao's werden altijd groter afgebeeld dan hun onderdanen, en hun onderdanen groter dan hun vijanden.</p>
+
+      <p>De <strong>schilderkunst</strong> volgde het "wet van de frontaliteit met profiel": het hoofd en de benen werden van opzij weergegeven, de schouders en het bovenlichaam van voren. Een ogenschijnlijk vreemde combinatie, maar het had een logica: zo was elk lichaamsdeel zo duidelijk mogelijk zichtbaar. Niet realisme, maar leesbaarheid was het doel.</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: piramides van Gizeh en Egyptische schilderkunst">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Boven: panoramafoto of tekening van de drie piramiden van Gizeh met de Grote Sfinx op de voorgrond. Onder: detail van een Egyptische muurschildering die het frontale stijlprincipe illustreert — een figuur met het hoofd in profiel, schouders van voren, benen opnieuw in profiel.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">Denkvraag</div>
+      <p class="dv-text">De Egyptische beeldhouwkunst en schilderkunst veranderden nauwelijks in drieduizend jaar. Is dat een teken van een stabiele, zelfzekere beschaving — of van rigiditeit en angst voor verandering? Wat denk je dat de Egyptenaren zelf zouden zeggen? Wat zegt dit over hoe wij naar "artistieke evolutie" kijken?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 11.8
+  ============================================================ -->
+  <section class="section-alt" id="s11-8">
+    <div class="section-heading">
+      <span class="section-num">11.8</span>
+      <h2 class="section-title">Het raadsel opgelost: de ontcijfering van het hiërogliefenschrift</h2>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Rosettasteen</span>
+        <p class="begrip-def">De Rosettasteen is een granietplaat, gevonden in 1799 in de Egyptische stad Rosette (nu Rashid), met dezelfde tekst in drie schriften: hiërogliefen, demotisch schrift en Grieks. Omdat Grieks wel begrepen werd, was het de sleutel tot de ontcijfering van het hiërogliefenschrift. De steen is vandaag bewaard in het British Museum in Londen.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Napoleon en de Franse geleerden</h3>
+
+    <div class="prose-text">
+      <p>In 1798 viel de Franse generaal Napoleon Bonaparte Egypte binnen. Naast zijn soldaten nam hij ook honderden geleerden mee: wetenschappers, kunstenaars, cartografen en schrijvers, opgedragen om het land te bestuderen. Het resultaat was de monumentale <em>Description de l'Égypte</em> — een encyclopedie in twintig delen over alles wat de Fransen zagen.</p>
+
+      <p>In augustus 1799 vonden Franse soldaten bij graafwerken aan het fort van Rosette een ongewone steen. Hij woog bijna een ton en was bedekt met drie blokken tekst. Eén blok was in het klassieke Grieks, een taal die geleerden perfect beheersten. De andere twee blokken waren in twee onbekende schriften — later geïdentificeerd als Egyptisch hiërogliefenschrift en demotisch schrift.</p>
+
+      <p>De steen bevatte een priesterbesluit uit 196 voor Christus, geschreven tijdens de regeerperiode van de Griekse farao Ptolemaeus V. Omdat alle drie de blokken dezelfde tekst bevatten, was het principe duidelijk: wie het Grieks gebruikte als sleutel, kon de twee andere schriften ontcijferen. Maar dat was gemakkelijker gezegd dan gedaan.</p>
+    </div>
+
+    <h3 class="sub-heading">Champollion lost het raadsel op</h3>
+
+    <div class="prose-text">
+      <p>Tientallen Europese geleerden probeerden de hiërogliefen te ontcijferen, maar tevergeefs. De meesten gingen ervan uit dat elk teken een woord of begrip voorstelde — een ideografisch systeem. Dat werkte maar gedeeltelijk.</p>
+
+      <p>De doorbraak kwam in 1822, dankzij de Franse taalwetenschapper <strong>Jean-François Champollion</strong>. Champollion had als kind al een fascinatie voor het Nabije Oosten en sprak tegen zijn twintigste al meer dan een dozijn talen — waaronder <strong>Koptisch</strong>, de laatste afstammeling van de oude Egyptische spreektaal, die nog door Egyptische christenen werd gebruikt.</p>
+
+      <p>Champollion realiseerde zich dat hiërogliefen géén puur ideografisch systeem waren, maar een <em>gecombineerd</em> systeem: sommige tekens stelden klanken voor (fonogrammen), anderen waren beeldtekens (ideogrammen) en weer anderen waren categoriebepalende tekens (determinatieven). Met zijn kennis van Koptisch kon hij de klanken reconstrueren die achter de tekens schuilgingen.</p>
+
+      <p>Op 14 september 1822 schreef hij zijn broer een beroemde brief: <em>"Je tiens l'affaire!"</em> — "Ik heb het!" Hij flauwde daarna van uitputting.</p>
+    </div>
+
+    <h3 class="sub-heading">Waarom de ontcijfering zo belangrijk was</h3>
+
+    <div class="prose-text">
+      <p>De ontcijfering van de Rosettasteen was een sleutelmoment in de moderne wetenschap. Vóór 1822 was het oude Egypte een mysterie: de tempelmuren, de papyrusrollen, de grafschriften — niemand begreep wat er stond. Na Champollion opende zich plotseling een wereld van drieduizend jaar teksten, verhalen, brieven, wetten, religieuze hymnen en medische recepten.</p>
+
+      <p>Sindsdien is de egyptologie — de wetenschappelijke studie van het oude Egypte — uitgegroeid tot een volwaardige wetenschappelijke discipline. Elk jaar doen archeologen nieuwe ontdekkingen. Elke nieuwe opgegraven papyrus of tempelmuur leert ons meer over mensen die meer dan vier millennia geleden leefden en stierven.</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: Rosettasteen en portret van Champollion">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Links: foto van de Rosettasteen (bewaard in het British Museum, Londen) met de drie tekstblokken duidelijk zichtbaar: hiërogliefen (boven), demotisch schrift (midden) en Grieks (onder). Rechts: portret van Jean-François Champollion (1790–1832), de ontcijferaar van het hiërogliefenschrift.</p>
+    </div>
+  </section>
+
+</div><!-- end page-wrapper -->
+
+<!-- ============================================================
+     EXERCISES
+============================================================ -->
+<div class="exercises-section" id="oefeningen">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <div class="exercise-card">
+      <div class="ex-title">Oefening 1</div>
+      <div class="ex-name">De farao in de vier maatschappelijke domeinen</div>
+      <p style="font-size:0.97rem;color:var(--text-mid);margin-bottom:0.7rem;">Beschrijf de taken en plichten van de farao in elk van de vier maatschappelijke domeinen. Gebruik concrete voorbeelden uit dit hoofdstuk.</p>
+      <ol>
+        <li><strong>Politiek:</strong> Welke politieke bevoegdheden had de farao? Hoe stuurde hij het land aan zonder modern communicatiesysteem?</li>
+        <li><strong>Economisch:</strong> Hoe controleerde de farao de economie van Egypte? Welke rol speelde de tempel daarin?</li>
+        <li><strong>Militair:</strong> Wat was de symbolische en reële militaire rol van de farao? Geef een historisch voorbeeld.</li>
+        <li><strong>Religieus:</strong> Waarom was de religieuze taak van de farao zo essentieel voor de stabiliteit van het land? Leg het verband met de Nijloverstroming uit.</li>
+      </ol>
+      <p class="ex-tip">Tip: denk ook aan Hatsjepsoet als voorbeeld van hoe het koningschap flexibeler was dan het leek.</p>
+    </div>
+
+    <div class="exercise-card">
+      <div class="ex-title">Oefening 2</div>
+      <div class="ex-name">Mummificatie: religie en techniek samen</div>
+      <p style="font-size:0.97rem;color:var(--text-mid);margin-bottom:0.7rem;">Het mummificatieproces was niet louter een technische ingreep — elke stap had een diepgaande religieuze betekenis. Leg voor minstens vier stappen uit het mummificatieproces uit waarom die stap noodzakelijk was vanuit religieus perspectief.</p>
+      <ol>
+        <li>Waarom moest het lichaam worden bewaard? Wat was de religieuze reden?</li>
+        <li>Waarom werden de organen apart bewaard in kanopische potten, en waarom juist déze vier organen?</li>
+        <li>Waarom bleef het hart in het lichaam, terwijl de hersenen werden weggegooid?</li>
+        <li>Wat was de functie van de amuletten en spreuken die tussen de linnen lagen werden verborgen?</li>
+        <li>Welk verband bestaat er tussen het Dodenboek en de weging van het hart?</li>
+      </ol>
+      <p class="ex-tip">Tip: gebruik ook je kennis van de goden Osiris, Anoebis en Toth om je antwoord te verrijken.</p>
+    </div>
+
+    <div class="exercise-card">
+      <div class="ex-title">Oefening 3</div>
+      <div class="ex-name">Egypte en Mesopotamie: gelijkenissen en verschillen</div>
+      <p style="font-size:0.97rem;color:var(--text-mid);margin-bottom:0.7rem;">Je hebt zowel Mesopotamie als Egypte bestudeerd. Vergelijk de standenmaatschappij van beide beschavingen. Gebruik de onderstaande vergelijkingstabel als leidraad.</p>
+      <ol>
+        <li><strong>Wie staat bovenaan de maatschappij?</strong> Vergelijk de rol van de Mesopotamische koning met die van de Egyptische farao. Zijn er belangrijke verschillen in hun goddelijke status?</li>
+        <li><strong>Welke rol speelden schrijvers?</strong> In beide beschavingen waren schrijvers machtig — maar waren er nuanceverschillen in hun positie?</li>
+        <li><strong>Hoe werden boeren behandeld?</strong> Welke overeenkomsten zijn er in de behandeling van de boerenstand? Waren er ook verschillen?</li>
+        <li><strong>De positie van vrouwen:</strong> In welke beschaving hadden vrouwen meer rechten? Waardoor kun je dat verklaren?</li>
+        <li><strong>Slaven:</strong> Beide beschavingen kenden slavernij. Was de rol van slaven in Egypte gelijkaardig aan die in Mesopotamie, of waren er relevante verschillen?</li>
+      </ol>
+      <p class="ex-tip">Tip: een goede vergelijking noemt zowel gelijkenissen als verschillen, en probeert ook te verklaren waardoor die verschillen zijn ontstaan — klimaat, religie, politieke structuur.</p>
+
+      <div class="illustratie" role="img" aria-label="Vergelijkingstabel Egypte vs Mesopotamie" style="margin-top:1.2rem;">
+        <span class="ill-icon">🖼️</span>
+        <p class="ill-caption">Lege vergelijkingstabel met twee kolommen (Egypte | Mesopotamie) en vijf rijen (leider, schrijvers, boeren, vrouwen, slaven). Leerlingen vullen de cellen in op basis van hun kennis van beide hoofdstukken.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     SUMMARY
+============================================================ -->
+<div class="summary-section" id="samenvatting">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li>Het oude Egypte bestond meer dan drieduizend jaar en kende drie grote bloeiperiodes: het <strong>Oude Rijk</strong> (piramidebouw), het <strong>Middenrijk</strong> (handelsuitbreiding) en het <strong>Nieuwe Rijk</strong> (militaire expansie met farao's als Ramses II en Toetanchamon).</li>
+      <li>De beschaving was volledig afhankelijk van de <strong>jaarlijkse Nijloverstroming</strong>, die vruchtbaar slib achterliet op de akkers. "Egypte is het geschenk van de Nijl" (Herodotos). Een netwerk van <strong>irrigatiekanalen</strong> stuurde het water naar de velden.</li>
+      <li>De <strong>farao</strong> was tegelijk politiek leider, militair opperbevelhebber, religieus hoofd en beheerder van de economie. Hij werd beschouwd als de levende god Horus en zoon van de zonnegod Ra. Zijn medewerkers waren de <strong>vizier</strong> en de <strong>nomarchs</strong>.</li>
+      <li><strong>Hiërogliefen</strong> (ca. 3100 v.Chr.) waren het formele schrijfsysteem van Egypte, met meer dan 700 tekens (ideogrammen, fonogrammen, determinatieven). Alleen geletterde <strong>schrijvers</strong> beheersten het schrift — wat hen enorme maatschappelijke macht gaf.</li>
+      <li>De Egyptische <strong>standenmaatschappij</strong> liep van farao en hogepriester via schrijvers en soldaten naar ambachtslieden, boeren en slaven. Egyptische vrouwen hadden opmerkelijk meer rechten dan in Mesopotamie of Griekenland.</li>
+      <li>De Egyptenaren waren <strong>polytheïsten</strong> met goden als Amon-Re, Osiris, Isis, Horus, Seth, Anoebis, Toth en Sobek. Het geloof in de <em>ka</em> (levenskracht die na de dood terugkeert) verklaart de <strong>mummificatie</strong> en de grafgiften. Het <strong>Dodenboek</strong> begeleidde de overledene naar het hiernamaals.</li>
+      <li>De grote bouwwerken — de <strong>piramides van Gizeh</strong>, de tempel van <strong>Karnak</strong>, <strong>Abu Simbel</strong> — waren religieuze complexen en symbolen van goddelijke macht. De Egyptische kunst volgde strikte regels van frontaliteit en idealisering: leesbaarheid primeerde boven realisme.</li>
+      <li>De <strong>Rosettasteen</strong> (gevonden 1799) met tekst in hiërogliefen, demotisch en Grieks, stelde <strong>Champollion</strong> in staat het hiërogliefenschrift in 1822 te ontcijferen — waarmee drieduizend jaar Egyptische teksten voor de moderne wetenschap toegankelijk werden.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  // Back to top button
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) {
+        btn.classList.add('visible');
+      } else {
+        btn.classList.remove('visible');
+      }
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

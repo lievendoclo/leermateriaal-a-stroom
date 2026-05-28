@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1A — Eerste Graad A-stroom | Leermateriaal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  h1, h2, h3 { font-family: 'Playfair Display', serif; line-height: 1.25; }
+
+  /* ── SITE HEADER ─────────────────────────────────────── */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .site-header .label-right {
+    color: var(--sand);
+    opacity: 0.7;
+    font-size: 0.78rem;
+  }
+
+  /* ── HERO ─────────────────────────────────────────────── */
+  .hero {
+    background: var(--darkblue);
+    color: white;
+    padding: 4.5rem 2.5rem 5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(212,160,23,0.07) 1px, transparent 1px);
+    background-size: 28px 28px;
+    pointer-events: none;
+  }
+
+  .hero-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    color: white;
+    margin-bottom: 0.75rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.65);
+    max-width: 520px;
+    margin: 0 auto 2rem;
+  }
+
+  .hero-accent {
+    display: inline-block;
+    width: 60px;
+    height: 3px;
+    background: var(--gold);
+    border-radius: 2px;
+  }
+
+  /* ── MAIN CONTENT ─────────────────────────────────────── */
+  .main {
+    flex: 1;
+    padding: 3.5rem 2.5rem 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .section-heading {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 1.75rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--sand);
+  }
+
+  /* ── SUBJECT GRID ──────────────────────────────────────── */
+  .subjects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  /* Active subject card */
+  .subject-card {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--transition), box-shadow var(--transition);
+    position: relative;
+  }
+
+  .subject-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 28px rgba(26,43,74,0.20);
+  }
+
+  .subject-card-body {
+    background: var(--darkblue);
+    padding: 2rem 1.75rem 1.5rem;
+    flex: 1;
+    position: relative;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .subject-icon {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .subject-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.45rem;
+    color: white;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .subject-meta {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 1.25rem;
+    line-height: 1.5;
+  }
+
+  .subject-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: rgba(212,160,23,0.12);
+    border: 1px solid rgba(212,160,23,0.4);
+    border-radius: 4px;
+    padding: 0.45rem 1rem;
+    transition: background var(--transition), border-color var(--transition);
+  }
+
+  .subject-card:hover .subject-cta {
+    background: rgba(212,160,23,0.22);
+    border-color: var(--gold);
+  }
+
+  .subject-cta-arrow {
+    font-size: 1rem;
+    transition: transform var(--transition);
+  }
+
+  .subject-card:hover .subject-cta-arrow {
+    transform: translateX(3px);
+  }
+
+  /* Badge "beschikbaar" */
+  .subject-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--terracotta);
+    color: white;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.55rem;
+    border-radius: 3px;
+  }
+
+  /* Placeholder (coming soon) card */
+  .subject-card-placeholder {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    cursor: default;
+    opacity: 0.6;
+  }
+
+  .subject-card-placeholder .subject-card-body {
+    background: #2a2a2a;
+    border-top-color: #444;
+  }
+
+  .subject-card-placeholder .subject-title {
+    color: rgba(255,255,255,0.5);
+  }
+
+  .coming-soon-badge {
+    display: inline-block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.4);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 4px;
+    padding: 0.3rem 0.75rem;
+  }
+
+  /* ── INFO STRIP ────────────────────────────────────────── */
+  .info-strip {
+    margin-top: 3.5rem;
+    background: var(--sand-light);
+    border-radius: 8px;
+    padding: 1.75rem 2rem;
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 1px solid var(--sand);
+  }
+
+  .info-strip-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .info-strip-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-light);
+  }
+
+  .info-strip-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: var(--text-dark);
+  }
+
+  .info-strip-divider {
+    width: 1px;
+    height: 40px;
+    background: var(--sand);
+    flex-shrink: 0;
+  }
+
+  /* ── FOOTER ────────────────────────────────────────────── */
+  .site-footer {
+    background: var(--darkblue);
+    color: rgba(255,255,255,0.45);
+    text-align: center;
+    padding: 1.5rem 2rem;
+    font-size: 0.82rem;
+    font-family: 'Source Sans 3', sans-serif;
+    letter-spacing: 0.04em;
+    margin-top: auto;
+  }
+
+  .site-footer strong { color: var(--gold); font-weight: 600; }
+
+  /* ── RESPONSIVE ───────────────────────────────────────── */
+  @media (max-width: 640px) {
+    .site-header { padding: 0.65rem 1.25rem; }
+    .hero { padding: 3rem 1.25rem 3.5rem; }
+    .main { padding: 2.5rem 1.25rem 3rem; }
+    .info-strip { flex-direction: column; gap: 1.25rem; }
+    .info-strip-divider { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── SITE HEADER ──────────────────────────────────────── -->
+<header class="site-header">
+  <a class="label" href="../index.html" style="text-decoration:none;color:var(--gold);transition:opacity .15s;" onmouseover="this.style.opacity='.75'" onmouseout="this.style.opacity='1'">← Eerste Graad</a>
+  <span class="label label-right">1A &nbsp;·&nbsp; Schooljaar 2026–2027</span>
+</header>
+
+<!-- ── HERO ─────────────────────────────────────────────── -->
+<section class="hero">
+  <p class="hero-kicker">Eerste Graad &nbsp;·&nbsp; A-stroom</p>
+  <h1>Kies een vak</h1>
+  <p class="hero-subtitle">Alle schoolboeken voor het eerste jaar A-stroom op één plek.</p>
+  <span class="hero-accent"></span>
+</section>
+
+<!-- ── MAIN ──────────────────────────────────────────────── -->
+<main class="main">
+  <p class="section-heading">Vakken — 1A</p>
+
+  <div class="subjects-grid">
+
+    <!-- GESCHIEDENIS — actief -->
+    <a href="geschiedenis/index.html" class="subject-card">
+      <div class="subject-card-body">
+        <span class="subject-badge">Beschikbaar</span>
+        <span class="subject-icon">🏛</span>
+        <h2 class="subject-title">Geschiedenis</h2>
+        <p class="subject-meta">19 hoofdstukken &nbsp;·&nbsp; Prehistorie tot Klassieke Oudheid</p>
+        <span class="subject-cta">Start <span class="subject-cta-arrow">→</span></span>
+      </div>
+    </a>
+
+    <!-- AARDRIJKSKUNDE — binnenkort -->
+    <div class="subject-card-placeholder">
+      <div class="subject-card-body">
+        <span class="subject-icon" style="opacity:.4">🌍</span>
+        <h2 class="subject-title">Aardrijkskunde</h2>
+        <span class="coming-soon-badge">Binnenkort beschikbaar</span>
+      </div>
+    </div>
+
+    <!-- WISKUNDE — binnenkort -->
+    <div class="subject-card-placeholder">
+      <div class="subject-card-body">
+        <span class="subject-icon" style="opacity:.4">📐</span>
+        <h2 class="subject-title">Wiskunde</h2>
+        <span class="coming-soon-badge">Binnenkort beschikbaar</span>
+      </div>
+    </div>
+
+    <!-- NEDERLANDS — binnenkort -->
+    <div class="subject-card-placeholder">
+      <div class="subject-card-body">
+        <span class="subject-icon" style="opacity:.4">📖</span>
+        <h2 class="subject-title">Nederlands</h2>
+        <span class="coming-soon-badge">Binnenkort beschikbaar</span>
+      </div>
+    </div>
+
+    <!-- Frans — binnenkort -->
+    <div class="subject-card-placeholder">
+      <div class="subject-card-body">
+        <span class="subject-icon" style="opacity:.4">🗼</span>
+        <h2 class="subject-title">Frans</h2>
+        <span class="coming-soon-badge">Binnenkort beschikbaar</span>
+      </div>
+    </div>
+
+    <!-- BIOLOGIE — binnenkort -->
+    <div class="subject-card-placeholder">
+      <div class="subject-card-body">
+        <span class="subject-icon" style="opacity:.4">🔬</span>
+        <h2 class="subject-title">Biologie</h2>
+        <span class="coming-soon-badge">Binnenkort beschikbaar</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- INFO STRIP -->
+  <div class="info-strip">
+    <div class="info-strip-item">
+      <span class="info-strip-label">Graad</span>
+      <span class="info-strip-value">Eerste graad</span>
+    </div>
+    <div class="info-strip-divider"></div>
+    <div class="info-strip-item">
+      <span class="info-strip-label">Stroom</span>
+      <span class="info-strip-value">A-stroom</span>
+    </div>
+    <div class="info-strip-divider"></div>
+    <div class="info-strip-item">
+      <span class="info-strip-label">Beschikbare vakken</span>
+      <span class="info-strip-value">1 van 6</span>
+    </div>
+    <div class="info-strip-divider"></div>
+    <div class="info-strip-item">
+      <span class="info-strip-label">Schooljaar</span>
+      <span class="info-strip-value">2026–2027</span>
+    </div>
+  </div>
+</main>
+
+<!-- ── FOOTER ────────────────────────────────────────────── -->
+<footer class="site-footer">
+  <strong>Leermateriaal 1A</strong> &nbsp;·&nbsp; Eerste Graad A-stroom &nbsp;·&nbsp; © 2026
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoofdstuk 19 — Wat hebben ze gemeen, wat verschilt? | Geschiedenis 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE / OPENING STORY
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament {
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--gold);
+    opacity: 0.7;
+    margin: 1.5rem 0;
+    letter-spacing: 0.4em;
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-dialogue {
+    font-style: italic;
+    color: #FFFDF8;
+    padding-left: 1.4rem;
+    border-left: 3px solid rgba(212,160,23,0.4);
+    margin: 1rem 0;
+  }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+    filter: sepia(0.3);
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     ILLUSTRATIE PLACEHOLDERS
+  ============================================================ */
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+    cursor: default;
+    transition: background var(--transition);
+  }
+
+  .illustratie:hover { background: #EDE7D8; }
+
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     VERGELIJKING TABEL
+  ============================================================ */
+  .vergelijking-tabel {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.8rem 0;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    font-size: 0.96rem;
+  }
+
+  .vergelijking-tabel thead tr {
+    background: var(--darkblue);
+  }
+
+  .vergelijking-tabel thead th {
+    padding: 1rem 1.2rem;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    text-align: left;
+  }
+
+  .vergelijking-tabel thead th:first-child {
+    width: 22%;
+    color: rgba(212,160,23,0.7);
+    font-size: 0.72rem;
+  }
+
+  .vergelijking-tabel thead th .th-icon {
+    display: block;
+    font-size: 1.4rem;
+    margin-bottom: 0.3rem;
+    opacity: 0.9;
+  }
+
+  .vergelijking-tabel tbody tr:nth-child(odd) {
+    background: var(--creme);
+  }
+
+  .vergelijking-tabel tbody tr:nth-child(even) {
+    background: var(--sand-light);
+  }
+
+  .vergelijking-tabel tbody tr:hover {
+    background: rgba(212,160,23,0.07);
+  }
+
+  .vergelijking-tabel tbody td {
+    padding: 0.85rem 1.2rem;
+    color: var(--text-mid);
+    vertical-align: top;
+    border-bottom: 1px solid rgba(200,146,58,0.12);
+    line-height: 1.6;
+  }
+
+  .vergelijking-tabel tbody td:first-child {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--terracotta);
+    background: rgba(193,68,14,0.05);
+    border-right: 2px solid rgba(193,68,14,0.1);
+    white-space: nowrap;
+  }
+
+  .vergelijking-tabel tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong {
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition), opacity var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover {
+    background: var(--darkblue-light);
+    transform: translateY(-3px);
+  }
+
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     UTILITY / MISC
+  ============================================================ */
+  .prose-text { max-width: 100%; }
+
+  .highlighted-para {
+    background: rgba(212,160,23,0.08);
+    border-left: 3px solid var(--gold);
+    padding: 0.8rem 1.1rem;
+    border-radius: 0 4px 4px 0;
+    margin: 1.2rem 0;
+    font-size: 0.97rem;
+    color: var(--text-mid);
+  }
+
+  /* ============================================================
+     VAKFICHE
+  ============================================================ */
+  .vakfiche {
+    background: var(--darkblue);
+    color: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.8rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-md);
+  }
+
+  .vakfiche .vf-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .vakfiche ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .vakfiche ul li {
+    position: relative;
+    padding-left: 1.6rem;
+    margin-bottom: 0.6rem;
+    font-size: 0.96rem;
+    color: rgba(250,246,239,0.88);
+    line-height: 1.6;
+  }
+
+  .vakfiche ul li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 1.1rem;
+    line-height: 1.4;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .vergelijking-tabel { font-size: 0.88rem; }
+    .vergelijking-tabel thead th,
+    .vergelijking-tabel tbody td { padding: 0.7rem 0.8rem; }
+    .vergelijking-tabel tbody td:first-child { white-space: normal; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <a class="label" href="index.html">Geschiedenis 1A</a>
+  <span class="label label-right">Hoofdstuk 19</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Geschiedenis &nbsp;·&nbsp; 1A &nbsp;·&nbsp; Eerste graad</div>
+  <h1>Hoofdstuk 19<br>Wat hebben ze gemeen, wat verschilt?</h1>
+  <p class="subtitle">Politiek, samenleving, cultuur en economie doorheen drie grote periodes vergeleken</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- PROLOGUE -->
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Een tijdreiziger in een museum</span>
+
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+
+    <p>Ze staat voor een Egyptische sarcofaag. Het goud glimt zwak in het museumverlichting. Het gezicht van de overledene is geschilderd in vlakke kleuren, frontaal, met grote starende ogen. Geen beweging, geen emotie — een code, geen portret. De overledene is voor eeuwig vastgelegd in een formule die duizenden jaren onveranderd bleef.</p>
+
+    <p>Ze draait zich om. Tien meter verderop staat een Grieks marmeren beeld: een jonge man, een kouros, met een lichte glimlach en een perfect geïdealiseerd lichaam. Hij staat ontspannen, één been licht naar voren. Er is iets menselijks aan hem, iets dat beweegt zelfs in het steen. Totaal anders dan de Egyptenaar.</p>
+
+    <p>Ze loopt verder. Aan de overkant van de zaal: een Romein triomfboog. Niet het origineel — een schaalmodel in steen. De decoraties zijn druk, narratief, vol beweging: soldaten marcheren, gevangenen knielen, de keizer rijdt in zijn wagen. Realisme. Drama. Macht die zichzelf wil tonen.</p>
+
+    <p class="prologue-dialogue">"Ze zijn zo anders," fluistert ze.</p>
+
+    <p>En toch. Ze denkt eraan hoe elk van die culturen goden kende met menselijke zwakheden. Hoe elk van die culturen boeren had die hetzelfde gerstenzaad in dezelfde grond stopten. Hoe elk van die culturen een elite had die de macht bezat en een grote meerderheid die diende. Hoe elk van die culturen keizers of farao's had die tempels bouwden om hun goddelijke macht te symboliseren.</p>
+
+    <p><strong style="color: var(--gold);">Zo anders. En toch zo hetzelfde. Dat is de vraag van dit hoofdstuk.</strong></p>
+
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+  </section>
+
+  <!-- VAKFICHE -->
+  <div class="vakfiche">
+    <div class="vf-header">Leerdoelen van dit hoofdstuk</div>
+    <ul>
+      <li>Kenmerken vergelijken binnen eenzelfde historische periode en tussen periodes</li>
+      <li>Gelijkenissen en verschillen onderscheiden voor: ambtenaren, aristocratie, standenmaatschappij, slavernij, polytheïsme, kunstuitingen, landbouw en handel</li>
+      <li>Griekse bouwkunst vergelijken met Romeinse bouwkunst</li>
+      <li>Machtssymbolen van Egyptische farao's vergelijken met die van Romeinse keizers</li>
+    </ul>
+  </div>
+
+  <!-- ============================================================
+       SECTION 19.1
+  ============================================================ -->
+  <section class="section-block" id="s19-1">
+    <div class="section-heading">
+      <span class="section-num">19.1</span>
+      <h2 class="section-title">Politiek doorheen de tijd: ambtenaren en aristocraten</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Elke samenleving die groter wordt dan een kleine nomadische groep, heeft hetzelfde probleem: hoe organiseer je het bestuur? Wie int de belastingen? Wie lost conflicten op? Wie zorgt ervoor dat de irrigatiekanalen worden onderhouden, de graanvoorraden bewaard, de grenzen verdedigd? Het antwoord op die vraag bepaalt hoe een samenleving functioneert — en het antwoord was door de eeuwen heen verrassend gelijkaardig.</p>
+    </div>
+
+    <h3 class="sub-heading">Ambtenaren: de ruggengraat van elk bestuur</h3>
+
+    <div class="prose-text">
+      <p>In het oude Mesopotamië waren het de <strong>tempelschrijvers</strong> die de economische administratie bijhielden: hoeveel gerst was er in het magazijn, hoeveel arbeidsdagen had elke boer gepresteerd, welk deel van de oogst was aan de goden verschuldigd? Zonder die schrijvers kon de tempelbureaucratie niet functioneren. De Babylonische en Assyrische koningen hadden daarnaast een <strong>vizier</strong> — een soort eerste minister — en een heel net van provinciebestuurders die de koninklijke wil in de regio's uitvoerden.</p>
+
+      <p>In Egypte was het de schrijversklasse die de administratieve ruggengraat vormde. Het was een begeerde positie: schrijvers waren vrijgesteld van lichamelijke arbeid en genoten hoge status. De farao bestuurde via een <strong>vizier</strong> en een hiërarchie van bestuurders die de twee grote landsdelen (Boven- en Neder-Egypte) en hun districten beheerden. Alles werd geregistreerd, gemeten en opgeslagen in papyrusrollen.</p>
+
+      <p>In Griekenland hadden de stadstaten <strong>strategen</strong>: militaire en politieke leiders. In Athene werden zij verkozen door de volksvergadering. Maar ook in de Griekse wereld bestond er een uitgebreide administratie voor belastingen, grensbeheer en rechtspraak.</p>
+
+      <p>In Rome groeide het ambtenarenapparaat mee met het Rijk. De <strong>magistraten</strong> — consuls, praetoren, quaestoren, censoren — bestuurden de stad en later de provincies. In de late keizertijd was er een heel net van keizerlijke ambtenaren (<em>procuratores</em>) die de provincies namens de keizer beheerden, belastingen inden en recht spraken.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Ambtenaren</span>
+        <p class="begrip-def">Personen in dienst van de staat of de tempel die administratieve, juridische of fiscale taken uitvoeren. In elke grote beschaving — van Mesopotamië tot Rome — vormden ambtenaren de ruggengraat van het bestuur. Ze waren doorgaans geletterd in een wereld waar de meesten dat niet waren.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Aristocratie: overal een elite</h3>
+
+    <div class="prose-text">
+      <p>Naast de ambtenaren was er in elke beschaving een elite die de politieke en economische macht bezat op basis van geboorte, rijkdom of religieuze functie. In Mesopotamië waren het de <strong>lugal</strong> (stadsvorsten) en de hogepriesterklasse die de macht deelden en soms betwistten. In Egypte waren het de adellijke families en de <strong>hogepriesters</strong> van de grote tempels, die enorme landerijen en rijkdommen beheerden. In Sparta waren het de <strong>Spartiaten</strong> — de volledig burgerklasse, vrijgesteld van arbeid en gewijd aan de oorlogskunst. In Rome waren het de <strong>patriciërs</strong>, de oude adellijke families die eeuwenlang de senaat domineerden en de consulaire posities bezetten.</p>
+
+      <p>De gelijkenis is treffend: overal is er een kleine groep die door geboorte of religieuze functie toegang heeft tot de macht. Overal is er een grotere groep die dient, werkt en belasting betaalt. Dit is geen toeval — het is een structuur die ontstaat zodra er genoeg welvaart is om een elite te onderhouden die zelf niet aan de productie deelneemt.</p>
+    </div>
+
+    <h3 class="sub-heading">Uitzondering: de Atheense democratie</h3>
+
+    <div class="prose-text">
+      <p>Te midden van al dit aristocratisch bestuur was Athene een buitenbeentje. Rond 508 v.Chr. herformde Kleisthenes het Atheense bestuur op een manier die uniek was in de antieke wereld: vrije mannelijke burgers konden deelnemen aan de volksvergadering, konden stemmen over wetten en oorlogsbesluiten, en konden via loting worden aangewezen voor bestuursfuncties. Dit noemen we de <strong>democratie</strong>.</p>
+
+      <p>Maar zelfs de Atheense democratie was beperkt: vrouwen, slaven en vreemdelingen (metoikoi) hadden geen stemrecht. De meerderheid van de bevolking was dus uitgesloten. Desondanks was het principe — dat gewone burgers meebesluisten over hun eigen lot — revolutionair voor zijn tijd en vormt het de basis van onze huidige democratische systemen.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Aristocratie</span>
+        <p class="begrip-def">Een bestuursvorm of sociale klasse waarbij de macht berust bij een kleine elite, gebaseerd op geboorte, rijkdom of religieuze functie. Het woord komt van het Griekse <em>aristos</em> (best) en <em>kratos</em> (macht). In alle grote antieke beschavingen bestond een aristocratische elite.</p>
+      </div>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">💭 Denkvraag</div>
+      <p class="dv-text">Overal in de antieke wereld bestond een elite die de macht bezat. Toch zijn er duidelijke verschillen: de Atheense democratie gaf gewone burgers inspraak; in Sparta was de elite de krijgersklasse; in Egypte was het de religieuze elite. Wat bepaalt volgens jou welke groep de macht krijgt in een samenleving?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 19.2
+  ============================================================ -->
+  <section class="section-alt" id="s19-2">
+    <div class="section-heading">
+      <span class="section-num">19.2</span>
+      <h2 class="section-title">Sociaal doorheen de tijd: standen en slavernij</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>De samenlevingen die je in dit boek hebt bestudeerd — van de eerste Mesopotamische steden tot het Romein Rijk — hadden allemaal een gelaagde sociale structuur. Niet iedereen had dezelfde rechten, dezelfde vrijheden of dezelfde kansen. Dat is een van de meest universele kenmerken van vroege beschavingen.</p>
+    </div>
+
+    <h3 class="sub-heading">Standenmaatschappij: overal een hiërarchie</h3>
+
+    <div class="prose-text">
+      <p>In Mesopotamië was er een duidelijke sociale rangorde: bovenaan de priesters en de koninklijke familie, dan de vrije burgers met eigendom, dan de afhankelijke arbeiders, en onderaan de slaven. In Egypte was de structuur gelijkaardig: de farao op de top, dan de priesters en hoge ambtenaren, dan de vaklieden en schrijvers, dan de boeren, en ten slotte de slaven. In Griekenland en Rome was de structuur complexer maar in essentie vergelijkbaar.</p>
+
+      <p>Elke standenmaatschappij heeft drie basislagen: een kleine bovenlaag van priesters, bestuurders of aristocraten; een middenlaag van vrije mensen met beperkte rechten (handelaars, kleine boeren, ambachtslieden); en een onderlaag van afhankelijke of onvrije mensen (pachters, lijfeigenen, slaven). Wat van beschaving tot beschaving verschilde, was de exacte omvang en positie van elke laag, en de mate waarin je van de ene naar de andere laag kon bewegen.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Standenmaatschappij</span>
+        <p class="begrip-def">Een samenleving met duidelijk onderscheiden sociale lagen (standen), waarbij de positie van een persoon grotendeels bepaald wordt door geboorte. Sociale mobiliteit — van de ene stand naar de andere overgaan — is beperkt. Standenmaatschappijen kenmerken zich door ongelijke rechten, plichten en economische mogelijkheden voor mensen in verschillende lagen.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Slavernij: universeel maar met grote verschillen in schaal</h3>
+
+    <div class="prose-text">
+      <p>Slavernij — het bezitten van mensen als eigendom — bestond in alle beschavingen die je in dit boek hebt bestudeerd. In Mesopotamië kwamen slaven voort uit schulden (mensen die hun schulden niet konden aflossen werden soms slaaf) en uit oorlog (gevangenen werden slaaf gemaakt). In Egypte werkten slaven in de tempels, in de huishoudens van de rijken, en soms op de bouwwerven — al is de rol van slaven bij de bouw van de piramides historisch overschat; de meeste arbeiders waren vrije seizoenarbeiders.</p>
+
+      <p>In Griekenland was slavernij economisch belangrijk, maar niet zo massaal als in Rome. In Sparta waren de <strong>heloten</strong> — de oorspronkelijke bewoners van Lakonië, onderworpen door de Spartiaten — technisch gezien geen slaven maar staatshorigen: ze behoorden aan de staat toe, niet aan individuele meesters.</p>
+
+      <p>In Rome was slavernij op een schaal die zijn voorgangers ver overtrof. Op het hoogtepunt van het Romein Rijk waren naar schatting een kwart tot een derde van de bevolking van Italië slaaf. Slaven werkten in de mines, op de grote landgoederen (<em>latifundia</em>), als huisbedienden, als leerkrachten, als dokters, als boekhouders. De Romein economie was in grote mate gebouwd op slavenarbeid — wat haar ook kwetsbaar maakte toen de stroom nieuwe slaven na de grote veroveringsoorlogen opdroogde.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Slavernij</span>
+        <p class="begrip-def">Een sociaal en economisch systeem waarbij mensen als eigendom van anderen worden beschouwd, zonder persoonlijke vrijheid of rechten. Slavernij bestond in alle grote antieke beschavingen, maar de schaal en de juridische status van slaven verschilden sterk. In Rome was slavernij een fundamentele pijler van de economie.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Gemeenschappelijke kenmerken: patriarchaat en ongelijkheid</h3>
+
+    <div class="prose-text">
+      <p>Naast de standenmaatschappij en de slavernij deelden alle grote antieke beschavingen nog een aantal sociale kenmerken. Ze waren allemaal <strong>patriarchaal</strong>: mannen bezaten in het recht en in de praktijk meer macht dan vrouwen. Vrouwen hadden beperkte rechtspositie, beperkte toegang tot eigendom en beperkte politieke inspraak — hoewel de exacte mate van die beperking van beschaving tot beschaving verschilde. In Egypte hadden vrouwen relatief meer juridische rechten dan in klassiek Athene; in Rome konden welgestelde vrouwen aanzienlijk vermogen beheren.</p>
+
+      <p>Migratie en contact tussen bevolkingsgroepen waren ook universeel aanwezig: handelaars, soldaten, ambachtslieden en slaven reisden constant tussen culturen. De antieke wereld was nooit zo geïsoleerd als ze soms in schoolboeken wordt voorgesteld.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">💭 Denkvraag</div>
+      <p class="dv-text">Slavernij bestond in alle beschavingen die je hebt bestudeerd. Maar de schaal verschilde enorm: in Rome was bijna een derde van de bevolking slaaf. Waardoor denk jij dat slavernij in Rome zo veel groter was dan in Egypte of Griekenland? Welke factoren zouden dat kunnen verklaren?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 19.3
+  ============================================================ -->
+  <section class="section-block" id="s19-3">
+    <div class="section-heading">
+      <span class="section-num">19.3</span>
+      <h2 class="section-title">Cultureel doorheen de tijd: polytheïsme en kunstuitingen</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Wat geloofden de mensen in de antieke wereld? Hoe stelden ze de wereld voor die ze niet konden zien of verklaren? En hoe drukten ze die overtuigingen uit in kunst en architectuur? De antwoorden zijn verrassend consistent over duizenden jaren en honderden culturen.</p>
+    </div>
+
+    <h3 class="sub-heading">Polytheïsme: goden die op mensen lijken</h3>
+
+    <div class="prose-text">
+      <p>Van de vroegste Mesopotamische steden tot het late Romein Rijk geloofden de meeste mensen in <strong>polytheïsme</strong>: een veelheid van goden, elk met een eigen domein, een eigen persoonlijkheid en een eigen relatie tot de mensen. En die goden gedroegen zich opvallend menselijk: ze hadden jaloezie, liefde, woede, ijdelheid en hebzucht. Ze streden met elkaar, bedrogen elkaar en bemoeidden zich met menselijke zaken.</p>
+
+      <p>In Mesopotamië waren het goden als <strong>Enlil</strong> (god van de wind en de lucht, heer van de goden) en <strong>Inanna/Ishtar</strong> (godin van liefde en oorlog). In Egypte waren het <strong>Ra</strong> (zonnegod), <strong>Osiris</strong> (god van de dood en de wedergeboorte), <strong>Isis</strong> en <strong>Horus</strong>. In Griekenland waren het <strong>Zeus</strong>, <strong>Athena</strong>, <strong>Apollo</strong> en de andere Olympische goden. In Rome werden veel Griekse goden overgenomen maar kregen nieuwe namen: Zeus werd Jupiter, Athena werd Minerva, Ares werd Mars.</p>
+
+      <p>Elk van die godenstelsels diende een vergelijkbare sociale functie: de goden verklaarden de wereld (waarom regent het? waarom sterven mensen?), sanctioneerden de maatschappelijke orde (de farao regeert omdat Ra het wil), en boden troost bij onzekerheid en dood.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Polytheïsme</span>
+        <p class="begrip-def">Het geloof in meerdere goden, elk met eigen domeinen, eigenschappen en relaties tot de mensen. Het polytheïsme was de overheersende religieuze vorm in alle grote antieke beschavingen: Mesopotamië, Egypte, Griekenland en Rome. De goden worden doorgaans beschreven met menselijke eigenschappen (antropomorfisme).</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Kunst: stijl verandert, functie blijft</h3>
+
+    <div class="prose-text">
+      <p>De kunst van de antieke wereld had in elke beschaving een gemeenschappelijke kern: ze stond in dienst van religie en macht. Tempels werden gebouwd om goden te huisvesten en priesters te huisvesten. Beelden van goden en koningen werden gemaakt om de goddelijke en politieke orde zichtbaar te maken. Grafkunst diende om de overledene voor te bereiden op het hiernamaals.</p>
+
+      <p>Maar de <em>stijl</em> verschilde enorm. <strong>Egyptische kunst</strong> was gecodificeerd en conventioneel: figuren worden frontaal afgebeeld (hoofd en benen in profiel, torso van voren), met weinig ruimte voor individuele expressie of perspectief. Die conventies bleven 3.000 jaar vrijwel onveranderd — stabiliteit en continuïteit waren de hoogste waarden. <strong>Griekse kunst</strong> zocht het ideaaltypische: het perfecte menselijke lichaam, de ideale verhouding, de schoonheid als weerspiegeling van de kosmische orde. De vroege Griekse beelden (kouros) waren nog stijf en conventioneel; de klassieke en hellenistische kunst evolueerden naar meer beweging, emotie en realisme. <strong>Hellenistische kunst</strong> toonde emotie en drama. <strong>Romein kunst</strong> ten slotte was opvallend realistisch en narratief: Romein portretbeeldhouwwerk probeerde individuen werkelijk gelijkend weer te geven, met rimpels, littetkens en alles.</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: vergelijking kunstuitingen Egypte, Griekenland, Rome">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Drie afbeeldingen naast elkaar: links een Egyptische wandschildering met frontale figuurstelling; midden een Grieks marmeren beeld van een ideaal menselijk lichaam (kouros of diskoswerper); rechts een Romein marmeren portretbuste met realistische gezichtskenmerken. Elk beeld heeft een kort bijschrift met stijlkenmerken.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">💭 Denkvraag</div>
+      <p class="dv-text">Egyptische kunststijl bleef 3.000 jaar nauwelijks veranderen. Griekse kunst veranderde in een paar eeuwen dramatisch. Wat zegt dat over de waarden van die samenlevingen? Waarom zou een beschaving stabiliteit en continuïteit in kunst verkiezen boven verandering en vernieuwing?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 19.4
+  ============================================================ -->
+  <section class="section-alt" id="s19-4">
+    <div class="section-heading">
+      <span class="section-num">19.4</span>
+      <h2 class="section-title">Economisch doorheen de tijd: landbouw en handel</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Economie is misschien het domein waar de rode draad tussen de periodes het duidelijkst zichtbaar is: elke beschaving die je hebt bestudeerd, bouwde zijn welvaart op dezelfde twee fundamenten. Landbouw leverde het voedsel en de surplusproductie waaruit alles anders kon groeien. Handel verspreidde die welvaart, verbond beschavingen met elkaar en zorgde voor de circulatie van goederen, ideeën en mensen.</p>
+    </div>
+
+    <h3 class="sub-heading">Landbouw: van jager-verzamelaar tot latifundium</h3>
+
+    <div class="prose-text">
+      <p>De prehistorische mens leefde als jager-verzamelaar: hij verplaatste zich met de seizoenen mee en haalde voedsel uit de natuur zonder het zelf te produceren. De <strong>neolithische revolutie</strong> — de overgang naar landbouw, beginnend in het Vruchtbare Halfmaantje rond 10.000 v.Chr. — veranderde dit fundamenteel. Voor het eerst produceerde de mens zelf zijn voedsel, wat surplusproductie mogelijk maakte.</p>
+
+      <p>In Mesopotamië was landbouw afhankelijk van kunstmatige irrigatie: zonder de kanalen die het water van de Tigris en Eufraat naar de velden brachten, was het droge land onvruchtbaar. In Egypte zorgde de jaarlijkse overstroming van de Nijl voor vruchtbare slib, waardoor landbouw relatief eenvoudig was — al vereiste ook hier beheer van dammen en kanalen. In Griekenland was het land bergachtig en minder vruchtbaar; steden als Athene importeerden graan uit de Zwarte Zee-regio. In Rome groeide de landbouw mee met het Rijk: van kleine familieboerderijen in de vroege Republiek naar de enorme <strong>latifundia</strong> — grote landgoederen gedreven door slavenarbeid — in de late Republiek en het Keizerrijk.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Latifundia</span>
+        <p class="begrip-def">Grote Romein landgoederen, gedreven door slavenarbeid en gericht op de productie van wijn, olijfolie en graan voor de markt. De latifundia verdrongen de kleine familieboerderijen en concentreerden landbezit bij een rijke elite. Ze zijn een voorbeeld van hoe de Romein slavernij-economie de landbouw vormgaf.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Handel: van ruileconomie naar geldeconomie</h3>
+
+    <div class="prose-text">
+      <p>De vroegste handel was ruilhandel: goederen werden direct tegen andere goederen geruild. Maar ruilhandel heeft een fundamenteel probleem — je moet iemand vinden die precies wat jij hebt wilt, en precies wat jij wilt heeft. Naarmate de handel groter en complexer werd, kwamen er tussenmiddelen: eerst waren dat standaardgoederen (gerst, zilver in gewicht), later munten met een gegarandeerde waarde.</p>
+
+      <p>De Mesopotamische steden hadden al vroeg een geavanceerd handelssysteem met krediet, schulddocumenten en handelscontra&ccedil;ten op kleitabletten. In de Phoenicische en Griekse wereld groeide de handelsnetwerken naar de Middellandse Zee en ver daarbuiten. In Rome waren de handelsroutes enorm: wijn en olijfolie uit Italië en Spanje, graan uit Egypte en Noord-Afrika, zijde via de zijderoute uit China, specerijen uit India. De Middellandse Zee was een Romein binnenmeer — <em>mare nostrum</em>, "onze zee" — waarover tonnen goederen verscheepten.</p>
+
+      <p>De overgang van ruileconomie naar geldeconomie is een van de duidelijkste evoluties doorheen de drie periodes: ze reflecteert de groeiende complexiteit van de handelsnetwerken en de behoefte aan meer abstracte, draagbare waardeopslag.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">💭 Denkvraag</div>
+      <p class="dv-text">Landbouw is de basis van alle beschavingen in dit boek. Maar de manier waarop die landbouw georganiseerd werd, veranderde sterk: van kleine familiebedrijven naar grote slavenlatifundia in Rome. Wat zegt die verandering over de bredere sociale en economische transformaties in de Romein samenleving?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 19.5
+  ============================================================ -->
+  <section class="section-block" id="s19-5">
+    <div class="section-heading">
+      <span class="section-num">19.5</span>
+      <h2 class="section-title">Griekse versus Romeinse bouwkunst</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Als je een Griekse tempel naast een Romein bouwwerk zet, zie je meteen dat het om twee verschillende architecturale tradities gaat. Toch zijn ze nauw verwant: de Romeinen leerden veel van de Grieken, namen hun vormentaal over — en voegden er vervolgens iets heel eigens aan toe.</p>
+    </div>
+
+    <h3 class="sub-heading">De Griekse architectuur: schoonheid in steen</h3>
+
+    <div class="prose-text">
+      <p>De Griekse tempel is een van de meest herkenbare bouwwerken ter wereld. Het principe is verrassend eenvoudig: een rechthoekige zaal met een zadeldak, omringd door zuilen. Die eenvoud is misleidend — want in de details zit een obsessie met harmonie en proportie die voor de Grieken filosofische betekenis had. Een mooi gebouw was een weerspiegeling van de kosmische orde.</p>
+
+      <p>De Grieken ontwikkelden drie <strong>zuilorden</strong> — stijlsystemen die bepalen hoe de zuilen en de bovenbouw eruitzien:</p>
+    </div>
+
+    <ul style="margin: 0.5rem 0 1.5rem 1.2rem; list-style: none; padding: 0;">
+      <li style="display:flex;gap:0.7rem;margin-bottom:0.9rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:90px;">Dorisch:</span>
+        <span style="color:var(--text-mid);">Eenvoudig en krachtig. Zware, massieve zuilen zonder basis, met een simpel kapiteel (bovenstuk). Het Parthenon op de Akropolis van Athene is het meest beroemde voorbeeld.</span>
+      </li>
+      <li style="display:flex;gap:0.7rem;margin-bottom:0.9rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:90px;">Ionisch:</span>
+        <span style="color:var(--text-mid);">Slanker en eleganter. Zuilen met een basis en een kapiteel versierd met twee spiraalvormige voluten. Meer versieringen in de fries (de band boven de zuilen).</span>
+      </li>
+      <li style="display:flex;gap:0.7rem;margin-bottom:0.9rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:90px;">Korinthisch:</span>
+        <span style="color:var(--text-mid);">Het meest uitbundige. Een rank kapiteel versierd met acanthusbladen. Later door de Romeinen bijzonder geliefd.</span>
+      </li>
+    </ul>
+
+    <div class="prose-text">
+      <p>Griekse tempels waren gebouwd in <strong>horizontale architectuur</strong>: de nadruk ligt op de breedte en de harmonieuze verhouding tussen de delen, niet op de hoogte. Het bouwmateriaal bij uitstek was marmer. De tempel was niet bedoeld als plek waar gelovigen samenkwamen — het binnenste (<em>naos</em>) bevatte alleen het godenbeeld. De religieuze handelingen vonden buiten, bij het altaar, plaats.</p>
+    </div>
+
+    <h3 class="sub-heading">De Romein architectuur: grootsheid en functionaliteit</h3>
+
+    <div class="prose-text">
+      <p>De Romeinen namen de Griekse zuilorden over — ze hadden zelfs een voorkeur voor het Korinthische — maar ze voegden er iets aan toe dat de Grieken nauwelijks hadden gebruikt: de <strong>boog</strong>, het <strong>gewelf</strong> en de <strong>koepel</strong>. Met die drie elementen konden Romein architecten gebouwen maken die de Grieken technisch niet mogelijk achtten: immense gewelfde ruimtes zoals de thermen, amfitheaters als het Colosseum, koepels zoals het Pantheon.</p>
+
+      <p>Een andere sleuteluitvinding was het Romein beton: <em>opus caementicium</em>, een mengsel van kalk, puzzolaanzand (vulkanische as) en water dat enorm sterk werd bij verharding. Met dit materiaal konden Romein bouwers snel, goedkoop en op grote schaal bouwen — zonder afhankelijk te zijn van zeldzame en dure marmeren blokken.</p>
+
+      <p>Romein architectuur was ook meer op <em>functionaliteit</em> gericht dan Griekse: ze bouwden aquaducten, rioleringen, wegen, badhuis, markthallen, gerechtsgebouwen (<em>basilieken</em>), theaters en bibliotheken. Gebouwen voor dagelijks gebruik op een schaal en met een ambacht die de wereld nog niet had gezien.</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: Parthenon naast het Pantheon">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Twee afbeeldingen naast elkaar. Links: het Parthenon in Athene, met Dorische zuilen, horizontale structuur en timpaan. Rechts: het Pantheon in Rome, met zijn enorme koepel en portico van Korinthische zuilen. Pijlen en labels tonen de architecturale kernverschillen: boog, gewelf, koepel versus zuilenrij en timpaan.</p>
+    </div>
+
+    <!-- VERGELIJKING TABEL 19.5 -->
+    <table class="vergelijking-tabel" aria-label="Vergelijking Griekse en Romein bouwkunst">
+      <thead>
+        <tr>
+          <th>Kenmerk</th>
+          <th>
+            <span class="th-icon">🏛️</span>
+            Griekse bouwkunst
+          </th>
+          <th>
+            <span class="th-icon">🏟️</span>
+            Romein bouwkunst
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Kernvorm</td>
+          <td>Rechthoekige zaal met zuilenrij en zadeldak</td>
+          <td>Boog, gewelf en koepel als structurele elementen</td>
+        </tr>
+        <tr>
+          <td>Materiaal</td>
+          <td>Marmer en kalksteen; arbeidsintensief</td>
+          <td>Romein beton (<em>opus caementicium</em>), marmer als bekleding</td>
+        </tr>
+        <tr>
+          <td>Zuilorden</td>
+          <td>Dorisch, Ionisch, Korinthisch — elk met eigen regels</td>
+          <td>Voorkeur voor Korinthisch; ook Toscanisch en composiet toegevoegd</td>
+        </tr>
+        <tr>
+          <td>Richting</td>
+          <td>Horizontale architectuur; nadruk op breedte en proportie</td>
+          <td>Verticale en massieve architectuur; indruk door hoogte en omvang</td>
+        </tr>
+        <tr>
+          <td>Nadruk</td>
+          <td>Schoonheid, harmonie en kosmische orde</td>
+          <td>Functionaliteit, duurzaamheid en macht</td>
+        </tr>
+        <tr>
+          <td>Gebruik</td>
+          <td>Overwegend religieuze gebouwen (tempels)</td>
+          <td>Religieus én civiel: thermen, amfitheaters, aquaducten, markthallen</td>
+        </tr>
+        <tr>
+          <td>Voorbeelden</td>
+          <td>Parthenon (Athene), tempel van Zeus (Olympia)</td>
+          <td>Pantheon, Colosseum, aquaduct van Segovia, Caracallathermen</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">💭 Denkvraag</div>
+      <p class="dv-text">De Grieken bouwden voor schoonheid; de Romeinen bouwden voor functionaliteit en indruk. Kijk om je heen in je eigen omgeving: welke gebouwen lijken meer op het Griekse model, en welke meer op het Romein model? Welke invloed zie je in moderne architectuur terug?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 19.6
+  ============================================================ -->
+  <section class="section-alt" id="s19-6">
+    <div class="section-heading">
+      <span class="section-num">19.6</span>
+      <h2 class="section-title">Egyptische farao's versus Romein keizers: machtssymbolen vergeleken</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Meer dan duizend jaar en duizenden kilometers liggen er tussen de Egyptische farao en de Romein keizer. En toch: wie de twee naast elkaar legt, ziet een treffende gelijkenis in de strategieën die ze gebruikten om hun macht zichtbaar, tastbaar en onaantastbaar te maken. Macht heeft altijd behoefte aan symbolen.</p>
+    </div>
+
+    <h3 class="sub-heading">De farao: goddelijk op aarde</h3>
+
+    <div class="prose-text">
+      <p>De Egyptische <strong>farao</strong> was niet zomaar een koning. Hij was een god in menselijke gedaante — de levende belichaming van de god Horus, en bij zijn dood vereenzelvigd met Osiris. Hij was tegelijkertijd het hoofd van de staat en het hoofd van de religie. Als enige kon hij de goden officieel eren; alle tempelrituelen werden technisch gezien door hem voltrokken (al deden de priesters dat in de praktijk).</p>
+
+      <p>De machtssymbolen van de farao waren talrijk en zorgvuldig gecodificeerd: de dubbele kroon (witte kroon van Boven-Egypte + rode kroon van Neder-Egypte), de heka-scepter (het herderstaf-symbool van gezag), de nejkhekh-gesel, de nemes-hoofddoek met de uräusslang op het voorhoofd. Op elke afbeelding werd de farao groter afgebeeld dan alle anderen — een hiërarchisch perspectief dat macht uitdrukte.</p>
+
+      <p>De meest imposante machtssymboliek zat in de monumenten: de piramides (grafmonumenten die de farao moesten begeleiden naar het eeuwige leven en tegelijk zijn kosmische betekenis benadrukten), de enorme tempelcomplexen als Karnak en Luxor, en de obelisken met cartouches (naamtekens) van de farao's. Al die monumenten moesten één boodschap overbrengen: de farao is eeuwig, zijn macht is goddelijk, zijn orde is de kosmische orde.</p>
+    </div>
+
+    <h3 class="sub-heading">De Romein keizer: goddelijk na de dood</h3>
+
+    <div class="prose-text">
+      <p>De <strong>Romein keizer</strong> had een complexere relatie met het goddelijke. In de vroege Republiek was Rome een polis van gelijke burgers (in theorie) en het idee van een levende god-vorst was onverteerbaar. Maar naarmate de keizer zijn macht uitbreidde, groeide ook de nood aan religieuze legitimatie.</p>
+
+      <p>De eerste stap was de keizerscultus: een gestorven keizer kon door de Senaat worden vergoddelijkt (<em>divus</em>, "goddelijk verklaard"). Julius Caesar en Augustus kregen die titel; hun afbeeldingen werden vereerd in tempels. In de oosterse provincies, waar men gewend was aan goddelijke koningen, ging het verder: daar werden keizers tijdens hun leven als goden vereerd. Domitianus liet zich <em>dominus et deus</em> (heer en god) noemen.</p>
+
+      <p>De religieuze rol van de keizer was ook uitgedrukt in de titel <strong>pontifex maximus</strong> — hogepriester van het Romein staatsgodsdienst. Als pontifex maximus presideerde de keizer over de religieuze kalender en de rituelen die de goden gunstig moesten stemmen voor Rome.</p>
+
+      <p>De machtssymboliek van de Romein keizer was uitbundig aanwezig in het stedelijk landschap: <strong>triomfbogen</strong> die zijn militaire overwinningen herdachten (Titusboog, Constantijnsboog), <strong>zuilen</strong> met reliëfs die zijn campagnes narratief weergaven (Zuil van Trajanus), enorme standbeelden en borstbeelden verspreid door het hele Rijk, munten met zijn beeltenis en titels die in elke hand circuleerden. De Romein munten waren eigenlijk het meest verspreide "medium" van de keizerpropaganda: elke munt was een klein portret met zijn naam en titels dat door miljoenen handen ging.</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: farao naast Romein keizer">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Twee afbeeldingen naast elkaar. Links: een Egyptische reliëfafbeelding van een farao met dubbele kroon, scepter en gesel, groter afgebeeld dan de omringende figuren. Rechts: een Romein keizersportret of triomfboog met de keizer in zegekar. Labels wijzen op de gemeenschappelijke elementen: goddelijke legitimatie, religieuze functie, monumentenbouw.</p>
+    </div>
+
+    <!-- VERGELIJKING TABEL 19.6 -->
+    <table class="vergelijking-tabel" aria-label="Vergelijking farao en Romein keizer">
+      <thead>
+        <tr>
+          <th>Kenmerk</th>
+          <th>
+            <span class="th-icon">𓂀</span>
+            Egyptische farao
+          </th>
+          <th>
+            <span class="th-icon">🦅</span>
+            Romein keizer
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Goddelijke status</td>
+          <td>God tijdens het leven (levende Horus); na dood vereenzelvigd met Osiris</td>
+          <td>Goddelijk na de dood (keizerscultus, <em>divus</em>); in oosten ook tijdens leven vereerd</td>
+        </tr>
+        <tr>
+          <td>Religieuze functie</td>
+          <td>Hoofd van alle tempels en rituelen; enige officiële tussenpersoon tot de goden</td>
+          <td>Pontifex maximus: hoofd van de staatsgodsdienst</td>
+        </tr>
+        <tr>
+          <td>Militaire rol</td>
+          <td>Opperbevelhebber; als strijder op tempelmuren afgebeeld (bijv. Ramses II bij Qadesh)</td>
+          <td>Opperbevelhebber (<em>imperator</em>); triomftochten na overwinning</td>
+        </tr>
+        <tr>
+          <td>Monumenten</td>
+          <td>Piramides, tempelcomplexen (Karnak), obelisken met cartouche</td>
+          <td>Triomfbogen, zuilen met reliëfs (Trajanus), mausolea, forumcomplexen</td>
+        </tr>
+        <tr>
+          <td>Symbolische objecten</td>
+          <td>Dubbele kroon, scepter, gesel, uräusslang, nemes-hoofddoek</td>
+          <td>Lauwerkrans, purperen mantel, scepter, adelaarssymbool (<em>aquila</em>), munten</td>
+        </tr>
+        <tr>
+          <td>Legitimatie</td>
+          <td>Goddelijke geboorte; kosmische orde (<em>ma'at</em>) hangt af van farao</td>
+          <td>Militaire succes, Senaatserkenning, keizerscultus, dynastieke erfopvolging</td>
+        </tr>
+        <tr>
+          <td>Gelijkenis</td>
+          <td colspan="2" style="font-style:italic;color:var(--text-light);">Beiden gebruiken religie om macht te legitimeren; beiden bouwen monumenten om hun grootsheid te vereeuwigen; beiden combineren militaire en religieuze functie in één persoon.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">💭 Denkvraag</div>
+      <p class="dv-text">Zowel de farao als de Romein keizer gebruikte religie om zijn politieke macht te legitimeren. Waarom is dat zo? Wat heeft een heerser voordeel bij het claimen van een goddelijke of religieuze status? Kun je denken aan hedendaagse leiders die een vergelijkbare strategie gebruiken?</p>
+    </div>
+  </section>
+
+</div><!-- end page-wrapper -->
+
+<!-- ============================================================
+     EXERCISES
+============================================================ -->
+<div class="exercises-section" id="oefeningen">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <div class="exercise-card">
+      <div class="ex-title">Oefening 1</div>
+      <div class="ex-name">Vergelijkingstabel invullen</div>
+      <p style="font-size:0.97rem;color:var(--text-mid);margin-bottom:0.7rem;">Maak zelf een vergelijkingstabel voor het thema <strong>slavernij</strong> in drie beschavingen: Egypte, Griekenland en Rome. Gebruik de volgende rijen:</p>
+      <ul>
+        <li>Hoe kwamen mensen in slavernij terecht?</li>
+        <li>Welke taken voerden slaven uit?</li>
+        <li>Hoe groot was de slavenbevolking (klein, middelgroot, groot)?</li>
+        <li>Wat waren de rechten van slaven?</li>
+        <li>Kon een slaaf vrij worden? Hoe?</li>
+      </ul>
+      <p class="ex-tip">Tip: gebruik de informatie uit secties 19.2 en de vorige hoofdstukken van dit boek. Schrijf voor elke cel een korte zin.</p>
+    </div>
+
+    <div class="exercise-card">
+      <div class="ex-title">Oefening 2</div>
+      <div class="ex-name">Gelijkenis of verschil?</div>
+      <p style="font-size:0.97rem;color:var(--text-mid);margin-bottom:0.7rem;">Hieronder staan acht uitspraken. Beslis voor elke uitspraak of het gaat om een <strong>gelijkenis</strong> tussen twee of meer beschavingen, een <strong>verschil</strong>, of <strong>beide</strong> (gedeeltelijk gelijk, gedeeltelijk verschillend). Leg in één zin uit waarom.</p>
+      <ol>
+        <li>"Zowel de Egyptische farao als de Romein keizer was ook het hoofd van de staatsgodsdienst."</li>
+        <li>"Griekse tempels zijn gebouwd in marmer; Romein gebouwen zijn gebouwd in beton."</li>
+        <li>"Polytheïsme was de overheersende religie in Mesopotamië, Egypte, Griekenland én Rome."</li>
+        <li>"De Atheense democratie gaf alle inwoners van Athene stemrecht."</li>
+        <li>"Handel groeide in omvang van de prehistorie naar het Romein Rijk."</li>
+        <li>"Slavernij bestond in alle beschavingen, maar de schaal verschilde enorm."</li>
+        <li>"Romein kunst was realistisch; Egyptische kunst was gecodificeerd en frontaal."</li>
+        <li>"In alle antieke beschavingen was er een elite die de macht bezat."</li>
+      </ol>
+    </div>
+
+    <div class="exercise-card">
+      <div class="ex-title">Oefening 3</div>
+      <div class="ex-name">Analyseer een afbeelding</div>
+      <p style="font-size:0.97rem;color:var(--text-mid);margin-bottom:0.7rem;">Kies één van de volgende afbeeldingen (of een afbeelding die je leraar aanduidt) en analyseer haar vanuit het perspectief van dit hoofdstuk:</p>
+      <ul>
+        <li>Een Egyptisch wandschildering van een farao</li>
+        <li>Een Grieks tempelfriessegment (bijv. van het Parthenon)</li>
+        <li>Een Romein triomfboog (bijv. de Titusboog)</li>
+      </ul>
+      <ol style="margin-top:0.6rem;">
+        <li>Beschrijf wat je ziet: figuren, architectuur, symbolen.</li>
+        <li>Welke machtssymboliek herken je? Gebruik de begrippen uit secties 19.5 en 19.6.</li>
+        <li>Welke boodschap wilde de opdrachtgever overbrengen? Aan wie?</li>
+        <li>Vergelijk: welke elementen van deze afbeelding herken je ook in een van de andere twee beschavingen?</li>
+      </ol>
+      <p class="ex-tip">Tip: vergeet niet te situeren: wanneer en waar werd dit gemaakt, en door wie werd het gebruikt?</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     SUMMARY
+============================================================ -->
+<div class="summary-section" id="samenvatting">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>Politiek:</strong> alle grote antieke beschavingen hadden <strong>ambtenaren</strong> (schrijvers, magistraten, strategen) die het bestuur uitvoerden, en een <strong>aristocratie</strong> die de macht bezat op basis van geboorte of religie. De Atheense democratie was een opvallende uitzondering — maar zelfs die was beperkt.</li>
+      <li><strong>Sociaal:</strong> <strong>standenmaatschappijen</strong> waren universeel: overal een kleine elite bovenaan, een middenlaag van vrijen, en een onderlaag van afhankelijke en onvrije mensen. <strong>Slavernij</strong> bestond overal, maar de schaal was in Rome industrieel — tot een derde van de bevolking in Italië.</li>
+      <li><strong>Cultureel:</strong> <strong>polytheïsme</strong> met menselijk gelijkende goden was de dominante religie in Mesopotamië, Egypte, Griekenland en Rome. Kunst diende overal religie en macht, maar de stijl verschilde: Egyptisch = frontaal en gecodificeerd, Grieks = ideaaltypisch, Hellenistisch = emotioneel, Romein = realistisch.</li>
+      <li><strong>Economisch:</strong> landbouw was de basis van elke beschaving, van de vroegste irrigatieboer tot de Romein <strong>latifundia</strong>. Handel groeide in omvang en complexiteit van ruileconomie naar geldeconomie naarmate de beschavingen groter werden.</li>
+      <li><strong>Bouwkunst:</strong> Griekse architectuur focuste op schoonheid, harmonie en horizontale proporties met zuilen en marmeren tempels. Romein architectuur voegde de boog, het gewelf, de koepel en beton toe, en bouwde groter, functioneler en indrukwekkender.</li>
+      <li><strong>Machtssymbolen:</strong> zowel de <strong>Egyptische farao</strong> als de <strong>Romein keizer</strong> legitimeerde zijn macht via religie (goddelijke status, priesterfunctie), monumentenbouw (piramides/triomfbogen) en militaire symbolen. De strategie was hetzelfde; de vormen verschilden.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  // Back to top button
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) {
+        btn.classList.add('visible');
+      } else {
+        btn.classList.remove('visible');
+      }
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

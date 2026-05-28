@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoofdstuk 4 — Hoe werk je met historische bronnen? | Geschiedenis 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE / OPENING STORY
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament {
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--gold);
+    opacity: 0.7;
+    margin: 1.5rem 0;
+    letter-spacing: 0.4em;
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-dialogue {
+    font-style: italic;
+    color: #FFFDF8;
+    padding-left: 1.4rem;
+    border-left: 3px solid rgba(212,160,23,0.4);
+    margin: 1rem 0;
+  }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+    filter: sepia(0.3);
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     ILLUSTRATIE PLACEHOLDERS
+  ============================================================ */
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+    cursor: default;
+    transition: background var(--transition);
+  }
+
+  .illustratie:hover { background: #EDE7D8; }
+
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong {
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition), opacity var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover {
+    background: var(--darkblue-light);
+    transform: translateY(-3px);
+  }
+
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     UTILITY / MISC
+  ============================================================ */
+  .prose-text { max-width: 100%; }
+
+  .highlighted-para {
+    background: rgba(212,160,23,0.08);
+    border-left: 3px solid var(--gold);
+    padding: 0.8rem 1.1rem;
+    border-radius: 0 4px 4px 0;
+    margin: 1.2rem 0;
+    font-size: 0.97rem;
+    color: var(--text-mid);
+  }
+
+  /* ============================================================
+     STAPPENPLAN — VERTICAL STEPS COMPONENT (CUSTOM FOR H4)
+  ============================================================ */
+  .stappenplan {
+    margin: 2.2rem 0;
+    position: relative;
+  }
+
+  .stappenplan-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 1.6rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .stappen-list {
+    position: relative;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  /* Vertical connecting line */
+  .stappen-list::before {
+    content: '';
+    position: absolute;
+    left: 22px;
+    top: 28px;
+    bottom: 28px;
+    width: 3px;
+    background: linear-gradient(180deg, var(--terracotta) 0%, rgba(193,68,14,0.2) 100%);
+    border-radius: 2px;
+    z-index: 0;
+  }
+
+  .stap-item {
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+
+  .stap-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .stap-cirkel {
+    width: 46px;
+    height: 46px;
+    min-width: 46px;
+    border-radius: 50%;
+    background: var(--terracotta);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    box-shadow: 0 3px 10px rgba(193,68,14,0.35);
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+    border: 3px solid #FDF3E7;
+  }
+
+  .stap-content {
+    background: #FDF3E7;
+    border: 1px solid rgba(193,68,14,0.15);
+    border-radius: var(--border-radius);
+    padding: 0.9rem 1.2rem;
+    flex: 1;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .stap-naam {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--terracotta);
+    margin-bottom: 0.2rem;
+  }
+
+  .stap-titel {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 0.4rem;
+  }
+
+  .stap-beschrijving {
+    font-size: 0.95rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     BRONNENTABEL (source comparison table)
+  ============================================================ */
+  .bronnentabel {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.6rem 0;
+    font-size: 0.94rem;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .bronnentabel thead tr {
+    background: var(--darkblue);
+    color: var(--gold);
+  }
+
+  .bronnentabel thead th {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.75rem 1rem;
+    text-align: left;
+  }
+
+  .bronnentabel tbody tr:nth-child(even) {
+    background: #F5EEE2;
+  }
+
+  .bronnentabel tbody tr:nth-child(odd) {
+    background: #FDF8F1;
+  }
+
+  .bronnentabel tbody td {
+    padding: 0.7rem 1rem;
+    color: var(--text-mid);
+    vertical-align: top;
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  .bronnentabel tbody td:first-child {
+    font-weight: 700;
+    color: var(--terracotta);
+    white-space: nowrap;
+  }
+
+  /* ============================================================
+     BRON-CITAAT (source quote boxes)
+  ============================================================ */
+  .bron-citaat {
+    background: #FFFDF8;
+    border: 1.5px solid rgba(193,68,14,0.2);
+    border-top: 4px solid var(--terracotta);
+    border-radius: var(--border-radius);
+    padding: 1.4rem 1.5rem;
+    margin: 1.4rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .bron-citaat .bron-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .bron-citaat blockquote {
+    font-style: italic;
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    border-left: 3px solid rgba(193,68,14,0.25);
+    padding-left: 1rem;
+    margin: 0.5rem 0 0.8rem;
+  }
+
+  .bron-citaat .bron-meta {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    font-style: normal;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .stappen-list::before { left: 18px; }
+    .stap-cirkel { width: 38px; height: 38px; min-width: 38px; font-size: 1rem; }
+    .bronnentabel { font-size: 0.82rem; }
+    .bronnentabel thead th, .bronnentabel tbody td { padding: 0.55rem 0.65rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <a class="label" href="index.html">Geschiedenis 1A</a>
+  <span class="label label-right">Hoofdstuk 4</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Geschiedenis &nbsp;·&nbsp; 1A &nbsp;·&nbsp; Eerste graad</div>
+  <h1>Hoofdstuk 4<br>Hoe werk je met historische bronnen?</h1>
+  <p class="subtitle">Van kleitablet tot standbeeld — hoe historici bewijzen verzamelen, beoordelen en interpreteren</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- PROLOGUE -->
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Stel je voor &hellip;</span>
+
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+
+    <p>Het is een regenachtige dinsdag. Sofia loopt door de stille gangen van het Egyptisch Museum in Turijn, haar notitieboekje in de hand. Ze is historica — nog maar pas afgestudeerd — en vandaag bestudeert ze twee kleitabletten die naast elkaar in een glazen vitrine liggen. Ze zijn allebei meer dan drieduizend jaar oud. Ze zijn allebei afkomstig uit het Midden-Oosten. Ze beschrijven allebei dezelfde slag.</p>
+
+    <p>De slag bij Kadesj. 1274 voor Christus. Egyptenaren tegen Hettieten, ergens in het huidige Syrië. Een van de grootste veldslagen uit de oudheid.</p>
+
+    <p>Sofia buigt zich dicht over het eerste tablet. Ze leest de vertaling op het bordje ernaast.</p>
+
+    <p class="prologue-dialogue">"Farao Ramses II, de grote held, sloeg de vijand als stro en joeg hem de woestijn in. Zijn overwinning schitterde als de zon boven alle landen."</p>
+
+    <p>Ze schrijft het zorgvuldig over. Dan loopt ze naar het tweede tablet, een Hettitisch exemplaar, gevonden in de oude hoofdstad Hattusa.</p>
+
+    <p class="prologue-dialogue">"De Egyptische troepen vluchtten in wanorde. Onze strijders omsingelden hen aan alle kanten. De farao wist te ontsnappen, maar de overwinning was de onze."</p>
+
+    <p>Sofia kijkt op. Twee tabletten. Twee volstrekt tegengestelde verhalen. Dezelfde slag. Wie liegt er? Wie heeft gelijk? Of — en dit is de meest interessante vraag — zeggen beide tabletten de waarheid vanuit hun eigen perspectief?</p>
+
+    <p>Ze sluit haar notitieboekje. Ze weet dat ze niet zomaar één van de twee verhalen kan geloven. Ze zal moeten werken. Ze zal de context in kaart moeten brengen: wie schreef dit, wanneer, in opdracht van wie, voor welk publiek? Ze zal de inhoud grondig moeten bestuderen. Ze zal moeten beoordelen: hoe betrouwbaar is deze bron? Hoe bruikbaar?</p>
+
+    <p><strong style="color: var(--gold);">Dat is precies wat jij in dit hoofdstuk leert: hoe je als historicus omgaat met bronnen.</strong></p>
+
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 4.1
+  ============================================================ -->
+  <section class="section-block" id="s4-1">
+    <div class="section-heading">
+      <span class="section-num">4.1</span>
+      <h2 class="section-title">Wat is een historische bron?</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Stel je even voor dat iemand over duizend jaar iets wil weten over jouw leven vandaag. Wat kan hij of zij gebruiken? Je berichten op sociale media? Een foto die je vrienden hebben gemaakt? Het rapport van je school? Een krantenartikel over iets dat jij hebt meegemaakt? Een filmpje op YouTube? Je dagboek?</p>
+
+      <p>Al die dingen zijn potentiële <strong>historische bronnen</strong>. Ze zijn sporen die jij achterlaat in de wereld. En net zoals toekomstige historici die sporen zullen gebruiken om jouw tijd te begrijpen, gebruiken historici vandaag de sporen die mensen uit het verleden hebben nagelaten om hun tijd te begrijpen.</p>
+
+      <p>Maar niet elke bron is hetzelfde. Een dagboek dat jijzelf hebt geschreven over jouw eigen ervaringen, is heel anders dan een encyclopedie die jaren later over jou is geschreven. Een foto die op het moment zelf is genomen, is anders dan een schilderij dat decennia later werd gemaakt op basis van herinneringen. Historici maken daarom een eerste grote onderscheid: is deze bron van de eerste of de tweede hand?</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Primaire bron</span>
+        <p class="begrip-def">Een primaire bron is een bron die is gemaakt door een ooggetuige of tijdgenoot van de historische gebeurtenis die wordt beschreven. De bron dateert uit de tijd zelf. Voorbeelden: een brief geschreven door een soldaat tijdens een oorlog, een kleitablet uit de Oudheid, een schilderij gemaakt in de tijd van Napoleon.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Secundaire bron</span>
+        <p class="begrip-def">Een secundaire bron is een bron die is gemaakt door iemand die de gebeurtenis niet zelf heeft meegemaakt, maar die zich baseert op bestaande bronnen of onderzoek. Voorbeelden: een geschiedenisboek geschreven in de 20ste eeuw over de Tweede Wereldoorlog, een documentaire over de Oude Grieken, dit hoofdstuk dat je nu leest.</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>Maar er is meer dan alleen het onderscheid primair-secundair. Bronnen komen ook in allerlei <em>vormen</em>. Een historicus kan werken met een handgeschreven brief, maar ook met de resten van een opgegraven paleis, een mondelinge overlevering van een volk zonder schrift, of een nieuwsfilm. Die verschillende vormen vragen elk een andere aanpak.</p>
+    </div>
+
+    <h3 class="sub-heading">Soorten bronnen naar vorm</h3>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Geschreven bron</span>
+        <p class="begrip-def">Een bron in de vorm van tekst: een brief, dagboek, wettekst, krant, kleitablet met spijkerschrift, inscriptie op een gedenksteen. Geschreven bronnen zijn voor historici bijzonder waardevol, maar vereisen altijd een kritische blik op de maker.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Mondelinge bron</span>
+        <p class="begrip-def">Een bron die bestaat uit gesproken verhalen, overleveringen of getuigenissen: een interview met een ooggetuige, een lied dat generaties lang mondeling is doorgegeven, een volksoverlevering. Mondelinge bronnen zijn onmisbaar voor culturen of tijdperken zonder schrift.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Materiële bron</span>
+        <p class="begrip-def">Een fysiek object of overblijfsel uit het verleden: een gebouw, een standbeeld, een muntstuk, een gebruiksvoorwerp, de resten van een stad die werd opgegraven. Materiële bronnen zijn voor de prehistorie — toen er nog geen schrift was — de enige bewijzen die we hebben.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Audiovisuele bron</span>
+        <p class="begrip-def">Een bron in de vorm van beeld en/of geluid: een foto, een film, een nieuwsopname, een radioprogramma, een podcast. Audiovisuele bronnen bestaan pas sinds de 19de en 20ste eeuw, maar zijn voor de hedendaagse geschiedenis essentieel.</p>
+      </div>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: vier soorten bronnen">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Vier afbeeldingen in een raster: (1) een kleitablet met spijkerschrift als voorbeeld van een geschreven bron; (2) een oudere man die een verhaal vertelt als voorbeeld van een mondelinge bron; (3) een Egyptisch standbeeld als voorbeeld van een materiële bron; (4) een zwart-witfoto als voorbeeld van een audiovisuele bron.</p>
+    </div>
+
+    <div class="prose-text">
+      <p>Terug naar Sofia in het museum. De twee kleitabletten die ze bestudeert zijn <strong>primaire bronnen</strong>: ze werden gemaakt door tijdgenoten van de slag bij Kadesj, in 1274 v.Chr. zelf of kort daarna. Het zijn ook <strong>geschreven bronnen</strong>: tekst op klei. Maar ze zijn ook, in zekere zin, <strong>materiële bronnen</strong>: de fysieke tabletten zelf vertellen iets — het materiaal, de stijl van de inscriptie, de plek waar ze werden gevonden — ook los van wat er op staat geschreven.</p>
+
+      <p>Goede historici laten nooit één soort bron los. Ze combineren ze, vergelijken ze, en stellen bij elke stap kritische vragen.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">💭 Denkvraag</div>
+      <p class="dv-text">Je maakt vandaag een selfie en plaatst die op sociale media. Is die selfie een primaire of secundaire bron? En wat voor soort bron is het? Stel je voor dat een historicus die selfie over honderd jaar bestudeert — wat kan hij of zij eruit leren? Wat <em>niet</em>?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 4.2
+  ============================================================ -->
+  <section class="section-alt" id="s4-2">
+    <div class="section-heading">
+      <span class="section-num">4.2</span>
+      <h2 class="section-title">Stap 1 — De context van een bron in kaart brengen</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Als Sofia in het museum staat te kijken naar de twee kleitabletten, heeft ze nog niets <em>bewezen</em>. Ze heeft de teksten gelezen, maar ze heeft ze nog niet begrepen. Om een bron echt te begrijpen, moet ze eerst de <strong>context</strong> kennen — alles wat rondom de bron ligt: wie maakte hem, wanneer, waar, voor wie en waarom.</p>
+
+      <p>Stel je voor dat je een brief vindt op straat. De brief zegt: "Je plan is goedgekeurd. Het zal beginnen op donderdag." Begrijp je die brief? Niet echt — want je weet niet wie hem schreef, wie hem ontving, welk plan er bedoeld wordt, wanneer "donderdag" is. De context ontbreekt volledig.</p>
+
+      <p>Bij historische bronnen is het net zo. Zonder context is een bron een puzzelstuk zonder puzzel. De eerste stap in bronnenanalyse is dan ook altijd: zet de bron in zijn context.</p>
+    </div>
+
+    <h3 class="sub-heading">Wat hoort bij de context?</h3>
+
+    <div class="prose-text">
+      <p>Een goede contextualisering beantwoordt vier grote vragen. Je situeert de bron in de <strong>tijd</strong> (wanneer is hij gemaakt?), in de <strong>ruimte</strong> (waar is hij gemaakt, in welke samenleving?), en je bepaalt in welke <strong>maatschappelijke domeinen</strong> hij thuishoort (politiek, economisch, sociaal, cultureel). Dan stel je de bron zelf scherper: wat voor soort bron is het (primair/secundair, geschreven/mondeling/materieel/audiovisueel)?</p>
+
+      <p>Maar het meest cruciale onderdeel is het contextualiseren van de <strong>maker</strong>. Want elke bron werd gemaakt door iemand — en die iemand had een naam, een beroep, een afkomst, een positie in de samenleving, een reden om de bron te maken, en een publiek voor ogen.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Perspectief</span>
+        <p class="begrip-def">Het perspectief van een bron is het standpunt, de invalshoek of de visie van de maker. Wie schrijft, schrijft altijd vanuit een bepaalde positie. Een farao beschrijft een slag anders dan een gewone soldaat. Een Hettitische schrijver beschrijft dezelfde slag anders dan een Egyptische schrijver. Het perspectief beïnvloedt wat er in de bron staat en wat er wordt weggelaten.</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>Bij het contextualiseren van de maker stel je jezelf de volgende vragen: Wie is de maker? Wat is zijn of haar beroep en positie? Was hij of zij aanwezig bij de gebeurtenis (ooggetuige of tijdgenoot)? In wiens opdracht werd de bron gemaakt? Wie is het beoogde publiek? Wat was de bedoeling — informeren, overtuigen, verheerlijken, herinneren?</p>
+    </div>
+
+    <div class="highlighted-para">
+      <strong>Voorbeeld: het Egyptische kleitablet over de slag bij Kadesj.</strong> De maker? Waarschijnlijk een schrijver aan het Egyptische hof, in opdracht van farao Ramses II. De tijd? Kort na de slag, ca. 1274 v.Chr. Het publiek? Het Egyptische volk en de hovelingen van Ramses. De bedoeling? De macht en de grootsheid van de farao verheerlijken. Het perspectief? Egyptisch, koninklijk, propagandistisch.
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: kaart Egypte-Hettietenrijk met slag bij Kadesj">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Kaart van het Midden-Oosten rond 1274 v.Chr. met aanduiding van het Egyptische Rijk (geel), het Hettietenrijk (blauw) en de locatie van Kadesj (rode ster) aan de rivier de Orontes in het huidige Syrië. Een pijl toont de beweging van de legers.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">💭 Denkvraag</div>
+      <p class="dv-text">Stel dat je een schoolrapport terugvindt van honderd jaar geleden. Je wilt de context in kaart brengen. Welke vragen stel je? Denk aan: wie maakte het, wanneer, voor wie, met welk doel? En welk soort bron is een schoolrapport?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 4.3
+  ============================================================ -->
+  <section class="section-block" id="s4-3">
+    <div class="section-heading">
+      <span class="section-num">4.3</span>
+      <h2 class="section-title">Stap 2 — De inhoud bestuderen</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Nadat je de context in kaart hebt gebracht, is het tijd voor stap 2: de inhoud van de bron grondig bekijken of lezen. Dit klinkt simpel, maar het vereist meer dan één keer lezen of kijken. Een goede historicus gaat systematisch te werk.</p>
+
+      <p>Bij een <strong>geschreven bron</strong> lees je de tekst minstens twee keer. Bij de eerste lezing probeer je de grote lijnen te vatten: wat staat er? Bij de tweede lezing let je op de details: welke woorden worden gebruikt? Wat wordt nadruk gegeven? Wat ontbreekt? Zijn er opvallende formuleringen, overdrijvingen of lacunes?</p>
+
+      <p>Bij een <strong>materiële bron</strong> bekijk je het object van alle kanten: hoe is het gemaakt, uit welk materiaal, hoe groot is het, zijn er inscripties of versieringen? Bij een <strong>audiovisuele bron</strong> let je ook op de beelden, de kleuren, de compositie, de muziek of de toon van de stem.</p>
+    </div>
+
+    <h3 class="sub-heading">De inhoud van de twee Kadesj-bronnen</h3>
+
+    <div class="prose-text">
+      <p>Laten we dit concreet oefenen met onze twee tabletten. Sofia noteert voor elke bron wat er letterlijk staat, zonder al te interpreteren. Ze vraagt zich af: wat beweert deze bron? Welke feiten geeft hij? Welk beeld schetst hij?</p>
+    </div>
+
+    <div class="bron-citaat">
+      <span class="bron-label">Bron A — Egyptische versie (parafrase naar de inscriptie van Ramses II, ca. 1274 v.Chr.)</span>
+      <blockquote>"Ik, Ramses, de Heer van de Twee Landen, trok op tegen de vijand van het Hettietenland. Mijn troepen en mijn ruiters lieten mij in de steek en vluchtten voor de vijand. Maar ik, alleen, groot als mijn vader Ra, sloeg hen terug. Ik versloeg de volken van het vreemde land en sneed hun hoofden af. Geen van hen ontkwam. Ik maakte het slagveld rood van hun bloed. Zo behaagde mijn overwinning de goden van Egypte."</blockquote>
+      <span class="bron-meta">Gebaseerd op de inscripties in de tempels van Aboe Simbel en Karnak, Egypte.</span>
+    </div>
+
+    <div class="bron-citaat">
+      <span class="bron-label">Bron B — Hettitische versie (parafrase naar een kleitablet uit Hattusa, ca. 1274–1260 v.Chr.)</span>
+      <blockquote>"Onze troepen omsingelden de vijand bij de stad Kadesj. De Egyptische infanterie trok zich in wanorde terug. Onze strijders drongen het Egyptische kamp binnen en maakten grote buit. De farao werd door zijn eigen lichtwacht in veiligheid gebracht. Naderhand sloot de farao vrede omdat hij niet verder kon strijden."</blockquote>
+      <span class="bron-meta">Gebaseerd op kleitabletten gevonden in Hattusa (het huidige Bogazköy, Turkije).</span>
+    </div>
+
+    <div class="prose-text">
+      <p>Als je de twee bronnen naast elkaar legt, springt één ding meteen in het oog: ze spreken elkaar tegen op elk belangrijk punt. In bron A is Ramses een onverslaanbare held die de vijand alleen verslaat. In bron B vlucht het Egyptische leger en wordt de farao gered door zijn bewakers.</p>
+
+      <p>Maar let ook op wat <em>beide</em> bronnen toegeven. In bron A erkent Ramses zelf dat zijn troepen vluchtten ("lieten mij in de steek"). Dat is een opmerkelijk detail — het wijst erop dat de Egyptische situatie inderdaad kritiek was. En bron B noemt expliciet dat er later vrede werd gesloten — wat erop wijst dat de Hettieten de oorlog ook niet definitief konden winnen.</p>
+
+      <p>Goed inhoud bestuderen betekent dus: niet alleen lezen wat er staat, maar ook letten op wat er tussen de regels staat, en op wat er misschien bewust wordt weggelaten.</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: inscriptie Aboe Simbel">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Foto of tekening van de grote tempel van Aboe Simbel in Egypte, met een detail van de muurschilderingen waarop Ramses II triomferend wordt afgebeeld in zijn strijdwagen tijdens de slag bij Kadesj. De farao verschijnt bovennatuurlijk groot in vergelijking met de andere figuren.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">💭 Denkvraag</div>
+      <p class="dv-text">In bron A erkent de Egyptische tekst dat Ramses' troepen wegrenden, maar beweert ze toch dat hij de slag won. Hoe is dat mogelijk? Wat denk jij dat de schrijver probeerde te doen? En waarom zou een farao zijn eigen bijna-nederlaag op zijn tempelmuren laten inscriberen?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 4.4
+  ============================================================ -->
+  <section class="section-alt" id="s4-4">
+    <div class="section-heading">
+      <span class="section-num">4.4</span>
+      <h2 class="section-title">Stap 3 — Interpreteren: bruikbaar, betrouwbaar of niet?</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Nu begint het echte historische werk. Je hebt de context bepaald, je hebt de inhoud bestudeerd — maar wat <em>doe</em> je er nu mee? Je kunt de bron niet zomaar letterlijk geloven. Je kunt hem ook niet zomaar negeren. Je moet hem <strong>interpreteren</strong>.</p>
+
+      <p>Interpreteren betekent: beoordelen hoeveel je aan een bron hebt voor het beantwoorden van een historische vraag. Daarvoor gebruik je twee sleutelbegrippen: <strong>bruikbaarheid</strong> en <strong>betrouwbaarheid</strong>.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Bruikbaarheid</span>
+        <p class="begrip-def">De bruikbaarheid van een bron geeft aan in hoeverre een bron nuttige informatie bevat voor het beantwoorden van de historische vraag die je stelt. Een bron kan heel betrouwbaar zijn maar toch niet bruikbaar voor jouw vraag — en omgekeerd. Bruikbaarheid hangt altijd af van je specifieke onderzoeksvraag.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Betrouwbaarheid</span>
+        <p class="begrip-def">De betrouwbaarheid van een bron geeft aan in hoeverre de informatie in een bron overeenkomt met de historische werkelijkheid. Een bron is volledig betrouwbaar als de informatie nauwkeurig en eerlijk is. Een bron is minder betrouwbaar als er sprake is van propaganda, fouten, overdrijving of bewuste weglating.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Standplaatsgebondenheid: waarom iedereen anders kijkt</h3>
+
+    <div class="prose-text">
+      <p>Waarom liegt de Egyptische bron (als hij al liegt)? Niet noodzakelijk uit kwade wil — maar omdat de maker van de bron gebonden is aan zijn eigen positie, zijn eigen cultuur, zijn eigen tijd. Historici noemen dit <strong>standplaatsgebondenheid</strong>.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Standplaatsgebondenheid</span>
+        <p class="begrip-def">Standplaatsgebondenheid betekent dat de positie, de cultuur, de tijd en de omstandigheden van de maker van een bron bepalen hoe hij de werkelijkheid beschrijft. Niemand kijkt volledig neutraal naar de wereld. Een hofschrijver van een farao schrijft anders over een slag dan een gewone soldaat — niet per se omdat hij liegt, maar omdat zijn positie zijn blik vormt.</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>De schrijver van bron A was een hofschrijver van Ramses II. Hij werkte in opdracht van de farao, die in de Egyptische cultuur werd beschouwd als een halfgod. Een hofschrijver die de farao als verliezer beschrijft, zou zijn baan — en misschien zijn leven — verliezen. Zijn standplaats bepaalt dus mee wat hij schrijft en hoe hij het schrijft.</p>
+
+      <p>De schrijver van bron B was een Hettitische schrijver, waarschijnlijk ook in opdracht van de Hettitische koning Muwatalli II. Hij had er belang bij om de Hettitische overwinning te onderstrepen — want ook zijn koning was een machtig heerser die zijn autoriteit moest bevestigen.</p>
+
+      <p>Standplaatsgebondenheid betekent niet dat bronnen nutteloos zijn. Integendeel! De <em>manier</em> waarop iemand iets beschrijft, is zelf ook historisch interessant. Dat de Egyptische bron zo uitvoerig de heldhaftigheid van Ramses beschrijft, vertelt ons iets over de rol van de farao in de Egyptische samenleving — ook als we twijfelen aan de letterlijke waarheid van de slag.</p>
+    </div>
+
+    <h3 class="sub-heading">Bruikbaar maar niet betrouwbaar — of omgekeerd</h3>
+
+    <div class="prose-text">
+      <p>Bruikbaarheid en betrouwbaarheid zijn twee aparte dingen. Ze kunnen in alle combinaties voorkomen.</p>
+    </div>
+
+    <table class="bronnentabel" role="table" aria-label="Combinaties van bruikbaarheid en betrouwbaarheid">
+      <thead>
+        <tr>
+          <th>Combinatie</th>
+          <th>Betekenis</th>
+          <th>Voorbeeld</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Bruikbaar + betrouwbaar</td>
+          <td>De bron bevat relevante informatie die je kunt vertrouwen.</td>
+          <td>Een Egyptische volkstelling uit 1274 v.Chr. die aantoont hoeveel soldaten er beschikbaar waren.</td>
+        </tr>
+        <tr>
+          <td>Bruikbaar maar niet betrouwbaar</td>
+          <td>De bron heeft informatie over jouw vraag, maar die informatie is gekleurd of onnauwkeurig.</td>
+          <td>Bron A over de slag bij Kadesj: bevat info over de slag, maar is propagandistisch van toon.</td>
+        </tr>
+        <tr>
+          <td>Betrouwbaar maar niet bruikbaar</td>
+          <td>De bron is eerlijk, maar gaat niet over jouw vraag.</td>
+          <td>Een nauwkeurige lijst van graanprijzen in Egypte in 1274 v.Chr. — nutteloos als je vraag gaat over het verloop van de slag.</td>
+        </tr>
+        <tr>
+          <td>Noch bruikbaar noch betrouwbaar</td>
+          <td>De bron is zowel irrelevant als onbetrouwbaar voor jouw vraag.</td>
+          <td>Een middeleeuwse fantasieroman over Ramses, vol mythologische verzinsels.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="prose-text">
+      <p>Bij het beoordelen van de betrouwbaarheid let je op meerdere elementen: is de maker een ooggetuige of tijdgenoot? Heeft hij er belang bij om de waarheid te verdraaien? Is er sprake van propaganda, politieke druk of overdrijving? Stemt de bron overeen met andere bronnen over hetzelfde onderwerp?</p>
+
+      <p>En bij de bruikbaarheid: geeft de bron <em>rechtstreekse</em> informatie over jouw historische vraag, of slechts <em>onrechtstreekse</em>? Geeft hij een <em>volledig</em> antwoord, of slechts een <em>gedeeltelijk</em> antwoord?</p>
+    </div>
+
+    <h3 class="sub-heading">Bronnen vergelijken</h3>
+
+    <div class="prose-text">
+      <p>Een historicus werkt nooit met één bron. Sofia vergelijkt de Egyptische en Hettitische tabletten niet alleen met elkaar, maar ook met andere bronnen over de slag bij Kadesj: archeologische sporen van het slagveld, de tekst van het vredesverdrag dat Ramses en Muwatalli later sloten, en de opvattingen van moderne historici die al deze bronnen samen hebben bestudeerd.</p>
+    </div>
+
+    <table class="bronnentabel" role="table" aria-label="Vergelijking bronnen slag bij Kadesj">
+      <thead>
+        <tr>
+          <th>Bron</th>
+          <th>Type</th>
+          <th>Wie won volgens deze bron?</th>
+          <th>Betrouwbaarheid</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Inscriptie Ramses II</td>
+          <td>Primair, geschreven</td>
+          <td>Egypte (Ramses)</td>
+          <td>Laag: propagandistische bedoeling</td>
+        </tr>
+        <tr>
+          <td>Hettitische tabletten</td>
+          <td>Primair, geschreven</td>
+          <td>Hettietenrijk</td>
+          <td>Laag: ook propagandistische bedoeling</td>
+        </tr>
+        <tr>
+          <td>Vredesverdrag (ca. 1259 v.Chr.)</td>
+          <td>Primair, geschreven</td>
+          <td>Geen winnaar — gelijkspel</td>
+          <td>Hoog: beide partijen ondertekenden</td>
+        </tr>
+        <tr>
+          <td>Archeologische vondsten</td>
+          <td>Primair, materieel</td>
+          <td>Onduidelijk — beide legers actief</td>
+          <td>Gemiddeld: interpretatie vereist</td>
+        </tr>
+        <tr>
+          <td>Moderne historici</td>
+          <td>Secundair</td>
+          <td>Waarschijnlijk gelijkspel</td>
+          <td>Hoog: gebaseerd op alle bronnen</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="prose-text">
+      <p>Wanneer je bronnen vergelijkt, let je op <strong>gelijkenissen</strong> (waar zijn ze het met elkaar eens?) en <strong>verschillen</strong> (waar spreken ze elkaar tegen?). Gelijkenissen tussen onafhankelijke bronnen zijn sterker bewijs dan één enkele bron alleen. Verschillen vragen om uitleg: waarom zeggen ze dit anders? Wat kan de standplaatsgebondenheid van elk verklaren?</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">💭 Denkvraag</div>
+      <p class="dv-text">Kun jij een voorbeeld bedenken uit het dagelijks leven van een bron die bruikbaar maar niet betrouwbaar is? Denk aan: een reclamespot, een Instagram-post van een influencer, een campagnefolder van een politicus. Waarom is die bron bruikbaar voor een historicus, ook al is hij niet volledig betrouwbaar?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 4.5
+  ============================================================ -->
+  <section class="section-block" id="s4-5">
+    <div class="section-heading">
+      <span class="section-num">4.5</span>
+      <h2 class="section-title">Stap 4 — Een beargumenteerd antwoord formuleren</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Je hebt de context bepaald. Je hebt de inhoud bestudeerd. Je hebt de bronnen geïnterpreteerd en vergeleken. Nu komt de laatste stap: je formuleert een antwoord op de historische vraag die je had gesteld.</p>
+
+      <p>Maar let op — dit is geen gewoon antwoord. Het is een <strong>beargumenteerd antwoord</strong>. Dat betekent: je doet een bewering, en je staaft die bewering met argumenten die je haalt uit de bronnen. Je houdt daarbij altijd rekening met de bruikbaarheid en betrouwbaarheid van elke bron die je gebruikt.</p>
+    </div>
+
+    <div class="highlighted-para">
+      <strong>De historische vraag voor dit hoofdstuk:</strong> Wie won de slag bij Kadesj in 1274 v.Chr.?
+    </div>
+
+    <div class="prose-text">
+      <p>Een slecht antwoord zou zijn: "Egypte won, want bron A zegt dat Ramses II de vijand versloeg." Dat is geen beargumenteerd antwoord — het gelooft één bron klakkeloos zonder de betrouwbaarheid te beoordelen.</p>
+
+      <p>Een ander slecht antwoord: "We kunnen het niet weten, want de bronnen spreken elkaar tegen." Dat is te gemakkelijk — het gooit alle bronnen overboord zonder ze te analyseren.</p>
+
+      <p>Een goed antwoord weegt de bronnen af, signaleert hun beperkingen en formuleert een conclusie op basis van de meest betrouwbare combinatie van bronnen.</p>
+    </div>
+
+    <h3 class="sub-heading">Hoe bouw je een beargumenteerd antwoord op?</h3>
+
+    <div class="prose-text">
+      <p>Een beargumenteerd antwoord bestaat uit drie delen. Eerst formuleer je een duidelijke <strong>stelling</strong> als antwoord op de vraag. Dan lever je <strong>argumenten</strong> uit de bronnen die je stelling onderbouwen — met vermelding van welke bronnen je gebruikt en waarom je ze betrouwbaar of bruikbaar acht. Tot slot geef je eventueel een <strong>nuancering</strong>: wat blijft onduidelijk? Welke beperkingen heeft jouw antwoord?</p>
+
+      <p>Laten we dit uitwerken voor de slag bij Kadesj.</p>
+    </div>
+
+    <div class="bron-citaat">
+      <span class="bron-label">Voorbeeld van een beargumenteerd antwoord</span>
+      <blockquote>De slag bij Kadesj eindigde waarschijnlijk op een gelijkspel, waarbij geen van beide partijen een beslissende overwinning behaalde.<br><br>
+      Argument 1: Zowel de Egyptische als de Hettitische bronnen zijn propagandistisch van aard. Beide zijn primaire, geschreven bronnen, maar beide zijn gemaakt in opdracht van een machtige heerser die er belang bij had zijn overwinning te claimen. Hun betrouwbaarheid als bewijs voor een definitieve winnaar is dan ook laag.<br><br>
+      Argument 2: Het vredesverdrag van ca. 1259 v.Chr. — ondertekend door beide partijen — is een sterk bewijs dat er geen echte winnaar was. Als één partij duidelijk had gewonnen, had de verliezende partij geen gelijkwaardige vrede gesloten. Dit is een betrouwbare bron omdat ze door beide kampen werd goedgekeurd.<br><br>
+      Argument 3: Moderne historici, die alle beschikbare bronnen hebben bestudeerd, zijn het er grotendeels over eens dat de slag eindigde in een impasse.<br><br>
+      Nuancering: We hebben geen directe getuigenissen van gewone soldaten of ooggetuigen zonder belang bij het resultaat. De volledige waarheid blijft onzeker.</blockquote>
+      <span class="bron-meta">Dit is een modelantwoord ter illustratie.</span>
+    </div>
+
+    <div class="prose-text">
+      <p>Merk op hoe dit antwoord werkt. Het stelt een duidelijke positie in — "waarschijnlijk gelijkspel" — maar het gebruik van "waarschijnlijk" toont al aan dat de historicus weet dat er onzekerheid is. Elk argument verwijst naar een specifieke bron en beoordeelt de betrouwbaarheid ervan. En de nuancering aan het einde laat zien dat een goed historicus zijn eigen antwoord kritisch bekijkt.</p>
+
+      <p>Dit is de kern van historisch redeneren: niet blind geloven, niet alles verwerpen, maar zorgvuldig afwegen, argumenteren en nuanceren.</p>
+    </div>
+
+    <h3 class="sub-heading">Het volledige stappenplan op een rij</h3>
+
+    <div class="stappenplan" aria-label="Het 4-stappen bronnenanalyse-stappenplan">
+      <h3 class="stappenplan-title">Het 4-stappen bronnenanalyse-stappenplan</h3>
+      <ol class="stappen-list" role="list">
+
+        <li class="stap-item" role="listitem">
+          <div class="stap-cirkel" aria-hidden="true">1</div>
+          <div class="stap-content">
+            <div class="stap-naam">Stap 1</div>
+            <div class="stap-titel">Context bepalen</div>
+            <p class="stap-beschrijving">Situeer de bron in tijd, ruimte en maatschappelijke domeinen. Bepaal het soort bron (primair/secundair, geschreven/mondeling/materieel/audiovisueel). Contextualiseer de maker: naam, beroep, afkomst, positie, perspectief, ooggetuige of niet. Bepaal het doelpubliek en de bedoeling van de bron.</p>
+          </div>
+        </li>
+
+        <li class="stap-item" role="listitem">
+          <div class="stap-cirkel" aria-hidden="true">2</div>
+          <div class="stap-content">
+            <div class="stap-naam">Stap 2</div>
+            <div class="stap-titel">Inhoud bestuderen</div>
+            <p class="stap-beschrijving">Lees of bekijk de bron grondig. Wat staat er letterlijk? Welke informatie geeft de bron? Wat valt op aan de formulering, de toon, de beelden? Wat ontbreekt? Noteer de belangrijkste informatie zonder al te interpreteren.</p>
+          </div>
+        </li>
+
+        <li class="stap-item" role="listitem">
+          <div class="stap-cirkel" aria-hidden="true">3</div>
+          <div class="stap-content">
+            <div class="stap-naam">Stap 3</div>
+            <div class="stap-titel">Interpreteren</div>
+            <p class="stap-beschrijving">Analyseer de standplaatsgebondenheid van de maker: hoe beïnvloedt zijn positie de inhoud? Beoordeel de bruikbaarheid: geeft de bron rechtstreekse of onrechtstreekse informatie? Een volledig of gedeeltelijk antwoord? Beoordeel de betrouwbaarheid: welke elementen beïnvloeden ze? Vergelijk met andere bronnen: waar zijn ze het eens, waar spreken ze elkaar tegen?</p>
+          </div>
+        </li>
+
+        <li class="stap-item" role="listitem">
+          <div class="stap-cirkel" aria-hidden="true">4</div>
+          <div class="stap-content">
+            <div class="stap-naam">Stap 4</div>
+            <div class="stap-titel">Beargumenteerd antwoord formuleren</div>
+            <p class="stap-beschrijving">Selecteer de meest bruikbare en betrouwbare informatie uit de bronnen. Formuleer een duidelijke stelling als antwoord op je historische vraag. Staaf je stelling met argumenten uit de bronnen, met vermelding van hun bruikbaarheid en betrouwbaarheid. Voeg een nuancering toe voor wat onzeker blijft.</p>
+          </div>
+        </li>
+
+      </ol>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">💭 Denkvraag</div>
+      <p class="dv-text">Een historicus zegt: "Ik gebruik alleen primaire bronnen, want die zijn altijd betrouwbaarder dan secundaire bronnen." Klopt dat? Bedenk een voorbeeld van een primaire bron die minder betrouwbaar is dan een secundaire bron. Gebruik de begrippen standplaatsgebondenheid en perspectief in je antwoord.</p>
+    </div>
+  </section>
+
+</div><!-- end page-wrapper -->
+
+<!-- ============================================================
+     EXERCISES
+============================================================ -->
+<div class="exercises-section" id="oefeningen">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <div class="exercise-card">
+      <div class="ex-title">Oefening 1</div>
+      <div class="ex-name">Bronnen over de slag bij Kadesj analyseren</div>
+      <p style="font-size:0.97rem;color:var(--text-mid);margin-bottom:0.7rem;">Hieronder lees je twee korte, fictieve getuigenissen over de slag bij Kadesj — één vanuit Egyptisch perspectief, één vanuit Hettitisch perspectief. Analyseer beide bronnen aan de hand van het 4-stappen stappenplan.</p>
+
+      <div style="background:#FDF3E7;border-left:3px solid var(--terracotta);border-radius:0 4px 4px 0;padding:0.9rem 1.1rem;margin:0.8rem 0;font-size:0.93rem;color:var(--text-mid);">
+        <strong style="color:var(--terracotta);">Bron X — Egyptische soldaat (fictief, geschreven voor deze oefening):</strong><br>
+        <em>"Wij trokken ten strijde in het gevolg van de grote farao. De vijand was talrijk, maar de farao galoppeerde als een leeuw door hun rijen. Ik zag hem met eigen ogen de aanval leiden. Velen van ons vluchtten — ik schaam mij daarvoor — maar de farao hield stand. Toen wij terugkeerden, stonden er lichamen van de vijand overal."</em>
+      </div>
+
+      <div style="background:#EEF2F8;border-left:3px solid var(--darkblue);border-radius:0 4px 4px 0;padding:0.9rem 1.1rem;margin:0.8rem 0;font-size:0.93rem;color:var(--text-mid);">
+        <strong style="color:var(--darkblue);">Bron Y — Hettitische officier (fictief, geschreven voor deze oefening):</strong><br>
+        <em>"Onze troepen omsingelden de Egyptenaren bij zonsondergang. Ik hoorde hun kreten vanuit het kamp. De farao ontsnapte, maar zijn soldaten lieten alles achter. Wij maakten veel buit: paarden, wagens, wapens. Onze koning dankte de stormgod Teshub voor de overwinning."</em>
+      </div>
+
+      <ol>
+        <li>Wat voor soort bronnen zijn X en Y? (primair/secundair? geschreven/mondeling/materieel/audiovisueel?)</li>
+        <li>Contextualiseer de makers: wie zijn ze, wat is hun positie, wat is hun perspectief?</li>
+        <li>Welke informatie geeft elke bron? Wat zeggen ze allebei? Waar spreken ze elkaar tegen?</li>
+        <li>Beoordeel de betrouwbaarheid van elke bron. Welke elementen beïnvloeden die betrouwbaarheid?</li>
+        <li>Zijn deze bronnen bruikbaar om te beantwoorden wie de slag bij Kadesj won? Waarom wel of niet?</li>
+      </ol>
+      <p class="ex-tip">Tip: gebruik de tabel "Combinaties van bruikbaarheid en betrouwbaarheid" uit sectie 4.4 als leidraad.</p>
+    </div>
+
+    <div class="exercise-card">
+      <div class="ex-title">Oefening 2</div>
+      <div class="ex-name">Soorten bronnen herkennen</div>
+      <p style="font-size:0.97rem;color:var(--text-mid);margin-bottom:0.7rem;">Hieronder staan vier bronnen. Bepaal voor elke bron: (a) het soort bron (primair/secundair én geschreven/mondeling/materieel/audiovisueel), (b) wie de maker waarschijnlijk was en wat zijn of haar perspectief is, en (c) of de bron eerder bruikbaar of eerder onbetrouwbaar is voor het bestuderen van de slag bij Kadesj.</p>
+      <ol>
+        <li>Een kleitablet met een lijst van Hettitische soldaten die deelnamen aan de veldtocht van 1274 v.Chr., opgegraven in Hattusa.</li>
+        <li>Een groot standbeeld van Ramses II in zegevierende houding, gebouwd in de tempel van Aboe Simbel, kort na de slag.</li>
+        <li>Een dagboekfragment (fictief) van een Egyptische kok die het kamp van Ramses verzorgde tijdens de veldtocht.</li>
+        <li>Een documentaire uit 2010 over de slag bij Kadesj, gemaakt door een Brits geschiedenisteam op basis van modern archeologisch onderzoek.</li>
+      </ol>
+      <p class="ex-tip">Tip: vergeet niet het onderscheid te maken tussen de soort bron (naar inhoud) en de soort bron (naar drager of medium).</p>
+    </div>
+
+    <div class="exercise-card">
+      <div class="ex-title">Oefening 3</div>
+      <div class="ex-name">Wie won de slag bij Kadesj? — Beargumenteerd antwoord</div>
+      <p style="font-size:0.97rem;color:var(--text-mid);margin-bottom:0.7rem;">Schrijf een beargumenteerd antwoord van vijf tot acht zinnen op de vraag: <strong>"Wie won de slag bij Kadesj in 1274 v.Chr.?"</strong> Gebruik de informatie en bronnen uit dit hoofdstuk. Volg de structuur van een beargumenteerd antwoord: stelling — argumenten — nuancering.</p>
+      <ul>
+        <li>Formuleer een duidelijke stelling (je antwoord op de vraag).</li>
+        <li>Geef minstens twee argumenten uit de bronnen die je stelling onderbouwen.</li>
+        <li>Vermeld bij elk argument welke bron je gebruikt en beoordeel de betrouwbaarheid ervan.</li>
+        <li>Sluit af met een nuancering: wat blijft onzeker of onduidelijk?</li>
+      </ul>
+      <p class="ex-tip">Tip: kijk terug naar het modelantwoord in sectie 4.5 voor inspiratie over de structuur — maar schrijf het volledig in je eigen woorden.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     SUMMARY
+============================================================ -->
+<div class="summary-section" id="samenvatting">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li>Een <strong>historische bron</strong> is elk spoor dat mensen uit het verleden hebben achtergelaten. <strong>Primaire bronnen</strong> zijn gemaakt door tijdgenoten of ooggetuigen; <strong>secundaire bronnen</strong> zijn later gemaakt op basis van bestaande bronnen.</li>
+      <li>Bronnen bestaan in vier vormen: <strong>geschreven bronnen</strong> (tekst), <strong>mondelinge bronnen</strong> (gesproken verhalen), <strong>materiële bronnen</strong> (objecten en overblijfselen) en <strong>audiovisuele bronnen</strong> (beeld en geluid).</li>
+      <li>Het <strong>4-stappen bronnenanalyse-stappenplan</strong> helpt je om systematisch met bronnen te werken: (1) context bepalen, (2) inhoud bestuderen, (3) interpreteren, en (4) een beargumenteerd antwoord formuleren.</li>
+      <li><strong>Standplaatsgebondenheid</strong> betekent dat de positie, cultuur en omstandigheden van de maker altijd meebepalen hoe hij of zij de werkelijkheid beschrijft. Iedereen kijkt vanuit een bepaald <strong>perspectief</strong>.</li>
+      <li><strong>Bruikbaarheid</strong> beoordeelt of een bron nuttige informatie bevat voor jouw specifieke historische vraag. <strong>Betrouwbaarheid</strong> beoordeelt of die informatie overeenkomt met de historische werkelijkheid. Een bron kan bruikbaar maar weinig betrouwbaar zijn — of omgekeerd.</li>
+      <li>Een historicus werkt nooit met één bron. Het vergelijken van bronnen — kijken naar <strong>gelijkenissen</strong> en <strong>verschillen</strong> — levert sterkere conclusies op dan elke bron apart.</li>
+      <li>Een <strong>beargumenteerd antwoord</strong> bestaat uit een stelling, argumenten uit de bronnen (met beoordeling van bruikbaarheid en betrouwbaarheid) en een nuancering. Goed historisch redeneren erkent wat zeker is én wat onzeker blijft.</li>
+      <li>De slag bij Kadesj (1274 v.Chr.) illustreert dit alles: zowel Egypte als het Hettietenrijk claimde de overwinning, maar het latere vredesverdrag en moderne historici wijzen eerder op een gelijkspel of impasse.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  // Back to top button
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) {
+        btn.classList.add('visible');
+      } else {
+        btn.classList.remove('visible');
+      }
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoofdstuk 14 — Alexander de Grote en de hellenistische wereld | Geschiedenis 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE / OPENING STORY
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament {
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--gold);
+    opacity: 0.7;
+    margin: 1.5rem 0;
+    letter-spacing: 0.4em;
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-dialogue {
+    font-style: italic;
+    color: #FFFDF8;
+    padding-left: 1.4rem;
+    border-left: 3px solid rgba(212,160,23,0.4);
+    margin: 1rem 0;
+  }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+    filter: sepia(0.3);
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     ILLUSTRATIE PLACEHOLDERS
+  ============================================================ */
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+    cursor: default;
+    transition: background var(--transition);
+  }
+
+  .illustratie:hover { background: #EDE7D8; }
+
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     INTERACTIVE TIMELINE — 7 PERIODS
+  ============================================================ */
+  .timeline-7 {
+    margin: 2rem 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .timeline-7-inner {
+    display: flex;
+    min-width: 680px;
+    height: 110px;
+    border-radius: var(--border-radius);
+    overflow: visible;
+    position: relative;
+  }
+
+  .tl-period {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 0 0.5rem;
+    cursor: pointer;
+    transition: filter var(--transition), transform var(--transition);
+    min-width: 0;
+  }
+
+  .tl-period:hover { filter: brightness(1.08); transform: translateY(-3px); z-index: 2; }
+
+  .tl-period .tl-bar {
+    position: absolute;
+    bottom: 0;
+    left: 1px;
+    right: 1px;
+    border-radius: 4px 4px 0 0;
+    transition: height var(--transition);
+  }
+
+  /* Featured periods (1–3) are taller */
+  .tl-period.featured .tl-bar { box-shadow: 0 0 0 2px rgba(255,255,255,0.6), 0 4px 14px rgba(0,0,0,0.25); }
+
+  .tl-period .tl-label {
+    position: absolute;
+    top: -2.4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 0.7rem;
+    font-weight: 700;
+    font-family: 'Source Sans 3', sans-serif;
+    text-align: center;
+    color: var(--darkblue);
+    pointer-events: none;
+  }
+
+  .tl-period.featured .tl-label { color: var(--terracotta); font-size: 0.75rem; }
+
+  .tl-period .tl-span {
+    position: absolute;
+    bottom: -1.7rem;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 0.63rem;
+    color: var(--text-light);
+    font-family: 'Source Sans 3', sans-serif;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  /* Tooltip */
+  .tl-period .tl-tooltip {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 2.8rem);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--darkblue);
+    color: var(--creme);
+    font-size: 0.8rem;
+    font-family: 'Source Sans 3', sans-serif;
+    padding: 0.55rem 0.85rem;
+    border-radius: 5px;
+    white-space: nowrap;
+    z-index: 20;
+    pointer-events: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+
+  .tl-period .tl-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: var(--darkblue);
+  }
+
+  .tl-period:hover .tl-tooltip { display: block; }
+
+  .timeline-7-labels {
+    margin-top: 2.4rem;
+    font-size: 0.78rem;
+    color: var(--text-light);
+    text-align: center;
+    font-style: italic;
+  }
+
+  /* Period colors */
+  .tl-p1 { background: #5B3D2E; }
+  .tl-p2 { background: #8B5A2B; }
+  .tl-p3 { background: var(--terracotta); }
+  .tl-p4 { background: #6B7F5E; }
+  .tl-p5 { background: #4A7A8A; }
+  .tl-p6 { background: #2A5C7A; }
+  .tl-p7 { background: var(--darkblue); }
+
+  /* Responsive timeline */
+  @media (max-width: 680px) {
+    .timeline-7-inner {
+      flex-direction: column;
+      height: auto;
+      min-width: 0;
+    }
+    .tl-period {
+      height: 52px;
+      flex-direction: row;
+      align-items: center;
+      padding: 0 1rem;
+      margin-bottom: 4px;
+      border-radius: 4px;
+    }
+    .tl-period .tl-bar {
+      position: absolute;
+      top: 0; bottom: 0; left: 0; right: 0;
+      border-radius: 4px;
+    }
+    .tl-period .tl-label {
+      position: relative;
+      top: auto; left: auto; transform: none;
+      z-index: 1;
+      color: #fff;
+      font-size: 0.82rem;
+      margin-right: auto;
+    }
+    .tl-period .tl-span {
+      position: relative;
+      bottom: auto; left: auto; transform: none;
+      z-index: 1;
+      color: rgba(255,255,255,0.75);
+      font-size: 0.7rem;
+    }
+    .tl-period .tl-tooltip { display: none !important; }
+    .tl-period.featured .tl-label { font-size: 0.85rem; }
+  }
+
+  /* ============================================================
+     v.Chr. / n.Chr. TIMELINE
+  ============================================================ */
+  .vchr-timeline {
+    margin: 2rem 0 3rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .vchr-inner {
+    min-width: 580px;
+    padding: 2.5rem 1rem 2rem;
+    position: relative;
+  }
+
+  /* The horizontal bar */
+  .vchr-bar {
+    position: relative;
+    height: 6px;
+    background: linear-gradient(90deg, #3A1A0A, var(--terracotta), #FAF6EF, var(--darkblue), #091529);
+    border-radius: 3px;
+    margin: 0 20px;
+  }
+
+  /* Zero point */
+  .vchr-zero {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 16px;
+    height: 16px;
+    background: var(--gold);
+    border: 3px solid var(--creme);
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px var(--gold), 0 0 10px rgba(212,160,23,0.6);
+    z-index: 2;
+  }
+
+  .vchr-zero-label {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -1.5rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--gold);
+    font-family: 'Source Sans 3', sans-serif;
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  /* Section labels */
+  .vchr-section-label {
+    position: absolute;
+    top: -2rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-family: 'Source Sans 3', sans-serif;
+  }
+
+  .vchr-section-label.left {
+    left: 0;
+    color: var(--terracotta);
+  }
+
+  .vchr-section-label.right {
+    right: 0;
+    color: var(--darkblue);
+  }
+
+  /* Tick marks */
+  .vchr-tick {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+  }
+
+  .vchr-tick .tick-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    border: 2px solid;
+    background: var(--creme);
+    margin-top: -1px;
+  }
+
+  .vchr-tick.vchr-left .tick-dot { border-color: var(--terracotta); }
+  .vchr-tick.vchr-right .tick-dot { border-color: var(--darkblue); }
+
+  .vchr-tick .tick-label {
+    position: absolute;
+    bottom: 1.1rem;
+    white-space: nowrap;
+    font-size: 0.68rem;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    text-align: center;
+    transform: translateX(-50%);
+    left: 50%;
+  }
+
+  .vchr-tick.vchr-left .tick-label { color: var(--terracotta); }
+  .vchr-tick.vchr-right .tick-label { color: var(--darkblue); }
+
+  .vchr-tick .tick-sublabel {
+    position: absolute;
+    top: 1.3rem;
+    white-space: nowrap;
+    font-size: 0.6rem;
+    font-family: 'Source Sans 3', sans-serif;
+    color: var(--text-light);
+    font-style: italic;
+    transform: translateX(-50%);
+    left: 50%;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong {
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition), opacity var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover {
+    background: var(--darkblue-light);
+    transform: translateY(-3px);
+  }
+
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     UTILITY / MISC
+  ============================================================ */
+  .prose-text { max-width: 100%; }
+
+  .highlighted-para {
+    background: rgba(212,160,23,0.08);
+    border-left: 3px solid var(--gold);
+    padding: 0.8rem 1.1rem;
+    border-radius: 0 4px 4px 0;
+    margin: 1.2rem 0;
+    font-size: 0.97rem;
+    color: var(--text-mid);
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <a class="label" href="index.html">Geschiedenis 1A</a>
+  <span class="label label-right">Hoofdstuk 14</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Geschiedenis &nbsp;·&nbsp; 1A &nbsp;·&nbsp; Eerste graad</div>
+  <h1>Hoofdstuk 14<br>Alexander de Grote en de hellenistische wereld</h1>
+  <p class="subtitle">Van de gordische knoop tot aan de grenzen van India — hoe één man de wereld veranderde en wat er na zijn dood overbleef</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- PROLOGUE -->
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Gordion, 333 v.Chr. &hellip;</span>
+
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+
+    <p>Hij is tweeëntwintig jaar oud. Zijn haar plakt aan zijn voorhoofd van het stof en het zweet van de mars. Achter hem strekken tienduizenden soldaten zich uit over de vlakte van Frygië — Macedoniërs, Thessalische ruiters, huurlingen uit heel de Griekse wereld. Ze hebben de Hellespont overgestoken, het smalle zeestraat tussen Europa en Azië, en ze zijn dieper het Perzische Rijk ingetrokken dan ooit een Griek voor hen durfde.</p>
+
+    <p>Voor hem staat een tempel. En in die tempel hangt een wagen — de wagen van de legendarische koning Gordios, vastgebonden met een knoop van boombasttouwen, zo ingewikkeld en zo strak samengegroeid dat niemand in al die eeuwen het begin of het einde ervan had kunnen vinden. Een orakel had voorspeld: wie deze knoop losmaakt, zal heerser zijn over heel Azië.</p>
+
+    <p>Zijn generaals wachten. De priesters wachten. De soldaten wachten.</p>
+
+    <p>Alexander buigt zich over de knoop. Hij trekt eraan, draait, zoekt. Niets beweegt. Hij richt zich op, en zijn gezicht is rustig. Dan trekt hij zijn zwaard en hakt de knoop met één slag door.</p>
+
+    <p class="prologue-dialogue">"Nu is hij losgemaakt," zegt hij.</p>
+
+    <p>Of de legende echt zo verlopen is, weten we niet. Maar ze vertelt iets essentieels over Alexander: hij liet zich door geen enkel probleem tegenhouden. Als de regels niet werkten, veranderde hij de regels. Als de weg geblokkeerd was, hakte hij een nieuw pad.</p>
+
+    <p>In het hoofdstuk dat volgt, leer je hoe Macedonië — een koninkrijk dat de Grieken nauwelijks als beschaafd beschouwden — heel Griekenland veroverde, en hoe de zoon van de Macedonische koning daarna het grootste rijk van zijn tijd opbouwde. Je leert wat er na zijn vroege dood gebeurde, en hoe zijn veroveringen de wereld voor eeuwen veranderden. En je leert hoe je de sporen van die periode nog terugziet in marmeren beelden vol pijn en beweging.</p>
+
+    <p><strong style="color: var(--gold);">Dit is het verhaal van Alexander de Grote en de hellenistische wereld.</strong></p>
+
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 14.1
+  ============================================================ -->
+  <section class="section-block" id="s14-1">
+    <div class="section-heading">
+      <span class="section-num">14.1</span>
+      <h2 class="section-title">Hellas onder Macedonisch gezag</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Om te begrijpen hoe Alexander de Grote zo snel zo ver kon veroveren, moeten we een stap teruggaan — naar zijn vader, en naar het koninkrijk in het noorden dat de Grieken zo lang hadden onderschat.</p>
+    </div>
+
+    <h3 class="sub-heading">Een koninkrijk aan de rand van de Griekse wereld</h3>
+
+    <div class="prose-text">
+      <p>Macedonië lag ten noorden van Griekenland, in een bergachtig gebied dat vandaag deels Noord-Macedonië en deels het noorden van Griekenland omvat. De Macedoniërs spraken een dialect dat verwant was aan het Grieks, maar de inwoners van de Griekse stadstaten — de Atheners, de Spartanen, de Corinthiërs — beschouwden hen toch min of meer als buitenstaanders. De Macedonische adel was kriegerig en ruw, de boeren arm, de steden klein en onbeduidend in vergelijking met het bruisende Athene of het militaire Sparta.</p>
+
+      <p>Totdat Filippus II de troon besteeg.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Macedonië</span>
+        <p class="begrip-def">Een koninkrijk in het noorden van het Griekse schiereiland, aan de rand van de Griekse beschavingswereld. Macedonië gold lange tijd als "barbaars" in de ogen van de klassieke stadstaten, maar groeide onder Filippus II uit tot de machtigste militaire macht van het Griekse gebied.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Filippus II en de revolutie in het Macedonische leger</h3>
+
+    <div class="prose-text">
+      <p>Filippus II regeerde van 359 tot 336 v.Chr. Hij was een briljant organisator en een koelbloedige strateeg. Wat hij deed met het Macedonische leger, was niets minder dan een militaire revolutie. Het centrale element was de <strong>falanx</strong> — een gevechtsmethode die de Grieken al kenden, maar die Filippus tot zijn uiterste perfectie doorvoerde.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Falanx</span>
+        <p class="begrip-def">Een gevechtformatie waarbij soldaten schouder aan schouder in dichte rijen staan, met lange speren — de zogenaamde sarissen, tot zes meter lang — schuin naar voren gericht. De eerste rijen doorboorden de vijand, de achterste rijen duwden de voorste rijen vooruit. De falanx was bij Filippus II en later Alexander de kurk waarop het hele leger dreef.</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>Filippus combineerde de falanx met snelle ruiterij op de flanken en een professioneel, permanent geoefend leger — iets wat de meeste Griekse stadstaten niet konden evenaren, want die werkten met burgermilities die slechts tijdelijk werden opgeroepen. Het Macedonische leger was het hele jaar door beschikbaar, getraind en betaald. Het was een moderne, beroepsleger avant la lettre.</p>
+
+      <p>Met dit leger rukte Filippus zuidwaarts. Stap voor stap bracht hij de Griekse stadstaten onder zijn invloed — soms door diplomatieke druk, soms door directe verovering. Enkelen verzetten zich; anderen berustten. Athene en Thebe, de twee machtigste stadstaten, probeerden weerstand te bieden.</p>
+    </div>
+
+    <h3 class="sub-heading">De slag bij Chaironeia en de Korinthische Bond</h3>
+
+    <div class="prose-text">
+      <p>In 338 v.Chr. troffen de legers elkaar bij Chaironeia, een kleine stad in Boeotië. Filippus en zijn zeventienjarige zoon Alexander — die de ruiterij aanvoerde — versloegen de gecombineerde Atheens-Thebaanse troepen volledig. Het was een keerpunt in de Griekse geschiedenis: na eeuwen van onafhankelijkheid als stadstaten lagen de Griekse poleis nu aan de voeten van een noordelijke monarch.</p>
+
+      <p>Filippus was echter slim genoeg om niet als een brutale veroveraar op te treden. In plaats van Griekenland gewoon in te lijven, richtte hij de <strong>Korinthische Bond</strong> op — een verbond van Griekse steden dat nominaal zijn eigen autonomie bewaarde, maar waarbij Filippus de opperbevelhebber was en de richting bepaalde. De stadstaten waren in naam vrij; in de praktijk dansten ze naar de pijpen van Macedonië.</p>
+    </div>
+
+    <div class="highlighted-para">
+      <strong>Scharnierpunt: 338 v.Chr., Chaironeia.</strong> De slag bij Chaironeia markeert het einde van het tijdperk van de onafhankelijke Griekse stadstaten. Politiek gezien was Griekenland nooit meer wat het geweest was. Cultureel bleef de Griekse erfenis springlevend — en zou ze via Alexander de hele bekende wereld veroveren.
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: kaart van Macedonisch Griekenland en de Korinthische Bond">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Kaart van Griekenland en het noorden van het Egeïsch gebied. Macedonië is in een andere kleur weergegeven dan de Griekse stadstaten. Een lijn toont de opmars van Filippus richting Chaironeia (338 v.Chr.). De lidstaten van de Korinthische Bond zijn gearceerd. Een sterretje markeert het slagveld bij Chaironeia.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">💭 Denkvraag</div>
+      <p class="dv-text">De Griekse stadstaten beschouwden de Macedoniërs als "barbaars". En toch was het Macedonische leger professioneler en gevaarlijker dan de Griekse burgermilities. Wat zegt dit over het gevaar van neerkijken op andere volkeren? Kun je een hedendaags voorbeeld bedenken waarbij vooroordelen een vergelijkbare blinde vlek veroorzaken?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 14.2
+  ============================================================ -->
+  <section class="section-alt" id="s14-2">
+    <div class="section-heading">
+      <span class="section-num">14.2</span>
+      <h2 class="section-title">Het wereldrijk van Alexander de Grote</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Filippus II stierf nooit op het slagveld. Hij werd in 336 v.Chr. vermoord tijdens de bruiloft van zijn dochter — door een van zijn eigen lijfwachten, om redenen die historici tot op vandaag debatteren. Zijn opvolger was zijn zoon Alexander, twintig jaar oud, al beproefd op het slagveld van Chaironeia, en vastberaden om alles te doen wat zijn vader had gepland — en meer.</p>
+    </div>
+
+    <h3 class="sub-heading">Een prins gevormd door Aristoteles</h3>
+
+    <div class="prose-text">
+      <p>Alexander werd geboren in 356 v.Chr. Zijn moeder was Olympias, een Epirotische prinses met een woeste reputatie. Zijn vader was Filippus. Maar zijn geest werd gevormd door een andere man: <strong>Aristoteles</strong>, een van de grootste filosofen die de antieke wereld heeft voortgebracht.</p>
+
+      <p>Filippus had Aristoteles naar zijn hof gehaald om zijn zoon te onderwijzen. Het was een uitzonderlijke keuze: een Macedonische prins die les kreeg van de scherpste denker van zijn generatie. Aristoteles leerde Alexander niet alleen filosofie, maar ook biologie, geneeskunde, literatuur en politiek. Alexander werd een man die zijn hele leven boeken mee op campagne nam, die wetenschappers meestuurde om de flora, fauna en geografie van veroverde gebieden te documenteren, en die oprecht geïnteresseerd was in de culturen die hij tegenkwam — al betekende "tegenkomen" in zijn geval ook vrijwel altijd "veroveren".</p>
+    </div>
+
+    <h3 class="sub-heading">De veroveringen: snelheid en schaal</h3>
+
+    <div class="prose-text">
+      <p>In 334 v.Chr. stak Alexander met zijn leger de Hellespont over. Het was het begin van een veldtocht die dertien jaar zou duren en het grootste aaneengesloten rijk zou scheppen dat de bekende wereld tot dan toe had gezien. De snelheid was verbijsterend.</p>
+
+      <p>De eerste grote confrontatie met het Perzische leger vond plaats aan de rivier de <strong>Granikos</strong> (334 v.Chr.), in het westen van wat nu Turkije is. Alexander won overtuigend. Hij trok vervolgens langs de kusten van Klein-Azië, bevrijdde de Griekse steden daar van Perzisch gezag, en stond in 333 v.Chr. tegenover de Perzische grootkoning Darius III bij <strong>Issos</strong>, in het zuiden van wat nu Turkije is. Opnieuw een beslissende overwinning. Darius vluchtte en liet zijn familie achter — zijn moeder, zijn vrouw, zijn kinderen. Alexander behandelde hen met achting en respect, een gebaar dat door de Perzen lang zou worden herinnerd.</p>
+
+      <p>Daarna trok Alexander zuidwaarts. Fenicische kustplaatsen werden ingenomen. Egypte verwelkomde hem als bevrijder — de Egyptenaren haatten hun Perzische overheersers. In <strong>Egypte</strong> liet Alexander in 332 v.Chr. een nieuwe stad stichten aan de monding van de Nijl: <strong>Alexandrië</strong>, die snel zou uitgroeien tot een van de grootste en rijkste steden van de antieke wereld.</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: kaart van de veroveringen van Alexander de Grote">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Kaart van Europa, het Midden-Oosten, Centraal-Azië en het noordwesten van India. De route van Alexanders veldtochten is met een pijl aangegeven: van Macedonië via Klein-Azië, Syrië, Egypte, Mesopotamië, Perzië, Centraal-Azië tot aan de Indus in het huidige Pakistan. Slachtplaatsen (Granikos, Issos, Gaugamela) zijn gemarkeerd. Hedendaagse landsgrenzen zijn in licht gestippeld weergegeven voor vergelijking.</p>
+    </div>
+
+    <div class="prose-text">
+      <p>In 331 v.Chr. vond de beslissende veldslag plaats bij <strong>Gaugamela</strong>, ergens in het huidige Irak. Darius had een enorm leger samengesteld — honderdduizenden man, strijdwagens met messen aan de wielas, olifanten. Alexander versloeg hem opnieuw. Darius vluchtte opnieuw, en werd kort daarna vermoord door zijn eigen satrapen — provinciegouverneurs die hem als een verloren zaak zagen. Alexandrie veroverde vervolgens <strong>Babylon</strong>, het rijke handelscentrum, en daarna <strong>Persepolis</strong>, de ceremoniële hoofdstad van het Perzische Rijk. Persepolis werd in brand gestoken — of het een bewuste politieke keuze was of het gevolg van een dronken feest, is tot op vandaag omstreden.</p>
+
+      <p>Maar Alexander hield niet op. Hij trok verder: door het huidige Iran, Afghanistan, Oezbekistan, Tadzjikistan — gebieden die zelfs de Perzen maar moeizaam hadden beheerst. In 326 v.Chr. stak hij de rivier de Indus over en bevond zich in het huidige Pakistan en India. Zijn leger had in tien jaar tijd meer dan zestienduizend kilometer afgelegd.</p>
+    </div>
+
+    <h3 class="sub-heading">Het leger zegt nee</h3>
+
+    <div class="prose-text">
+      <p>Bij de rivier de Hyfasis, ergens in het noorden van het huidige Pakistan, deed zijn leger wat geen enkel leger daarvoor had gedurfd: het weigerde verder te gaan. De soldaten waren uitgeput, verzwakt door de monsoenoorgenen, misselijk van het heimwee. Sommigen hadden hun vrouwen en kinderen al tien jaar niet gezien. Ze hadden genoeg gevochten en genoeg gewonnen. Ze wilden naar huis.</p>
+
+      <p>Alexander trok zich drie dagen terug in zijn tent, gekrenkt en boos. Hij bad, offerde, zocht een teken. Maar het teken dat de goden gaven, zeiden zijn priesters, was duidelijk: trek niet verder. Waarschijnlijk was het een politiek handige uitleg van een onvermijdelijke realiteit. Alexander draaide zijn leger om.</p>
+    </div>
+
+    <h3 class="sub-heading">De bestuurder: een wereld mengen</h3>
+
+    <div class="prose-text">
+      <p>Alexander was niet alleen een militaire leider; hij was ook een bestuurder met een visie die voor zijn tijd uitzonderlijk was. Hij geloofde niet in een simpele Macedonische bezetting van veroverd gebied. In plaats daarvan probeerde hij Griekse en Perzische cultuur te laten versmelten.</p>
+
+      <p>Hij huwde Roxane, een Bactrische prinses uit het huidige Afghanistan — en later ook twee Perzische princessen. Hij droeg Perzische kleding, nam Perzische hofceremonieel over, en benoemde Perzen in hoge bestuursposities. Hij organiseerde een massale bruiloft in Susa waarbij negentig van zijn officieren Perzische edeldames trouwden.</p>
+
+      <p>Zijn Macedonische generaals waren woedend. Zij hadden hun leven gegeven voor de overwinning en zagen nu hoe hun koning de overwonnenen leek te bevoordelen. Er kwamen samenzweringsplannen en geruchten van muiterij. Alexander liet de leiders executeren — inclusief zijn jeugdvriend Kleitos, die hij in een dronken woedeaanval zelf doodstak met een speer, een daad waarover hij later diep spijt had.</p>
+    </div>
+
+    <h3 class="sub-heading">De dood van Alexander</h3>
+
+    <div class="prose-text">
+      <p>In juni 323 v.Chr. stierf Alexander in Babylon. Hij was tweeëndertig jaar oud. De exacte doodsoorzaak is onbekend en wordt tot op vandaag bediscussieerd door historici en artsen: sommigen denken aan tyfus, anderen aan een ernstige alcoholvergiftiging na een lang feest, weer anderen aan een vergiftiging door zijn eigen generaals. Het enige wat zeker is: hij stierf snel, in hevige pijn, na een ziekte van ruim een week.</p>
+
+      <p>Toen zijn generaals om zijn sterfbed stonden en hem vroegen aan wie hij zijn rijk naliet, zou hij gefluisterd hebben: <em>"aan de sterkste."</em> Of hij die woorden werkelijk heeft uitgesproken, weten we niet. Maar de gevolgen van de openvallende troon waren dan toch precies wat die woorden voorspelden.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">💭 Denkvraag</div>
+      <p class="dv-text">Was Alexander "de Grote"? Hij veroverde in dertien jaar een wereldrijk — maar achter zijn opmars lagen honderdduizenden doden, verwoeste steden en ontwortelde volkeren. Tegelijk respecteerde hij de culturen die hij veroverde en stimuleerde hij culturele uitwisseling. Verdient hij de bijnaam "de Grote"? Gebruik minimaal twee argumenten voor en twee argumenten tegen in je antwoord.</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: mozaïek van de slag bij Issos">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Reproductie van het beroemde Alexandermozaïek uit Pompeii (origineel ca. 100 v.Chr., bewaard in het Nationaal Archeologisch Museum van Napels). Het mozaïek toont de confrontatie tussen Alexander te paard (links) en de Perzische koning Darius III op zijn strijdwagen (rechts). De chaos van de strijd is meesterlijk weergegeven. Hedendaagse landen op de veroveringsroute: Griekenland, Albanië, Noord-Macedonië, Turkije, Syrië, Libanon, Israël, Egypte, Irak, Iran, Afghanistan, Pakistan, Oezbekistan, Tadzjikistan, Kirgizstan.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 14.3
+  ============================================================ -->
+  <section class="section-block" id="s14-3">
+    <div class="section-heading">
+      <span class="section-num">14.3</span>
+      <h2 class="section-title">Na Alexander: versnippering en hellenisme</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Alexander had geen aangewezen opvolger. Zijn vrouw Roxane was zwanger — de toekomstige Alexander IV zou pas na zijn dood worden geboren — maar een baby was geen echte troonopvolger. In het kamp van de generaals brak meteen na de dood van Alexander een strijd los die decennia zou duren.</p>
+    </div>
+
+    <h3 class="sub-heading">De Diadochen-oorlogen: wie is de sterkste?</h3>
+
+    <div class="prose-text">
+      <p>De generaals van Alexander noemden zichzelf <em>diadochen</em> — het Griekse woord voor "opvolgers". Maar opvolgers waren ze allemaal, en ze vochten met verbeten bitterheid om het grootste deel van de erfenis. De oorlogen duurden van 323 tot circa 275 v.Chr., bijna vijftig jaar van geweld, allianties en verraderlijke coalities.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Diadochen</span>
+        <p class="begrip-def">De Griekse term voor "opvolgers". De diadochen waren de generaals van Alexander de Grote die na zijn dood in 323 v.Chr. om de controle over zijn rijk vochten. Hun onderlinge oorlogen duurden decennia en leidden tot de opsplitsing van het rijk in drie grote koninkrijken.</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>Uiteindelijk kristalliseerde het rijk uit in drie grote rijken:</p>
+    </div>
+
+    <ul style="margin: 1rem 0 1.4rem 1.2rem; list-style: none; padding: 0;">
+      <li style="display:flex;gap:0.7rem;margin-bottom:0.9rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:6.5rem;">Ptolemeïsch rijk:</span>
+        <span>Egypte en aangrenzende gebieden, onder de dynastie van Ptolemaios I — een van Alexanders naaste generaals. Dit rijk zou standhouden tot 30 v.Chr., toen Cleopatra VII, de laatste Ptolemeïsche koningin, stierf na de Romeinse verovering.</span>
+      </li>
+      <li style="display:flex;gap:0.7rem;margin-bottom:0.9rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:6.5rem;">Seleucidisch rijk:</span>
+        <span>Het grootste deel van het voormalige Perzische Rijk — ruwweg het huidige Syrië, Irak, Iran en Centraal-Azië — onder de dynastieoprichter Seleukos I. Dit rijk kromp in de eeuwen daarna door conflicten met Rome en de opkomst van de Parthen.</span>
+      </li>
+      <li style="display:flex;gap:0.7rem;margin-bottom:0.9rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:6.5rem;">Macedonisch rijk:</span>
+        <span>Macedonië en Griekenland zelf, uiteindelijk onder de Antigonosdynastie. Dit was het kleinste van de drie rijken, en het werd in 146 v.Chr. een Romeinse provincie.</span>
+      </li>
+    </ul>
+
+    <h3 class="sub-heading">Hellenisme: Griekse cultuur verspreidt zich over de wereld</h3>
+
+    <div class="prose-text">
+      <p>Ondanks de politieke versnippering had Alexanders verovering iets teweeggebracht wat politieke grenzen niet kon tegenhouden: de verspreiding van de Griekse taal en cultuur over een enorm gebied, van de Middellandse Zee tot aan de grenzen van India. Historici noemen dit het <strong>hellenisme</strong>.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Hellenisme</span>
+        <p class="begrip-def">De periode en het cultuurverschijnsel na de dood van Alexander de Grote (323 v.Chr.) tot aan de Romeinse verovering van Egypte (30 v.Chr.), gekenmerkt door de verspreiding van de Griekse taal, cultuur, filosofie en wetenschap over het Midden-Oosten, Centraal-Azië en omliggende gebieden, en door de vermenging van die Griekse cultuur met lokale tradities.</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>Het centrale element van die verspreiding was de <strong>koinè</strong> — de gemeenschappelijke Griekse taal die zich ontwikkelde als handelstaal en bestuurstaal over het hele voormalige rijk van Alexander.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Koinè</span>
+        <p class="begrip-def">Letterlijk "de gemeenschappelijke taal": een vereenvoudigde, gestandaardiseerde vorm van het Grieks die zich na Alexanders veroveringen ontwikkelde als lingua franca — gemeenschappelijke taal — over het hele Midden-Oosten en verder. Het Nieuwe Testament van de bijbel werd in koinè geschreven.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Alexandrië: de hoofdstad van de hellenistische kennis</h3>
+
+    <div class="prose-text">
+      <p>Van alle steden die Alexander stichtte — en hij stichtte er tientallen, de meeste met de naam Alexandrië — groeide de stad aan de Nijl-monding uit tot verreweg de belangrijkste. <strong>Alexandrië in Egypte</strong> werd onder de Ptolemeeën het intellectuele centrum van de hellenistische wereld.</p>
+
+      <p>Het hart van die intellectuele wereld was de <strong>Bibliotheek van Alexandrië</strong> — de meest ambitieuze verzameling kennis die de oudheid ooit heeft voortgebracht.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Bibliotheek van Alexandrië</span>
+        <p class="begrip-def">Een gigantische koninklijke bibliotheek gesticht in Alexandrië onder de vroege Ptolemeeën (begin 3de eeuw v.Chr.), met als doel alle menselijke kennis bijeen te brengen. Op haar hoogtepunt zou ze honderdduizenden papyrusrollen hebben bevat. Ze trok geleerden uit de hele Griekse wereld aan. Ze ging verloren in een reeks van branden en verwoestingen over meerdere eeuwen.</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>In en rond deze bibliotheek werkten geleerden die de grenzen van de menselijke kennis ver verlegden. Een greep:</p>
+    </div>
+
+    <ul style="margin: 1rem 0 1.4rem 1.2rem; list-style: none; padding: 0;">
+      <li style="display:flex;gap:0.7rem;margin-bottom:0.9rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:7rem;">Euclides</span>
+        <span>Legde de grondslagen van de systematische meetkunde in zijn werk <em>Elementen</em> — een boek dat tot ver in de 20ste eeuw als leerboek werd gebruikt, meer dan tweeduizend jaar na zijn schrijven.</span>
+      </li>
+      <li style="display:flex;gap:0.7rem;margin-bottom:0.9rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:7rem;">Eratosthenes</span>
+        <span>Berekende met opmerkelijke nauwkeurigheid de omtrek van de aarde — door de schaduwen van de zon op twee verschillende plaatsen te meten. Hij zat er slechts een paar procent naast. Dit in de 3de eeuw v.Chr., twaalfhonderd jaar voordat de meeste Europeanen dachten dat zeelieden van de aarde konden vallen.</span>
+      </li>
+      <li style="display:flex;gap:0.7rem;margin-bottom:0.9rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:7rem;">Archimedes</span>
+        <span>Hoewel hij werkzaam was in Syracuse op Sicilië, was hij nauw verbonden met de Alexandrijnse geleerdenwereld. Hij ontdekte de principes van de hefboom, de katrollen en de vloeistofdruk — en de beroemde uitroep <em>"Eureka!"</em> wordt hem toegeschreven.</span>
+      </li>
+    </ul>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">💭 Denkvraag</div>
+      <p class="dv-text">Is het hellenisme een voorbeeld van culturele uitwisseling of van culturele opdringing? De Griekse cultuur verspreidde zich over enorme gebieden — maar het was een verspreiding die volgde op gewapende verovering. Mochten de bewoners van Egypte, Perzië of Bactrië kiezen of ze de Griekse taal en cultuur wilden overnemen? Bespreek dit vanuit twee verschillende perspectieven: dat van een Grieks intellectueel en dat van een Perzische edelman.</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: kaart van de drie diadochenrijken na Alexander">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Kaart van het Middellandse Zeegebied en het Midden-Oosten. Drie kleurzones tonen de drie grote diadochenrijken rond 280 v.Chr.: het Ptolemeïsche rijk (Egypte en aangrenzende gebieden), het Seleucidische rijk (Syrië, Irak, Iran en Centraal-Azië) en het Macedonische rijk (Griekenland en Macedonië). Alexandrië is gemarkeerd met een sterpictogram als zetel van de Bibliotheek van Alexandrië.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 14.4
+  ============================================================ -->
+  <section class="section-alt" id="s14-4">
+    <div class="section-heading">
+      <span class="section-num">14.4</span>
+      <h2 class="section-title">Hellenistische beeldhouwkunst</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>De veranderingen in de hellenistische periode zijn niet alleen zichtbaar in politieke grenzen of bibliotheken. Ze zijn ook zichtbaar in marmer. De kunst van de hellenistische periode — en meer bepaald de beeldhouwkunst — verschilt zo sterk van de klassieke Griekse kunst dat je ze, eenmaal geleerd, nooit meer door elkaar haalt.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Hellenistische beeldhouwkunst</span>
+        <p class="begrip-def">De beeldhouwkunst uit de hellenistische periode (ca. 323–30 v.Chr.), gekenmerkt door emotionele expressie, dynamische beweging, dramatisch contrast en realistische weergave van pijn, ouderdom en spanning — in tegenstelling tot de rustige idealisering van de klassieke Griekse beeldhouwkunst.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Klassiek versus hellenistisch: twee stijlen vergeleken</h3>
+
+    <div class="prose-text">
+      <p>In de klassieke periode — ruwweg de 5de en 4de eeuw v.Chr. — streefden Griekse beeldhouwers naar het <strong>ideaal</strong>. Een beeld van een atleet of een god toonde niet een specifieke persoon met zijn gebreken en zorgen, maar het idee van perfecte, harmonieuze menselijkheid. De uitdrukking op het gezicht was kalm en beheerst; het lichaam was gespierd maar evenwichtig, opgebouwd volgens wiskundige verhoudingen. Denk aan de <em>Doryphoros</em> (Speerdager) van Polykleitos — een beeld waarbij elk detail is berekend om de perfecte menselijke proportie uit te drukken.</p>
+
+      <p>In de hellenistische periode brak dit ideaal. Beeldhouwers begonnen iets anders te willen: niet het ideaal, maar de <strong>werkelijkheid van het moment</strong>. Emotie. Pijn. Wanhoop. Strijd. Ouderdom. Vermoeidheid. Het marmeren oppervlak moest gaan leven.</p>
+    </div>
+
+    <ul style="margin: 1rem 0 1.4rem 1.2rem; list-style: none; padding: 0;">
+      <li style="display:flex;gap:0.7rem;margin-bottom:0.8rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:5.5rem;">Klassiek:</span>
+        <span>Rustig, geïdealiseerd, evenwichtig. Statisch maar harmonieus. De goden en helden zijn mooi en beheerst. De kunst drukt het tijdloze uit.</span>
+      </li>
+      <li style="display:flex;gap:0.7rem;margin-bottom:0.8rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:5.5rem;">Hellenistisch:</span>
+        <span>Emotioneel, dramatisch, dynamisch. Figuren kronkelen, hun gezichten vertrekken van pijn of angst, hun spieren spannen zich tot het uiterste. De kunst drukt het intense, vluchtige moment uit.</span>
+      </li>
+    </ul>
+
+    <h3 class="sub-heading">De Laocoöngroep: het absolute hoogtepunt van het drama</h3>
+
+    <div class="prose-text">
+      <p>Het beroemdste voorbeeld van hellenistische beeldhouwkunst is de <strong>Laocoöngroep</strong> — een marmeren sculptuurgroep die in 1506 werd teruggevonden in Rome en nu in de Vaticaanse Musea staat. Het beeld toont Laocoön, een Trojaanse priester, en zijn twee zonen terwijl ze worden aangevallen door gigantische zeeslangen. Volgens de legende straft de godin Athena hem zo omdat hij zijn stadgenoten gewaarschuwd had voor het houten paard van de Grieken.</p>
+
+      <p>Het beeld is overweldigend. Laocoöns gezicht is vertrokken van pijn en ontzetting. Zijn spieren puilen uit zijn lichaam terwijl hij vecht tegen de slangen die zijn zonen al verstikken. Er is geen rust in dit beeld, geen ideale harmonie — alleen de hevige, onontkoombare strijd van mensen tegenover krachten die groter zijn dan zij.</p>
+
+      <p>Michelangelo, die bij de opgraving in 1506 aanwezig was, zou het "het grootste kunstwerk ooit gemaakt" hebben genoemd. Of dat waar is, hangt van je smaak af. Maar het toont in elk geval hoe radicaal de hellenistische beeldhouwers de grenzen van hun ambacht opzochten.</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: vergelijking Doryphoros en Laocoöngroep">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Twee beelden naast elkaar. Links: de Doryphoros van Polykleitos (Romeinse kopie van het Griekse origineel, ca. 450-440 v.Chr.) — rustige, rechtopstaande figuur met geïdealiseerde proporties en een neutrale gezichtsuitdrukking. Rechts: de Laocoöngroep (ca. 2de-1ste eeuw v.Chr., nu in de Vaticaanse Musea) — drie figuren verwikkeld in een strijd met slangen, gezichten vertrokken van pijn, lichamen in extreme spanning. De beeldtekst benadrukt het contrast in uitdrukking, beweging en emotionele intensiteit.</p>
+    </div>
+
+    <h3 class="sub-heading">De Nike van Samothrake en de Venus van Milo</h3>
+
+    <div class="prose-text">
+      <p>Een ander meesterwerk van de hellenistische beeldhouwkunst is de <strong>Nike van Samothrake</strong> — een vleugelde overwinningsgodin waarvan het beeld vermoedelijk in het begin van de 2de eeuw v.Chr. werd gemaakt. Het beeld heeft geen hoofd meer en geen armen, maar toch — of misschien juist daardoor — straalt het een overweldigend gevoel van beweging en kracht uit. De vleugels zijn uitgeslagen, de gewaden wapperen alsof ze zonet op de boeg van een schip is neergedaald, haar lichaam leunt voorwaarts in de wind. Het is het beeld van een moment, vastgelegd in marmer.</p>
+
+      <p>De <strong>Venus van Milo</strong> — gevonden in 1820 op het Griekse eiland Melos en nu in het Louvre in Parijs — wordt soms ook als hellenistisch beschouwd, maar historici discussiëren over de precieze datering en stijl. Ze combineert kenmerken van de klassieke periode (de harmonieuze proporties, de rustige gelaatsuitdrukking) met hellenistische elementen (de draaiing van het lichaam, de gesuggereerde beweging). Ze blijft een van de bekendste beelden ter wereld, juist ook omdat haar armen ontbreken en niemand zeker weet hoe ze er oorspronkelijk uitzag.</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: Nike van Samothrake">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">De Nike van Samothrake (ca. 190 v.Chr., nu in het Louvre, Parijs). Het beeld toont een gevleugelde vrouwenfiguur neerdalend op de boeg van een schip, met wapperende gewaden die wind en beweging suggereren. Het ontbreken van het hoofd en de armen doet niets af aan de dynamische kracht van het geheel. Geplaatst naast de Nike staat een kleine reproductie van een klassiek godinnenbeeld voor vergelijking van de stilstaande versus de bewegende compositie.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">💭 Denkvraag</div>
+      <p class="dv-text">Bekijk de twee beelden: de Doryphoros (klassiek) en de Laocoöngroep (hellenistisch). Beschrijf in eigen woorden wat je ziet en voelt bij elk beeld. Welk beeld spreekt jou persoonlijk het meest aan? Probeer te beargumenteren waarom — op basis van de stijlverschillen die je in dit hoofdstuk hebt geleerd, niet alleen op basis van smaak.</p>
+    </div>
+  </section>
+
+</div><!-- end page-wrapper -->
+
+<!-- ============================================================
+     EXERCISES
+============================================================ -->
+<div class="exercises-section" id="oefeningen">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <div class="exercise-card">
+      <div class="ex-title">Oefening 1</div>
+      <div class="ex-name">Het rijk op de kaart</div>
+      <p style="font-size:0.97rem;color:var(--text-mid);margin-bottom:0.7rem;">Gebruik een blinde kaart van het Midden-Oosten, Centraal-Azië en het omliggende gebied.</p>
+      <ol>
+        <li>Teken de route van Alexanders veldtochten (334–323 v.Chr.) van west naar oost en duid de drie grote slagvelden aan: Granikos (334 v.Chr.), Issos (333 v.Chr.) en Gaugamela (331 v.Chr.).</li>
+        <li>Arceer het gebied van zijn rijk op zijn hoogtepunt (ca. 326 v.Chr., voor de terugkeer van de Indus).</li>
+        <li>Benoem minstens tien hedendaagse landen waarvan het grondgebied geheel of gedeeltelijk binnen dit rijk viel. Gebruik een hedendaagse kaart als referentie.</li>
+        <li>Markeer de stad Alexandrië in Egypte en leg in één zin uit waarom ze zo belangrijk was.</li>
+      </ol>
+      <p class="ex-tip">Tip: de veroveringsroute loopt via het huidige Turkije, Syrië, Libanon, Israël, Egypte, Irak, Iran, Afghanistan, Pakistan en nog verder. Tien landen is een minimum — je kunt er veel meer aanduiden.</p>
+
+      <div class="illustratie" role="img" aria-label="Blinde kaart voor oefening 1" style="margin-top:1.2rem;">
+        <span class="ill-icon">🖼️</span>
+        <p class="ill-caption">Blinde kaart van Europa (zuidelijk deel), Noord-Afrika, het Midden-Oosten en Centraal-Azië tot aan de Indus. Kustlijnen en grote rivieren zijn aangegeven. Landsgrenzen zijn gestippeld weergegeven. Leerlingen tekenen de route en het rijk in.</p>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="ex-title">Oefening 2</div>
+      <div class="ex-name">Twee beelden, twee werelden</div>
+      <p style="font-size:0.97rem;color:var(--text-mid);margin-bottom:0.7rem;">Vergelijk de twee beelden: de <strong>Doryphoros</strong> van Polykleitos (klassiek, ca. 450–440 v.Chr.) en de <strong>Laocoöngroep</strong> (hellenistisch, ca. 2de–1ste eeuw v.Chr.).</p>
+      <ol>
+        <li><strong>Beschrijving:</strong> Beschrijf elk beeld in vier à vijf zinnen. Let op: houding, gezichtsuitdrukking, beweging, de manier waarop spieren en gewaden zijn weergegeven.</li>
+        <li><strong>Vergelijking:</strong> Noteer minstens vier concrete verschillen tussen de twee beelden. Gebruik de termen "klassiek" en "hellenistisch" correct in je antwoord.</li>
+        <li><strong>Interpretatie:</strong> Wat zegt het verschil in stijl over de manier waarop mensen in de klassieke periode tegenover mensen in de hellenistische periode naar de wereld keken? Welke waarden drukt elk beeld uit?</li>
+        <li><strong>Persoonlijk standpunt:</strong> Welk beeld spreekt jou het meest aan, en waarom? Onderbouw je antwoord met stijlargumenten.</li>
+      </ol>
+      <p class="ex-tip">Tip: zoek betrouwbare afbeeldingen van beide beelden op de websites van het Nationaal Archeologisch Museum van Napels (Doryphoros) en de Vaticaanse Musea (Laocoön).</p>
+    </div>
+
+    <div class="exercise-card">
+      <div class="ex-title">Oefening 3</div>
+      <div class="ex-name">Scharnierpunt: de dood van Alexander</div>
+      <p style="font-size:0.97rem;color:var(--text-mid);margin-bottom:0.7rem;">In 323 v.Chr. stierf Alexander de Grote in Babylon, tweeëndertig jaar oud. Beoordeel: was zijn dood een historisch scharnierpunt? Argumenteer vanuit minimaal drie maatschappelijke domeinen.</p>
+      <ol>
+        <li><strong>Politiek domein:</strong> Wat veranderde er politiek gezien door zijn dood? Denk aan het rijk, de opvolging, de Diadochen-oorlogen.</li>
+        <li><strong>Cultureel domein:</strong> Veranderde de verspreiding van de Griekse cultuur na zijn dood, of ging die juist gewoon door? Leg uit.</li>
+        <li><strong>Wetenschappelijk/intellectueel domein:</strong> Had zijn dood invloed op de wetenschappelijke ontwikkeling in Alexandrië? Waarom wel of niet?</li>
+        <li><strong>Conclusie:</strong> Was zijn dood een scharnierpunt op alle drie de domeinen tegelijk, of slechts op sommige? Gebruik de definitie van "scharnierpunt" (situeren in tijd, ruimte en maatschappelijke domeinen) in je antwoord.</li>
+      </ol>
+      <p class="ex-tip">Tip: een scharnierpunt hoeft niet op alle maatschappelijke domeinen tegelijk te werken. Kijk voor elk domein apart of er een breuk was of juist continuïteit.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     SUMMARY
+============================================================ -->
+<div class="summary-section" id="samenvatting">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>Macedonisch gezag over Hellas:</strong> Filippus II (359–336 v.Chr.) moderniseerde het Macedonische leger met de <strong>falanx</strong> en versloeg de Griekse stadstaten bij <strong>Chaironeia (338 v.Chr.)</strong>. De Korinthische Bond gaf de Griekse steden nominale vrijheid maar onder Macedonisch leiderschap. Het was het einde van de onafhankelijke Griekse poleis.</li>
+      <li><strong>Alexander de Grote (356–323 v.Chr.)</strong> volgde zijn vader op en veroverde in dertien jaar het Perzische Rijk, Egypte, Centraal-Azië en het noordwesten van India. Zijn leger weigerde bij de Hyfasis in 326 v.Chr. verder te trekken. Sleutelmomenten: Granikos (334), Issos (333), stichting van Alexandrië (332), Gaugamela (331). Hij stierf in 323 v.Chr. in Babylon, tweeëndertig jaar oud.</li>
+      <li><strong>Bestuur en culturele vermenging:</strong> Alexander mengde bewust Griekse en Perzische cultuur, droeg Perzische kleding, huwde Perzische vrouwen en benoemde Perzen in hoge functies — tot groot ongenoegen van zijn Macedonische generaals.</li>
+      <li><strong>Na Alexander: Diadochen en drie rijken.</strong> De <strong>diadochen</strong> (opvolgers) vochten decennia om de erfenis. Het rijk viel uiteen in het <strong>Ptolemeïsche rijk</strong> (Egypte), het <strong>Seleucidische rijk</strong> (Azië) en het <strong>Macedonische rijk</strong> (Griekenland).</li>
+      <li><strong>Hellenisme:</strong> De verspreiding van Griekse taal (<strong>koinè</strong>), cultuur, filosofie en wetenschap over het Midden-Oosten en verder. De <strong>Bibliotheek van Alexandrië</strong> was het intellectuele centrum, waar geleerden als Euclides, Eratosthenes en Archimedes werkten.</li>
+      <li><strong>Hellenistische beeldhouwkunst</strong> onderscheidt zich van de klassieke door emotionele expressie, dramatische beweging en realistische weergave van pijn en spanning. Voorbeelden: de <strong>Laocoöngroep</strong> (pijn en wanhoop) en de <strong>Nike van Samothrake</strong> (kracht en beweging) — in contrast met de rustige idealisering van de klassieke periode (zie Doryphoros).</li>
+    </ul>
+  </div>
+</div>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  // Back to top button
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) {
+        btn.classList.add('visible');
+      } else {
+        btn.classList.remove('visible');
+      }
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

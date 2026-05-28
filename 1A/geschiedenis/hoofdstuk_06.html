@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoofdstuk 6 — Hoe schrijven historici geschiedenis? | Geschiedenis 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE / OPENING STORY
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament {
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--gold);
+    opacity: 0.7;
+    margin: 1.5rem 0;
+    letter-spacing: 0.4em;
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-dialogue {
+    font-style: italic;
+    color: #FFFDF8;
+    padding-left: 1.4rem;
+    border-left: 3px solid rgba(212,160,23,0.4);
+    margin: 1rem 0;
+  }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+    filter: sepia(0.3);
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     ILLUSTRATIE PLACEHOLDERS
+  ============================================================ */
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+    cursor: default;
+    transition: background var(--transition);
+  }
+
+  .illustratie:hover { background: #EDE7D8; }
+
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     HISTORISCHE REDENEERWIJZEN — KAARTENGRID (nieuw component)
+  ============================================================ */
+  .redeneerwijzen-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  @media (max-width: 680px) {
+    .redeneerwijzen-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 420px) {
+    .redeneerwijzen-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .redeneerwijze-kaart {
+    background: var(--creme);
+    border: 2px solid var(--terracotta);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.1rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+
+  .redeneerwijze-kaart:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .redeneerwijze-kaart .rw-icon {
+    font-size: 1.7rem;
+    line-height: 1;
+    margin-bottom: 0.2rem;
+  }
+
+  .redeneerwijze-kaart .rw-num {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    opacity: 0.75;
+  }
+
+  .redeneerwijze-kaart .rw-naam {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    line-height: 1.3;
+  }
+
+  .redeneerwijze-kaart .rw-uitleg {
+    font-size: 0.88rem;
+    color: var(--text-mid);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ============================================================
+     BRONFRAGMENT
+  ============================================================ */
+  .bron-fragment {
+    background: #F0EBE0;
+    border: 1px solid rgba(200,146,58,0.35);
+    border-left: 4px solid var(--oker);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1.3rem 1.4rem;
+    margin: 1.6rem 0;
+  }
+
+  .bron-fragment .bron-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    color: var(--oker);
+    margin-bottom: 0.6rem;
+    display: block;
+  }
+
+  .bron-fragment blockquote {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin: 0 0 0.7rem;
+    padding: 0;
+    border: none;
+  }
+
+  .bron-fragment .bron-attrib {
+    font-size: 0.83rem;
+    color: var(--text-light);
+    font-style: normal;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong {
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition), opacity var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover {
+    background: var(--darkblue-light);
+    transform: translateY(-3px);
+  }
+
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     UTILITY / MISC
+  ============================================================ */
+  .prose-text { max-width: 100%; }
+
+  .highlighted-para {
+    background: rgba(212,160,23,0.08);
+    border-left: 3px solid var(--gold);
+    padding: 0.8rem 1.1rem;
+    border-radius: 0 4px 4px 0;
+    margin: 1.2rem 0;
+    font-size: 0.97rem;
+    color: var(--text-mid);
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <a class="label" href="index.html">Geschiedenis 1A</a>
+  <span class="label label-right">Hoofdstuk 6</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Geschiedenis &nbsp;·&nbsp; 1A &nbsp;·&nbsp; Eerste graad</div>
+  <h1>Hoofdstuk 6<br>Hoe schrijven historici geschiedenis?</h1>
+  <p class="subtitle">Perspectieven, mythen en de kunst van het historisch redeneren</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- PROLOGUE -->
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Stel je voor &hellip;</span>
+
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+
+    <p>Het is de zomer van 1972. In een droge vallei in wat nu Iran heet, werken twee archeologen zij aan zij. Ze hebben net een steen standbeeld blootgelegd — een mannenfiguur, bijna levensecht, in strijdkleding, met zijn rechterarm omhoog geheven. Het marmer is koud ondanks de brandende zon.</p>
+
+    <p>De eerste archeoloog, een Britse professor, buigt zich over zijn notitieboek. Na een lange stilte kijkt hij op.</p>
+
+    <p class="prologue-dialogue">"Een overwinnaar. Kijk naar die houding — dat is de taal van de macht. Die arm is niet opgeheven om te groeten. Dat is de taal van iemand die zegt: ik heb gewonnen. Dit moet een Griekse of Macedonische veldheer zijn. Misschien zelfs een onderdaan van Alexander. De proporties, de stijl — klassieke westerse invloed."</p>
+
+    <p>De tweede archeoloog, een Iraanse historica, staat een stap achter hem. Ze zegt niets meteen. Ze staart naar de voet van het standbeeld, waar enkele versplinterde brokstukken liggen.</p>
+
+    <p class="prologue-dialogue">"Ik zie iets anders," zegt ze ten slotte. "Die voeten. Ze staan niet op een sokkel. Ze staan op iets gebroken — of iemand gebroken. En die opgeheven arm? In de Perzische iconografie is dat geen teken van triomf over een vijand. Dat is een gebaar van bescherming. Dat is een vorst die zijn volk dekt."</p>
+
+    <p>Beide onderzoekers kijken naar hetzelfde standbeeld. Beide zijn experts. Beide zien iets anders.</p>
+
+    <p>Welke interpretatie klopt? Misschien geen van beide volledig. Misschien allebei een beetje. Maar wat dit moment ons leert, is iets fundamenteels over hoe geschiedenis werkt: het verleden spreekt niet voor zichzelf. Elk oordeel over het verleden is een constructie — gebouwd door iemand, vanuit ergens, vanuit een bepaalde tijd.</p>
+
+    <p><strong style="color: var(--gold);">Dat is de vraag van dit hoofdstuk: hoe schrijven historici geschiedenis, en wat zegt dat over henzelf?</strong></p>
+
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 6.1
+  ============================================================ -->
+  <section class="section-block" id="s6-1">
+    <div class="section-heading">
+      <span class="section-num">6.1</span>
+      <h2 class="section-title">Historische beeldvorming: een constructie vanuit een perspectief</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Stel je twee fotografen voor die allebei dezelfde straat fotograferen. De eerste staat aan het begin van de straat en maakt een foto naar voor. De tweede staat aan het einde van de straat en fotografeert naar achter. Beide foto's tonen dezelfde werkelijkheid — en toch zijn de beelden totaal verschillend. Geen van beide fotografen liegt. Maar geen van beide geeft ook de volledige waarheid.</p>
+
+      <p>Dat is precies hoe het werkt met geschiedenis. Als historici een gebeurtenis beschrijven, maken ze keuzes: wat nemen ze op, wat laten ze weg, welk woord kiezen ze, welke figuren staan centraal? Al die keuzes samen vormen een <strong>beeld</strong> van het verleden. Dat beeld is nooit neutraal. Het is altijd een constructie — en het vertelt altijd ook iets over de persoon die het bouwde.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Historische beeldvorming</span>
+        <p class="begrip-def">Historische beeldvorming is het beeld dat mensen hebben van het verleden: hoe bepaalde figuren, gebeurtenissen of periodes worden voorgesteld en beoordeeld. Dat beeld kan accuraat of vertekend zijn, en het verandert doorheen de tijd.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Constructie</span>
+        <p class="begrip-def">Een constructie is iets dat actief gebouwd of samengesteld is. Een historisch beeld is een constructie omdat het niet gewoon "gevonden" wordt in het verleden, maar gemaakt wordt door een historicus die keuzes maakt over wat hij of zij opneemt, weglaat, benadrukt of relativeert.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Perspectief</span>
+        <p class="begrip-def">Een perspectief is het standpunt of de invalshoek van waaruit iemand naar de werkelijkheid kijkt. In de geschiedenis betekent dit: wie spreekt er, welk belang heeft die persoon, en welke ervaringen beïnvloeden zijn of haar kijk op het verleden?</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">De historische redeneerwijzen: je gereedschapskist</h3>
+
+    <div class="prose-text">
+      <p>Hoe voorkomen historici dat hun beeld van het verleden puur een mening wordt? Door gebruik te maken van <strong>historische redeneerwijzen</strong>: gestructureerde manieren van denken die hen helpen om het verleden zo zorgvuldig en eerlijk mogelijk te reconstrueren. Er zijn er vijf.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Historische redeneerwijzen</span>
+        <p class="begrip-def">Historische redeneerwijzen zijn gestructureerde denkstrategieën die historici gebruiken om het verleden te analyseren en te interpreteren. Ze helpen om van losse informatie tot een onderbouwde, kritische redenering te komen.</p>
+      </div>
+    </div>
+
+    <!-- REDENEERWIJZEN GRID -->
+    <div class="redeneerwijzen-grid" role="list" aria-label="De vijf historische redeneerwijzen">
+
+      <div class="redeneerwijze-kaart" role="listitem">
+        <span class="rw-icon">&#x1F517;</span>
+        <span class="rw-num">Redeneerwijze 1</span>
+        <span class="rw-naam">Oorzaak&#8209;gevolg benoemen</span>
+        <p class="rw-uitleg">Je zoekt naar <em>waarom</em> iets gebeurde en <em>wat</em> eruit voortvloeide. Oorzaken kunnen meervoudig zijn en diep in het verleden liggen.</p>
+      </div>
+
+      <div class="redeneerwijze-kaart" role="listitem">
+        <span class="rw-icon">&#x1F441;&#xFE0F;</span>
+        <span class="rw-num">Redeneerwijze 2</span>
+        <span class="rw-naam">Meerdere perspectieven hanteren</span>
+        <p class="rw-uitleg">Je bekijkt een gebeurtenis door de ogen van verschillende betrokkenen: winnaar en verliezer, machtige en machteloze, man en vrouw.</p>
+      </div>
+
+      <div class="redeneerwijze-kaart" role="listitem">
+        <span class="rw-icon">&#x1F504;</span>
+        <span class="rw-num">Redeneerwijze 3</span>
+        <span class="rw-naam">Continuïteit en verandering benoemen</span>
+        <p class="rw-uitleg">Je bepaalt wat er <em>veranderde</em> in een bepaalde periode en wat er <em>hetzelfde bleef</em>. Niet alles verandert tegelijk of even snel.</p>
+      </div>
+
+      <div class="redeneerwijze-kaart" role="listitem">
+        <span class="rw-icon">&#x1F50E;</span>
+        <span class="rw-num">Redeneerwijze 4</span>
+        <span class="rw-naam">Bewijs gebruiken</span>
+        <p class="rw-uitleg">Je onderbouwt elke bewering met bronnen en bewijsmateriaal. Je vraagt altijd: hoe weet ik dit, en hoe betrouwbaar is die bron?</p>
+      </div>
+
+      <div class="redeneerwijze-kaart" role="listitem">
+        <span class="rw-icon">&#x1F9E9;</span>
+        <span class="rw-num">Redeneerwijze 5</span>
+        <span class="rw-naam">Verbanden leggen</span>
+        <p class="rw-uitleg">Je legt verbanden tussen gebeurtenissen, periodes en domeinen: politiek, economie, cultuur, religie. Niets staat los van de rest.</p>
+      </div>
+
+    </div>
+
+    <h3 class="sub-heading">Julius Caesar: democraat of dictator?</h3>
+
+    <div class="prose-text">
+      <p>Laten we de redeneerwijzen meteen aan het werk zetten. Neem Julius Caesar — een van de bekendste figuren uit de oudheid. Iedereen heeft wel een beeld van hem: de machtige Romein, de veldheer, de man die "Veni, vidi, vici" zei. Maar was hij ook een <em>democraat</em>?</p>
+
+      <p>Lees dit fragment van de Romein Suetonius, die een eeuw na Caesars dood over hem schreef:</p>
+    </div>
+
+    <div class="bron-fragment">
+      <span class="bron-label">Bron — Suetonius, <em>De twaalf Caesars</em>, ca. 121 n.Chr.</span>
+      <blockquote>"Caesar schonk zijn vijanden gratie en stelde velen van hen aan als veldheren of gouverneurs. Hij maakte van de senaat een afspiegeling van alle lagen van de Italiaanse bevolking en verhoogde het aantal senatoren van zeshonderd tot negentig en negentig — of zelfs tot duizend, naar sommige bronnen. Hij liet zelfs schoenmakers en barbiers toe."</blockquote>
+      <span class="bron-attrib">Vertaald en bewerkt voor educatieve doeleinden.</span>
+    </div>
+
+    <div class="prose-text">
+      <p>Een hedendaagse historicus zou nu de vijf redeneerwijzen aanwenden:</p>
+    </div>
+
+    <ul style="margin: 0.5rem 0 1.2rem 0; list-style: none; padding: 0;">
+      <li style="display:flex;gap:0.7rem;margin-bottom:0.9rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:2.5rem;">1.</span>
+        <span><strong>Oorzaak-gevolg:</strong> Waarom breidde Caesar de senaat uit? Mogelijk om loyale aanhangers te belonen en zijn macht te versterken — niet per se uit democratische overtuiging.</span>
+      </li>
+      <li style="display:flex;gap:0.7rem;margin-bottom:0.9rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:2.5rem;">2.</span>
+        <span><strong>Meerdere perspectieven:</strong> Suetonius schrijft bijna 150 jaar later, en hij toont bewondering voor Caesar. Andere bronnen — zoals Cicero, een tijdgenoot — beschreven Caesar als een gevaar voor de republiek. Welk perspectief kiezen we?</span>
+      </li>
+      <li style="display:flex;gap:0.7rem;margin-bottom:0.9rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:2.5rem;">3.</span>
+        <span><strong>Continuïteit en verandering:</strong> Caesar veranderde wie er in de senaat mochten zitten, maar hij veranderde niet het systeem zelf fundamenteel. Dictators bleven dictators, ook als de zaal groter werd.</span>
+      </li>
+      <li style="display:flex;gap:0.7rem;margin-bottom:0.9rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:2.5rem;">4.</span>
+        <span><strong>Bewijs gebruiken:</strong> Suetonius is één bron, geschreven lang na Caesars dood. We hebben ook Caesars eigen geschriften, munten, opschriften en andere auteurs. Goede historici vergelijken al die bronnen.</span>
+      </li>
+      <li style="display:flex;gap:0.7rem;margin-bottom:0.9rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:2.5rem;">5.</span>
+        <span><strong>Verbanden leggen:</strong> Caesars daden kunnen niet los worden gezien van de crisis van de Romeinse Republiek in de 1ste eeuw v.Chr. — economische ongelijkheid, burgeroorlogen, een uitgeput leger. Hij was kind van zijn tijd.</span>
+      </li>
+    </ul>
+
+    <div class="prose-text">
+      <p>Het antwoord op "Was Caesar een democraat?" is dus niet simpelweg ja of nee. Het is een genuanceerde analyse die afhangt van welke definitie je hanteert, welke bronnen je gebruikt, en welk perspectief je inneemt. Dat is historisch denken.</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: borstbeeld van Julius Caesar naast een fragment van een Latijnse tekst">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Links: een marmeren borstbeeld van Julius Caesar (1ste eeuw v.Chr.), museum in Rome. Rechts: een fragment uit een Latijnse tekst van Suetonius, met een markering op de relevante passage. Ondertiteling: "Eén man, vele beelden."</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#x1F4AD; Denkvraag</div>
+      <p class="dv-text">Denk aan een historisch figuur die je kent uit een film, game of boek — Spartacus, Cleopatra, een ridder uit een avonturenfilm. Welk beeld heb je van die persoon? Hoe denk je dat dat beeld tot stand is gekomen? Was er iemand die belang had bij dat specifieke beeld?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 6.2
+  ============================================================ -->
+  <section class="section-alt" id="s6-2">
+    <div class="section-heading">
+      <span class="section-num">6.2</span>
+      <h2 class="section-title">Standplaatsgebondenheid: jij bent ook een kind van je tijd</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Stel je voor dat je opgegroeid bent in een stad waar fietsen de normaalste zaak van de wereld is. Iedereen fietst, de straten zijn ingericht voor fietsers, je hebt nooit anders gekend. Dan bezoek je een stad in een land waar bijna niemand fietst. Je valt van verbazing. "Waarom fietst hier niemand? Is dat dan niet veel handiger?"</p>
+
+      <p>Maar iemand uit die stad — die nooit heeft gefietst, die opgegroeid is met bussen en trams — heeft diezelfde verwondering niet. Voor hem of haar is het gewoon normaal.</p>
+
+      <p>Jouw verbazing zegt net zoveel over <em>jou</em> als over die andere stad. Je kijkt altijd door de bril van je eigen achtergrond, cultuur, tijd en ervaringen. Dat geldt voor iedereen — ook voor historici. En ook voor de mensen uit het verleden die de bronnen schreven die historici bestuderen.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Standplaatsgebondenheid</span>
+        <p class="begrip-def">Standplaatsgebondenheid is het gegeven dat elke persoon — historicus of historische figuur — de wereld bekijkt vanuit zijn of haar eigen positie: de tijd waarin hij leeft, de cultuur waartoe hij behoort, zijn sociale klasse, geslacht, religie en persoonlijke ervaringen. Die positie beïnvloedt onvermijdelijk zijn kijk op het verleden.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Herodotos en de "barbaren"</h3>
+
+    <div class="prose-text">
+      <p>Een klassiek en heel concreet voorbeeld: de Griekse geschiedschrijver Herodotos, die leefde in de 5de eeuw v.Chr. en schrijft over de Perzische Oorlogen — de reeks conflicten tussen Griekenland en het Perzische Rijk. Hij geldt als de "vader van de geschiedschrijving". Zijn werk is ongelooflijk waardevol. En toch zit het vol met standplaatsgebondenheid.</p>
+    </div>
+
+    <div class="bron-fragment">
+      <span class="bron-label">Bron — Herodotos, <em>Historiën</em>, boek VI, ca. 440 v.Chr. (over de slag bij Marathon, 490 v.Chr.)</span>
+      <blockquote>"Zo vochten de Atheners als eersten met de barbaren, en de Atheners droegen als eersten dit woord uit: een vijand die het Medische kleed draagt aanvallen zonder te beven van angst. Want voordien was zelfs de naam van de Meden de Grieken een reden tot schrik."</blockquote>
+      <span class="bron-attrib">Vertaald en bewerkt voor educatieve doeleinden.</span>
+    </div>
+
+    <div class="prose-text">
+      <p>Dat woord valt meteen op: "barbaren." Voor ons heeft dat een overduidelijk negatieve klank — ruw, primitief, gewelddadig. Maar dat is ons probleem, niet dat van Herodotos.</p>
+
+      <p>Het Griekse woord <em>barbaros</em> betekende oorspronkelijk gewoon: iemand die geen Grieks spreekt. Het klonk als "ba-ba-ba" — gemompel dat de Grieken hoorden als ze vreemde talen hoorden spreken. Het was een beschrijving, geen belediging — of in ieder geval niet in dezelfde mate als nu. Perzen, Egyptenaren en zelfs Romeinen werden "barbaren" genoemd. Het was een categorie, geen scheldwoord.</p>
+
+      <p>Toch vertelt de manier waarop Herodotos schrijft ons enorm veel. Hij schrijft vanuit Grieks perspectief. De Atheners zijn de helden, de Perzen zijn de bedreiging. Ergens anders in de Historiën schrijft hij ook bewonderend over Perzische gewoontes en beschrijft hij de Perzische cultuur met respect — maar de basishouding blijft: dit is ons verhaal, verteld door ons.</p>
+
+      <p>En dat is precies standplaatsgebondenheid in actie. Herodotos kon er niets aan doen: hij was een Griek, in de 5de eeuw v.Chr., die opgroeide terwijl de Perzen het land van zijn buren hadden binnengevallen. Hoe had hij het anders kunnen schrijven?</p>
+    </div>
+
+    <div class="highlighted-para">
+      <strong>Onthoud dit:</strong> Standplaatsgebondenheid is geen bewijs van slechte wil of oneerlijkheid. Het is een onvermijdelijk kenmerk van elk menselijk oordeel. De slimme historicus herkent het — bij zijn bronnen, maar ook bij zichzelf.
+    </div>
+
+    <h3 class="sub-heading">De twee lagen van standplaatsgebondenheid</h3>
+
+    <div class="prose-text">
+      <p>Er zijn twee lagen die je moet leren onderscheiden.</p>
+
+      <p>De eerste laag is de standplaatsgebondenheid van de <strong>historische figuren en auteurs</strong> in je bronnen. Herodotos schreef als Griek. Suetonius schreef als Romein onder het Keizerrijk. De schrijvers van de Bijbel schreven als gelovigen. Al die mensen hadden een positie, een belang, een achtergrond. Die beïnvloedde wat ze opschreven en hoe.</p>
+
+      <p>De tweede laag is de standplaatsgebondenheid van de <strong>historicus zelf</strong> — degene die vandaag die bronnen leest en interpreteert. Een 19de-eeuwse Europese historicus die de Griekse beschaving bestudeerde, zag de Grieken als de geestelijke voorvaderen van Europa. Dat kleurde zijn interpretatie. Een Turkse historicus die vandaag de Ottomaanse expansie bestudeert, heeft een andere achtergrond en ziet andere dingen.</p>
+
+      <p>Maar er is ook een derde laag, die wij soms vergeten: <strong>jij</strong>. Jij bent ook een kind van je tijd. Je bent opgegroeid met bepaalde films, games, verhalen en waarden. Je hebt een beeld van ridders, Egyptenaren, gladiatoren — en dat beeld is niet neutraal. Het is ook een constructie, gevormd door wat je gezien en gelezen hebt. En nu ga je dat kritisch bekijken.</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: kaart van het Perzische Rijk en Griekenland tijdens de slag bij Marathon">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Kaart van de Egeïsche Zee en omgeving, ca. 490 v.Chr. Het Perzische Rijk is in lichtoranje weergegeven, Griekenland in blauw. Marathon is aangeduid met een ster aan de oostkust van Attica. Een pijl toont de Perzische invasieroute. Ondertiteling: "Hetzelfde slagveld, twee totaal verschillende verhalen."</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#x1F4AD; Denkvraag</div>
+      <p class="dv-text">Hoe zou een Perzische geschiedschrijver de slag bij Marathon beschreven hebben? Welke woorden zou hij gebruikt hebben voor de Grieken? Wat zou hij benadrukt hebben, en wat weggelaten? Probeer twee zinnen te schrijven vanuit dat Perzische perspectief.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 6.3
+  ============================================================ -->
+  <section class="section-block" id="s6-3">
+    <div class="section-heading">
+      <span class="section-num">6.3</span>
+      <h2 class="section-title">Mythen en legenden: wanneer het verhaal de feiten verdringt</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Er bestaat een populair beeld van de neanderthaler. Je hebt het vast ergens gezien: een gebogen, harige figuur met een lage voorhoofd, een dikke knobbelige neus, en een blik die ergens tussen dier en mens in zweeft. Hij sleurt een knots achter zich aan. Hij grommelt. Hij is dom, traag en zal snel uitsterven omdat hij gewoon niet slim genoeg is voor de wereld.</p>
+
+      <p>Dat beeld is een mythe. Een krachtige, hardnekkige mythe — maar een mythe.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Mythevorming</span>
+        <p class="begrip-def">Mythevorming is het proces waarbij een historisch beeld gaandeweg steeds verder afwijkt van de historische werkelijkheid. Mythen kunnen ontstaan door overdrijving, vereenvoudiging, politieke belangen of simpelweg het feit dat een aantrekkelijk verhaal gemakkelijker onthouden wordt dan een genuanceerde analyse.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Wat weten we werkelijk over neanderthalers?</h3>
+
+    <div class="prose-text">
+      <p>De moderne wetenschap heeft de afgelopen decennia het beeld van de neanderthaler grondig herzien. Wat weten we nu?</p>
+    </div>
+
+    <ul style="margin: 0.5rem 0 1.4rem 0; list-style: none; padding: 0;">
+      <li style="display:flex;gap:0.7rem;margin-bottom:0.9rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;">&#9670;</span>
+        <span><strong>Neanderthalers begroeven hun doden.</strong> In verscheidene grotten in Europa en het Midden-Oosten zijn neanderthalerbegravingen gevonden — soms met bijgaven, soms met bloemen (al is dat laatste nog omstreden). Dat wijst op een vorm van spiritueel denken of ritueel.</span>
+      </li>
+      <li style="display:flex;gap:0.7rem;margin-bottom:0.9rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;">&#9670;</span>
+        <span><strong>Ze maakten muziekinstrumenten.</strong> In een grot in Slovenië werd een botfluit gevonden die mogelijk door neanderthalers is gemaakt — ouder dan 50.000 jaar. Ze zorgden ook voor zieken en ouderen: fossielen tonen mensen die verwondingen overleefden dankzij verzorging door anderen.</span>
+      </li>
+      <li style="display:flex;gap:0.7rem;margin-bottom:0.9rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;">&#9670;</span>
+        <span><strong>Ze hadden complexe gereedschappen.</strong> De Moustérien-technologie — de steenwerktuigen die neanderthalers maakten — was geavanceerd genoeg om dieren te villen, botten te kraken, en houten speren te fabriceren. Ze voerden gevaarlijke jachten uit op grote zoogdieren.</span>
+      </li>
+      <li style="display:flex;gap:0.7rem;margin-bottom:0.9rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;">&#9670;</span>
+        <span><strong>Ze hebben zich vermengd met onze voorouders.</strong> DNA-onderzoek heeft aangetoond dat mensen van buiten Afrika vandaag nog altijd 1 tot 4% neanderthaler-DNA in zich dragen. Neanderthalers en <em>Homo sapiens</em> troffen elkaar — en hadden nakomelingen samen.</span>
+      </li>
+    </ul>
+
+    <div class="prose-text">
+      <p>Hoe is de mythe van de domme, brutale neanderthaler dan ontstaan? Dat is een interessante geschiedenisles op zichzelf.</p>
+
+      <p>In 1908 vond men in La Chapelle-aux-Saints (Frankrijk) een bijna volledig neanderthalerskelet. De wetenschapper die het analyseerde, Marcellin Boule, reconstrueerde het als een voorovergebogen, krom lopende figuur met een dierlijk gelaat. Hij concludeerde dat neanderthalers niet konden rechtoplopen, een beperkte intelligentie hadden en fundamenteel anders waren dan moderne mensen. Zijn reconstructie werd de basis voor de klassieke karikatuur.</p>
+
+      <p>Maar later bleek dat het skelet van La Chapelle-aux-Saints een oude man was die leed aan ernstige artritis. De krom gebogen houding was geen biologisch kenmerk van neanderthalers — het was de pijn van een individu op hoge leeftijd. Boule had de pathologie van één ziek individu veralgemeend tot de kenmerken van een hele soort.</p>
+
+      <p>De mythe had decennia lang een eigen leven geleid. Ze verscheen in musea, boeken, schoolatlassen en stripverhalen — lang nadat wetenschappers haar al hadden weerlegd. En hier zit precies het gevaar van mythevorming: een aantrekkelijk beeld verspreidt zich sneller dan een correctie.</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: vergelijking populaire karikatuur van neanderthaler met moderne wetenschappelijke reconstructie">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Twee afbeeldingen naast elkaar. Links: de klassieke karikatuur van de neanderthaler — gebogen, harig, knots in de hand (circa 1910). Rechts: een moderne wetenschappelijke reconstructie gebaseerd op DNA-onderzoek en skeletanalyse — rechtopstaand, met een intelligente blik en kleding. Ondertiteling: "Hetzelfde wezen, twee eeuwen onderzoek."</p>
+    </div>
+
+    <h3 class="sub-heading">Mythevorming rond historische figuren</h3>
+
+    <div class="prose-text">
+      <p>Mythevorming is niet beperkt tot de prehistorie. Ze sluipt overal. Denk aan Julius Caesar: in de populaire verbeelding is hij een onoverwinnelijke veldheer, een geniaal strateeg, en de man die het Romeinse Rijk stichtte. Maar Caesar stichtte het keizerrijk helemaal niet — hij <em>baande de weg</em> ernaar, maar werd vermoord voordat het volledig was opgericht. Dat deed zijn neef Octavianus Augustus.</p>
+
+      <p>Of Alexander de Grote: de man die de wereld veroverde, die nooit een veldslag verloor, die een brug sloeg tussen Oost en West. Het is allemaal grotendeels waar — en toch is de werkelijkheid complexer. Alexander verwoestte Perzepolis, de prachtige hoofdstad van het Perzische Rijk, na een nacht van dronken feesten. Hij vermoordde vrienden in woede-aanvallen. Hij liet zijn generaals achter in een onmogelijke situatie toen hij stierf.</p>
+
+      <p>Mythes zijn niet per se leugens — dat is een belangrijke nuance. Maar ze zijn <em>vereenvoudigingen</em> die complexe mensen en gebeurtenissen platslaan tot heldenverhalen of schurkenverhalen. En dat is gevaarlijk, want het verstoort ons begrip van hoe de wereld echt werkt.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Verleden versus geschiedenis</span>
+        <p class="begrip-def">Het <strong>verleden</strong> is alles wat ooit is gebeurd — elk moment, elke persoon, elke handeling, ook de dingen die nooit zijn opgeschreven. <strong>Geschiedenis</strong> is wat wij van dat verleden weten en reconstrueren: de selectie van bronnen, de interpretaties, de verhalen die historici bouwen. Geschiedenis is altijd onvolledig en altijd in beweging.</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>Dat onderscheid is cruciaal. Het verleden zelf verandert niet meer — wat er is gebeurd, is gebeurd. Maar <em>geschiedenis</em> — ons beeld van dat verleden — verandert voortdurend. Nieuwe opgravingen, nieuwe technologieën, nieuwe perspectieven en nieuwe vragen zorgen ervoor dat we het verleden telkens opnieuw schrijven. Het neanderthalerverhaal is daar een perfect voorbeeld van.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#x1F4AD; Denkvraag</div>
+      <p class="dv-text">Is er een verschil tussen een mythe en een leugen? Een mythe is niet per se bewust verzonnen — soms geloofden de mensen die haar verspreidden er zelf in. Hoe zou je het verschil omschrijven? Gebruik de neanderthaler of een ander voorbeeld uit dit hoofdstuk.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 6.4
+  ============================================================ -->
+  <section class="section-alt" id="s6-4">
+    <div class="section-heading">
+      <span class="section-num">6.4</span>
+      <h2 class="section-title">Verleden, heden en toekomst: waarom het verleden er nog toe doet</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Misschien vraag je je af: waarom doet dit allemaal ertoe? Wat maakt het uit of ons beeld van neanderthalers klopt? Wat maakt het uit of Herodotos standplaatsgebonden was? Het is allemaal zo lang geleden.</p>
+
+      <p>Dat is een eerlijke vraag. En ze heeft een krachtig antwoord.</p>
+
+      <p>Het verleden is niet dood. Het leeft voort in de wereld om ons heen — in de grenzen op kaarten, in de talen die we spreken, in de gebouwen waarin we wonen, in de waarden die we delen, in de conflicten die we niet begrijpen. Om de wereld van vandaag te begrijpen, moet je weten hoe we hier zijn geraakt. En om dat te begrijpen, moet je leren omgaan met het verleden op een eerlijke, kritische manier.</p>
+    </div>
+
+    <h3 class="sub-heading">Hoe het verleden het heden kleurt</h3>
+
+    <div class="prose-text">
+      <p>Denk aan een paar concrete voorbeelden.</p>
+
+      <p>De grenzen van bijna elk land ter wereld zijn niet willekeurig. Ze zijn het gevolg van historische beslissingen: oorlogen, verdragen, koloniale machten die kaarten tekenden zonder te vragen aan de mensen die er woonden. Conflicten in het Midden-Oosten, in Afrika, op de Balkan — ze zijn allemaal deels te begrijpen als nalatenschap van historische beslissingen.</p>
+
+      <p>Of denk aan taal. Je spreekt Nederlands — een taal die nauw verwant is aan Duits, Fries en Engels, en die in de loop van eeuwen is gevormd door Latijn, Frans, Spaans en zelfs Arabische invloeden. Waarom? Omdat de Lage Landen eeuwenlang bestuurd werden door Spanje, daarna door Oostenrijk, dan door Napoleon. Taal is geschiedenis die je dagelijks in de mond neemt.</p>
+
+      <p>Of denk aan je eigen waarden. Wat vind je normaal? Wat vind je eerlijk? Ideeën als gelijkheid voor de wet, persvrijheid, scheiding van kerk en staat — al die ideeën hebben een geschiedenis. Ze zijn niet altijd vanzelfsprekend geweest. Ze zijn ontstaan in bepaalde tijden, door bepaalde mensen, in bepaalde omstandigheden. Om ze te begrijpen en te verdedigen, moet je hun geschiedenis kennen.</p>
+    </div>
+
+    <h3 class="sub-heading">Waarom historisch redeneren voor iedereen geldt</h3>
+
+    <div class="prose-text">
+      <p>En nu komen we terug bij de historische redeneerwijzen. Die zijn niet alleen voor historici. Ze zijn voor iedereen die met informatie omgaat — en dat is iedereen, altijd.</p>
+
+      <p>Wanneer je een bericht leest op sociale media over een historische gebeurtenis, pas je onbewust al die redeneerwijzen toe — of je zou dat moeten doen. Wie schrijft dit? Vanuit welk perspectief? Wat is het bewijs? Wat wordt er niet gezegd? Wat is de context?</p>
+
+      <p>Standplaatsgebondenheid, constructie, perspectief, mythevorming — die begrippen gaan niet alleen over het verleden. Ze gaan over <em>hoe kennis werkt</em>. En wie dat begrijpt, staat sterker in een wereld vol informatie, beelden en verhalen.</p>
+    </div>
+
+    <div class="highlighted-para">
+      <strong>Kern van dit hoofdstuk:</strong> Geschiedenis is niet het verleden zelf. Het is de poging van mensen — historici, schrijvers, filmmakers, leerkrachten — om dat verleden te begrijpen en door te geven. Die poging is altijd onvolledig, altijd standplaatsgebonden, altijd een constructie. Dat maakt haar niet waardeloos — integendeel. Maar het maakt kritisch denken onmisbaar.
+    </div>
+
+    <h3 class="sub-heading">Jij als historicus</h3>
+
+    <div class="prose-text">
+      <p>Je bent nu aan het einde van dit hoofdstuk. En dat is het moment om een stap terug te zetten en te vragen: wat betekent dit voor jou?</p>
+
+      <p>Je hebt geleerd dat historici beelden construeren vanuit een perspectief. Dat standplaatsgebondenheid onvermijdelijk is. Dat mythen ontstaan wanneer aantrekkelijke verhalen de nuance verdringen. Dat het verleden en geschiedenis twee verschillende dingen zijn.</p>
+
+      <p>Maar dat weet jij nu ook. Jij kunt nu kijken naar een film over de oudheid en de vraag stellen: wie maakte dit, en waarom? Jij kunt een geschiedenisboek lezen en nadenken: welk perspectief ontbreekt hier? Jij kunt een meme over een historisch figuur zien en herkennen: dit is mythevorming.</p>
+
+      <p>Dat is geen kleine vaardigheid. In een wereld waar iedereen voortdurend verhalen over het verleden vertelt — politici, journalisten, films, influencers — is de persoon die weet hoe verhalen worden gebouwd, veel moeilijker te manipuleren.</p>
+
+      <p>Historisch denken is, kortom, ook een vorm van zelfverdediging.</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: tijdlijn van hoe het beeld van neanderthalers veranderde van 1900 tot nu">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Tijdlijn van circa 1900 tot vandaag met vijf mijlpalen in het neanderthaleronderzoek: (1) 1908 Boule's reconstructie, (2) 1950s eerste twijfels, (3) 1980s herziening van La Chapelle, (4) 2000s bewijs voor begravingen en gereedschappen, (5) 2010 DNA-bewijs vermenging met Homo sapiens. Elk punt toont hoe het beeld veranderde. Ondertiteling: "Geschiedenis herschrijft zichzelf."</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#x1F4AD; Denkvraag</div>
+      <p class="dv-text">Kies een onderwerp waarover jij een sterk beeld hebt — een historische figuur, een volk, een periode. Stel jezelf de volgende vragen: Waar komt dat beeld vandaan? Heb je dat geleerd van een film, een game, een boek, een familielid? Welk perspectief zit daarin, en welk perspectief ontbreekt misschien?</p>
+    </div>
+  </section>
+
+</div><!-- end page-wrapper -->
+
+<!-- ============================================================
+     EXERCISES
+============================================================ -->
+<div class="exercises-section" id="oefeningen">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <div class="exercise-card">
+      <div class="ex-title">Oefening 1</div>
+      <div class="ex-name">Twee stemmen over Caesar</div>
+      <p style="font-size:0.97rem;color:var(--text-mid);margin-bottom:0.9rem;">Lees de twee tekstfragmenten hieronder en beantwoord de vragen.</p>
+
+      <div class="bron-fragment" style="margin:0 0 0.8rem;">
+        <span class="bron-label">Tekst A — Suetonius (ca. 121 n.Chr.)</span>
+        <blockquote>"Caesar was van nature zachtaardig. Hij vergaf zijn vijanden ruimhartig, en zelfs zij die tegen hem hadden gevochten, stelde hij aan in zijn dienst. Hij toonde altijd meer zorg voor zijn soldaten dan voor zijn eigen glorie."</blockquote>
+      </div>
+
+      <div class="bron-fragment" style="margin:0 0 1rem;">
+        <span class="bron-label">Tekst B — Cicero, brief aan Atticus (44 v.Chr., kort voor Caesars moord)</span>
+        <blockquote>"Hij heeft de republiek vernietigd. De senaat is een schijnvertoning geworden. De wetten zijn zijn wetten. De vrijheid die onze voorouders ons hebben nagelaten, bestaat niet meer. Dit is geen keizer — dit is een tiran die de taal van de welwillendheid gebruikt."</blockquote>
+      </div>
+
+      <ol>
+        <li>Wat is de standplaatsgebondenheid van elk van de twee auteurs? Houd rekening met wanneer ze schreven en wat hun positie was.</li>
+        <li>Welke redeneerwijze gebruik je als je beide teksten naast elkaar legt en vergelijkt?</li>
+        <li>Zou je op basis van alleen deze twee teksten al een definitief oordeel kunnen geven over Caesar? Waarom wel of niet?</li>
+        <li>Welke andere bronnen of informatie zou je willen gebruiken om een vollediger beeld te krijgen?</li>
+      </ol>
+      <p class="ex-tip">Tip: denk aan de vijf historische redeneerwijzen. Welke pas je toe bij elke vraag?</p>
+    </div>
+
+    <div class="exercise-card">
+      <div class="ex-title">Oefening 2</div>
+      <div class="ex-name">Film versus feiten: mythevorming in de oudheid</div>
+      <p style="font-size:0.97rem;color:var(--text-mid);margin-bottom:0.9rem;">Kies een film, game of reeks die zich afspeelt in de oudheid (voorbeelden: <em>Gladiator</em>, <em>300</em>, <em>Asterix</em>, <em>Assassin's Creed Origins</em>, <em>Troy</em>). Onderzoek een element uit dat werk en vergelijk het met historische feiten.</p>
+      <ol>
+        <li>Beschrijf kort welk werk je kiest en welk historisch element je onderzoekt (een persoon, een gebeurtenis, een gewoonte).</li>
+        <li>Wat toont het werk, en wat zegt de historische wetenschap daarover?</li>
+        <li>Waarom denk je dat de makers van het werk hebben gekozen voor die versie van het verhaal? Wat maakte hun versie aantrekkelijker of eenvoudiger?</li>
+        <li>Is de afwijking van de historische werkelijkheid schadelijk, of maakt het niet zoveel uit? Verdedig je standpunt.</li>
+      </ol>
+      <p class="ex-tip">Tip: gebruik betrouwbare websites of encyclopedieën voor je historische feiten. Vergelijk altijd meerdere bronnen.</p>
+    </div>
+
+    <div class="exercise-card">
+      <div class="ex-title">Oefening 3</div>
+      <div class="ex-name">Was Caesar een goede leider? — Vijf redeneerwijzen toegepast</div>
+      <p style="font-size:0.97rem;color:var(--text-mid);margin-bottom:0.9rem;">Pas alle vijf historische redeneerwijzen toe op de vraag: <strong>"Was Julius Caesar een goede leider?"</strong> Schrijf voor elke redeneerwijze twee tot drie zinnen.</p>
+      <ul>
+        <li><strong>Oorzaak-gevolg:</strong> Welke oorzaken leidden tot Caesars opkomst? Welke gevolgen had zijn bewind?</li>
+        <li><strong>Meerdere perspectieven:</strong> Hoe keken verschillende groepen — senatoren, soldaten, gewone Romeinen, veroverde volkeren — naar Caesar?</li>
+        <li><strong>Continuïteit en verandering:</strong> Wat veranderde Caesar in Rome, en wat bleef hetzelfde na zijn dood?</li>
+        <li><strong>Bewijs gebruiken:</strong> Op welke bronnen baseer jij je? Zijn die betrouwbaar?</li>
+        <li><strong>Verbanden leggen:</strong> Welk verband zie je tussen Caesars bewind en de bredere crisis van de Romeinse Republiek?</li>
+      </ul>
+      <p class="ex-tip">Tip: er is geen eenduidig "goed" antwoord. Het gaat om de kwaliteit van je redenering, niet om de conclusie.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     SUMMARY
+============================================================ -->
+<div class="summary-section" id="samenvatting">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>Historische beeldvorming</strong> is het beeld dat mensen hebben van het verleden. Dat beeld is altijd een <strong>constructie</strong> — gebouwd door iemand, vanuit een bepaald <strong>perspectief</strong>, en nooit volledig neutraal.</li>
+      <li>Historici gebruiken <strong>vijf redeneerwijzen</strong> om het verleden zo zorgvuldig mogelijk te reconstrueren: oorzaak-gevolg benoemen, meerdere perspectieven hanteren, continuïteit en verandering benoemen, bewijs gebruiken, en verbanden leggen.</li>
+      <li><strong>Standplaatsgebondenheid</strong> betekent dat elke persoon — historicus of historische figuur — de wereld bekijkt vanuit zijn eigen positie: tijd, cultuur, achtergrond en ervaringen. Herodotos noemde de Perzen "barbaren" niet uit boosaardigheid, maar vanuit zijn Griekse context.</li>
+      <li><strong>Mythevorming</strong> treedt op wanneer een aantrekkelijk beeld de feiten verdringt. Het beeld van de domme, brutale neanderthaler is een mythe — moderne wetenschap toont complexe wezens die doden begroeven, muziek maakten en gereedschappen fabriceerden.</li>
+      <li>Er is een belangrijk verschil tussen <strong>verleden</strong> (alles wat ooit is gebeurd) en <strong>geschiedenis</strong> (wat we daarvan weten en reconstrueren). Geschiedenis verandert voortdurend door nieuwe vondsten, methodes en perspectieven.</li>
+      <li>Het verleden leeft voort in het heden: in grenzen, talen, waarden en conflicten. Historisch redeneren is dan ook niet alleen een schoolvak — het is een <strong>vaardigheid om de wereld kritisch te begrijpen</strong>.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  // Back to top button
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) {
+        btn.classList.add('visible');
+      } else {
+        btn.classList.remove('visible');
+      }
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoofdstuk 18 — Het einde van een wereld | Geschiedenis 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE / OPENING STORY
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament {
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--gold);
+    opacity: 0.7;
+    margin: 1.5rem 0;
+    letter-spacing: 0.4em;
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-dialogue {
+    font-style: italic;
+    color: #FFFDF8;
+    padding-left: 1.4rem;
+    border-left: 3px solid rgba(212,160,23,0.4);
+    margin: 1rem 0;
+  }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+    filter: sepia(0.3);
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     ILLUSTRATIE PLACEHOLDERS
+  ============================================================ */
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+    cursor: default;
+    transition: background var(--transition);
+  }
+
+  .illustratie:hover { background: #EDE7D8; }
+
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong {
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition), opacity var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover {
+    background: var(--darkblue-light);
+    transform: translateY(-3px);
+  }
+
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     UTILITY / MISC
+  ============================================================ */
+  .prose-text { max-width: 100%; }
+
+  .highlighted-para {
+    background: rgba(212,160,23,0.08);
+    border-left: 3px solid var(--gold);
+    padding: 0.8rem 1.1rem;
+    border-radius: 0 4px 4px 0;
+    margin: 1.2rem 0;
+    font-size: 0.97rem;
+    color: var(--text-mid);
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <a class="label" href="index.html">Geschiedenis 1A</a>
+  <span class="label label-right">Hoofdstuk 18</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Geschiedenis &nbsp;·&nbsp; 1A &nbsp;·&nbsp; Eerste graad</div>
+  <h1>Hoofdstuk 18<br>Het einde van een wereld</h1>
+  <p class="subtitle">Van crisis en splitsing tot de val van het West-Romeinse Rijk in 476 n.Chr.</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- PROLOGUE -->
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Rome, augustus 410 n.Chr.</span>
+
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+
+    <p>De senator Quintus Aurelius staat op het dak van zijn stadsvilla op de Aventijnse heuvel. Beneden in de straten klinkt het geluid van brekend hout en schreeuwende stemmen. Rookpluimen stijgen op boven de Subura, de drukke volksbuurt aan de voet van de heuvels. Het zijn de Visigoten — Germaanse krijgers onder leiding van hun koning Alarik — die voor het eerst in meer dan achthonderd jaar de muren van Rome zijn binnengedrongen.</p>
+
+    <p>Quintus is oud. Hij herinnert zich de verhalen van zijn grootvader, die hem vertelde hoe onschendbaar Rome ooit leek. <em>Urbs aeterna</em> noemden ze het — de eeuwige stad. Geen vijand had haar ooit ingenomen. Niet de Galliërs in 390 v.Chr., niet Hannibal met zijn olifanten, niet de legers van de oosterse koningen. Rome was niet zomaar een stad. Het was een idee: dat beschaving kon bestaan, dat recht en orde de wereld konden ordenen, dat mensen in vrede konden samenleven onder een gezamenlijk bestuur.</p>
+
+    <p class="prologue-dialogue">"Hoe is dit mogelijk?" fluistert Quintus, meer tegen zichzelf dan tegen iemand anders.</p>
+
+    <p>Zijn slaaf, een Griek genaamd Demetrios die al twintig jaar voor hem werkt, staat naast hem. Hij zwijgt. Hij weet het antwoord, maar het is niet aan hem om het te zeggen.</p>
+
+    <p>Het antwoord is: dit is niet zomaar begonnen. Dit is het eindpunt van een crisis die al twee eeuwen aan Rome knabbelde. Burgeroorlogen die het rijk van binnenuit verscheurden. Epidemieën die miljoenen doodden. Economische ineenstorting. En buiten de grenzen: volkeren in beweging, aangedreven door druk van andere volkeren, steeds westwaarts trekkend.</p>
+
+    <p>Quintus kijkt naar de vlammen. Hij begrijpt het nog niet volledig. Maar hij leeft midden in een scharnierpunt — het einde van de klassieke oudheid, het begin van iets nieuws dat men later de middeleeuwen zal noemen.</p>
+
+    <p><strong style="color: var(--gold);">In dit hoofdstuk ontdek je hoe het zover kon komen.</strong></p>
+
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 18.1
+  ============================================================ -->
+  <section class="section-block" id="s18-1">
+    <div class="section-heading">
+      <span class="section-num">18.1</span>
+      <h2 class="section-title">De crisis van de derde eeuw</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Om te begrijpen hoe het Romeinse Rijk uiteindelijk ten val kwam, moeten we teruggaan naar de derde eeuw na Christus — een periode van chaos en instabiliteit die historici kortweg <strong>"de crisis van de derde eeuw"</strong> noemen. Die crisis duurde van 235 tot 284 n.Chr., een halve eeuw waarin het grootste rijk ter wereld aan zijn eigen zwaktes knabbelde.</p>
+    </div>
+
+    <h3 class="sub-heading">Tientallen keizers in vijftig jaar</h3>
+
+    <div class="prose-text">
+      <p>Het begon met een fundamenteel politiek probleem: wie beslist wie er keizer wordt? Rome had nooit een duidelijke erfopvolgingsregel. Zonen van keizers volgden soms hun vader op, maar niet automatisch. In de praktijk was het vaak het leger dat bepaalde wie er aan de macht kwam — en legerofficieren die genoeg soldaten achter zich hadden, konden zichzelf eenvoudigweg tot keizer uitroepen.</p>
+
+      <p>In de vijftig jaar tussen 235 en 284 n.Chr. passeerden er tientallen keizers de revue. Sommigen regeerden slechts een paar maanden voor ze werden vermoord of verdrongen door een nieuwe rivaal. Ze worden de <strong>soldatenkeizers</strong> genoemd: mannen die hun positie niet dankten aan geboorte of legitimiteit, maar aan de steun van hun troepen. Het gevolg was voortdurende burgeroorlog. Legereenheden vochten niet tegen buitenlandse vijanden, maar tegen elkaar. Rijksmiddelen werden verspild aan interne conflicten in plaats van aan de verdediging van de grenzen.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Soldatenkeizers</span>
+        <p class="begrip-def">Keizers die in de derde eeuw n.Chr. aan de macht kwamen dankzij de steun van het leger, niet via erfopvolging of officiële benoeming door de Senaat. Ze regeerden vaak slechts kort voor ze door nieuwe rivalen werden verdrongen of vermoord.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Druk aan de grenzen</h3>
+
+    <div class="prose-text">
+      <p>Terwijl het rijk intern verscheurd werd, nam de druk aan de buitengrenzen toe. Aan de Rijn en de Donau — de noordelijke grenzen — drongen Germaanse stammen steeds vaker het Rijk binnen. De <strong>Alemannen</strong> vielen in het westen aan; de <strong>Franken</strong> rukten op langs de Rijngrens; de <strong>Goten</strong> staken de Donau over in het oosten. Het waren geen georganiseerde legers zoals het Romeinse, maar razendsnelle overvallen die kleine gemeenschappen verwoestten, vee roofden en gevangenen meenamen als slaven.</p>
+
+      <p>In het oosten was er een nog gevaarlijkere vijand: het <strong>Sassanidisch Perzische Rijk</strong>. In 224 n.Chr. had een nieuwe dynastie — de Sassaniden — het Parthische Rijk vervangen en was vastbesloten de grenzen met Rome te verleggen. In 260 n.Chr. beleefde Rome een van zijn vernederendste momenten: keizer Valerianus werd gevangengenomen door de Sassanidische vorst Shapur I. Een Romeinse keizer — in gevangenschap van een buitenlandse vijand. Het was ondenkbaar. En toch was het werkelijkheid.</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: kaart Romeins Rijk met Germaanse druk en Sassanidisch Perzié">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Kaart van het Romeinse Rijk in de derde eeuw n.Chr. Pijlen geven de aanvalsrichtingen aan van de Alemannen, Franken en Goten in het noorden, en van het Sassanidisch Perzisch Rijk in het oosten. De Rijn en Donau zijn aangeduid als grenslijnen.</p>
+    </div>
+
+    <h3 class="sub-heading">Economische crisis en inflatie</h3>
+
+    <div class="prose-text">
+      <p>Een rijk in permanente oorlog is een duur rijk. Soldaten moeten worden betaald, uitgerust en gevoed. Vestingwerken moeten worden gebouwd en onderhouden. En dat alles terwijl de belastingopbrengsten daalden, want handelssteden die door vijanden waren geplunderd of door oorlog waren verwoest, konden geen belasting betalen.</p>
+
+      <p>De Romeinse overheid reageerde op een manier die elke econoom herkent: ze drukten meer geld. Munten werden steeds minder zuiver — het zilvergehalte daalde van meer dan 90% naar nauwelijks 5%. Het gevolg was een <strong>inflatie</strong> zoals het Rijk nog nooit had meegemaakt. Prijzen schoten omhoog. Kooplieden weigerden nog voor geld te handelen; ze eisten ruilgoederen. De groothandel stagneerde. Steden, die leefden van de handel, verschrompelden. Mensen trokken weg van de steden en zochten veiligheid op het platteland.</p>
+    </div>
+
+    <h3 class="sub-heading">Pest en bevolkingsdaling</h3>
+
+    <div class="prose-text">
+      <p>Alsof interne burgeroorlog, buitenlandse invasies en economische crisis nog niet genoeg waren, teisterden twee grote pestepidemieën het Rijk. De <strong>Antonijnse pest</strong> (165–180 n.Chr.) trof het Rijk al voor de eigenlijke crisis en doodde naar schatting vijf miljoen mensen. De <strong>Cypriaansche pest</strong> (249–262 n.Chr.) was minstens even dodelijk en trof het Rijk op het dieptepunt van de politieke chaos. Op sommige plaatsen stierven naar schatting vijfduizend mensen per dag in grotere steden.</p>
+
+      <p>Pest had niet alleen demografische gevolgen. De dood van grote aantallen volwassen mannen verzwakte het leger, verlaagde de belastingopbrengsten en zaaide angst en wanorde. Mensen gingen op zoek naar verklaringen — en vonden die vaak in nieuwe religies die beloofden redding te brengen. Het christendom groeide in deze periode sterk, mede omdat christelijke gemeenschappen zieken verzorgden waar anderen vluchtten.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Inflatie</span>
+        <p class="begrip-def">Een algemene stijging van het prijsniveau waarbij geld minder waard wordt. In het Romeinse geval werd inflatie veroorzaakt doordat de staat munten liet slaan met steeds minder edel metaal, terwijl er meer munten in omloop kwamen dan de economie aankon.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Diocletianus stabiliseert het Rijk</h3>
+
+    <div class="prose-text">
+      <p>In 284 n.Chr. nam de legeraanvoerder <strong>Diocletianus</strong> de macht over. Hij was een bekwame, pragmatische man die begreep dat het Rijk drastische hervormingen nodig had om te overleven. Zijn oplossingen waren ingrijpend.</p>
+
+      <p>Hij verdubbelde de omvang van het leger om beter weerstand te kunnen bieden aan buitenlandse dreigingen. Hij reorganiseerde het bestuur door het Rijk op te splitsen in kleinere provincies met meer lokale controle. Hij voerde een belastinghervorming door die de opbrengsten stabieler maakte. En hij maakte een einde aan de greep van het Senaat op de keizerlijke macht, door zichzelf bijna goddelijke status toe te eigenen: wie in zijn aanwezigheid kwam, moest neerknielen en zijn mantel kussen.</p>
+
+      <p>Diocletianus stabiliseerde het Rijk. Maar zijn hervormingen hadden ook een prijs: een grotere, zwaardere overheid, hogere belastingen en een rigidere, minder flexibele samenleving. Het Rijk was gered — maar het was een ander Rijk geworden.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">💭 Denkvraag</div>
+      <p class="dv-text">De "crisis van de derde eeuw" had meerdere oorzaken tegelijk: politieke instabiliteit, externe druk, economische problemen en ziekte. Welke oorzaak denk jij dat de meest fundamentele was — de wortel waaruit de andere problemen groeiden? Leg je redenering uit.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 18.2
+  ============================================================ -->
+  <section class="section-alt" id="s18-2">
+    <div class="section-heading">
+      <span class="section-num">18.2</span>
+      <h2 class="section-title">Splitsing in West- en Oost-Romeins Rijk</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Diocletianus begreep iets dat zijn voorgangers niet hadden willen toegeven: het Rijk was te groot om door één persoon te besturen. Van de grens aan de Rijn tot de woestijn van Mesopotamië, van de kusten van Engeland tot de zandvlakten van Noord-Afrika — dat was eenvoudigweg te veel voor één keizer, met de communicatiemiddelen van de oudheid. Een bericht van Rome naar het oostfront kon weken onderweg zijn. Tegen de tijd dat een bevel aankwam, was de situatie al veranderd.</p>
+    </div>
+
+    <h3 class="sub-heading">De tetrarchie: vier keizers besturen samen</h3>
+
+    <div class="prose-text">
+      <p>De oplossing van Diocletianus was radicaal en inventief: de <strong>tetrarchie</strong>, een systeem van vier keizers die samen het Rijk bestuurden. Twee "Augustus" (senior keizers) en twee "Caesar" (junior keizers, in opleiding om ooit Augustus te worden) verdeelden het Rijk in vier bestuurszones. In theorie was het Rijk nog altijd één — maar in de praktijk functioneerde het als vier aparte administratieve eenheden.</p>
+
+      <p>Diocletianus zelf vestigde zijn hof niet in Rome, maar in Nicomedeia (het huidige Izmit in Turkije), dichter bij het kwetsbare oostfront. Zijn medeaugustus Maximianus resideerde in Milaan. Rome zelf — de eeuwige stad, het symbolische hart van het Rijk — was in feite niet langer de werkelijke hoofdstad. Het was een symbool geworden, geen machtscentrum.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Tetrarchie</span>
+        <p class="begrip-def">Het systeem van vier-keizersbestuur dat Diocletianus in 293 n.Chr. invoerde. Het Rijk werd verdeeld in een westelijk en een oostelijk deel, elk bestuurd door een Augustus (senior keizer) en een Caesar (junior keizer). Het woord komt van het Griekse <em>tetra</em> (vier) en <em>archein</em> (heersen).</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Constantijn: christendom en een nieuwe hoofdstad</h3>
+
+    <div class="prose-text">
+      <p>De tetrarchie functioneerde zolang Diocletianus ze in stand hield. Na zijn aftreden in 305 n.Chr. ontaardde het systeem al snel in een nieuwe reeks burgeroorlogen — want vier mannen met legers zijn vier potentiële rivalen. Uit die strijd kwam uiteindelijk <strong>Constantijn</strong> als winnaar naar voren.</p>
+
+      <p>Constantijn is een van de meest invloedrijke keizers in de Romeinse geschiedenis. In 313 n.Chr. vaardigde hij samen met zijn medekeizer Licinius het <strong>Edict van Milaan</strong> uit, dat godsdienstvrijheid garandeerde in het hele Rijk. Voor het christendom — tot dan toe afwisselend gedoogd en vervolgd — was dit een keerpunt. Constantijn zelf werd een beschermheer van de christelijke kerk, al liet hij zich pas op zijn sterfbed dopen.</p>
+
+      <p>In 330 n.Chr. nam Constantijn een beslissing met eeuwenlange gevolgen: hij stichtte een nieuwe hoofdstad aan de Bosporus, op de plek van de oude Griekse handelsstad Byzantion. Hij noemde haar <strong>Constantinopel</strong> — de stad van Constantijn. De ligging was strategisch perfect: op het kruispunt van Europa en Azië, omgeven door water aan drie kanten, gemakkelijk te verdedigen. Constantijn bouwde haar naar het voorbeeld van Rome: zeven heuvels, een senaat, tempels, een circus voor wagenrennen. Maar ook vele kerken. Het was een nieuwe stad voor een veranderend Rijk.</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: kaart met splitsing Oost en West, Constantinopel aangeduid">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Kaart van het Romein Rijk rond 395 n.Chr. Een lijn verdeelt het in het westelijk deel (West-Romeins Rijk, hoofdstad Ravenna/Rome) en het oostelijk deel (Oost-Romein Rijk/Byzantium, hoofdstad Constantinopel). Steden zoals Rome, Milaan, Ravenna en Constantinopel zijn aangeduid.</p>
+    </div>
+
+    <h3 class="sub-heading">Theodosius en de definitieve splitsing</h3>
+
+    <div class="prose-text">
+      <p>In de decennia na Constantijn bleef het Rijk officieel één, maar in de praktijk functioneerde het steeds meer als twee aparte helften. Westerse en oosterse keizers bestuurden hun eigen gebieden, voerden hun eigen beleid en raakten steeds meer van elkaar vervreemd. De twee helften hadden ook een verschillende economische basis: het Oosten was rijker, had meer steden en een actievere handel; het Westen was agrarischer, dunner bevolkt en economisch kwetsbaarder.</p>
+
+      <p>Bij de dood van <strong>Theodosius I</strong> in 395 n.Chr. werd het Rijk voor de laatste keer officieel verdeeld: zijn twee zonen erfden elk een helft. Arcadius kreeg het Oosten, Honorius het Westen. Deze splitsing was definitief. Het <strong>Oost-Romein Rijk</strong> — ook wel het Byzantijnse Rijk — zou nog meer dan duizend jaar blijven bestaan, totdat het in 1453 viel voor de Ottomaanse Turken. Het <strong>West-Romein Rijk</strong> had nog minder dan een eeuw voor de boeg.</p>
+    </div>
+
+    <div class="highlighted-para">
+      <strong>Een opmerkelijk feit:</strong> het Oost-Romein Rijk (Byzantium) bleef bestaan van 395 tot 1453 n.Chr. — meer dan 1.000 jaar. De Byzantijnen noemden zichzelf altijd "Romeinen" en beschouwden hun staat als de rechtmatige voortzetting van het Romein Rijk. Ze spraken Grieks, maar hun politieke en juridische erfenis was Latijns-Romein.
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Byzantijns Rijk</span>
+        <p class="begrip-def">De moderne benaming voor het Oost-Romein Rijk na de splitsing in 395 n.Chr. Het Byzantijnse Rijk had Constantinopel als hoofdstad, gebruikte het Grieks als bestuurstaal en bleef bestaan tot 1453 n.Chr., toen Constantinopel viel voor de Ottomaanse Turken. De Byzantijnen zelf noemden zich altijd "Romeinen."</p>
+      </div>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">💭 Denkvraag</div>
+      <p class="dv-text">Constantijn stichtte een nieuwe hoofdstad en gaf het christendom een bevoorrechte positie. Zijn deze twee beslissingen met elkaar verbonden? Waarom zou een keizer zijn hoofdstad willen verplaatsen en tegelijk een nieuwe religie willen steunen?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 18.3
+  ============================================================ -->
+  <section class="section-block" id="s18-3">
+    <div class="section-heading">
+      <span class="section-num">18.3</span>
+      <h2 class="section-title">De ondergang van het West-Romein Rijk</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Het West-Romein Rijk stierf niet in een dag. Het stierf in golven — een langzaam proces van decennia waarbij het centrale gezag steeds meer terrein verloor aan binnendringende volkeren, lokale machthebbers en een uitgeputte economie. Maar om te begrijpen waarom die volkeren überhaupt in beweging kwamen, moeten we eerst naar de steppe van Centraal-Azië kijken.</p>
+    </div>
+
+    <h3 class="sub-heading">De Hunnen zetten alles in beweging</h3>
+
+    <div class="prose-text">
+      <p>Ergens in de tweede helft van de vierde eeuw n.Chr. begonnen de <strong>Hunnen</strong>, een nomadisch ruitervolk uit de steppes van Centraal-Azië, westwaarts te trekken. De exacte reden is niet bekend — klimaatverandering, bevolkingsdruk, of simpelweg de zucht naar nieuwe weidegronden. Wat wel bekend is, is het effect: de volkeren die ze op hun weg tegenkwamen, werden ofwel onderworpen of gedwongen te vluchten.</p>
+
+      <p>De Goten, die al generaties lang aan de Donaugrenzen van het Romein Rijk leefden, werden in 376 n.Chr. door de Hunnen vanuit het noorden samengedreven. Honderdduizenden Goten — mannen, vrouwen, kinderen, vee — stroomden naar de Donau en smeekten de Roomse keizers om toestemming om de rivier over te steken en zich op Romein grondgebied te vestigen. Keizer Valens gaf toestemming. Hij dacht er goedkope soldaten aan over te houden — barbaren die voor Rome zouden vechten in ruil voor land.</p>
+
+      <p>Het liep anders af.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Volksverhuizingen</span>
+        <p class="begrip-def">De grote migratiegolven van Germaanse en andere volkeren (Goten, Vandalen, Franken, Angelen, Saksen) die van de vierde tot de zesde eeuw n.Chr. het West-Romein Rijk binnendrongen en uiteindelijk op zijn grondgebied eigen koninkrijken stichtten. De volksverhuizingen werden mede veroorzaakt door de westwaartse druk van de Hunnen.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Adrianopel: het begin van het einde</h3>
+
+    <div class="prose-text">
+      <p>Romein bestuurders behandelden de Goten die de Donau waren overgestoken als tweederangs mensen. Ze werden opgehokt in kampen, kregen onvoldoende voedsel en werden uitgebuit door corrupte ambtenaren die hen rottig voedsel verkochten voor hoge prijzen. Al snel barstte het geweld los. De Goten grepen naar de wapens.</p>
+
+      <p>In augustus 378 n.Chr. vond de <strong>slag bij Adrianopel</strong> plaats. Keizer Valens zelf leidde het Romein leger — een beslissing die zijn dood zou worden. De Gotische cavalerie omsingelde de Romein infanterie en verpletterde haar volledig. Valens sneuvelde. Naar schatting twee derde van het Romein leger werd vernietigd.</p>
+
+      <p>De slag bij Adrianopel was een schok. Voor het eerst in eeuwen had een Germaans volk een Romein leger — en de keizer ervan — volledig verslagen in open veldslag. De mythe van de Romein onoverwinnelijkheid was gebroken. En de Goten waren nu, gewapend en vijandig, op Romein grondgebied — en de Romein staat kon hen niet meer verdrijven.</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: tijdlijn volksverhuizingen en plunderingen van Rome">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Tijdlijn van de laatste eeuw van het West-Romein Rijk: 376 n.Chr. (Goten steken Donau over), 378 (slag bij Adrianopel), 395 (splitsing Rijk), 410 (plundering Rome door Visigoten), 455 (plundering Rome door Vandalen), 476 (afzetting Romulus Augustulus). Een kaart toont de routes van de verschillende volksgroepen.</p>
+    </div>
+
+    <h3 class="sub-heading">De plundering van Rome</h3>
+
+    <div class="prose-text">
+      <p>Na Adrianopel ging het snel bergafwaarts. Het Romein Rijk was niet meer in staat zijn grenzen effectief te verdedigen. Germaanse oorlogvoerders werden in dienst genomen als foederati — bondgenootsoldaten die voor Rome vochten, maar steeds grotere stukken land en steeds meer autonomie eisten als beloning.</p>
+
+      <p>In 410 n.Chr. kwamen de <strong>Visigoten</strong> onder leiding van Alarik Rome binnen. De stad werd drie dagen lang geplunderd. De psychologische schok was enorm — Rome was al eeuwen niet meer door een vijand betreden. In de Christelijke wereld, maar ook in de heidense, klonk het als het einde van een tijdperk. De kerkvader Augustinus schreef zijn magnum opus <em>De Civitate Dei</em> (De stad Gods) deels als antwoord op de vraag: hoe kon God toelaten dat Rome viel?</p>
+
+      <p>In 455 n.Chr. plunderden de <strong>Vandalen</strong> Rome opnieuw — grondig en systematisch. Ze namen niet alleen goud en zilver mee, maar ook de beroemde schatten die Titus uit Jeruzalem had meegebracht, en zelfs de gouden dakpannen van de Capitolijnse Jupiter-tempel. Het woord "vandalisme" stamt van dit volk.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Visigoten</span>
+        <p class="begrip-def">Een Germaans volk dat oorspronkelijk ten oosten van de Donau leefde. Onder druk van de Hunnen trokken ze het Romein Rijk binnen. Na de slag bij Adrianopel vestigden ze zich op Romein grondgebied. In 410 n.Chr. plunderden ze Rome onder leiding van Alarik. Later stichtten ze een koninkrijk in het huidige Spanje en Portugal.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">476 n.Chr.: het officiële einde</h3>
+
+    <div class="prose-text">
+      <p>In de laatste decennia van het West-Romein Rijk was de keizer niet meer dan een figurant. De werkelijke macht lag bij Germaanse legeraanvoerders — <em>magistri militum</em> — die de keizers naar eigen goeddunken installeerden en afzetten. Kinderkeizers met luide namen maar geen enkele echte macht volgden elkaar op in razend tempo.</p>
+
+      <p>Op 4 september 476 n.Chr. zette de Germaanse legeraanvoerder <strong>Odoaker</strong> de laatste West-Romein keizer af: <strong>Romulus Augustulus</strong>, een jongeman wiens naam — Romulus, de mythische stichter van Rome, en Augustulus, een verkleinwoord van Augustus — bijna tragisch klinkt. Odoaker stuurde de keizerlijke insignes (de kroon, de mantel, de scepter) naar Constantinopel met de boodschap dat één keizer voor het hele Rijk volstond. Hij riep zichzelf uit tot <em>rex Italiae</em> — koning van Italië.</p>
+
+      <p>Historici beschouwen 476 n.Chr. als het officiële einde van het West-Romein Rijk en het begin van de middeleeuwen. Maar het is belangrijk te beseffen dat dit een <em>achteraf</em> toegekende datum is. Tijdgenoten ervoeren 476 niet als een duidelijk scharnierpunt. Het leven ging voor de meeste mensen gewoon verder — dezelfde akkers, dezelfde dorpen, dezelfde kerk. Wat verdween was niet een wereld, maar een bestuurssysteem. De diepere veranderingen — het einde van de grootstedelijke cultuur, de neergang van de handel, de terugval van de geletterdheid — hadden al decennia voor 476 ingezet en zouden nog decennia na 476 doorgaan.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">476 n.Chr.</span>
+        <p class="begrip-def">Het jaar waarin Odoaker de laatste West-Romein keizer Romulus Augustulus afzette. Historici beschouwen dit als het einde van het West-Romein Rijk en het begin van de middeleeuwen. Het is echter een symbolisch scharnierpunt: de werkelijke overgang van oudheid naar middeleeuwen was een geleidelijk proces van meer dan twee eeuwen.</p>
+      </div>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: Romulus Augustulus en Odoaker">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Historische illustratie of reconstructie van de afzetting van Romulus Augustulus door Odoaker in 476 n.Chr. De jonge keizer overhandigt de keizerlijke insignes. Op de achtergrond een kaart van de opvolgersstaten die op het grondgebied van het West-Romein Rijk worden gesticht.</p>
+    </div>
+
+    <div class="highlighted-para">
+      <strong>Was 476 echt het einde?</strong> Historici debatteren hier nog altijd over. Het Oost-Romein Rijk bestond nog tot 1453. In het Westen bleven Romein wetten, de Latijnse taal en de christelijke kerk voortbestaan. Sommige historici plaatsen het echte einde van de klassieke oudheid bij de komst van de islam in de zevende eeuw, of bij de definitieve ineenstorting van de westerse handel. 476 is een nuttig ankerpunt — maar het is geen scheidslijn tussen dag en nacht.
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">💭 Denkvraag</div>
+      <p class="dv-text">Is 476 n.Chr. een goed scharnierpunt voor het einde van de klassieke oudheid? Gebruik de drie criteria die je in hoofdstuk 1 leerde: wanneer, waar, en in welke maatschappelijke domeinen was de verandering voelbaar? Voor welke domeinen was 476 wél een scharnierpunt, en voor welke niet?</p>
+    </div>
+  </section>
+
+</div><!-- end page-wrapper -->
+
+<!-- ============================================================
+     EXERCISES
+============================================================ -->
+<div class="exercises-section" id="oefeningen">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <div class="exercise-card">
+      <div class="ex-title">Oefening 1</div>
+      <div class="ex-name">Oorzaken en gevolgen verbinden</div>
+      <p style="font-size:0.97rem;color:var(--text-mid);margin-bottom:0.7rem;">Hieronder staan vijf gebeurtenissen of situaties uit de crisis van het Romein Rijk. Breng ze in de juiste chronologische volgorde en geef voor elke gebeurtenis aan welke oorzaak en welk gevolg ermee verbonden zijn.</p>
+      <ol>
+        <li>De Hunnen trekken westwaarts vanuit Centraal-Azië</li>
+        <li>Diocletianus voert de tetrarchie in</li>
+        <li>De crisis van de derde eeuw: tientallen soldatenkeizers in vijftig jaar</li>
+        <li>De slag bij Adrianopel (378 n.Chr.)</li>
+        <li>Odoaker zet Romulus Augustulus af (476 n.Chr.)</li>
+      </ol>
+      <p class="ex-tip">Tip: gebruik een pijlenschema om oorzaak-gevolg-verbanden te tonen.</p>
+    </div>
+
+    <div class="exercise-card">
+      <div class="ex-title">Oefening 2</div>
+      <div class="ex-name">Vergelijken: Oost versus West</div>
+      <p style="font-size:0.97rem;color:var(--text-mid);margin-bottom:0.7rem;">Het Oost-Romein Rijk overleefde nog meer dan duizend jaar na de val van het West-Romein Rijk. Noteer minstens drie redenen waarom het Oosten sterker stond dan het Westen. Gebruik informatie uit dit hoofdstuk.</p>
+      <ul>
+        <li>Denk aan economische factoren</li>
+        <li>Denk aan geografische ligging</li>
+        <li>Denk aan de rol van Constantinopel</li>
+      </ul>
+      <p class="ex-tip">Maak een vergelijkingstabel met twee kolommen: West-Romein Rijk en Oost-Romein Rijk.</p>
+    </div>
+
+    <div class="exercise-card">
+      <div class="ex-title">Oefening 3</div>
+      <div class="ex-name">Bronnenanalyse: de senator op het dak</div>
+      <p style="font-size:0.97rem;color:var(--text-mid);margin-bottom:0.7rem;">Herinner je het openingsverhaal: senator Quintus staat op zijn dak en kijkt toe hoe de Visigoten Rome plunderen in 410 n.Chr.</p>
+      <ol>
+        <li>Vanuit wiens perspectief zien we de plundering van Rome in het openingsverhaal? Is dat een typisch of een atypisch perspectief? Wie horen we <em>niet</em>?</li>
+        <li>De historicus Augustinus beschreef de val van Rome als een catastrofe. Hoe zou een Germaanse Visigoot de inname van Rome beschreven hebben? Schrijf drie zinnen vanuit dat perspectief.</li>
+        <li>Is 410 een beter scharnierpunt voor het einde van de klassieke oudheid dan 476? Beargumenteer je antwoord.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     SUMMARY
+============================================================ -->
+<div class="summary-section" id="samenvatting">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li>De <strong>crisis van de derde eeuw</strong> (235–284 n.Chr.) kenmerkte zich door tientallen soldatenkeizers, burgeroorlogen, externe druk van Germaanse stammen en het Sassanidisch Perzisch Rijk, economische crisis met inflatie, en verwoestende pestepidemieën. <strong>Diocletianus</strong> stabiliseerde het Rijk maar vergrootte ook de bestuurslast.</li>
+      <li>Diocletianus voerde de <strong>tetrarchie</strong> in: vier keizers besturen samen het Rijk, opgedeeld in een westelijk en een oostelijk deel. <strong>Constantijn</strong> (313 n.Chr.) gaf het christendom godsdienstvrijheid via het Edict van Milaan en stichtte <strong>Constantinopel</strong> (330 n.Chr.) als nieuwe oostelijke hoofdstad.</li>
+      <li>Bij de dood van <strong>Theodosius</strong> in 395 n.Chr. werd het Rijk definitief gesplitst in het West-Romein Rijk en het <strong>Oost-Romein Rijk</strong> (Byzantium), dat nog meer dan duizend jaar zou bestaan tot 1453.</li>
+      <li>De <strong>Hunnen</strong> dreven vanuit Centraal-Azië Germaanse volkeren westwaarts. De Goten staken de Donau over (376 n.Chr.). Na de <strong>slag bij Adrianopel</strong> (378 n.Chr.) — waarin de Goten het Romein leger verpletterd — was de Romein militaire macht gebroken.</li>
+      <li><strong>Rome werd geplunderd</strong> door de Visigoten in 410 n.Chr. en de Vandalen in 455 n.Chr. In <strong>476 n.Chr.</strong> zette Odoaker de laatste West-Romein keizer Romulus Augustulus af. Dit geldt als het officiële einde van het West-Romein Rijk en het begin van de middeleeuwen — maar de werkelijke overgang was een geleidelijk proces.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  // Back to top button
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) {
+        btn.classList.add('visible');
+      } else {
+        btn.classList.remove('visible');
+      }
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

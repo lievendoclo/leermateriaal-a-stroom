@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoofdstuk 13 — De Griekse stadstaten: polis en democratie | Geschiedenis 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE / OPENING STORY
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament {
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--gold);
+    opacity: 0.7;
+    margin: 1.5rem 0;
+    letter-spacing: 0.4em;
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-dialogue {
+    font-style: italic;
+    color: #FFFDF8;
+    padding-left: 1.4rem;
+    border-left: 3px solid rgba(212,160,23,0.4);
+    margin: 1rem 0;
+  }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+    filter: sepia(0.3);
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     ILLUSTRATIE PLACEHOLDERS
+  ============================================================ */
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+    cursor: default;
+    transition: background var(--transition);
+  }
+
+  .illustratie:hover { background: #EDE7D8; }
+
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     COMPARISON TABLE
+  ============================================================ */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.6rem 0;
+    font-size: 0.95rem;
+  }
+
+  .compare-table th {
+    background: var(--darkblue);
+    color: var(--gold);
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.75rem 1rem;
+    text-align: left;
+  }
+
+  .compare-table th:first-child { border-radius: var(--border-radius) 0 0 0; }
+  .compare-table th:last-child { border-radius: 0 var(--border-radius) 0 0; }
+
+  .compare-table td {
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid rgba(200,146,58,0.18);
+    color: var(--text-mid);
+    vertical-align: top;
+  }
+
+  .compare-table tr:nth-child(even) td { background: rgba(242,234,216,0.5); }
+  .compare-table tr:last-child td { border-bottom: none; }
+
+  .compare-table td:first-child {
+    font-weight: 700;
+    color: var(--darkblue);
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong {
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition), opacity var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover {
+    background: var(--darkblue-light);
+    transform: translateY(-3px);
+  }
+
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     UTILITY / MISC
+  ============================================================ */
+  .prose-text { max-width: 100%; }
+
+  .highlighted-para {
+    background: rgba(212,160,23,0.08);
+    border-left: 3px solid var(--gold);
+    padding: 0.8rem 1.1rem;
+    border-radius: 0 4px 4px 0;
+    margin: 1.2rem 0;
+    font-size: 0.97rem;
+    color: var(--text-mid);
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .compare-table { font-size: 0.85rem; }
+    .compare-table td, .compare-table th { padding: 0.5rem 0.6rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <a class="label" href="index.html">Geschiedenis 1A</a>
+  <span class="label label-right">Hoofdstuk 13</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Geschiedenis &nbsp;·&nbsp; 1A &nbsp;·&nbsp; Klassieke oudheid</div>
+  <h1>Hoofdstuk 13<br>De Griekse stadstaten: polis en democratie</h1>
+  <p class="subtitle">Van berglandschap tot wereldidee — hoe een versnipperd land de westerse beschaving uitvond</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- PROLOGUE -->
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Stel je voor &hellip;</span>
+    <div class="ornament-line"><span class="ornament-sym">&#9670;</span></div>
+
+    <p>Het is een zomerochtend in het jaar 450 voor Christus. Op de Pnyx-heuvel in Athene — een licht hellend terrein met uitzicht over de stad en de Akropolis — dringen zich duizenden mannen samen. Ze zijn gekomen te voet, sommigen van ver buiten de stadsmuren, vanuit dorpen op het platteland. Ze ruiken naar zweet en stof. Hun sandalen zijn wit van de kalk van de wegen.</p>
+
+    <p>Voor hen staat een man in een witte tuniek. Hij is geen priester, geen koning, geen god. Hij is Perikles, een burger zoals zij — weliswaar een begaafd redenaar en gekozen strateeg, maar uiteindelijk iemand die zij zelf in die rol geplaatst hebben. Zijn stem draagt ver in de warme lucht.</p>
+
+    <p class="prologue-dialogue">"Burgers van Athene," zegt hij, "ik stel voor dat wij de middelen van het schatkist gebruiken om de Parthenon te bouwen — een tempel voor Athena, groot en prachtig, zoals de wereld er nog geen gezien heeft."</p>
+
+    <p>Naast jou staat een oudere man met eeltige handen — een pottenbakker, schat je. Hij trekt zijn wenkbrauwen op en mompelt, luid genoeg om te horen: "Dat kost een vermogen. Waarom moeten de bondgenoten daarvoor betalen?"</p>
+
+    <p>Je wacht op de reactie van de wachters, de grijpers, de soldaten. Maar er is geen reactie. De man mag dat gewoon zeggen. Straks mag hij zijn hand opsteken. Straks mag hij voor of tegen stemmen. Dat is zijn recht als burger. In Perzië zou hij zijn tong verloren hebben voor minder. In Sparta zou hij zwijgen omdat men hem geleerd heeft te gehoorzamen. Maar hier, op deze heuvel, in deze stad, is zijn stem evenveel waard als die van Perikles zelf.</p>
+
+    <p>De vergadering begint. De wereld die wij vandaag kennen — met parlementen, grondwetten en de gedachte dat gewone mensen recht hebben op een stem — begint hier, op dit stuk kalk steen, onder deze zon.</p>
+
+    <p><strong style="color: var(--gold);">Maar hoe was het zover gekomen? En voor wie gold die vrijheid eigenlijk?</strong></p>
+
+    <div class="ornament-line"><span class="ornament-sym">&#9670;</span></div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 13.1
+  ============================================================ -->
+  <section class="section-block" id="s13-1">
+    <div class="section-heading">
+      <span class="section-num">13.1</span>
+      <h2 class="section-title">Geografie als lot: waarom ontstonden stadstaten?</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Om te begrijpen waarom Griekenland zich zo anders ontwikkelde dan Egypte of Mesopotamië, moet je eerst naar de kaart kijken. Egypte was een land van vlakten, verenigd door de Nijl. Mesopotamië was een brede riviervallei die vanuit één centrum bestuurd kon worden. Griekenland was geen van beide.</p>
+
+      <p>Griekenland is een land van <strong>bergen</strong>. Ruim driekwart van het grondgebied bestaat uit bergketens die het land versnijden in kleine, afzonderlijke valleien. Elke vallei is een wereld op zich: afgesloten van de buren door bergpassen die in de winter onbegaanbaar zijn, met eigen landbouwgrond, eigen bronnen, eigen kusten. In zo'n landschap groeit geen groot centraal rijk. In zo'n landschap groeien kleine, onafhankelijke gemeenschappen.</p>
+
+      <p>Daarbij komt de kustlijn. Griekenland heeft een uitzonderlijk lange, grillige kustlijn — met honderden baaien, schiereilanden en eilanden. De Egeïsche Zee bezaaid met eilanden die zo dicht bij elkaar liggen dat je van het ene naar het andere bijna altijd land aan de horizon ziet. Die zee verbindt, in plaats van te scheiden. Een Griek die zijn eigen bergvallei te arm of te klein vond, kon een boot nemen en elders proberen zijn geluk.</p>
+
+      <p>Het derde geografische gegeven is de grond zelf: arm, droog, rotsachtig. Graangewassen groeien er slecht. Olijven en wijnstokken houden het. De zee geeft vis. Maar een grote bevolking kan je op Griekse grond niet voeden zonder handel of kolonisatie. Griekenland was een land dat zijn mensen als het ware wegduwde — over de zee, naar nieuwe gronden.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128218;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Polis (meervoud: poleis)</span>
+        <p class="begrip-def">Een polis is een Griekse stadstaat: een onafhankelijke politieke gemeenschap bestaande uit een stad (asty) met haar omliggend platteland (chora). Elke polis had haar eigen wetten, bestuur, leger en godsdienst. Griekenland bestond uit honderden poleis die nooit politiek verenigd waren.</p>
+      </div>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: kaart van Griekenland met bergketens, kustlijn en verspreide poleis">
+      <span class="ill-icon">&#128506;</span>
+      <p class="ill-caption">Fysische kaart van Griekenland en de Egeïsche wereld. Bergen in bruin, valleien in lichtgroen, zee in blauw. Stippen markeren de voornaamste poleis: Athene, Sparta, Korinthe, Thebe, Argos, Milete. Vergelijk de versnippering met de aaneengesloten vlakten van Egypte en Mesopotamië.</p>
+    </div>
+
+    <div class="prose-text">
+      <p>De geografie verklaart dus drie kernkenmerken van de Griekse wereld: de <strong>politieke versnippering</strong> (geen centrale macht, maar honderden stadstaten), de <strong>neiging tot kolonisatie</strong> (te weinig grond, dus nieuwe nederzettingen stichten) en de <strong>oriëntatie op de zee</strong> (handel en contact over water). Alles wat je in dit hoofdstuk leert — de democratie, de oorlogen, de kolonisatie — hangt samen met deze drie geografische feiten.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 13.2
+  ============================================================ -->
+  <section class="section-alt" id="s13-2">
+    <div class="section-heading">
+      <span class="section-num">13.2</span>
+      <h2 class="section-title">De polis: structuur en bestuur</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Een polis was meer dan een stad. Het was een gemeenschap van burgers die samen een politieke eenheid vormden. Elke polis had twee geografische kernen: de <strong>asty</strong> (de eigenlijke stad, met haar gebouwen, tempels en markten) en de <strong>chora</strong> (het omringende platteland, met boerderijen, dorpjes en heiligdommen). Samen maakten ze de polis uit.</p>
+
+      <p>In het hart van elke stad bevonden zich twee cruciale ruimtes.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128218;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Agora</span>
+        <p class="begrip-def">De agora was het centrale marktplein van een Griekse stad. Het was het kloppend hart van het openbare leven: hier werden goederen verhandeld, rechtszaken gehouden, politieke debatten gevoerd en filosofen gehoord. De agora was de plek waar burgers elkaar ontmoetten en de gemeenschap vorm gaf aan zichzelf.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128218;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Akropolis</span>
+        <p class="begrip-def">De akropolis (letterlijk: "hoge stad") was het versterkte hooggelegen deel van de polis, gebouwd op een heuvel of rots. Het was de religieuze en militaire kern: hier stonden de belangrijkste tempels en hier trok de bevolking zich terug bij aanvallen. De bekendste akropolis is die van Athene, met de Parthenon.</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>Het bestuur van een polis kon heel verschillende vormen aannemen. In de loop van de Griekse geschiedenis zien we eigenlijk alle grote bestuurssystemen de revue passeren. Aanvankelijk waren de meeste poleis <strong>monarchieën</strong>, bestuurd door een koning. Geleidelijk greep de adel de macht: <strong>oligarchie</strong> (letterlijk: heerschappij van weinigen). In tijden van crisis doken <strong>tyrannen</strong> op — leiders die de macht grepen buiten de bestaande instellingen om, soms met steun van het volk. En in Athene evolueerde dit uiteindelijk naar <strong>democratie</strong>.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128218;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Oligarchie</span>
+        <p class="begrip-def">Een oligarchie is een bestuursvorm waarbij de macht in handen is van een kleine groep rijke of adellijke mensen. Het woord komt van het Griekse <em>oligos</em> (weinig) en <em>arche</em> (heerschappij). In Sparta bleef de oligarchie gedurende heel de klassieke periode bestaan.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128218;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Demokratie</span>
+        <p class="begrip-def">Een democratie is een bestuursvorm waarbij het volk (Grieks: <em>demos</em>) de macht (Grieks: <em>kratos</em>) uitoefent. In de Atheense vorm gold dit alleen voor vrije mannelijke burgers. De democratie werd in Athene geleidelijk uitgebouwd tussen 594 en 461 voor Christus.</p>
+      </div>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: schematisch grondplan van een Griekse polis met agora en akropolis">
+      <span class="ill-icon">&#127963;</span>
+      <p class="ill-caption">Schematisch grondplan van een typische Griekse polis. Op de heuvel de akropolis met tempel. Beneden het straatpatroon van de stad met centraal de agora (marktplein, omgeven door zuilengalerijen). Rondom de stadsmuren. Buiten de muren de chora met akkers en olivenboomgaarden.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 13.3
+  ============================================================ -->
+  <section class="section-block" id="s13-3">
+    <div class="section-heading">
+      <span class="section-num">13.3</span>
+      <h2 class="section-title">Sparta: een militaire oligarchie</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Sparta, gelegen in de zuidelijke Peloponnesos, was in bijna elk opzicht het tegendeel van Athene. Waar Athene handelde, filosofeerde en debatteerde, trainde Sparta voor de oorlog. Waar Athene steeds meer burgers bij het bestuur betrok, hield Sparta de macht in handen van een kleine elite. Sparta was geen stad van denkers — het was een stad van soldaten.</p>
+    </div>
+
+    <h3 class="sub-heading">Het Spartaanse bestuur</h3>
+
+    <div class="prose-text">
+      <p>Het bestuur van Sparta was een complexe mix van instellingen die samen een oligarchisch systeem vormden:</p>
+    </div>
+
+    <ul style="list-style: none; padding: 0; margin: 1rem 0 1.4rem;">
+      <li style="display:flex;gap:0.8rem;margin-bottom:0.9rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:3.5rem;">2 koningen:</span>
+        <span style="color:var(--text-mid);">Sparta had altijd twee koningen tegelijk, uit twee koninklijke families. Ze leidden het leger in oorlogstijd maar hadden in vrede beperkte macht. Het systeem voorkwam dat één koning te machtig werd.</span>
+      </li>
+      <li style="display:flex;gap:0.8rem;margin-bottom:0.9rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:3.5rem;">Gerousia:</span>
+        <span style="color:var(--text-mid);">Een raad van 28 ouderen (minstens 60 jaar oud) plus de twee koningen. Zij bereidden wetten voor en hadden vetorecht. De raad was een bastion van de aristocratie.</span>
+      </li>
+      <li style="display:flex;gap:0.8rem;margin-bottom:0.9rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:3.5rem;">5 ephoren:</span>
+        <span style="color:var(--text-mid);">Vijf toezichthouders die jaarlijks verkozen werden. Zij controleerden zelfs de koningen en konden hen voor de rechtbank brengen. In de praktijk waren de ephoren de machtigste bestuurders van Sparta.</span>
+      </li>
+      <li style="display:flex;gap:0.8rem;margin-bottom:0.9rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:3.5rem;">Apella:</span>
+        <span style="color:var(--text-mid);">De volksvergadering van alle mannelijke Spartaanse burgers boven de 30. Ze konden voorstellen van de gerousia goedkeuren of verwerpen, maar niet zelf amendementen indienen. Hun macht was beperkt.</span>
+      </li>
+    </ul>
+
+    <h3 class="sub-heading">De agoge: opgroeien als soldaat</h3>
+
+    <div class="prose-text">
+      <p>Het meest opmerkelijke aan Sparta was niet het bestuur, maar het opvoedingssysteem: de <strong>agoge</strong>. Wanneer een jongen zeven jaar oud was, werd hij van zijn familie weggehaald en ondergebracht in een staatsopvoedingsinstelling. Daar leefde hij in kazerneachtige omstandigheden: koud, sober, streng gedisciplineerd.</p>
+
+      <p>De agoge duurde tot zijn twintigste. De jongens leerden vechten, verduren en gehoorzamen. Ze sliepen op ruw riet dat ze zelf moesten plukken. Ze kregen weinig eten — zodat ze leerden stelen zonder betrapt te worden, een oefening in list en behendigheid. Ze werden getraind in groepsgevecht, de fameuze Spartaanse <strong>falanx</strong>: een dichte muur van schilden en speren waarbij elke man de man naast hem moest beschermen.</p>
+
+      <p>Op zijn twintigste werd de jonge Spartaan volwaardig soldaat. Op zijn dertigste mocht hij trouwen en een eigen huis hebben — maar hij at nog steeds met zijn eenheid aan de gemeenschappelijke tafel (het <em>syssition</em>). Pas op zijn zestigste trok hij zich terug uit de actieve dienst.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128218;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Heloten</span>
+        <p class="begrip-def">Heloten waren staatslaven in Sparta. Ze werden niet door individuele eigenaars bezeten maar door de Spartaanse staat. Oorspronkelijk waren het de bewoners van de veroverde regio Messenië. Ze werkten het land voor de Spartiaten. Hun aantal overtrof de vrije Spartanen ver — wat de Spartiaten constant in angst hield voor opstand. Periodiek organiseerde Sparta de <em>krypteia</em>: jonge Spartiaten moesten 's nachts heloten opsporen en doden, officieel als een militaire oefening.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Vrouwen in Sparta</h3>
+
+    <div class="prose-text">
+      <p>Op één vlak week Sparta opvallend af van de rest van Griekenland: de positie van vrouwen. Spartaanse vrouwen deden aan sport (hardlopen, worstelen, speerwerpen) en aten hetzelfde als mannen. Ze mochten eigen bezit hebben en erfden van hun ouders. Ze kregen een opleiding. De reden was niet emancipatie maar militaire logica: sterke moeders baren sterke zonen. Toch hadden Spartaanse vrouwen geen politieke rechten en bleven ze in de eerste plaats beoordeeld op hun rol als moeder van toekomstige soldaten.</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: Spartaanse agoge en falanxformatie">
+      <span class="ill-icon">&#9876;</span>
+      <p class="ill-caption">Twee afbeeldingen. Links: jonge Spartanen in de agoge — kale slaapzaal, training met speer en schild. Rechts: schematische weergave van een falanxformatie — rijen hoplietensolated met overlappende schilden en uitgestoken speren, gezien van bovenaf en van opzij.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 13.4
+  ============================================================ -->
+  <section class="section-alt" id="s13-4">
+    <div class="section-heading">
+      <span class="section-num">13.4</span>
+      <h2 class="section-title">Athene: van oligarchie naar democratie</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>De weg naar de democratie in Athene was geen rechte lijn. Ze verliep via twee eeuwen van hervormingen, conflicten en experimenten. Drie namen zijn daarin onmisbaar.</p>
+    </div>
+
+    <h3 class="sub-heading">Solon (ca. 594 v.Chr.): de eerste hervormer</h3>
+
+    <div class="prose-text">
+      <p>In de zevende en vroege zesde eeuw voor Christus was Athene een oligarchie. De macht lag bij de <em>eupatrides</em> — de "welgeboren" adel die het land bezat en de rechtbanken controleerde. Gewone boeren raakten diep in de schulden. Wie zijn schulden niet betaalde, kon zelf als slaaf verkocht worden — ook binnen Griekenland.</p>
+
+      <p>Solon, een wijs man die het vertrouwen genoot van zowel adel als volk, werd aangesteld om de crisis op te lossen. Zijn ingrepen waren revolutionair. Hij schafte de schuldenslavernij af: niemand mocht nog een Atheens burger tot slaaf maken wegens schulden. Hij bevrijdde de bestaande schuldenslaven. Hij deelde de bevolking in op basis van rijkdom in plaats van geboorte — rijkere mensen hadden meer rechten maar ook meer plichten. En hij maakte een volksvergadering (ekklesia) waaraan alle mannelijke burgers mochten deelnemen.</p>
+
+      <p>Solon loste de problemen niet volledig op. Maar hij legde de basis: de gedachte dat wetten voor iedereen gelden, ook voor de rijken.</p>
+    </div>
+
+    <h3 class="sub-heading">Kleisthenes (508 v.Chr.): de grondlegger van de democratie</h3>
+
+    <div class="prose-text">
+      <p>Na Solon volgden decennia van instabiliteit, inclusief een periode van tirannie onder Peisistratos en zijn zonen. Toen Kleisthenes de macht kreeg, voerde hij de meest ingrijpende hervorming door. Hij herverdeelde de bevolking van Athene in nieuwe <strong>phylen</strong> (stammen) die kunstmatig samengesteld waren uit mensen uit verschillende regio's. Hierdoor werden de oude adelsnetwerken en regionale loyaliteiten doorbroken: je loyaliteit gold voortaan de polis, niet je stam of streek.</p>
+
+      <p>Kleisthenes voerde ook het <strong>ostracisme</strong> in: een mechanisme om gevaarlijke politici te verbannen zonder hen te veroordelen voor een misdaad.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128218;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Ostracisme</span>
+        <p class="begrip-def">Het ostracisme was een Atheens mechanisme waarbij burgers op scherven (ostraka) de naam schreven van een politicus die zij te gevaarlijk achtten voor de democratie. Als meer dan 6.000 stemmen werden uitgebracht en één persoon de meeste stemmen kreeg, werd hij voor tien jaar verbannen — zonder verlies van bezit of burgerrechten. Na tien jaar mocht hij terugkeren.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Perikles (ca. 461–429 v.Chr.): het hoogtepunt</h3>
+
+    <div class="prose-text">
+      <p>Onder leiding van Perikles bereikte de Atheense democratie haar hoogtepunt. Hij voerde onder meer een vergoeding in voor het bijwonen van de rechtbanken en de vergadering, zodat ook arme burgers konden deelnemen zonder inkomsten te missen. Hij liet de Parthenon bouwen. En hij verwoorde de democratische idealen in zijn fameuze lijkrede voor de gesneuvelde soldaten van de Peloponnesische oorlog — een tekst die door de Griekse historicus Thucydides bewaard werd en nog altijd gelezen wordt.</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: tijdlijn Atheense democratie van Solon tot Perikles">
+      <span class="ill-icon">&#128336;</span>
+      <p class="ill-caption">Horizontale tijdlijn van 600 tot 400 v.Chr. Drie ankerpunten: Solon (ca. 594 v.Chr.) — schuldenslavernij afgeschaft, eerste ekklesia; Kleisthenes (508 v.Chr.) — nieuwe stamindeling, ostracisme; Perikles (461–429 v.Chr.) — hoogtepunt democratie, bouw Parthenon. Tussenin korte periodes van oligarchie en tirannie aangeduid.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 13.5
+  ============================================================ -->
+  <section class="section-block" id="s13-5">
+    <div class="section-heading">
+      <span class="section-num">13.5</span>
+      <h2 class="section-title">Werking en beperkingen van de Atheense democratie</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>De Atheense democratie was een <strong>directe</strong> democratie: burgers stemden zelf over wetten en besluiten, zonder vertegenwoordigers. Dat onderscheidt haar van onze moderne parlementaire democratie. Ze was ook ingebed in drie instellingen die elkaar in evenwicht hielden.</p>
+    </div>
+
+    <h3 class="sub-heading">De drie instellingen</h3>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128218;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Ekklesia</span>
+        <p class="begrip-def">De ekklesia (volksvergadering) was de hoogste macht in Athene. Alle mannelijke Atheense burgers mochten deelnemen en spreken. Ze vergaderde zo'n 40 keer per jaar op de Pnyx-heuvel. Ze besliste over oorlog en vrede, wetten, buitenlandse betrekkingen en de aanstelling van generaals. In theorie konden tot 40.000 burgers deelnemen; in de praktijk kwamen er 5.000 à 6.000.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128218;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Boule</span>
+        <p class="begrip-def">De Boule was een raad van 500 burgers, willekeurig geselecteerd (geloot) uit de tien stammen van Athene, elk jaar opnieuw samengesteld. De Boule bereidde de agenda voor van de ekklesia: zij beslisten welke onderwerpen ter stemming kwamen. Zonder vooraf goedkeuring van de Boule kon een voorstel niet bij de ekklesia worden ingediend.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128218;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Dikasterion</span>
+        <p class="begrip-def">De dikasteria waren de volksgerechtshoven van Athene. Jury's van 501 of 1001 burgers (altijd een oneven getal) berechtten zaken. De juryleden werden willekeurig geloot. Er waren geen professionele rechters — gewone burgers oordelden. Dit gold ook voor de beroemde rechtszaak van Socrates.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">De beperkingen: wie was geen burger?</h3>
+
+    <div class="prose-text">
+      <p>De Atheense democratie was revolutionair voor haar tijd. Maar wie ze meet aan hedendaagse maatstaven, stuit op fundamentele beperkingen. De democratie gold uitsluitend voor <strong>vrije mannelijke Atheense burgers</strong>. Dat sloot drie grote groepen uit:</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128218;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Metoiken</span>
+        <p class="begrip-def">Metoiken waren vrije mensen die in Athene woonden maar niet in Athene geboren waren — buitenlanders en hun nakomelingen. Ze mochten handel drijven, belasting betalen en in het leger dienen, maar hadden geen politieke rechten en mochten geen land bezitten. Athene telde naar schatting 25.000 à 30.000 metoiken.</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>Naast de metoiken waren er de vrouwen (ook vrouwen van burgers hadden geen politieke rechten en leefden in het <em>oikos</em>, het huishouden, afgesloten van het openbare leven) en de slaven (naar schatting een derde van de totale bevolking, werkzaam in huishoudens, op het land, en in de gevaarlijke zilvermijnen van Laurion). Samengeteld had ongeveer <strong>80% van de bevolking</strong> van Athene geen politieke stem.</p>
+    </div>
+
+    <div class="highlighted-para">
+      <strong>Kernvraag:</strong> Was de Atheense democratie echt democratisch? Historici zijn hierover verdeeld. Sommigen benadrukken dat ze voor haar tijd uniek was — nergens anders op de wereld konden zoveel gewone mensen meeregeren. Anderen wijzen op de structurele uitsluiting van vrouwen, slaven en buitenlanders. Beide perspectieven zijn geldig — het gaat erom welk referentiekader je gebruikt.
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Was de Atheense democratie echt democratisch? Voor wie gold ze wel en voor wie niet? Kun je aspecten van de Atheense democratie herkennen in onze moderne democratie? En wat is er fundamenteel anders?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 13.6
+  ============================================================ -->
+  <section class="section-alt" id="s13-6">
+    <div class="section-heading">
+      <span class="section-num">13.6</span>
+      <h2 class="section-title">De Perzische oorlogen (490–479 v.Chr.)</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Terwijl Athene haar democratie uitbouwde, groeide in het oosten een gevaar dat alle Griekse stadstaten bedreigde: het Perzische Rijk, het grootste en machtigste rijk dat de wereld tot dan toe had gekend. Onder Darius I en zijn zoon Xerxes strekte het zich uit van de Egeïsche kust tot aan de grenzen van India.</p>
+    </div>
+
+    <h3 class="sub-heading">Oorzaak: de Ionische opstand</h3>
+
+    <div class="prose-text">
+      <p>De directe aanleiding voor de Perzische oorlogen lag langs de westkust van Klein-Azië (het huidige Turkije), waar een reeks Griekse steden (de Ionische steden) onder Perzisch bestuur stond. In 499 v.Chr. kwamen deze steden in opstand tegen de Perzen. Athene stuurde hen schepen en soldaten. De opstand werd neergeslagen, maar Darius vergat die steun niet. Voor hem was Athene een staat die zich had ingemengd in zijn zaken — en dat moest worden bestraft.</p>
+    </div>
+
+    <h3 class="sub-heading">Marathon (490 v.Chr.)</h3>
+
+    <div class="prose-text">
+      <p>Darius' eerste aanval landde bij Marathon, een vlakte ten noorden van Athene. De Perzische vloot had tienduizenden soldaten aan land gezet. Het Atheense leger — zwaarder bewapend maar in de minderheid — koos een verrassingstactiek: een aanval in volle vaart over het open veld. De Perzen, verrast door de snelheid en discipline van de Griekse falanx, werden verslagen en vluchtten naar hun schepen.</p>
+
+      <p>De legende wil dat een soldaat genaamd Pheidippides 42 kilometer van Marathon naar Athene rende om de overwinning te melden, waarna hij stierf van uitputting. Of dit verhaal waar is, weten we niet — maar het gaf ons de moderne marathon.</p>
+    </div>
+
+    <h3 class="sub-heading">Thermopylae en Salamis (480 v.Chr.)</h3>
+
+    <div class="prose-text">
+      <p>Tien jaar later keerde het gevaar terug, dit keer massief. Xerxes leidde persoonlijk een leger van honderdduizenden soldaten (Griekse bronnen spreken van miljoenen, maar dat is overdrijving). Bij de bergpas van Thermopylae hield een kleine Griekse troepenmacht van 7.000 man, geleid door 300 Spartanen onder koning Leonidas, het leger drie dagen lang tegen. Pas toen een verrader een omtrekkende weg wees, werden de Grieken omsingeld en vernietigd. Leonidas en zijn 300 Spartanen bleven staan tot het bittere einde.</p>
+
+      <p>Tactisch was het een verlies. Maar moreel was het een overwinning: heel Griekenland wist dat vrijheid duur was maar verdedigd kon worden. Athene werd tijdelijk ontruimd en verbrand door de Perzen. Maar op zee sloeg de Atheense vloot — op initiatief van de strateeg Themistokles — de Perzische vloot in de nauwe straat van Salamis. In nauwe wateren had het wendbare Griekse schip de overhand op de logge Perzische vloot.</p>
+    </div>
+
+    <h3 class="sub-heading">Plataeae (479 v.Chr.) en de gevolgen</h3>
+
+    <div class="prose-text">
+      <p>In 479 v.Chr. versloegen de Grieken het Perzische landleger definitief bij Plataeae. De dreiging was geweken. De gevolgen voor Athene waren enorm: de stad herbouwde zich, groter en mooier dan ooit. Het zelfvertrouwen steeg. Athene richtte het <strong>Delisch-Attische zeeverbond</strong> op — een alliantie van Griekse steden die samen de zee controleerden en Perzische aanvallen afweerden. In de praktijk groeide dit uit tot een Atheens mini-imperium: de bondgenoten betaalden en Athene bepaalde.</p>
+
+      <p>Met dat geld bouwde Perikles de Akropolis van Athene om tot een religieus en cultureel pronkstuk, met als middelpunt de Parthenon — de tempel voor Athena die nog altijd op de heuvel staat.</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: kaart Perzische oorlogen met de drie slagen">
+      <span class="ill-icon">&#9876;</span>
+      <p class="ill-caption">Kaart van het oostelijke Middellandse-Zeegebied. Pijlen tonen de Perzische aanvalsroutes. Drie sterren markeren de cruciale slagen: Marathon (490 v.Chr.) ten noorden van Athene, Thermopylae (480 v.Chr.) in Centraal-Griekenland, Salamis (480 v.Chr.) voor de kust van Athene. Het Perzische Rijk in oranje, de Griekse wereld in blauw.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 13.7
+  ============================================================ -->
+  <section class="section-block" id="s13-7">
+    <div class="section-heading">
+      <span class="section-num">13.7</span>
+      <h2 class="section-title">De Peloponnesische oorlog (431–404 v.Chr.)</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Nauwelijks een generatie na de Perzische overwinning begon een nieuwe, verwoestende oorlog — maar ditmaal niet tegen een buitenlandse vijand. Het waren de Grieken zelf die elkaar de oorlog verklaarden. Aan de ene kant Athene met haar zeeverbond; aan de andere kant Sparta met zijn Peloponnesische bondgenoten. Een oorlog die 27 jaar duurde en Griekenland tot op het bot uitputte.</p>
+    </div>
+
+    <h3 class="sub-heading">Oorzaak: twee machtsblokken botsen</h3>
+
+    <div class="prose-text">
+      <p>De diepere oorzaak was machtsangst. Athene had zich na de Perzische oorlogen ontwikkeld tot een zeemacht die haar bondgenoten steeds meer als onderdanen behandelde. Het Delisch-Attische zeeverbond was in naam een alliantie, maar in werkelijkheid een Atheens imperium. De kleine steden betaalden tribuut; wie weigerde, werd bestraft. Sparta en de Peloponnesische steden zagen Athenes groeiende macht met wantrouwen. De historicus Thucydides vatte het bondig samen: "Wat de oorlog onvermijdelijk maakte, was de groei van de Atheense macht en de vrees die dit in Sparta wekte."</p>
+    </div>
+
+    <h3 class="sub-heading">Het verloop: zee tegen land</h3>
+
+    <div class="prose-text">
+      <p>De strategie van beide kanten was bepaald door hun sterkte. Athene was sterk ter zee maar zwak te land. Sparta was sterk te land maar had nauwelijks een vloot. Perikles' strategie was defensief: de Atheners zouden zich achter hun muren terugtrekken, de Spartanen het platteland laten vernielen en intussen hun zeehandel en kolonies gebruiken om de vijand uit te putten.</p>
+
+      <p>De strategie werkte aanvankelijk. Maar in 430 v.Chr. sloeg een ramp toe die niemand had voorzien: een pestuitbraak in de overbevolkte stad. De pest doodde misschien een kwart van de Atheense bevolking. Onder de slachtoffers was Perikles zelf, in 429 v.Chr.</p>
+
+      <p>Na zijn dood verloor Athene zijn koers. Avontuurlijke politici lieten het leger uitzwermen in riskante expedities, zoals de rampzalige aanval op Sicilië (415–413 v.Chr.) die duizenden Atheense soldaten het leven kostte. Sparta bouwde met Perzisch geld een vloot op. In 404 v.Chr. capituleerde Athene: de stadsmuren werden geslecht, de vloot uitgeleverd.</p>
+    </div>
+
+    <div class="prose-text">
+      <p>Sparta had gewonnen — maar de overwinning was hol. Griekenland was uitgeput. Geen enkele polis was meer sterk genoeg om de orde te bewaren. Het was een zwakte die Alexander de Grote een halve eeuw later zou uitbuiten om heel Griekenland te verenigen — niet door overtuiging, maar door verovering.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 13.8
+  ============================================================ -->
+  <section class="section-alt" id="s13-8">
+    <div class="section-heading">
+      <span class="section-num">13.8</span>
+      <h2 class="section-title">Economie in Hellas: landbouw, ambacht en handel</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>De economie van de Griekse wereld steunde op drie pijlers: landbouw, ambacht en handel. Elke polis draaide in de eerste plaats op wat het eigen grondgebied opbracht — maar de magere Griekse bodem dwong bijna iedereen ook de handelsroutes op.</p>
+    </div>
+
+    <h3 class="sub-heading">Landbouw</h3>
+
+    <div class="prose-text">
+      <p>Het droge Griekse klimaat laat weinig toe. Gerst (minder veeleisend dan tarwe) was het hoofdvoedsel. Olijfbomen geven olie die voor koken, verlichting en lichaamsverzorging diende; olijfolie was het Griekse "goud". Wijnstokken gedijden overal. Vijgen, linzen en groenten completeerden het dieet. Vlees was zeldzaam — het behoorde tot feestdagen en offerceremonies.</p>
+
+      <p>De meeste Atheense burgers waren kleine boeren die hun eigen land bewerkten op de chora. Rijkere burgers bezaten grotere domeinen, bewerkt door slaven. In Sparta deden heloten het landwerk voor de Spartiaten.</p>
+    </div>
+
+    <h3 class="sub-heading">Ambacht en zilvermijnen</h3>
+
+    <div class="prose-text">
+      <p>Athene was beroemd om haar keramiek: zwartfigurige en roodfigurige vazen die tot ver buiten Griekenland werden verkocht. Smeden maakten wapens, gereedschap en sieraden. Wevers produceerden textiel. De agora van Athene was omgeven door werkplaatsen waar ambachtslieden produceerden en verkochten.</p>
+
+      <p>Maar de diepste bron van Atheense rijkdom lagen onder de grond: de zilvermijnen van <strong>Laurion</strong>, in het zuidoosten van Attica. Duizenden slaven werkten er in erbarmelijke omstandigheden — in smalle gangen, met olielampjes, slaande hamers. Het zilver financierde de Atheense vloot die bij Salamis won, en later de bouw van de Akropolis. Het was welvaart gebouwd op mensenlevens.</p>
+    </div>
+
+    <h3 class="sub-heading">Handel</h3>
+
+    <div class="prose-text">
+      <p>Griekenland importeerde wat het zelf niet produceerde: graan uit het Zwarte Zee-gebied en uit Egypte, metalen uit Klein-Azië en het westen, hout voor scheepsbouw. Het exporteerde olijfolie, wijn, keramiek en zilver. Griekse handelaars waren overal in de Middellandse Zee aanwezig. De haven van Piraeus, verbonden met Athene door de Lange Muren, was een van de drukste handelsplaatsen van de antieke wereld.</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: Atheense roodfigurige vaas en kaart handelsroutes">
+      <span class="ill-icon">&#127994;</span>
+      <p class="ill-caption">Links: een Atheense roodfigurige vaas (ca. 480 v.Chr.) met mythologische scene — voorbeeld van het exportproduct bij uitstek. Rechts: kaart van de Middellandse Zee met handelsroutes: pijlen tonen export van olijfolie en keramiek, import van graan vanuit het Zwarte Zee-gebied.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 13.9
+  ============================================================ -->
+  <section class="section-block" id="s13-9">
+    <div class="section-heading">
+      <span class="section-num">13.9</span>
+      <h2 class="section-title">Griekse kolonisatie (ca. 750–550 v.Chr.)</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Tussen circa 750 en 550 voor Christus stuurden Griekse poleis tientallen expedities naar verre kusten om nieuwe nederzettingen te stichten. Dit proces noemen we de Griekse kolonisatie. Het was geen gecoördineerd imperialistisch project zoals de Europese kolonisatie van Amerika eeuwen later — het was eerder een reeks individuele uitstromen, elk gedreven door eigen lokale omstandigheden.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128218;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Kolonisatie</span>
+        <p class="begrip-def">Griekse kolonisatie was het stichten van nieuwe nederzettingen (apoikiai, letterlijk: "huizen ver weg") door Griekse poleis buiten het Griekse kerngebied. De nieuwe nederzetting was politiek onafhankelijk maar had culturele en religieuze banden met de moederstad. Kolonisten namen de goden, de taal en de gewoonten van hun stad mee.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Oorzaken</h3>
+
+    <div class="prose-text">
+      <p>Historici onderscheiden drie hoofdoorzaken:</p>
+      <p><strong>Overbevolking en landhonger:</strong> De Griekse bevolking groeide in de achtste eeuw snel, maar de beschikbare landbouwgrond niet. Te weinig land voor te veel monden — de oplossing was: vertrek en zoek elders grond.</p>
+      <p><strong>Politieke conflicten:</strong> Verliezers in de binnenlandse machtsstrijd (na staatscoupes of oligarchische repressie) kozen soms vrijwillig voor ballingschap en stichtten een nieuwe stad elders.</p>
+      <p><strong>Handelsmotieven:</strong> Sommige kolonies werden strategisch gesticht op handelsroutes, als tussenstops voor schepen of als toegangspoorten tot grondstoffen.</p>
+    </div>
+
+    <h3 class="sub-heading">Gevolgen en kolonies</h3>
+
+    <div class="prose-text">
+      <p>De Grieken koloniseerden een enorm gebied. In het westen: de kusten van Sicilië en Zuid-Italië (zo dicht bezaaid met Griekse steden dat de Romeinen het later <em>Magna Graecia</em>, "Groot-Griekenland", noemden), de kust van Zuid-Frankrijk (Marseille heette oorspronkelijk Massalia), Spanje, Noord-Afrika. In het oosten: de kusten van het Zwarte Zee-gebied. Napels heette Neapolis, Byzantium werd gesticht als havenstad.</p>
+
+      <p>De gevolgen waren enorm. Griekse taal, godsdienst, architectuur en bestuurssystemen verspreidden zich over heel het Middellandse-Zeegebied — een proces dat historici <strong>hellenisering</strong> noemen. Nieuwe handelsnetwerken verbonden de Griekse wereld. En de kolonies stuurden op hun beurt grondstoffen en ideeën terug naar het moederland.</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: kaart Griekse kolonisatie Middellandse Zee">
+      <span class="ill-icon">&#128506;</span>
+      <p class="ill-caption">Kaart van de Middellandse Zee en het Zwarte Zee-gebied. Het Griekse kerngebied in donkerblauw. Kolonies als stippen, met namen: Massalia (Marseille), Neapolis (Napels), Syrakouse (Sicilië), Byzantium (Istanbul). Pijlen tonen de migratierichtingen vanuit de moedersteden.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 13.10
+  ============================================================ -->
+  <section class="section-alt" id="s13-10">
+    <div class="section-heading">
+      <span class="section-num">13.10</span>
+      <h2 class="section-title">Standenmaatschappij in Sparta en Athene</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Zowel Sparta als Athene waren diep gelaagde samenlevingen. Vrijheid en rechten hingen af van je geboorte, je afkomst en je geslacht. Hieronder zie je de sociale hiërarchie van beide steden naast elkaar.</p>
+    </div>
+
+    <table class="compare-table" aria-label="Vergelijking sociale standen Sparta en Athene">
+      <thead>
+        <tr>
+          <th>Stand</th>
+          <th>Sparta</th>
+          <th>Athene</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Hoogste klasse</td>
+          <td><strong>Spartiaten</strong> — volledige burgers, leven voor het leger, bezaten land bewerkt door heloten</td>
+          <td><strong>Burgers</strong> — vrije mannelijke Atheners, stemrecht, militaire plicht</td>
+        </tr>
+        <tr>
+          <td>Middenklasse</td>
+          <td><strong>Perioiken</strong> — vrije bewoners van omliggende dorpen, dreven handel en ambacht, maar hadden geen politieke rechten in Sparta</td>
+          <td><strong>Metoiken</strong> — vrije buitenlanders, betaalden belasting, dienden in het leger, hadden geen politieke rechten en mochten geen land bezitten</td>
+        </tr>
+        <tr>
+          <td>Laagste klasse</td>
+          <td><strong>Heloten</strong> — staatslaven, werkten het land, regelmatig geterroriseerd via de krypteia</td>
+          <td><strong>Slaven</strong> — privé-eigendom, werkzaam in huishoudens, op het land en in de mijnen; ca. een derde van de bevolking</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub-heading">De rol van vrouwen in Athene</h3>
+
+    <div class="prose-text">
+      <p>De positie van vrouwen in Athene was bijzonder beperkt. Een vrouw van de burgerklasse leefde in het <strong>oikos</strong> — het huishouden. Ze verliet het huis zelden en nooit alleen. Ze beheerde het huishouden (koken, weven, het toezicht houden op slaven), maar had geen politieke rechten, geen recht op onderwijs, geen zelfstandige rechtspositie. Ze handelde juridisch via haar mannelijke voogd (vader, echtgenoot of broer).</p>
+
+      <p>Meisjes uit de hogere klassen leerden lezen en schrijven thuis, maar gingen niet naar school. Vrouwen uit de lagere klassen en slavinnen hadden meer vrijheid van beweging — ze moesten werken op de agora of in andermans huishouden — maar nog minder rechten. Alleen bij religieuze ceremonies, zoals de Thesmophoria (een feest voor Demeter), mochten vrouwen een centrale publieke rol spelen.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Vergelijk de positie van vrouwen in Sparta en in Athene. In welke stad hadden vrouwen meer vrijheid? Was die vrijheid in Sparta een teken van gelijkheid, of had het een andere reden? Wat zegt dit over de relatie tussen maatschappelijk systeem en de positie van vrouwen?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 13.11
+  ============================================================ -->
+  <section class="section-block" id="s13-11">
+    <div class="section-heading">
+      <span class="section-num">13.11</span>
+      <h2 class="section-title">Religie: goden, orakels en de Olympische Spelen</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>De Griekse religie was <strong>polytheïstisch</strong>: de Grieken vereerden vele goden. Die goden waren menselijk van karakter — ze hadden passies, jaloezie, liefdesaffaires en ruzies — maar bovenmenselijk van macht. Ze leefden op de berg Olympos en bemoeiden zich actief met de menselijke wereld.</p>
+    </div>
+
+    <h3 class="sub-heading">De twaalf Olympische goden</h3>
+
+    <div class="prose-text">
+      <p>De voornaamste goden vormden samen de groep van de twaalf Olympiërs. Elk had een eigen domein en eigen symbolen:</p>
+    </div>
+
+    <ul style="list-style: none; padding: 0; margin: 1rem 0 1.4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1.5rem;">
+      <li style="display:flex;gap:0.5rem;align-items:baseline;"><span style="color:var(--terracotta);font-weight:700;min-width:5rem;">Zeus</span><span style="color:var(--text-mid);font-size:0.95rem;">koning der goden, bliksem, hemel</span></li>
+      <li style="display:flex;gap:0.5rem;align-items:baseline;"><span style="color:var(--terracotta);font-weight:700;min-width:5rem;">Hera</span><span style="color:var(--text-mid);font-size:0.95rem;">godin van het huwelijk, vrouw van Zeus</span></li>
+      <li style="display:flex;gap:0.5rem;align-items:baseline;"><span style="color:var(--terracotta);font-weight:700;min-width:5rem;">Poseidon</span><span style="color:var(--text-mid);font-size:0.95rem;">god van de zee en aardbevingen</span></li>
+      <li style="display:flex;gap:0.5rem;align-items:baseline;"><span style="color:var(--terracotta);font-weight:700;min-width:5rem;">Demeter</span><span style="color:var(--text-mid);font-size:0.95rem;">godin van de landbouw en vruchtbaarheid</span></li>
+      <li style="display:flex;gap:0.5rem;align-items:baseline;"><span style="color:var(--terracotta);font-weight:700;min-width:5rem;">Athena</span><span style="color:var(--text-mid);font-size:0.95rem;">godin van wijsheid en oorlogsstrategie</span></li>
+      <li style="display:flex;gap:0.5rem;align-items:baseline;"><span style="color:var(--terracotta);font-weight:700;min-width:5rem;">Apollo</span><span style="color:var(--text-mid);font-size:0.95rem;">god van de zon, muziek, profetie</span></li>
+      <li style="display:flex;gap:0.5rem;align-items:baseline;"><span style="color:var(--terracotta);font-weight:700;min-width:5rem;">Artemis</span><span style="color:var(--text-mid);font-size:0.95rem;">godin van de jacht en de maan</span></li>
+      <li style="display:flex;gap:0.5rem;align-items:baseline;"><span style="color:var(--terracotta);font-weight:700;min-width:5rem;">Ares</span><span style="color:var(--text-mid);font-size:0.95rem;">god van de oorlog</span></li>
+      <li style="display:flex;gap:0.5rem;align-items:baseline;"><span style="color:var(--terracotta);font-weight:700;min-width:5rem;">Hermes</span><span style="color:var(--text-mid);font-size:0.95rem;">boodschapper der goden, handel en reizigers</span></li>
+      <li style="display:flex;gap:0.5rem;align-items:baseline;"><span style="color:var(--terracotta);font-weight:700;min-width:5rem;">Hephaestus</span><span style="color:var(--text-mid);font-size:0.95rem;">god van het vuur en de smeedkunst</span></li>
+      <li style="display:flex;gap:0.5rem;align-items:baseline;"><span style="color:var(--terracotta);font-weight:700;min-width:5rem;">Aphrodite</span><span style="color:var(--text-mid);font-size:0.95rem;">godin van de liefde en schoonheid</span></li>
+      <li style="display:flex;gap:0.5rem;align-items:baseline;"><span style="color:var(--terracotta);font-weight:700;min-width:5rem;">Dionysus</span><span style="color:var(--text-mid);font-size:0.95rem;">god van de wijn, roes en theater</span></li>
+    </ul>
+
+    <h3 class="sub-heading">Het orakel van Delphi</h3>
+
+    <div class="prose-text">
+      <p>Vóór een belangrijke beslissing — oorlog voeren, een kolonie stichten, een wet invoeren — raadpleegden Griekse leiders het orakel van Delphi. In de tempel van Apollo op de hellingen van de Parnassos zat de <strong>Pythia</strong>, een priesteres die in trance raadselachtige uitspraken deed. Priesters vertaalden haar woorden in verzen. Die verzen waren altijd dubbelzinnig — zo kon het orakel nooit ongelijk krijgen.</p>
+
+      <p>Het bekendste voorbeeld: de Lydische koning Croesus vroeg het orakel of hij Perzië moest aanvallen. Het antwoord: "Als u de Halys oversteekt, zult u een groot rijk vernietigen." Croesus viel aan — en vernietigde zijn eigen rijk. Het orakel had gelijk — maar dan anders dan verwacht.</p>
+    </div>
+
+    <h3 class="sub-heading">De Olympische Spelen</h3>
+
+    <div class="prose-text">
+      <p>Elke vier jaar, ter ere van Zeus, vonden in Olympia de Olympische Spelen plaats. Ze begonnen waarschijnlijk in 776 v.Chr. — het oudste dateerbare evenement in de Griekse geschiedenis. Gedurende de Spelen gold de <strong>ekecheiria</strong>: een heilige wapenstilstand. Alle Griekse staten staakten de strijd. Atleten van alle poleis mochten deelnemen.</p>
+
+      <p>De disciplines omvatten hardlopen (de sprint en de langere afstanden), worstelen, boksen, discuswerpen, speerwerpen, springen en de wagenrennen. De winnaar ontving een olijfkrans — de eer was zijn eigenlijke prijs. Maar in zijn thuisstad wachtten hem beelden, gedichten en levenslange voorrechten.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Zijn de Olympische Spelen vandaag nog hetzelfde als in de oudheid? Wat is er hetzelfde gebleven en wat is er fundamenteel veranderd? Denk aan wie mag deelnemen, welke waarden centraal staan en welke rol politiek speelt.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 13.12
+  ============================================================ -->
+  <section class="section-alt" id="s13-12">
+    <div class="section-heading">
+      <span class="section-num">13.12</span>
+      <h2 class="section-title">Filosofie en wetenschap: Socrates, Plato en Aristoteles</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Het woord filosofie is Grieks: <em>philos</em> (vriend, liefhebber) + <em>sophia</em> (wijsheid) = "liefde voor de wijsheid". De Griekse filosofen waren de eersten die systematisch probeerden de wereld te begrijpen door redenering in plaats van door mythologie. Drie namen domineren de klassieke filosofie: Socrates, zijn leerling Plato, en Platos leerling Aristoteles.</p>
+    </div>
+
+    <h3 class="sub-heading">Socrates (ca. 470–399 v.Chr.)</h3>
+
+    <div class="prose-text">
+      <p>Socrates schreef niets zelf. We kennen hem uitsluitend via de teksten van zijn leerlingen, vooral Plato. Hij wandelde door de agora van Athene en stelde iedereen vragen. Zijn methode was de <strong>dialectische methode</strong> (of "Socratische ironie"): hij deed alsof hij niets wist, stelde schijnbaar eenvoudige vragen, en bracht zijn gesprekspartner dan geleidelijk tot de conclusie dat diens eigen overtuigingen tegenstrijdig waren. Zijn beroemde uitspraak: <em>"Ken uzelf"</em> (gnothi seauton).</p>
+
+      <p>Zijn centrale vraag was de ethische: hoe moet een mens leven? Wat is deugd? Wat is rechtvaardigheid? Deze vragen stonden hem duurder dan zijn leven: in 399 v.Chr. werd hij voor de rechtbank gebracht, beschuldigd van het "corrumperen van de jeugd" en het niet erkennen van de staatsgoden. Een jury van 501 burgers veroordeelde hem ter dood. Hij weigerde te vluchten en dronk de gifbeker leeg — eerder de wet gehoorzamen dan zijn principes verraden.</p>
+    </div>
+
+    <h3 class="sub-heading">Plato (ca. 428–348 v.Chr.)</h3>
+
+    <div class="prose-text">
+      <p>Plato was een aristocratische leerling van Socrates die na diens dood de filosofie systematiseerde. Zijn beroemdste idee is de <strong>ideeënleer</strong>: de wereld die wij met onze zintuigen waarnemen, is slechts een onvolmaakte kopie van een perfecte, eeuwige wereld van "Ideeën". Een stoel die je ziet, is een onvolmaakte afspiegeling van het Idee van de Stoel — de perfecte, onveranderlijke essentie van wat een stoel is. De werkelijkheid die we zien, is als schaduwen op de muur van een grot (het beroemde <em>grot-allegorie</em>).</p>
+
+      <p>In zijn werk <em>De Republiek</em> beschreef hij de ideale staat: bestuurd door filosoof-koningen (mensen die de Ideeën kennen en dus weten wat goed is), met een strenge sociale hiërarchie. Paradoxaal genoeg was Platos ideale staat allesbehalve democratisch — de man die de leerling was van de ter dood veroordeelde Socrates, wantrouwde de democratie diepgaand.</p>
+    </div>
+
+    <h3 class="sub-heading">Aristoteles (384–322 v.Chr.)</h3>
+
+    <div class="prose-text">
+      <p>Aristoteles studeerde twintig jaar bij Plato maar brak met diens idealisme. Waar Plato de abstracte Ideeën als de echte werkelijkheid zag, geloofde Aristoteles in het <strong>empirisme</strong>: kennis komt voort uit observatie van de werkelijkheid. Kijk, meet, beschrijf — dan begrijp je. Hij classificeerde dieren, planten, staatssystemen, retorica, poëzie en ethica. Zijn werk was zo omvattend dat middeleeuwse geleerden hem simpelweg "de Filosoof" noemden.</p>
+
+      <p>Aristoteles werd aangesteld als privéleraar van de jonge Alexander — die later Alexander de Grote zou worden. Of die les iets heeft uitgehaald bij de veroveraar van de wereld is een open vraag.</p>
+    </div>
+
+    <h3 class="sub-heading">Wetenschap: Hippocrates en Pythagoras</h3>
+
+    <div class="prose-text">
+      <p><strong>Hippocrates van Kos</strong> (ca. 460–370 v.Chr.) legde de basis van de wetenschappelijke geneeskunde. Hij beargumenteerde dat ziekten niet door goden werden gestuurd maar door natuurlijke oorzaken hadden. Artsen moesten observeren, diagnosticeren en behandelen op basis van kennis. De eed van Hippocrates — de gelofte van artsen om geen schade te berokkenen — draagt nog altijd zijn naam.</p>
+
+      <p><strong>Pythagoras</strong> (ca. 570–495 v.Chr.) was wiskundige en filosoof. Zijn beroemde stelling (<em>a² + b² = c²</em> voor rechthoekige driehoeken) is nog altijd verplichte leerstof in het secundair onderwijs. Hij zag in getallen de sleutel tot het begrip van de kosmos.</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: Rafaels Atheense school met Plato en Aristoteles centraal">
+      <span class="ill-icon">&#127912;</span>
+      <p class="ill-caption">Detail uit Rafaels "Atheense school" (1509–1511, Vaticaan): Plato (links, wijzend naar boven — naar de wereld van de Ideeën) en Aristoteles (rechts, hand naar voren — naar de observeerbare wereld) lopen naast elkaar. Rondom hen andere grote Griekse denkers. Dit Renaissance-schilderij vat het contrast tussen beide filosofen visueel samen.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 13.13
+  ============================================================ -->
+  <section class="section-block" id="s13-13">
+    <div class="section-heading">
+      <span class="section-num">13.13</span>
+      <h2 class="section-title">Bouwkunst, beeldhouwkunst, literatuur en theater</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>De Griekse cultuur heeft het Westen zo diepgaand gevormd dat het moeilijk is te overschatten. Onze architectuur, onze theatertradities, onze literaire vormen, onze esthetische idealen van schoonheid en proportie — ze hebben allemaal Griekse wortels.</p>
+    </div>
+
+    <h3 class="sub-heading">De drie bouwstijlen</h3>
+
+    <div class="prose-text">
+      <p>Griekse tempelbouwkunst kent drie stijlorden, te herkennen aan de zuilen en hun bekroning (het kapiteel):</p>
+    </div>
+
+    <table class="compare-table" aria-label="De drie Griekse bouwstijlen">
+      <thead>
+        <tr>
+          <th>Orde</th>
+          <th>Kapiteel</th>
+          <th>Karakter</th>
+          <th>Voorbeeld</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Dorisch</td>
+          <td>Eenvoudig, zonder versiering — een platte schijf (abacus) op een rond kussen (echinus)</td>
+          <td>Zwaar, stoer, mannelijk — de oudste en eenvoudigste orde</td>
+          <td>Parthenon (Athene), tempel van Hera (Olympia)</td>
+        </tr>
+        <tr>
+          <td>Ionisch</td>
+          <td>Sierlijke spiraalvormige krullen (voluten) aan de zijkanten</td>
+          <td>Slanker en eleganter dan Dorisch — ontstaan in Ionië (westkust Klein-Azië)</td>
+          <td>Erechteion (Athene), tempel van Artemis (Efese)</td>
+        </tr>
+        <tr>
+          <td>Korinthisch</td>
+          <td>Rijk versierd met acanthusbladeren — weelderig en decoratief</td>
+          <td>De rijkste en meest decoratieve orde — populair bij de Romeinen</td>
+          <td>Tempel van Zeus Olympios (Athene)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128218;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Dorisch / Ionisch / Korinthisch</span>
+        <p class="begrip-def">De drie bouworden van de Griekse architectuur, te herkennen aan het kapiteel (de bekroning van de zuil). Dorisch: zwaar, eenvoudig. Ionisch: slanker, met voluten (spiralen). Korinthisch: weelderig, met acanthusbladeren. Ze worden ook vandaag nog gebruikt in neoklassieke gebouwen.</p>
+      </div>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: de drie Griekse bouworden naast elkaar">
+      <span class="ill-icon">&#127963;</span>
+      <p class="ill-caption">Drie zuilen naast elkaar, elk gelabeld. Links: Dorische zuil — kort, zwaar, eenvoudig kapiteel zonder basis. Midden: Ionische zuil — slanker, sierlijk kapiteel met voluten (spiralen), kleine basis. Rechts: Korinthische zuil — de slankste, kapiteel weelderig versierd met acanthusbladeren. Boven elke zuil de naam en een foto-reference van een bestaand monument.</p>
+    </div>
+
+    <h3 class="sub-heading">Beeldhouwkunst: van stijf naar levend</h3>
+
+    <div class="prose-text">
+      <p>De Griekse beeldhouwkunst evolueerde van een stijve, frontale stijl naar een steeds naturalistischer weergave van het menselijk lichaam. Historici onderscheiden twee periodes:</p>
+
+      <p>De <strong>archaïsche stijl</strong> (ca. 700–480 v.Chr.) toont menselijke figuren recht vooruitkijkend, stijf rechtopstaand, met een vaste glimlach (het zogenaamde "archaïsche glimlachje"). Mannelijke figuren noemt men <em>kouros</em> (meervoud: kouroi), vrouwelijke <em>kore</em> (meervoud: korai). Ze zijn duidelijk geïnspireerd op Egyptische beelden.</p>
+
+      <p>De <strong>klassieke stijl</strong> (ca. 480–323 v.Chr.) breekt met die starheid. Beelden tonen beweging, spanning in de spieren, een draaiing van het lichaam (de <em>contrapposto</em>-houding). Het ideale menselijk lichaam — gespierd, proportioneel, schoon — wordt in steen en brons vastgelegd. De beroemde Discobolos (discuswerper) van Myron toont een moment van maximale spanning, bevroren in marmer. Het was geen portret van een individu — het was de representatie van het ideale mens-zijn.</p>
+    </div>
+
+    <h3 class="sub-heading">Literatuur: Homeros en de epische traditie</h3>
+
+    <div class="prose-text">
+      <p><strong>Homeros</strong> is de naam die de Grieken gaven aan de dichter(s) die de twee grote epossen componeerden die de basis vormden van de Griekse beschaving: de <em>Ilias</em> (over de Trojaanse Oorlog, de woede van Achilles, de val van Troje) en de <em>Odyssee</em> (over de tienjarige thuisreis van Odysseus na de oorlog). Of er werkelijk één Homeros heeft bestaan is onzeker — de gedichten werden lang mondeling overgeleverd voor ze werden opgeschreven. Maar hun invloed is nauwelijks te overschatten: elke Griek kende deze verhalen van buiten, en ze dienden als morele en culturele referentie voor heel de Griekse wereld.</p>
+    </div>
+
+    <h3 class="sub-heading">Theater: tragedie, komedie en het theatron</h3>
+
+    <div class="prose-text">
+      <p>Het Griekse theater ontstond uit de religieuze feesten ter ere van Dionysus, de god van de wijn en de roes. Bij die feesten werden gezangen gezongen en dansen uitgevoerd door een koor. Geleidelijk voegden auteurs individuele acteurs toe die dialogen speelden — en zo ontstond het toneelstuk.</p>
+
+      <p>Twee grote genres domineerden:</p>
+
+      <p><strong>Tragedieschrijvers</strong> zoals Sophokles (<em>Oedipus Rex</em>, <em>Antigone</em>) en Euripides (<em>Medea</em>) schreven stukken over helden die ten val kwamen door hun eigen fouten of door het noodlot. De tragedie confronteerde het publiek met diepe vragen over schuld, lot, rechtvaardigheid en de grilligheid van de goden.</p>
+
+      <p><strong>Komedies</strong> van Aristophanes (<em>De Vogels</em>, <em>Lysistrata</em>) waren satirisch en politiek: hij bespotte politici, filosofen en de oorlog met ongegeneerde humor.</p>
+
+      <p>Het Griekse theater had een vaste architectuur:</p>
+    </div>
+
+    <ul style="list-style: none; padding: 0; margin: 0.8rem 0 1.4rem;">
+      <li style="display:flex;gap:0.8rem;margin-bottom:0.6rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;min-width:5.5rem;">Theatron:</span>
+        <span style="color:var(--text-mid);">De halfronde tribune in een heuvelflank, waar het publiek zat. Griekse theaters konden duizenden toeschouwers herbergen met perfecte akoestiek.</span>
+      </li>
+      <li style="display:flex;gap:0.8rem;margin-bottom:0.6rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;min-width:5.5rem;">Orchestra:</span>
+        <span style="color:var(--text-mid);">De ronde dansvloer voor het koor, tussen de tribune en het toneel.</span>
+      </li>
+      <li style="display:flex;gap:0.8rem;margin-bottom:0.6rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;min-width:5.5rem;">Skene:</span>
+        <span style="color:var(--text-mid);">Het "decor" achter het speelvlak — aanvankelijk een tent of houten constructie, later een stenen gebouw. Het woord <em>skene</em> is de oorsprong van ons woord "scene".</span>
+      </li>
+    </ul>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: Grieks theater met theatron, orchestra en skene">
+      <span class="ill-icon">&#127917;</span>
+      <p class="ill-caption">Bovenaanzicht van een Grieks theater (gebaseerd op Epidauros). De halfronde tribune (theatron) in lichtbruin. De ronde orchestra in het midden. De skene als rechthoekig gebouw achteraan. Pijlen en labels wijzen de drie onderdelen aan. Op de achtergrond de berglandschap waartegen het theater gebouwd is.</p>
+    </div>
+  </section>
+
+</div><!-- end page-wrapper -->
+
+<!-- ============================================================
+     EXERCISES
+============================================================ -->
+<div class="exercises-section" id="oefeningen">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <div class="exercise-card">
+      <div class="ex-title">Oefening 1</div>
+      <div class="ex-name">Sparta versus Athene: een vergelijkingstabel</div>
+      <p style="font-size:0.97rem;color:var(--text-mid);margin-bottom:0.7rem;">Maak een tabel waarin je het bestuur van Sparta en het bestuur van Athene op de volgende punten vergelijkt. Formuleer ook voor elk systeem één voordeel en één nadeel.</p>
+      <ol>
+        <li>Wie had politieke rechten?</li>
+        <li>Hoe werden bestuurders aangeduid (verkiezing, loting, erfelijkheid)?</li>
+        <li>Wat was de rol van de volksvergadering?</li>
+        <li>Hoe werden de grondwerkers behandeld (heloten / slaven)?</li>
+        <li>Welke waarden stonden centraal in de opvoeding?</li>
+      </ol>
+      <p class="ex-tip">Tip: gebruik de tekst van paragrafen 13.3, 13.4 en 13.5. Voor het voordeel/nadeel: denk vanuit het perspectief van een burger, maar ook vanuit het perspectief van een heloot of slaaf.</p>
+    </div>
+
+    <div class="exercise-card">
+      <div class="ex-title">Oefening 2</div>
+      <div class="ex-name">De Perzische oorlogen: oorzaken en gevolgen</div>
+      <p style="font-size:0.97rem;color:var(--text-mid);margin-bottom:0.7rem;">Leg de Perzische oorlogen uit aan de hand van de historische redeneerwijzen.</p>
+      <ol>
+        <li><strong>Situeer</strong> de Perzische oorlogen in tijd (wanneer?) en ruimte (waar?). Gebruik een tijdlijn en een kaart.</li>
+        <li><strong>Oorzaak en gevolg:</strong> Beschrijf één directe oorzaak en één diepere oorzaak van de Perzische oorlogen. Beschrijf daarna twee gevolgen voor Athene.</li>
+        <li><strong>Perspectief:</strong> Hoe keken de Grieken naar de Perzische oorlogen? Hoe keken de Perzen er vermoedelijk naar? Wie schrijft de geschiedenis?</li>
+        <li><strong>Continuïteit en verandering:</strong> Wat veranderde er in Griekenland door de Perzische oorlogen? Wat bleef hetzelfde?</li>
+      </ol>
+      <p class="ex-tip">Tip: de redeneerwijzen leerde je in hoofdstuk 6. Herstel die kennis voor je aan deze oefening begint.</p>
+    </div>
+
+    <div class="exercise-card">
+      <div class="ex-title">Oefening 3</div>
+      <div class="ex-name">De drie Griekse bouwstijlen herkennen</div>
+      <p style="font-size:0.97rem;color:var(--text-mid);margin-bottom:0.7rem;">Beschrijf voor elk van de drie Griekse bouworden (Dorisch, Ionisch, Korinthisch) de volgende kenmerken. Vul de tabel in uit het hoofd, controleer daarna met de tekst.</p>
+      <ol>
+        <li>Hoe ziet het kapiteel (de bovenkant van de zuil) eruit?</li>
+        <li>Wat is het karakter of de sfeer van de orde (zwaar, licht, sierlijk, weelderig …)?</li>
+        <li>Noem één bekend gebouw of monument in deze orde.</li>
+        <li>In welke moderne gebouwen herken jij deze stijlen? Zoek een voorbeeld in België.</li>
+      </ol>
+      <p class="ex-tip">Tip: kijk naar het Justitiepaleis in Brussel, de kolonnade van het Brusselse Centraal Station of de gevel van de Nationale Bank. Welke orde herken je?</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     SUMMARY
+============================================================ -->
+<div class="summary-section" id="samenvatting">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li>De <strong>geografie</strong> van Griekenland — bergen, eilanden, arme grond — verklaart waarom geen groot centraal rijk groeide, maar honderden onafhankelijke <strong>poleis</strong> (stadstaten).</li>
+      <li>Elke polis bestond uit een stad (asty) met een <strong>agora</strong> (marktplein) en een <strong>akropolis</strong> (versterkte heuvel), omgeven door platteland (chora). Bestuurssystemen liepen uiteen van monarchie over oligarchie en tirannie tot democratie.</li>
+      <li><strong>Sparta</strong> was een militaire oligarchie: twee koningen, een raad van ouderen (gerousia), vijf ephoren en een volksvergadering (apella). De <strong>agoge</strong> haalde jongens van zeven jaar weg van huis voor militaire opvoeding. <strong>Heloten</strong> waren staatslaven die het land bewerkten.</li>
+      <li><strong>Athene</strong> evolueerde via hervormingen van Solon (594 v.Chr.) en Kleisthenes (508 v.Chr.) naar de hoogtijdagen van Perikles. De democratie rustte op drie instellingen: de <strong>ekklesia</strong> (volksvergadering), de <strong>boule</strong> (raad van 500) en de <strong>dikasteria</strong> (volksgerechtshoven). Maar ca. 80% van de bevolking — vrouwen, slaven en <strong>metoiken</strong> — was uitgesloten.</li>
+      <li>De <strong>Perzische oorlogen</strong> (490–479 v.Chr.) begonnen met Atheense steun aan de Ionische opstand. Sleutelslagen: Marathon (490), Thermopylae en Salamis (480), Plataeae (479). Gevolg: Atheens zelfvertrouwen, het Delisch-Attisch zeeverbond en de bouw van de Parthenon.</li>
+      <li>De <strong>Peloponnesische oorlog</strong> (431–404 v.Chr.) was een uitputtingsstrijd tussen Athene (zeehegemonie) en Sparta (landmacht). De pest van 430 v.Chr. doodde Perikles. Sparta won in 404 v.Chr., maar Griekenland was verzwakt.</li>
+      <li>Griekse <strong>kolonisatie</strong> (ca. 750–550 v.Chr.) verspreidde Griekse cultuur over de hele Middellandse Zee — van Marseille tot de Zwarte Zee. Oorzaken: overbevolking, landhonger, politieke conflicten.</li>
+      <li>De sociale hiërarchie verschilde in Sparta (Spartiaten / perioiken / heloten) en Athene (burgers / metoiken / slaven). In beide steden hadden vrouwen geen politieke rechten; Spartaanse vrouwen genoten wel meer persoonlijke vrijheid dan Atheense.</li>
+      <li>De Grieken vereerden twaalf <strong>Olympische goden</strong>. Het orakel van <strong>Delphi</strong> (de Pythia) gaf raadselachtige voorspellingen. De <strong>Olympische Spelen</strong> begonnen in 776 v.Chr., ter ere van Zeus, met een heilige wapenstilstand (ekecheiria).</li>
+      <li><strong>Socrates</strong> stelde ethische vragen via de dialectische methode en werd ter dood veroordeeld. <strong>Plato</strong> ontwikkelde de ideeënleer en beschreef de ideale staat. <strong>Aristoteles</strong> koos voor empirisme en observatie — hij was leermeester van Alexander de Grote.</li>
+      <li>Griekse architectuur kent drie orden: <strong>Dorisch</strong> (eenvoudig, zwaar), <strong>Ionisch</strong> (slanker, voluten), <strong>Korinthisch</strong> (rijkst, acanthusbladeren). Beeldhouwkunst evolueerde van de stijve archaïsche stijl (kouros/kore) naar de dynamische klassieke stijl. Theater — tragedie (Sophokles, Euripides) en komedie (Aristophanes) — ontstond uit Dionysusfeesten.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) {
+        btn.classList.add('visible');
+      } else {
+        btn.classList.remove('visible');
+      }
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

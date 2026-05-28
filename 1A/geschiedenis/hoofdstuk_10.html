@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoofdstuk 10 — Mesopotamië: tussen de twee rivieren | Geschiedenis 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE / OPENING STORY
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament {
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--gold);
+    opacity: 0.7;
+    margin: 1.5rem 0;
+    letter-spacing: 0.4em;
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-dialogue {
+    font-style: italic;
+    color: #FFFDF8;
+    padding-left: 1.4rem;
+    border-left: 3px solid rgba(212,160,23,0.4);
+    margin: 1rem 0;
+  }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+    filter: sepia(0.3);
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     ILLUSTRATIE PLACEHOLDERS
+  ============================================================ */
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+    cursor: default;
+    transition: background var(--transition);
+  }
+
+  .illustratie:hover { background: #EDE7D8; }
+
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     INTERACTIVE TIMELINE — 7 PERIODS
+  ============================================================ */
+  .timeline-7 {
+    margin: 2rem 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .timeline-7-inner {
+    display: flex;
+    min-width: 680px;
+    height: 110px;
+    border-radius: var(--border-radius);
+    overflow: visible;
+    position: relative;
+  }
+
+  .tl-period {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 0 0.5rem;
+    cursor: pointer;
+    transition: filter var(--transition), transform var(--transition);
+    min-width: 0;
+  }
+
+  .tl-period:hover { filter: brightness(1.08); transform: translateY(-3px); z-index: 2; }
+
+  .tl-period .tl-bar {
+    position: absolute;
+    bottom: 0;
+    left: 1px;
+    right: 1px;
+    border-radius: 4px 4px 0 0;
+    transition: height var(--transition);
+  }
+
+  /* Featured periods (1–3) are taller */
+  .tl-period.featured .tl-bar { box-shadow: 0 0 0 2px rgba(255,255,255,0.6), 0 4px 14px rgba(0,0,0,0.25); }
+
+  .tl-period .tl-label {
+    position: absolute;
+    top: -2.4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 0.7rem;
+    font-weight: 700;
+    font-family: 'Source Sans 3', sans-serif;
+    text-align: center;
+    color: var(--darkblue);
+    pointer-events: none;
+  }
+
+  .tl-period.featured .tl-label { color: var(--terracotta); font-size: 0.75rem; }
+
+  .tl-period .tl-span {
+    position: absolute;
+    bottom: -1.7rem;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 0.63rem;
+    color: var(--text-light);
+    font-family: 'Source Sans 3', sans-serif;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  /* Tooltip */
+  .tl-period .tl-tooltip {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 2.8rem);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--darkblue);
+    color: var(--creme);
+    font-size: 0.8rem;
+    font-family: 'Source Sans 3', sans-serif;
+    padding: 0.55rem 0.85rem;
+    border-radius: 5px;
+    white-space: nowrap;
+    z-index: 20;
+    pointer-events: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+
+  .tl-period .tl-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: var(--darkblue);
+  }
+
+  .tl-period:hover .tl-tooltip { display: block; }
+
+  .timeline-7-labels {
+    margin-top: 2.4rem;
+    font-size: 0.78rem;
+    color: var(--text-light);
+    text-align: center;
+    font-style: italic;
+  }
+
+  /* Period colors */
+  .tl-p1 { background: #5B3D2E; }
+  .tl-p2 { background: #8B5A2B; }
+  .tl-p3 { background: var(--terracotta); }
+  .tl-p4 { background: #6B7F5E; }
+  .tl-p5 { background: #4A7A8A; }
+  .tl-p6 { background: #2A5C7A; }
+  .tl-p7 { background: var(--darkblue); }
+
+  /* Responsive timeline */
+  @media (max-width: 680px) {
+    .timeline-7-inner {
+      flex-direction: column;
+      height: auto;
+      min-width: 0;
+    }
+    .tl-period {
+      height: 52px;
+      flex-direction: row;
+      align-items: center;
+      padding: 0 1rem;
+      margin-bottom: 4px;
+      border-radius: 4px;
+    }
+    .tl-period .tl-bar {
+      position: absolute;
+      top: 0; bottom: 0; left: 0; right: 0;
+      border-radius: 4px;
+    }
+    .tl-period .tl-label {
+      position: relative;
+      top: auto; left: auto; transform: none;
+      z-index: 1;
+      color: #fff;
+      font-size: 0.82rem;
+      margin-right: auto;
+    }
+    .tl-period .tl-span {
+      position: relative;
+      bottom: auto; left: auto; transform: none;
+      z-index: 1;
+      color: rgba(255,255,255,0.75);
+      font-size: 0.7rem;
+    }
+    .tl-period .tl-tooltip { display: none !important; }
+    .tl-period.featured .tl-label { font-size: 0.85rem; }
+  }
+
+  /* ============================================================
+     v.Chr. / n.Chr. TIMELINE
+  ============================================================ */
+  .vchr-timeline {
+    margin: 2rem 0 3rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .vchr-inner {
+    min-width: 580px;
+    padding: 2.5rem 1rem 2rem;
+    position: relative;
+  }
+
+  /* The horizontal bar */
+  .vchr-bar {
+    position: relative;
+    height: 6px;
+    background: linear-gradient(90deg, #3A1A0A, var(--terracotta), #FAF6EF, var(--darkblue), #091529);
+    border-radius: 3px;
+    margin: 0 20px;
+  }
+
+  /* Zero point */
+  .vchr-zero {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 16px;
+    height: 16px;
+    background: var(--gold);
+    border: 3px solid var(--creme);
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px var(--gold), 0 0 10px rgba(212,160,23,0.6);
+    z-index: 2;
+  }
+
+  .vchr-zero-label {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -1.5rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--gold);
+    font-family: 'Source Sans 3', sans-serif;
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  /* Section labels */
+  .vchr-section-label {
+    position: absolute;
+    top: -2rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-family: 'Source Sans 3', sans-serif;
+  }
+
+  .vchr-section-label.left {
+    left: 0;
+    color: var(--terracotta);
+  }
+
+  .vchr-section-label.right {
+    right: 0;
+    color: var(--darkblue);
+  }
+
+  /* Tick marks */
+  .vchr-tick {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+  }
+
+  .vchr-tick .tick-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    border: 2px solid;
+    background: var(--creme);
+    margin-top: -1px;
+  }
+
+  .vchr-tick.vchr-left .tick-dot { border-color: var(--terracotta); }
+  .vchr-tick.vchr-right .tick-dot { border-color: var(--darkblue); }
+
+  .vchr-tick .tick-label {
+    position: absolute;
+    bottom: 1.1rem;
+    white-space: nowrap;
+    font-size: 0.68rem;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    text-align: center;
+    transform: translateX(-50%);
+    left: 50%;
+  }
+
+  .vchr-tick.vchr-left .tick-label { color: var(--terracotta); }
+  .vchr-tick.vchr-right .tick-label { color: var(--darkblue); }
+
+  .vchr-tick .tick-sublabel {
+    position: absolute;
+    top: 1.3rem;
+    white-space: nowrap;
+    font-size: 0.6rem;
+    font-family: 'Source Sans 3', sans-serif;
+    color: var(--text-light);
+    font-style: italic;
+    transform: translateX(-50%);
+    left: 50%;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong {
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition), opacity var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover {
+    background: var(--darkblue-light);
+    transform: translateY(-3px);
+  }
+
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     UTILITY / MISC
+  ============================================================ */
+  .prose-text { max-width: 100%; }
+
+  .highlighted-para {
+    background: rgba(212,160,23,0.08);
+    border-left: 3px solid var(--gold);
+    padding: 0.8rem 1.1rem;
+    border-radius: 0 4px 4px 0;
+    margin: 1.2rem 0;
+    font-size: 0.97rem;
+    color: var(--text-mid);
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <a class="label" href="index.html">Geschiedenis 1A</a>
+  <span class="label label-right">Hoofdstuk 10</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Geschiedenis &nbsp;·&nbsp; 1A &nbsp;·&nbsp; Eerste graad</div>
+  <h1>Hoofdstuk 10<br>Mesopotamië: tussen de twee rivieren</h1>
+  <p class="subtitle">Hoe twee rivieren de wieg werden van steden, schrift, wetten en wetenschap</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- PROLOGUE -->
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Stel je voor &hellip;</span>
+
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+
+    <p>Het is het jaar 2800 voor Christus. In de stad Uruk, aan de oevers van de Eufraat, is het vroeg in de ochtend. De lucht boven de rivier is nog koel, maar de zon hangt al scherp boven de vlakte. Op de kade staat een koopman. Hij heet Arad-Nanna. Hij controleert voor de zoveelste keer de lading op zijn platte boot: manden vol gerst, zorgvuldig gestapeld en bedekt met rieten matten.</p>
+
+    <p>Maar iets in zijn hand is minstens even kostbaar als de lading zelf. Het is een kleitablet, niet groter dan zijn handpalm, met kleine wigvormige inkervingen die hij die ochtend nog zelf heeft laten maken door een schrijver in de tempel. Op dat tablet staat zijn contract: zoveel manden gerst, te leveren aan de stadsmagazijnen van een naburige stad, in ruil voor een vaste hoeveelheid wol.</p>
+
+    <p class="prologue-dialogue">"Wat heb je daar?" vraagt een jonge havenarbeider, wijzend op het tablet.</p>
+
+    <p class="prologue-dialogue">"Mijn bewijs," zegt Arad-Nanna. "Als ik aankom zonder dit, heeft niemand mijn levering ooit gezien. Met dit tablet is de deal echt. De schrijver heeft het ingekrast, de tempel heeft er haar zegel op gedrukt. Dit is meer waard dan de gerst zelf."</p>
+
+    <p>De arbeider kijkt hem ongelovig aan. Maar Arad-Nanna heeft al lang begrepen hoe de wereld werkt. In Uruk kon je niet meer leven zonder kleitabletten. Ze lagen overal: in de tempels, in de opslagplaatsen, in de winkels van kooplieden. Ze registreerden belastingen, opbrengsten, schulden, wetten. De stad had meer dan tienduizend mensen. Zonder schrift zou ze in chaos verzinken.</p>
+
+    <p>Arad-Nanna laadt zijn boot. De Eufraat stroomt kalm. Ergens verderop, aan de horizon, liggen akkers die alleen bestaan dankzij de kanalen die de Sumeriërs al generaties lang graven en onderhouden. Zonder die kanalen: woestijn. Zonder die kanalen: geen stad, geen handel, geen tablet, geen contract.</p>
+
+    <p><strong style="color: var(--gold);">Alles begint bij het water.</strong></p>
+
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 10.1
+  ============================================================ -->
+  <section class="section-block" id="s10-1">
+    <div class="section-heading">
+      <span class="section-num">10.1</span>
+      <h2 class="section-title">Situering in tijd en ruimte</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>De naam <strong>Mesopotamië</strong> klinkt ver weg, maar de betekenis ervan is verrassend eenvoudig. Het woord is Grieks: <em>mesos</em> betekent "midden" en <em>potamos</em> betekent "rivier". Mesopotamië is dus letterlijk het "land tussen de rivieren". Die twee rivieren zijn de <strong>Tigris</strong> en de <strong>Eufraat</strong>. Vandaag ligt dit gebied grotendeels in <strong>Irak</strong>, met stukken in het oosten van <strong>Syrië</strong> en het zuiden van <strong>Turkije</strong>.</p>
+
+      <p>Het klimaat in deze regio is droog en heet. Wie er nu doorheen rijdt, ziet grote stukken woestijn en steppe. Maar de Tigris en de Eufraat stromen al duizenden jaren door dit landschap en brengen bij elke overstroming vruchtbaar slib mee vanuit de bergen. Op de plekken waar dat slib neerslaat, is de grond uitzonderlijk vruchtbaar. Dat is de paradox van Mesopotamië: een droog land met een uitzonderlijk rijke bodem, maar alleen als je het water op de juiste manier kunt beheersen.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Mesopotamië</span>
+        <p class="begrip-def">Grieks voor "land tussen de rivieren". Het gebied tussen de Tigris en de Eufraat, in het huidige Irak en aangrenzende delen van Syrië en Turkije. Het is een van de vroegste centra van menselijke beschaving.</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>Het is in dit gebied dat een van de oudste en meest invloedrijke beschavingen ter wereld ontstond: de <strong>Sumerische beschaving</strong>, die bloeide van ongeveer 3500 tot 2000 voor Christus. De Sumeriërs bouwden de eerste steden, ontwikkelden het schrift en legden de basis voor bestuur, recht en wetenschap. Na hen volgden andere rijken die de erfenis van de Sumeriërs overnamen en uitbouwden: de <strong>Akkadiërs</strong> (ca. 2350–2150 v.Chr.), de <strong>Babyloniërs</strong> (ca. 2000–600 v.Chr.) en de <strong>Assyriërs</strong> (ca. 900–612 v.Chr.). Samen bestrijken zij meer dan tweeduizend jaar geschiedenis in hetzelfde gebied.</p>
+
+      <p>Om je te oriënteren: Mesopotamië maakt deel uit van de historische periode die we het <strong>Oude Nabije Oosten</strong> noemen, grofweg van 3200 tot 500 voor Christus. Je hebt dit kader al leren kennen in Hoofdstuk 1.</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: kaart van Mesopotamië">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Kaart van het Midden-Oosten met aanduiding van de Tigris en de Eufraat. De rivieren stromen vanuit de bergen van Turkije naar de Perzische Golf. Belangrijke Sumerische steden (Ur, Uruk, Lagash, Nippur) zijn aangegeven met stippen. De hedendaagse landsgrenzen van Irak, Syrië en Turkije zijn als referentie weergegeven.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Kijk op een hedendaagse kaart naar het huidige Irak. Welke landen grenzen er aan? Is het gebied vandaag nog altijd vruchtbaar, of is er veel veranderd? Waarom zou dat wel of niet veranderd zijn?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 10.2
+  ============================================================ -->
+  <section class="section-alt" id="s10-2">
+    <div class="section-heading">
+      <span class="section-num">10.2</span>
+      <h2 class="section-title">Irrigatielandbouw: water als motor van de economie</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>De Mesopotamische beschaving begon met een probleem en een oplossing. Het probleem: de Tigris en de Eufraat overstroomden elk voorjaar wanneer de sneeuw in de bergen smolt. Dat was goed nieuws voor de bodemvruchtbaarheid, maar slecht nieuws voor de boer. Het voorjaar is precies de tijd dat je akkers wil inzaaien, en een overstroming op het verkeerde moment vernielde alles. Bovendien: in de zomer, wanneer het gewas water nodig had om te rijpen, was de rivier laag. Het water was er wanneer je het niet nodig had, en weg wanneer je het wel nodig had.</p>
+
+      <p>De oplossing die de Sumeriërs bedachten, was even ingenieus als arbeidsintensief: <strong>irrigatiekanalen</strong>. Ze groeven een uitgebreid netwerk van kanalen die het overstromingswater opvingen en opslaan, en het daarna geleidelijk over de akkers verspreidden wanneer de gewassen het nodig hadden. Zo konden ze het water letterlijk sturen naar de plekken en momenten waar het nuttig was.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Irrigatie</span>
+        <p class="begrip-def">Het kunstmatig bewateren van akkers via kanalen, dijken of andere constructies. Irrigatie maakt landbouw mogelijk in droge gebieden of op momenten dat er van nature te weinig of te veel water is. In Mesopotamië was irrigatie de basis van de economie.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Van kanalen naar samenwerking</h3>
+
+    <div class="prose-text">
+      <p>Irrigatie klinkt eenvoudig, maar het aanleggen en onderhouden van een heel kanaalnetwerk was een enorme onderneming. Een individuele boer kon dat onmogelijk alleen. Je had tientallen, misschien honderden mensen nodig om de kanalen te graven, de dijken te bouwen, de sluizen te bedienen en het netwerk in goede staat te houden. Dat betekende dat boeren moesten samenwerken, en dat er iemand moest zijn die die samenwerking organiseerde.</p>
+
+      <p>Hier ligt de kern van een belangrijk verband: <strong>irrigatie vereiste organisatie, en organisatie vereiste gezag</strong>. Er moest iemand beslissen welk kanaal wanneer open mocht, wie welk stuk van het netwerk onderhield, en wat er gebeurde als iemand zijn deel niet deed. Dat centrale gezag groeide in de loop van de tijd uit tot de eerste stadsbesturen, de eerste tempels en uiteindelijk de eerste koninkrijken. Water was de motor achter de eerste politieke structuren ter wereld.</p>
+    </div>
+
+    <h3 class="sub-heading">Surplus en economische groei</h3>
+
+    <div class="prose-text">
+      <p>De irrigatielandbouw had nog een ander gevolg. Door het water efficiënt te verdelen, konden Mesopotamische boeren meer produceren dan ze zelf nodig hadden. Dat overschot — het <em>surplus</em> — kon worden opgeslagen, verhandeld of herverdeeld. Niet iedereen hoefde meer op het veld te werken. Er was nu ruimte voor andere beroepen: <strong>pottenbakkers</strong> die aardewerk maakten voor opslag en transport, <strong>wevers</strong> die textiel produceerden, <strong>metaalbewerkers</strong> die gereedschap en wapens smeedden, <strong>bouwers</strong> die tempels en huizen optrokken.</p>
+
+      <p>Dit is het mechanisme achter de opkomst van de eerste steden: surplus uit de landbouw maakt specialisatie mogelijk, en specialisatie maakt handel mogelijk. En handel trekt mensen samen op een vaste plek. Zo groeiden de eerste stadsnederzettingen in Mesopotamië.</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: irrigatiekanalen en akkers in Mesopotamië">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Schema van een Mesopotamisch irrigatiesysteem: de rivier aan de linkerkant, een hoofdkanaal dat water afleidt, kleinere aftakkingen naar individuele akkers, en een sluissysteem om het waterpeil te regelen. Naast de akkers zijn opslagplaatsen en een vroege nederzetting zichtbaar.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Waarom leidde irrigatie tot meer samenwerking en centraal gezag? Kun je dat vergelijken met iets in onze samenleving? Denk aan voorbeelden waarbij een groot, gemeenschappelijk probleem organisatie en regels vereist.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 10.3
+  ============================================================ -->
+  <section class="section-block" id="s10-3">
+    <div class="section-heading">
+      <span class="section-num">10.3</span>
+      <h2 class="section-title">De eerste stadstaten: bestuur en organisatie</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Rond 3500 voor Christus groeiden de nederzettingen langs de Eufraat en de Tigris uit tot echte steden. Dit waren geen kleine dorpjes: de stad Uruk telde op haar hoogtepunt mogelijk meer dan vijftigduizend inwoners, en was daarmee waarschijnlijk de grootste stad ter wereld op dat moment. Andere belangrijke steden waren <strong>Ur</strong>, <strong>Lagash</strong> en <strong>Nippur</strong>. Elke stad was een wereld op zichzelf, met eigen bestuurders, eigen goden, eigen wetten en een eigen grondgebied van akkers, kanalen en dorpen rondom.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Stadstaat</span>
+        <p class="begrip-def">Een stadstaat is een onafhankelijke stad die tegelijk ook een staat is: ze bestuurt zichzelf en het omliggende gebied. De stadstaten van Mesopotamië hadden elk hun eigen bestuur, wetten en goden, en stonden regelmatig in conflict met elkaar.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">De priester-koning: tempel en staat in één</h3>
+
+    <div class="prose-text">
+      <p>Wie bestuurde een Mesopotamische stadstaat? Aan het hoofd stond een figuur die wij de <strong>lugal</strong> noemen — een Sumerisch woord dat letterlijk "grote man" of "heer" betekent, maar in de praktijk "koning" of "priester-koning" was. De lugal combineerde twee soorten gezag: religieus en politiek. Hij was tegelijk de hoofdpriester die de goden vertegenwoordigde en de bestuurder die wetten uitvaardigde en oorlogen leidde.</p>
+
+      <p>De tempel stond letterlijk en figuurlijk in het centrum van de stadstaat. Ze was niet alleen een gebedshuis, maar ook het economische hart van de stad: voedsel uit de omliggende akkers werd er opgeslagen, ambachtslieden werkten in haar werkplaatsen, en schrijvers hielden er de administratie bij van belastingen, oogsten en handelstransacties. De tempel was de bank, het stadhuis en de kerk tegelijk.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Lugal (priester-koning)</span>
+        <p class="begrip-def">De heerser van een Mesopotamische stadstaat, die zowel religieus als politiek gezag uitoefende. De lugal was de vertegenwoordiger van de goden op aarde en regelde het dagelijkse bestuur, de verdeling van voedsel en de organisatie van de irrigatie.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">De Codex Hammurabi: de eerste geschreven wetten</h3>
+
+    <div class="prose-text">
+      <p>Een samenleving met tienduizenden mensen en complexe economische transacties heeft regels nodig. En regels werken alleen als ze worden opgeschreven — anders herinnert iedereen ze anders. Rond 1754 voor Christus liet de Babylonische koning <strong>Hammurabi</strong> een stelsel van wetten optekenen op een grote zuil van zwart basalt. Die verzameling staat bekend als de <strong>Codex Hammurabi</strong>.</p>
+
+      <p>De wetten behandelden een breed scala aan situaties: eigendomsrecht, erfrecht, huwelijk, handel, slavernij en misdaad. Het principe "oog om oog, tand om tand" — de idee dat de straf evenredig moet zijn aan het vergrijp — is de bekendste uitdrukking van deze wet, al was de toepassing ervan afhankelijk van de sociale klasse van dader en slachtoffer. Een vrije burger die een slaaf verwondde, betaalde een geldboete; een slaaf die een vrije burger aanviel, verloor zijn oor.</p>
+    </div>
+
+    <div class="highlighted-para">
+      <strong>Historisch belang:</strong> De Codex Hammurabi is niet de alleroudste verzameling wetten — er zijn oudere Sumerische wetboeken — maar het is de meest complete en best bewaarde collectie. Ze laat zien hoe een vroege beschaving rechtvaardigheid probeerde te organiseren en te verantwoorden.
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: de basaltzuil van Hammurabi">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Afbeelding van de basaltzuil waarop de Codex Hammurabi is gegraveerd (ca. 1754 v.Chr., nu in het Louvre, Parijs). Bovenaan de zuil staat een reliëf van Hammurabi die de wetten ontvangt van de zonnegod Shamash. Eronder de spijkerschrifttekst van de 282 wetten.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 10.4
+  ============================================================ -->
+  <section class="section-alt" id="s10-4">
+    <div class="section-heading">
+      <span class="section-num">10.4</span>
+      <h2 class="section-title">Het eerste schrift: van beeldteken tot spijkerschrift</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Je hebt in Hoofdstuk 1 al kennisgemaakt met het ontstaan van het schrift als een van de grote scharnierpunten in de menselijke geschiedenis. Nu gaan we dieper in op hoe dat schrift er concreet uitzag, waarom het werd uitgevonden en wat de gevolgen ervan waren — in de stad waar het allemaal begon: <strong>Uruk</strong>.</p>
+    </div>
+
+    <h3 class="sub-heading">Van pictogram tot abstract teken</h3>
+
+    <div class="prose-text">
+      <p>Rond <strong>3200 voor Christus</strong> verschenen in Uruk de eerste schrifttekens. Ze waren aanvankelijk <em>pictogrammen</em>: kleine beeldjes van dingen die ze vertegenwoordigden. Een gestileerde kop van een rund betekende "rund". Een aar van gerst betekende "gerst". Een voet betekende "gaan" of "staan". Op zachte kleitabletten werden deze beelden ingedrukt met een stijltje van riet.</p>
+
+      <p>Al snel stuitten de schrijvers op een probleem: hoe schrijf je abstracte begrippen? Een "schuld" heeft geen uiterlijk. Een "belofte" kun je niet tekenen. En als je klanken wil weergeven, heb je iets anders nodig dan beelden. De oplossing was abstractie: de pictogrammen werden steeds gestileerder, totdat ze niet meer op het oorspronkelijke ding leken. Tegelijk leerden schrijvers tekens combineren en voor klanken gebruiken. Na eeuwen van evolutie ontstond zo het <strong>spijkerschrift</strong> — een systeem van wigvormige indrukjes (<em>cuneus</em> is Latijn voor "wig", vandaar de vakterm <em>cuneiform</em>).</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Spijkerschrift</span>
+        <p class="begrip-def">Het vroegste schrijfsysteem ter wereld, ontwikkeld in Mesopotamië rond 3200 v.Chr. Het bestond uit wigvormige tekens die in zachte klei werden gedrukt. Eerst pictografisch (beeldtekens), later steeds abstracter en in staat om klanken weer te geven. Het werd ruim drieduizend jaar lang gebruikt in het Midden-Oosten.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Wat schreven ze op?</h3>
+
+    <div class="prose-text">
+      <p>De vroegste kleitabletten bevatten bijna uitsluitend administratieve teksten: lijsten van goederen, namen van personen, oogstregisters, belastingbetalingen. Het schrift was in de eerste plaats een economisch gereedschap. Maar naarmate het systeem volgroeide, werd het ook gebruikt voor andere doeleinden. Wetten werden opgeschreven — denk aan de Codex Hammurabi. Brieven werden verstuurd. Contracten werden opgesteld. En uiteindelijk: literatuur.</p>
+
+      <p>Het meest indrukwekkende voorbeeld is het <strong>Gilgamesj-epos</strong>. Dit verhaal, opgeschreven rond 2100 v.Chr. maar gebaseerd op oudere mondelinge tradities, geldt als het <strong>oudste literaire werk ter wereld</strong>. Het vertelt over Gilgamesj, een machtige koning van Uruk die zijn beste vriend Enkidu verliest aan de dood. Geschokt door het verdriet gaat hij op zoek naar onsterfelijkheid. Uiteindelijk ontdekt hij dat het eeuwige leven voor mensen niet is weggelegd — maar dat de verhalen over hun daden voortleven.</p>
+    </div>
+
+    <div class="highlighted-para">
+      <strong>Bijna vijfduizend jaar later</strong> vonden archeologen de kleitabletten van het Gilgamesj-epos terug in de bibliotheek van de Assyrische koning Assurbanipal in Nineveh. Ze konden ze lezen. Het verhaal — over verlies, vriendschap en de zoektocht naar de zin van het leven — raakte moderne lezers net zo sterk als het mensen in de oudheid moet hebben geraakt.
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Het Gilgamesj-epos gaat over een held die onsterfelijkheid zoekt na het verlies van zijn beste vriend. Waarom zou dit een van de eerste verhalen zijn die mensen wilden opschrijven? Wat zegt dit over de vragen die mensen altijd hebben gesteld, ook al zijn ze duizenden jaren geleden geboren?</p>
+    </div>
+
+    <h3 class="sub-heading">De macht van schrijvers</h3>
+
+    <div class="prose-text">
+      <p>In een samenleving waar de meeste mensen niet konden lezen of schrijven, hadden de <strong>schrijvers</strong> — in het Sumerisch <em>dubsar</em> — een uitzonderlijke machtspositie. Alleen zij konden de kleitabletten lezen waarop belastingen, wetten en contracten stonden. Alleen zij konden brieven opstellen voor bestuurders en kooplieden. Een schrijver werkte meestal in de dienst van de tempel of de paleisstaf, en genoot daarmee een hoge sociale status en economische zekerheid. Schrijven was ook een vak dat werd aangeleerd in echte "scholen" — de <em>edubba</em>, letterlijk "tablethuis" — waar leerlingen jarenlang geoefend teksten kopieerden op klei.</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: evolutie van pictogram naar spijkerschrift">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Tabel die de evolutie van het schrift toont: vier stappen van links naar rechts. (1) Pictogram van een rund, ca. 3200 v.Chr. (2) Gestileerd teken, ca. 2900 v.Chr. (3) Geroteerd en abstracter teken, ca. 2400 v.Chr. (4) Volledig spijkerschrift-teken, ca. 700 v.Chr. Dezelfde evolutie voor de tekens "gerst" en "water".</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 10.5
+  ============================================================ -->
+  <section class="section-block" id="s10-5">
+    <div class="section-heading">
+      <span class="section-num">10.5</span>
+      <h2 class="section-title">De standenmaatschappij in Mesopotamië</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Het surplus dat de irrigatielandbouw opleverde, maakte het mogelijk dat niet iedereen in de landbouw moest werken. Maar het surplus werd niet gelijk verdeeld. In Mesopotamië groeide een duidelijke sociale gelaagdheid: een <strong>standenmaatschappij</strong> waarin je geboorte of beroep bepaalde welke rechten je had, hoeveel je bezat en hoe je werd behandeld voor de wet.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Standenmaatschappij</span>
+        <p class="begrip-def">Een samenleving die is opgedeeld in duidelijk onderscheiden sociale lagen (standen), waarbij elke stand andere rechten, plichten en mogelijkheden heeft. De positie van een individu wordt grotendeels bepaald door de stand waarin hij of zij geboren is.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">De sociale piramide</h3>
+
+    <div class="prose-text">
+      <p>Aan de <strong>top van de samenleving</strong> stonden de <strong>priesters en bestuurders</strong>: de lugal met zijn hofhouding, de hogepriester en zijn staf, en de hogere schrijvers. Zij controleerden de tempels, de opslagplaatsen en de administratie. Ze bezaten het meeste land en hadden de meeste politieke macht.</p>
+
+      <p>Onder hen kwamen de <strong>vrije burgers</strong>: een gevarieerde groep van ambachtslieden, kooplieden, kleine boeren en schrijvers in lagere functies. Ze hadden juridische rechten — ze konden land bezitten, contracten sluiten en hun zaak bepleiten voor een rechtbank — maar hun vrijheid was beperkt door schulden, belastingen en de verplichtingen tegenover de tempel.</p>
+
+      <p>Onderaan stonden de <strong>onvrijen</strong>: mensen zonder juridische vrijheid. Een groot deel waren <em>schuldenslaven</em>: vrije mensen die hun schulden niet konden terugbetalen en daardoor tijdelijk of permanent in slavernij terechtkwamen. Andere slaven waren <em>oorlogsgevangenen</em> die in de strijd waren veroverd. Slaven werkten in de huishoudens van de rijken, op de velden, in de mijnen en in de bouw. Ze hadden in principe geen bezit en geen juridische stem, al erkende de Codex Hammurabi wel een beperkt aantal rechten voor slaven.</p>
+    </div>
+
+    <h3 class="sub-heading">De positie van vrouwen</h3>
+
+    <div class="prose-text">
+      <p>De positie van vrouwen in Mesopotamië was sterk afhankelijk van haar sociale klasse. Vrouwen uit de hogere klassen konden priesteres worden in dienst van een godin — een functie met aanzienlijk prestige en zelfstandigheid. Sommige vrouwen uit de koopmansfamilie runnen actief handel en tekenden contracten. De bekende vrouwelijke priester-schrijver <strong>Enheduanna</strong>, dochter van de Akkadische koning Sargon (ca. 2300 v.Chr.), wordt zelfs beschouwd als de eerste auteur in de wereldgeschiedenis wiens naam we kennen.</p>
+
+      <p>Maar voor de meeste vrouwen gold een ander verhaal. Vrouwen in eenvoudige boerenhuishoudens hadden weinig zelfstandigheid. Na het huwelijk stonden ze juridisch onder de bevoegdheid van hun man. Ze konden erven, maar hadden beperkte rechten om land te verkopen. De Codex Hammurabi regelde ook echtscheiding — maar een man kon gemakkelijker scheiden dan een vrouw.</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: sociale piramide van Mesopotamië">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Piramide met drie lagen. Bovenste laag (klein): priesters en bestuurders (lugal, hogepriester, tempelpersoneel). Middelste laag: vrije burgers (ambachtslieden, kooplieden, boeren, schrijvers). Onderste laag (groot): onvrijen (schuldenslaven, oorlogsgevangenen). Naast de piramide korte tekst die de rechten en plichten van elke laag samenvat.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Vergelijk de sociale lagen van Mesopotamië met de samenleving vandaag. Welke gelijkenissen zie je? Welke grote verschillen? Is een standenmaatschappij helemaal verdwenen in onze tijd, of bestaan er nog vormen van sociale ongelijkheid die eraan doen denken?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 10.6
+  ============================================================ -->
+  <section class="section-alt" id="s10-6">
+    <div class="section-heading">
+      <span class="section-num">10.6</span>
+      <h2 class="section-title">Religie en wetenschap: ziggurats, het wiel en de sterren</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>De Mesopotamiërs waren diep religieus — maar hun godsdienst was ook nauw verweven met wetenschap, bestuur en dagelijks leven. Hun goden bestuurden de wereld, en mensen moesten hen gunstig stemmen om een goede oogst, gezondheid en overwinning in oorlog te verzekeren. Tegelijk dreven diezelfde religieuze instellingen de Mesopotamiërs aan tot opmerkelijke wetenschappelijke ontdekkingen.</p>
+    </div>
+
+    <h3 class="sub-heading">Polytheïsme en de grote goden</h3>
+
+    <div class="prose-text">
+      <p>De Mesopotamische religie was <strong>polytheïstisch</strong>: men geloofde in vele goden, elk met een eigen domein, persoonlijkheid en kapriolen. De goden waren machtig maar ook grillig — ze konden de mensen helpen of straffen op een manier die mensen niet altijd konden begrijpen. Dat maakte het ritueel en het gebed zo belangrijk: je moest de goden voortdurend gunstig stemmen.</p>
+
+      <p>Enkele van de belangrijkste goden: <strong>Enlil</strong>, de god van de wind en de lucht, gold als de machtigste god van het pantheon en heer van de aarde. <strong>Enki</strong> was de god van het zoete water en de wijsheid — logisch in een beschaving die haar bestaan dankte aan water. <strong>Inanna</strong> (of in het later Akkadisch: Ishtar) was de godin van de liefde, de seksuele aantrekkingskracht en de oorlog — een combinatie die verrassend consistent is doorheen de Mesopotamische cultuur. <strong>Anu</strong> was de hemelgod en vader van de goden.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Polytheïsme</span>
+        <p class="begrip-def">Het geloof in meerdere goden, elk met een eigen domein en persoonlijkheid. Het tegenoverstelde is monotheïsme (geloof in één god). De meeste vroege beschavingen, waaronder de Mesopotamiërs, waren polytheïstisch.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">De ziggurat: tempel tussen hemel en aarde</h3>
+
+    <div class="prose-text">
+      <p>Het meest opvallende architecturale symbool van de Mesopotamische religie was de <strong>ziggurat</strong>: een massieve, trapsgewijze toren die omhoog reikte naar de hemel. Ziggurats waren geen tempels in de gebruikelijke zin — mensen kwamen er niet samen voor erediensten. Ze waren eerder een verbindingspunt tussen de aarde en de goden. Bovenaan de trap bevond zich een klein heiligdom waar de priester de god kon ontmoeten. De ziggurat van Ur, een van de best bewaarde, had drie verdiepingen en was bijna dertig meter hoog.</p>
+
+      <p>De bijbelse toren van Babel — het verhaal van een toren die tot de hemel reikt — is waarschijnlijk geïnspireerd op de indrukwekkende ziggurats die Joodse ballingen zagen toen ze in de 6de eeuw voor Christus werden weggevoerd naar Babylonië.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Ziggurat</span>
+        <p class="begrip-def">Een trapsgewijze tempel-toren in Mesopotamië, opgebouwd uit terrasachtige verdiepingen die smaller worden naar boven. De ziggurat gold als de verbinding tussen de aarde en de goden. Elke grote Mesopotamische stad had haar eigen ziggurat, gewijd aan de beschermgod van de stad.</p>
+      </div>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: reconstructie van de ziggurat van Ur">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Reconstructietekening van de ziggurat van Ur (ca. 2100 v.Chr., in het huidige Irak). Drie terrassen boven elkaar, bekleed met gebakken baksteen. Een brede centrale trap leidt omhoog naar het heiligdom bovenaan. Rondom de basis zijn opslagplaatsen en tempelhoven zichtbaar. Op de voorgrond kleine mensenfiguren die de schaal aangeven.</p>
+    </div>
+
+    <h3 class="sub-heading">Het wiel: van pottenbakkerij tot transport</h3>
+
+    <div class="prose-text">
+      <p>Rond <strong>3500 voor Christus</strong> — ruwweg tegelijk met de opkomst van de eerste steden — vonden de Mesopotamiërs het <strong>wiel</strong> uit. Of beter gezegd: ze waren de eersten waarvan we archeologisch bewijs hebben dat ze het wiel gebruikten. Het eerste gebruik was waarschijnlijk niet voor transport, maar voor het <strong>pottenbakkerswiel</strong>: een draaiende schijf waarop de pottenbakker zijn klei kon vormen, veel sneller en gelijkmatiger dan met de hand.</p>
+
+      <p>Pas later — en dat is een grote stap — brachten mensen het wiel over op assen voor karren en wagens. Dat revolutioneerde het transport: waar een mens te voet hooguit een paar tientallen kilo kon dragen, kon een ossenkar honderden kilo's graan of materialen over lange afstanden vervoeren. Handel over langere afstanden werd daardoor economisch interessant. Het leger kon zware uitrusting meenemen. Bouwmaterialen konden worden aangevoerd van ver.</p>
+    </div>
+
+    <h3 class="sub-heading">Astronomie, kalender en het zestigtallig stelsel</h3>
+
+    <div class="prose-text">
+      <p>De Mesopotamische priesters hadden een praktisch probleem: om de juiste tijdstippen voor religieuze feesten en voor het begin van het landbouwseizoen te kennen, moesten ze de loop van de zon, de maan en de sterren begrijpen. Dit dreef hen tot nauwkeurige <strong>astronomische observaties</strong>. Ze registreerden de bewegingen van planeten over honderden jaren, berekenden de lengte van het jaar en stelden kalenders op.</p>
+
+      <p>Een van hun meest opmerkelijke erfenissen is het <strong>zestigtallig stelsel</strong>: een rekenstelsel gebaseerd op het getal zestig in plaats van op tien (zoals ons decimaal stelsel). De Sumeriërs konden 60 door veel meer getallen delen dan 10 (namelijk door 1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30 en 60), wat het systeem erg handig maakte voor berekeningen met breuken. Ze verdeelden het uur in 60 minuten en de minuut in 60 seconden. Ze verdeelden de cirkel in 360 graden (6 × 60).</p>
+    </div>
+
+    <div class="highlighted-para">
+      <strong>Een erfenis die we nog altijd gebruiken:</strong> Elke keer dat je op je telefoon kijkt en de minuten en seconden ziet, gebruik je het Sumerische zestigtallig stelsel. Elke keer dat je een hoek van 90 graden meet, doe je hetzelfde. Meer dan vijfduizend jaar later is dit systeem zo ingeburgerd dat we het nooit hebben vervangen — want waarom zou je iets veranderen dat zo goed werkt?
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Het zestigtallig stelsel van de Sumeriërs gebruiken we nog altijd voor tijd (minuten, seconden) en hoeken (graden). Waarom denk je dat we dit systeem nooit hebben veranderd, terwijl we voor andere dingen wel zijn overgestapt op het decimale stelsel? Wat maakt het moeilijk om zo'n systeem te veranderen?</p>
+    </div>
+  </section>
+
+</div><!-- end page-wrapper -->
+
+<!-- ============================================================
+     EXERCISES
+============================================================ -->
+<div class="exercises-section" id="oefeningen">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <div class="exercise-card">
+      <div class="ex-title">Oefening 1</div>
+      <div class="ex-name">Het schrift en zijn gevolgen</div>
+      <p style="font-size:0.97rem;color:var(--text-mid);margin-bottom:0.7rem;">De uitvinding van het spijkerschrift in Mesopotamië had gevolgen in alle vier de maatschappelijke domeinen. Leg voor elk domein uit wat er veranderde door de uitvinding van het schrift.</p>
+      <ol>
+        <li><strong>Politiek:</strong> Hoe veranderde het schrift de manier waarop een stad werd bestuurd?</li>
+        <li><strong>Economisch:</strong> Welke nieuwe mogelijkheden bood het schrift aan kooplieden, belastinginners en opslaghouders?</li>
+        <li><strong>Sociaal:</strong> Welke nieuwe sociale groep ontstond door het schrift? Welke machtspositie nam die groep in?</li>
+        <li><strong>Cultureel:</strong> Welk effect had het schrift op de overdracht van kennis, verhalen en tradities van generatie op generatie?</li>
+      </ol>
+      <p class="ex-tip">Tip: gebruik voorbeelden uit de tekst, zoals de dubsar (schrijvers), de kleitabletten met belastingregisters, en het Gilgamesj-epos.</p>
+    </div>
+
+    <div class="exercise-card">
+      <div class="ex-title">Oefening 2</div>
+      <div class="ex-name">Standenmaatschappij: toen en nu</div>
+      <p style="font-size:0.97rem;color:var(--text-mid);margin-bottom:0.7rem;">Vergelijk de sociale lagen van de Mesopotamische standenmaatschappij met de samenleving in België vandaag.</p>
+      <ol>
+        <li>Beschrijf de drie lagen van de Mesopotamische standenmaatschappij in je eigen woorden (namen, positie, rechten).</li>
+        <li>Denk aan de Belgische samenleving. Zijn er vandaag ook sociale lagen? Welke? Hoe worden die bepaald (geboorte, opleiding, vermogen, beroep)?</li>
+        <li>Noem twee grote gelijkenissen en twee grote verschillen tussen de Mesopotamische en de hedendaagse Belgische standenmaatschappij.</li>
+        <li>Is een standenmaatschappij altijd "onrechtvaardig"? Leg je antwoord uit.</li>
+      </ol>
+      <p class="ex-tip">Tip: denk na over de rol van sociale mobiliteit — de mogelijkheid om van de ene laag naar de andere te bewegen. Hoe makkelijk was dat in Mesopotamië? Hoe makkelijk is dat vandaag?</p>
+    </div>
+
+    <div class="exercise-card">
+      <div class="ex-title">Oefening 3</div>
+      <div class="ex-name">Mesopotamië op de kaart</div>
+      <p style="font-size:0.97rem;color:var(--text-mid);margin-bottom:0.7rem;">Gebruik een atlas of een digitale kaart om de volgende vragen te beantwoorden.</p>
+      <ol>
+        <li>Welke drie hedendaagse landen liggen grotendeels of gedeeltelijk in het gebied dat de Mesopotamiërs bewoonden?</li>
+        <li>Zoek de Tigris en de Eufraat op de kaart. Waar ontspringen ze (in welk land)? Waar monden ze uit (in welke zee of golf)?</li>
+        <li>Situeer de volgende Sumerische steden op de kaart: Ur, Uruk, Lagash, Nippur. In welk hedendaags land liggen ze?</li>
+        <li>Hoe ver is de afstand van Uruk naar Babylon (het huidige Al Hillah in Irak)? Hoe lang zou een koopman er te voet of per boot over gedaan hebben?</li>
+      </ol>
+
+      <div class="illustratie" role="img" aria-label="Kaartplaat voor oefening 3" style="margin-top:1.2rem;">
+        <span class="ill-icon">🖼️</span>
+        <p class="ill-caption">Blanco kaart van het Midden-Oosten waarop leerlingen de Tigris, de Eufraat, de landen Irak, Syrië en Turkije, en de Sumerische steden Ur, Uruk, Lagash en Nippur kunnen aanduiden. Schaalbalk en noordpijl zijn aanwezig.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     SUMMARY
+============================================================ -->
+<div class="summary-section" id="samenvatting">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>Mesopotamië</strong> betekent "land tussen de rivieren" en lag tussen de Tigris en de Eufraat, in het huidige Irak en aangrenzende gebieden. De Sumerische beschaving (ca. 3500–2000 v.Chr.) was er de eerste, gevolgd door de Akkadische, Babylonische en Assyrische rijken.</li>
+      <li><strong>Irrigatielandbouw</strong> maakte het mogelijk om de overstromingen van de rivieren te beheersen en akkers te bewateren wanneer nodig. Het onderhoud van de kanalen vereiste samenwerking, wat leidde tot centraal gezag en de eerste stadsbesturen. Surplus uit de landbouw dreef specialisatie en handel aan.</li>
+      <li>De eerste <strong>stadstaten</strong> (Ur, Uruk, Lagash, Nippur) hadden elk een eigen bestuur. Aan het hoofd stond de <strong>lugal</strong> (priester-koning), die religieus en politiek gezag combineerde. De tempel was het economische en administratieve centrum van de stad. De <strong>Codex Hammurabi</strong> (ca. 1754 v.Chr.) is een van de vroegste geschreven wetboeken ter wereld.</li>
+      <li>Het <strong>spijkerschrift</strong> ontstond rond 3200 v.Chr. in Uruk: eerst als pictogrammen, later als abstract klankschrift. Het werd gebruikt voor belastingregisters, wetten, contracten en literatuur. Het <strong>Gilgamesj-epos</strong> is het oudste literaire werk ter wereld. <strong>Schrijvers</strong> (dubsar) genoten een hoge sociale status door hun unieke kennis.</li>
+      <li>De Mesopotamische <strong>standenmaatschappij</strong> bestond uit drie lagen: priesters en bestuurders bovenaan, vrije burgers in het midden, en onvrijen (schulden- en oorlogsslaven) onderaan. De positie van vrouwen hing sterk af van hun sociale klasse.</li>
+      <li>De Mesopotamiërs waren <strong>polytheïstisch</strong>: ze geloofden in vele goden zoals Enlil, Enki en Inanna. De <strong>ziggurat</strong> was de trapsgewijze tempel die de verbinding symboliseerde tussen hemel en aarde. Ze vonden het <strong>wiel</strong> uit (ca. 3500 v.Chr.), deden aan <strong>astronomie</strong> en legden de basis voor de kalender. Hun <strong>zestigtallig stelsel</strong> (60 seconden per minuut, 360 graden in een cirkel) gebruiken we tot op vandaag.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  // Back to top button
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) {
+        btn.classList.add('visible');
+      } else {
+        btn.classList.remove('visible');
+      }
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

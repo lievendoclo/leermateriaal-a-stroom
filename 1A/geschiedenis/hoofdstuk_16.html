@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoofdstuk 16 — De Romeinse republiek | Geschiedenis 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE / OPENING STORY
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament {
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--gold);
+    opacity: 0.7;
+    margin: 1.5rem 0;
+    letter-spacing: 0.4em;
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-dialogue {
+    font-style: italic;
+    color: #FFFDF8;
+    padding-left: 1.4rem;
+    border-left: 3px solid rgba(212,160,23,0.4);
+    margin: 1rem 0;
+  }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+    filter: sepia(0.3);
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     ILLUSTRATIE PLACEHOLDERS
+  ============================================================ */
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+    cursor: default;
+    transition: background var(--transition);
+  }
+
+  .illustratie:hover { background: #EDE7D8; }
+
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     INTERACTIVE TIMELINE — 7 PERIODS
+  ============================================================ */
+  .timeline-7 {
+    margin: 2rem 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .timeline-7-inner {
+    display: flex;
+    min-width: 680px;
+    height: 110px;
+    border-radius: var(--border-radius);
+    overflow: visible;
+    position: relative;
+  }
+
+  .tl-period {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 0 0.5rem;
+    cursor: pointer;
+    transition: filter var(--transition), transform var(--transition);
+    min-width: 0;
+  }
+
+  .tl-period:hover { filter: brightness(1.08); transform: translateY(-3px); z-index: 2; }
+
+  .tl-period .tl-bar {
+    position: absolute;
+    bottom: 0;
+    left: 1px;
+    right: 1px;
+    border-radius: 4px 4px 0 0;
+    transition: height var(--transition);
+  }
+
+  /* Featured periods (1–3) are taller */
+  .tl-period.featured .tl-bar { box-shadow: 0 0 0 2px rgba(255,255,255,0.6), 0 4px 14px rgba(0,0,0,0.25); }
+
+  .tl-period .tl-label {
+    position: absolute;
+    top: -2.4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 0.7rem;
+    font-weight: 700;
+    font-family: 'Source Sans 3', sans-serif;
+    text-align: center;
+    color: var(--darkblue);
+    pointer-events: none;
+  }
+
+  .tl-period.featured .tl-label { color: var(--terracotta); font-size: 0.75rem; }
+
+  .tl-period .tl-span {
+    position: absolute;
+    bottom: -1.7rem;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 0.63rem;
+    color: var(--text-light);
+    font-family: 'Source Sans 3', sans-serif;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  /* Tooltip */
+  .tl-period .tl-tooltip {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 2.8rem);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--darkblue);
+    color: var(--creme);
+    font-size: 0.8rem;
+    font-family: 'Source Sans 3', sans-serif;
+    padding: 0.55rem 0.85rem;
+    border-radius: 5px;
+    white-space: nowrap;
+    z-index: 20;
+    pointer-events: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+
+  .tl-period .tl-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: var(--darkblue);
+  }
+
+  .tl-period:hover .tl-tooltip { display: block; }
+
+  .timeline-7-labels {
+    margin-top: 2.4rem;
+    font-size: 0.78rem;
+    color: var(--text-light);
+    text-align: center;
+    font-style: italic;
+  }
+
+  /* Period colors */
+  .tl-p1 { background: #5B3D2E; }
+  .tl-p2 { background: #8B5A2B; }
+  .tl-p3 { background: var(--terracotta); }
+  .tl-p4 { background: #6B7F5E; }
+  .tl-p5 { background: #4A7A8A; }
+  .tl-p6 { background: #2A5C7A; }
+  .tl-p7 { background: var(--darkblue); }
+
+  /* Responsive timeline */
+  @media (max-width: 680px) {
+    .timeline-7-inner {
+      flex-direction: column;
+      height: auto;
+      min-width: 0;
+    }
+    .tl-period {
+      height: 52px;
+      flex-direction: row;
+      align-items: center;
+      padding: 0 1rem;
+      margin-bottom: 4px;
+      border-radius: 4px;
+    }
+    .tl-period .tl-bar {
+      position: absolute;
+      top: 0; bottom: 0; left: 0; right: 0;
+      border-radius: 4px;
+    }
+    .tl-period .tl-label {
+      position: relative;
+      top: auto; left: auto; transform: none;
+      z-index: 1;
+      color: #fff;
+      font-size: 0.82rem;
+      margin-right: auto;
+    }
+    .tl-period .tl-span {
+      position: relative;
+      bottom: auto; left: auto; transform: none;
+      z-index: 1;
+      color: rgba(255,255,255,0.75);
+      font-size: 0.7rem;
+    }
+    .tl-period .tl-tooltip { display: none !important; }
+    .tl-period.featured .tl-label { font-size: 0.85rem; }
+  }
+
+  /* ============================================================
+     v.Chr. / n.Chr. TIMELINE
+  ============================================================ */
+  .vchr-timeline {
+    margin: 2rem 0 3rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .vchr-inner {
+    min-width: 580px;
+    padding: 2.5rem 1rem 2rem;
+    position: relative;
+  }
+
+  /* The horizontal bar */
+  .vchr-bar {
+    position: relative;
+    height: 6px;
+    background: linear-gradient(90deg, #3A1A0A, var(--terracotta), #FAF6EF, var(--darkblue), #091529);
+    border-radius: 3px;
+    margin: 0 20px;
+  }
+
+  /* Zero point */
+  .vchr-zero {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 16px;
+    height: 16px;
+    background: var(--gold);
+    border: 3px solid var(--creme);
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px var(--gold), 0 0 10px rgba(212,160,23,0.6);
+    z-index: 2;
+  }
+
+  .vchr-zero-label {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -1.5rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--gold);
+    font-family: 'Source Sans 3', sans-serif;
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  /* Section labels */
+  .vchr-section-label {
+    position: absolute;
+    top: -2rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-family: 'Source Sans 3', sans-serif;
+  }
+
+  .vchr-section-label.left {
+    left: 0;
+    color: var(--terracotta);
+  }
+
+  .vchr-section-label.right {
+    right: 0;
+    color: var(--darkblue);
+  }
+
+  /* Tick marks */
+  .vchr-tick {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+  }
+
+  .vchr-tick .tick-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    border: 2px solid;
+    background: var(--creme);
+    margin-top: -1px;
+  }
+
+  .vchr-tick.vchr-left .tick-dot { border-color: var(--terracotta); }
+  .vchr-tick.vchr-right .tick-dot { border-color: var(--darkblue); }
+
+  .vchr-tick .tick-label {
+    position: absolute;
+    bottom: 1.1rem;
+    white-space: nowrap;
+    font-size: 0.68rem;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    text-align: center;
+    transform: translateX(-50%);
+    left: 50%;
+  }
+
+  .vchr-tick.vchr-left .tick-label { color: var(--terracotta); }
+  .vchr-tick.vchr-right .tick-label { color: var(--darkblue); }
+
+  .vchr-tick .tick-sublabel {
+    position: absolute;
+    top: 1.3rem;
+    white-space: nowrap;
+    font-size: 0.6rem;
+    font-family: 'Source Sans 3', sans-serif;
+    color: var(--text-light);
+    font-style: italic;
+    transform: translateX(-50%);
+    left: 50%;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong {
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition), opacity var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover {
+    background: var(--darkblue-light);
+    transform: translateY(-3px);
+  }
+
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     UTILITY / MISC
+  ============================================================ */
+  .prose-text { max-width: 100%; }
+
+  .highlighted-para {
+    background: rgba(212,160,23,0.08);
+    border-left: 3px solid var(--gold);
+    padding: 0.8rem 1.1rem;
+    border-radius: 0 4px 4px 0;
+    margin: 1.2rem 0;
+    font-size: 0.97rem;
+    color: var(--text-mid);
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <a class="label" href="index.html">Geschiedenis 1A</a>
+  <span class="label label-right">Hoofdstuk 16</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Geschiedenis &nbsp;·&nbsp; 1A &nbsp;·&nbsp; Eerste graad</div>
+  <h1>Hoofdstuk 16<br>De Romeinse republiek</h1>
+  <p class="subtitle">Van twee consuls en een senaat tot burgeroorlog en keizerrijk — hoe een republiek zichzelf vernietigde</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- PROLOGUE -->
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Juni, 217 voor Christus &hellip;</span>
+
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+
+    <p>Het is vroeg in de ochtend. Een dichte mist hangt over het meer van Trasimeno, in het midden van het Italische schiereiland. De Romeinse consul Gaius Flaminius marcheert met zijn legioenen langs de smalle oeverpas — hij is er zeker van dat hij de vijand achtervolgt, dat hij Hannibals Carthagers voor zich uit jaagt richting het noorden. Hij aarzelt niet.</p>
+
+    <p>Maar Hannibal aarzelt al drie dagen niet meer. Hij heeft zijn troepen — Afrikaanse infanteristen, Spaanse zwaardvechters, Numidische ruiters en reusachtige olifanten — 's nachts op de heuvels rondom de pas opgesteld. Ze liggen in de mist verborgen. Ze wachten.</p>
+
+    <p>Op het moment dat het laatste Romeinse legioen de nauwe doorgang inloopt, klinkt er een signaal. Van alle kanten tegelijk stormen de Carthagers naar beneden. In minder dan drie uur zijn er vijftienduizend Romeinse soldaten dood, onder wie de consul zelf. De anderen worden gevangen genomen of vluchten het meer in. Het water kleurt rood.</p>
+
+    <p>In Rome heerst paniek. Wie zal de stad verdedigen? Wie heeft het bevel? En hoe is het mogelijk dat een vijand uit Afrika — een man met slechts één oog na een oogziekte tijdens de tocht door de Alpen — het machtigste leger van de westelijke Middellandse Zee zo volledig kon vernietigen?</p>
+
+    <p>Maar er is nog een andere vraag, een die de Romeinen zichzelf ook stellen: hoe werkt ons bestuur eigenlijk als er geen consul meer is? Wie neemt de beslissingen als de republiek wordt bedreigd? Wat zijn de spelregels van dit systeem dat wij <em>res publica</em> noemen — de zaak van het volk?</p>
+
+    <p><strong style="color: var(--gold);">Dat is de vraag van dit hoofdstuk: hoe werkte de Romeinse republiek, hoe veroverde ze een continent, en waarom ging ze uiteindelijk ten onder aan zichzelf?</strong></p>
+
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 16.1
+  ============================================================ -->
+  <section class="section-block" id="s16-1">
+    <div class="section-heading">
+      <span class="section-num">16.1</span>
+      <h2 class="section-title">Het bestuur van de republiek: instellingen en magistraten</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>In het vorige hoofdstuk zagen we hoe Rome zijn koningen afzette. Volgens de overlevering was het in 509 v.Chr. dat de laatste Etruskische koning, Tarquinius de Trotse, werd verdreven — te arrogant, te onrechtvaardig, te weinig bereid om naar zijn volk te luisteren. De Romeinen wilden nooit meer één man aan de macht. Wat ze in de plaats stelden, was een systeem dat zo slim was dat het bijna vijf eeuwen standhield: de <strong>republiek</strong>.</p>
+
+      <p>Het woord zelf zegt alles: <em>res publica</em>, de openbare zaak. De macht behoorde niet aan een koning of een familie, maar aan de gemeenschap. Maar hoe organiseer je zoiets? Hoe zorg je ervoor dat niemand te veel macht kan grijpen, terwijl de stad toch bestuurd wordt? De Romeinen vonden een antwoord dat elegant én doeltreffend was: deel de macht op, begrens ze in de tijd, en zorg dat mensen elkaar controleren.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Republiek</span>
+        <p class="begrip-def">Een regeringsvorm waarbij de macht niet bij één erfelijke heerser berust, maar gedeeld wordt door gekozen vertegenwoordigers en instellingen. Het woord komt van het Latijnse <em>res publica</em>: de publieke zaak, de zaak van het volk.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">De consuls: twee bazen tegelijk</h3>
+
+    <div class="prose-text">
+      <p>Aan het hoofd van de republiek stonden twee <strong>consuls</strong>. Twee — want één was al te veel macht voor de Romeinen. Ze werden elk jaar opnieuw gekozen, hadden exact gelijke bevoegdheden en konden elkaars beslissingen blokkeren. Stel je voor: je bent consul, je wilt een oorlog verklaren, maar je collega-consul is het er niet mee eens. Dan gaat het niet door. Dat <em>veto</em> — het Latijnse woord voor "ik verbied het" — beschermde de republiek tegen impulsieve beslissingen van één man.</p>
+
+      <p>De consuls leidden het leger in oorlogstijd, voorzaten de senaat en voerden de staatsgodsdienst uit. Na hun ambtstermijn van één jaar werden ze automatisch lid van de senaat voor de rest van hun leven. Ze droegen als symbool van hun macht de <em>fasces</em>: een bundel roeden met een bijl erin, gedragen door hun persoonlijke wachten, de lictoren. Die fasces zeiden: ik heb de macht om te straffen en te doden — maar ik gebruik die macht alleen in dienst van de staat.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Consul</span>
+        <p class="begrip-def">De hoogste magistraat van de Romeinse republiek. Er waren altijd twee consuls tegelijk, gekozen voor één jaar. Ze hadden het opperbevel over het leger en het bestuur van de staat. Elk kon de beslissingen van de ander tegenhouden met een veto.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">De praetors en andere magistraten</h3>
+
+    <div class="prose-text">
+      <p>Onder de consuls stond een trappenstructuur van magistraten. De <strong>praetors</strong> waren verantwoordelijk voor de rechtspraak — zij spraken recht in Rome en bestuurden de provincies. Daaronder kwamen de quaestoren (financiën en staatsschatkist), de aedielen (openbare werken en spelen) en de censoren (volkstelling en zedenbewaking). Al die ambten waren tijdelijk, collegiaal — er waren er altijd meerdere tegelijk — en onbetaald. Je stelde je kandidaat met eigen geld, en je werkte gratis. Het ambt was een eer, geen inkomen.</p>
+
+      <p>Dit systeem wordt de <em>cursus honorum</em> genoemd: de loopbaan van de eerbewijzen. Een ambitieuze Romein doorliep die loopbaan stap voor stap, zoals wij carrière maken via een cv. Maar elke stap duurde precies één jaar, en je mocht geen enkele stap overslaan.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Praetor</span>
+        <p class="begrip-def">Een hoge Romeinse magistraat, net onder de consul in rang. Praetors waren verantwoordelijk voor de rechtspraak in Rome en voor het bestuur van de provincies. Later werden er steeds meer praetors aangesteld naarmate het Romeinse grondgebied groeide.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">De senaat: geheugen van de staat</h3>
+
+    <div class="prose-text">
+      <p>Als de consuls het dagelijks bestuur voerden, was de <strong>senaat</strong> het permanente hart van de republiek. De senaat telde ongeveer driehonderd leden — later meer — allemaal oud-magistraten die hun zetel voor het leven hielden. Ze hadden geen wetgevende macht in de moderne zin, maar hun gezag was enorm: ze controleerden de staatsfinanciën, beslisten over oorlog en vrede, en stuurden gouverneurs naar de provincies. Magistraten die de senaat negeerden, deden dat op eigen risico.</p>
+
+      <p>Denk aan de senaat als een combinatie van een ouderenraad en een raad van bestuur: ervaren, machtig, conservatief. Ze bewaakten de tradities van de voorouders, de <em>mos maiorum</em> — letterlijk "de gewoonte van de voorouders". Wat oud was, was goed. Verandering was verdacht.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Senaat</span>
+        <p class="begrip-def">De belangrijkste raadgevende instelling van de Romeinse republiek, samengesteld uit oud-magistraten die hun zetel voor het leven behielden. De senaat controleerde de financiën, de buitenlandse politiek en het bestuur van de provincies. Zijn besluiten (<em>senatus consulta</em>) werden door magistraten opgevolgd.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">De volksvergadering en de dictator</h3>
+
+    <div class="prose-text">
+      <p>Naast de senaat waren er ook <strong>volksvergaderingen</strong>: bijeenkomsten van mannelijke Romeinse burgers die wetten konden stemmen en magistraten konden kiezen. Maar niet alle burgers waren gelijk in die vergadering — rijkere burgers hadden meer stemgewicht. Het was democratie, maar dan de Romeinse versie: georganiseerd op een manier die de elite bevoordeelde.</p>
+
+      <p>En dan was er nog de <strong>dictator</strong> — een noodmaatregel voor uitzonderlijke situaties. Als Rome in gevaar was en gewone besluitvorming te traag ging, kon de senaat één man aanwijzen als dictator, met absolute macht. Maar ook hier: het mocht nooit langer duren dan zes maanden. De beroemdste Romeinse dictator — Cincinnatus — legde zijn macht al na zestien dagen neer, zodra het gevaar geweken was. Dat werd door de Romeinen gezien als het toppunt van burgerdeugd: macht nemen wanneer nodig, en er onmiddellijk afstand van doen.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Dictator</span>
+        <p class="begrip-def">Een tijdelijke noodmagistraat in de Romeinse republiek, aangesteld door de senaat in crisissituaties. De dictator had absolute macht en kon niet worden tegengehouden door een veto, maar zijn mandaat duurde maximaal zes maanden. Na de crisis moest hij zijn macht neerleggen.</p>
+      </div>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: schema van de Romeinse republikeinse instellingen">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Organigram van de Romeinse republiek: bovenaan de twee consuls (jaarlijks gekozen), links de senaat (permanent), rechts de volksvergaderingen; daartussen praetors, quaestoren, aedielen en censoren. Pijlen tonen de onderlinge controle en de cursus honorum.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">💭 Denkvraag</div>
+      <p class="dv-text">Is de Romeinse republiek een echte democratie? Vergelijk haar met de Atheense democratie die je in hoofdstuk 13 bestudeerde. Welke gelijkenissen zie je? Wat zijn de grote verschillen? Denk na over wie mag meebeslissen, en wie niet.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 16.2
+  ============================================================ -->
+  <section class="section-alt" id="s16-2">
+    <div class="section-heading">
+      <span class="section-num">16.2</span>
+      <h2 class="section-title">Patriciërs en plebejers: sociale spanningen</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>De Romeinse republiek was een politiek ingenieus systeem — maar het had een geboortefout. Van meet af aan waren niet alle Romeinse burgers gelijk. Er bestond een scherpe grens tussen twee groepen: de <strong>patriciërs</strong> en de <strong>plebejers</strong>.</p>
+
+      <p>De patriciërs waren de oude adellijke families — de clans die beweerden af te stammen van de stichters van Rome. Ze bezaten het grootste deel van het land, de rijkdom en de sociale contacten. Alleen zij konden in de vroegste periode magistraat worden, in de senaat zetelen of als priester fungeren. Huwelijken tussen patriciërs en plebejers waren zelfs wettelijk verboden. Het was een soort caste-systeem in toga.</p>
+
+      <p>De plebejers waren iedereen die niet tot die oude families behoorde: gewone boeren, ambachtslieden, kleine handelaars. Ze waren vrij — het waren geen slaven — maar ze hadden weinig politieke macht. Ze moesten wel belasting betalen en in het leger dienen. En als ze schulden maakten bij rijke patriciërs en die niet konden terugbetalen, konden ze in schuldenslavernij terechtkomen. Het was een situatie die vroeg of laat tot conflict moest leiden.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Patriciërs en plebejers</span>
+        <p class="begrip-def">De twee grote sociale groepen in de vroege Romeinse republiek. <strong>Patriciërs</strong> waren de erfelijke adel, afstammelingen van de vroegste Romeinse families, met exclusieve toegang tot politieke en religieuze ambten. <strong>Plebejers</strong> waren de gewone burgers — vrij, maar aanvankelijk zonder politieke rechten.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">De strijd der standen</h3>
+
+    <div class="prose-text">
+      <p>De spanning tussen de twee groepen leidde tot wat historici de <em>Strijd der Standen</em> noemen — een langdurig sociaal en politiek conflict dat van de vroegste republiek tot in de derde eeuw v.Chr. duurde. De plebejers gebruikten een slim wapen: ze weigerden simpelweg te doen wat de staat van hen vroeg. Meerdere keren trokken ze massaal weg uit Rome naar een heuvel buiten de stad — de <em>secessio plebis</em>, de uittocht van de plebejers. Geen belasting, geen legerdienst, geen oogstwerk voor de aristocraten. De stad stond stil.</p>
+
+      <p>Die stakingen werkten. De patriciërs, hoe trots ook, hadden de plebejers nodig. Stap voor stap veroverde de lagere klasse nieuwe rechten. De eerste grote overwinning was de invoering van het ambt van de <strong>volkstribuun</strong>.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Volkstribuun</span>
+        <p class="begrip-def">Een magistraat gekozen door de plebejers om hun belangen te verdedigen. De volkstribuun had een krachtig wapen: <em>intercessio</em>, het recht om elk besluit van een magistraat of de senaat te blokkeren. De persoon van de volkstribuun was onaantastbaar — wie hem aanrandde, kon door iedereen straffeloos worden gedood.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">De Twaalf Tafelen: het recht op papier</h3>
+
+    <div class="prose-text">
+      <p>Een tweede grote verworvenheid was de opstelling van de <strong>Twaalf Tafelen</strong> rond 451-449 v.Chr. Voordien kenden alleen de patriciërs het gewoonterecht — de ongeschreven regels die rechters gebruikten. Dat was handig voor de adel: een rechter kon altijd zeggen "zo gaat het nu eenmaal" zonder dat iemand hem kon tegenspreken.</p>
+
+      <p>De Twaalf Tafelen veranderden dat. De wetten werden neergeschreven, op twaalf bronzen platen, en op het Forum Romanum tentoongesteld. Iedereen kon ze nu lezen — of laten voorlezen. Het recht werd openbaar, controleerbaar, voor iedereen gelijk. Het is een van de vroegste voorbeelden van wat we vandaag de <em>rechtsstaat</em> noemen: het idee dat ook machthebbers gebonden zijn aan geschreven wetten.</p>
+
+      <p>Langzaam gleden de privilegies van de patriciërs. In 367 v.Chr. mochten plebejers voor het eerst consul worden. In 300 v.Chr. kregen ze toegang tot de priesterschappen. Tegen het midden van de derde eeuw v.Chr. was de formele scheiding tussen patriciërs en plebejers grotendeels verdwenen — althans op papier. In de praktijk bleef de rijkdom ongelijk verdeeld, en de kleine elite van rijke families — nu gemengd patricisch en plebejisch — domineerde de politiek nog steeds. Maar de juridische ongelijkheid was overwonnen. Dat was geen kleine prestatie.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">De Twaalf Tafelen</span>
+        <p class="begrip-def">De eerste codificatie van het Romeinse recht, opgesteld rond 451-449 v.Chr. en tentoongesteld op bronzen platen op het Forum Romanum. Ze maakten het recht openbaar en voor iedereen toegankelijk, en legden de basis voor de Europese rechtstraditie.</p>
+      </div>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: bronzen plaat met Latijnse tekst, voorstelling van Forum Romanum">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Reconstructie van een bronzen plaat met de tekst van de Twaalf Tafelen, tentoongesteld op het Forum Romanum. Op de achtergrond zijn de basilieken en tempels van het forum te zien. Voorbijgangers lezen de wetteksten of laten ze voorlezen door een schrijver.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">💭 Denkvraag</div>
+      <p class="dv-text">De plebejers gebruikten stakingen en massale uittochten om rechten te veroveren. Is dat een eerlijke methode? Vergelijk met hoe mensen vandaag voor hun rechten opkomen — denk aan vakbonden, betogingen of juridische procedures. Zijn er gelijkenissen?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 16.3
+  ============================================================ -->
+  <section class="section-block" id="s16-3">
+    <div class="section-heading">
+      <span class="section-num">16.3</span>
+      <h2 class="section-title">Verovering van het Italische schiereiland</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Terwijl in Rome de patriciërs en plebejers streden over rechten en privileges, vond buiten de stadsmuren iets minstens even ingrijpend plaats: Rome groeide. Niet als een explosie, maar als een langzame, gestage, onverbiddelijke uitbreiding — als een riviermonding die steeds breder wordt.</p>
+
+      <p>In de vroegste jaren van de republiek was Rome slechts één van de vele Latijnse stadjes op het schiereiland. Rondom haar lagen de Volsken, de Aequen, de Sabijnen, de Etrusken in het noorden, de Samnieten in het zuiden — allemaal volkeren met hun eigen talen, hun eigen goden, hun eigen bestuurssystemen. Rome was niet groter of rijker dan de anderen. Wat het onderscheidde was iets anders: een vermogen om te integreren.</p>
+    </div>
+
+    <h3 class="sub-heading">Veroveren én opnemen</h3>
+
+    <div class="prose-text">
+      <p>De meeste veroveraars uit de oudheid deden hetzelfde: ze veroverden een volk, plunderden het, maakten de bevolking tot slaaf of tributair. Rome deed dat ook — maar voegde er iets cruciaal aan toe. Verslagen volkeren kregen na verloop van tijd de kans om Latijns bondgenoot te worden, en de meest loyale bondgenoten kregen uiteindelijk het Romeinse burgerschap. Dat was ongekend in de antieke wereld. Als je Romein werd, was je Romein — ongeacht waar je geboren was of welke taal je thuis sprak.</p>
+
+      <p>Dit systeem maakte Rome steeds sterker. Elk veroverd gebied leverde nieuwe soldaten voor de legioenen. Elk nieuw bondgenootschap bracht meer belastingopbrengsten. De Romeinse legerstructuur, gebaseerd op discipline en samenwerking eerder dan op individuele heldhaftigheid, bewees zich keer op keer effectiever dan de losse verbanden van tegenstanders.</p>
+
+      <p>De verovering verliep niet zonder slag of stoot. De Gallische stammen uit het noorden plunderden Rome zelf in 390 v.Chr. en eisten een enorm losgeld. De Samnieten voerden drie zware oorlogen tegen Rome (343–290 v.Chr.) en versloegen de Romeinen meerdere keren — maar elke keer kwamen de Romeinen terug. En in het zuiden van het schiereiland riepen de Griekse kolonies de hulp in van de Epirootse koning Pyrrhus, die met zijn olifanten en professionele leger de Romeinen tweemaal versloeg. Maar ook Pyrrhus verloor uiteindelijk te veel mannen: zijn overwinningen waren zo kostbaar dat ze zijn naam gaven aan een spreekwoord — een <em>Pyrrusoverwinning</em>: een succes dat je meer kost dan het oplevert.</p>
+
+      <p>Rond 265 v.Chr. was heel het Italische schiereiland ten zuiden van de Povlakte Romeins of bondgenootschappelijk. Een stad van misschien veertigduizend inwoners in de vijfde eeuw had zich in twee eeuwen tijd ontpopt tot de meesteres van een schiereiland van enkele miljoenen mensen. En ze keek al verder.</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: kaart van de Romeinse expansie op het Italisch schiereiland">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Reeks kaarten van het Italische schiereiland die de stapsgewijze Romeinse expansie tonen: (1) Rome ca. 500 v.Chr. als klein stadsstaat, (2) Rome ca. 400 v.Chr. na vroege veroveringen, (3) Rome ca. 265 v.Chr. als meesteres van heel het schiereiland. Bondgenoten in een lichtere kleur, direct Romeins gebied donkerder.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">💭 Denkvraag</div>
+      <p class="dv-text">Rome bood verslagen volkeren uiteindelijk het burgerschap aan. Was dat een teken van generositeit, of een slimme politieke strategie? Welke voordelen had dit voor Rome? Welke nadelen had het voor de veroverde volkeren?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 16.4
+  ============================================================ -->
+  <section class="section-alt" id="s16-4">
+    <div class="section-heading">
+      <span class="section-num">16.4</span>
+      <h2 class="section-title">De Punische oorlogen: Rome tegen Carthago</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Aan de overkant van de Middellandse Zee, op de kust van het huidige Tunesië, lag een stad die al eeuwenlang heerste over de westelijke Middellandse Zee: <strong>Carthago</strong>. De Carthagers — in het Latijn <em>Poeni</em>, vandaar "Punisch" — waren afstammelingen van de Fenicische handelaren uit Tyrus en Sidon. Ze controleerden de handelsroutes van Spanje tot Sicilië, bezaten koloniën op Sardinië en op de Balearen, en hielden een professioneel huursoldatenleger in stand. Ze waren rijk, machtig en zelfverzekerd.</p>
+
+      <p>Rome en Carthago waren aanvankelijk zelfs bondgenoten. Maar zodra Rome het Italische schiereiland beheerste en zijn ogen op Sicilië richtte — het grote eiland dat halverwege tussen de twee mogendheden lag — was een confrontatie onvermijdelijk. Twee imperiums op dezelfde zee: dat past niet.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Punische oorlogen</span>
+        <p class="begrip-def">Drie grote oorlogen tussen Rome en Carthago (264–146 v.Chr.). De naam "Punisch" komt van het Latijnse <em>Poeni</em>, de naam die de Romeinen aan de Carthagers gaven. De oorlogen eindigden met de volledige vernietiging van Carthago en de Romeinse heerschappij over de westelijke Middellandse Zee.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">De Eerste Punische Oorlog (264–241 v.Chr.): Rome leert zeevechten</h3>
+
+    <div class="prose-text">
+      <p>De eerste oorlog begon met een conflict op Sicilië en draaide al snel uit op een zeeoorlog — iets wat Rome nog nooit had gedaan. De Carthagers waren de meesters van de zee; de Romeinen hadden nauwelijks een vloot. Maar de Romeinen copieerden gewoon een gestrande Carthaagsde driekieker, bouwden er honderden na, en voegden er een Romeinse uitvinding aan toe: de <em>corvus</em>, een enterhaken-brug die het mogelijk maakte om een vijandelijk schip te enteren en er een landbevechting van te maken. Met die tactiek — de zeeslag omzetten in wat eigenlijk een landgevecht op water was — wonnen ze. Carthago gaf Sicilië op. Rome had zijn eerste provincie buiten het schiereiland.</p>
+    </div>
+
+    <h3 class="sub-heading">De Tweede Punische Oorlog (218–201 v.Chr.): Hannibal</h3>
+
+    <div class="prose-text">
+      <p>De tweede oorlog was de gevaarlijkste, en haar centrale figuur was de man die je al in de proloog ontmoette: <strong>Hannibal Barca</strong>. Hij was de zoon van een Carthaagsde generaal die zijn kinderen had laten zweren eeuwige vijandschap jegens Rome. Hannibal hield die eed. Hij was een militair genie van de eerste orde: bedachtzaam, creatief, onverschrokken, en met een magnetisch gezag over zijn troepen die van tientallen verschillende volkeren kwamen.</p>
+
+      <p>In 218 v.Chr. trok hij met zijn leger en zijn beroemde oorlogsolifanten vanuit Spanje over de Pyreneeën, door het moeilijke bergland van Gallië, en — in een achttiendaagse tocht die de oudheid versteld deed staan — over de Alpen naar Noord-Italië. De oversteek was vreselijk: sneeuw, ijs, aardverschuivingen, aanvallen van bergvolkeren. Hij verloor misschien de helft van zijn leger en bijna alle olifanten. Maar hij stond aan de andere kant.</p>
+
+      <p>Vervolgens versloeg hij Rome keer op keer. Bij de Trebia (218 v.Chr.), bij het Trasimeno-meer (217 v.Chr. — onze openingsscène), en in 216 v.Chr. bij Cannae, de grootste militaire ramp uit de Romeinse geschiedenis: misschien zeventigduizend Romein in één dag omgekomen. Na Cannae verwachtte de wereld dat Rome zich zou overgeven. Maar Rome gaf zich niet over. De senaat vergaderde de volgende ochtend alsof er niets was gebeurd.</p>
+
+      <p>En toch bleef Hannibal op Italiaans grondgebied, plunderend en zegevierend, maar Rome niet aanvallend. Waarom? Historici debatteren er nog steeds over. Misschien miste hij het belegerings-materieel voor een aanval op Rome. Misschien hoopte hij dat de Italische bondgenoten van Rome zouden overlopen — wat slechts in beperkte mate gebeurde. Ondertussen stuurde Rome zijn generaal Scipio naar Spanje om de Carthaagsde basis aldaar te vernietigen, en in 204 v.Chr. landde Scipio zelf in Afrika. Hannibal werd teruggeroepen om Carthago te verdedigen. Bij Zama (202 v.Chr.) verloor hij zijn enige grote veldslag. Carthago moest zijn vloot afstaan, een enorme oorlogsschuld betalen en zijn koloniën opgeven.</p>
+    </div>
+
+    <h3 class="sub-heading">De Derde Punische Oorlog (149–146 v.Chr.): <em>Carthago delenda est</em></h3>
+
+    <div class="prose-text">
+      <p>Een halve eeuw later lag Carthago nog steeds, en sommige Romeinen ergerden zich eraan. De oudere senator Marcus Porcius Cato eindigde elk toespraak in de senaat — over welk onderwerp ook — met de woorden <em>Ceterum censeo Carthaginem esse delendam</em>: "Overigens ben ik van mening dat Carthago vernietigd moet worden." In 149 v.Chr. vond Rome een voorwendsel. Het beleg duurde drie jaar. In 146 v.Chr. viel de stad. De Carthagers werden gedood of als slaaf verkocht, de huizen werden afgebroken, en volgens de overlevering — al is het historisch onzeker — werd de grond met zout bestrooid zodat er nooit meer iets zou groeien. Rome had geen rivalen meer in het westen.</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: kaart westelijke Middellandse Zee met Punische oorlogen, route Hannibal">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Kaart van de westelijke Middellandse Zee. Aangeduid: Carthago (Noord-Afrika), Rome (Italisch schiereiland), Sicilië, Spanje en de route van Hannibals tocht (Spanje → Pyreneeën → Alpen → Noord-Italië). Slagvelden bij Trebia, Trasimeno, Cannae en Zama zijn gemarkeerd.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">💭 Denkvraag</div>
+      <p class="dv-text">Na de Slag bij Cannae versloeg Hannibal Rome volledig op het slagveld, maar trok hij niet op naar de stad. Waarom zou hij dat gedaan hebben? Wat zijn mogelijke verklaringen? Wat zegt de reactie van de Romeinse senaat over het karakter van de Romeinse republiek?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 16.5
+  ============================================================ -->
+  <section class="section-block" id="s16-5">
+    <div class="section-heading">
+      <span class="section-num">16.5</span>
+      <h2 class="section-title">De eeuw van burgeroorlogen</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Rond 133 v.Chr. was Rome de onbetwiste meesteres van de Middellandse Zee. Spanje, Noord-Afrika, Griekenland, Klein-Azië — het werd allemaal provincie na provincie. De overwinningen brachten rijkdom: slaven, graan, zilver, goud, kunstwerken. Maar die rijkdom loste een oud probleem niet op. Ze maakte het eigenlijk erger.</p>
+
+      <p>Het probleem heette ongelijkheid. De kleine boer die generaties lang zijn land had bewerkt, was gedurende de lange oorlogen vaker dan niet in militaire dienst geweest. Zijn akker was verwaarloosd, zijn schulden stapelden op. Intussen kochten rijke senatoren met de oorlogsbuit enorme landerijen, de <em>latifundia</em>, en bewerkten die met de massa's goedkope slaven die de veroveringen hadden opgeleverd. De kleine boer kon niet concurreren. Hij verliet zijn land, trok naar Rome, en sloot zich aan bij de massale onderklasse van straatarme burgers die leefden van brood en spelen — <em>panem et circenses</em>.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Burgeroorlog</span>
+        <p class="begrip-def">Een gewapend conflict waarbij burgers van dezelfde staat of samenleving tegenover elkaar staan. Een burgeroorlog verschilt van een gewone oorlog doordat de vijand geen buitenlandse mogendheid is, maar een andere groep uit de eigen samenleving. Het Latijnse woord is <em>bellum civile</em>: de oorlog van de burgers.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">De Gracchen: hervormers en martelaren</h3>
+
+    <div class="prose-text">
+      <p>Twee broers probeerden iets aan die ongelijkheid te doen. Tiberius Gracchus, volkstribuun in 133 v.Chr., stelde een wet voor die de verdeling van staatsgrond moest beperken: niemand mocht meer dan vijfhonderd <em>iugera</em> (ongeveer 125 hectare) staatsland bezitten. Wat er over was, zou verdeeld worden onder de armen. De senaat — grotendeels bestaand uit de mensen die net die staatsgrond in bezit hadden — was woedend. Een groep senatoren en hun aanhangers lynchte Tiberius en driehonderd van zijn aanhangers. Zijn broer Gaius deed in 123-122 v.Chr. nieuwe pogingen tot hervorming en eindigde eveneens in een bloedbad.</p>
+
+      <p>De moord op de Gracchen was een scharnierpunt. Niet de hervorming zelf, maar de reactie erop: de bereidheid van de elite om politiek geweld te gebruiken tegen gekozen magistraten. De spelregels van de republiek waren verbroken. En eens die grens was overschreden, was er geen weg terug. Als politiek geweld werkte voor de senaat, zou het ook werken voor anderen.</p>
+    </div>
+
+    <h3 class="sub-heading">Het leger als persoonlijk instrument</h3>
+
+    <div class="prose-text">
+      <p>Een tweede structurele oorzaak van de crisis was de hervorming van het leger door de generaal Marius (zie ook sectie 16.6). Voordien mochten alleen landeigenaren in het leger dienen — wat betekende dat soldaten terug konden keren naar hun boerderij na de campagne. Marius stond ook de bezitlozen toe om te dienen. Op zich slim: Rome kon zo een groter en professioneler leger opbouwen. Maar er zat een gevaarlijke bijwerking aan: de nieuwe soldaten hadden geen land om naar terug te keren. Ze waren afhankelijk van hun generaal — niet van de staat — voor land en pensioen na hun dienst. Ze vochten voor hém, niet voor de republiek. En dat maakte het mogelijk dat een generaal zijn leger als persoonlijk machtsinstrument kon gebruiken.</p>
+
+      <p>Dat is precies wat er vervolgens gebeurde. De eeuw van 133 tot 31 v.Chr. was een eeuwlange reeks van burgeroorlogen, coups, proscripties (lijsten van politieke tegenstanders die straffeloos vermoord mochten worden) en dictaturen. Geen generaal die macht greep, deed dat in zijn eigen naam — ze claimden altijd de redder van de republiek te zijn. Maar de republiek zelf stierf langzaam in het geweld.</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: tijdlijn van de burgeroorlogen, 133-31 v.Chr.">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Tijdlijn van de eeuw van burgeroorlogen (133–31 v.Chr.) met de voornaamste gebeurtenissen: moord op Tiberius Gracchus (133), Marius-Sulla oorlog (88–82), eerste triumviraat (60), Caesars oversteek van de Rubicon (49), moord op Caesar (44 v.Chr.), tweede triumviraat (43), Slag bij Actium (31 v.Chr.).</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">💭 Denkvraag</div>
+      <p class="dv-text">Wat maakt een burgeroorlog anders dan een gewone oorlog? Denk na over de gevolgen: voor de maatschappij, voor de mensen die erin leven, voor de politieke instellingen. Waarom zijn burgeroorlogen vaak moeilijker te beëindigen dan buitenlandse oorlogen?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 16.6
+  ============================================================ -->
+  <section class="section-alt" id="s16-6">
+    <div class="section-heading">
+      <span class="section-num">16.6</span>
+      <h2 class="section-title">Marius, Sulla, Caesar en Augustus</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Om de ondergang van de republiek te begrijpen, volg je best vier mannen op de voet. Ze kennen elkaar, haten en bewonderen elkaar, en elk van hen draagt een steen bij aan het gebouw dat uiteindelijk op de republiek neervalt.</p>
+    </div>
+
+    <h3 class="sub-heading">Marius: de nieuwe man</h3>
+
+    <div class="prose-text">
+      <p><strong>Gaius Marius</strong> (157–86 v.Chr.) was een <em>homo novus</em> — een nieuwe man, de eerste uit zijn familie die consul werd. Dat was zeldzaam en werd door de senatoriale elite met lede ogen aangezien. Maar Marius was een uitstekende generaal: hij versloeg de Numidische koning Jugurtha in Noord-Afrika en daarna de Germaanse stammen der Cimbren en Teutonen, die Italië hadden bedreigd. Voor die overwinningen werd hij zes keer consul, ongekend in de republiek.</p>
+
+      <p>Zijn legerhervorming — open voor iedereen, gebaseerd op professionalisme, met de adelaar als symbool van elk legioen — moderniseerde het Romeinse leger. Maar ze maakte ook individuele generaals machtiger dan de staat. Marius had zijn tegenstander Sulla als secondant gehad; hun vriendschap sloeg om in bittere rivaliteit. Toen Sulla in 88 v.Chr. het commando over de Aziatische campagne werd ontnomen door politieke manoeuvres van Marius, deed Sulla iets wat geen Romein ooit had gedaan: hij marcheerde met zijn leger op Rome. De stad die zijn soldaten kende als heilig — binnen de stadsmuren droeg je geen wapens — werd door hem bestormd als een vijandige stad. De rubicon van de republiek was overschreden.</p>
+    </div>
+
+    <h3 class="sub-heading">Sulla: de eerste dictator zonder tijdslimiet</h3>
+
+    <div class="prose-text">
+      <p><strong>Lucius Cornelius Sulla</strong> (138–78 v.Chr.) was een aristocraat, ijdel, geletterd, en meedogenloos. Na zijn mars op Rome vertrok hij naar het oosten voor zijn campagne, maar bij zijn terugkeer in 83 v.Chr. moest hij de stad opnieuw veroveren. Hij liet zichzelf benoemen tot dictator — maar in tegenstelling tot de oude Cincinnatus legde hij die macht niet na zes maanden neer. Hij bleef dictator totdat hij zelf besloot om af te treden, in 79 v.Chr.</p>
+
+      <p>Sulla gebruikte zijn macht om zijn politieke tegenstanders te vermoorden via de <em>proscripties</em>: lijsten van namen, publiek uitgehangen, waarbij iedereen op de lijst vogelvrij was verklaard. Wie er een hoofd van brengde kreeg een beloning. Duizenden mensen kwamen om, velen omwille van hun rijkdom eerder dan hun politieke gevaren voor Sulla. Het was staatsterrorisme avant la lettre.</p>
+
+      <p>Sulla trad af en stierf het jaar daarna. Maar hij had een model gecreëerd: een generaal met een persoonlijk leger kon de republiek gijzelen. Het zou niet de laatste keer zijn.</p>
+    </div>
+
+    <h3 class="sub-heading">Het eerste triumviraat: Caesar en Pompeius</h3>
+
+    <div class="prose-text">
+      <p>In 60 v.Chr. sloten drie mannen een geheim bondgenootschap dat de historici het <strong>eerste triumviraat</strong> noemen. <strong>Julius Caesar</strong> was een charismatische politicus en volksredenaar met enorme schulden en grote ambities. <strong>Pompeius Magnus</strong> was de meest succesvolle generaal van zijn generatie, die de Middellandse Zee van piraten had gezuiverd en het oosten voor Rome had veroverd. <strong>Marcus Crassus</strong> was de rijkste man van Rome, wiens fortuin de twee anderen financierde. Samen waren ze onoverwinnelijk. Alleen waren ze elk sterk genoeg om de politiek te domineren, maar niet genoeg om de anderen te negeren.</p>
+
+      <p>Caesar gebruikte het bondgenootschap om het consulaat te verwerven en daarna het gouverneurschap van Gallië. Wat volgde was een decennium van veroveringen die de kaart van Europa herschreven: geheel Gallië (het huidige Frankrijk en België) werd Romeinse provincie. Caesar schreef er zijn beroemde <em>Commentarii de Bello Gallico</em> over — de enige overgebleven beschrijving van de Belgische stammen voor de Romanisering. Het was propaganda zowel als meesterwerk.</p>
+
+      <p>Intussen stierf Crassus in een catastrofale veldslag in het oosten (53 v.Chr.). Het triumviraat was voorbij, en de spanning tussen Caesar en Pompeius groeide. De senaat koos de kant van Pompeius en beval Caesar zijn legioenen te ontslaan. Caesar weigerde. In januari 49 v.Chr. stak hij met zijn legioen de Rubicon over — de kleine rivier die de grens vormde tussen zijn provincie en Italië. Een Romeinse generaal mocht zijn leger die grens niet oversteken. Caesar deed het toch. "<em>Alea iacta est</em>," schijnt hij gezegd te hebben: de dobbelsteen is gegooid. Burgeroorlog.</p>
+
+      <p>Caesar won, snel en doeltreffend. Pompeius vluchtte naar Egypte, waar hij vermoord werd. Caesar werd dictator. En toen liet hij zich dictator voor het leven benoemen — <em>dictator perpetuo</em>. Het woord van de noodmaatregel was nu het woord van een permanente monarchie.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Triumviraat</span>
+        <p class="begrip-def">Een politiek bondgenootschap van drie mannen die samen de macht uitoefenen. Het <strong>eerste triumviraat</strong> (60 v.Chr.) was een informeel, geheim verbond tussen Caesar, Pompeius en Crassus. Het <strong>tweede triumviraat</strong> (43 v.Chr.) was een officieel, wettelijk erkende samenwerking tussen Octavianus, Marcus Antonius en Lepidus.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">De moord op Caesar en het tweede triumviraat</h3>
+
+    <div class="prose-text">
+      <p>Op de ides van maart — 15 maart 44 v.Chr. — werd Caesar in de vergaderzaal van de senaat vermoord door een groep van meer dan twintig senatoren. Ze noemden zichzelf de Bevrijders (<em>Liberatores</em>). Ze wanden dat met de dood van Caesar de republiek automatisch zou herleven. Ze hadden het mis.</p>
+
+      <p>In de nasleep van de moord trad Caesars adoptiezoon en erfgenaam <strong>Gaius Octavianus</strong> naar voren — een jonge man van achttien, die zijn tegenstanders al snel onderschatten. Tegelijk greep Caesars luitenant <strong>Marcus Antonius</strong> naar de macht. Na een turbulente periode sloten Octavianus, Antonius en de generaal <strong>Lepidus</strong> het tweede triumviraat (43 v.Chr.): dit keer officieel erkend door de staat. Ze verdeelden het Romeinse grondgebied onder elkaar en namen wreed wraak op de moordenaars van Caesar en op hun politieke vijanden — via nieuwe proscripties, waarbij ook de grote redenaar Cicero om het leven werd gebracht.</p>
+
+      <p>Maar drie mannen die de wereld verdelen: dat werkt zelden. Lepidus werd al snel opzij geschoven. Antonius en Octavianus bewogen steeds verder uit elkaar. Antonius verbleef in Egypte, where hij een innige relatie had met de Egyptische koningin Kleopatra VII. Octavianus presenteerde dat in Rome als verraad: Antonius had de Oost-Hellenistische wereld boven Rome gesteld. In 31 v.Chr. vochten hun vloten slag bij Actium, aan de Griekse kust. Octavianus won. Antonius en Kleopatra sloegen op de vlucht naar Egypte en pleegden zelfmoord. Octavianus was nu de enige meester van de Romeinse wereld.</p>
+
+      <p>Hij was wijs genoeg om niet de fouten van Caesar te herhalen. Hij noemde zichzelf geen dictator of koning. Hij noemde zichzelf <em>princeps</em> — de eerste burger. Hij behield de vormen van de republiek: de senaat vergaderde, consuls werden gekozen, magistraten deden hun werk. Maar de echte macht lag bij hem. In 27 v.Chr. verleende de senaat hem de eretitel <strong>Augustus</strong> — de verhevene. De republiek was dood. Het keizerrijk begon.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Augustus</span>
+        <p class="begrip-def">De eretitel die de senaat in 27 v.Chr. verleende aan Gaius Octavianus, de adoptiezoon en erfgenaam van Julius Caesar. Augustus wordt beschouwd als de eerste Romeinse keizer, hoewel hij de vormen van de republiek bewaarde. Zijn werkelijke macht berustte op zijn controle over het leger, de provincies en de staatsfinanciën.</p>
+      </div>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: portretbustes van Caesar, Pompeius en Augustus naast elkaar">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Drie Romeinse marmeren portretbustes naast elkaar: links Julius Caesar (met lauwerkrans), in het midden Pompeius Magnus, rechts Augustus (met verheven blik). Onder elke buste de naam en de levensdata. Een kleine tijdlijn eronder toont hun onderlinge relatie en de overgang van republiek naar keizerrijk.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">💭 Denkvraag</div>
+      <p class="dv-text">Caesar werd vermoord door zijn eigen vrienden en collega's, mensen die hij vertrouwde en soms zelf in hun ambt had benoemd. Waarom zouden zij hem hebben gedood? Was de moord een daad van vaderlandsliefde of van eigenbelang — of allebei? Kun je begrijpen waarom de moordenaars dachten dat de dood van Caesar de republiek zou redden?</p>
+    </div>
+  </section>
+
+</div><!-- end page-wrapper -->
+
+<!-- ============================================================
+     EXERCISES
+============================================================ -->
+<div class="exercises-section" id="oefeningen">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <div class="exercise-card">
+      <div class="ex-title">Oefening 1</div>
+      <div class="ex-name">Instellingen en hun bevoegdheden</div>
+      <p style="font-size:0.97rem;color:var(--text-mid);margin-bottom:0.7rem;">Hieronder staan acht situaties uit de Romeinse republiek. Schrijf bij elke situatie welke instelling of magistraat het meest logisch zou reageren, en leg in één zin uit waarom. Gebruik de begrippen consul, praetor, senaat, volksvergadering, volkstribuun en dictator.</p>
+      <ol>
+        <li>Een Gallisch leger bedreigt Rome en gewone besluitvorming gaat te traag.</li>
+        <li>Er moet een nieuwe wet gestemd worden over de verdeling van staatsgrond.</li>
+        <li>Een consul wil een oorlog verklaren die een andere consul onverstandig vindt.</li>
+        <li>Er moet een gouverneur voor de provincie Sicilië aangesteld worden.</li>
+        <li>Een rijke senator wil een arme plebejer verplichten tot schuldenslavernij, maar die plebejer beroept zich op zijn rechten.</li>
+        <li>Rome wil na de Punische oorlogen beslissen wat er met Carthago moet gebeuren.</li>
+        <li>Er moet een snel vonnis worden geveld in een civiele rechtszaak tussen twee kooplieden.</li>
+        <li>Een volkstribuun wil een hervorming doordrukken, maar de senaat is fel gekant.</li>
+      </ol>
+      <p class="ex-tip">Tip: denk aan de bevoegdheden van elke instelling. Meerdere antwoorden kunnen soms verdedigd worden — het gaat om je redenering.</p>
+    </div>
+
+    <div class="exercise-card">
+      <div class="ex-title">Oefening 2</div>
+      <div class="ex-name">De val van de republiek: oorzaken analyseren</div>
+      <p style="font-size:0.97rem;color:var(--text-mid);margin-bottom:0.7rem;">De Romeinse republiek viel niet door één oorzaak, maar door een samenspel van factoren. Lees de onderstaande lijst van mogelijke oorzaken en beantwoord de vragen.</p>
+      <ul>
+        <li>De groeiende ongelijkheid tussen rijke senatoriale families en de arme bevolking</li>
+        <li>De legerhervorming van Marius die soldaten persoonlijk afhankelijk maakte van hun generaal</li>
+        <li>Het gebruik van politiek geweld door de elite (moord op de Gracchen)</li>
+        <li>De enorme veroveringen die meer slaven en rijkdom in handen van enkelen brachten</li>
+        <li>De persoonlijke ambities van Caesar, Pompeius en anderen</li>
+      </ul>
+      <ol>
+        <li>Welke oorzaak lijkt jou het meest fundamenteel? Waarom?</li>
+        <li>Welke oorzaken hangen met elkaar samen? Kun je een keten van oorzaken tekenen?</li>
+        <li>Zijn er vergelijkbare problemen te herkennen in hedendaagse democratieën?</li>
+      </ol>
+      <p class="ex-tip">Tip: er is geen "juist" antwoord op vraag 1 — historici zijn het er zelf ook niet over eens. Gebruik de tekst van het hoofdstuk als onderbouwing.</p>
+    </div>
+
+    <div class="exercise-card">
+      <div class="ex-title">Oefening 3</div>
+      <div class="ex-name">Kaartwerk: de Punische oorlogen</div>
+      <p style="font-size:0.97rem;color:var(--text-mid);margin-bottom:0.7rem;">Gebruik een blinde kaart van de Middellandse Zee voor deze oefening.</p>
+      <ol>
+        <li>Duid aan: Rome, Carthago, Sicilië, Spanje, Noord-Afrika (Tunesië), Griekenland en Klein-Azië.</li>
+        <li>Teken de route van Hannibals tocht van Spanje over de Alpen naar Noord-Italië.</li>
+        <li>Duid de slagvelden aan: Trebia, Trasimeno, Cannae (Italië) en Zama (Noord-Afrika).</li>
+        <li>Kleur in welk gebied Rome beheerste na elk van de drie Punische oorlogen. Gebruik drie kleuren of arceeringen.</li>
+        <li>Schrijf bij de kaart in twee zinnen: welk gevolg had de overwinning op Carthago voor de positie van Rome in de wereld?</li>
+      </ol>
+      <div class="illustratie" role="img" aria-label="Blinde kaart Middellandse Zee voor oefening 3" style="margin-top:1.2rem;">
+        <span class="ill-icon">🖼️</span>
+        <p class="ill-caption">Blinde kaart van de Middellandse Zee en omliggende gebieden. Grenzen van kusten en grote rivieren zijn aangeduid, maar geen plaatsnamen. Leerlingen vullen de kaart in op basis van de informatie uit het hoofdstuk.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     SUMMARY
+============================================================ -->
+<div class="summary-section" id="samenvatting">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li>De <strong>Romeinse republiek</strong> (509–27 v.Chr.) was een bestuursvorm waarbij de macht werd verdeeld over gekozen magistraten: twee <strong>consuls</strong> (jaarlijks, met vetorecht over elkaar), <strong>praetors</strong> (rechtspraak en provinciebestuur), en een permanente <strong>senaat</strong> die de financiën en buitenlandse politiek controleerde. Een <strong>dictator</strong> kon in noodgevallen voor maximaal zes maanden absolute macht uitoefenen.</li>
+      <li>De samenleving was verdeeld in <strong>patriciërs</strong> (erfelijke adel met politieke privileges) en <strong>plebejers</strong> (gewone burgers). Via de <em>Strijd der Standen</em> veroverden de plebejers stap voor stap gelijke rechten: het ambt van de <strong>volkstribuun</strong> (met vetorecht) en de codificatie van het recht in de <strong>Twaalf Tafelen</strong> (ca. 451 v.Chr.) waren de grootste overwinningen.</li>
+      <li>Rome veroverde het <strong>Italische schiereiland</strong> geleidelijk tussen de vijfde en derde eeuw v.Chr., mede dankzij een beleid van integratie: verslagen volkeren konden bondgenoten en uiteindelijk Romeinse burgers worden.</li>
+      <li>De <strong>Punische oorlogen</strong> (264–146 v.Chr.) waren drie grote conflicten tussen Rome en Carthago. De Tweede Punische Oorlog met <strong>Hannibal</strong> was de gevaarlijkste; zijn overwinningen bij Trebia, Trasimeno en Cannae waren vernietigend, maar Rome gaf niet op. De definitieve vernietiging van Carthago in 146 v.Chr. maakte Rome tot meesteres van de westelijke Middellandse Zee.</li>
+      <li>De <strong>eeuw van burgeroorlogen</strong> (133–31 v.Chr.) begon met de moord op de volkstribunen <strong>Tiberius en Gaius Gracchus</strong>, die landhervormingen nastreefden. De legerhervorming van <strong>Marius</strong> maakte soldaten persoonlijk afhankelijk van hun generaal, waardoor generaals hun legioenen als politiek wapen konden inzetten.</li>
+      <li>Het <strong>eerste triumviraat</strong> (60 v.Chr.) van Caesar, Pompeius en Crassus leidde tot burgeroorlog. Caesar werd dictator, maar op 15 maart 44 v.Chr. vermoord. Het <strong>tweede triumviraat</strong> van Octavianus, Marcus Antonius en Lepidus beëindigde de republiek definitief met de Slag bij Actium (31 v.Chr.).</li>
+      <li>In 27 v.Chr. nam Octavianus de titel <strong>Augustus</strong> aan. Hij bewaarde de vormen van de republiek maar concentreerde alle werkelijke macht in zijn handen. Dit moment markeert de overgang van republiek naar <strong>keizerrijk</strong> — een scharnierpunt in de Europese en wereldgeschiedenis.</li>
+      <li>De ondergang van de republiek is niet te verklaren door één oorzaak, maar door een samenspel van structurele problemen: groeiende sociale ongelijkheid, de militarisering van de politiek, het gebruik van geweld door de elite en de persoonlijke ambities van generaals die hun persoonlijke belang boven de spelregels van de staat stelden.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  // Back to top button
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) {
+        btn.classList.add('visible');
+      } else {
+        btn.classList.remove('visible');
+      }
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

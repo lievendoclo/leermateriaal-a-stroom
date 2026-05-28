@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoofdstuk 15 — De stichting van Rome | Geschiedenis 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE / OPENING STORY
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament {
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--gold);
+    opacity: 0.7;
+    margin: 1.5rem 0;
+    letter-spacing: 0.4em;
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-dialogue {
+    font-style: italic;
+    color: #FFFDF8;
+    padding-left: 1.4rem;
+    border-left: 3px solid rgba(212,160,23,0.4);
+    margin: 1rem 0;
+  }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+    filter: sepia(0.3);
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     ILLUSTRATIE PLACEHOLDERS
+  ============================================================ */
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+    cursor: default;
+    transition: background var(--transition);
+  }
+
+  .illustratie:hover { background: #EDE7D8; }
+
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     INTERACTIVE TIMELINE — 7 PERIODS
+  ============================================================ */
+  .timeline-7 {
+    margin: 2rem 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .timeline-7-inner {
+    display: flex;
+    min-width: 680px;
+    height: 110px;
+    border-radius: var(--border-radius);
+    overflow: visible;
+    position: relative;
+  }
+
+  .tl-period {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 0 0.5rem;
+    cursor: pointer;
+    transition: filter var(--transition), transform var(--transition);
+    min-width: 0;
+  }
+
+  .tl-period:hover { filter: brightness(1.08); transform: translateY(-3px); z-index: 2; }
+
+  .tl-period .tl-bar {
+    position: absolute;
+    bottom: 0;
+    left: 1px;
+    right: 1px;
+    border-radius: 4px 4px 0 0;
+    transition: height var(--transition);
+  }
+
+  /* Featured periods (1–3) are taller */
+  .tl-period.featured .tl-bar { box-shadow: 0 0 0 2px rgba(255,255,255,0.6), 0 4px 14px rgba(0,0,0,0.25); }
+
+  .tl-period .tl-label {
+    position: absolute;
+    top: -2.4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 0.7rem;
+    font-weight: 700;
+    font-family: 'Source Sans 3', sans-serif;
+    text-align: center;
+    color: var(--darkblue);
+    pointer-events: none;
+  }
+
+  .tl-period.featured .tl-label { color: var(--terracotta); font-size: 0.75rem; }
+
+  .tl-period .tl-span {
+    position: absolute;
+    bottom: -1.7rem;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 0.63rem;
+    color: var(--text-light);
+    font-family: 'Source Sans 3', sans-serif;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  /* Tooltip */
+  .tl-period .tl-tooltip {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 2.8rem);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--darkblue);
+    color: var(--creme);
+    font-size: 0.8rem;
+    font-family: 'Source Sans 3', sans-serif;
+    padding: 0.55rem 0.85rem;
+    border-radius: 5px;
+    white-space: nowrap;
+    z-index: 20;
+    pointer-events: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+
+  .tl-period .tl-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: var(--darkblue);
+  }
+
+  .tl-period:hover .tl-tooltip { display: block; }
+
+  .timeline-7-labels {
+    margin-top: 2.4rem;
+    font-size: 0.78rem;
+    color: var(--text-light);
+    text-align: center;
+    font-style: italic;
+  }
+
+  /* Period colors */
+  .tl-p1 { background: #5B3D2E; }
+  .tl-p2 { background: #8B5A2B; }
+  .tl-p3 { background: var(--terracotta); }
+  .tl-p4 { background: #6B7F5E; }
+  .tl-p5 { background: #4A7A8A; }
+  .tl-p6 { background: #2A5C7A; }
+  .tl-p7 { background: var(--darkblue); }
+
+  /* Responsive timeline */
+  @media (max-width: 680px) {
+    .timeline-7-inner {
+      flex-direction: column;
+      height: auto;
+      min-width: 0;
+    }
+    .tl-period {
+      height: 52px;
+      flex-direction: row;
+      align-items: center;
+      padding: 0 1rem;
+      margin-bottom: 4px;
+      border-radius: 4px;
+    }
+    .tl-period .tl-bar {
+      position: absolute;
+      top: 0; bottom: 0; left: 0; right: 0;
+      border-radius: 4px;
+    }
+    .tl-period .tl-label {
+      position: relative;
+      top: auto; left: auto; transform: none;
+      z-index: 1;
+      color: #fff;
+      font-size: 0.82rem;
+      margin-right: auto;
+    }
+    .tl-period .tl-span {
+      position: relative;
+      bottom: auto; left: auto; transform: none;
+      z-index: 1;
+      color: rgba(255,255,255,0.75);
+      font-size: 0.7rem;
+    }
+    .tl-period .tl-tooltip { display: none !important; }
+    .tl-period.featured .tl-label { font-size: 0.85rem; }
+  }
+
+  /* ============================================================
+     v.Chr. / n.Chr. TIMELINE
+  ============================================================ */
+  .vchr-timeline {
+    margin: 2rem 0 3rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .vchr-inner {
+    min-width: 580px;
+    padding: 2.5rem 1rem 2rem;
+    position: relative;
+  }
+
+  /* The horizontal bar */
+  .vchr-bar {
+    position: relative;
+    height: 6px;
+    background: linear-gradient(90deg, #3A1A0A, var(--terracotta), #FAF6EF, var(--darkblue), #091529);
+    border-radius: 3px;
+    margin: 0 20px;
+  }
+
+  /* Zero point */
+  .vchr-zero {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 16px;
+    height: 16px;
+    background: var(--gold);
+    border: 3px solid var(--creme);
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px var(--gold), 0 0 10px rgba(212,160,23,0.6);
+    z-index: 2;
+  }
+
+  .vchr-zero-label {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -1.5rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--gold);
+    font-family: 'Source Sans 3', sans-serif;
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  /* Section labels */
+  .vchr-section-label {
+    position: absolute;
+    top: -2rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-family: 'Source Sans 3', sans-serif;
+  }
+
+  .vchr-section-label.left {
+    left: 0;
+    color: var(--terracotta);
+  }
+
+  .vchr-section-label.right {
+    right: 0;
+    color: var(--darkblue);
+  }
+
+  /* Tick marks */
+  .vchr-tick {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+  }
+
+  .vchr-tick .tick-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    border: 2px solid;
+    background: var(--creme);
+    margin-top: -1px;
+  }
+
+  .vchr-tick.vchr-left .tick-dot { border-color: var(--terracotta); }
+  .vchr-tick.vchr-right .tick-dot { border-color: var(--darkblue); }
+
+  .vchr-tick .tick-label {
+    position: absolute;
+    bottom: 1.1rem;
+    white-space: nowrap;
+    font-size: 0.68rem;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    text-align: center;
+    transform: translateX(-50%);
+    left: 50%;
+  }
+
+  .vchr-tick.vchr-left .tick-label { color: var(--terracotta); }
+  .vchr-tick.vchr-right .tick-label { color: var(--darkblue); }
+
+  .vchr-tick .tick-sublabel {
+    position: absolute;
+    top: 1.3rem;
+    white-space: nowrap;
+    font-size: 0.6rem;
+    font-family: 'Source Sans 3', sans-serif;
+    color: var(--text-light);
+    font-style: italic;
+    transform: translateX(-50%);
+    left: 50%;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong {
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition), opacity var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover {
+    background: var(--darkblue-light);
+    transform: translateY(-3px);
+  }
+
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     UTILITY / MISC
+  ============================================================ */
+  .prose-text { max-width: 100%; }
+
+  .highlighted-para {
+    background: rgba(212,160,23,0.08);
+    border-left: 3px solid var(--gold);
+    padding: 0.8rem 1.1rem;
+    border-radius: 0 4px 4px 0;
+    margin: 1.2rem 0;
+    font-size: 0.97rem;
+    color: var(--text-mid);
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <a class="label" href="index.html">Geschiedenis 1A</a>
+  <span class="label label-right">Hoofdstuk 15</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Geschiedenis &nbsp;·&nbsp; 1A &nbsp;·&nbsp; Klassieke Oudheid</div>
+  <h1>Hoofdstuk 15<br>De stichting van Rome</h1>
+  <p class="subtitle">Van mythe tot historische werkelijkheid — hoe een kleine nederzetting aan de Tiber het begin werd van een wereldrijk</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- PROLOGUE -->
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Stel je voor &hellip;</span>
+
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+
+    <p>Twee jongetjes drijven in een rieten mandje op de Tiber. Het water is koud en troebel. De rivier heeft hen meegesleurd ver van de plek waar iemand anders ooit had besloten dat ze niet mochten leven.</p>
+
+    <p>Het mandje stuit tegen de modderige oever en blijft hangen tussen de wortels van een vijgenboom. De jongetjes huilen. Ze hebben honger.</p>
+
+    <p>Een wolvin komt drinken aan de rivier. Ze hoort de geluiden en blijft staan. Ze is mager. Ze heeft haar eigen jongen nog niet lang geleden verloren. Ze kijkt naar het mandje.</p>
+
+    <p>Ze heeft honger. Maar ze aarzelt.</p>
+
+    <p>Wat er daarna gebeurt, hebben de Romeinen meer dan zeven eeuwen lang verteld en doorverteld, uitgehouwen in steen, geschilderd op muren en gegoten in brons. Het is het verhaal van hoe de grootste stad ter wereld begon — niet met een generaal, niet met een god, maar met twee weesjongetjes en een wolvin die koos om hen te voeden in plaats van op te eten.</p>
+
+    <p>Of misschien begon Rome helemaal anders. Misschien was er geen wolvin. Misschien groeide de stad gewoon langzaam, boerderij voor boerderij, heuvel voor heuvel, tot ze groot genoeg was om een naam te verdienen.</p>
+
+    <p><strong style="color: var(--gold);">Dat is de vraag van dit hoofdstuk: wat is mythe, en wat is geschiedenis?</strong></p>
+
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 15.1
+  ============================================================ -->
+  <section class="section-block" id="s15-1">
+    <div class="section-heading">
+      <span class="section-num">15.1</span>
+      <h2 class="section-title">Mythe en werkelijkheid: Romulus en Remus</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Elk volk heeft verhalen over zijn eigen oorsprong. De Grieken hadden hun goden op de Olympos. De Joden hadden het boek Genesis. En de Romeinen hadden het verhaal van Romulus en Remus — twee tweelingbroers wier geboorte, overleving en ruzie het fundament zouden leggen van wat later het machtigste rijk van de westerse wereld zou worden.</p>
+
+      <p>Het verhaal gaat als volgt. Rhea Silvia, een priesteres uit het koninklijke geslacht van de stad Alba Longa, werd zwanger van Mars, de god van de oorlog. Ze baarde twee zonen: Romulus en Remus. Maar haar oom Amulius, die de troon had gestolen van haar vader, zag in de tweeling een bedreiging. Hij gaf opdracht hen te verdrinken in de Tiber.</p>
+
+      <p>De dienaren die dit moesten uitvoeren, konden het niet over hun hart verkrijgen om de jongetjes echt te doden. Ze legden hen in een rieten mandje en lieten dat op het water drijven. Het mandje spoelde aan bij een vijgenboom — de <em>ficus Ruminalis</em> — aan de voet van de Palatijnse Heuvel. Daar vond een wolvin hen en zoogde hen totdat een herder genaamd Faustulus de tweeling ontdekte en hen meenam naar huis.</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: de wolvin van Rome met Romulus en Remus">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">De beroemde bronzen sculptuur van de Capitolijnse Wolvin (ca. 5de eeuw v.Chr.) met de twee zuigelingen Romulus en Remus. De sculptuur staat symbool voor de oorsprong van Rome en was eeuwenlang het meest herkende symbool van de stad. De figurines van de tweeling werden in de Renaissance toegevoegd aan een ouder Etruskisch bronzen beeld.</p>
+    </div>
+
+    <h3 class="sub-heading">De mythe: stichting in 753 v.Chr.</h3>
+
+    <div class="prose-text">
+      <p>Opgegroeid als herders kwamen Romulus en Remus erachter wie ze werkelijk waren. Ze verdreven Amulius en herstelden hun grootvader Numitor op de troon van Alba Longa. Daarna besloten ze een nieuwe stad te stichten, precies op de plek waar ze als baby's aan land waren gespoeld: de zeven heuvels langs de Tiber.</p>
+
+      <p>Maar over welke heuvel de nieuwe stad haar middelpunt zou krijgen, konden de broers het niet eens worden. Ze raadpleegden de voortekens — de Romeinen geloofden dat de goden via vogels spraken. Remus zag zes gieren. Romulus twaalf. Romulus won het recht om de stad te stichten en trok een heilige grens, de <em>pomerium</em>, rond de Palatijnse Heuvel.</p>
+
+      <p>Remus sprong spottend over de nog lage muur — een daad van oneerbiedigheid tegenover de heilige grens. In de woede van het moment, of misschien als rituele noodzaak om de sacraliteit van de muur te beschermen, doodde Romulus zijn broer. Zijn harde woorden zijn legendarisch overgeleverd: "Zo vergaat het iedereen die mijn muren overspringt."</p>
+
+      <p>Het jaar was, volgens de Romeinse traditie, <strong>753 v.Chr.</strong> Dit is het jaar dat de Romeinen zelf als stichtingsjaar van hun stad beschouwden.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Rex</span>
+        <p class="begrip-def">Het Latijnse woord voor <em>koning</em>. In de vroegste periode van Rome (de koningstijd, 753–509 v.Chr.) werd de stad bestuurd door een rex. Het woord is verwant aan het Sanskriet <em>raja</em> en het Franse <em>roi</em>. Na de verdrijving van de laatste koning werd het woord in Rome zo beladen dat elke politicus die als zou willen regeren als een rex, gevaar liep voor zijn leven.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Wat zeggen archeologen?</h3>
+
+    <div class="prose-text">
+      <p>Historici en archeologen geloven niet letterlijk in de wolvin en de goddelijke vader. Maar ze nemen het jaar 753 v.Chr. wel serieus als een ruwe aanwijzing. Opgravingen op de Palatijnse Heuvel tonen inderdaad sporen van bewoning uit de 8ste eeuw v.Chr.: eenvoudige hutten met rieten daken, aardewerk, resten van voedselverspilling.</p>
+
+      <p>De historische realiteit achter de mythe is waarschijnlijk dit: <strong>Rome groeide langzaam uit de samenvoeging van meerdere kleine nederzettingen</strong> op de zeven heuvels langs de Tiber. Latijnse stammen leefden op de ene heuvel, Sabijnse stammen op de andere. In de loop van de 8ste en 7de eeuw v.Chr. groeiden deze nederzettingen naar elkaar toe, deelden ze bronnen en verdedigden ze zich samen. De mythe van Romulus en Remus geeft aan dit trage, organische groeiproces een dramatisch beginpunt.</p>
+
+      <p>De Tiber was geen toevallige locatie. De rivier was breed genoeg voor handel maar bevaarbaar via een eiland in het midden, de <em>Isola Tiberina</em>. De heuvels boden bescherming en waren vrij van de moerassen die de rivier omringden. Rome lag op een kruispunt: de weg naar de zoutpannen aan de kust, de handelswegen van Noord naar Zuid. Wie hier een nederzetting bouwde, bouwde op een strategisch goud.</p>
+    </div>
+
+    <h3 class="sub-heading">Waarom was de mythe zo belangrijk?</h3>
+
+    <div class="prose-text">
+      <p>Wanneer Rome later een groot rijk werd, had het een verhaal nodig dat zijn machtsaanspraken rechtvaardigde. De afstamming van Mars — de god van de oorlog — en een koninklijke Latijnse prinses gaf Rome precies dat: een goddelijke oorsprong die militaire kracht en adellijk bloed combineerde.</p>
+
+      <p>Dit verbindt met iets wat je eerder in dit boek hebt geleerd (hoofdstuk 6): mythes over de stichting van een stad of staat zijn zelden toevallig. Ze worden verteld en herverteld om te legitimeren, om te inspireren en om een gemeenschap een gevoel van gedeelde identiteit te geven. De Grieken deden hetzelfde met hun stadsgoden. De Egyptenaren presenteerden hun farao's als zonen van Ra. Overal geldt: mythe en macht zijn nauw verweven.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#x1F4AD; Denkvraag</div>
+      <p class="dv-text">Romulus doodt zijn eigen broer om de heiligheid van de stadsmuur te beschermen. Wat zegt dit verhaal over de waarden die de Romeinen belangrijk vonden? Waarom zou een volk dit soort verhaal over zijn stichter vertellen — en niet iets vriendelijkers?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 15.2
+  ============================================================ -->
+  <section class="section-alt" id="s15-2">
+    <div class="section-heading">
+      <span class="section-num">15.2</span>
+      <h2 class="section-title">De invloed van Grieken en Etrusken</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Rome was nooit een geïsoleerde stad. Vanaf het begin stond de nederzetting aan de Tiber in contact met twee invloedrijke culturen die haar zouden vormen: de <strong>Etrusken</strong> in het noorden en de <strong>Grieken</strong> in het zuiden. Wie Rome wil begrijpen, moet eerst deze twee buren begrijpen.</p>
+    </div>
+
+    <h3 class="sub-heading">De Etrusken: bouwers van steden</h3>
+
+    <div class="prose-text">
+      <p>De Etrusken waren de dominante beschaving van Noord- en Midden-Italië tussen ruwweg 800 en 300 v.Chr. Ze woonden in rijke stadstaten — zoals Veii, Tarquinia en Caere — en waren meesters in metaalbewerking, handel en architectuur. Hun steden waren geplande nederzettingen met rechte straten, riolering en indrukwekkende tempels.</p>
+
+      <p>Wat namen de Romeinen precies over van de Etrusken?</p>
+    </div>
+
+    <ul style="margin: 0.5rem 0 1.5rem 0; list-style: none; padding: 0;">
+      <li style="display:flex;gap:0.8rem;margin-bottom:0.9rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:140px;">Stadsplanning:</span>
+        <span style="color:var(--text-mid);">De rechthoekige indeling van Romeinse steden, met een hoofdstraat van noord naar zuid (<em>cardo</em>) en een van oost naar west (<em>decumanus</em>), is Etruskisch van oorsprong. Zo lag later elke Romeinse koloniestad gebouwd.</span>
+      </li>
+      <li style="display:flex;gap:0.8rem;margin-bottom:0.9rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:140px;">Rioleringen:</span>
+        <span style="color:var(--text-mid);">De <em>Cloaca Maxima</em> — het grote rioolstelsel van Rome dat de moerassen tussen de heuvels draineerde en de stad leefbaar maakte — werd aangelegd onder Etruskische invloed, vermoedelijk in de 6de eeuw v.Chr.</span>
+      </li>
+      <li style="display:flex;gap:0.8rem;margin-bottom:0.9rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:140px;">Boogarchitectuur:</span>
+        <span style="color:var(--text-mid);">De ronde boog — die later het meest kenmerkende element van de Romeinse architectuur zou worden in aquaducten, bruggen en triomfbogen — werd door de Etrusken in Italië geïntroduceerd.</span>
+      </li>
+      <li style="display:flex;gap:0.8rem;margin-bottom:0.9rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:140px;">Schrift en taal:</span>
+        <span style="color:var(--text-mid);">De Etrusken hadden een eigen schrift dat zij op hun beurt van de Grieken hadden overgenomen. Het Latijnse alfabet — waarmee jij nu leest — ontwikkelde zich uit dit Etruskische schrift.</span>
+      </li>
+      <li style="display:flex;gap:0.8rem;margin-bottom:0.9rem;align-items:flex-start;">
+        <span style="color:var(--terracotta);font-weight:700;flex-shrink:0;min-width:140px;">Religie en rituelen:</span>
+        <span style="color:var(--text-mid);">De Etruskische praktijk van het lezen van voortekens in de ingewanden van geofferde dieren (<em>haruspicina</em>) en in de vlucht van vogels (<em>auguria</em>) werd volledig overgenomen door de Romeinen en bleef eeuwenlang een officieel staatsritueel.</span>
+      </li>
+    </ul>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Etrusken</span>
+        <p class="begrip-def">De Etrusken waren een beschaving die tussen ca. 800 en 300 v.Chr. het grootste deel van Noord- en Midden-Italië domineerde. Ze waren uitstekende handelaren, metaalwerkers en bouwers. Hun taal is nog altijd niet volledig ontcijferd. Ze oefenden een diepe invloed uit op de vroege Romeinse cultuur, architectuur, religie en schrift, en leverden drie van de zeven koningen van Rome.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">De Grieken: meesters van kunst en idee</h3>
+
+    <div class="prose-text">
+      <p>Terwijl de Etrusken het noorden van Italië domineerden, hadden de Grieken het zuiden gekoloniseerd. Vanaf de 8ste eeuw v.Chr. stichtten Griekse steden nederzettingen langs de kusten van Zuid-Italië en Sicilië. Dit gebied werd zo sterk Grieks dat de Romeinen het later <em>Magna Graecia</em> noemden: Groot-Griekenland.</p>
+
+      <p>Steden als Neapolis (het huidige Napels), Cumae, Taras (het huidige Taranto) en Syracusae (Syracuus) op Sicilië waren grote, welvarende centra van Griekse cultuur. Ze hadden prachtige tempels, theaters en filozofische scholen. Via handel en nauw contact — vriendschappelijk en ook militair — sijpelde de Griekse cultuur door naar Rome.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Magna Graecia</span>
+        <p class="begrip-def">Latijn voor "Groot-Griekenland". De naam die de Romeinen gaven aan de regio in Zuid-Italië en Sicilië waar de Grieken vanaf de 8ste eeuw v.Chr. talrijke kolonies stichtten. Steden als Neapolis, Cumae en Syracuus waren bloeiende Griekse centra die een grote culturele invloed uitoefenden op Rome en de rest van Italië.</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>De Griekse invloed op Rome was enorm en veelzijdig:</p>
+
+      <p><strong>Mythologie en religie:</strong> De Grieken hadden een rijke mythologie met goden zoals Zeus, Hera, Poseidon en Athena. De Romeinen namen vrijwel het volledige Griekse pantheon over, maar gaven de goden Latijnse namen. Zeus werd Jupiter, Hera werd Juno, Poseidon werd Neptunus, Athena werd Minerva, Ares werd Mars. De verhalen bleven grotendeels hetzelfde.</p>
+
+      <p><strong>Kunst en architectuur:</strong> De elegante Griekse tempelarchitectuur met zuilen in dorische, ionische en korinthische stijl vond zijn weg naar Rome. Griekse beeldhouwers werkten in opdracht van Romeinse opdrachtgevers. Veel Griekse kunstwerken werden later als buit naar Rome gebracht.</p>
+
+      <p><strong>Alfabet:</strong> De Grieken hadden het alfabet van de Feniciërs overgenomen en verbeterd. Via de Etrusken — die het Griekse alfabet op hun beurt van de Grieken in Zuid-Italië hadden geleerd — bereikte dit alfabet de Romeinen. Het Latijnse alfabet is dus een kleinkind van het Griekse.</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: kaart van Italië met Etruskisch gebied en Magna Graecia">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Kaart van het Italische schiereiland ca. 600 v.Chr. In het noorden en midden: het Etruskische kerngebied (in okerkleur) met de belangrijkste steden Veii, Tarquinia, Caere en Populonia. In het zuiden: Magna Graecia (in blauw) met Griekse kolonies als Neapolis, Cumae, Taras en Syracuus op Sicilië. In het midden, aan de Tiber: de jonge stad Rome, omringd door beide invloedsferen.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#x1F4AD; Denkvraag</div>
+      <p class="dv-text">Rome nam veel over van de Etrusken en Grieken, maar gaf het altijd een eigen Romeins karakter. Kun je een hedendaags voorbeeld bedenken waarbij een cultuur elementen van een andere cultuur overneemt en aanpast? Wat verandert er bij zo'n overname, en wat blijft hetzelfde?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 15.3
+  ============================================================ -->
+  <section class="section-block" id="s15-3">
+    <div class="section-heading">
+      <span class="section-num">15.3</span>
+      <h2 class="section-title">Rome in de koningstijd: koning, senaat en volksvergadering</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Volgens de Romeinse traditie hadden ze zeven koningen achtereenvolgens. De eerste was Romulus zelf. De laatste, die in 509 v.Chr. werd verdreven, was Tarquinius Superbus — "de hoogmoedige". Tussen die twee uitersten lag de koningstijd: bijna twee en een half eeuw van bestuur door een <em>rex</em>.</p>
+
+      <p>Maar zelfs in deze vroegste periode was Rome geen pure monarchie. Van het begin af aan moest de koning zijn macht delen met twee andere instellingen: de <strong>senaat</strong> en de <strong>volksvergadering</strong>. Dit driedeling van bestuur was de kiem van wat later de Republikeinse staatsvorm zou worden.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Senaat</span>
+        <p class="begrip-def">De Senaat (<em>senatus</em>, van <em>senex</em>: "oude man") was een raad van de meest vooraanstaande families van Rome. In de koningstijd bestond ze uit honderd <em>patres</em> (vaders, stamhoofden), de leiders van de belangrijkste adelsclans. De Senaat adviseerde de koning en gaf zijn besluiten legitimiteit. Zijn werkelijke macht zou pas volledig tot bloei komen in de Republiek.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Patriciërs</span>
+        <p class="begrip-def">De <em>patricii</em> (patriciërs) waren de leden van de oude adellijke geslachten van Rome — de families die aanspraak maakten op afstamming van de oorspronkelijke honderd senatsleden die Romulus zou hebben aangesteld. In de vroege Republiek hadden zij een monopolie op alle politieke en religieuze functies. Pas na eeuwen van strijd moesten zij dit privilege delen met de plebejers.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">De zeven koningen</h3>
+
+    <div class="prose-text">
+      <p>De traditie noemt zeven koningen: Romulus, Numa Pompilius, Tullus Hostilius, Ancus Marcius, Tarquinius Priscus, Servius Tullius en Tarquinius Superbus. De laatste drie — Tarquinius Priscus, Servius Tullius en Tarquinius Superbus — zijn van Etruskische afkomst, of hebben sterke Etruskische connecties. Dit weerspiegelt de historische realiteit: in de 6de eeuw v.Chr. stond Rome sterk onder Etruskische invloed, misschien zelfs Etruskische overheersing.</p>
+
+      <p>Onder de Etruskische koningen maakte Rome een enorme sprong. De moerassen tussen de heuvels werden gedraineerd, de <em>Cloaca Maxima</em> werd aangelegd, het Forum Romanum — de centrale marktplaats — werd ingericht. De stad groeide uit van een cluster boerennederzettingen tot een echte stadsstaat.</p>
+    </div>
+
+    <h3 class="sub-heading">Het einde van de koningstijd</h3>
+
+    <div class="prose-text">
+      <p>De zevende en laatste koning, Tarquinius Superbus, regeerde als een tiran. Hij schrok er niet voor terug senatoren te laten vermoorden. Hij omringde zich met lijfwachten. Hij handelde willekeurig en zonder de adel te raadplegen. En zijn zoon Sextus Tarquinius beging een misdaad die de stad in beroering bracht: hij verkrachtte Lucretia, een edele Romeinse vrouw. Lucretia pleegde zelfmoord na haar eer te hebben laten wreken, en dit incident — hoe het ook in werkelijkheid verliep — was de vonk die de omwenteling deed ontstaan.</p>
+
+      <p>In <strong>509 v.Chr.</strong> verdreven de edelen van Rome Tarquinius Superbus en zijn gezin. Ze stichtten een nieuwe staatsvorm: de <em>res publica</em>, de publieke zaak. De monarchie was voorbij. De Republiek begon.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Volksvergadering</span>
+        <p class="begrip-def">De <em>comitia curiata</em> was de vroegste volksvergadering van Rome. Ze was opgedeeld in dertig <em>curiae</em> (groepen van burgers). In de koningstijd bevestigde ze de aanstelling van de koning en keurde ze de belangrijkste wetten goed. Hoewel haar macht beperkt was, legde ze het principe vast dat het Romeinse volk inspraak had in het bestuur — een principe dat in de Republiek sterk zou worden uitgebreid.</p>
+      </div>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: het vroege Rome met de zeven heuvels">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Schematische kaart van vroeg Rome (ca. 6de eeuw v.Chr.) met de zeven heuvels aangeduid: Palatijn, Aventijn, Capitool, Quirinaal, Viminaal, Esquilijn en Caelius. De Tiber slingert langs de westkant. Het Forum Romanum ligt in de laagte tussen de heuvels. De Cloaca Maxima draineert de moerassen. Een kleine markering toont waar de vijgenboom <em>ficus Ruminalis</em> uit de mythe zou hebben gestaan.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#x1F4AD; Denkvraag</div>
+      <p class="dv-text">De Romeinen verdreven hun laatste koning omdat hij zich gedroeg als een tiran. Maar ze kozen niet voor een democratie zoals Athene. Ze kozen voor twee consuls en een senaat. Wat zegt dit over hoe de Romeinen macht wilden verdelen? Vergelijk dit met hoe wij vandaag macht verdelen in ons politiek systeem.</p>
+    </div>
+  </section>
+
+</div><!-- end page-wrapper -->
+
+<!-- ============================================================
+     EXERCISES
+============================================================ -->
+<div class="exercises-section" id="oefeningen">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <div class="exercise-card">
+      <div class="ex-title">Oefening 1</div>
+      <div class="ex-name">Mythe ontleden</div>
+      <p style="font-size:0.97rem;color:var(--text-mid);margin-bottom:0.7rem;">Lees het verhaal van Romulus en Remus opnieuw. Beantwoord de volgende vragen.</p>
+      <ol>
+        <li>Waarom zijn Romulus en Remus te water gelaten? Wie gaf de opdracht en waarom?</li>
+        <li>Welke drie elementen in het verhaal wijzen op een <em>goddelijke oorsprong</em> van Rome?</li>
+        <li>Historici zeggen dat Rome vermoedelijk groeide uit samenvloeiende Latijnse en Sabijnse nederzettingen. Hoe verklaart dit de mythe anders dan het verhaal zelf doet?</li>
+        <li>Waarom was het voor de Romeinen belangrijk dat hun stichter een zoon van Mars was?</li>
+      </ol>
+      <p class="ex-tip">Tip: denk aan legitimiteit. Wie geeft een leider het recht om te regeren?</p>
+    </div>
+
+    <div class="exercise-card">
+      <div class="ex-title">Oefening 2</div>
+      <div class="ex-name">Etrusken en Grieken vergelijken</div>
+      <p style="font-size:0.97rem;color:var(--text-mid);margin-bottom:0.7rem;">Maak een overzichtstabel met twee kolommen: Etrusken en Grieken. Vul in welke invloed elke beschaving had op Rome op de volgende gebieden.</p>
+      <ol>
+        <li>Architectuur</li>
+        <li>Religie en rituelen</li>
+        <li>Schrift en taal</li>
+        <li>Kunst</li>
+      </ol>
+      <p class="ex-tip">Tip: sommige invloeden kwamen indirect — de Grieken via de Etrusken, of de Etrusken via de Grieken. Noteer dit ook in je tabel.</p>
+    </div>
+
+    <div class="exercise-card">
+      <div class="ex-title">Oefening 3</div>
+      <div class="ex-name">Het bestuur van de vroege stad</div>
+      <p style="font-size:0.97rem;color:var(--text-mid);margin-bottom:0.7rem;">In de koningstijd hadden drie instellingen macht: de <em>rex</em>, de <em>senaat</em> en de <em>volksvergadering</em>.</p>
+      <ol>
+        <li>Leg in eigen woorden uit wat de taak was van elk van deze drie instellingen.</li>
+        <li>Waarom was Tarquinius Superbus een "slechte" koning, als je kijkt naar het systeem van gedeelde macht?</li>
+        <li>Rome koos na 509 v.Chr. voor twee consuls in plaats van één koning. Waarom twee? Wat is het voordeel van twee bestuurders met vetorecht tegenover elkaar?</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     SUMMARY
+============================================================ -->
+<div class="summary-section" id="samenvatting">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li>Volgens de mythe werd Rome gesticht in <strong>753 v.Chr.</strong> door <strong>Romulus</strong>, afstammeling van Mars, na de dood van zijn tweelingbroer Remus. De mythe legitimeerde de goddelijke oorsprong van Rome en zijn machtsaanspraken.</li>
+      <li>Historisch gezien groeide Rome waarschijnlijk uit een <strong>fusie van Latijnse en Sabijnse nederzettingen</strong> op de zeven heuvels langs de Tiber. De ligging op een strategisch kruispunt — handelsroutes, bevaarbare rivier, beschermende heuvels — was de werkelijke sleutel tot de groei van de stad.</li>
+      <li>De <strong>Etrusken</strong> (Noord-Italië) gaven Rome stadsplanning, rioleringen, boogarchitectuur, het schrift (waaruit het Latijn groeide) en religieuze rituelen. De laatste drie koningen van Rome waren van Etruskische afkomst.</li>
+      <li>De <strong>Grieken</strong> van <strong>Magna Graecia</strong> (Zuid-Italië en Sicilië) beïnvloedden Rome via kunst, architectuur, mythologie — de Griekse goden kregen Latijnse namen — en het alfabet, dat via de Etrusken bij de Romeinen terechtkwam.</li>
+      <li>In de <strong>koningstijd</strong> (753–509 v.Chr.) werd Rome bestuurd door zeven koningen (<em>rex</em>), gecontroleerd door een <strong>senaat</strong> van patriciërs en een <strong>volksvergadering</strong>. Dit driedeling van bestuur was de kiem van de latere Republiek.</li>
+      <li>In <strong>509 v.Chr.</strong> verdreven de Romeinse adel de tiran Tarquinius Superbus. De monarchie maakte plaats voor de <em>res publica</em> — de <strong>Republiek</strong>.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  // Back to top button
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) {
+        btn.classList.add('visible');
+      } else {
+        btn.classList.remove('visible');
+      }
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>
