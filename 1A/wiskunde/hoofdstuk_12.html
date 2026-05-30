@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H12 — Inhoud en eenheden | Wiskunde 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     ILLUSTRATIE PLACEHOLDERS
+  ============================================================ */
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+    cursor: default;
+    transition: background var(--transition);
+  }
+
+  .illustratie:hover { background: #EDE7D8; }
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     WISKUNDE-SPECIFIC COMPONENTS
+  ============================================================ */
+  .rekenvoorbeeld { background:white; border:1px solid var(--sand); border-top:4px solid var(--oker); border-radius:var(--border-radius); padding:1.8rem 2rem; margin:2rem 0; box-shadow:var(--shadow-sm); }
+  .rekenvoorbeeld .rv-label { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--oker); display:block; margin-bottom:0.35rem; }
+  .rekenvoorbeeld .rv-vraag { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:700; color:var(--darkblue); margin-bottom:1rem; line-height:1.4; }
+  .rv-stappen { list-style:none; padding:0; counter-reset:stap-teller; margin-bottom:1rem; }
+  .rv-stappen li { counter-increment:stap-teller; padding:0.6rem 0.8rem 0.6rem 3.2rem; position:relative; background:var(--creme); border-radius:4px; margin-bottom:0.4rem; font-size:0.97rem; }
+  .rv-stappen li::before { content:counter(stap-teller); position:absolute; left:0.6rem; top:50%; transform:translateY(-50%); background:var(--darkblue); color:white; width:1.7rem; height:1.7rem; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:700; }
+  .rv-antwoord { background:var(--darkblue); color:var(--gold); padding:0.75rem 1.1rem; border-radius:4px; font-weight:700; font-size:1rem; }
+  .stelling { background:#EEF3FF; border-left:4px solid var(--darkblue); border-radius:0 var(--border-radius) var(--border-radius) 0; padding:1.2rem 1.5rem; margin:1.5rem 0; }
+  .stelling .st-label { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--darkblue); opacity:0.7; display:block; margin-bottom:0.35rem; }
+  .stelling .st-body { font-size:0.97rem; color:var(--text-dark); }
+  .formule { background:var(--darkblue); border-radius:var(--border-radius); padding:1.4rem 1.8rem; text-align:center; margin:1.8rem 0; }
+  .formule math { color:white; font-size:1.2rem; }
+  .formule .formule-naam { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--gold); opacity:0.8; display:block; margin-bottom:0.5rem; }
+  .svg-container { margin:1.8rem 0; padding:1.5rem; background:white; border:1px solid var(--sand); border-radius:var(--border-radius); overflow-x:auto; text-align:center; }
+  .svg-container .svg-caption { font-size:0.85rem; color:var(--text-light); font-style:italic; display:block; margin-top:0.75rem; }
+
+  /* chapter-intro helper */
+  .chapter-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--oker);
+    margin: 3rem 0 0.5rem;
+  }
+  .chapter-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+  .chapter-intro {
+    font-size: 1.08rem;
+    color: var(--text-mid);
+    line-height: 1.8;
+    max-width: 720px;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  /* ============================================================
+     CONVERSION TABLE
+  ============================================================ */
+  .conv-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.6rem 0;
+    font-size: 0.95rem;
+  }
+  .conv-table thead th {
+    background: var(--darkblue);
+    color: var(--gold);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.7rem 1rem;
+    text-align: left;
+  }
+  .conv-table tbody tr:nth-child(odd) { background: var(--creme); }
+  .conv-table tbody tr:nth-child(even) { background: var(--sand-light); }
+  .conv-table tbody tr:hover { background: #EDE7D8; }
+  .conv-table td {
+    padding: 0.65rem 1rem;
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+    color: var(--text-mid);
+    vertical-align: middle;
+  }
+  .conv-table td:first-child { font-weight: 700; color: var(--darkblue); }
+  .conv-table td strong { color: var(--terracotta); }
+
+  /* summary formula table */
+  .sum-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.4rem 0 2rem;
+    font-size: 0.95rem;
+  }
+  .sum-table thead th {
+    background: rgba(212,160,23,0.2);
+    color: var(--gold);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.6rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+  .sum-table tbody tr { border-bottom: 1px solid rgba(212,160,23,0.15); }
+  .sum-table td {
+    padding: 0.6rem 1rem;
+    color: rgba(250,246,239,0.9);
+    vertical-align: middle;
+  }
+  .sum-table td:first-child { color: var(--gold); font-weight: 700; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <span class="label">Wiskunde 1A</span>
+  <span class="label label-right">H12 &mdash; Inhoud en eenheden</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Wiskunde &nbsp;&middot;&nbsp; 1A &nbsp;&middot;&nbsp; Eerste graad</div>
+  <h1>Inhoud en eenheden</h1>
+  <p class="subtitle">Van zwembaden tot ijshoorntjes &mdash; de ruimte die 3D-figuren innemen</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- CHAPTER INTRO -->
+  <div class="chapter-label">Hoofdstuk 12</div>
+  <h1 class="chapter-title">Inhoud en eenheden</h1>
+  <p class="chapter-intro">Hoeveel water past er in een zwembad? Hoeveel verf heb je nodig voor een cilindervormig opslagvat? Inhoud (volume) beschrijft hoeveel ruimte een 3D-figuur inneemt. In dit hoofdstuk leer je de formules voor de meest voorkomende ruimtelijke figuren en oefen je met eenhedenconversies.</p>
+
+  <!-- ============================================================
+       SECTIE 1: WAT IS INHOUD?
+  ============================================================ -->
+  <section class="section-block" id="wat-is-inhoud">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Wat is inhoud (volume)?</h2>
+    </div>
+
+    <p>Als je een doos vult met kleine blokjes van 1 cm &times; 1 cm &times; 1 cm, dan geeft het aantal blokjes dat past de <strong>inhoud</strong> (of het <strong>volume</strong>) aan. Volume is een maat voor de hoeveelheid driedimensionale ruimte die een figuur of voorwerp inneemt.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9645;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Inhoud (volume)</span>
+        <p class="begrip-def">De inhoud of het volume van een ruimtelijke figuur is de maat voor de hoeveelheid driedimensionale ruimte die die figuur inneemt. Volume wordt uitgedrukt in kubieke eenheden.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Eenheden van inhoud</h3>
+
+    <p>Net zoals we voor oppervlakte vierkante eenheden gebruiken (cm², m², &hellip;), gebruiken we voor inhoud <strong>kubieke eenheden</strong>. De eenheid hangt af van de grootte van het object:</p>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.45rem"><strong>mm³</strong> &mdash; kubieke millimeter, voor zeer kleine voorwerpen</li>
+      <li style="margin-bottom:0.45rem"><strong>cm³</strong> &mdash; kubieke centimeter, voor kleine voorwerpen (bv. een ijsblokje)</li>
+      <li style="margin-bottom:0.45rem"><strong>dm³</strong> &mdash; kubieke decimeter, gelijk aan 1 liter (bv. een melkpak)</li>
+      <li><strong>m³</strong> &mdash; kubieke meter, voor grote ruimten (bv. een kamer of zwembad)</li>
+    </ul>
+
+    <h3 class="sub-heading">Conversietabel voor inhoud en capaciteit</h3>
+
+    <table class="conv-table">
+      <thead>
+        <tr>
+          <th>Eenheid</th>
+          <th>Gelijk aan</th>
+          <th>Ook gelijk aan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1 m³</td>
+          <td><strong>1 000</strong> dm³</td>
+          <td>1 000 000 cm³</td>
+        </tr>
+        <tr>
+          <td>1 dm³</td>
+          <td><strong>1 liter</strong> (l)</td>
+          <td>1 000 cm³</td>
+        </tr>
+        <tr>
+          <td>1 cm³</td>
+          <td><strong>1 ml</strong> (milliliter)</td>
+          <td>0,001 liter</td>
+        </tr>
+        <tr>
+          <td>1 liter</td>
+          <td><strong>1 000 ml</strong></td>
+          <td>1 dm³ = 1 000 cm³</td>
+        </tr>
+        <tr>
+          <td>1 cl (centiliter)</td>
+          <td><strong>10 ml</strong></td>
+          <td>10 cm³</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="stelling">
+      <span class="st-label">Sleutelrelatie &mdash; Inhoud en capaciteit</span>
+      <p class="st-body">
+        <strong>1 dm³ = 1 liter</strong> &mdash; dit is de brug tussen kubieke eenheden en vloeistofmaten.<br><br>
+        Van grotere naar kleinere eenheid: <strong>vermenigvuldig</strong> met 1 000.<br>
+        Van kleinere naar grotere eenheid: <strong>deel</strong> door 1 000.<br><br>
+        Voorbeeld: 3,5 m³ = 3 500 dm³ = 3 500 liter = 3 500 000 cm³
+      </p>
+    </div>
+
+    <h3 class="sub-heading">Relatie tussen inhoud en massa: dichtheid</h3>
+
+    <p>Als je weet hoe zwaar een stof is per volume-eenheid, kun je de massa berekenen. Dit noemen we de <strong>dichtheid</strong> (&rho;, uitgesproken als &ldquo;rho&rdquo;).</p>
+
+    <div class="formule">
+      <span class="formule-naam">Formule &mdash; Dichtheid</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <mi>&rho;</mi>
+          <mo>=</mo>
+          <mfrac>
+            <mi>m</mi>
+            <mi>V</mi>
+          </mfrac>
+        </mrow>
+      </math>
+    </div>
+
+    <p>Hierbij is <em>&rho;</em> de dichtheid (in kg/m³ of g/cm³), <em>m</em> de massa (in kg of g) en <em>V</em> het volume (in m³ of cm³). Water heeft een dichtheid van 1 g/cm³ (of 1 000 kg/m³): 1 cm³ water weegt precies 1 gram. Dit maakt de rekening handig: 1 liter water weegt 1 kilogram.</p>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Een ijsblokje heeft een volume van 8 cm³. IJswater heeft een dichtheid van 0,92 g/cm³. Wat is de massa van het ijsblokje? En als het smelt en water wordt (dichtheid 1 g/cm³), neemt het dan meer of minder volume in?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 2: PRISMA'S EN KUBUS
+  ============================================================ -->
+  <section class="section-block" id="prismas">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Inhoud van prisma&apos;s en de kubus</h2>
+    </div>
+
+    <p>Een <strong>prisma</strong> is een ruimtelijk figuur met twee gelijke en evenwijdige vlakke grondvlakken die met rechthoekige zijvlakken verbonden zijn. De basisformule voor de inhoud van elk prisma is:</p>
+
+    <div class="formule">
+      <span class="formule-naam">Basisformule &mdash; Prisma</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <mi>V</mi>
+          <mo>=</mo>
+          <msub><mi>A</mi><mtext>grond</mtext></msub>
+          <mo>&times;</mo>
+          <mi>H</mi>
+        </mrow>
+      </math>
+    </div>
+
+    <p>Hierbij is <em>A</em><sub>grond</sub> de oppervlakte van het grondvlak en <em>H</em> de hoogte van het prisma (de loodrechte afstand tussen de twee grondvlakken).</p>
+
+    <h3 class="sub-heading">Quader (rechthoekig blok / balk)</h3>
+
+    <p>Een <strong>quader</strong> (ook wel <em>balk</em> of <em>rechthoekig blok</em> genoemd) heeft een rechthoekig grondvlak. De inhoud is het product van lengte, breedte en hoogte.</p>
+
+    <div class="formule">
+      <span class="formule-naam">Formule &mdash; Quader / Balk</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <mi>V</mi>
+          <mo>=</mo>
+          <mi>l</mi>
+          <mo>&times;</mo>
+          <mi>b</mi>
+          <mo>&times;</mo>
+          <mi>h</mi>
+        </mrow>
+      </math>
+    </div>
+
+    <!-- SVG: Gelabelde quader -->
+    <div class="svg-container">
+      <svg viewBox="0 0 420 220" width="100%" style="max-width:420px" role="img" aria-labelledby="quader-title">
+        <title id="quader-title">Isometrische tekening van een quader met dimensies l (lengte), b (breedte) en h (hoogte)</title>
+        <!-- Bovenvlak (parallellogram) -->
+        <polygon points="130,40 310,40 380,100 200,100" fill="#C8D8F0" stroke="#1A2B4A" stroke-width="2" stroke-linejoin="round"/>
+        <!-- Voorvlak (rechthoek) -->
+        <polygon points="130,40 130,180 200,180 200,100" fill="#EEF3FF" stroke="#1A2B4A" stroke-width="2" stroke-linejoin="round"/>
+        <!-- Rechterzijvlak -->
+        <polygon points="200,100 200,180 380,180 380,100" fill="#D8E4F4" stroke="#1A2B4A" stroke-width="2" stroke-linejoin="round"/>
+        <!-- Verborgen ribben (gestippeld) -->
+        <line x1="130" y1="40" x2="310" y2="40" stroke="#1A2B4A" stroke-width="1" stroke-dasharray="none"/>
+        <line x1="310" y1="40" x2="310" y2="180" stroke="#1A2B4A" stroke-width="1" stroke-dasharray="5,4"/>
+        <line x1="130" y1="180" x2="310" y2="180" stroke="#1A2B4A" stroke-width="2"/>
+        <line x1="310" y1="180" x2="380" y2="180" stroke="#1A2B4A" stroke-width="2"/>
+        <!-- Dimensie-pijlen en labels -->
+        <!-- l: langs de bodem van het voorvlak -->
+        <line x1="130" y1="196" x2="200" y2="196" stroke="#C1440E" stroke-width="1.5" marker-end="url(#arrow-red)" marker-start="url(#arrow-red-start)"/>
+        <!-- b: langs de onderzijde naar rechts -->
+        <line x1="200" y1="196" x2="380" y2="196" stroke="#C8923A" stroke-width="1.5" marker-end="url(#arrow-oker)" marker-start="url(#arrow-oker-start)"/>
+        <!-- h: langs het voorvlak verticaal -->
+        <line x1="110" y1="40" x2="110" y2="180" stroke="#1A2B4A" stroke-width="1.5" marker-end="url(#arrow-blue)" marker-start="url(#arrow-blue-start)"/>
+        <!-- Labels -->
+        <text x="163" y="212" font-family="'Playfair Display', serif" font-size="15" fill="#C1440E" text-anchor="middle" font-style="italic">l</text>
+        <text x="290" y="212" font-family="'Playfair Display', serif" font-size="15" fill="#C8923A" text-anchor="middle" font-style="italic">b</text>
+        <text x="94" y="114" font-family="'Playfair Display', serif" font-size="15" fill="#1A2B4A" text-anchor="middle" font-style="italic">h</text>
+        <!-- Arrowhead defs -->
+        <defs>
+          <marker id="arrow-red" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="#C1440E"/>
+          </marker>
+          <marker id="arrow-red-start" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto-start-reverse">
+            <path d="M0,0 L6,3 L0,6 Z" fill="#C1440E"/>
+          </marker>
+          <marker id="arrow-oker" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="#C8923A"/>
+          </marker>
+          <marker id="arrow-oker-start" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto-start-reverse">
+            <path d="M0,0 L6,3 L0,6 Z" fill="#C8923A"/>
+          </marker>
+          <marker id="arrow-blue" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="#1A2B4A"/>
+          </marker>
+          <marker id="arrow-blue-start" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto-start-reverse">
+            <path d="M0,0 L6,3 L0,6 Z" fill="#1A2B4A"/>
+          </marker>
+        </defs>
+      </svg>
+      <span class="svg-caption">Een quader met lengte <em>l</em>, breedte <em>b</em> en hoogte <em>h</em>. Het grondvlak is een rechthoek met oppervlakte <em>l</em> &times; <em>b</em>.</span>
+    </div>
+
+    <h3 class="sub-heading">Kubus</h3>
+
+    <p>Een <strong>kubus</strong> is een speciaal geval van de quader waarbij alle ribben gelijk zijn. Als de riblengte <em>z</em> is, dan geldt:</p>
+
+    <div class="formule">
+      <span class="formule-naam">Formule &mdash; Kubus</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <mi>V</mi>
+          <mo>=</mo>
+          <msup><mi>z</mi><mn>3</mn></msup>
+        </mrow>
+      </math>
+    </div>
+
+    <p>Dit lees je als &ldquo;<em>z</em> tot de derde macht&rdquo; of &ldquo;<em>z</em> hoog 3&rdquo;. Vandaar ook de naam &ldquo;derde macht&rdquo;: het is het volume van een kubus met riblengte <em>z</em>.</p>
+
+    <h3 class="sub-heading">Driehoekig prisma</h3>
+
+    <p>Als het grondvlak een driehoek is met basis <em>g</em> en hoogte <em>h</em><sub>grond</sub>, dan is de oppervlakte van het grondvlak
+    <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>1</mn><mn>2</mn></mfrac></math>
+    &times; <em>g</em> &times; <em>h</em><sub>grond</sub>.</p>
+
+    <div class="formule">
+      <span class="formule-naam">Formule &mdash; Driehoekig prisma</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <mi>V</mi>
+          <mo>=</mo>
+          <mfrac><mn>1</mn><mn>2</mn></mfrac>
+          <mo>&times;</mo>
+          <mi>g</mi>
+          <mo>&times;</mo>
+          <msub><mi>h</mi><mtext>gr</mtext></msub>
+          <mo>&times;</mo>
+          <mi>H</mi>
+        </mrow>
+      </math>
+    </div>
+
+    <!-- REKENVOORBEELD 1: balk -->
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Bereken de inhoud van een balk met afmetingen 6 cm &times; 4 cm &times; 3 cm.</p>
+      <ul class="rv-stappen">
+        <li>Schrijf de formule op: V = l &times; b &times; h</li>
+        <li>Vul in: V = 6 cm &times; 4 cm &times; 3 cm</li>
+        <li>Bereken: V = 24 cm² &times; 3 cm = 72 cm³</li>
+      </ul>
+      <p class="rv-antwoord">Antwoord: V = 72 cm³</p>
+    </div>
+
+    <!-- REKENVOORBEELD 2: aquarium -->
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld &mdash; Aquarium</span>
+      <p class="rv-vraag">Een aquarium is 80 cm lang, 40 cm breed en 50 cm hoog. Hoeveel liter water past erin (wanneer volledig gevuld)?</p>
+      <ul class="rv-stappen">
+        <li>Formule: V = l &times; b &times; h</li>
+        <li>Vul in: V = 80 &times; 40 &times; 50 = 160 000 cm³</li>
+        <li>Omzetten naar liter: 1 liter = 1 000 cm³, dus 160 000 cm³ &divide; 1 000 = 160 liter</li>
+      </ul>
+      <p class="rv-antwoord">Antwoord: 160 000 cm³ = 160 liter</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 3: CILINDER EN KEGEL
+  ============================================================ -->
+  <section class="section-block" id="cilinder-kegel">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Inhoud van cilinder en kegel</h2>
+    </div>
+
+    <p>Een <strong>cilinder</strong> heeft twee cirkelvormige grondvlakken en een gebogen zijvlak. Een <strong>kegel</strong> heeft &eacute;&eacute;n cirkelvormig grondvlak en loopt toe naar een punt (de top).</p>
+
+    <div class="formule">
+      <span class="formule-naam">Formule &mdash; Cilinder</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <mi>V</mi>
+          <mo>=</mo>
+          <mi>&pi;</mi>
+          <msup><mi>r</mi><mn>2</mn></msup>
+          <mi>h</mi>
+        </mrow>
+      </math>
+    </div>
+
+    <div class="formule">
+      <span class="formule-naam">Formule &mdash; Kegel</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <mi>V</mi>
+          <mo>=</mo>
+          <mfrac><mn>1</mn><mn>3</mn></mfrac>
+          <mi>&pi;</mi>
+          <msup><mi>r</mi><mn>2</mn></msup>
+          <mi>h</mi>
+        </mrow>
+      </math>
+    </div>
+
+    <div class="stelling">
+      <span class="st-label">Stelling &mdash; Verhouding kegel en cilinder</span>
+      <p class="st-body">Een kegel met dezelfde straal <em>r</em> en dezelfde hoogte <em>h</em> als een cilinder heeft precies <strong>1/3 van de inhoud</strong> van die cilinder.<br><br>
+      Je hebt dus precies drie kegels nodig om een cilinder te vullen met dezelfde <em>r</em> en <em>h</em>. Dit kan je zelf bewijzen door de formules te vergelijken: V<sub>kegel</sub> = &frac13; &times; V<sub>cilinder</sub>.
+      </p>
+    </div>
+
+    <!-- SVG: cilinder en kegel naast elkaar met 1:3 verhouding -->
+    <div class="svg-container">
+      <svg viewBox="0 0 460 240" width="100%" style="max-width:460px" role="img" aria-labelledby="cil-kegel-title">
+        <title id="cil-kegel-title">Cilinder en kegel naast elkaar met gelijke straal r en hoogte h, waarbij de kegel 1/3 van de cilinder vult</title>
+        <!-- Cilinder (links) -->
+        <!-- Onderste ellips -->
+        <ellipse cx="115" cy="190" rx="70" ry="22" fill="#C8D8F0" stroke="#1A2B4A" stroke-width="2"/>
+        <!-- Cilinderlichaam -->
+        <rect x="45" y="60" width="140" height="130" fill="#D8E8FF" stroke="none"/>
+        <line x1="45" y1="60" x2="45" y2="190" stroke="#1A2B4A" stroke-width="2"/>
+        <line x1="185" y1="60" x2="185" y2="190" stroke="#1A2B4A" stroke-width="2"/>
+        <!-- Bovenste ellips -->
+        <ellipse cx="115" cy="60" rx="70" ry="22" fill="#A8C0E8" stroke="#1A2B4A" stroke-width="2"/>
+        <!-- Straal label r -->
+        <line x1="115" y1="60" x2="185" y2="60" stroke="#C1440E" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <text x="150" y="52" font-family="'Playfair Display', serif" font-size="14" fill="#C1440E" font-style="italic">r</text>
+        <!-- Hoogte label h -->
+        <line x1="198" y1="60" x2="198" y2="190" stroke="#1A2B4A" stroke-width="1.5"/>
+        <text x="208" y="130" font-family="'Playfair Display', serif" font-size="14" fill="#1A2B4A" font-style="italic">h</text>
+        <!-- Cilinder label -->
+        <text x="115" y="222" font-family="'Source Sans 3', sans-serif" font-size="12" fill="#1A2B4A" text-anchor="middle" font-weight="700">Cilinder</text>
+        <text x="115" y="236" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#1A2B4A" text-anchor="middle">V = &pi;r&#xB2;h</text>
+
+        <!-- = teken -->
+        <text x="228" y="128" font-family="'Playfair Display', serif" font-size="22" fill="#C8923A" text-anchor="middle">&#x2260;</text>
+        <text x="228" y="148" font-family="'Source Sans 3', sans-serif" font-size="10" fill="#C8923A" text-anchor="middle">&#xBC; &rarr;</text>
+
+        <!-- Kegel (rechts) -->
+        <!-- Grondvlak ellips -->
+        <ellipse cx="345" cy="190" rx="70" ry="22" fill="#F0D8A8" stroke="#1A2B4A" stroke-width="2"/>
+        <!-- Kegel driehoek -->
+        <polygon points="345,50 275,190 415,190" fill="#F8E8C0" stroke="#1A2B4A" stroke-width="2" stroke-linejoin="round"/>
+        <!-- Straal label r -->
+        <line x1="345" y1="190" x2="415" y2="190" stroke="#C1440E" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <text x="382" y="208" font-family="'Playfair Display', serif" font-size="14" fill="#C1440E" font-style="italic">r</text>
+        <!-- Hoogte label h -->
+        <line x1="428" y1="50" x2="428" y2="190" stroke="#1A2B4A" stroke-width="1.5"/>
+        <text x="438" y="125" font-family="'Playfair Display', serif" font-size="14" fill="#1A2B4A" font-style="italic">h</text>
+        <!-- Kegel label -->
+        <text x="345" y="222" font-family="'Source Sans 3', sans-serif" font-size="12" fill="#1A2B4A" text-anchor="middle" font-weight="700">Kegel</text>
+        <text x="345" y="236" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#1A2B4A" text-anchor="middle">V = &frac13;&pi;r&#xB2;h</text>
+
+        <!-- Verhouding label -->
+        <text x="228" y="22" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#C8923A" text-anchor="middle" font-weight="700">Kegel = &frac13; Cilinder</text>
+        <text x="228" y="36" font-family="'Source Sans 3', sans-serif" font-size="10" fill="#C8923A" text-anchor="middle">(zelfde r en h)</text>
+      </svg>
+      <span class="svg-caption">Cilinder en kegel met gelijke straal <em>r</em> en hoogte <em>h</em>. De kegel heeft precies &frac13; van de inhoud van de cilinder.</span>
+    </div>
+
+    <!-- REKENVOORBEELD: cilinder -->
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld &mdash; Cilinder</span>
+      <p class="rv-vraag">Bereken de inhoud van een cilinder met straal 5 cm en hoogte 12 cm. Gebruik &pi; &asymp; 3,1416.</p>
+      <ul class="rv-stappen">
+        <li>Formule: V = &pi;r²h</li>
+        <li>Vul in: V = &pi; &times; 5² &times; 12 = &pi; &times; 25 &times; 12</li>
+        <li>Bereken: V = 300&pi; &asymp; 300 &times; 3,1416 &asymp; 942,5 cm³</li>
+      </ul>
+      <p class="rv-antwoord">Antwoord: V = 300&pi; &asymp; 942,5 cm³</p>
+    </div>
+
+    <!-- REKENVOORBEELD: kegel -->
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld &mdash; Kegel</span>
+      <p class="rv-vraag">Bereken de inhoud van een kegel met straal 3 cm en hoogte 8 cm.</p>
+      <ul class="rv-stappen">
+        <li>Formule: V = &frac13;&pi;r²h</li>
+        <li>Vul in: V = &frac13; &times; &pi; &times; 3² &times; 8 = &frac13; &times; &pi; &times; 9 &times; 8</li>
+        <li>Bereken: V = &frac13; &times; 72&pi; = 24&pi; &asymp; 24 &times; 3,1416 &asymp; 75,4 cm³</li>
+      </ul>
+      <p class="rv-antwoord">Antwoord: V = 24&pi; &asymp; 75,4 cm³</p>
+    </div>
+
+    <!-- Toepassingsvraag: ijshoorntje -->
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld &mdash; IJshoorntje</span>
+      <p class="rv-vraag">Een ijshoorntje heeft de vorm van een kegel met straal 3,5 cm en hoogte 14 cm. Hoeveel cm³ ijs past er maximaal in het hoorntje?</p>
+      <ul class="rv-stappen">
+        <li>Formule: V = &frac13;&pi;r²h</li>
+        <li>Vul in: V = &frac13; &times; &pi; &times; 3,5² &times; 14 = &frac13; &times; &pi; &times; 12,25 &times; 14</li>
+        <li>Bereken: V = &frac13; &times; 171,5&pi; = 57,17&pi; &asymp; 179,6 cm³</li>
+      </ul>
+      <p class="rv-antwoord">Antwoord: V &asymp; 179,6 cm³ ijs past maximaal in het hoorntje.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 4: BOL
+  ============================================================ -->
+  <section class="section-block" id="bol">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Inhoud van de bol</h2>
+    </div>
+
+    <p>Een <strong>bol</strong> is de verzameling van alle punten in de ruimte die op gelijke afstand (de straal <em>r</em>) liggen van een vast middelpunt. De Griekse wiskundige en uitvinder <strong>Archimedes</strong> (287&ndash;212 v.C.) berekende als eerste de inhoud van een bol. Het resultaat staat op zijn grafsteen: de bol past precies in een cilinder met dezelfde straal en hoogte 2<em>r</em>, en vult daar precies ⅔ van.</p>
+
+    <div class="formule">
+      <span class="formule-naam">Formule &mdash; Bol (Archimedes)</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <mi>V</mi>
+          <mo>=</mo>
+          <mfrac><mn>4</mn><mn>3</mn></mfrac>
+          <mi>&pi;</mi>
+          <msup><mi>r</mi><mn>3</mn></msup>
+        </mrow>
+      </math>
+    </div>
+
+    <div class="stelling">
+      <span class="st-label">Stelling &mdash; Archimedes en de bol</span>
+      <p class="st-body">Archimedes bewees dat een bol met straal <em>r</em> precies <strong>⅔ van de inhoud</strong> heeft van de kleinste cilinder die de bol omsluit (straal <em>r</em>, hoogte 2<em>r</em>). Hij beschouwde dit als zijn mooiste ontdekking. De formule V = <mfrac xmlns="http://www.w3.org/1998/Math/MathML"><mn>4</mn><mn>3</mn></mfrac>&pi;r³ geldt voor elke bol.</p>
+    </div>
+
+    <!-- SVG: bol met straal gelabeld -->
+    <div class="svg-container">
+      <svg viewBox="0 0 280 240" width="100%" style="max-width:280px" role="img" aria-labelledby="bol-title">
+        <title id="bol-title">Een bol met middelpunt en straal r gelabeld</title>
+        <!-- Schaduw/gloed -->
+        <ellipse cx="140" cy="210" rx="80" ry="12" fill="rgba(26,43,74,0.12)"/>
+        <!-- Bol -->
+        <circle cx="140" cy="115" r="90" fill="url(#bol-grad)" stroke="#1A2B4A" stroke-width="2"/>
+        <!-- Equator ellips (gestippeld) -->
+        <ellipse cx="140" cy="115" rx="90" ry="28" fill="none" stroke="#1A2B4A" stroke-width="1.2" stroke-dasharray="6,4"/>
+        <!-- Straal -->
+        <line x1="140" y1="115" x2="215" y2="78" stroke="#C1440E" stroke-width="2"/>
+        <circle cx="140" cy="115" r="4" fill="#C1440E"/>
+        <!-- Labels -->
+        <text x="182" y="86" font-family="'Playfair Display', serif" font-size="15" fill="#C1440E" font-style="italic">r</text>
+        <text x="140" y="130" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#1A2B4A" text-anchor="middle" opacity="0.6">M</text>
+        <!-- Gradient def -->
+        <defs>
+          <radialGradient id="bol-grad" cx="38%" cy="35%" r="62%">
+            <stop offset="0%" stop-color="#A8C8F0"/>
+            <stop offset="60%" stop-color="#6090C8"/>
+            <stop offset="100%" stop-color="#1A2B4A"/>
+          </radialGradient>
+        </defs>
+      </svg>
+      <span class="svg-caption">Een bol met middelpunt M en straal <em>r</em>. De gestippelde lijn is de evenaar (equator).</span>
+    </div>
+
+    <!-- REKENVOORBEELD: voetbal -->
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld &mdash; Voetbal</span>
+      <p class="rv-vraag">Een voetbal heeft een straal van 11 cm. Bereken de inhoud.</p>
+      <ul class="rv-stappen">
+        <li>Formule: V = <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>4</mn><mn>3</mn></mfrac></math>&pi;r³</li>
+        <li>Vul in: V = <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>4</mn><mn>3</mn></mfrac></math> &times; &pi; &times; 11³</li>
+        <li>Bereken: 11³ = 1 331, dus V = <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>4</mn><mn>3</mn></mfrac></math> &times; 1 331 &times; &pi; &asymp; <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>5 324</mn><mn>3</mn></mfrac></math> &times; &pi;</li>
+        <li>&asymp; 1 774,67 &times; 3,1416 &asymp; 5 575 cm³</li>
+      </ul>
+      <p class="rv-antwoord">Antwoord: V &asymp; 5 575 cm³</p>
+    </div>
+
+    <!-- REKENVOORBEELD: straal berekenen uit volume -->
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld &mdash; Straal berekenen</span>
+      <p class="rv-vraag">De inhoud van een bol bedraagt 288&pi; cm³. Bepaal de straal.</p>
+      <ul class="rv-stappen">
+        <li>Formule: V = <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>4</mn><mn>3</mn></mfrac></math>&pi;r³, en V = 288&pi;</li>
+        <li>Stel gelijk: <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>4</mn><mn>3</mn></mfrac></math>&pi;r³ = 288&pi;</li>
+        <li>Deel beide kanten door &pi;: <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>4</mn><mn>3</mn></mfrac></math>r³ = 288</li>
+        <li>Vermenigvuldig met <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>3</mn><mn>4</mn></mfrac></math>: r³ = 288 &times; <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>3</mn><mn>4</mn></mfrac></math> = 216</li>
+        <li>Derde-machtswortel: r = &#8731;216 = 6 cm (want 6³ = 216)</li>
+      </ul>
+      <p class="rv-antwoord">Antwoord: r = 6 cm</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 5: OPPERVLAKTE VAN RUIMTELIJKE FIGUREN
+  ============================================================ -->
+  <section class="section-block" id="oppervlakte">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Oppervlakte van ruimtelijke figuren</h2>
+    </div>
+
+    <p>Het <strong>totale oppervlak</strong> (TO) van een ruimtelijke figuur is de som van de oppervlakten van alle vlakken (zijvlakken + grondvlakken) samen. Je kunt dit visualiseren door de figuur &ldquo;open te vouwen&rdquo; tot een plat netwerk &mdash; het <strong>uitgebreid oppervlak</strong> of <strong>net</strong>.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9633;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Totaal oppervlak (TO)</span>
+        <p class="begrip-def">Het totaal oppervlak van een ruimtelijk figuur is de totale oppervlakte van alle buitenvlakken samen. Je berekent het door de oppervlakten van alle vlakken op te tellen. Het wordt uitgedrukt in vierkante eenheden (cm², m², &hellip;).</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Quader en kubus</h3>
+
+    <p>Een quader heeft 6 rechthoekige vlakken: twee vlakken van <em>l</em> &times; <em>b</em>, twee van <em>l</em> &times; <em>h</em>, en twee van <em>b</em> &times; <em>h</em>.</p>
+
+    <div class="formule">
+      <span class="formule-naam">Formule &mdash; Totaal oppervlak Quader</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <mtext>TO</mtext>
+          <mo>=</mo>
+          <mn>2</mn>
+          <mo>(</mo>
+          <mi>l</mi><mi>b</mi>
+          <mo>+</mo>
+          <mi>l</mi><mi>h</mi>
+          <mo>+</mo>
+          <mi>b</mi><mi>h</mi>
+          <mo>)</mo>
+        </mrow>
+      </math>
+    </div>
+
+    <div class="formule">
+      <span class="formule-naam">Formule &mdash; Totaal oppervlak Kubus</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <mtext>TO</mtext>
+          <mo>=</mo>
+          <mn>6</mn>
+          <msup><mi>z</mi><mn>2</mn></msup>
+        </mrow>
+      </math>
+    </div>
+
+    <h3 class="sub-heading">Cilinder</h3>
+
+    <p>Een cilinder heeft twee cirkelvormige grondvlakken (elk met oppervlakte &pi;r²) en een gebogen zijvlak. Als je dat zijvlak &ldquo;oprolt&rdquo;, krijg je een rechthoek met breedte <em>h</em> en lengte gelijk aan de omtrek van de cirkel (2&pi;r).</p>
+
+    <div class="formule">
+      <span class="formule-naam">Formule &mdash; Totaal oppervlak Cilinder</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <mtext>TO</mtext>
+          <mo>=</mo>
+          <mn>2</mn><mi>&pi;</mi><msup><mi>r</mi><mn>2</mn></msup>
+          <mo>+</mo>
+          <mn>2</mn><mi>&pi;</mi><mi>r</mi><mi>h</mi>
+          <mo>=</mo>
+          <mn>2</mn><mi>&pi;</mi><mi>r</mi>
+          <mo>(</mo>
+          <mi>r</mi><mo>+</mo><mi>h</mi>
+          <mo>)</mo>
+        </mrow>
+      </math>
+    </div>
+
+    <!-- SVG: net van kubus en cilinder naast elkaar -->
+    <div class="svg-container">
+      <svg viewBox="0 0 500 230" width="100%" style="max-width:500px" role="img" aria-labelledby="net-title">
+        <title id="net-title">Net (uitgebreid oppervlak) van een kubus (6 vierkanten in kruisvorm) en van een cilinder (2 cirkels en een rechthoek)</title>
+
+        <!-- Kubus net: kruisvorm met 6 vierkanten van 48px -->
+        <!-- Vlakken: bovenkant (0,-1), links (-1,0), voor (0,0), rechts (1,0), boven (0,1), onder (0,-1) -->
+        <!-- Kruisvorm: midden op (70,90) -->
+        <g transform="translate(16,10)">
+          <!-- boven (0,0) = (70,42) -->
+          <rect x="46" y="18" width="48" height="48" fill="#A8C0E8" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="70" y="47" font-family="'Source Sans 3', sans-serif" font-size="10" text-anchor="middle" fill="#1A2B4A">boven</text>
+          <!-- links (18,66) -->
+          <rect x="0" y="66" width="48" height="48" fill="#C8D8F0" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="24" y="95" font-family="'Source Sans 3', sans-serif" font-size="10" text-anchor="middle" fill="#1A2B4A">links</text>
+          <!-- voor (46,66) -->
+          <rect x="46" y="66" width="48" height="48" fill="#EEF3FF" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="70" y="95" font-family="'Source Sans 3', sans-serif" font-size="10" text-anchor="middle" fill="#1A2B4A">voor</text>
+          <!-- rechts (94,66) -->
+          <rect x="94" y="66" width="48" height="48" fill="#C8D8F0" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="118" y="95" font-family="'Source Sans 3', sans-serif" font-size="10" text-anchor="middle" fill="#1A2B4A">rechts</text>
+          <!-- achter (142,66) -->
+          <rect x="142" y="66" width="48" height="48" fill="#A8C0E8" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="166" y="95" font-family="'Source Sans 3', sans-serif" font-size="10" text-anchor="middle" fill="#1A2B4A">achter</text>
+          <!-- onder (46,114) -->
+          <rect x="46" y="114" width="48" height="48" fill="#D8E8FF" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="70" y="143" font-family="'Source Sans 3', sans-serif" font-size="10" text-anchor="middle" fill="#1A2B4A">onder</text>
+          <!-- Kubus label -->
+          <text x="95" y="185" font-family="'Source Sans 3', sans-serif" font-size="11" text-anchor="middle" fill="#1A2B4A" font-weight="700">Net van kubus</text>
+          <text x="95" y="198" font-family="'Source Sans 3', sans-serif" font-size="10" text-anchor="middle" fill="#6B5F4A">6 &times; z² = TO</text>
+        </g>
+
+        <!-- Cilinder net: rechthoek + 2 cirkels -->
+        <g transform="translate(260,10)">
+          <!-- Rechthoek (het zijvlak) -->
+          <rect x="20" y="60" width="130" height="70" fill="#F0D8A8" stroke="#C8923A" stroke-width="1.5"/>
+          <text x="85" y="100" font-family="'Source Sans 3', sans-serif" font-size="10" text-anchor="middle" fill="#C8923A">zijvlak</text>
+          <text x="85" y="113" font-family="'Source Sans 3', sans-serif" font-size="9" text-anchor="middle" fill="#C8923A">2&pi;r &times; h</text>
+          <!-- Pijlen voor breedte 2πr -->
+          <text x="85" y="56" font-family="'Source Sans 3', sans-serif" font-size="9" text-anchor="middle" fill="#1A2B4A">2&pi;r</text>
+          <!-- Pijlen voor hoogte h -->
+          <text x="8" y="98" font-family="'Source Sans 3', sans-serif" font-size="9" text-anchor="middle" fill="#1A2B4A">h</text>
+          <!-- Bovenste cirkel -->
+          <ellipse cx="85" cy="44" rx="30" ry="18" fill="#F8E8C0" stroke="#C8923A" stroke-width="1.5"/>
+          <text x="85" y="48" font-family="'Source Sans 3', sans-serif" font-size="9" text-anchor="middle" fill="#C8923A">&#x1f534; &pi;r²</text>
+          <!-- Onderste cirkel -->
+          <ellipse cx="85" cy="146" rx="30" ry="18" fill="#F8E8C0" stroke="#C8923A" stroke-width="1.5"/>
+          <text x="85" y="150" font-family="'Source Sans 3', sans-serif" font-size="9" text-anchor="middle" fill="#C8923A">&#x1f534; &pi;r²</text>
+          <!-- Cilinder net label -->
+          <text x="85" y="185" font-family="'Source Sans 3', sans-serif" font-size="11" text-anchor="middle" fill="#1A2B4A" font-weight="700">Net van cilinder</text>
+          <text x="85" y="198" font-family="'Source Sans 3', sans-serif" font-size="10" text-anchor="middle" fill="#6B5F4A">2&pi;r² + 2&pi;rh = TO</text>
+        </g>
+      </svg>
+      <span class="svg-caption">Net (uitgevouwen) van een kubus (6 vierkante vlakken in kruisvorm) en van een cilinder (2 cirkelvormige grondvlakken + 1 rechthoekig zijvlak).</span>
+    </div>
+
+    <!-- REKENVOORBEELD: kubus TO -->
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld &mdash; Kubus</span>
+      <p class="rv-vraag">Bereken het totale oppervlak van een kubus met riblengte 4 cm.</p>
+      <ul class="rv-stappen">
+        <li>Formule: TO = 6z²</li>
+        <li>Vul in: TO = 6 &times; 4² = 6 &times; 16</li>
+        <li>Bereken: TO = 96 cm²</li>
+      </ul>
+      <p class="rv-antwoord">Antwoord: TO = 96 cm²</p>
+    </div>
+
+    <!-- REKENVOORBEELD: conservenblik -->
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld &mdash; Conservenblik</span>
+      <p class="rv-vraag">Hoeveel blik (in cm²) is nodig voor een cilindervormig conservenblik met straal r = 4 cm en hoogte h = 10 cm?</p>
+      <ul class="rv-stappen">
+        <li>Formule: TO = 2&pi;r² + 2&pi;rh = 2&pi;r(r + h)</li>
+        <li>Vul in: TO = 2 &times; &pi; &times; 4 &times; (4 + 10) = 2 &times; &pi; &times; 4 &times; 14</li>
+        <li>Bereken: TO = 112&pi; &asymp; 112 &times; 3,1416 &asymp; 351,9 cm²</li>
+      </ul>
+      <p class="rv-antwoord">Antwoord: je hebt &asymp; 351,9 cm² blik nodig.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 6: EENHEDEN EN OMZETTINGEN
+  ============================================================ -->
+  <section class="section-block" id="eenheden">
+    <div class="section-heading">
+      <span class="section-num">6</span>
+      <h2 class="section-title">Eenheden en omzettingen &mdash; overzicht</h2>
+    </div>
+
+    <p>Een vlotte beheersing van eenhedenconversies is onmisbaar in de wiskunde en de exacte wetenschappen. De volgende tabel geeft een volledig overzicht van de meest gebruikte eenheden voor lengte, oppervlakte, inhoud en capaciteit.</p>
+
+    <h3 class="sub-heading">Lengtematen</h3>
+
+    <table class="conv-table">
+      <thead>
+        <tr><th>Eenheid</th><th>Symbool</th><th>Gelijk aan</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>kilometer</td><td>km</td><td><strong>1 000</strong> m</td></tr>
+        <tr><td>hectometer</td><td>hm</td><td>100 m</td></tr>
+        <tr><td>decameter</td><td>dam</td><td>10 m</td></tr>
+        <tr><td>meter</td><td>m</td><td>basisunit</td></tr>
+        <tr><td>decimeter</td><td>dm</td><td>0,1 m = 10 cm</td></tr>
+        <tr><td>centimeter</td><td>cm</td><td>0,01 m</td></tr>
+        <tr><td>millimeter</td><td>mm</td><td>0,001 m</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub-heading">Oppervlaktematen</h3>
+
+    <table class="conv-table">
+      <thead>
+        <tr><th>Eenheid</th><th>Gelijk aan</th><th>Omzetting</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1 km²</td><td>1 000 000 m²</td><td>&times; 10⁶</td></tr>
+        <tr><td>1 m²</td><td>100 dm²</td><td>&times; 100</td></tr>
+        <tr><td>1 dm²</td><td>100 cm²</td><td>&times; 100</td></tr>
+        <tr><td>1 cm²</td><td>100 mm²</td><td>&times; 100</td></tr>
+        <tr><td>1 ha (hectare)</td><td>10 000 m²</td><td>= 100 a</td></tr>
+        <tr><td>1 a (are)</td><td>100 m²</td><td>&nbsp;</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub-heading">Inhoudsmaten en capaciteit</h3>
+
+    <table class="conv-table">
+      <thead>
+        <tr><th>Eenheid</th><th>Gelijk aan</th><th>Capaciteit</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1 m³</td><td>1 000 dm³</td><td>1 000 liter = 1 kl</td></tr>
+        <tr><td>1 dm³</td><td>1 000 cm³</td><td><strong>1 liter</strong></td></tr>
+        <tr><td>1 cm³</td><td>1 000 mm³</td><td>1 ml</td></tr>
+        <tr><td>1 liter (l)</td><td>10 dl</td><td>100 cl = 1 000 ml</td></tr>
+        <tr><td>1 dl (deciliter)</td><td>100 ml</td><td>= 100 cm³</td></tr>
+        <tr><td>1 cl (centiliter)</td><td>10 ml</td><td>= 10 cm³</td></tr>
+      </tbody>
+    </table>
+
+    <div class="stelling">
+      <span class="st-label">Tip &mdash; Omzetten van eenheden</span>
+      <p class="st-body">
+        <strong>Van grotere naar kleinere eenheid:</strong> vermenigvuldig.<br>
+        <strong>Van kleinere naar grotere eenheid:</strong> deel.<br><br>
+        Voor kubieke eenheden geldt: elke stap op de ladder is een factor <strong>1 000</strong> (niet 10 zoals bij lengtematen, en niet 100 zoals bij oppervlaktematen).<br><br>
+        Geheugensteuntje: <em>l &rarr; opp &rarr; vol</em> = ×10, ×100, ×1000 per stap op de ladder.
+      </p>
+    </div>
+
+    <!-- REKENVOORBEELD: omzettingen -->
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld &mdash; Eenhedenomzetting</span>
+      <p class="rv-vraag">Zet 2,5 m³ om naar liter en naar cm³.</p>
+      <ul class="rv-stappen">
+        <li>Van m³ naar dm³ (= liter): 1 m³ = 1 000 dm³, dus 2,5 m³ = 2,5 &times; 1 000 = <strong>2 500 liter</strong></li>
+        <li>Van dm³ naar cm³: 1 dm³ = 1 000 cm³, dus 2 500 dm³ = 2 500 &times; 1 000 = <strong>2 500 000 cm³</strong></li>
+        <li>Alternatief: 1 m³ = 1 000 000 cm³, dus 2,5 m³ = 2 500 000 cm³ (rechtstreeks)</li>
+      </ul>
+      <p class="rv-antwoord">Antwoord: 2,5 m³ = 2 500 liter = 2 500 000 cm³</p>
+    </div>
+  </section>
+
+</div><!-- end page-wrapper -->
+
+<!-- ============================================================
+     OEFENINGEN
+============================================================ -->
+<section class="exercises-section" id="oefeningen">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <!-- Oefening 1 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Inhoud van een quader (balk)</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Bereken de inhoud van elk rechthoekig blok. Zet het antwoord ook om naar liter als het gevraagd wordt.</p>
+      <ol>
+        <li>Een balk met l = 8 cm, b = 5 cm, h = 3 cm.</li>
+        <li>Een kubus met riblengte z = 7 cm.</li>
+        <li>Een opslagkist met l = 120 cm, b = 60 cm, h = 80 cm. Hoeveel liter past erin?</li>
+        <li>Een kamer heeft l = 5 m, b = 4 m en h = 2,5 m. Bereken het luchtvolume in m³ en in liter.</li>
+      </ol>
+      <p class="ex-tip">Tip: let op de eenheden. Zet eerst alles om naar dezelfde eenheid voor je berekent.</p>
+    </div>
+
+    <!-- Oefening 2 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Inhoud van een cilinder</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Bereken de inhoud van de cilinders. Geef het antwoord exact (met &pi;) en bij benadering (&asymp;). Gebruik &pi; &asymp; 3,1416.</p>
+      <ol>
+        <li>Straal r = 6 cm, hoogte h = 10 cm.</li>
+        <li>Diameter d = 8 cm, hoogte h = 15 cm. (Let op: r = d/2 = 4 cm.)</li>
+        <li>Een waterreservoir (cilinder) heeft een straal van 2 m en een hoogte van 5 m. Hoeveel liter water kan het bevatten?</li>
+        <li>Hoeveel cm³ past er in een blikje frisdrank (r = 3,3 cm, h = 11,5 cm)?</li>
+      </ol>
+      <p class="ex-tip">Tip: vergeet niet dat de oppervlakte van de cirkel &pi;r² is, met <em>r</em> de straal (niet de diameter).</p>
+    </div>
+
+    <!-- Oefening 3 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Inhoud van een kegel en een bol</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Bereken de gevraagde inhouden.</p>
+      <ol>
+        <li>Kegel met r = 4 cm en h = 9 cm.</li>
+        <li>Kegel met r = 6 cm en h = 7 cm.</li>
+        <li>Bol met r = 5 cm.</li>
+        <li>Bol met diameter d = 10 cm (r = 5 cm). Vergelijk met de vorige: zijn ze gelijk?</li>
+        <li>De inhoud van een bol is 36&pi; cm³. Wat is de straal?</li>
+      </ol>
+      <p class="ex-tip">Tip: voor de bol gebruik je V = <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mfrac><mn>4</mn><mn>3</mn></mfrac></math>&pi;r³. Om de straal te vinden, zet je de formule om zodat r³ vrijkomt.</p>
+    </div>
+
+    <!-- Oefening 4 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 4</p>
+      <p class="ex-name">Totaal oppervlak</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Bereken het totale oppervlak van de gegeven figuren.</p>
+      <ol>
+        <li>Een kubus met riblengte z = 5 cm.</li>
+        <li>Een balk (quader) met l = 10 cm, b = 6 cm, h = 4 cm.</li>
+        <li>Een cilinder met r = 3 cm en h = 8 cm.</li>
+        <li>Een koker (cilinder <strong>zonder</strong> bodems, alleen het gebogen zijvlak) met r = 5 cm en h = 20 cm. Wat is de oppervlakte van het zijvlak?</li>
+      </ol>
+      <p class="ex-tip">Tip: voor de koker (open aan beide zijden) bereken je alleen het zijvlak: 2&pi;rh.</p>
+    </div>
+
+    <!-- Oefening 5 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 5</p>
+      <p class="ex-name">Eenhedenconversies</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Zet de volgende maten om naar de gevraagde eenheid.</p>
+      <ol>
+        <li>4 m³ naar dm³ en naar liter.</li>
+        <li>750 000 cm³ naar m³ en naar liter.</li>
+        <li>3,2 liter naar cl en naar ml.</li>
+        <li>0,5 dm³ naar cm³ en naar ml.</li>
+        <li>1 250 ml naar liter en naar dl.</li>
+        <li>Een emmer van 8 liter: hoeveel m³ is dat?</li>
+      </ol>
+      <p class="ex-tip">Tip: teken de omzettingstrap en ga stap voor stap, waarbij je elke keer met 1 000 vermenigvuldigt of deelt.</p>
+    </div>
+
+    <!-- Oefening 6 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 6</p>
+      <p class="ex-name">Toepassingsprobleem &mdash; Zwembad en watertoren</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Los de volgende toepassingsproblemen op. Toon je redenering en de juiste eenheden.</p>
+      <ol>
+        <li>Een rechthoekig zwembad is 25 m lang, 10 m breed en gemiddeld 1,5 m diep. Hoeveel liter water bevat het volledig gevulde zwembad? Hoeveel m³ is dat?</li>
+        <li>Een cilindervormige watertoren heeft een diameter van 6 m en een hoogte van 8 m. Hoeveel liter water kan hij bevatten? (Gebruik &pi; &asymp; 3,14.)</li>
+        <li>Een theelepel heeft een volume van 5 ml. Hoeveel theelepels water passen er in een fles van 1,5 liter?</li>
+        <li>Een kubusvormige kist heeft riblengte 60 cm. Bereken: (a) de inhoud in liter; (b) het totale oppervlak in m².</li>
+      </ol>
+      <p class="ex-tip">Tip: bij vraag 2 bereken je eerst in m³ en zet je dan om naar liter (1 m³ = 1 000 liter).</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SAMENVATTING
+============================================================ -->
+<section class="summary-section" id="samenvatting">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+
+    <!-- Formuletabel -->
+    <table class="sum-table">
+      <thead>
+        <tr>
+          <th>Figuur</th>
+          <th>Inhoud (V)</th>
+          <th>Totaal oppervlak (TO)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Quader (l &times; b &times; h)</td>
+          <td>l &times; b &times; h</td>
+          <td>2(lb + lh + bh)</td>
+        </tr>
+        <tr>
+          <td>Kubus (riblengte z)</td>
+          <td>z³</td>
+          <td>6z²</td>
+        </tr>
+        <tr>
+          <td>Driehoekig prisma</td>
+          <td>&#xBD; &times; g &times; h<sub>gr</sub> &times; H</td>
+          <td>&mdash;</td>
+        </tr>
+        <tr>
+          <td>Cilinder (r, h)</td>
+          <td>&pi;r²h</td>
+          <td>2&pi;r(r + h)</td>
+        </tr>
+        <tr>
+          <td>Kegel (r, h)</td>
+          <td>&#x2153;&pi;r²h</td>
+          <td>&mdash;</td>
+        </tr>
+        <tr>
+          <td>Bol (r)</td>
+          <td>&#x2153;&times;4 &times; &pi;r³ = <sup>4</sup>/<sub>3</sub>&pi;r³</td>
+          <td>4&pi;r²</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <ul>
+      <li><strong>Inhoud (volume)</strong> is de maat voor de hoeveelheid driedimensionale ruimte die een figuur inneemt. Eenheden: mm³, cm³, dm³, m³.</li>
+      <li>De sleutelrelatie is: <strong>1 dm³ = 1 liter</strong>. Elke stap op de ladder voor kubieke eenheden is een factor <strong>1 000</strong>.</li>
+      <li><strong>Dichtheid</strong> &rho; = m/V. Water heeft &rho; = 1 g/cm³, dus 1 liter water weegt 1 kg.</li>
+      <li>Voor alle prisma&apos;s geldt: <strong>V = grondvlak &times; hoogte</strong>. Een quader is V = l &times; b &times; h; een kubus is V = z³.</li>
+      <li>Een <strong>cilinder</strong> heeft V = &pi;r²h; een <strong>kegel</strong> met dezelfde r en h heeft V = &#x2153;&pi;r²h &mdash; de kegel is precies &#x2153; van de cilinder.</li>
+      <li>De <strong>bol</strong> heeft V = <sup>4</sup>/<sub>3</sub>&pi;r³ (resultaat van Archimedes). Om de straal te vinden, los je r³ op en neem je de derde-machtswortel.</li>
+      <li>Het <strong>totale oppervlak</strong> is de som van alle buitenvlakken. Je kunt het visualiseren via het net (uitgevouwen figuur).</li>
+      <li>Bij eenhedenconversies: van m³ &rarr; dm³ &rarr; cm³ &rarr; mm³ is telkens &times;1 000; in de andere richting &divide;1 000 per stap.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

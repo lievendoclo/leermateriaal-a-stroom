@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoofdstuk 15 — Verhalen die bijblijven | Nederlands 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.25; }
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+    text-decoration: none;
+  }
+  .site-header .label-right { text-align: right; }
+
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image: radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+  .chapter-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+  .prologue .ornament-line .ornament-sym { color: var(--gold); font-size: 1.1rem; opacity: 0.8; }
+  .prologue p { font-style: italic; font-size: 1.05rem; line-height: 1.85; color: rgba(250,246,239,0.9); }
+  .prologue p + p { margin-top: 0.9em; }
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+  .begrip .begrip-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .begrip .begrip-body { flex: 1; }
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+  .begrip .begrip-def { font-size: 0.97rem; color: var(--text-mid); line-height: 1.65; margin: 0; }
+
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .denkvraag .dv-text { font-style: italic; font-size: 1rem; color: var(--text-mid); line-height: 1.7; }
+
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+  }
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ── VOORBEELDTEKST ── */
+  .voorbeeldtekst {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 2rem 2.2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .voorbeeldtekst .vt-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--darkblue);
+    opacity: 0.6;
+    margin-bottom: 0.4rem;
+    display: block;
+  }
+  .voorbeeldtekst .vt-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 0.3rem;
+  }
+  .voorbeeldtekst .vt-meta {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    margin-bottom: 1.2rem;
+    font-style: italic;
+  }
+  .voorbeeldtekst .vt-body p {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-bottom: 0.9em;
+  }
+  .voorbeeldtekst .vt-body p:last-child { margin-bottom: 0; }
+  .voorbeeldtekst .vt-source {
+    margin-top: 1rem;
+    font-size: 0.78rem;
+    color: var(--text-light);
+    border-top: 1px solid var(--sand);
+    padding-top: 0.6rem;
+    font-style: italic;
+  }
+
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+  .exercise-card ol, .exercise-card ul { padding-left: 1.4rem; margin-top: 0.5rem; }
+  .exercise-card li { margin-bottom: 0.45rem; font-size: 0.96rem; color: var(--text-mid); }
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+  .summary-section ul { list-style: none; padding: 0; }
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0; top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem; right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px; height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  .prose-text { max-width: 100%; }
+  .highlighted-para {
+    background: rgba(212,160,23,0.08);
+    border-left: 3px solid var(--gold);
+    padding: 0.8rem 1.1rem;
+    border-radius: 0 4px 4px 0;
+    margin: 1.2rem 0;
+    font-size: 0.97rem;
+    color: var(--text-mid);
+  }
+
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section, .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .voorbeeldtekst { padding: 1.4rem 1.2rem; }
+  }
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header" id="top">
+  <a class="label" href="index.html">Nederlands 1A</a>
+  <span class="label label-right">Hoofdstuk 15</span>
+</header>
+
+<div class="chapter-hero">
+  <div class="chapter-kicker">Nederlands &nbsp;·&nbsp; 1A &nbsp;·&nbsp; Eerste graad</div>
+  <h1>Hoofdstuk 15<br>Verhalen die bijblijven</h1>
+  <p class="subtitle">Personages, verhaallijn, fictie en non-fictie — hoe praat je over wat je gelezen hebt?</p>
+</div>
+
+<div class="page-wrapper">
+
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Stel je voor &hellip;</span>
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+
+    <p>Het is bijna middernacht. Je had eigenlijk al lang moeten slapen, maar je kon het boek niet wegleggen. Nu is het uit. Je legt het op je nachtkastje en staart naar het plafond.</p>
+
+    <p>Je denkt aan het meisje in het verhaal. Ze deed iets wat jij misschien ook had gedaan — of net niet. Je weet het niet goed. Maar je herkende haar twijfel, haar verlangen om ergens bij te horen, het gevoel dat niemand haar echt begreep. En op pagina 183, die ene zin — je had hem bijna onderstreept, zo precies beschreef hij iets wat jij ook weleens voelt maar waarvoor je zelf de woorden niet had.</p>
+
+    <p>Het verhaal is verzonnen. De personages bestaan niet. En toch voelde het echter dan veel dingen die echt zijn. Dat is wat goede literatuur doet: ze laat je iemand anders zijn voor een paar uur, en als je terugkeert naar jezelf, begrijp je jezelf een beetje beter.</p>
+
+    <p>In dit hoofdstuk leer je hoe je over die beleving praat. Je ontdekt wat een literaire tekst is, wat fictie en non-fictie betekenen, hoe personages en verhaallijnen werken, en — misschien wel het belangrijkste — hoe je jouw eigen reactie op een tekst onder woorden brengt. Want jouw leesbeleving telt.</p>
+
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+  </section>
+
+  <section class="section-block" id="s1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Wat is een literaire tekst?</h2>
+    </div>
+    <div class="prose-text">
+      <p>Elke dag lees je tientallen teksten: een berichtje van een vriend, een recept, een instructie op een verpakking, een nieuwsbericht. Die teksten zijn nuttig, maar ze zijn niet geschreven om je te raken. Ze geven informatie door en dat is dat.</p>
+
+      <p>Een literaire tekst werkt anders. Die is niet alleen geschreven om iets mee te delen — hij is ook geschreven om iets te doen met jou als lezer. Om je te ontroeren, te verbazen, aan het denken te zetten, je in te leven in iemand anders. De schrijver kiest zijn woorden zorgvuldig, bouwt spanning op, speelt met beelden en ritme. Dat noemen we de <strong>esthetische waarde</strong> van een tekst: de schoonheid of kracht van de taal zelf.</p>
+
+      <p>Literaire teksten komen in heel veel vormen voor. Denk aan een <strong>roman</strong> — een lang verhaal met veel personages en gebeurtenissen. Of een <strong>novelle</strong>, een kortere maar nog steeds uitgewerkte vertelling. Een <strong>kortverhaal</strong> vertelt iets compacts in een paar bladzijden. Een <strong>gedicht</strong> zegt in enkele regels soms meer dan een heel boek. Een <strong>lied</strong> combineert taal met muziek. Een <strong>strip</strong> vertelt via tekening en tekst. Een <strong>toneelstuk</strong> is geschreven om opgevoerd te worden. Een <strong>blog</strong> of <strong>spoken word</strong>-tekst kunnen ook literair zijn als ze meer doen dan informeren.</p>
+
+      <p>Wat al deze vormen gemeen hebben: ze vragen jou als lezer om meer te doen dan begrijpen. Ze vragen je om te voelen, te interpreteren, te reageren.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Literaire tekst</span>
+        <p class="begrip-def">Een literaire tekst is een tekst met esthetische waarde: hij is geschreven met aandacht voor taal, stijl en vorm, en hij wil een emotionele of intellectuele reactie oproepen bij de lezer. Voorbeelden: roman, gedicht, lied, strip, toneelstuk, kortverhaal, blog, spoken word.</p>
+      </div>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">Kan een Instagrampost literair zijn? Kan een sms-bericht dat? Wanneer wordt een tekst meer dan alleen informatie — en wie beslist dat eigenlijk?</p>
+    </div>
+  </section>
+
+  <section class="section-block" id="s2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Fictie en non-fictie</h2>
+    </div>
+    <div class="prose-text">
+      <p>Als je een boek openslaat, is een van de eerste vragen die je onbewust stelt: is dit echt gebeurd, of verzonnen? Dat onderscheid heeft een naam.</p>
+
+      <p><strong>Fictie</strong> zijn verhalen die verzonnen zijn. De personages, de gebeurtenissen, de wereld — die bestaan niet in werkelijkheid. Dat wil niet zeggen dat fictie niets met de echte wereld te maken heeft. Integendeel: de beste fictieverhalen zijn geïnspireerd op de realiteit en beschrijven iets echt-menselijks. Maar de feiten zelf zijn verzonnen. Een fantasy-roman, een sciencefictionverhaal, een liefdesroman: dat zijn allemaal fictie.</p>
+
+      <p><strong>Non-fictie</strong> zijn teksten die gebaseerd zijn op echte feiten, echte mensen en echte gebeurtenissen. Een <strong>autobiografie</strong> vertelt het levensverhaal van de auteur zelf. Een <strong>dagboek</strong> noteert echte ervaringen en gevoelens. Journalistieke teksten en reportages zijn non-fictie. Het onderscheid met fictie zit hem in de <em>bedoeling</em>: de auteur beweert dat het echt zo is gegaan.</p>
+
+      <p>Er is ook een grijs gebied. <strong>Autofictie</strong> combineert autobiografische elementen met verzonnen stukken. De auteur schrijft over zichzelf, maar past dingen aan, verzint details bij, maakt er kunst van. Het is tegelijk echt en niet-echt.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">✨</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Fictie</span>
+        <p class="begrip-def">Fictie zijn verzonnen verhalen. De personages en gebeurtenissen bestaan niet in werkelijkheid, ook al kunnen ze geïnspireerd zijn op echte mensen of situaties. Voorbeelden: romans, kortverhalen, fantasy, sciencefiction.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📰</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Non-fictie</span>
+        <p class="begrip-def">Non-fictie zijn teksten gebaseerd op echte feiten, personen en gebeurtenissen. De auteur beweert dat het zo is gegaan. Voorbeelden: autobiografie, dagboek, reportage, journalistieke teksten.</p>
+      </div>
+    </div>
+
+    <div class="voorbeeldtekst">
+      <span class="vt-label">Voorbeeldtekst 1 · Fictie versus non-fictie</span>
+      <p class="vt-title">Twee openingsparagrafen vergeleken</p>
+      <p class="vt-meta">Lees beide fragmenten. Welke is fictie, welke is non-fictie?</p>
+      <div class="vt-body">
+        <p><strong>Fragment A</strong></p>
+        <p>De mist lag laag boven de Zilvermeren toen Lira voor het eerst de Poort van de Vergeetbossen zag. Ze had er zeven jaar over gedaan om hier te geraken — zeven jaar van leugens, verlies en één belofte die ze elke avond fluisterde zodat ze hem niet zou vergeten. De bewaker aan de poort was ouder dan hij eruitzag. Hij rook naar as en natte aarde. "Je naam?" vroeg hij, zonder haar aan te kijken. Lira aarzelde. Ze had zoveel namen gehad dat ze bijna vergeten was welke echt was.</p>
+        <p><strong>Fragment B</strong></p>
+        <p>Ik was twaalf jaar oud toen mijn vader vertrok. Niet stiekem — hij zei het gewoon aan het ontbijt, terwijl ik mijn boterham at. Hij zou een tijdje wegblijven, zei hij. Hoe lang dat tijdje was, zou ik pas maanden later begrijpen. Ik weet nog dat ik naar zijn koffiekop keek nadat hij weg was. Er zat nog een beetje koffie in. Ik dacht: zal ik die gieten of laten staan? Ik liet hem staan. Tot de avond.</p>
+      </div>
+      <p class="vt-source">Originele teksten geschreven voor dit hoofdstuk. Fragment A = fictie (fantasyverhaal). Fragment B = non-fictie stijl (persoonlijk essay over een echte herinnering).</p>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">Welk fragment raakte je meer? Is het voor jou makkelijker om je in te leven in fictie of in non-fictie? Waarom denk je dat dat zo is?</p>
+    </div>
+  </section>
+
+  <section class="section-block" id="s3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Personages</h2>
+    </div>
+    <div class="prose-text">
+      <p>Een verhaal zonder personages is amper denkbaar. Personages zijn de mensen (of wezens, of robots, of pratende dieren) die in het verhaal leven. Ze doen dingen, zeggen dingen, voelen dingen — en daardoor komt het verhaal in beweging.</p>
+
+      <p>Niet alle personages zijn even belangrijk. Het <strong>hoofdpersonage</strong> staat centraal: de lezer volgt zijn of haar gedachten en ervaringen het nauwst. Bijpersonages spelen een ondersteunende rol: ze helpen, tegenwerken, beïnvloeden het hoofdpersonage, maar ze staan zelf niet in het middelpunt.</p>
+
+      <p>Hoe brengt een schrijver een personage tot leven? Dat kan op verschillende manieren. Door te beschrijven wat het personage <em>doet</em> — zijn acties zeggen veel over wie hij is. Door te laten zien wat het personage <em>zegt en denkt</em> — dialogen en innerlijke monologen geven je toegang tot zijn hoofd. Door te beschrijven hoe <em>anderen</em> op hem reageren. En door kleine details: de manier waarop iemand een kopje vasthoudt, welke woorden hij kiest, wat hij vermijdt te zeggen.</p>
+
+      <p>Een goed uitgewerkt personage voelt <em>echt</em>, ook al is hij verzonnen. Hij heeft tegenstrijdige kanten. Hij maakt fouten. Hij verandert — of weigert te veranderen. Dat maakt hem menselijk.</p>
+
+      <p><strong>Identificatie</strong> treedt op wanneer je je herkent in een personage. Je denkt: "Dit zou ik ook gedaan hebben." Of: "Dat gevoel ken ik." Dat hoeft niet betekenen dat jij en het personage hetzelfde leven hebben. Identificatie gaat over innerlijke herkenning: je herkent een emotie, een twijfel, een verlangen dat ook in jou leeft.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">🎭</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Personage</span>
+        <p class="begrip-def">Een personage is een figuur in een verhaal. Schrijvers bouwen personages op via acties, dialogen, gedachten, beschrijvingen en de reacties van andere figuren.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">🌟</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Hoofdpersonage</span>
+        <p class="begrip-def">Het hoofdpersonage staat centraal in het verhaal. De lezer volgt zijn of haar perspectief het meest. Bijpersonages spelen een ondersteunende rol.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">🪞</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Identificatie</span>
+        <p class="begrip-def">Identificatie is het gevoel dat je je herkent in een personage — niet noodzakelijk in zijn situatie, maar in zijn emoties, twijfels of motivaties. Identificatie maakt lezen persoonlijk.</p>
+      </div>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">Kies een personage uit een boek, film of serie dat je onlangs zag of las. Wat vertelt zijn gedrag over wie hij is? Herken je iets in hem — en zo ja, wat precies?</p>
+    </div>
+  </section>
+
+  <section class="section-block" id="s4">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Verhaallijn, tijd en ruimte</h2>
+    </div>
+    <div class="prose-text">
+      <p>Een verhaal is niet zomaar een hoop gebeurtenissen bij elkaar. Er zit structuur in: een bepaalde volgorde, een bepaalde plek, een bepaalde tijd. Die drie elementen — verhaallijn, tijd en ruimte — bepalen mee hoe een verhaal aanvoelt.</p>
+
+      <p>De <strong>verhaallijn</strong> is de opeenvolging van gebeurtenissen. In een <em>chronologisch</em> verteld verhaal gaan de gebeurtenissen in volgorde: eerst dit, dan dat, dan dit. Maar veel schrijvers kiezen voor een ingewikkelder structuur. Ze beginnen in het midden van de actie en vullen daarna de achtergrond in. Of ze laten het personage terugdenken aan vroeger — dat heet een <strong>terugblik</strong> of <em>flashback</em>. Door die keuzes in de volgorde kan een schrijver spanning opbouwen of juist zorgen voor verrassingen.</p>
+
+      <p>De <strong>tijd</strong> in een verhaal heeft twee kanten. Ten eerste: <em>wanneer</em> speelt het verhaal zich af? In het heden, in het verleden, in de toekomst? Ten tweede: over hoeveel tijd gaat het verhaal? Dat heet de <strong>tijdspanning</strong>. Sommige verhalen spelen zich af in één dag. Andere omvatten een heel leven, of zelfs meerdere generaties. Een korte tijdspanning zorgt vaak voor meer intensiteit; een lange tijdspanning toont hoe mensen veranderen.</p>
+
+      <p>De <strong>ruimte</strong> is de plek of de plaatsen waar het verhaal zich afspeelt. Dat is meer dan een decor. Een oud, donker huis wekt andere gevoelens op dan een zonnig strand. Een druk stadsplein voelt anders aan dan een eenzame vlakte. Schrijvers gebruiken de ruimte bewust om een sfeer te creëren die past bij wat er in het verhaal gebeurt.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📜</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Verhaallijn</span>
+        <p class="begrip-def">De verhaallijn is de volgorde van gebeurtenissen in een verhaal. Een chronologische verhaallijn gaat van vroeg naar laat. Terugblikken (flashbacks) doorbreken die volgorde om achtergrond of spanning toe te voegen.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">⏳</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Tijd in verhalen</span>
+        <p class="begrip-def">De tijd in een verhaal omvat twee dingen: <em>wanneer</em> het verhaal speelt (heden/verleden/toekomst) en de <em>tijdspanning</em> — hoe lang de periode is die het verhaal bestrijkt, van één dag tot meerdere generaties.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">🏙️</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Ruimte</span>
+        <p class="begrip-def">De ruimte is de plek of de plaatsen waar het verhaal zich afspeelt. Schrijvers kiezen de ruimte bewust: een setting creëert sfeer en beïnvloedt hoe de lezer de gebeurtenissen ervaart.</p>
+      </div>
+    </div>
+
+    <div class="illustratie">
+      <span class="ill-icon">🗺️</span>
+      <p class="ill-caption">Tijdlijn van een verhaal: horizontale as met "begin — midden — einde". Pijlen van "terugblik" wijzen terug naar een eerder punt. Boven de tijdlijn staat de tijdspanning aangegeven (bv. "3 dagen" of "20 jaar"). Naast de tijdlijn een klein kaartje dat de ruimte symboliseert.</p>
+    </div>
+  </section>
+
+  <section class="section-block" id="s5">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Een kortverhaal lezen</h2>
+    </div>
+    <div class="prose-text">
+      <p>Lees het volgende originele kortverhaal aandachtig. Daarna passen we alle begrippen toe die je in dit hoofdstuk hebt geleerd.</p>
+    </div>
+
+    <div class="voorbeeldtekst">
+      <span class="vt-label">Voorbeeldtekst 2 · Kortverhaal</span>
+      <p class="vt-title">De brief op zolder</p>
+      <p class="vt-meta">Een origineel verhaal — fictie</p>
+      <div class="vt-body">
+        <p>De zolder rook naar stof en vergeten zomers. Noor klom de krakende trap op met één doel: de oude verkleedkist van haar oma vinden. Haar moeder had gezegd dat die ergens achteraan moest staan, tussen de dozen met kerststulpen en de kapotte ventilator die niemand ooit had weggegooid.</p>
+        <p>Ze vond de kist na een kwartier zoeken. Het slot was verroest maar gaf mee na een paar harde trekt. Bovenin lagen jurken die naar lavendel roken. Daaronder een hoed met een brede rand. En helemaal onderaan, gevouwen in een geel gekleurd stuk papier, een brief.</p>
+        <p>Noor aarzelde. De brief was niet aan haar gericht. Hij was gericht aan haar oma — aan "Lien", zoals er in het hanenschrift bovenaan stond. Maar haar oma was al drie jaar dood, en Noor kende niemand die haar "Lien" noemde. Iedereen had haar altijd "oma" of "mevrouw De Backer" genoemd.</p>
+        <p>Ze vouwde de brief toch open.</p>
+        <p>Het waren maar acht regels. In die acht regels stond dat haar oma, als jong meisje van zeventien, een kind had gekregen. Een jongetje. Dat ze hem had moeten afstaan omdat haar ouders het haar verboden hadden te houden. Dat de schrijver van de brief — een man die zichzelf "J." noemde — haar nooit vergeten was, en het kind ook niet.</p>
+        <p>Noor las de brief drie keer. De woorden bleven hetzelfde maar betekenden elke keer iets anders.</p>
+        <p>Ze dacht aan haar oma: de vrouw die altijd lachte, die altijd koekjes bakte, die nooit over haar jeugd sprak. Nu begreep ze waarom niet. Er was een verhaal geweest dat te zwaar was om te dragen en te pijnlijk om te delen. Een verhaal dat op zolder had gelegen te wachten tot iemand het zou vinden.</p>
+        <p>Noor vouwde de brief zorgvuldig terug en stopte hem in haar broekzak. Ze zou hem aan haar moeder laten zien. Of misschien niet. Ze wist het nog niet. Maar ze wist wel dat haar oma, die ze altijd had gedacht te kennen, plotseling iemand was geworden die ze nog moest leren kennen — ook al was het te laat.</p>
+        <p>Ze klom de zoldertrap af. Het huis was stil. Buiten speelden kinderen op straat.</p>
+      </div>
+      <p class="vt-source">Origineel verhaal geschreven voor dit hoofdstuk. Alle namen en omstandigheden zijn verzonnen.</p>
+    </div>
+
+    <div class="prose-text">
+      <p><strong>De begrippen toegepast op dit verhaal:</strong></p>
+
+      <p><strong>Fictie of non-fictie?</strong> Dit is fictie. De personages (Noor, haar oma Lien, de mysterieuze "J.") bestaan niet echt. Het verhaal is verzonnen, ook al herkennen veel lezers de situatie — een familiegeheim, een overledene die je dacht te kennen — als iets dat echt zou kunnen voorkomen.</p>
+
+      <p><strong>Wie is het hoofdpersonage?</strong> Noor is het hoofdpersonage. We volgen haar de zolder op, we lezen de brief samen met haar, we denken mee over haar twijfel aan het einde. Haar oma is een <em>afwezig</em> maar belangrijk bijpersonage: ze komt niet in actie, maar haar verborgen leven stuurt het hele verhaal.</p>
+
+      <p><strong>De verhaallijn (IMS):</strong> De <em>inleiding</em> stelt Noor voor op de zolder, op zoek naar een verkleedkist. De <em>middenstuk</em> is het vinden en lezen van de brief en het ontdekken van het familiegeheim. De <em>slotscène</em> toont Noors twijfel — wel of niet vertellen aan haar moeder — en het besef dat haar oma een heel ander leven had dan Noor wist. Er zijn geen terugblikken; de verhaallijn is chronologisch.</p>
+
+      <p><strong>Tijdspanning:</strong> Het verhaal speelt zich af in minder dan een uur — de tijd die Noor op zolder doorbrengt. Dat is een heel korte tijdspanning. Toch reikt het verhaal via de brief terug naar decennia geleden, naar haar oma als zeventienjarig meisje.</p>
+
+      <p><strong>Ruimte:</strong> Het verhaal speelt zich grotendeels af op een zolder — een ruimte vol stof, vergeten spullen, verborgen herinneringen. Die ruimte is niet toevallig gekozen: een zolder is de plek waar mensen dingen bewaren die ze niet kunnen weggooien maar ook niet willen zien. Dat past perfect bij een verhaal over een familiegeheim.</p>
+
+      <p><strong>De zes reflectievragen toegepast:</strong></p>
+
+      <p><strong>1. Waarom spreekt dit verhaal je aan, of waarom niet?</strong> Het verhaal spreekt aan omdat het een universele situatie beschrijft: iemand die je dacht te kennen, maar die ook een ander leven had. Wie een oma of opa heeft — of had — herkent dat besef dat de mensen om je heen ook een heel verleden hebben voor jij er was. Dat is tegelijk fascinerend en een beetje verdrietig.</p>
+
+      <p><strong>2. Waarom herken je je in Noor, of net niet?</strong> Noor aarzelt aan het einde: vertelt ze het haar moeder of niet? Die twijfel herkennen veel lezers. Als je iets weet dat anderen niet weten, en je weet niet zeker of je het moet delen — dat is een gevoel dat bijna iedereen kent, al is de situatie anders.</p>
+
+      <p><strong>3. Hoe zou jij reageren in een gelijkaardige situatie?</strong> Als jij een oude brief op de zolder van je oma zou vinden die een familiegeheim onthult — zou je hem lezen? Zou je hem bewaren, of hem aan iemand laten zien? Er is geen goed of fout antwoord. Maar het nadenken over die vraag helpt je te begrijpen wat jij belangrijk vindt.</p>
+
+      <p><strong>4. Waarom roept de tekst een bepaalde emotie op?</strong> Het verhaal roept een mengeling op van verdriet, nieuwsgierigheid en tederheid. Verdriet om het kind dat moest worden afgestaan, nieuwsgierigheid naar het verborgen leven van oma Lien, en tederheid voor Noor die plotseling haar oma anders ziet. Die gelaagdheid maakt de emotie echt.</p>
+
+      <p><strong>5. Wat vond je van het taalgebruik?</strong> Het taalgebruik is sober en concreet. De schrijver beschrijft beelden die je kunt zien: de gele kleur van het papier, de lavendelgeur van de jurken, de kinderen die buiten spelen. Dat maakt de ruimte tastbaar. De kortste zinnen — "Ze vouwde de brief toch open." — zitten op de meest spannende momenten. Dat is een bewuste keuze.</p>
+
+      <p><strong>6. Hoe zou jij het verhaal laten eindigen?</strong> Het einde is open: Noor weet niet of ze het zal vertellen. Een andere mogelijkheid: ze vindt in de brief een naam of adres en gaat op zoek naar het afgestane kind — haar oma's zoon die nu zelf oud zou zijn. Dat zou het verhaal een heel andere richting geven. Welk einde verkies jij?</p>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">Heeft het verhaal jou iets gezegd over familiegeheimen, over de mensen die je denkt te kennen, of over het bewaren van het verleden? Wat was voor jou de krachtigste zin of het krachtigste moment in het verhaal?</p>
+    </div>
+  </section>
+
+  <section class="section-block" id="s6">
+    <div class="section-heading">
+      <span class="section-num">6</span>
+      <h2 class="section-title">Een gedicht</h2>
+    </div>
+    <div class="prose-text">
+      <p>Een gedicht is misschien de meest compacte literaire vorm die bestaat. In een handvol regels kan een gedicht iets zeggen waar een roman honderden bladzijden voor nodig heeft. Dat komt omdat een dichter de taal op een bijzondere manier gebruikt: niet alleen om mee te delen, maar ook om te klinken, te beelden, te associëren.</p>
+
+      <p>Een gedicht heeft vaak <strong>rijm</strong> — woorden aan het einde van regels die op elkaar lijken qua klank. Maar niet elk gedicht rijmt. Wat gedichten wel bijna altijd hebben, is een bepaald <strong>ritme</strong>: een patroon van klemtonen en rustpunten dat de tekst een muzikaal gevoel geeft. Een gedicht is ook opgebouwd uit <strong>strofen</strong> — de alinea's van een gedicht, ook wel stanza's genoemd. Elke afzonderlijke regel heet een <strong>vers</strong>.</p>
+
+      <p>Dichters gebruiken ook graag <strong>beeldspraak</strong>: vergelijkingen en metaforen die iets concreet maken wat eigenlijk abstract is. "De herfst is een vermoeid schilder" zegt meer over herfst dan een letterlijke beschrijving van vallende bladeren.</p>
+
+      <p>Lees nu het volgende originele gedicht:</p>
+    </div>
+
+    <div class="voorbeeldtekst">
+      <span class="vt-label">Voorbeeldtekst 3 · Gedicht</span>
+      <p class="vt-title">Eerste dag</p>
+      <p class="vt-meta">Origineel gedicht over het begin van een nieuw schooljaar</p>
+      <div class="vt-body">
+        <p>De rugzak weegt meer dan vorig jaar,<br>
+        de gang ruikt naar verf en nieuwe kansen.<br>
+        Ik ken de helft van de gezichten,<br>
+        de andere helft leer ik misschien.</p>
+
+        <p>Het krijtbord staat nog leeg en wit —<br>
+        een bladzijde die niemand heeft beschreven.<br>
+        Ik schrijf mijn naam op een schrift<br>
+        en het jaar begint te leven.</p>
+
+        <p>Buiten waait de laatste zomer weg,<br>
+        de bomen weten al wat komt.<br>
+        Maar hier, in dit lokaal, in dit licht,<br>
+        ben ik nog niemand — en dat is goed.</p>
+
+        <p>Want niemand zijn is ook een kans:<br>
+        de kans om anders te beginnen,<br>
+        om iets te zeggen wat je nooit zei,<br>
+        om eindelijk jezelf te vinden.</p>
+      </div>
+      <p class="vt-source">Origineel gedicht geschreven voor dit hoofdstuk.</p>
+    </div>
+
+    <div class="prose-text">
+      <p><strong>Emoties:</strong> Het gedicht roept een gemengd gevoel op: de nervositeit van een nieuw begin, maar ook hoop en openheid. "Ik ben nog niemand — en dat is goed" is een onverwachte wending: dat niemand zijn wordt niet als een verlies gezien, maar als een kans.</p>
+
+      <p><strong>Beeldspraak:</strong> "Een bladzijde die niemand heeft beschreven" vergelijkt het lege krijtbord met een open boek — een metafoor voor het nieuwe jaar dat nog niet bepaald is. "De bomen weten al wat komt" geeft de natuur menselijke kennis, waardoor de overgang van zomer naar herfst zwaarder aanvoelt.</p>
+
+      <p><strong>Boodschap / thema:</strong> Het thema is de overgang en de mogelijkheid van verandering. Een nieuw schooljaar is niet alleen een kalendermoment — het is een kans om opnieuw te beginnen, om anders te zijn dan je vorig jaar was.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">🎵</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Rijm</span>
+        <p class="begrip-def">Rijm is het herhalen van gelijke of gelijkende klanken, meestal aan het einde van versregels. Rijm geeft een gedicht een muzikaal, afgerond gevoel.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">🥁</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Ritme</span>
+        <p class="begrip-def">Ritme is het patroon van klemtonen en pauzes in een gedicht. Door het ritme klinkt een gedicht als muziek: je voelt de cadans terwijl je leest.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📝</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Strofe</span>
+        <p class="begrip-def">Een strofe is een groep versregels in een gedicht die bij elkaar horen — te vergelijken met een alinea in proza. Elke versregel afzonderlijk heet een <em>vers</em>.</p>
+      </div>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">Kies één zin of regel uit het gedicht die jou het meest treft. Waarom juist die? Wat maakt hem voor jou bijzonder — de klank, het beeld, of de gedachte erachter?</p>
+    </div>
+  </section>
+
+  <section class="section-block" id="s7">
+    <div class="section-heading">
+      <span class="section-num">7</span>
+      <h2 class="section-title">Praten over boeken: de reflectievragen</h2>
+    </div>
+    <div class="prose-text">
+      <p>Voor het mondeling examen lees je twee boeken. Je kiest ze van een lectuurlijst en je bespreekt ze daarna in een gesprek. Daarvoor zijn er zes vragen die je altijd helpen. Ze zijn niet bedoeld als verhoor — er zijn geen foute antwoorden. Ze zijn bedoeld om jouw beleving te verwoorden. Jouw reactie op een boek is het bewijs dat je echt gelezen hebt.</p>
+
+      <p><strong>1. Waarom spreken bepaalde aspecten van het boek je aan, of waarom niet?</strong><br>
+      Deze vraag vraagt je om precies te zijn. Niet "het was goed" — maar wat precies, en waarom. Was het de spanning? Een personage dat je niet los kon laten? Een thema dat dichtbij voelde? Door dit te benoemen, laat je zien dat je nagedacht hebt.</p>
+
+      <p><strong>2. Waarom herken je je in een bepaald personage, of net niet?</strong><br>
+      Identificatie gaat niet over een gelijke situatie, maar over innerlijke herkenning. Je kunt je herkennen in een middeleeuws ridder als hij bang is om te falen — ook al ben jij geen ridder. Die vraag gaat over wat jullie gemeen hebben, niet over wat verschilt.</p>
+
+      <p><strong>3. Hoe zou jij reageren in een gelijkaardige situatie?</strong><br>
+      Dit is de meest persoonlijke vraag. Ze vraagt je om jezelf in het verhaal te plaatsen. Er is geen goed antwoord — maar je antwoord zegt wel iets over wie jij bent en wat jij waardeert.</p>
+
+      <p><strong>4. Waarom roept de tekst bij jou een bepaalde emotie op?</strong><br>
+      Emoties zijn geen zwakte — ze zijn informatie. Als een tekst je verdrietig maakt, blij, boos of ongemakkelijk: dat is een aanwijzing dat de tekst iets geraakt heeft. Probeer te benoemen wat dat precies is.</p>
+
+      <p><strong>5. Wat vond je van het taalgebruik in het boek?</strong><br>
+      Kijk naar meer dan "moeilijk" of "makkelijk". Was de taal levendig, kleurrijk, sober, grappig, poëtisch? Waren er zinnen die je bijbleven? Gebruikte de schrijver dialect of bijzondere woorden? Taalgebruik is een artistieke keuze.</p>
+
+      <p><strong>6. Hoe zou jij het boek laten eindigen?</strong><br>
+      Dit is zowel een creatieve als een analyserende vraag. Om te weten hoe jij het anders zou aanpakken, moet je eerst begrijpen wat het bestaande einde doet en waarom. Ben je tevreden? Teleurgesteld? Verbazen je? Dat gevoel is je startpunt.</p>
+
+      <p><strong>Modelantwoord op vraag 2, toegepast op "De brief op zolder":</strong></p>
+    </div>
+
+    <div class="highlighted-para">
+      Ik herken me in Noor, maar niet omdat ik ook ooit een brief op een zolder heb gevonden. Ik herken me in haar twijfel aan het einde: ze weet iets dat anderen niet weten, en ze weet niet of ze het moet doorvertellen. Dat gevoel ken ik — dat je iets draagt wat zwaar is, en dat je niet goed weet of delen het lichter maakt of juist moeilijker. Ik herken ook haar verrassing over haar oma: het besef dat mensen die je al je leven kent toch geheimen kunnen hebben. Dat maakt het personage voor mij echt.
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">Welke van de zes reflectievragen vind jij het moeilijkst om te beantwoorden? En welke vind je het meest interessant? Waarom?</p>
+    </div>
+  </section>
+
+  <section class="exercises-section" id="oefeningen">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Een gedichtfragment beantwoorden</p>
+      <p>Lees het volgende gedichtfragment:</p>
+      <div style="background:#fff;border-left:3px solid var(--oker);padding:1rem 1.2rem;margin:0.8rem 0;border-radius:0 4px 4px 0;font-style:italic;color:var(--text-mid);font-size:0.96rem;line-height:1.85;">
+        Ik lees mezelf in elk verhaal<br>
+        en vind mezelf er nooit helemaal.<br>
+        Een stukje hier, een zin daarginder —<br>
+        de wereld wordt er steeds iets minder vreemd.<br>
+        <br>
+        De bladzijde draait, het licht wordt minder,<br>
+        mijn kamer krimpt, het boek wordt groter.<br>
+        Ik slaap niet, maar ik droom wel degelijk.<br>
+        En morgen ben ik iemand anders.
+      </div>
+      <p>Beantwoord de volgende drie reflectievragen in volledige zinnen (minstens drie zinnen per antwoord):</p>
+      <ol>
+        <li>Welke emotie roept dit gedicht bij jou op, en waarom precies?</li>
+        <li>Herken je je in de spreker van het gedicht? Leg uit waarom wel of waarom niet.</li>
+        <li>Wat vind je van het taalgebruik? Noem minstens één woordkeuze of beeld dat jou opvalt.</li>
+      </ol>
+      <p class="ex-tip">Tip: schrijf volledige zinnen. "Ik vond het mooi" is geen antwoord — "Ik vond de regel over het krimpen van de kamer mooi, omdat hij precies beschrijft hoe je je voelt als je verdiept bent in een boek" is een antwoord.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Een personagebeschrijving schrijven</p>
+      <p>Kies een personage uit een boek, film of serie die je goed kent. Schrijf een personagebeschrijving van 150 tot 200 woorden. Gebruik hierbij minstens vier van de volgende begrippen uit dit hoofdstuk:</p>
+      <ul>
+        <li>hoofdpersonage of bijpersonage</li>
+        <li>motivaties (wat wil het personage?)</li>
+        <li>identificatie (herken je je erin?)</li>
+        <li>hoe de schrijver of regisseur het personage opbouwt (via acties, dialoog, gedachten...)</li>
+        <li>hoe andere personages op hem of haar reageren</li>
+      </ul>
+      <p>Vermeld ook de naam van het werk en de schrijver of regisseur.</p>
+      <p class="ex-tip">Tip: een goede personagebeschrijving gaat niet alleen over uiterlijk of wat het personage doet — het gaat over wie het personage is van binnen.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Voorbereiding mondeling examen</p>
+      <p>Kies één boek van onderstaande lectuurlijst (of een boek dat je al gelezen hebt van de lijst van je leerkracht). Bereid in telegramstijl (zoals geleerd in hoofdstuk 4) je antwoord voor op elk van de zes reflectievragen. Schrijf per vraag drie tot vijf steekwoorden of korte zinnen die je kunt uitwerken in een gesprek.</p>
+      <p><strong>Lectuurlijst (selectie):</strong></p>
+      <ul>
+        <li>Beckman, Thea — <em>Hasse Simonsdochter</em></li>
+        <li>Beerten, Els — <em>Lopen voor je leven</em></li>
+        <li>Bracke, Dirk — <em>Een vlieg op de muur</em></li>
+        <li>Dros, Imme — <em>De waterslang</em></li>
+        <li>Enzensberger, Hans Magnus — <em>De getal-duivel</em></li>
+        <li>Hermans, Hub — <em>Hoe overleef ik mezelf?</em></li>
+        <li>Jacques, Brian — <em>Redwall</em></li>
+        <li>Keret, Etgar — <em>Plotseling een klopping aan de deur</em></li>
+        <li>Lindo, Miep — <em>De wraak van de Smurfen</em></li>
+        <li>Pressler, Mirjam — <em>Bittere chocolade</em></li>
+        <li>Terlouw, Jan — <em>Oorlogswinter</em></li>
+        <li>Van Istendael, Geert — <em>Mijn vaderland</em></li>
+      </ul>
+      <p>De zes vragen om voor te bereiden:</p>
+      <ol>
+        <li>Waarom spreken bepaalde aspecten van het boek je aan, of waarom niet?</li>
+        <li>Waarom herken je je in een bepaald personage, of net niet?</li>
+        <li>Hoe zou jij reageren in een gelijkaardige situatie?</li>
+        <li>Waarom roept de tekst bij jou een bepaalde emotie op?</li>
+        <li>Wat vond je van het taalgebruik in het boek?</li>
+        <li>Hoe zou jij het boek laten eindigen?</li>
+      </ol>
+      <p class="ex-tip">Tip: telegramstijl betekent: kernwoorden, geen volledige zinnen — maar zorg dat je die woorden kunt omzetten naar een vloeiend antwoord als de leerkracht vraagt om uit te leggen.</p>
+    </div>
+  </section>
+
+  <section class="summary-section" id="samenvatting">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li>Een <strong>literaire tekst</strong> heeft esthetische waarde: hij is geschreven om een emotionele of intellectuele reactie op te roepen, niet alleen om informatie te geven. Voorbeelden: roman, gedicht, lied, strip, toneelstuk.</li>
+      <li><strong>Fictie</strong> zijn verzonnen verhalen; <strong>non-fictie</strong> is gebaseerd op echte feiten en personen. Autofictie combineert beide en zit in het grijze gebied ertussenin.</li>
+      <li>Een <strong>personage</strong> is een figuur in een verhaal. Het <strong>hoofdpersonage</strong> staat centraal; <strong>bijpersonages</strong> spelen een ondersteunende rol. Schrijvers bouwen personages op via acties, dialoog, gedachten en de reacties van anderen. <strong>Identificatie</strong> is het gevoel dat je je in een personage herkent.</li>
+      <li>De <strong>verhaallijn</strong> is de volgorde van gebeurtenissen; die kan chronologisch zijn of met <strong>terugblikken</strong>. De <strong>tijdspanning</strong> geeft aan over hoeveel tijd het verhaal zich uitstrekt. De <strong>ruimte</strong> is de setting en bepaalt de sfeer.</li>
+      <li>Een <strong>gedicht</strong> gebruikt taal compact en creatief, met rijm, ritme, beeldspraak en strofen. Het doel is niet alleen meedelen, maar ook oproepen en laten voelen.</li>
+      <li>Er zijn zes <strong>reflectievragen</strong> om je leesbeleving te verwoorden: over wat je aanspreekt, personage-identificatie, je eigen reactie op situaties, emoties, taalgebruik en een alternatief einde. Er zijn geen foute antwoorden — jouw beleving telt.</li>
+      <li>Voor het <strong>mondeling examen</strong> lees je <strong>twee boeken</strong> van de lectuurlijst. Bereid je voor door de zes reflectievragen in telegramstijl uit te werken voor elk boek, zodat je die in een gesprek kunt uitleggen en toelichten.</li>
+    </ul>
+  </section>
+
+</div>
+
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Terug naar boven">↑</button>
+<script>
+  const btn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => btn.classList.toggle('visible', window.scrollY > 400));
+</script>
+<script src="nav.js"></script>
+</body>
+</html>

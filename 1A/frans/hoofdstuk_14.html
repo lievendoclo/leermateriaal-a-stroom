@@ -1,0 +1,1797 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H14 — Lire et comprendre | Frans 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     ILLUSTRATIE PLACEHOLDERS
+  ============================================================ */
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+    cursor: default;
+    transition: background var(--transition);
+  }
+
+  .illustratie:hover { background: #EDE7D8; }
+
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     BRONMATERIAAL
+  ============================================================ */
+  .bronmateriaal {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 2rem 2.2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .bronmateriaal .bron-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--darkblue);
+    opacity: 0.6;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  .bronmateriaal .bron-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  .bronmateriaal .bron-meta {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    font-style: italic;
+    margin-bottom: 0.9rem;
+    display: block;
+  }
+
+  .bronmateriaal .bron-body { margin-bottom: 0.8rem; }
+
+  .bronmateriaal .bron-body p {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-bottom: 0.6em;
+  }
+
+  .bronmateriaal .bron-body p:last-child { margin-bottom: 0; }
+
+  .bronmateriaal .bron-vraag {
+    background: rgba(26,43,74,0.06);
+    border-left: 3px solid var(--darkblue);
+    border-radius: 0 4px 4px 0;
+    padding: 0.7rem 1rem;
+    font-size: 0.93rem;
+    color: var(--text-mid);
+    font-style: italic;
+    margin-top: 1rem;
+  }
+
+  .bronmateriaal .bron-vraag::before {
+    content: '&#128269; ';
+    font-style: normal;
+  }
+
+  .bronmateriaal .bron-source {
+    font-size: 0.78rem;
+    color: var(--text-light);
+    border-top: 1px solid var(--sand);
+    padding-top: 0.6rem;
+    font-style: italic;
+    margin-top: 0.8rem;
+    display: block;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '&#10003;';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     CLOSING QUOTE
+  ============================================================ */
+  .closing-quote {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0D1E38 100%);
+    border-radius: var(--border-radius);
+    padding: 3rem 3rem 2.5rem;
+    margin: 3.5rem 0 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.5rem; left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .closing-quote .cq-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--gold);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 1.2rem;
+  }
+
+  .closing-quote .cq-attribution {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(212,160,23,0.6);
+  }
+
+  .closing-quote .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .closing-quote .ornament-line::before,
+  .closing-quote .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.4), transparent);
+  }
+
+  .closing-quote .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.7;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .closing-quote { padding: 2rem 1.2rem 1.8rem; }
+    .bronmateriaal { padding: 1.4rem 1.2rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     FRANS-SPECIFIC COMPONENTS
+  ============================================================ */
+
+  /* Tekst-fragment — authentic French text excerpt */
+  .tekst-fragment {
+    background: #FFFFFF;
+    border: 1px solid var(--sand);
+    border-left: 5px solid var(--darkblue);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1.5rem 1.8rem;
+    margin: 1.6rem 0;
+    position: relative;
+  }
+
+  .tekst-fragment .tf-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--darkblue);
+    opacity: 0.55;
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  .tekst-fragment .tf-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    display: block;
+    margin-bottom: 0.9rem;
+  }
+
+  .tekst-fragment .tf-body {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.8;
+  }
+
+  .tekst-fragment .tf-body p { margin-bottom: 0.7em; }
+  .tekst-fragment .tf-body p:last-child { margin-bottom: 0; }
+
+  .tekst-fragment .tf-type-badge {
+    display: inline-block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: var(--darkblue);
+    color: var(--gold);
+    border-radius: 3px;
+    padding: 0.2rem 0.55rem;
+    margin-bottom: 0.8rem;
+  }
+
+  /* Gesprek — dialogue / conversation fragment */
+  .gesprek {
+    background: #F4F8FF;
+    border: 1px solid #C8D8F0;
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.8rem;
+    margin: 1.6rem 0;
+  }
+
+  .gesprek .gesprek-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--darkblue-light);
+    opacity: 0.65;
+    display: block;
+    margin-bottom: 0.6rem;
+  }
+
+  .gesprek .gesprek-line {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 0.6rem;
+    align-items: flex-start;
+  }
+
+  .gesprek .gesprek-line:last-child { margin-bottom: 0; }
+
+  .gesprek .gl-speaker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    min-width: 72px;
+    flex-shrink: 0;
+    padding-top: 0.1rem;
+  }
+
+  .gesprek .gl-text {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+  }
+
+  /* Grammatica-kader — grammar / strategy reference box */
+  .grammatica-kader {
+    background: #EFF4FF;
+    border: 1.5px solid #B8CCEE;
+    border-radius: var(--border-radius);
+    padding: 1.6rem 1.8rem;
+    margin: 1.8rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .grammatica-kader .gk-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .grammatica-kader .gk-icon {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  .grammatica-kader .gk-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--darkblue);
+  }
+
+  .grammatica-kader .gk-subtitle {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--darkblue);
+    opacity: 0.5;
+    display: block;
+    margin-bottom: 0.9rem;
+  }
+
+  .grammatica-kader table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.93rem;
+    margin: 0.4rem 0;
+  }
+
+  .grammatica-kader th {
+    background: var(--darkblue);
+    color: white;
+    padding: 0.4rem 0.75rem;
+    text-align: left;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    font-size: 0.83rem;
+  }
+
+  .grammatica-kader td {
+    padding: 0.4rem 0.75rem;
+    border-bottom: 1px solid #C8D8F0;
+    color: var(--text-mid);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+
+  .grammatica-kader tr:last-child td { border-bottom: none; }
+
+  .grammatica-kader tr:nth-child(even) td {
+    background: rgba(255,255,255,0.6);
+  }
+
+  .grammatica-kader .gk-example {
+    background: rgba(255,255,255,0.75);
+    border-left: 3px solid #7A9FD4;
+    border-radius: 0 4px 4px 0;
+    padding: 0.6rem 0.9rem;
+    margin-top: 0.8rem;
+    font-size: 0.93rem;
+    color: var(--text-mid);
+    font-style: italic;
+  }
+
+  .grammatica-kader .gk-example strong {
+    color: var(--darkblue);
+    font-style: normal;
+  }
+
+  .grammatica-kader ul {
+    padding-left: 1.2rem;
+    margin: 0.5rem 0;
+  }
+
+  .grammatica-kader li {
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+  }
+
+  /* Woordenschat-kader — vocabulary / word study box */
+  .woordenschat-kader {
+    background: #FFF8EC;
+    border: 1.5px solid #E8C87A;
+    border-radius: var(--border-radius);
+    padding: 1.6rem 1.8rem;
+    margin: 1.8rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .woordenschat-kader .wk-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .woordenschat-kader .wk-icon { font-size: 1.2rem; flex-shrink: 0; }
+
+  .woordenschat-kader .wk-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--darkblue);
+  }
+
+  .woordenschat-kader .wk-subtitle {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--oker);
+    display: block;
+    margin-bottom: 0.9rem;
+  }
+
+  .woordenschat-kader table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.93rem;
+  }
+
+  .woordenschat-kader th {
+    background: var(--oker);
+    color: white;
+    padding: 0.4rem 0.75rem;
+    text-align: left;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    font-size: 0.83rem;
+  }
+
+  .woordenschat-kader td {
+    padding: 0.4rem 0.75rem;
+    border-bottom: 1px solid #E8C87A;
+    color: var(--text-mid);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+
+  .woordenschat-kader tr:last-child td { border-bottom: none; }
+
+  .woordenschat-kader tr:nth-child(even) td {
+    background: rgba(255,255,255,0.55);
+  }
+
+  .woordenschat-kader .wk-note {
+    font-size: 0.87rem;
+    color: var(--text-light);
+    font-style: italic;
+    margin-top: 0.9rem;
+    padding-top: 0.7rem;
+    border-top: 1px solid #E8C87A;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <span class="label">Frans 1A</span>
+  <span class="label label-right">H14 &mdash; Lire et comprendre</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Frans &nbsp;&middot;&nbsp; 1A &nbsp;&middot;&nbsp; Hoofdstuk 14</div>
+  <h1>Lire et comprendre</h1>
+  <p class="subtitle">Lees- en luisterstrategieën voor A2 &mdash; teksten begrijpen, structuur herkennen, betekenis afleiden</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- PROLOGUE -->
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Stel je voor &hellip;</span>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p>Je bent op vakantie in Parijs. In de metro hangt een affiche. Er staat iets over een staking &mdash; <em>grève</em>. Je kent het woord niet, maar je ziet mensen zuchten, hun telefoon pakken, omdraaien. Je herkent het woord <em>métro</em> en een datum. Je begrijpt al genoeg om te weten: er zijn problemen met het openbaar vervoer.</p>
+    <p>Dat is leesbegrip in de echte wereld. Je hoeft niet elk woord te kennen om een tekst te <em>begrijpen</em>. Je gebruikt context, herkenbare woorden, beelden, situatie en logica. In dit hoofdstuk leer je hoe je dat systematisch doet &mdash; in het Frans.</p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SECTION 1 — LES STRATÉGIES DE LECTURE
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="section-block" id="strategies-lecture">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Les strat&eacute;gies de lecture</h2>
+    </div>
+
+    <p>Een goede lezer leest niet elk woord met dezelfde aandacht. Afhankelijk van je doel gebruik je een andere strategie. Op A2-niveau zijn er drie kernstrategieën die je moet kennen en kunnen toepassen.</p>
+
+    <div class="grammatica-kader">
+      <div class="gk-header">
+        <span class="gk-icon">&#128214;</span>
+        <span class="gk-title">De drie leesstrategie&euml;n</span>
+      </div>
+      <span class="gk-subtitle">Strat&eacute;gies de lecture &mdash; A2</span>
+      <table>
+        <thead>
+          <tr>
+            <th>Strategie</th>
+            <th>Frans</th>
+            <th>Doel</th>
+            <th>Hoe?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Globaal lezen</strong></td>
+            <td><em>lecture globale / skimming</em></td>
+            <td>Waarover gaat deze tekst?</td>
+            <td>Lees titel, tussentitels, eerste zin van elk alinea, kijk naar afbeeldingen en onderschriften</td>
+          </tr>
+          <tr>
+            <td><strong>Selectief lezen</strong></td>
+            <td><em>lecture s&eacute;lective / scanning</em></td>
+            <td>Vind specifieke informatie</td>
+            <td>Scan de tekst voor namen, datums, cijfers of sleutelwoorden &mdash; je hoeft de rest niet te lezen</td>
+          </tr>
+          <tr>
+            <td><strong>Intensief lezen</strong></td>
+            <td><em>lecture intensive / reading in detail</em></td>
+            <td>Begrijp details en nuances</td>
+            <td>Lees zin per zin, let op signaalwoorden, gebruik context voor onbekende woorden</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="gk-example">
+        <strong>Voorbeeld:</strong> Je krijgt een artikel over klimaat in Canada. Vraag 1: &ldquo;Welk klimaat heeft Quebec?&rdquo; &rarr; gebruik <em>scanning</em> (zoek het woord <em>Qu&eacute;bec</em>). Vraag 2: &ldquo;Geef de hoofdgedachte van het artikel&rdquo; &rarr; gebruik <em>skimming</em>. Vraag 3: &ldquo;Leg de oorzaak-gevolgrelatie in de derde alinea uit&rdquo; &rarr; gebruik <em>intensief lezen</em>.
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Contextclues &mdash; betekenis afleiden uit de context</h3>
+
+    <p>Onbekende woorden hoef je niet altijd op te zoeken. Kijk naar wat er rondom het woord staat. De zin, de alinea, de situatie geven aanwijzingen. Dit heet een <strong>contextclue</strong> gebruiken.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128270;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Strategie</span>
+        <span class="begrip-name">Contextclues gebruiken</span>
+        <p class="begrip-def">Een <em>contextclue</em> is informatie in de tekst die je helpt de betekenis van een onbekend woord te raden. Kijk naar: de zin voor en na het woord, synoniem- of definitieclues (<em>c&rsquo;est-&agrave;-dire</em>, <em>autrement dit</em>), opsommingen, contrasten (<em>mais</em>, <em>cependant</em>), en de algemene sfeer van de tekst.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Cognaten &mdash; woorden die lijken op Nederlands of Engels</h3>
+
+    <p>Frans deelt veel woordenschat met het Nederlands en het Engels via het Latijn. Herken je de stam van een woord, dan kom je al een heel eind. Let wel op <strong>faux amis</strong> (valse vrienden): woorden die lijken op een Nederlands woord maar iets anders betekenen.</p>
+
+    <div class="woordenschat-kader">
+      <div class="wk-header">
+        <span class="wk-icon">&#128279;</span>
+        <span class="wk-title">Cognaten Frans &harr; Nederlands/Engels</span>
+      </div>
+      <span class="wk-subtitle">Herkenbare woordfamilies</span>
+      <table>
+        <thead>
+          <tr>
+            <th>Frans</th>
+            <th>Nederlands</th>
+            <th>Engels</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><em>l&rsquo;information</em></td>
+            <td>de informatie</td>
+            <td>information</td>
+          </tr>
+          <tr>
+            <td><em>la communication</em></td>
+            <td>de communicatie</td>
+            <td>communication</td>
+          </tr>
+          <tr>
+            <td><em>important(e)</em></td>
+            <td>belangrijk / important</td>
+            <td>important</td>
+          </tr>
+          <tr>
+            <td><em>le restaurant</em></td>
+            <td>het restaurant</td>
+            <td>restaurant</td>
+          </tr>
+          <tr>
+            <td><em>la nation</em></td>
+            <td>de natie</td>
+            <td>nation</td>
+          </tr>
+          <tr>
+            <td><em>possible</em></td>
+            <td>mogelijk / possible</td>
+            <td>possible</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="wk-note">Let op faux amis: <em>actuellement</em> = nu/momenteel (NIET: eigenlijk) &mdash; <em>sensible</em> = gevoelig (NIET: verstandig) &mdash; <em>librairie</em> = boekhandel (NIET: bibliotheek).</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Je moet een examentekst lezen over &ldquo;le recyclage des d&eacute;chets&rdquo;. Welke strategie gebruik je als eerste? En als de vraag luidt &ldquo;Welke drie voordelen noemt de auteur?&rdquo; &mdash; welke strategie pas je dan toe? Bespreek met een klasgenoot.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SECTION 2 — LES TYPES DE TEXTES
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="section-block" id="types-textes">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Les types de textes</h2>
+    </div>
+
+    <p>In het Frans lees je niet alle teksten op dezelfde manier. De <strong>tekstsoort</strong> bepaalt mee hoe je een tekst aanpakt en wat je kunt verwachten. Vanuit de vakfiche zijn er vijf tekstsoorten die je moet kennen.</p>
+
+    <!-- 2A: Informatieve tekst -->
+    <h3 class="sub-heading">2A &mdash; Le texte informatif (informatieve tekst)</h3>
+    <p>Een informatieve tekst geeft feiten en informatie zonder expliciet een mening te uiten. Voorbeelden: krantenartikelen, encyclopedi&euml;artikelen, reisgidsen, nieuwsberichten.</p>
+
+    <div class="tekst-fragment">
+      <span class="tf-label">Tekst &mdash; Informatief</span>
+      <span class="tf-type-badge">Texte informatif</span>
+      <span class="tf-title">Le S&eacute;n&eacute;gal, pays du &laquo;&nbsp;Teranga&nbsp;&raquo;</span>
+      <div class="tf-body">
+        <p>Le S&eacute;n&eacute;gal est un pays d&rsquo;Afrique de l&rsquo;Ouest, situ&eacute; au bord de l&rsquo;oc&eacute;an Atlantique. Sa capitale est Dakar, une ville c&ocirc;ti&egrave;re de pr&egrave;s de 3,5 millions d&rsquo;habitants. La langue officielle est le fran&ccedil;ais, mais la majorit&eacute; de la population parle aussi le wolof.</p>
+        <p>Le pays est connu pour sa culture d&rsquo;hospitalit&eacute;, appel&eacute;e <em>teranga</em> en wolof. Chaque ann&eacute;e, des millions de touristes visitent le S&eacute;n&eacute;gal pour ses plages, sa musique et sa cuisine vari&eacute;e. Les principaux produits d&rsquo;exportation sont l&rsquo;arachide, le poisson et les phosphates.</p>
+      </div>
+    </div>
+
+    <!-- 2B: Opinierende tekst -->
+    <h3 class="sub-heading">2B &mdash; Le texte opinant (opinië rende tekst)</h3>
+    <p>Een opinië rende tekst geeft de mening of het standpunt van de auteur. Voorbeelden: sociale media posts, opiniestukken, ingezonden brieven, recensies. Je herkent ze aan woorden als <em>je pense que</em>, <em>&agrave; mon avis</em>, <em>il faut</em>, <em>je trouve que</em>.</p>
+
+    <div class="tekst-fragment">
+      <span class="tf-label">Tekst &mdash; Opinië rend</span>
+      <span class="tf-type-badge">Texte opinant</span>
+      <span class="tf-title">Commentaire sur les r&eacute;seaux sociaux</span>
+      <div class="tf-body">
+        <p><em>Utilisateur @margot_bzh :</em></p>
+        <p>&laquo;&nbsp;Franchement, je pense que les r&eacute;seaux sociaux ont chang&eacute; notre vie en mieux. On peut partager nos id&eacute;es, rester en contact avec les amis et d&eacute;couvrir des cultures diff&eacute;rentes. &Agrave; mon avis, le probl&egrave;me n&rsquo;est pas les r&eacute;seaux eux-m&ecirc;mes, mais la fa&ccedil;on dont on les utilise. Il faut juste apprendre &agrave; &ecirc;tre responsable en ligne.&nbsp;&raquo;</p>
+      </div>
+    </div>
+
+    <!-- 2C: Prescriptieve tekst -->
+    <h3 class="sub-heading">2C &mdash; Le texte prescriptif (prescriptieve tekst)</h3>
+    <p>Een prescriptieve tekst geeft instructies of regels. Voorbeelden: recepten, gebruiksaanwijzingen, spelregels, veiligheidsinstructies. Je herkent ze aan de gebiedende wijs (<em>imp&eacute;ratif</em>): <em>ajoutez</em>, <em>coupez</em>, <em>m&eacute;langez</em>.</p>
+
+    <div class="tekst-fragment">
+      <span class="tf-label">Tekst &mdash; Prescriptief</span>
+      <span class="tf-type-badge">Texte prescriptif</span>
+      <span class="tf-title">Recette : croque-monsieur maison</span>
+      <div class="tf-body">
+        <p><strong>Ingr&eacute;dients (pour 2 personnes) :</strong> 4 tranches de pain de mie, 2 tranches de jambon, 4 tranches de fromage &eacute;mmental&eacute;, du beurre.</p>
+        <p><strong>Pr&eacute;paration :</strong> Beurrez les tranches de pain. Posez une tranche de fromage sur deux tranches. Ajoutez le jambon. Recouvrez d&rsquo;une autre tranche de fromage et d&rsquo;une tranche de pain. Faites griller 3 minutes de chaque c&ocirc;t&eacute; dans une po&ecirc;le chaude. Servez chaud. <em>Bon app&eacute;tit&nbsp;!</em></p>
+      </div>
+    </div>
+
+    <!-- 2D: Narratieve tekst -->
+    <h3 class="sub-heading">2D &mdash; Le texte narratif (narratieve tekst)</h3>
+    <p>Een narratieve tekst vertelt een verhaal of ervaringen. Voorbeelden: dagboeken, blogs, romans, reisverslagen. Je herkent ze aan de vertelstructuur (begin &mdash; midden &mdash; einde), het gebruik van de <em>pass&eacute; compos&eacute;</em> of <em>imparfait</em>, en persoonlijke voornaamwoorden (<em>je</em>, <em>nous</em>).</p>
+
+    <div class="tekst-fragment">
+      <span class="tf-label">Tekst &mdash; Narratief</span>
+      <span class="tf-type-badge">Texte narratif</span>
+      <span class="tf-title">Mon week-end &agrave; Lyon &mdash; blog de Th&eacute;o</span>
+      <div class="tf-body">
+        <p>Samedi matin, je me suis r&eacute;veill&eacute; t&ocirc;t et j&rsquo;ai pris le train pour Lyon. Il faisait beau et j&rsquo;&eacute;tais vraiment content de quitter Paris pour deux jours. En arrivant, j&rsquo;ai retrouv&eacute; mon amie Camille devant la gare.</p>
+        <p>On a visit&eacute; le Vieux-Lyon, avec ses ruelles &eacute;troites et ses <em>traboules</em> &mdash; ces passages secrets qui traversent les immeubles. Camille m&rsquo;a expliqu&eacute; que les <em>traboules</em> &eacute;taient utilis&eacute;es par la R&eacute;sistance pendant la Deuxi&egrave;me Guerre mondiale. Fascinant&nbsp;!</p>
+        <p>Le soir, on a mang&eacute; dans un <em>bouchon lyonnais</em> &mdash; un restaurant typique. J&rsquo;ai pris une quenelle pour la premi&egrave;re fois. D&eacute;licieux.</p>
+      </div>
+    </div>
+
+    <!-- 2E: Literaire tekst -->
+    <h3 class="sub-heading">2E &mdash; Le texte litt&eacute;raire (literaire tekst)</h3>
+    <p>Een literaire tekst is creatief geschreven met oog voor taal, ritme en beeldgebruik. Voorbeelden: liedjes, gedichten, korte verhalen. Liedjes (<em>chansons</em>) zijn een uitstekende manier om Frans te leren: je hoort uitspraak, ritme en woordenschat tegelijk.</p>
+
+    <div class="tekst-fragment">
+      <span class="tf-label">Tekst &mdash; Literair (fragment)</span>
+      <span class="tf-type-badge">Texte litt&eacute;raire</span>
+      <span class="tf-title">Papaoutai &mdash; Stromae (fragment, 2013)</span>
+      <div class="tf-body">
+        <p><em>O&ugrave; t&rsquo;es papa o&ugrave; t&rsquo;es&nbsp;?<br>
+        O&ugrave; t&rsquo;es papa o&ugrave; t&rsquo;es&nbsp;?<br>
+        O&ugrave; t&rsquo;es papa o&ugrave; t&rsquo;es&nbsp;?<br>
+        O&ugrave; t&rsquo;es, o&ugrave; t&rsquo;es, papaoutai&nbsp;?</em></p>
+        <p><em>Tout le monde sait comment on fait les b&eacute;b&eacute;s<br>
+        Mais personne sait comment on fait des papas<br>
+        Monsieur &laquo;&nbsp;J&rsquo;sais tout&nbsp;&raquo; en aurait bien besoin<br>
+        Sa maman faisait signe que non&hellip;</em></p>
+        <p style="font-size:0.87rem;color:var(--text-light);font-style:italic;margin-top:0.8rem;">Stromae is de artiestennaam van Paul Van Haver (Brussel, 1985). Het woord &lsquo;papaoutai&rsquo; is een klankspeling op &lsquo;papa o&ugrave; t&rsquo;es&rsquo; (papa, waar ben je). Het lied gaat over een kind dat opgroeit zonder vader.</p>
+      </div>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Kijk naar de vijf tekstfragmenten hierboven. Welke signalen laten je toe de tekstsoort te herkennen <em>zonder</em> het label te lezen? Schrijf voor elke tekst twee kenmerken op die typisch zijn voor die tekstsoort.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SECTION 3 — COMPRENDRE LE SUJET ET LA THÈSE
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="section-block" id="sujet-these">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Comprendre le sujet et la th&egrave;se</h2>
+    </div>
+
+    <p>Een tekst begrijpen betekent meer dan woorden vertalen. Je moet de <strong>structuur</strong> van de tekst doorzien: wat is het onderwerp, wat is de hoofdgedachte, en welke argumenten of feiten ondersteunen die?</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128203;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Le sujet</span>
+        <p class="begrip-def"><strong>Le sujet</strong> = het onderwerp van de tekst. Waarvoor gaat de tekst? Je formuleert dit in 1 &agrave; 2 woorden: bv. <em>le recyclage</em>, <em>les r&eacute;seaux sociaux</em>, <em>les vacances en France</em>. Vraag jezelf: &ldquo;Wat staat er in de titel? Welk woord herhaalt zich?&rdquo;</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128203;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">La th&egrave;se / l&rsquo;id&eacute;e principale</span>
+        <p class="begrip-def"><strong>La th&egrave;se</strong> of <strong>l&rsquo;id&eacute;e principale</strong> = de hoofdgedachte. Wat wil de auteur zeggen over het onderwerp? Je formuleert dit in 1 volzin: bv. <em>&ldquo;Les r&eacute;seaux sociaux ont un impact positif sur la communication.&rdquo;</em> Staat vaak in de eerste of laatste alinea.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128203;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Les points principaux</span>
+        <p class="begrip-def"><strong>Les points principaux</strong> = de hoofdpunten. Dit zijn de argumenten, feiten of voorbeelden waarmee de auteur de hoofdgedachte ondersteunt. Elke alinea bevat doorgaans één hoofdpunt. Zoek de topic sentence &mdash; de eerste of laatste zin van een alinea.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Hoe identificeer je de structuur in drie stappen?</h3>
+
+    <div class="grammatica-kader">
+      <div class="gk-header">
+        <span class="gk-icon">&#128269;</span>
+        <span class="gk-title">Tekststructuur analyseren in 3 stappen</span>
+      </div>
+      <span class="gk-subtitle">M&eacute;thode d&rsquo;analyse</span>
+      <table>
+        <thead>
+          <tr>
+            <th>Stap</th>
+            <th>Vraag</th>
+            <th>Antwoord geeft je</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Sujet</strong></td>
+            <td>Waarover gaat de tekst? (Lees titel + eerste alinea)</td>
+            <td>1&ndash;2 woorden: het onderwerp</td>
+          </tr>
+          <tr>
+            <td><strong>2. Th&egrave;se</strong></td>
+            <td>Wat wil de auteur zeggen over het onderwerp? (Kijk naar eerste/laatste alinea)</td>
+            <td>1 zin: de hoofdgedachte</td>
+          </tr>
+          <tr>
+            <td><strong>3. Points principaux</strong></td>
+            <td>Welke argumenten of feiten worden gebruikt? (Lees de eerste zin van elke alinea)</td>
+            <td>2&ndash;4 bulletpunten</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="gk-example">
+        <strong>Voorbeeld &mdash; tekst over de OV-staking in Parijs:</strong><br>
+        <em>Sujet :</em> la gr&egrave;ve du m&eacute;tro parisien<br>
+        <em>Th&egrave;se :</em> La gr&egrave;ve perturbe fortement la vie quotidienne des Parisiens.<br>
+        <em>Points principaux :</em> (1) Des millions de personnes sont affect&eacute;es. (2) Les entreprises perdent de l&rsquo;argent. (3) Les autorit&eacute;s cherchent une solution.
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SECTION 4 — LES MOTS DE STRUCTURATION
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="section-block" id="mots-structuration">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Les mots de structuration</h2>
+    </div>
+
+    <p>Signaalwoorden (<em>mots de structuration</em> of <em>connecteurs logiques</em>) zijn kleine woordjes die grote informatie geven. Ze vertellen je of de auteur iets toevoegt, tegenstelt, een oorzaak geeft, een voorbeeld noemt of een conclusie trekt. Als je deze woorden herkent, begrijp je de logica van een tekst &mdash; ook al ken je niet elk inhoudswoord.</p>
+
+    <div class="grammatica-kader">
+      <div class="gk-header">
+        <span class="gk-icon">&#128279;</span>
+        <span class="gk-title">Connecteurs logiques &mdash; signaalwoorden</span>
+      </div>
+      <span class="gk-subtitle">Mots de structuration par fonction</span>
+      <table>
+        <thead>
+          <tr>
+            <th>Functie</th>
+            <th>Signaalwoorden (Frans)</th>
+            <th>Betekenis / equivalent</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Opsomming</strong></td>
+            <td><em>premi&egrave;rement, deuxi&egrave;mement, enfin, d&rsquo;abord, ensuite</em></td>
+            <td>ten eerste &mdash; ten tweede &mdash; ten slotte &mdash; eerst &mdash; dan</td>
+          </tr>
+          <tr>
+            <td><strong>Toevoeging</strong></td>
+            <td><em>de plus, en outre, &eacute;galement, aussi</em></td>
+            <td>bovendien &mdash; ook &mdash; eveneens</td>
+          </tr>
+          <tr>
+            <td><strong>Tegenstelling</strong></td>
+            <td><em>cependant, mais, pourtant, par contre, n&eacute;anmoins, en revanche</em></td>
+            <td>toch &mdash; maar &mdash; echter &mdash; aan de andere kant</td>
+          </tr>
+          <tr>
+            <td><strong>Oorzaak</strong></td>
+            <td><em>parce que, car, puisque, &eacute;tant donn&eacute; que</em></td>
+            <td>omdat &mdash; want &mdash; aangezien</td>
+          </tr>
+          <tr>
+            <td><strong>Gevolg</strong></td>
+            <td><em>donc, c&rsquo;est pourquoi, ainsi, par cons&eacute;quent</em></td>
+            <td>dus &mdash; daarom &mdash; zo &mdash; bijgevolg</td>
+          </tr>
+          <tr>
+            <td><strong>Voorbeeld</strong></td>
+            <td><em>par exemple, notamment, comme, tel que</em></td>
+            <td>bijvoorbeeld &mdash; zoals &mdash; met name</td>
+          </tr>
+          <tr>
+            <td><strong>Twee kanten</strong></td>
+            <td><em>d&rsquo;une part&hellip; d&rsquo;autre part</em></td>
+            <td>enerzijds &mdash; anderzijds</td>
+          </tr>
+          <tr>
+            <td><strong>Bevestiging</strong></td>
+            <td><em>en effet, effectivement</em></td>
+            <td>inderdaad &mdash; dat klopt want</td>
+          </tr>
+          <tr>
+            <td><strong>Conclusie</strong></td>
+            <td><em>en conclusion, pour conclure, finalement, en r&eacute;sum&eacute;</em></td>
+            <td>ter conclusie &mdash; tot slot &mdash; samenvattend</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="gk-example">
+        <strong>Oefen in context:</strong><br>
+        <em>&ldquo;Les jeunes lisent de moins en moins de livres. <strong>C&rsquo;est pourquoi</strong> les biblioth&egrave;ques proposent maintenant des bandes dessin&eacute;es et des mangas. <strong>D&rsquo;une part</strong>, cela attire plus de visiteurs. <strong>D&rsquo;autre part</strong>, certains professeurs pensent que ce n&rsquo;est pas de la vraie litt&eacute;rature. <strong>Cependant</strong>, toute lecture est b&eacute;n&eacute;fique pour les enfants.&rdquo;</em><br>
+        Signaalwoorden onthullen: oorzaak-gevolg, twee kanten, tegenstelling. Je snapt de structuur zonder elk woord te kennen.
+      </div>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Onderstreep in de tekst over de biblioth&egrave;que (in het grammatica-kader hierboven) alle signaalwoorden. Welk type logica gebruikt de auteur het meest: oorzaak-gevolg, tegenstelling of opsomming?</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SECTION 5 — LES STRATÉGIES D'ÉCOUTE
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="section-block" id="strategies-ecoute">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Les strat&eacute;gies d&rsquo;&eacute;coute</h2>
+    </div>
+
+    <p>Luisteren naar Frans is voor veel leerlingen moeilijker dan lezen. Gesproken taal gaat sneller, er zijn samentrekkingen (<em>&laquo;&nbsp;j&rsquo;sais pas&nbsp;&raquo;</em> voor <em>&laquo;&nbsp;je ne sais pas&nbsp;&raquo;</em>), en je kunt niet terugspoelen zoals je bij een tekst opnieuw kunt lezen. Toch werken de basisstrategieën parallel aan die voor lezen.</p>
+
+    <div class="grammatica-kader">
+      <div class="gk-header">
+        <span class="gk-icon">&#127911;</span>
+        <span class="gk-title">Luisterstrategieën stap voor stap</span>
+      </div>
+      <span class="gk-subtitle">Strat&eacute;gies d&rsquo;&eacute;coute &mdash; A2</span>
+      <table>
+        <thead>
+          <tr>
+            <th>Fase</th>
+            <th>Strategie</th>
+            <th>Praktisch</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Voor het luisteren</strong></td>
+            <td>Anticiperen</td>
+            <td>Lees de vragen. Bekijk afbeeldingen. Vraag jezelf: welke situatie is dit? Wie spreekt? Wat verwacht ik te horen?</td>
+          </tr>
+          <tr>
+            <td><strong>Eerste beluistering</strong></td>
+            <td>Globaal luisteren</td>
+            <td>Vat de situatie samen. Wie praat met wie? Welk thema? Niet focussen op onbekende woorden &mdash; laat ze voorbijgaan.</td>
+          </tr>
+          <tr>
+            <td><strong>Tweede beluistering</strong></td>
+            <td>Selectief luisteren</td>
+            <td>Focus op de informatie die je nodig hebt voor de vragen: namen, cijfers, locaties, meningen.</td>
+          </tr>
+          <tr>
+            <td><strong>Visuele context</strong></td>
+            <td>Non-verbale aanwijzingen</td>
+            <td>Bij video: kijk naar gebaren, gezichtsuitdrukkingen, omgeving. Een lachend gezicht + stijgende intonatie = positief nieuws.</td>
+          </tr>
+          <tr>
+            <td><strong>Intonatie</strong></td>
+            <td>Herken vraag / mening / emotie</td>
+            <td>Stijgende intonatie = vraag. Nadruk op een woord = dat woord is belangrijk. Trillende stem = emotie.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub-heading">Typische luistervalkuilen op het examen</h3>
+
+    <p>Op het examen luisterverstaan zijn er terugkerende valkuilen. Weet je ze, dan vermijd je ze:</p>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.5rem"><strong>Je herkent één woord en kiest dat antwoord</strong> &mdash; maar de vraag vraagt iets anders. Lees eerst de vraag, dan luister je gericht.</li>
+      <li style="margin-bottom:0.5rem"><strong>Je verwart <em>ne&hellip;pas</em></strong> &mdash; een ontkenning klinkt soms snel. <em>&laquo;&nbsp;Je n&rsquo;aime pas le sport&nbsp;&raquo;</em> is het tegenovergestelde van <em>&laquo;&nbsp;J&rsquo;aime le sport&nbsp;&raquo;</em>.</li>
+      <li style="margin-bottom:0.5rem"><strong>Samentrekkingen in gesproken Frans:</strong> <em>j&rsquo;sais</em> = je sais &mdash; <em>t&rsquo;as</em> = tu as &mdash; <em>y&rsquo;a</em> = il y a &mdash; <em>ch&eacute;pa</em> = je ne sais pas.</li>
+      <li style="margin-bottom:0.5rem"><strong>Regionale accenten:</strong> Frans in Qu&eacute;bec, West-Afrika of Belgi&euml; klinkt anders dan Parijs-Frans. Beide zijn correct.</li>
+    </ul>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Jij en je vriend luisteren naar een Frans gesprek. Hij zegt: &laquo;&nbsp;Ik verstond niets, er waren te veel woorden die ik niet kende.&rdquo; Welk advies geef jij hem op basis van de luisterstrategieën? Formuleer drie concrete tips.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SECTION 6 — DÉDUIRE LE SENS DES MOTS INCONNUS
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="section-block" id="mots-inconnus">
+    <div class="section-heading">
+      <span class="section-num">6</span>
+      <h2 class="section-title">D&eacute;duire le sens des mots inconnus</h2>
+    </div>
+
+    <p>Je kunt nooit alle Franse woorden kennen &mdash; ook een moedertaalspreker niet. Wat je wél kunt leren, is systematisch de betekenis <em>afleiden</em> via vier strategieën: woordfamilies, cognaten, context en morfologie.</p>
+
+    <div class="grammatica-kader">
+      <div class="gk-header">
+        <span class="gk-icon">&#128300;</span>
+        <span class="gk-title">Vier strategieën voor onbekende woorden</span>
+      </div>
+      <span class="gk-subtitle">D&eacute;duire le vocabulaire inconnu</span>
+
+      <h4 style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--darkblue);margin:1rem 0 0.4rem;">Strategie 1 &mdash; Woordfamilies herkennen</h4>
+      <p style="font-size:0.95rem;color:var(--text-mid);margin-bottom:0.8rem;">Als je het grondwoord kent, kun je de afgeleiden afleiden.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Grondwoord</th>
+            <th>Afgeleide vormen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><em>&eacute;crire</em> (schrijven)</td>
+            <td><em>&eacute;crivain</em> (schrijver) &mdash; <em>&eacute;criture</em> (schrift, schrijfwijze) &mdash; <em>&eacute;crit</em> (geschreven)</td>
+          </tr>
+          <tr>
+            <td><em>lire</em> (lezen)</td>
+            <td><em>lecteur</em> (lezer) &mdash; <em>lecture</em> (leesoefening) &mdash; <em>lisible</em> (leesbaar)</td>
+          </tr>
+          <tr>
+            <td><em>voir</em> (zien)</td>
+            <td><em>vision</em> (zicht) &mdash; <em>visible</em> (zichtbaar) &mdash; <em>visage</em> (gezicht) &mdash; <em>revoir</em> (opnieuw zien)</td>
+          </tr>
+          <tr>
+            <td><em>changer</em> (veranderen)</td>
+            <td><em>changement</em> (verandering) &mdash; <em>&eacute;change</em> (uitwisseling) &mdash; <em>interchangeable</em></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4 style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--darkblue);margin:1.2rem 0 0.4rem;">Strategie 2 &mdash; Morfologie: voor- en achtervoegsels</h4>
+      <p style="font-size:0.95rem;color:var(--text-mid);margin-bottom:0.8rem;">Prefixen en suffixen geven structurele aanwijzingen over de betekenis.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Voorvoegsel / achtervoegsel</th>
+            <th>Betekenis</th>
+            <th>Voorbeelden</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><em>re-</em></td>
+            <td>opnieuw / terug</td>
+            <td><em>relire</em>, <em>repartir</em>, <em>revenir</em></td>
+          </tr>
+          <tr>
+            <td><em>d&eacute;-</em></td>
+            <td>ongedaan maken / weg</td>
+            <td><em>d&eacute;faire</em>, <em>d&eacute;monter</em>, <em>d&eacute;connect&eacute;</em></td>
+          </tr>
+          <tr>
+            <td><em>-tion / -sion</em></td>
+            <td>handeling / resultaat (zelfstandig naamwoord)</td>
+            <td><em>communication</em>, <em>pr&eacute;sentation</em>, <em>impression</em></td>
+          </tr>
+          <tr>
+            <td><em>-eur / -euse</em></td>
+            <td>persoon die iets doet</td>
+            <td><em>chanteur</em>, <em>lecteur</em>, <em>vendeuse</em></td>
+          </tr>
+          <tr>
+            <td><em>-ment</em></td>
+            <td>bijwoord (van bijvoeglijk naamwoord)</td>
+            <td><em>rapidement</em>, <em>facilement</em>, <em>vraiment</em></td>
+          </tr>
+          <tr>
+            <td><em>-able / -ible</em></td>
+            <td>mogelijk / geschikt voor</td>
+            <td><em>lisible</em>, <em>possible</em>, <em>acceptable</em></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4 style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--darkblue);margin:1.2rem 0 0.4rem;">Strategie 3 &mdash; Context</h4>
+      <p style="font-size:0.95rem;color:var(--text-mid);margin-bottom:0.6rem;">Kijk naar de zin v&oacute;&oacute;r en na het onbekende woord. Zoek naar definitie-aanwijzingen (<em>c&rsquo;est-&agrave;-dire</em>, <em>autrement dit</em>), opsommingen (als er drie bekende woorden in een lijst staan, is het vierde waarschijnlijk van dezelfde categorie), contrasten (<em>mais</em>, <em>contrairement &agrave;</em>) en oorzaak-gevolg.</p>
+
+      <div class="gk-example">
+        <em>&laquo;&nbsp;Le p&eacute;lican, comme tous les oiseaux aquatiques, a des pattes palm&eacute;es qui l&rsquo;aident &agrave; nager.&nbsp;&raquo;</em><br>
+        Je kent <em>pattes palm&eacute;es</em> niet. Maar: het gaat over een watervogel, over zwemmen &mdash; dus <em>pattes palm&eacute;es</em> = zwemvliespoten.
+      </div>
+
+      <h4 style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--darkblue);margin:1.2rem 0 0.4rem;">Strategie 4 &mdash; Cognaten met Nederlands, Engels en Latijn</h4>
+      <p style="font-size:0.95rem;color:var(--text-mid);margin-bottom:0.6rem;">Frans stamt grotendeels uit het Latijn, net als een groot deel van de Engelse woordenschat. Woorden met Latijnse en Griekse stammen zijn vaak herkenbaar vanuit alle drie de talen.</p>
+      <div class="gk-example">
+        <em>d&eacute;mocratique</em> &harr; democratisch &harr; democratic<br>
+        <em>microscopique</em> &harr; microscopisch &harr; microscopic<br>
+        <em>philosophie</em> &harr; filosofie &harr; philosophy
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SECTION 7 — LES ASPECTS CULTURELS
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="section-block" id="aspects-culturels">
+    <div class="section-heading">
+      <span class="section-num">7</span>
+      <h2 class="section-title">Les aspects culturels</h2>
+    </div>
+
+    <p>Franse teksten lezen betekent ook: de culturele context begrijpen. Sommige verwijzingen zullen vreemd lijken als je de achtergrond niet kent. Hier volgen een aantal veelvoorkomende culturele referenties die je tegenkomt in authentieke teksten en gesprekken.</p>
+
+    <h3 class="sub-heading">Sociale gebruiken</h3>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128139;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Cultureel gebruik</span>
+        <span class="begrip-name">La bise</span>
+        <p class="begrip-def">De <em>bise</em> is het begroetingskusje op de wang(en). Het aantal verschilt per regio: in Parijs 2, in de Provence 3 of meer. Het geldt tussen vrienden en familie, tussen vrouwen en mannen, en ook tussen twee mannen als ze goed bevriend zijn. In formele situaties geeft men de hand. Onwetendheid hierover kan in een tekst onbegrepen humor of sociale spanning veroorzaken.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#127979;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Cultureel gebruik</span>
+        <span class="begrip-name">Tu vs. vous</span>
+        <p class="begrip-def">Het verschil tussen <em>tu</em> (informeel, enkelvoud) en <em>vous</em> (formeel, of meervoud) is in Frankrijk sterker aanwezig dan in Belgi&euml; of Qu&eacute;bec. In teksten geeft de keuze voor <em>tu</em> of <em>vous</em> sociale informatie: wie kent wie, welke machtsverhouding is er, hoe formeel is de situatie?</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Schoolleven en vrije tijd</h3>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128221;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Cultureel begrip</span>
+        <span class="begrip-name">Le bac (baccalaur&eacute;at)</span>
+        <p class="begrip-def">Het <em>baccalaur&eacute;at</em> is het eindexamen van de middelbare school in Frankrijk, vergelijkbaar met het Belgische diploma secundair onderwijs. Het is een mijlpaal in het leven van elke jongere. <em>&laquo;&nbsp;Avoir son bac&nbsp;&raquo;</em> betekent slagen. In teksten wordt er vaak naar verwezen als symbool voor een levensfase.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9728;&#65039;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Cultureel begrip</span>
+        <span class="begrip-name">Les grandes vacances</span>
+        <p class="begrip-def">De zomervakantie in Frankrijk duurt twee maanden (juli&ndash;augustus) en is een centraal cultureel fenomeen. <em>&laquo;&nbsp;Partir en vacances&nbsp;&raquo;</em>, de <em>d&eacute;parts en vacances</em> en de files op de snelwegen (&laquo;&nbsp;le bouchon&nbsp;&raquo;) op 1 augustus zijn typisch Frans. In teksten over toerisme, verkeer of seizoensarbeid is deze context cruciaal.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Maatschappij en dagelijks leven</h3>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#127968;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Cultureel begrip</span>
+        <span class="begrip-name">La S&eacute;cu (S&eacute;curit&eacute; sociale)</span>
+        <p class="begrip-def">Het Franse stelsel van sociale zekerheid heet officieel <em>la S&eacute;curit&eacute; sociale</em>, informeel <em>la s&eacute;cu</em>. Het dekt ziekte, arbeidsongevallen en pensioenen. In teksten over gezondheid of politiek kom je dit begrip vaak tegen.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9749;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Cultureel begrip</span>
+        <span class="begrip-name">Les brasseries et caf&eacute;s</span>
+        <p class="begrip-def">Een <em>brasserie</em> of <em>caf&eacute;</em> is meer dan een eetgelegenheid in Frankrijk &mdash; het is een sociale ruimte. Mensen ontmoeten er vrienden, lezen de krant, debatteren over politiek. De uitdrukking <em>&laquo;&nbsp;prendre un caf&eacute;&nbsp;&raquo;</em> staat voor sociale interactie, niet alleen voor het drinken van koffie. In narratieve en opinië rende teksten zijn caf&eacute;scenes veelzeggend.</p>
+      </div>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">In een Frans verhaal lees je: <em>&laquo;&nbsp;Sophie a rat&eacute; son bac. Elle est all&eacute;e pleurer chez son amie. En arrivant, Thomas lui a fait la bise, m&ecirc;me s&rsquo;il la connaissait &agrave; peine.&nbsp;&raquo;</em> Welke twee culturele elementen herken je in deze zin? Wat vertellen ze over de situatie?</p>
+    </div>
+  </section>
+
+  <!-- CLOSING QUOTE -->
+  <div class="closing-quote" role="note" aria-label="Slotcitaat">
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p class="cq-text">Lire en fran&ccedil;ais, ce n&rsquo;est pas traduire mot &agrave; mot &mdash; c&rsquo;est comprendre le monde avec de nouveaux yeux.</p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <span class="cq-attribution">Frans 1A &nbsp;&middot;&nbsp; Hoofdstuk 14 &nbsp;&middot;&nbsp; Lire et comprendre</span>
+  </div>
+
+</div><!-- end page-wrapper -->
+
+<!-- ============================================================
+     OEFENINGEN
+============================================================ -->
+<section class="exercises-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <!-- Oefening 1: tekstsoort herkennen -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Quelle sorte de texte ? &mdash; Tekstsoort herkennen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.8rem;">Lees de vijf tekstfragmenten hieronder. Bepaal voor elk fragment de tekstsoort (<em>informatif</em>, <em>opinant</em>, <em>prescriptif</em>, <em>narratif</em> of <em>litt&eacute;raire</em>). Noteer ook <strong>twee kenmerken</strong> die je keuze verantwoorden.</p>
+      <ol>
+        <li><em>&laquo;&nbsp;Ajoutez le sucre progressivement et m&eacute;langez jusqu&rsquo;&agrave; obtenir une cr&egrave;me homog&egrave;ne.&nbsp;&raquo;</em></li>
+        <li><em>&laquo;&nbsp;Le Mont Blanc culmine &agrave; 4 808 m&egrave;tres. C&rsquo;est le plus haut sommet des Alpes et d&rsquo;Europe occidentale.&nbsp;&raquo;</em></li>
+        <li><em>&laquo;&nbsp;Hier, j&rsquo;ai rat&eacute; mon bus et j&rsquo;ai d&ucirc; marcher sous la pluie pendant vingt minutes. Ce n&rsquo;&eacute;tait vraiment pas mon jour&nbsp;!&nbsp;&raquo;</em></li>
+        <li><em>&laquo;&nbsp;Je crois fermement que le sport devrait &ecirc;tre obligatoire dans toutes les &eacute;coles. &Agrave; mon avis, les &eacute;l&egrave;ves apprennent mieux quand ils sont actifs.&nbsp;&raquo;</em></li>
+        <li><em>&laquo;&nbsp;La vie, c&rsquo;est comme une bicyclette, il faut avancer pour ne pas perdre l&rsquo;&eacute;quilibre.&nbsp;&raquo;</em> (Albert Einstein)</li>
+      </ol>
+      <p class="ex-tip">Tip: let op de werkwoordsvorm (gebiedende wijs, verleden tijd, tegenwoordige tijd), het gebruik van <em>je</em> en de aanwezigheid van meningen (<em>&agrave; mon avis</em>, <em>je crois</em>).</p>
+    </div>
+
+    <!-- Oefening 2: hoofdgedachte en hoofdpunten -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Le sujet, la th&egrave;se et les points principaux</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.9rem;">Lees de onderstaande tekst aandachtig. Onderstreep of omcirkel: (a) het onderwerp <em>(sujet)</em>, (b) de hoofdgedachte <em>(th&egrave;se)</em>, (c) de twee of drie hoofdpunten <em>(points principaux)</em>. Formuleer daarna elk element in eigen woorden in het Nederlands.</p>
+      <div class="tekst-fragment" style="margin:0.8rem 0 1rem;">
+        <span class="tf-label">Leestekst &mdash; Oefening 2</span>
+        <span class="tf-title">Le v&eacute;lo, un transport d&rsquo;avenir</span>
+        <div class="tf-body">
+          <p>Dans de nombreuses villes europ&eacute;ennes, le v&eacute;lo est en train de devenir le moyen de transport principal. Cette tendance s&rsquo;explique par plusieurs facteurs importants.</p>
+          <p>D&rsquo;abord, le v&eacute;lo ne produit aucune &eacute;mission de CO&sub2;. C&rsquo;est pourquoi les autorit&eacute;s municipales investissent massivement dans les pistes cyclables. &Agrave; Amsterdam, plus de 60% des d&eacute;placements se font d&eacute;j&agrave; &agrave; v&eacute;lo.</p>
+          <p>De plus, le v&eacute;lo est &eacute;conomique. Un Fran&ccedil;ais d&eacute;pense en moyenne 3 000 euros par an pour sa voiture, contre seulement 200 euros pour un v&eacute;lo bien entretenu. C&rsquo;est une &eacute;conomie consid&eacute;rable pour les familles.</p>
+          <p>Enfin, faire du v&eacute;lo r&eacute;guli&egrave;rement am&eacute;liore la sant&eacute; : r&eacute;duction du stress, meilleure condition physique, moins de maladies cardiovasculaires. Pour toutes ces raisons, le v&eacute;lo repr&eacute;sente clairement le transport de demain.</p>
+        </div>
+      </div>
+      <ol>
+        <li>Wat is het <em>sujet</em> (onderwerp) van de tekst? (1&ndash;3 woorden)</li>
+        <li>Wat is de <em>th&egrave;se</em> (hoofdgedachte)? (1 volzin in het Nederlands)</li>
+        <li>Geef de drie <em>points principaux</em> (hoofdpunten). Welk signaalwoord kondigt elk punt aan?</li>
+      </ol>
+    </div>
+
+    <!-- Oefening 3: contextclues -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">D&eacute;duis le sens &mdash; Betekenis afleiden uit context</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.8rem;">Lees de tekst van Oefening 2 opnieuw. Zoek drie woorden of uitdrukkingen die je niet kende (of doe alsof). Schrijf voor elk woord op:</p>
+      <ol>
+        <li>Het woord in context (de volledige zin)</li>
+        <li>Welke strategie je gebruikte om de betekenis af te leiden (cognaat, woordfamilie, context, morfologie)</li>
+        <li>Je afleiding van de betekenis</li>
+        <li>Controleer daarna met een woordenboek. Klopte je afleiding?</li>
+      </ol>
+      <p class="ex-tip">Tip: woorden als <em>massivement</em>, <em>cyclables</em>, <em>cardiovasculaires</em> zijn goede oefenkandidaten.</p>
+    </div>
+
+    <!-- Oefening 4: begripsvragen langere tekst -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 4</p>
+      <p class="ex-name">Questions de compr&eacute;hension &mdash; Begripsvragen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.9rem;">Lees de onderstaande tekst (~150 woorden) aandachtig. Beantwoord daarna de vragen in het Nederlands.</p>
+      <div class="tekst-fragment" style="margin:0.8rem 0 1rem;">
+        <span class="tf-label">Leestekst &mdash; Oefening 4</span>
+        <span class="tf-title">Les jeunes et la lecture en France</span>
+        <div class="tf-body">
+          <p>Selon une &eacute;tude publi&eacute;e en 2024, les jeunes Fran&ccedil;ais lisent de moins en moins de livres papier. Entre 2010 et 2024, le nombre de jeunes entre 15 et 25 ans qui lisent r&eacute;guli&egrave;rement a diminu&eacute; de 35%. Les raisons sont multiples : la mont&eacute;e des &eacute;crans, les r&eacute;seaux sociaux et les s&eacute;ries en streaming occupent une part croissante du temps libre.</p>
+          <p>Cependant, tous les formats de lecture ne sont pas en d&eacute;clin. La lecture num&eacute;rique &mdash; articles en ligne, blogs, e-books &mdash; est en hausse. De plus, les bandes dessin&eacute;es et les mangas connaissent un succ&egrave;s extraordinaire : en 2023, le manga repr&eacute;sentait d&eacute;j&agrave; 40% des ventes de livres en France.</p>
+          <p>Les biblioth&egrave;ques s&rsquo;adaptent &agrave; cette &eacute;volution. Elles proposent des espaces de jeux vid&eacute;o, des ateliers cr&eacute;atifs et des clubs de lecture pour attirer les jeunes. L&rsquo;objectif est clair : la lecture doit rester un plaisir, pas une obligation.</p>
+        </div>
+      </div>
+      <ol>
+        <li>Met hoeveel procent is het aandeel regelmatige jonge lezers gedaald tussen 2010 en 2024?</li>
+        <li>Noem drie redenen waarom jongeren minder boeken lezen volgens de tekst.</li>
+        <li>Welke leesformaten zijn wél in opmars?</li>
+        <li>Wat voor de helft van de boekverkopen vertegenwoordigt manga in 2023?</li>
+        <li>Welke drie initiatieven nemen bibliotheken om jongeren aan te trekken?</li>
+        <li>Vind het signaalwoord dat de tegenstelling tussen dalende en stijgende leescijfers aangeeft. Wat is de Nederlandse vertaling?</li>
+      </ol>
+    </div>
+
+    <!-- Oefening 5: signaalwoorden koppelen -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 5</p>
+      <p class="ex-name">Connecteurs &mdash; Signaalwoorden koppelen aan functie</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.8rem;">Koppel elk signaalwoord (kolom A) aan de juiste functie (kolom B). Schrijf ook een eigen voorbeeldzin met drie van de signaalwoorden.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:0.8rem 0;">
+        <div>
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--darkblue);margin-bottom:0.5rem;">Kolom A &mdash; Woord</p>
+          <ol style="padding-left:1.2rem;">
+            <li style="margin-bottom:0.4rem;font-size:0.95rem;"><em>c&rsquo;est pourquoi</em></li>
+            <li style="margin-bottom:0.4rem;font-size:0.95rem;"><em>d&rsquo;une part &hellip; d&rsquo;autre part</em></li>
+            <li style="margin-bottom:0.4rem;font-size:0.95rem;"><em>par exemple</em></li>
+            <li style="margin-bottom:0.4rem;font-size:0.95rem;"><em>cependant</em></li>
+            <li style="margin-bottom:0.4rem;font-size:0.95rem;"><em>en conclusion</em></li>
+            <li style="margin-bottom:0.4rem;font-size:0.95rem;"><em>en effet</em></li>
+            <li style="margin-bottom:0.4rem;font-size:0.95rem;"><em>de plus</em></li>
+          </ol>
+        </div>
+        <div>
+          <p style="font-family:'Source Sans 3',sans-serif;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--darkblue);margin-bottom:0.5rem;">Kolom B &mdash; Functie</p>
+          <ul style="padding-left:1.2rem;list-style:lower-alpha;">
+            <li style="margin-bottom:0.4rem;font-size:0.95rem;">gevolg aanduiden</li>
+            <li style="margin-bottom:0.4rem;font-size:0.95rem;">twee kanten belichten</li>
+            <li style="margin-bottom:0.4rem;font-size:0.95rem;">een voorbeeld geven</li>
+            <li style="margin-bottom:0.4rem;font-size:0.95rem;">een tegenstelling maken</li>
+            <li style="margin-bottom:0.4rem;font-size:0.95rem;">samenvatten en besluiten</li>
+            <li style="margin-bottom:0.4rem;font-size:0.95rem;">iets bevestigen / verklaren</li>
+            <li style="margin-bottom:0.4rem;font-size:0.95rem;">iets toevoegen</li>
+          </ul>
+        </div>
+      </div>
+      <p class="ex-tip">Extra: schrijf drie eigen zinnen in het Frans over een onderwerp naar keuze en gebruik telkens een ander signaalwoord.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SAMENVATTING
+============================================================ -->
+<section class="summary-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting &mdash; H14 Lire et comprendre</h2>
+    <ul>
+      <li><strong>Drie leesstrategie&euml;n:</strong> globaal lezen (<em>skimming</em>) voor het grote geheel, selectief lezen (<em>scanning</em>) voor specifieke info, en intensief lezen voor details.</li>
+      <li><strong>Vijf tekstsoorten:</strong> informatief (feiten), opinië rend (mening), prescriptief (instructies), narratief (verhaal), literair (creatieve taal). Elk heeft eigen kenmerken en vraagt een andere leesaanpak.</li>
+      <li><strong>Sujet, th&egrave;se, points principaux:</strong> elk tekstbegrip begint met het onderwerp (1&ndash;2 woorden), de hoofdgedachte (1 zin) en de steunende argumenten (alinea per alinea).</li>
+      <li><strong>Signaalwoorden (<em>connecteurs logiques</em>)</strong> tonen de logica van een tekst: oorzaak, gevolg, tegenstelling, opsomming, voorbeeld, conclusie. Herken ze en je begrijpt de structuur, ook bij moeilijke woordenschat.</li>
+      <li><strong>Luisterstrategieën</strong> lopen parallel aan leesstrategie&euml;n: anticipeer v&oacute;&oacute;r het luisteren, luister eerst globaal, dan selectief. Let op intonatie, non-verbale context en gesproken samentrekkingen.</li>
+      <li><strong>Onbekende woorden afleiden</strong> via vier strategieën: woordfamilies (<em>&eacute;crire &rarr; &eacute;crivain</em>), morfologie (voor- en achtervoegsels), context (zin voor en na het woord), en cognaten met Nederlands/Engels.</li>
+      <li><strong>Culturele context</strong> is onlosmakelijk verbonden met taalbegrip: <em>la bise</em>, <em>tu/vous</em>, <em>le bac</em>, <em>les grandes vacances</em>, <em>la s&eacute;cu</em> en de sociale rol van het caf&eacute; zijn referenties die je in authentieke teksten zult tegenkomen.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

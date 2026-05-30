@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H5 — Ik maak deel uit van een economische kringloop | Samenleving &amp; Economie 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --gold: #D4A017;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    /* Extended tokens used internally */
+    --terracotta-light: #D4561E;
+    --gold-light: #E8B82A;
+    --darkblue-light: #243B63;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     CLOSING QUOTE
+  ============================================================ */
+  .closing-quote {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0D1E38 100%);
+    border-radius: var(--border-radius);
+    padding: 3rem 3rem 2.5rem;
+    margin: 3.5rem 0 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.5rem; left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .closing-quote .cq-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--gold);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 1.2rem;
+  }
+
+  .closing-quote .cq-attribution {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(212,160,23,0.6);
+  }
+
+  .closing-quote .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .closing-quote .ornament-line::before,
+  .closing-quote .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.4), transparent);
+  }
+
+  .closing-quote .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.7;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .closing-quote { padding: 2rem 1.2rem 1.8rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     SAMENLEVING & ECONOMIE — CHAPTER 5 COMPONENTS
+  ============================================================ */
+  .begrip-kader { background: #fff8f5; border-left: 4px solid var(--terracotta); border-radius: 0 6px 6px 0; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+  .begrip-kader strong { color: var(--terracotta); display: block; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem; }
+  .schema-kader { background: var(--sand-light, #F2EAD8); border: 1px solid var(--sand); border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; }
+  .schema-kader h4 { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 0.75rem; color: var(--darkblue); }
+  .kringloop-actor { border-radius: 8px; padding: 1.25rem 1.5rem; margin: 0.75rem 0; }
+  .kringloop-actor.gezinnen { background: rgba(193,68,14,0.07); border: 1px solid rgba(193,68,14,0.25); }
+  .kringloop-actor.bedrijven { background: rgba(212,160,23,0.07); border: 1px solid rgba(212,160,23,0.25); }
+  .kringloop-actor.overheid { background: rgba(26,43,74,0.07); border: 1px solid rgba(26,43,74,0.25); }
+  .kringloop-actor h4 { font-family: 'Playfair Display', serif; margin-bottom: 0.5rem; }
+  .data-tabel { width: 100%; border-collapse: collapse; margin: 1.25rem 0; font-size: 0.92rem; }
+  .data-tabel th { background: var(--darkblue); color: var(--gold); font-family: 'Source Sans 3', sans-serif; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.75rem 1rem; text-align: left; }
+  .data-tabel td { padding: 0.65rem 1rem; border-bottom: 1px solid var(--sand); }
+  .data-tabel tr:nth-child(even) td { background: var(--sand-light, #F2EAD8); }
+  .sector-badge { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 20px; font-size: 0.78rem; font-weight: 600; }
+  .sector-primair { background: rgba(72,130,60,0.15); color: #2d5a25; }
+  .sector-secundair { background: rgba(193,68,14,0.12); color: #7a2a06; }
+  .sector-tertiair { background: rgba(212,160,23,0.15); color: #7a5c00; }
+  .sector-quartair { background: rgba(26,43,74,0.12); color: #1A2B4A; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <span class="label">Samenleving &amp; Economie</span>
+  <span class="label label-right">H5 &middot; Economische Kringloop</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Hoofdstuk 5 &nbsp;&middot;&nbsp; 22,5% van het examen</div>
+  <h1>Ik maak deel uit van een economische kringloop</h1>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- SECTION 1 — De economische kringloop -->
+  <section class="section-block" id="s1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">De economische kringloop</h2>
+    </div>
+
+    <p>De economie is een systeem van uitwisseling. Mensen, bedrijven en de overheid wisselen voortdurend goederen, diensten en geld met elkaar uit. Om dat systeem te begrijpen, kijken we naar de drie hoofdactoren en de twee stromen die tussen hen lopen.</p>
+
+    <div class="schema-kader">
+      <h4>De drie hoofdactoren</h4>
+
+      <div class="kringloop-actor gezinnen">
+        <h4 style="color: var(--terracotta);">Gezinnen</h4>
+        <ul style="padding-left: 1.3rem; font-size: 0.96rem; color: var(--text-mid);">
+          <li>Consumenten: kopen goederen en diensten</li>
+          <li>Werknemers: bieden hun arbeid aan</li>
+          <li>Ontvangen loon van bedrijven</li>
+          <li>Betalen belastingen aan de overheid</li>
+        </ul>
+      </div>
+
+      <div class="kringloop-actor bedrijven">
+        <h4 style="color: var(--oker);">Bedrijven</h4>
+        <ul style="padding-left: 1.3rem; font-size: 0.96rem; color: var(--text-mid);">
+          <li>Produceren goederen en diensten</li>
+          <li>Betalen lonen aan werknemers (gezinnen)</li>
+          <li>Betalen belastingen aan de overheid</li>
+          <li>Verkopen producten aan gezinnen</li>
+        </ul>
+      </div>
+
+      <div class="kringloop-actor overheid">
+        <h4 style="color: var(--darkblue);">Overheid</h4>
+        <ul style="padding-left: 1.3rem; font-size: 0.96rem; color: var(--text-mid);">
+          <li>Int belastingen bij gezinnen en bedrijven</li>
+          <li>Verdeelt inkomsten via overheidsuitgaven</li>
+          <li>Financiert publieke diensten voor iedereen</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">De twee stromen in de kringloop</h3>
+
+    <p>In de economische kringloop lopen er twee soorten stromen die elkaar aanvullen:</p>
+
+    <div class="begrip-kader">
+      <strong>Goederen- en dienstenstroom (re&euml;le stroom)</strong>
+      Producten en diensten bewegen van bedrijven naar gezinnen. Een bakker bakt brood en levert het aan klanten; een kapper knipt haar voor zijn kl&euml;nt. Dit is de <em>re&euml;le</em> stroom: tastbare en niet-tastbare zaken die van hand tot hand gaan.
+    </div>
+
+    <div class="begrip-kader">
+      <strong>Geldstroom (financi&euml;le stroom)</strong>
+      Geld beweegt van gezinnen (via aankopen en belastingen) naar bedrijven en overheid. Als jij in de winkel betaalt, stroomt geld van jou naar het bedrijf. Als het bedrijf belasting betaalt, stroomt dat geld naar de overheid. De geldstroom loopt altijd in de <em>tegenovergestelde richting</em> van de goederen- en dienstenstroom.
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9654;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Economische kringloop</span>
+        <p class="begrip-def">Het systeem waarbij gezinnen, bedrijven en de overheid voortdurend goederen, diensten en geld met elkaar uitwisselen. Er zijn twee stromen: een re&euml;le stroom (goederen en diensten) en een financi&euml;le stroom (geld), die in tegengestelde richting lopen.</p>
+      </div>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Als jij een brood koopt in de supermarkt: welke stroom loopt er van jou naar de supermarkt, en welke stroom loopt er van de supermarkt naar jou? Wie zijn hier de actoren?</p>
+    </div>
+  </section>
+
+  <!-- SECTION 2 — De rol van de overheid -->
+  <section class="section-block" id="s2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">De rol van de overheid</h2>
+    </div>
+
+    <p>De overheid speelt een centrale rol in de economische kringloop. Ze int belastingen bij gezinnen en bedrijven, en gebruikt die inkomsten om publieke diensten en bescherming te financieren waar iedereen gebruik van kan maken.</p>
+
+    <h3 class="sub-heading">Inkomsten van de overheid: belastingen</h3>
+
+    <p>Belastingen zijn verplichte bijdragen die burgers en bedrijven betalen aan de overheid. Er zijn verschillende soorten:</p>
+
+    <table class="data-tabel">
+      <thead>
+        <tr>
+          <th>Belasting</th>
+          <th>Wie betaalt?</th>
+          <th>Waarop?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Personenbelasting</strong></td>
+          <td>Gezinnen</td>
+          <td>Op het inkomen van particulieren</td>
+        </tr>
+        <tr>
+          <td><strong>Vennootschapsbelasting</strong></td>
+          <td>Bedrijven</td>
+          <td>Op de winst van een bedrijf</td>
+        </tr>
+        <tr>
+          <td><strong>BTW</strong> (belasting over toegevoegde waarde)</td>
+          <td>Iedereen</td>
+          <td>Bij elke aankoop van goederen of diensten</td>
+        </tr>
+        <tr>
+          <td><strong>Milieubelastingen</strong></td>
+          <td>Gezinnen &amp; bedrijven</td>
+          <td>Op vervuilende activiteiten of producten</td>
+        </tr>
+        <tr>
+          <td><strong>Gebouw- en wegenbelasting</strong></td>
+          <td>Eigenaars, weggebruikers</td>
+          <td>Op bezit van onroerend goed en gebruik van wegen</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub-heading">Uitgaven van de overheid: publieke diensten</h3>
+
+    <p>Via de belastingen financiert de overheid diensten en infrastructuur die ten goede komen aan alle burgers:</p>
+
+    <ul style="padding-left: 1.4rem; margin: 0.5rem 0 1.2rem; line-height: 1.9;">
+      <li style="margin-bottom: 0.4rem;"><strong>Huisvesting &amp; infrastructuur</strong> &mdash; wegen aanleggen en onderhouden, openbare gebouwen</li>
+      <li style="margin-bottom: 0.4rem;"><strong>Milieubescherming</strong> &mdash; natuur bewaken, afvalbeheer, klimaatbeleid</li>
+      <li style="margin-bottom: 0.4rem;"><strong>Onderwijs</strong> &mdash; scholen financieren, leerkrachten betalen</li>
+      <li style="margin-bottom: 0.4rem;"><strong>Recreatie, sport &amp; cultuur</strong> &mdash; bibliotheken, sportinfrastructuur, musea</li>
+      <li style="margin-bottom: 0.4rem;"><strong>Sociale bescherming</strong> &mdash; uitkeringen bij ziekte, werkloosheid, pensioen</li>
+      <li style="margin-bottom: 0.4rem;"><strong>Veiligheid</strong> &mdash; politie, brandweer, leger</li>
+    </ul>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Je gaat elke dag naar school zonder te betalen. Jouw ouders betalen wel belastingen. Hoe hangt dat samen? Welke overheidsuitgave maakt jouw gratis onderwijs mogelijk?</p>
+    </div>
+  </section>
+
+  <!-- SECTION 3 — Sociale ongelijkheid -->
+  <section class="section-block" id="s3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Sociale ongelijkheid</h2>
+    </div>
+
+    <p>Niet iedereen in de samenleving heeft dezelfde kansen en middelen. Sommige mensen kunnen moeilijker deelnemen aan de economie dan anderen. Dat heet <strong>sociale ongelijkheid</strong>. Er zijn zes belangrijke oorzaken:</p>
+
+    <div class="schema-kader">
+      <h4>Zes oorzaken van sociale ongelijkheid</h4>
+      <table class="data-tabel" style="margin: 0;">
+        <thead>
+          <tr>
+            <th>Oorzaak</th>
+            <th>Uitleg</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Discriminatie</strong></td>
+            <td>Ongelijke behandeling op basis van geslacht, afkomst, leeftijd of andere kenmerken</td>
+          </tr>
+          <tr>
+            <td><strong>Gewoontes en cultuur</strong></td>
+            <td>Wat je van thuis meekrijgt: waarden, gewoontes en kansen die niet iedereen op gelijke voet krijgt</td>
+          </tr>
+          <tr>
+            <td><strong>Gezondheid</strong></td>
+            <td>Ziekte of beperking kan arbeidsmogelijkheden sterk beperken</td>
+          </tr>
+          <tr>
+            <td><strong>Inkomen en rijkdom</strong></td>
+            <td>Ongelijke verdeling van geld en bezittingen maakt kansen ongelijk</td>
+          </tr>
+          <tr>
+            <td><strong>Onderwijs en kansen</strong></td>
+            <td>Niet iedereen heeft gelijke toegang tot goed onderwijs of stages</td>
+          </tr>
+          <tr>
+            <td><strong>Wetten van de overheid</strong></td>
+            <td>Het belastingsysteem en de sociale wetgeving kunnen ongelijkheid versterken of verkleinen</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9878;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Sociale ongelijkheid</span>
+        <p class="begrip-def">Het verschijnsel waarbij mensen in een samenleving niet gelijke kansen, inkomsten of toegang tot diensten hebben. Oorzaken zijn divers: discriminatie, cultuur, gezondheid, inkomen, onderwijs en overheidsbeleid.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4 — Sociale zekerheid -->
+  <section class="section-block" id="s4">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Sociale zekerheid</h2>
+    </div>
+
+    <p>Om sociale ongelijkheid te verminderen, heeft Belgi&euml; een stelsel van <strong>sociale zekerheid</strong>. Het idee is eenvoudig: wie werkt, betaalt mee &mdash; en wie het nodig heeft, ontvangt steun.</p>
+
+    <div class="begrip-kader">
+      <strong>Het solidariteitsbeginsel</strong>
+      Iedereen betaalt mee via bijdragen op het loon (sociale zekerheidsbijdragen), zodat iedereen beschermd is als het tegenzit. Sterke schouders dragen bij voor zwakkere schouders. Dit is de basis van het Belgische sociale zekerheidsstelsel.
+    </div>
+
+    <h3 class="sub-heading">Aanvullende uitkeringen</h3>
+
+    <p>Aanvullende uitkeringen zijn <strong>extra steun naast een gewoon inkomen</strong>. Ze zijn bedoeld voor mensen die bijzondere kosten hebben of in een kwetsbare situatie zitten:</p>
+
+    <ul style="padding-left: 1.4rem; margin: 0.5rem 0 1.2rem; line-height: 1.9;">
+      <li style="margin-bottom: 0.4rem;"><strong>Groeipakket</strong> (vroeger kinderbijslag) &mdash; financiering voor gezinnen met kinderen</li>
+      <li style="margin-bottom: 0.4rem;"><strong>Tegemoetkoming voor personen met een beperking</strong> &mdash; extra steun voor mensen die door een beperking minder kunnen verdienen</li>
+      <li style="margin-bottom: 0.4rem;"><strong>Sociaal tarief</strong> &mdash; lagere prijs voor gas, elektriciteit en telefoon voor wie het nodig heeft</li>
+      <li style="margin-bottom: 0.4rem;"><strong>Tegemoetkoming voor medische kosten</strong> &mdash; terugbetaling van een deel van de dokters- en apotheekkosten</li>
+    </ul>
+
+    <h3 class="sub-heading">Vervangingsuitkeringen</h3>
+
+    <p>Vervangingsuitkeringen springen in de bres <strong>wanneer je inkomen wegvalt</strong>. Ze vervangen (een deel van) je loon tijdelijk of permanent:</p>
+
+    <table class="data-tabel">
+      <thead>
+        <tr>
+          <th>Uitkering</th>
+          <th>Wanneer?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Arbeidsongevallenuitkering</strong></td>
+          <td>Als je een ongeluk krijgt op het werk of op weg naar het werk</td>
+        </tr>
+        <tr>
+          <td><strong>Pensioen</strong></td>
+          <td>Na een loopbaan, als je de pensioenleeftijd hebt bereikt</td>
+        </tr>
+        <tr>
+          <td><strong>Werkloosheidsuitkering / leefloon (OCMW)</strong></td>
+          <td>Als je geen werk vindt of je werk verliest en geen recht hebt op werkloosheid</td>
+        </tr>
+        <tr>
+          <td><strong>Ziekte- en invaliditeitsuitkering</strong></td>
+          <td>Als je door ziekte of invaliditeit niet kunt werken</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9737;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Sociale zekerheid</span>
+        <p class="begrip-def">Een stelsel van bescherming waarbij werkenden bijdragen betalen zodat iedereen verzekerd is bij inkomensverlies, ziekte, werkloosheid of pensioen. Het is gebaseerd op het solidariteitsbeginsel: samen sterk.</p>
+      </div>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Stel: je ouder wordt ziek en kan niet meer werken. Welke uitkering zouden zij kunnen krijgen? Is dat een aanvullende of een vervangingsuitkering? Waarom?</p>
+    </div>
+  </section>
+
+  <!-- SECTION 5 — De rol van bedrijven -->
+  <section class="section-block" id="s5">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">De rol van bedrijven</h2>
+    </div>
+
+    <p>Bedrijven zijn de producerende actoren in de economie. Ze zetten grondstoffen, arbeid en kapitaal om in goederen en diensten die gezinnen en andere bedrijven kopen.</p>
+
+    <h3 class="sub-heading">Kernactiviteiten van een bedrijf</h3>
+
+    <p>Een bedrijf bestaat uit verschillende afdelingen, elk met een eigen functie:</p>
+
+    <table class="data-tabel">
+      <thead>
+        <tr>
+          <th>Afdeling</th>
+          <th>Functie</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Aankoop</strong></td>
+          <td>Grondstoffen en materialen inkopen</td>
+        </tr>
+        <tr>
+          <td><strong>Directie</strong></td>
+          <td>Leiding geven aan het bedrijf</td>
+        </tr>
+        <tr>
+          <td><strong>Boekhouding</strong></td>
+          <td>Financi&euml;n bijhouden</td>
+        </tr>
+        <tr>
+          <td><strong>Magazijn</strong></td>
+          <td>Voorraad beheren</td>
+        </tr>
+        <tr>
+          <td><strong>Marketing</strong></td>
+          <td>Producten bekendmaken en verkopen</td>
+        </tr>
+        <tr>
+          <td><strong>Onthaal</strong></td>
+          <td>Eerste contact met klanten</td>
+        </tr>
+        <tr>
+          <td><strong>Productie</strong></td>
+          <td>Goederen maken</td>
+        </tr>
+        <tr>
+          <td><strong>Verkoop</strong></td>
+          <td>Producten aan klanten leveren</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub-heading">Economische sectoren</h3>
+
+    <p>Bedrijven worden ingedeeld in vier sectoren op basis van hun activiteit:</p>
+
+    <div class="schema-kader">
+      <h4>De vier economische sectoren</h4>
+      <table class="data-tabel" style="margin: 0;">
+        <thead>
+          <tr>
+            <th>Sector</th>
+            <th>Omschrijving</th>
+            <th>Voorbeelden</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="sector-badge sector-primair">Primair</span></td>
+            <td>Winning van grondstoffen uit de natuur</td>
+            <td>Landbouw, visserij, mijnbouw</td>
+          </tr>
+          <tr>
+            <td><span class="sector-badge sector-secundair">Secundair</span></td>
+            <td>Verwerking van grondstoffen tot producten</td>
+            <td>Industrie, bouw, voedingsverwerking</td>
+          </tr>
+          <tr>
+            <td><span class="sector-badge sector-tertiair">Tertiair</span></td>
+            <td>Marktgebonden diensten</td>
+            <td>Handel, transport, toerisme, banken</td>
+          </tr>
+          <tr>
+            <td><span class="sector-badge sector-quartair">Quartair</span></td>
+            <td>Niet-marktgebonden diensten (geen winstoogmerk)</td>
+            <td>Openbaar onderwijs, gezondheidszorg, overheidsadministratie</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub-heading">Soorten producten</h3>
+
+    <table class="data-tabel">
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Omschrijving</th>
+          <th>Voorbeelden</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Goederen</strong></td>
+          <td>Tastbare producten die je kunt aanraken</td>
+          <td>Brood, auto, kleren</td>
+        </tr>
+        <tr>
+          <td><strong>Diensten</strong></td>
+          <td>Niet-tastbare prestaties die iemand levert</td>
+          <td>Knipbeurt, busrit, verzekering</td>
+        </tr>
+        <tr>
+          <td><strong>Investeringsgoederen</strong></td>
+          <td>Goederen die worden gebruikt om andere goederen te produceren</td>
+          <td>Machines, fabrieksgebouwen</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub-heading">Soorten bedrijven</h3>
+
+    <div class="schema-kader">
+      <h4>Indeling naar activiteit</h4>
+      <ul style="padding-left: 1.3rem; font-size: 0.96rem; color: var(--text-mid); line-height: 1.9;">
+        <li><strong>Productiebedrijf</strong> &mdash; maakt goederen (bijv. een autofabriek, een bakkerij)</li>
+        <li><strong>Dienstenbedrijf</strong> &mdash; levert diensten (bijv. een bank, een school, een transportbedrijf)</li>
+        <li><strong>Handelsbedrijf</strong> &mdash; koopt en verkoopt goederen zonder ze zelf te maken (bijv. een supermarkt, een winkel)</li>
+      </ul>
+      <h4 style="margin-top: 1rem;">Profit vs. non-profit</h4>
+      <ul style="padding-left: 1.3rem; font-size: 0.96rem; color: var(--text-mid); line-height: 1.9; margin-top: 0.5rem;">
+        <li><strong>Profitbedrijven</strong> &mdash; zijn gericht op winst maken (bijv. supermarkt, autofabriek)</li>
+        <li><strong>Non-profitorganisaties</strong> &mdash; hebben een maatschappelijk doel, niet winst (bijv. vzw&rsquo;s, ziekenhuizen, scholen)</li>
+      </ul>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Is jouw school een profit- of non-profitorganisatie? En in welke economische sector valt ze? Leg je redenering uit.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 6 — De rol van gezinnen -->
+  <section class="section-block" id="s6">
+    <div class="section-heading">
+      <span class="section-num">6</span>
+      <h2 class="section-title">De rol van gezinnen</h2>
+    </div>
+
+    <p>Gezinnen zijn zowel consumenten als productiefactor in de economie. Ze besteden hun inkomsten, betalen belastingen en dragen bij aan de sociale zekerheid. Om goed te kunnen rondkomen, is het belangrijk om inkomsten en uitgaven goed te beheren.</p>
+
+    <h3 class="sub-heading">Inkomsten van gezinnen</h3>
+
+    <div class="schema-kader">
+      <h4>Soorten inkomsten</h4>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 0.5rem;">
+        <div style="background: rgba(193,68,14,0.06); border: 1px solid rgba(193,68,14,0.2); border-radius: 6px; padding: 1rem;">
+          <p style="font-family: 'Playfair Display', serif; font-weight: 600; color: var(--terracotta); margin-bottom: 0.5rem; font-size: 1rem;">Terugkerende inkomsten</p>
+          <p style="font-size: 0.9rem; color: var(--text-mid); margin-bottom: 0.5rem;">Regelmatig en voorspelbaar</p>
+          <ul style="padding-left: 1.2rem; font-size: 0.93rem; color: var(--text-mid);">
+            <li>Loon (elke maand)</li>
+            <li>Werkloosheidsuitkering</li>
+            <li>Pensioen</li>
+          </ul>
+        </div>
+        <div style="background: rgba(26,43,74,0.06); border: 1px solid rgba(26,43,74,0.2); border-radius: 6px; padding: 1rem;">
+          <p style="font-family: 'Playfair Display', serif; font-weight: 600; color: var(--darkblue); margin-bottom: 0.5rem; font-size: 1rem;">Toevallige inkomsten</p>
+          <p style="font-size: 0.9rem; color: var(--text-mid); margin-bottom: 0.5rem;">Onregelmatig en onverwacht</p>
+          <ul style="padding-left: 1.2rem; font-size: 0.93rem; color: var(--text-mid);">
+            <li>Erfenis</li>
+            <li>Loterij</li>
+            <li>Verkoop van bezittingen</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Uitgaven van gezinnen</h3>
+
+    <p>Niet alle uitgaven zijn hetzelfde. Een goed huishoudbudget houdt rekening met vier soorten uitgaven:</p>
+
+    <table class="data-tabel">
+      <thead>
+        <tr>
+          <th>Type uitgave</th>
+          <th>Omschrijving</th>
+          <th>Voorbeelden</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Vaste uitgaven</strong></td>
+          <td>Hetzelfde bedrag elke maand</td>
+          <td>Huur, abonnement, lening</td>
+        </tr>
+        <tr>
+          <td><strong>Variabele uitgaven</strong></td>
+          <td>Wisselend bedrag, maar regelmatig</td>
+          <td>Eten, kleding, vervoer</td>
+        </tr>
+        <tr>
+          <td><strong>Onvoorziene uitgaven</strong></td>
+          <td>Onverwacht en niet gepland</td>
+          <td>Medische kosten, autopanne</td>
+        </tr>
+        <tr>
+          <td><strong>Uitzonderlijke uitgaven</strong></td>
+          <td>&Eacute;&eacute;nmalig of zelden</td>
+          <td>Vakantie, nieuwe wasmachine</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Denk aan de inkomsten en uitgaven van jouw gezin. Welke uitgaven zijn vast en welke zijn variabel? Wat zou er gebeuren als er een onvoorziene uitgave is, zoals een kapotte verwarmingsketel?</p>
+    </div>
+  </section>
+
+</div><!-- end page-wrapper -->
+
+<!-- EXERCISES -->
+<section class="exercises-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">De economische kringloop</p>
+      <p style="font-size:.96rem;color:var(--text-mid);">Teken of beschrijf de economische kringloop:</p>
+      <ol>
+        <li>Wie zijn de drie actoren in de economische kringloop?</li>
+        <li>Welke twee stromen lopen er in de kringloop? Leg het verschil uit.</li>
+        <li>In welke richting loopt de geldstroom ten opzichte van de goederenstroom?</li>
+      </ol>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">De vier economische sectoren</p>
+      <p style="font-size:.96rem;color:var(--text-mid);">Geef voor elk van de vier economische sectoren een voorbeeld van een bedrijf dat je kent in de buurt.</p>
+      <ol>
+        <li>Primaire sector: &hellip;</li>
+        <li>Secundaire sector: &hellip;</li>
+        <li>Tertiaire sector: &hellip;</li>
+        <li>Quartaire sector: &hellip;</li>
+      </ol>
+      <p class="ex-tip">Tip: kijk in je eigen gemeente of stad. Een bakker die zijn eigen brood maakt: primair of secundair?</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Sociale zekerheid: welke uitkering?</p>
+      <p style="font-size:.96rem;color:var(--text-mid);">Welk type uitkering ontvang je als&hellip;</p>
+      <ol>
+        <li>&hellip; je een arbeidsongeval hebt?</li>
+        <li>&hellip; je met pensioen gaat?</li>
+        <li>&hellip; je werkloos bent?</li>
+        <li>&hellip; je een kind krijgt?</li>
+      </ol>
+      <p class="ex-tip">Maak ook het onderscheid: is het een aanvullende of een vervangingsuitkering?</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 4</p>
+      <p class="ex-name">Vaste vs. variabele uitgaven</p>
+      <ol>
+        <li>Wat is het verschil tussen een vaste en een variabele uitgave?</li>
+        <li>Geef 2 voorbeelden van vaste uitgaven.</li>
+        <li>Geef 2 voorbeelden van variabele uitgaven.</li>
+      </ol>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 5</p>
+      <p class="ex-name">Budgetoefening</p>
+      <p style="font-size:.96rem;color:var(--text-mid);">Je hebt een maandelijks loon van &euro;&thinsp;2.000. Je betaalt de volgende kosten:</p>
+      <ul>
+        <li>Huur: &euro;&thinsp;700</li>
+        <li>Boodschappen: &euro;&thinsp;300</li>
+        <li>Abonnement telefoon: &euro;&thinsp;30</li>
+        <li>Elektriciteit: &euro;&thinsp;80 (gemiddeld)</li>
+      </ul>
+      <ol style="margin-top: 0.5rem;">
+        <li>Welke van deze uitgaven zijn vast? Welke zijn variabel?</li>
+        <li>Hoeveel geld blijft er over na deze uitgaven?</li>
+        <li>Welk type inkomst is het maandloon: terugkerend of toevallig? Leg uit.</li>
+      </ol>
+    </div>
+
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="summary-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>Economische kringloop:</strong> 3 actoren &mdash; gezinnen, bedrijven en overheid &mdash; wisselen voortdurend uit</li>
+      <li><strong>2 stromen:</strong> re&euml;le stroom (goederen &amp; diensten) en financi&euml;le stroom (geld) &mdash; lopen in tegengestelde richting</li>
+      <li><strong>Overheid:</strong> inkomsten via belastingen (personenbelasting, vennootschapsbelasting, BTW, &hellip;) &rarr; uitgaven voor publieke diensten (onderwijs, veiligheid, sociale bescherming, &hellip;)</li>
+      <li><strong>Sociale ongelijkheid:</strong> 6 oorzaken &mdash; discriminatie, cultuur, gezondheid, inkomen, onderwijs en overheidsbeleid</li>
+      <li><strong>Sociale zekerheid:</strong> solidariteitsbeginsel; aanvullende uitkeringen (groeipakket, sociaal tarief, &hellip;) vs. vervangingsuitkeringen (pensioen, werkloosheid, ziekte, &hellip;)</li>
+      <li><strong>Bedrijven:</strong> kernactiviteiten per afdeling; 4 sectoren (primair, secundair, tertiair, quartair); soorten bedrijven (productie, diensten, handel; profit vs. non-profit)</li>
+      <li><strong>Gezinnen:</strong> terugkerende vs. toevallige inkomsten; 4 soorten uitgaven &mdash; vast, variabel, onvoorzien, uitzonderlijk</li>
+    </ul>
+  </div>
+</section>
+
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">Naar boven &#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

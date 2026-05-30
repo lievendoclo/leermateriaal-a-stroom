@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoofdstuk 1 — Wat staat er echt? | Nederlands 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.25; }
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+    text-decoration: none;
+  }
+  .site-header .label-right { text-align: right; }
+
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image: radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+  .chapter-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+  .prologue .ornament-line .ornament-sym { color: var(--gold); font-size: 1.1rem; opacity: 0.8; }
+  .prologue p { font-style: italic; font-size: 1.05rem; line-height: 1.85; color: rgba(250,246,239,0.9); }
+  .prologue p + p { margin-top: 0.9em; }
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+  .begrip .begrip-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .begrip .begrip-body { flex: 1; }
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+  .begrip .begrip-def { font-size: 0.97rem; color: var(--text-mid); line-height: 1.65; margin: 0; }
+
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .denkvraag .dv-text { font-style: italic; font-size: 1rem; color: var(--text-mid); line-height: 1.7; }
+
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+  }
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ── VOORBEELDTEKST ── */
+  .voorbeeldtekst {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 2rem 2.2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .voorbeeldtekst .vt-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--darkblue);
+    opacity: 0.6;
+    margin-bottom: 0.4rem;
+    display: block;
+  }
+  .voorbeeldtekst .vt-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 0.3rem;
+  }
+  .voorbeeldtekst .vt-meta {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    margin-bottom: 1.2rem;
+    font-style: italic;
+  }
+  .voorbeeldtekst .vt-body p {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-bottom: 0.9em;
+  }
+  .voorbeeldtekst .vt-body p:last-child { margin-bottom: 0; }
+  .voorbeeldtekst .vt-source {
+    margin-top: 1rem;
+    font-size: 0.78rem;
+    color: var(--text-light);
+    border-top: 1px solid var(--sand);
+    padding-top: 0.6rem;
+    font-style: italic;
+  }
+
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+  .exercise-card ol, .exercise-card ul { padding-left: 1.4rem; margin-top: 0.5rem; }
+  .exercise-card li { margin-bottom: 0.45rem; font-size: 0.96rem; color: var(--text-mid); }
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+  .summary-section ul { list-style: none; padding: 0; }
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0; top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem; right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px; height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  .prose-text { max-width: 100%; }
+  .highlighted-para {
+    background: rgba(212,160,23,0.08);
+    border-left: 3px solid var(--gold);
+    padding: 0.8rem 1.1rem;
+    border-radius: 0 4px 4px 0;
+    margin: 1.2rem 0;
+    font-size: 0.97rem;
+    color: var(--text-mid);
+  }
+
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section, .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .voorbeeldtekst { padding: 1.4rem 1.2rem; }
+  }
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header" id="top">
+  <a class="label" href="index.html">Nederlands 1A</a>
+  <span class="label label-right">Hoofdstuk 1</span>
+</header>
+
+<div class="chapter-hero">
+  <div class="chapter-kicker">Nederlands &nbsp;·&nbsp; 1A &nbsp;·&nbsp; Eerste graad</div>
+  <h1>Hoofdstuk 1<br>Wat staat er echt?</h1>
+  <p class="subtitle">Van krantenkop tot klassikale tekst — leren lezen wat echt staat</p>
+</div>
+
+<div class="page-wrapper">
+
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Stel je voor &hellip;</span>
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+
+    <p>Het is een doordeweekse avond en Thomas, twaalf jaar oud, scrolt op zijn telefoon door het nieuws. Plots springt er een kop in het oog: <em>"SHOCKER: Kobe Janssen verlaat Club definitief na ruzie met trainer!"</em> Thomas zit rechtop. Kobe Janssen is zijn absolute favoriete voetballer. Hij klikt meteen door.</p>
+
+    <p>Maar dan begint hij te lezen. Echt lezen. Het artikel vertelt een heel ander verhaal: er zijn inderdaad gesprekken geweest over een mogelijke transfer, maar de club ontkent elke ruzie. De trainer zegt dat hij Janssen graag wil houden. Een analist denkt dat er buitenlandse interesse is, maar dat Janssen zelf nog niets heeft beslist. Aan het einde van het artikel staat zelfs: <em>"Voorlopig is er officieel nog niets veranderd."</em></p>
+
+    <p>Thomas legt zijn telefoon neer. Wat heeft hij nu eigenlijk gelezen? De kop schreeuwde iets dramatisch, maar de tekst zelf zei iets heel anders. De werkelijkheid is veel genuanceerder dan die eerste vier woorden lieten vermoeden. En toch — hoe vaak klik je iets weg nadat je alleen de titel gelezen hebt? Hoe vaak geloof je wat er staat zonder goed te kijken <em>wat er écht staat</em>?</p>
+
+    <p>Dat is precies de vraag die dit hoofdstuk centraal stelt: <strong style="color: var(--gold);">hoe kom je erachter wat een tekst werkelijk zegt?</strong></p>
+
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+  </section>
+
+  <section class="section-block" id="s1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Het onderwerp: waarover gaat de tekst?</h2>
+    </div>
+    <div class="prose-text">
+      <p>Wanneer iemand je vraagt "waarover gaat dat boek?" of "wat was dat filmpje ook alweer?", geef je een antwoord in een paar woorden. Je zegt niet de hele inhoud na — je benoemt het <em>thema</em>. Dat is precies wat het <strong>onderwerp</strong> van een tekst is.</p>
+
+      <p>Het onderwerp zegt je <em>waarover</em> de tekst gaat, maar nog niet <em>wat</em> de tekst erover zegt. Het is het label op de doos, nog niet de inhoud. Je formuleert het onderwerp in één of enkele woorden: een zelfstandig naamwoord of een korte woordgroep.</p>
+
+      <p>Maar hoe vind je dat onderwerp? Gelukkig geeft een tekst je altijd aanwijzingen. Kijk eerst naar de <strong>titel</strong>: die geeft in veel gevallen het onderwerp rechtstreeks weg. Lees daarna de <strong>eerste alinea</strong> goed: bij informatieve teksten staat de kern van de tekst dikwijls al in de openingszin of -alinea. Let ook op <strong>woorden die vaak terugkomen</strong>: welk woord of welke woordgroep lees je steeds opnieuw? Dat is wellicht het onderwerp.</p>
+
+      <p>Soms helpt het ook om te kijken naar de tussenkopjes als die er zijn. Ze geven je een snel overzicht van de inhoud en bevestigen wat het centrale thema is. Het onderwerp is altijd iets wat de hele tekst doorloopt — niet iets wat slechts in één alinea aan bod komt.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Onderwerp</span>
+        <p class="begrip-def">Het <strong>onderwerp</strong> van een tekst is het thema of het centrale topic: waarover gaat de tekst, in één of enkele woorden. Je formuleert het als een zelfstandig naamwoord of een korte woordgroep, zonder een oordeel of mening uit te spreken.</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>Kijk eens naar een paar voorbeelden om het verschil scherp te krijgen:</p>
+      <ul style="padding-left: 1.4rem; margin-bottom: 1.1em;">
+        <li style="margin-bottom: 0.5rem;">Een artikel over hoe jongeren steeds minder slapen door hun telefoon: onderwerp = <strong>slaaptekort bij jongeren</strong> (of: <strong>smartphones en slaap</strong>)</li>
+        <li style="margin-bottom: 0.5rem;">Een tekst over de regels van een nieuw voetbaltoernooi op school: onderwerp = <strong>schoolvoetbaltoernooi</strong></li>
+        <li style="margin-bottom: 0.5rem;">Een reclamefolder voor een nieuw merk sportschoenen: onderwerp = <strong>nieuwe sportschoenen</strong></li>
+      </ul>
+      <p>Je ziet dat het onderwerp kort en neutraal is. Het bevat geen mening, geen oordeel — gewoon een label.</p>
+    </div>
+
+    <div class="illustratie">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Illustratie: een krantenpagina met drie artikels. Boven elk artikel staat in een etiketje het onderwerp in twee à drie woorden. Pijlen wijzen van de titel en de openingszin naar het etiket, om te tonen hoe je het onderwerp destilleert.</p>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">Denk aan het laatste boek dat je las, de laatste serie die je bekeek, of een artikel dat je deze week tegenkwam. Kun je het onderwerp ervan formuleren in twee woorden? Probeer het eens. Is het gemakkelijk of toch lastiger dan verwacht?</p>
+    </div>
+  </section>
+
+  <section class="section-block" id="s2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">De hoofdgedachte: de kern in één zin</h2>
+    </div>
+    <div class="prose-text">
+      <p>Goed, je weet nu waarover een tekst gaat. Maar dat is nog niet genoeg. Elke tekst heeft niet alleen een onderwerp — de auteur wil ook <em>iets zeggen</em> over dat onderwerp. Dat is de <strong>hoofdgedachte</strong>: de belangrijkste boodschap van de tekst, uitgedrukt in één volledige zin.</p>
+
+      <p>Vergelijk het met een gesprek. Als je iemand vraagt: "Waarover ging dat gesprek?" zeg je het onderwerp. Maar als je vraagt: "Wat was de conclusie?" dan geef je de hoofdgedachte. De hoofdgedachte is dus een <em>uitspraak</em> over het onderwerp — een zin met een onderwerp én een gezegde, die de kern van de boodschap bevat.</p>
+
+      <p>Het verschil tussen onderwerp en hoofdgedachte is cruciaal en verdient extra aandacht. Neem dit voorbeeld: een artikel over de opwarming van de aarde.</p>
+      <ul style="padding-left: 1.4rem; margin-bottom: 1.1em;">
+        <li style="margin-bottom: 0.5rem;"><strong>Onderwerp:</strong> klimaatverandering</li>
+        <li style="margin-bottom: 0.5rem;"><strong>Hoofdgedachte:</strong> De aarde warmt sneller op dan wetenschappers aanvankelijk verwacht hadden.</li>
+      </ul>
+      <p>Zie je het verschil? Het onderwerp is een woordgroep. De hoofdgedachte is een volledige zin die iets beweert, iets verklaart, of ergens toe oproept.</p>
+
+      <p>Nog een paar voorbeelden om het te verduidelijken:</p>
+      <ul style="padding-left: 1.4rem; margin-bottom: 1.1em;">
+        <li style="margin-bottom: 0.5rem;"><strong>Onderwerp:</strong> schoolmaaltijden — <strong>Hoofdgedachte:</strong> Gezonde schoolmaaltijden zorgen voor betere concentratie en betere schoolresultaten.</li>
+        <li style="margin-bottom: 0.5rem;"><strong>Onderwerp:</strong> sociale media — <strong>Hoofdgedachte:</strong> Overmatig gebruik van sociale media heeft een negatieve invloed op het zelfbeeld van tieners.</li>
+      </ul>
+
+      <p>Hoe vind je de hoofdgedachte in een tekst? Zoek naar de zin of passage die alles samenvat. Die staat soms aan het begin (bij een deductieve tekst), soms aan het einde (bij een inductieve tekst), en soms in de inleiding én aan het einde. Let ook op signaalwoorden als <em>kortom</em>, <em>dus</em>, <em>de conclusie is</em>, of <em>samenvattend</em> — die wijzen vaak op de kern.</p>
+
+      <p>Is de hoofdgedachte niet letterlijk in de tekst te vinden? Dan moet je ze zelf formuleren op basis van wat de tekst als geheel zegt. Dat is ook een vaardigheid die je kunt oefenen.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">💡</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Hoofdgedachte</span>
+        <p class="begrip-def">De <strong>hoofdgedachte</strong> is de belangrijkste boodschap van een tekst, geformuleerd in één volledige zin. Ze zegt niet alleen waarover de tekst gaat (dat is het onderwerp), maar ook <em>wat</em> de auteur over dat onderwerp beweert, uitlegt of wil duidelijk maken.</p>
+      </div>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">Een vriend zegt: "Die tekst ging over klimaat, en de hoofdgedachte was 'klimaat'." Wat klopt er niet aan dit antwoord? Hoe zou jij het verbeteren?</p>
+    </div>
+  </section>
+
+  <section class="section-block" id="s3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Hoofdpunten: de steunpilaren van de tekst</h2>
+    </div>
+    <div class="prose-text">
+      <p>Nu je het onderwerp en de hoofdgedachte kunt bepalen, is het tijd voor de volgende stap: de <strong>hoofdpunten</strong>. Een tekst bestaat zelden uit slechts één bewering. De auteur bouwt zijn boodschap op door meerdere argumenten, voorbeelden, feiten of deelonderwerpen te presenteren. Die noemen we de hoofdpunten.</p>
+
+      <p>Elk hoofdpunt ondersteunt, verduidelijkt of bewijst de hoofdgedachte. Ze zijn als de pijlers van een brug: zonder die pijlers valt de brug — de hoofdgedachte — weg. Hoofdpunten zijn dus inhoudelijk <em>noodzakelijk</em> om de hoofdgedachte te begrijpen of te geloven.</p>
+
+      <p>Maar een tekst bevat ook <strong>bijzaken</strong>: details, anekdotes, voorbeelden, uitweidingen. Bijzaken zijn interessant of leesbaar, maar ze zijn niet strikt nodig om de hoofdgedachte te begrijpen. Als je een bijzaak weglaat, blijft de kernboodschap overeind. Als je een hoofdpunt weglaat, heb je een gat in de redenering.</p>
+
+      <p>Hoe onderscheid je een hoofdpunt van een bijzaak? Stel jezelf de vraag: <em>Is dit nodig om de hoofdgedachte te begrijpen of te staven?</em> Als het antwoord "ja" is, heb je een hoofdpunt. Als het antwoord "nee, maar het maakt de tekst leuker of concreter" is, dan is het een bijzaak.</p>
+
+      <p>Een andere techniek: stel je voor dat je de tekst samensamenvat voor iemand die er niets van weet. Welke punten moet je zeker vermelden? Die zijn de hoofdpunten. Wat kun je weglaten zonder dat het verhaal onbegrijpelijk wordt? Dat zijn bijzaken.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">🏛️</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Hoofdpunten</span>
+        <p class="begrip-def"><strong>Hoofdpunten</strong> zijn de inhoudelijke elementen die de hoofdgedachte van een tekst ondersteunen, uitleggen of bewijzen. Ze zijn noodzakelijk om de kern van de tekst te begrijpen. <strong>Bijzaken</strong> zijn details of voorbeelden die de tekst verlevendigen, maar die je kunt weglaten zonder de hoofdboodschap te verliezen.</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>Laten we de drie begrippen nog eens naast elkaar zetten aan de hand van een concreet voorbeeld. Stel: je leest een tekst over waarom bewegen goed is voor je hersenen.</p>
+      <ul style="padding-left: 1.4rem; margin-bottom: 1.1em;">
+        <li style="margin-bottom: 0.5rem;"><strong>Onderwerp:</strong> bewegen en de hersenen</li>
+        <li style="margin-bottom: 0.5rem;"><strong>Hoofdgedachte:</strong> Regelmatig bewegen heeft een bewezen positief effect op de werking van de hersenen.</li>
+        <li style="margin-bottom: 0.5rem;"><strong>Hoofdpunten:</strong> (1) Sport stimuleert de aanmaak van nieuwe hersencellen. (2) Bewegen verhoogt de concentratie en het geheugen. (3) Lichaamsbeweging verlaagt stress, wat de hersenfuncties verbetert.</li>
+        <li style="margin-bottom: 0.5rem;"><strong>Bijzaak (voorbeeld):</strong> Een anekdote over een leerling die beter scoorde op zijn toets na elke dag te lopen. Interessant, maar niet strikt nodig voor de kernboodschap.</li>
+      </ul>
+    </div>
+
+    <div class="illustratie">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Illustratie: een boom. De stam is gelabeld "Hoofdgedachte". De drie dikke takken zijn elk een hoofdpunt. De kleine blaadjes en dunne twijgjes zijn bijzaken. De wortels staan voor het onderwerp dat de hele boom voedt.</p>
+    </div>
+  </section>
+
+  <section class="section-block" id="s4">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Oefen meteen: een krantenartikel</h2>
+    </div>
+    <div class="prose-text">
+      <p>Theorie is nuttig, maar leren lezen doe je door écht te lezen. Hieronder vind je een krantenartikel dat je zelf kunt analyseren. Lees het rustig en grondig — niet één keer vluchtig, maar twee keer. De eerste keer voor het globale beeld, de tweede keer om details op te pikken. Daarna werken we het artikel samen stap voor stap door.</p>
+    </div>
+
+    <div class="voorbeeldtekst">
+      <span class="vt-label">Voorbeeldtekst · Krantenartikel</span>
+      <p class="vt-title">Slapen met je telefoon naast je bed? Dat kost je meer dan je denkt</p>
+      <p class="vt-meta">De Jongerenkrant, 14 maart 2025 · Gezondheidspagina</p>
+      <div class="vt-body">
+        <p>Negen op de tien Belgische tieners slapen met hun smartphone binnen handbereik. Voor velen ligt het toestel letterlijk op het nachtkastje of zelfs onder het kussen. Onderzoekers van de KU Leuven waarschuwen nu opnieuw voor de gevolgen: wie zijn scherm te laat 's avonds gebruikt, slaapt slechter, korter en minder diep.</p>
+        <p>De voornaamste boosdoener is het blauwe licht dat smartphones uitstralen. Dat licht onderdrukt de aanmaak van melatonine, het hormoon dat ons slaperig maakt. Wie tot middernacht scrolt, geeft zijn hersenen het signaal dat het nog dag is. Het gevolg: inslapen duurt langer en de slaap is minder herstellend.</p>
+        <p>Maar dat is niet het enige probleem. Zelfs als je je telefoon niet actief gebruikt, zorgen meldingen voor kleine onderbrekingen die de slaapkwaliteit schaden. Een korte trilling of een oplichtend scherm is genoeg om je uit je diepe slaap te halen, ook al word je er niet volledig wakker van.</p>
+        <p>De gevolgen zijn merkbaar overdag. Tieners die minder dan acht uur slapen, presteren slechter op school, zijn prikkelbaarder en hebben meer moeite om zich te concentreren. Sommige onderzoekers leggen ook een verband tussen chronisch slaaptekort en een verhoogd risico op angst en depressie bij jongeren.</p>
+        <p>De oplossing klinkt simpel, maar vraagt doorzettingsvermogen: leg je telefoon minstens een uur voor het slapengaan weg en zet meldingen uit. Gebruik bij voorkeur een gewone wekker in plaats van je smartphone. Kleine aanpassingen kunnen al een groot verschil maken voor je nachtrust — en voor je dag erna.</p>
+      </div>
+      <p class="vt-source">Fictief artikel, geschreven voor educatieve doeleinden. Inhoud is gebaseerd op reëel wetenschappelijk onderzoek naar slaap en schermgebruik bij jongeren.</p>
+    </div>
+
+    <div class="prose-text">
+      <p>Nu gaan we het artikel samen ontleden. We volgen de drie stappen die je net geleerd hebt.</p>
+
+      <p><strong>Stap 1 — Onderwerp bepalen.</strong> Waarover gaat dit artikel? Lees de titel nog eens: <em>"Slapen met je telefoon naast je bed"</em>. Kijk welk woord steeds terugkomt: smartphone, slaap, scherm, slapen. Het gaat over de combinatie van die twee. Het onderwerp is: <strong>smartphones en slaap bij tieners</strong>. Dat zijn enkele woorden die het thema dekken zonder er een oordeel over te vellen.</p>
+
+      <p><strong>Stap 2 — Hoofdgedachte bepalen.</strong> Wat wil de auteur ons eigenlijk zeggen over dit onderwerp? Lees de laatste alinea nog eens. En de eerste. De rode draad doorheen het hele artikel is: smartphones zijn slecht voor de slaap van tieners, en daarvoor zijn concrete oorzaken en oplossingen. De hoofdgedachte, in één zin: <strong>Het gebruik van smartphones voor het slapengaan heeft een bewezen negatieve invloed op de slaapkwaliteit van tieners.</strong></p>
+
+      <p><strong>Stap 3 — Hoofdpunten bepalen.</strong> Welke elementen ondersteunen die hoofdgedachte? Lees het artikel opnieuw en stel je voor dat je een samenvatting maakt.</p>
+      <ul style="padding-left: 1.4rem; margin-bottom: 1.1em;">
+        <li style="margin-bottom: 0.5rem;"><strong>Hoofdpunt 1:</strong> Blauw licht van smartphones onderdrukt melatonine, waardoor inslapen moeilijker wordt en de slaap minder diep is.</li>
+        <li style="margin-bottom: 0.5rem;"><strong>Hoofdpunt 2:</strong> Meldingen onderbreken de slaap ook als je de telefoon niet actief gebruikt.</li>
+        <li style="margin-bottom: 0.5rem;"><strong>Hoofdpunt 3:</strong> Slaaptekort heeft negatieve gevolgen voor schoolprestaties, concentratie en gemoedstoestand.</li>
+      </ul>
+      <p>Is er ook een bijzaak? Ja: de vermelding dat sommige tieners hun telefoon onder het kussen leggen, is een levendig detail — maar niet strikt nodig voor de kernboodschap.</p>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">We hebben drie hoofdpunten genoteerd. Maar lees het artikel nog eens goed. Is er misschien een vierde hoofdpunt dat we over het hoofd gezien hebben? Welk inhoudelijk element uit de tekst kan ook als een steunpilaar voor de hoofdgedachte gelden? Schrijf het op in één volledige zin.</p>
+    </div>
+  </section>
+
+  <section class="section-block" id="s5">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Relevante informatie selecteren</h2>
+    </div>
+    <div class="prose-text">
+      <p>Tot nu toe hebben we steeds één tekst geanalyseerd. Maar in de praktijk kom je vaak meerdere teksten tegen over hetzelfde onderwerp. Denk aan een spreekbeurt waarbij je informatie zoekt, of een opdracht waarbij je verschillende bronnen moet vergelijken. Dan moet je niet alleen begrijpen wat er staat, maar ook kiezen: welke informatie is bruikbaar voor jouw doel?</p>
+
+      <p>Dat heet <strong>relevante informatie selecteren</strong>: uit één of meerdere teksten precies die informatie halen die antwoord geeft op jouw vraag of die past bij jouw opdracht. Niet alles wat in een tekst staat, is relevant voor wat jij nodig hebt. Een tekst kan heel interessant zijn en toch weinig bruikbaar voor jouw specifieke vraag.</p>
+
+      <p>Hoe doe je dat? Begin altijd met je <strong>onderzoeksvraag</strong> scherp te stellen: wat wil ik precies weten? Formuleer die vraag zo concreet mogelijk. Als je weet wat je zoekt, is het veel gemakkelijker om te zien welke informatie relevant is en welke niet.</p>
+
+      <p>Vervolgens zoek je in de tekst naar <strong>sleutelwoorden</strong> die te maken hebben met jouw vraag. Staat je sleutelwoord in een alinea? Dan is die alinea waarschijnlijk relevant. Lees die dan grondig. Komt je sleutelwoord niet voor? Dan kun je die passage snel overslaan. Dit heet <em>gericht lezen</em> of <em>zoekend lezen</em>: je leest niet alles woord voor woord, maar je scant de tekst op informatie die aansluit bij jouw vraag.</p>
+
+      <p>Ten slotte is het belangrijk om informatie uit meerdere teksten te vergelijken. Zeggen twee teksten hetzelfde? Dan is die informatie betrouwbaarder. Zeggen ze iets anders? Dan moet je uitzoeken welke bron betrouwbaarder is en waarom.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">🔍</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Relevante informatie</span>
+        <p class="begrip-def"><strong>Relevante informatie</strong> is informatie die direct antwoord geeft op jouw vraag of die past bij jouw opdracht. Om relevante informatie te selecteren, stel je eerst een duidelijke onderzoeksvraag op, zoek je dan gericht naar sleutelwoorden, en vergelijk je informatie uit verschillende bronnen.</p>
+      </div>
+    </div>
+
+    <div class="highlighted-para">
+      <strong>Tip — Sleutelwoorden als kompas:</strong> Schrijf je onderzoeksvraag op en omcirkel de twee of drie belangrijkste woorden erin. Die sleutelwoorden zijn je kompas in een tekst. Scan elke alinea: staat er een sleutelwoord (of een synoniem)? Dan is die alinea de moeite waard om aandachtig te lezen.
+    </div>
+
+    <div class="prose-text">
+      <p>Het selecteren van relevante informatie hangt nauw samen met <strong>notities nemen</strong>. Goede notities zijn niet een kopie van de tekst — ze zijn een gestructureerde weergave van de informatie die voor jou belangrijk is. Noteer het onderwerp, de hoofdgedachte en de hoofdpunten. Schrijf in je eigen woorden, niet in de woorden van de tekst. Zo verwerk je de informatie echt en onthoud je ze beter.</p>
+    </div>
+  </section>
+
+  <section class="exercises-section" id="oefeningen">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Onderwerp, hoofdgedachte en hoofdpunten bepalen</p>
+      <p>Lees de recensie hieronder zorgvuldig. Beantwoord daarna de vragen.</p>
+      <div class="voorbeeldtekst" style="margin: 1rem 0; border-top-color: var(--oker);">
+        <span class="vt-label">Lezersbeoordeling · Product</span>
+        <p class="vt-title">Deze rugzak is mijn beste aankoop van het jaar</p>
+        <p class="vt-meta">Geplaatst op een online winkelplatform, november 2024</p>
+        <div class="vt-body">
+          <p>Ik was op zoek naar een rugzak die zowel voor school als voor uitstappen gebruikt kon worden, en ik heb er de juiste gevonden. De kwaliteit van het materiaal is uitstekend: na drie maanden dagelijks gebruik zie ik geen enkel spoor van slijtage. De ritsen werken soepel en de stof voelt stevig aan.</p>
+          <p>Wat me het meeste overtuigde, is de organisatie binnenin. Er zijn aparte vakjes voor mijn laptop, een brede ruimte voor boeken en schriften, en een handige buitenzak voor mijn sleutels en oortjes. Ik hoef nooit meer te zoeken naar wat ik nodig heb. Bovendien is de rugzak ook waterafstotend, wat al meermaals van pas is gekomen bij onverwachte regenbuien.</p>
+          <p>Het enige minpuntje is het gewicht: de rugzak zelf is al iets zwaarder dan vergelijkbare modellen, waardoor hij volledig gevuld nogal zwaar aanvoelt. Voor dagelijks gebruik is dat acceptabel, maar wie veel wil meenemen op een lange wandeling, houdt daar best rekening mee.</p>
+        </div>
+        <p class="vt-source">Fictieve recensie, geschreven voor educatieve doeleinden.</p>
+      </div>
+      <ol>
+        <li>Wat is het <strong>onderwerp</strong> van deze recensie? Formuleer in één of twee woorden.</li>
+        <li>Wat is de <strong>hoofdgedachte</strong>? Schrijf één volledige zin.</li>
+        <li>Noem <strong>twee hoofdpunten</strong> die de hoofdgedachte ondersteunen.</li>
+        <li>Is er ook een bijzaak in de tekst? Welke, en waarom is het een bijzaak?</li>
+      </ol>
+      <p class="ex-tip">💡 Let op: de hoofdgedachte staat niet letterlijk in de tekst. Formuleer ze zelf op basis van de inhoud als geheel.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Hoofdgedachte of hoofdpunt?</p>
+      <p>Hieronder staan drie zinnen. Eén ervan is de hoofdgedachte van een denkbeeldige tekst. De andere twee zijn hoofdpunten. Beslis welke welke is en leg telkens uit waarom.</p>
+      <ol>
+        <li>"Wetenschappers stelden vast dat planten sneller groeien wanneer ze klassieke muziek te horen krijgen."</li>
+        <li>"Omgevingsfactoren zoals licht, temperatuur en geluid hebben een aantoonbare invloed op de groei van planten."</li>
+        <li>"Planten die dicht bij een luidspreker stonden die zachte tonen produceerde, produceerden na vier weken 20% meer bladmassa."</li>
+      </ol>
+      <ul>
+        <li>Welke zin is de <strong>hoofdgedachte</strong>? Waarom?</li>
+        <li>Welke twee zinnen zijn <strong>hoofdpunten</strong>? Leg uit hoe ze de hoofdgedachte ondersteunen.</li>
+      </ul>
+      <p class="ex-tip">💡 Een hoofdgedachte is algemener en breder dan een hoofdpunt. Hoofdpunten zijn specifieker en geven concrete informatie of voorbeelden.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Luisteropdracht: notities nemen</p>
+      <p>Stel je voor: je luistert naar een radiointerview van drie minuten. De interviewer spreekt met een diëtiste over de kwaliteit van schoolmaaltijden in het secundair onderwijs. De diëtiste vertelt het volgende:</p>
+      <ul>
+        <li>Veel schoolmaaltijden bevatten te veel zout en te weinig groenten.</li>
+        <li>Leerlingen kiezen vaker voor frietjes en broodjes dan voor warme, evenwichtige maaltijden, omdat die er aantrekkelijker uitzien.</li>
+        <li>Uit een onderzoek bij vijftig Vlaamse scholen bleek dat slechts één op de drie scholen voldoet aan de richtlijnen voor een gezonde schoolmaaltijd.</li>
+        <li>De diëtiste pleit voor meer kleurrijke presentatie van groenten en voor het aanbieden van gratis fruit als tussendoortje.</li>
+        <li>Ze vermeldde terloops dat haar eigen kinderen elke dag boterhammen meebrengen van thuis.</li>
+      </ul>
+      <p>Op basis van dit scenario:</p>
+      <ol>
+        <li>Noteer het <strong>onderwerp</strong> van het interview.</li>
+        <li>Formuleer de <strong>hoofdgedachte</strong> die de diëtiste uitdraagt.</li>
+        <li>Noteer <strong>twee of drie hoofdpunten</strong>.</li>
+        <li>Welke informatie is een <strong>bijzaak</strong>? Leg uit waarom je die niet noteert.</li>
+      </ol>
+      <p class="ex-tip">💡 Bij het nemen van notities schrijf je altijd in je eigen woorden. Kopieer geen zinnen — vat samen. En noteer alleen wat echt nodig is voor de kern van de boodschap.</p>
+    </div>
+
+  </section>
+
+  <section class="summary-section" id="samenvatting">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li>Het <strong>onderwerp</strong> van een tekst zegt waarover de tekst gaat, in één of enkele woorden. Je formuleert het als een zelfstandig naamwoord of een korte, neutrale woordgroep — zonder oordeel of bewering.</li>
+      <li>De <strong>hoofdgedachte</strong> is de belangrijkste boodschap van de tekst, geformuleerd in één volledige zin. Ze zegt wat de auteur over het onderwerp beweert, uitlegt of aantoont — en is altijd een volledige zin met een onderwerp en een gezegde.</li>
+      <li><strong>Hoofdpunten</strong> zijn de inhoudelijke elementen die de hoofdgedachte ondersteunen en noodzakelijk zijn om ze te begrijpen of te geloven. <strong>Bijzaken</strong> zijn details of anekdotes die de tekst verlevendigen, maar die je kunt weglaten zonder de kern te verliezen.</li>
+      <li>Om het onderwerp, de hoofdgedachte en de hoofdpunten te vinden, kijk je naar de titel, de eerste en laatste alinea, terugkerende woorden en signaalwoorden zoals <em>kortom</em>, <em>dus</em> en <em>samenvattend</em>.</li>
+      <li><strong>Relevante informatie selecteren</strong> doe je door eerst een duidelijke onderzoeksvraag te stellen, dan gericht te zoeken naar sleutelwoorden in de tekst, en alleen die passages grondig te lezen die antwoord geven op jouw vraag.</li>
+      <li>Bij het <strong>nemen van notities</strong> schrijf je altijd in je eigen woorden: noteer het onderwerp, de hoofdgedachte en de hoofdpunten, en laat bijzaken bewust weg. Goede notities zijn een gestructureerde samenvatting, geen kopie van de tekst.</li>
+    </ul>
+  </section>
+
+</div>
+
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Terug naar boven">↑</button>
+<script>
+  const btn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => btn.classList.toggle('visible', window.scrollY > 400));
+</script>
+<script src="nav.js"></script>
+</body>
+</html>

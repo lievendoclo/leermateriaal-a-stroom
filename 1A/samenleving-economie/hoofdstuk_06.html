@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H6 — Ik beheer mijn financiën | Samenleving &amp; Economie 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --gold: #D4A017;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    /* Extended tokens used internally */
+    --terracotta-light: #D4561E;
+    --gold-light: #E8B82A;
+    --darkblue-light: #243B63;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--oker);
+    opacity: 0.85;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     CLOSING QUOTE
+  ============================================================ */
+  .closing-quote {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0D1E38 100%);
+    border-radius: var(--border-radius);
+    padding: 3rem 3rem 2.5rem;
+    margin: 3.5rem 0 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.5rem; left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .closing-quote .cq-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--gold);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 1.2rem;
+  }
+
+  .closing-quote .cq-attribution {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(212,160,23,0.6);
+  }
+
+  .closing-quote .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .closing-quote .ornament-line::before,
+  .closing-quote .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.4), transparent);
+  }
+
+  .closing-quote .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.7;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .closing-quote { padding: 2rem 1.2rem 1.8rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     WISKUNDE-SPECIFIC COMPONENTS
+  ============================================================ */
+
+  /* ── REKENVOORBEELD ─────────────────────────────────── */
+  .rekenvoorbeeld {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--oker);
+    border-radius: var(--border-radius);
+    padding: 1.8rem 2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .rekenvoorbeeld .rv-label {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--oker); display: block; margin-bottom: 0.35rem;
+  }
+  .rekenvoorbeeld .rv-vraag {
+    font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700;
+    color: var(--darkblue); margin-bottom: 1rem; line-height: 1.4;
+  }
+  .rv-stappen { list-style: none; padding: 0; counter-reset: stap-teller; margin-bottom: 1rem; }
+  .rv-stappen li {
+    counter-increment: stap-teller;
+    padding: 0.6rem 0.8rem 0.6rem 3.2rem;
+    position: relative;
+    background: var(--creme);
+    border-radius: 4px;
+    margin-bottom: 0.4rem;
+    font-size: 0.97rem;
+  }
+  .rv-stappen li::before {
+    content: counter(stap-teller);
+    position: absolute; left: 0.6rem; top: 50%; transform: translateY(-50%);
+    background: var(--darkblue); color: white;
+    width: 1.7rem; height: 1.7rem; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; font-weight: 700;
+  }
+  .rv-antwoord {
+    background: var(--darkblue); color: var(--gold);
+    padding: 0.75rem 1.1rem; border-radius: 4px;
+    font-weight: 700; font-size: 1rem;
+  }
+
+  /* ── STELLING ───────────────────────────────────────── */
+  .stelling {
+    background: #EEF3FF;
+    border-left: 4px solid var(--darkblue);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1.2rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .stelling .st-label {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--darkblue); opacity: 0.7;
+    display: block; margin-bottom: 0.35rem;
+  }
+  .stelling .st-body { font-size: 0.97rem; color: var(--text-dark); }
+
+  /* ── FORMULE ────────────────────────────────────────── */
+  .formule {
+    background: var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 1.4rem 1.8rem;
+    text-align: center;
+    margin: 1.8rem 0;
+  }
+  .formule .formule-naam {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--gold); opacity: 0.8;
+    display: block; margin-bottom: 0.5rem;
+  }
+  .formule .formule-body {
+    color: white; font-size: 1.15rem; font-weight: 700;
+    font-family: 'Playfair Display', serif;
+  }
+
+  /* ── WERKWIJZE LIST ─────────────────────────────────── */
+  .werkwijze-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.2rem 0;
+  }
+  .werkwijze-list li {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 0.8rem 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 0.5rem;
+    background: var(--sand-light);
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.55;
+  }
+  .werkwijze-list li .wl-kleur {
+    flex-shrink: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-top: 0.42rem;
+  }
+  .werkwijze-list li strong { color: var(--darkblue); }
+
+  /* ============================================================
+     SAMENLEVING & ECONOMIE — EXTRA COMPONENTS
+  ============================================================ */
+  .begrip-kader { background: #fff8f5; border-left: 4px solid var(--terracotta); border-radius: 0 6px 6px 0; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+  .begrip-kader strong { color: var(--terracotta); display: block; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem; }
+  .budget-tabel { width: 100%; border-collapse: collapse; margin: 1.25rem 0; font-size: 0.92rem; }
+  .budget-tabel th { background: var(--darkblue); color: var(--gold); font-family: 'Source Sans 3', sans-serif; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.75rem 1rem; text-align: left; }
+  .budget-tabel td { padding: 0.65rem 1rem; border-bottom: 1px solid var(--sand); }
+  .budget-tabel tr:nth-child(even) td { background: var(--sand-light, #F2EAD8); }
+  .budget-tabel .total-row td { font-weight: 700; background: rgba(26,43,74,0.08); }
+  .betaalmiddel-kaart { background: white; border: 1px solid var(--sand); border-radius: 8px; padding: 1.1rem 1.25rem; margin: 0.5rem 0; display: flex; gap: 1rem; align-items: flex-start; }
+  .betaalmiddel-kaart .bm-icon { font-size: 1.8rem; flex-shrink: 0; }
+  .betaalmiddel-kaart h4 { font-family: 'Playfair Display', serif; font-size: 1rem; margin-bottom: 0.25rem; }
+  .betaalmiddel-kaart p { font-size: 0.88rem; color: var(--text-light); margin: 0; }
+  .schema-kader { background: var(--sand-light, #F2EAD8); border: 1px solid var(--sand); border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; }
+  .schema-kader h4 { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 0.75rem; color: var(--darkblue); }
+  .waarschuwing-kader { background: #fff3cd; border: 1px solid #ffc107; border-radius: 8px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+  .waarschuwing-kader::before { content: '⚠️ Risico'; display: block; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #856404; margin-bottom: 0.5rem; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <span class="label">Samenleving &amp; Economie</span>
+  <span class="label label-right">H6 &middot; Financi&euml;n</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Hoofdstuk 6 &nbsp;&middot;&nbsp; 15% van het examen</div>
+  <h1>Ik beheer mijn financi&euml;n</h1>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- SECTION 1 — Inkomstenbronnen voor jongeren -->
+  <section class="section-block" id="s1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Inkomstenbronnen voor jongeren</h2>
+    </div>
+
+    <p>Jongeren kunnen op verschillende manieren geld verdienen of ontvangen. Het is belangrijk te weten waar je inkomsten vandaan komen, zodat je ze goed kunt beheren.</p>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.5rem"><strong>Zakgeld van ouders:</strong> een regelmatig bedrag dat ouders geven voor kleine persoonlijke uitgaven.</li>
+      <li style="margin-bottom:0.5rem"><strong>Loon uit een studentenjob:</strong> inkomen uit tijdelijk betaald werk (bijv. in een supermarkt of horecazaak).</li>
+      <li style="margin-bottom:0.5rem"><strong>Verjaardagsgeld en geschenken:</strong> geld of cadeaus van familie en vrienden bij speciale gelegenheden.</li>
+      <li style="margin-bottom:0.5rem"><strong>Groeipakket:</strong> een Belgische tegemoetkoming van de overheid voor kinderen en jongeren tot 25 jaar (vroeger kinderbijslag genaamd).</li>
+      <li style="margin-bottom:0.5rem"><strong>Online verkoop:</strong> inkomsten uit tweedehands spullen (bijv. via Vinted of eBay) of creatieve werken (bijv. zelfgemaakte sierraden, digitale tekeningen).</li>
+    </ul>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Welke van deze inkomstenbronnen heb jij zelf al gebruikt? Zou je ooit een studentenjob willen doen, en waarom?</p>
+    </div>
+  </section>
+
+  <!-- SECTION 2 — Behoeftes vs gecreëerde behoeftes -->
+  <section class="section-block" id="s2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Behoeftes vs. gecre&euml;erde behoeftes</h2>
+    </div>
+
+    <p>Niet elke aankoop is even noodzakelijk. Het is nuttig om een onderscheid te maken tussen wat je <em>echt</em> nodig hebt en wat je door externe factoren <em>wil</em> hebben.</p>
+
+    <div class="begrip-kader">
+      <strong>Re&euml;le behoefte</strong>
+      Wat je &eacute;&eacute;cht nodig hebt om te leven en te functioneren: eten, kleding, onderdak, onderwijs, medische zorg. Zonder deze dingen kun je niet goed leven.
+    </div>
+
+    <div class="begrip-kader">
+      <strong>Gecre&euml;erde behoefte</strong>
+      Wat reclame en trends je doen &ldquo;willen&rdquo;, ook al heb je het niet nodig. Voorbeelden: de nieuwste smartphone, designer sneakers, de laatste gameconsole. Deze behoeftes worden actief gecre&euml;erd door bedrijven.
+    </div>
+
+    <h3 class="sub-heading">Factoren die je koopgedrag be&iuml;nvloeden</h3>
+
+    <ul class="werkwijze-list">
+      <li>
+        <span class="wl-kleur" style="background:var(--terracotta);"></span>
+        <div><strong>Reclame en marketing:</strong> advertenties op tv, YouTube, TikTok en via influencers die producten aanprijzen en je verleiden tot kopen.</div>
+      </li>
+      <li>
+        <span class="wl-kleur" style="background:var(--oker);"></span>
+        <div><strong>Groepsdruk:</strong> als vrienden of klasgenoten iets hebben, wil je er ook bij horen en hetzelfde bezitten.</div>
+      </li>
+      <li>
+        <span class="wl-kleur" style="background:var(--darkblue);"></span>
+        <div><strong>Prijs en promoties:</strong> solden, kortingen en &ldquo;tijdelijke acties&rdquo; verleiden je om iets te kopen dat je eigenlijk niet nodig had.</div>
+      </li>
+      <li>
+        <span class="wl-kleur" style="background:#856404;"></span>
+        <div><strong>Emoties:</strong> impulsaankopen gebeuren vaak als je je verveelt, verdrietig bent of je wil belonen. Je koopt zonder goed na te denken.</div>
+      </li>
+      <li>
+        <span class="wl-kleur" style="background:#C1440E;"></span>
+        <div><strong>Sociale media &mdash; FOMO:</strong> <em>Fear Of Missing Out</em> &mdash; je wil iets kopen omdat iedereen op Instagram of TikTok het heeft en je niet achter wil blijven.</div>
+      </li>
+    </ul>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Kun je een voorbeeld geven van iets wat je hebt gekocht (of wou kopen) onder invloed van sociale media of groepsdruk? Was het een re&euml;le of gecre&euml;erde behoefte?</p>
+    </div>
+  </section>
+
+  <!-- SECTION 3 — Budgetplan -->
+  <section class="section-block" id="s3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Budgetplan</h2>
+    </div>
+
+    <p>Een <strong>budgetplan</strong> helpt je om je geld verstandig te beheren. Je noteert alle inkomsten en uitgaven en berekent hoeveel je kunt sparen.</p>
+
+    <div class="formule">
+      <span class="formule-naam">Basisformule budget</span>
+      <span class="formule-body">Spaargeld = Totale inkomsten &minus; Totale uitgaven</span>
+    </div>
+
+    <p>Hieronder zie je een voorbeeld van een maandelijks budgetplan voor een jongere:</p>
+
+    <table class="budget-tabel">
+      <thead>
+        <tr>
+          <th>Categorie</th>
+          <th>Voorbeeld</th>
+          <th>Bedrag (&euro;)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>INKOMSTEN</td>
+          <td>Zakgeld</td>
+          <td>50</td>
+        </tr>
+        <tr>
+          <td>INKOMSTEN</td>
+          <td>Studentenjob</td>
+          <td>200</td>
+        </tr>
+        <tr class="total-row">
+          <td><strong>Totale inkomsten</strong></td>
+          <td></td>
+          <td><strong>250</strong></td>
+        </tr>
+        <tr>
+          <td>UITGAVEN</td>
+          <td>Bioscooptickets</td>
+          <td>20</td>
+        </tr>
+        <tr>
+          <td>UITGAVEN</td>
+          <td>Kleding</td>
+          <td>40</td>
+        </tr>
+        <tr>
+          <td>UITGAVEN</td>
+          <td>Openbaar vervoer</td>
+          <td>15</td>
+        </tr>
+        <tr>
+          <td>UITGAVEN</td>
+          <td>Lunch school</td>
+          <td>25</td>
+        </tr>
+        <tr class="total-row">
+          <td><strong>Totale uitgaven</strong></td>
+          <td></td>
+          <td><strong>100</strong></td>
+        </tr>
+        <tr class="total-row">
+          <td><strong>Spaargeld</strong></td>
+          <td>Inkomsten &minus; uitgaven</td>
+          <td><strong>150</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="stelling">
+      <span class="st-label">Tip</span>
+      <p class="st-body">Maak elke maand een budgetplan &mdash; ook als het heel eenvoudig is. Zo zie je precies waar je geld naartoe gaat en kun je bewuster beslissingen nemen.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 4 — Lenen -->
+  <section class="section-block" id="s4">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Lenen</h2>
+    </div>
+
+    <p>Soms leen je geld om iets te kopen dat je nu niet kunt betalen. Het is belangrijk de begrippen rond leningen goed te begrijpen voordat je er een aangaat.</p>
+
+    <h3 class="sub-heading">Begrippen bij een lening</h3>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128197;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Looptijd</span>
+        <p class="begrip-def">Hoe lang de lening duurt. Bijvoorbeeld: een lening met een looptijd van 3 jaar moet je in 3 jaar volledig terugbetalen.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128181;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Rente</span>
+        <p class="begrip-def">Het bedrag dat je extra betaalt voor het lenen van geld. De bank of geldschieter berekent rente als vergoeding voor het uitlenen.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#37;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Rentevoet</span>
+        <p class="begrip-def">Het percentage dat je betaalt op het geleend bedrag. Bijvoorbeeld: een rentevoet van 5% per jaar op &euro;&nbsp;1.000 betekent &euro;&nbsp;50 rente per jaar.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128184;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Totale kost van de lening</span>
+        <p class="begrip-def">Het geleend bedrag plus alle rente die je gedurende de hele looptijd betaalt. Dit is het werkelijke bedrag dat je teruggeeft.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128203;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Openstaande schuld</span>
+        <p class="begrip-def">Hoeveel je op een bepaald moment nog moet terugbetalen. Hoe meer je al hebt afbetaald, hoe kleiner de openstaande schuld.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128200;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Afbetalingsbedrag</span>
+        <p class="begrip-def">Het bedrag dat je maandelijks terugbetaalt. Dit omvat een deel van het geleend bedrag (kapitaal) plus de rente van die maand.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Rekenvoorbeeld</h3>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Je leent &euro;&nbsp;1.000 aan 5% per jaar gedurende 2 jaar. Wat is de totale kost?</p>
+      <ol class="rv-stappen">
+        <li>Bereken de jaarlijkse rente: 5% van &euro;&nbsp;1.000 = &euro;&nbsp;1.000 &times; 0,05 = <strong>&euro;&nbsp;50</strong> per jaar.</li>
+        <li>Bereken de totale rente over 2 jaar: &euro;&nbsp;50 &times; 2 = <strong>&euro;&nbsp;100</strong>.</li>
+        <li>Bereken de totale kost: &euro;&nbsp;1.000 (geleend bedrag) + &euro;&nbsp;100 (rente) = <strong>&euro;&nbsp;1.100</strong>.</li>
+      </ol>
+      <p class="rv-antwoord">Totale kost van de lening = &euro;&nbsp;1.100 &mdash; je betaalt &euro;&nbsp;100 extra voor het lenen.</p>
+    </div>
+
+    <h3 class="sub-heading">Risico&rsquo;s van lenen</h3>
+
+    <div class="waarschuwing-kader">
+      <ul style="padding-left:1.2rem;margin:0;">
+        <li style="margin-bottom:0.5rem"><strong>Groeiende schulden:</strong> als je niet kunt aflossen, stapelen de schulden zich op en groeit het totale bedrag snel.</li>
+        <li style="margin-bottom:0.5rem"><strong>Stijgende rentevoeten:</strong> bij een variabele rente kan de rentevoet stijgen, waardoor je maandelijkse afbetaling hoger wordt dan verwacht.</li>
+        <li><strong>Overkreditering:</strong> te veel lenen ten opzichte van je inkomen. Als je schulden groter zijn dan wat je kunt terugbetalen, raak je in financi&euml;le problemen.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SECTION 5 — Verkoopkanalen -->
+  <section class="section-block" id="s5">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Verkoopkanalen</h2>
+    </div>
+
+    <p>Producten en diensten worden via verschillende <strong>verkoopkanalen</strong> aangeboden. Elk kanaal heeft eigen voordelen en risico&rsquo;s. Als koper is het slim om meerdere kanalen te vergelijken voor je iets koopt.</p>
+
+    <div class="schema-kader">
+      <h4>Overzicht verkoopkanalen</h4>
+      <ul style="padding-left:1.3rem;margin:0;font-size:0.96rem;color:var(--text-mid);line-height:1.85;">
+        <li><strong>Evenementen</strong> &mdash; markten, beurzen, popupstores: tijdelijk en sfeervol, maar beperkt aanbod en geen retourrecht.</li>
+        <li><strong>Fysieke winkel</strong> &mdash; supermarkt, kledingwinkel, bakker: persoonlijk advies, product direct bekijken, maar soms duurder dan online.</li>
+        <li><strong>Online winkel (webshop)</strong> &mdash; Bol.com, Zalando, webshop van een merk: breed aanbod, gemakkelijk vergelijken, levering aan huis, maar je ziet het product niet van dichtbij voor aankoop.</li>
+        <li><strong>Markt</strong> &mdash; wekelijkse boerenmarkt, kerstmarkt: vers lokaal aanbod, direct contact met producent, maar beperkt openingsuren.</li>
+        <li><strong>Sociale media</strong> &mdash; Facebook Marketplace, Instagram shops: snel en goedkoop tweedehands kopen, maar risico op fraude en geen garantie.</li>
+        <li><strong>TV-verkoop</strong> &mdash; shopping channels (bijv. Vox televerkoop): producten worden live gedemonstreerd, maar prijzen zijn niet altijd de beste en je kunt moeilijk vergelijken.</li>
+      </ul>
+    </div>
+
+    <div class="stelling">
+      <span class="st-label">Onthoud</span>
+      <p class="st-body">Elk verkoopkanaal heeft <strong>voordelen</strong> (gemak, bereik, prijs) en <strong>risico&rsquo;s</strong> (fraude, geen garantie, beperkt retourrecht). Vergelijk altijd voor je koopt.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 6 — Betaalmiddelen -->
+  <section class="section-block" id="s6">
+    <div class="section-heading">
+      <span class="section-num">6</span>
+      <h2 class="section-title">Betaalmiddelen</h2>
+    </div>
+
+    <p>Er zijn veel manieren om te betalen. Elk betaalmiddel heeft zijn eigen voor- en nadelen op het vlak van veiligheid, kosten en gebruiksgemak.</p>
+
+    <div class="betaalmiddel-kaart">
+      <span class="bm-icon">&#128181;</span>
+      <div>
+        <h4>Cash (bankbiljetten/munten)</h4>
+        <p>Universeel aanvaard, geen registratie van de aankoop, geen transactiekosten. Nadeel: risico op verlies of diefstal &mdash; gestolen cash krijg je niet terug.</p>
+      </div>
+    </div>
+
+    <div class="betaalmiddel-kaart">
+      <span class="bm-icon">&#128242;</span>
+      <div>
+        <h4>Contactloos (NFC)</h4>
+        <p>Snel betalen via kaart of smartphone, geen pincode nodig tot &euro;&nbsp;50 (Belgische limiet). Veilig door ingebouwde beveiliging. Let op bij verlies van je kaart.</p>
+      </div>
+    </div>
+
+    <div class="betaalmiddel-kaart">
+      <span class="bm-icon">&#128179;</span>
+      <div>
+        <h4>Debetkaart (Bancontact)</h4>
+        <p>Directe afschrijving van je zichtrekening. Breed aanvaard in Belgi&euml;, veilig met pincode. Bewaar je pincode nooit samen met je kaart. Waakzaam zijn voor skimming (illegaal kopi&euml;ren van kaartgegevens).</p>
+      </div>
+    </div>
+
+    <div class="betaalmiddel-kaart">
+      <span class="bm-icon">&#127968;</span>
+      <div>
+        <h4>Overschrijving</h4>
+        <p>Via internetbankieren of je bank, geschikt voor grote bedragen. Biedt een bewijs van betaling. Duurt soms 1&ndash;2 werkdagen. Controleer altijd het rekeningnummer voor je verstuurt.</p>
+      </div>
+    </div>
+
+    <div class="betaalmiddel-kaart">
+      <span class="bm-icon">&#128241;</span>
+      <div>
+        <h4>Payconiq</h4>
+        <p>Belgische betaalapp die rechtstreeks aan je bankrekening gekoppeld is. Snel, gratis en veilig. Werkt via QR-code. Handig voor kleine betalingen tussen vrienden.</p>
+      </div>
+    </div>
+
+    <div class="betaalmiddel-kaart">
+      <span class="bm-icon">&#127183;</span>
+      <div>
+        <h4>Prepaidkaart</h4>
+        <p>Vooraf geladen kaart met een vast bedrag. Geen bankrekening nodig. Beperkt bedrag, dus geen risico op grote schulden. Handig voor online aankopen als je geen debetkaart hebt.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Veiligheid bij online betalen</h3>
+
+    <div class="schema-kader">
+      <h4>Tips voor veilig betalen</h4>
+      <ul style="padding-left:1.3rem;margin:0;font-size:0.96rem;color:var(--text-mid);line-height:1.85;">
+        <li><strong>Cash:</strong> risico op verlies; geen transactiekosten, maar ook geen bewijs van betaling.</li>
+        <li><strong>Debetkaart/contactloos:</strong> veilig met pincode; let op voor skimming bij geldautomaten.</li>
+        <li><strong>Online betalen:</strong> gebruik altijd beveiligde sites (webadres begint met <strong>https://</strong> en er staat een slotje). Geef <em>nooit</em> je betaalgegevens door via e-mail of telefoon.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SECTION 7 — Fraude -->
+  <section class="section-block" id="s7">
+    <div class="section-heading">
+      <span class="section-num">7</span>
+      <h2 class="section-title">Fraude</h2>
+    </div>
+
+    <p>Helaas proberen sommige mensen op illegale manieren geld te stelen. Het is belangrijk fraude te herkennen en te weten wat je moet doen als het toch gebeurt.</p>
+
+    <h3 class="sub-heading">Veelvoorkomende fraude</h3>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128337;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Fraude</span>
+        <span class="begrip-name">Phishing</span>
+        <p class="begrip-def">Nep-e-mails of nep-sms&rsquo;jes die van je bank lijken te komen en je vragen om je bankgegevens, pincode of wachtwoord in te vullen op een valse website. Banken vragen <em>nooit</em> je pincode via e-mail!</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128722;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Fraude</span>
+        <span class="begrip-name">Online aankoopfraude</span>
+        <p class="begrip-def">Je betaalt voor een product dat je hebt gezien op een nepwebsite of via sociale media, maar het product wordt nooit geleverd. Altijd verkoper controleren voor je betaalt.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128100;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Fraude</span>
+        <span class="begrip-name">Identiteitsdiefstal</span>
+        <p class="begrip-def">Iemand gebruikt jouw persoonlijke gegevens (naam, adres, bankrekeningnummer) om aankopen te doen of leningen aan te gaan in jouw naam.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Wat te doen bij fraude?</h3>
+
+    <ol style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;font-size:0.97rem;color:var(--text-mid);line-height:1.85;">
+      <li style="margin-bottom:0.6rem"><strong>Blokkeer onmiddellijk je bankkaart</strong> via <strong>Card Stop: 070 344 344</strong> (24u/7d bereikbaar in Belgi&euml;). Hoe sneller je reageert, hoe minder schade.</li>
+      <li style="margin-bottom:0.6rem"><strong>Neem contact op met je bank</strong> om verdachte transacties te melden en je rekening te beveiligen.</li>
+      <li style="margin-bottom:0.6rem"><strong>Doe aangifte bij de politie</strong> met alle informatie over het incident.</li>
+      <li><strong>Bewaar bewijzen:</strong> screenshots van berichten, e-mails, valse websites en transacties. Die heb je nodig voor de aangifte en eventuele terugvordering.</li>
+    </ol>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Je ontvangt een e-mail van &ldquo;BNP Paribas Fortis&rdquo; die zegt dat je account geblokkeerd is en vraagt om je pincode in te vullen op een link. Hoe herken je dat dit phishing is? Wat doe je?</p>
+    </div>
+  </section>
+
+  <!-- CLOSING QUOTE -->
+  <div class="closing-quote" role="note" aria-label="Slotcitaat">
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p class="cq-text">Een budget is niet een beperking van je vrijheid &mdash; het is een plan voor je vrijheid.</p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <span class="cq-attribution">Samenleving &amp; Economie &nbsp;&middot;&nbsp; Eerste Graad A-stroom</span>
+  </div>
+
+</div><!-- end page-wrapper -->
+
+<!-- EXERCISES -->
+<section class="exercises-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Mijn persoonlijk budgetplan</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);">Maak een eenvoudig budgetplan voor een maand. Je hebt &euro;&nbsp;150 zakgeld.</p>
+      <ol>
+        <li>Noteer 5 realistische uitgaven die jij zou doen (met bedrag in euro).</li>
+        <li>Bereken je totale uitgaven.</li>
+        <li>Bereken je spaargeld: &euro;&nbsp;150 &minus; totale uitgaven = ?</li>
+      </ol>
+      <p class="ex-tip">Tip: gebruik de tabelstructuur uit sectie 3 als model.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Lening berekenen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);">Je leent &euro;&nbsp;500 aan 4% per jaar voor 3 jaar.</p>
+      <ol>
+        <li>Wat is de jaarlijkse rente?</li>
+        <li>Wat is de totale rente over 3 jaar?</li>
+        <li>Wat is de totale kost van de lening?</li>
+      </ol>
+      <p class="ex-tip">Formule: jaarlijkse rente = geleend bedrag &times; rentevoet (&divide; 100). Totale kost = geleend bedrag + totale rente.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Verkoopkanalen vergelijken</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);">Je wil een paar sneakers kopen (&euro;&nbsp;120).</p>
+      <ol>
+        <li>Welke verkoopkanalen zou je vergelijken voor deze aankoop?</li>
+        <li>Wat zijn de voordelen van een online aankoop versus een fysieke winkel?</li>
+        <li>Wat zijn de risico&rsquo;s van kopen via sociale media (bijv. Facebook Marketplace)?</li>
+      </ol>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 4</p>
+      <p class="ex-name">Welk betaalmiddel kies je?</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);">Welk betaalmiddel kies je voor elk van de volgende situaties? Verklaar je keuze.</p>
+      <ol>
+        <li>Een aankoop van &euro;&nbsp;5 bij de broodjeswinkel.</li>
+        <li>Een online aankoop van &euro;&nbsp;200 bij een webshop.</li>
+        <li>Een aankoop van &euro;&nbsp;2.000 bij een autogarage.</li>
+      </ol>
+      <p class="ex-tip">Denk aan veiligheid, bewijs van betaling en praktisch gemak.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 5</p>
+      <p class="ex-name">Phishing herkennen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);">Je ontvangt een e-mail van &ldquo;je bank&rdquo; die vraagt om je pincode en kaartnummer in te vullen via een link.</p>
+      <ol>
+        <li>Wat doe je als eerste reactie?</li>
+        <li>Noem 3 kenmerken waarmee je phishing kunt herkennen.</li>
+        <li>Stel dat je per ongeluk al op de link hebt geklikt en je gegevens hebt ingevuld &mdash; welke stappen onderneem je dan onmiddellijk?</li>
+      </ol>
+    </div>
+
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="summary-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>Inkomstenbronnen:</strong> zakgeld, studentenjob, geschenken, groeipakket en online verkoop zijn de voornaamste inkomstenbronnen voor jongeren.</li>
+      <li><strong>Re&euml;le vs. gecre&euml;erde behoefte:</strong> re&euml;le behoeftes zijn levensnoodzakelijk; gecre&euml;erde behoeftes worden gestimuleerd door reclame, groepsdruk, emoties en FOMO.</li>
+      <li><strong>Budgetplan:</strong> Spaargeld = inkomsten &minus; uitgaven. Een maandelijks budgetplan helpt je bewust om te gaan met geld.</li>
+      <li><strong>Lening:</strong> ken de begrippen looptijd, rente, rentevoet, totale kost, openstaande schuld en afbetalingsbedrag. Overkreditering is een ernstig risico.</li>
+      <li><strong>6 verkoopkanalen:</strong> evenementen, fysieke winkel, online winkel, markt, sociale media en tv-verkoop &mdash; elk met eigen voordelen en risico&rsquo;s.</li>
+      <li><strong>6 betaalmiddelen:</strong> cash, contactloos (NFC), debetkaart (Bancontact), overschrijving, Payconiq en prepaidkaart &mdash; kies het juiste middel voor elke situatie.</li>
+      <li><strong>Fraude:</strong> ken phishing, online aankoopfraude en identiteitsdiefstal. Bij fraude: Card Stop (070 344 344) &rarr; bank &rarr; politie &rarr; bewaar bewijzen.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">Naar boven &#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

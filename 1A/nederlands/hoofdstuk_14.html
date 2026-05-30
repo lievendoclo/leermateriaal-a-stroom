@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoofdstuk 14 — Welke taal gebruik jij wanneer? | Nederlands 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.25; }
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+    text-decoration: none;
+  }
+  .site-header .label-right { text-align: right; }
+
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image: radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+  .chapter-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+  .prologue .ornament-line .ornament-sym { color: var(--gold); font-size: 1.1rem; opacity: 0.8; }
+  .prologue p { font-style: italic; font-size: 1.05rem; line-height: 1.85; color: rgba(250,246,239,0.9); }
+  .prologue p + p { margin-top: 0.9em; }
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+  .begrip .begrip-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .begrip .begrip-body { flex: 1; }
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+  .begrip .begrip-def { font-size: 0.97rem; color: var(--text-mid); line-height: 1.65; margin: 0; }
+
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .denkvraag .dv-text { font-style: italic; font-size: 1rem; color: var(--text-mid); line-height: 1.7; }
+
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+  }
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ── VOORBEELDTEKST ── */
+  .voorbeeldtekst {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 2rem 2.2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .voorbeeldtekst .vt-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--darkblue);
+    opacity: 0.6;
+    margin-bottom: 0.4rem;
+    display: block;
+  }
+  .voorbeeldtekst .vt-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 0.3rem;
+  }
+  .voorbeeldtekst .vt-meta {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    margin-bottom: 1.2rem;
+    font-style: italic;
+  }
+  .voorbeeldtekst .vt-body p {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-bottom: 0.9em;
+  }
+  .voorbeeldtekst .vt-body p:last-child { margin-bottom: 0; }
+  .voorbeeldtekst .vt-source {
+    margin-top: 1rem;
+    font-size: 0.78rem;
+    color: var(--text-light);
+    border-top: 1px solid var(--sand);
+    padding-top: 0.6rem;
+    font-style: italic;
+  }
+
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+  .exercise-card ol, .exercise-card ul { padding-left: 1.4rem; margin-top: 0.5rem; }
+  .exercise-card li { margin-bottom: 0.45rem; font-size: 0.96rem; color: var(--text-mid); }
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+  .summary-section ul { list-style: none; padding: 0; }
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0; top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem; right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px; height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  .prose-text { max-width: 100%; }
+  .highlighted-para {
+    background: rgba(212,160,23,0.08);
+    border-left: 3px solid var(--gold);
+    padding: 0.8rem 1.1rem;
+    border-radius: 0 4px 4px 0;
+    margin: 1.2rem 0;
+    font-size: 0.97rem;
+    color: var(--text-mid);
+  }
+
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section, .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .voorbeeldtekst { padding: 1.4rem 1.2rem; }
+  }
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header" id="top">
+  <a class="label" href="index.html">Nederlands 1A</a>
+  <span class="label label-right">Hoofdstuk 14</span>
+</header>
+
+<div class="chapter-hero">
+  <div class="chapter-kicker">Nederlands &nbsp;·&nbsp; 1A &nbsp;·&nbsp; Eerste graad</div>
+  <h1>Hoofdstuk 14<br>Welke taal gebruik jij wanneer?</h1>
+  <p class="subtitle">Van Antwerps tot Standaardnederlands — waarom taalvariatie rijkdom is</p>
+</div>
+
+<div class="page-wrapper">
+
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Stel je voor &hellip;</span>
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+
+    <p>Fien woont in Gent. Ze gaat in de zomervakantie haar neef Daan opzoeken in Utrecht. Ze is er zeker van: ze spreken allebei Nederlands, er kunnen geen misverstanden ontstaan. De eerste avond zitten ze op de bank naar een fietswedstrijd te kijken. Daan vertelt hoe hij zijn nieuwe fiets bijna kwijtspeelde in een achtervolging door de buurt. "En ik zei gewoon: doe normaal, man," zegt hij hoofdschuddend. Fien kijkt hem stralend aan. "Echt? Dat is zo tof, die fiets!" Daan fronst zijn wenkbrauwen. "Wat? Nee, ik zei dat hij zich moest kalmeren."</p>
+
+    <p>De twee staren elkaar aan. Fien kent "doe normaal" als iets positiefs — in Vlaanderen zeg je het soms om te zeggen dat iets geweldig of indrukwekkend is. Daan gebruikt het om iemand te vragen zich wat rustiger te gedragen. Zelfde woorden, dezelfde taal — en toch een totaal ander betekenis.</p>
+
+    <p>Dit soort momenten laat zien hoe levend taal eigenlijk is. Nederlands is niet één strakke, vaste code die iedereen op exact dezelfde manier gebruikt. Het is een ruimte vol variatie: regio's, generaties, situaties en invloeden van andere talen vormen je dagelijkse taalgebruik voortdurend mee. Dat is geen probleem — dat is rijkdom. In dit hoofdstuk ontdek je waar die variatie vandaan komt, hoe je ze herkent, en wanneer je welke taalvariant het beste gebruikt.</p>
+
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+  </section>
+
+  <section class="section-block" id="s1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Het Nederlands is geen blok</h2>
+    </div>
+    <div class="prose-text">
+      <p>Als je aan "Nederlands" denkt, denk je misschien aan één taal: de taal die je op school leert, die je in woordenboeken terugvindt, die nieuwslezers spreken. Maar in de praktijk bestaat er niet zoiets als <em>het</em> Nederlands. Er zijn heel veel manieren om Nederlands te spreken — en allemaal zijn ze op hun eigen manier geldig.</p>
+
+      <p>Vergelijk het met muziek. Je hebt klassieke muziek, pop, hiphop, jazz. Dat zijn allemaal "muziek", maar ze klinken totaal anders en volgen andere regels. Toch noem je ze allemaal muziek. Zo werkt het ook met taal. Dialect, tussentaal en Standaardnederlands zijn alle drie vormen van het Nederlands — alleen gelden er in elke variëteit andere gewoontes.</p>
+
+      <p>In België en Nederland onderscheid je drie grote taalvariëteiten die mensen elke dag gebruiken. Ze vormen geen vaste treden op een ladder van "slecht" naar "goed" — ze zijn eerder een spectrum, een glijdende schaal. In de praktijk wisselen mensen moeiteloos tussen die variëteiten, afhankelijk van wie ze spreken, waar ze zijn en wat ze willen uitdrukken.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Dialect</span>
+        <p class="begrip-def">Een dialect is een regionale taalvariëteit met eigen woorden, uitspraken en soms eigen grammaticale vormen. Dialecten zijn gebonden aan een bepaalde streek of stad en worden meestal alleen in informele, vertrouwde situaties gebruikt.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Tussentaal</span>
+        <p class="begrip-def">Tussentaal (ook wel "Verkavelingsvlaams" of "Belgisch-Nederlands" genoemd) is een variëteit die midden ligt tussen dialect en Standaardnederlands. Het is de meest gesproken alledaagse taal in Vlaanderen en kenmerkt zich door specifiek Vlaamse woorden, klanken en grammaticale vormen die niet tot het pure dialect behoren maar ook niet tot het formele Standaardnederlands.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Standaardnederlands</span>
+        <p class="begrip-def">Standaardnederlands is de officiële, genormeerde vorm van het Nederlands die in formele situaties wordt gebruikt: op school, in officiële documenten, in nieuwsuitzendingen en in formele brieven. Het is de gemeenschappelijke referentietaal voor alle Nederlandssprekenden.</p>
+      </div>
+    </div>
+
+    <div class="illustratie">
+      <span class="ill-icon">🔺</span>
+      <p class="ill-caption">Illustratie: een driehoek of spectrum met drie zones. Onderaan staat "Dialect" met voorbeelden als "gie" (West-Vlaams voor jij) en "ge zijt" (Antwerps). In het midden staat "Tussentaal" met voorbeelden als "ge/gij", "da", "ik ga doen". Bovenaan staat "Standaardnederlands" met voorbeelden als "je/jij", "dat", "ik zal doen". Pijlen langs beide zijden tonen dat mensen heen en weer bewegen op de schaal naargelang de situatie.</p>
+    </div>
+  </section>
+
+  <section class="section-block" id="s2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Dialect</h2>
+    </div>
+    <div class="prose-text">
+      <p>Een dialect is de taal van een streek. Elk dorp, elke stad in Vlaanderen heeft traditioneel zijn eigen dialect — met eigen woorden, een eigen klank en soms zelfs een eigen grammatica. Wie in West-Vlaanderen opgroeit, hoort andere klanken dan wie in Limburg of Antwerpen opgroeit.</p>
+
+      <p>Dialecten zijn niet "slecht" of "onvolledig" Nederlands. Ze zijn complete taalsystemen die al eeuwen lang bestaan, lang voor het Standaardnederlands ooit werd vastgelegd. Mensen die dialect spreken, gebruiken een rijke en levende taalvorm die diep verbonden is met hun streek, hun familie en hun identiteit.</p>
+
+      <p>Een paar voorbeelden uit Vlaamse dialecten laten zien hoe ver ze soms van het Standaardnederlands afstaan:</p>
+
+      <ul style="padding-left: 1.4rem; margin: 0.5rem 0 1rem;">
+        <li style="margin-bottom: 0.5rem;"><strong>West-Vlaams:</strong> "gie" = jij; "zien" = zijn (als in "da's zien fiets" = dat is zijn fiets); "peize" = denken ("ik peize da wel" = ik denk van wel)</li>
+        <li style="margin-bottom: 0.5rem;"><strong>Antwerps:</strong> "morgen" als groet (= goedemorgen); "kafee" = café; "nem" = neem (gebiedende wijs)</li>
+        <li style="margin-bottom: 0.5rem;"><strong>Limburgs:</strong> een zangerige toon door stemstemtonen; "sjoen" = mooi; "gaon" = gaan</li>
+        <li style="margin-bottom: 0.5rem;"><strong>Gents:</strong> "wa es da?" = wat is dat?; "joeng" = vriend, jongen (aanspreking)</li>
+        <li style="margin-bottom: 0.5rem;"><strong>Brabants:</strong> "allé" als tussenwerpsel; "propere" = nette, schone</li>
+      </ul>
+
+      <p>Helaas worden dialectsprekers soms onterecht bekeken als "minder beschaafd" of "minder opgeleid". Dat is een vooroordeel dat nergens op gebaseerd is. Taalkundigen zijn het er al lang over eens: geen enkel dialect is talig inferieur aan een ander. De reden dat Standaardnederlands als "beter" wordt gezien, is puur sociaal en historisch — het is de taal van school, van officiële instanties, van macht. Maar dat maakt het taalkundig niet waardevoller.</p>
+
+      <p>Vandaag spreken minder jongeren nog puur dialect. Veel mensen groeien op met een mix van dialect en tussentaal. Toch blijft het dialect een belangrijk onderdeel van de Vlaamse identiteit en cultuur.</p>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">Ken jij woorden of uitdrukkingen uit het dialect van jouw streek? Zijn er woorden die jij thuis of met familie gebruikt die je op school of met vreemden niet snel zou zeggen? Waarom denk je dat dat zo is?</p>
+    </div>
+  </section>
+
+  <section class="section-block" id="s3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Tussentaal</h2>
+    </div>
+    <div class="prose-text">
+      <p>Als je televisie kijkt in Vlaanderen — een soap, een praatprogramma, een spelshow — hoor je bijna nooit puur dialect en ook zelden het strakste Standaardnederlands. Wat je hoort, is tussentaal: een variëteit die ergens tussen die twee in zit.</p>
+
+      <p>Tussentaal wordt ook wel "Verkavelingsvlaams" of informeel "Belgisch-Nederlands" genoemd. Het is de dagelijkse spreektaal van de meeste Vlamingen in alle situaties die niet uitgesproken formeel zijn: met vrienden, in de winkel, bij de dokter, op het werk, thuis.</p>
+
+      <p>Tussentaal heeft een aantal kenmerkende eigenschappen die je meteen herkent:</p>
+
+      <ul style="padding-left: 1.4rem; margin: 0.5rem 0 1rem;">
+        <li style="margin-bottom: 0.5rem;"><strong>"ge/gij"</strong> in plaats van "je/jij" — dit is misschien wel het bekendste kenmerk. In Standaardnederlands zeg je "jij hebt gelijk", in tussentaal zeg je "ge hebt gelijk".</li>
+        <li style="margin-bottom: 0.5rem;"><strong>"da"</strong> in plaats van "dat" — "da weet ik niet" in plaats van "dat weet ik niet".</li>
+        <li style="margin-bottom: 0.5rem;"><strong>"ik ga doen"</strong> in plaats van "ik zal doen" — voor de toekomende tijd gebruikt tussentaal veel vaker "gaan + infinitief".</li>
+        <li style="margin-bottom: 0.5rem;"><strong>"hem"</strong> als onderwerp — "hem heeft dat gedaan" in plaats van "hij heeft dat gedaan".</li>
+        <li style="margin-bottom: 0.5rem;"><strong>"ze"</strong> voor enkelvoud vrouwelijk — "ze heeft gebeld" voor een vrouwelijke persoon, terwijl Standaardnederlands "zij heeft gebeld" zou gebruiken.</li>
+      </ul>
+
+      <p>Tussentaal is geen "slechte" versie van het Standaardnederlands. Het is een eigen variëteit met eigen regels die miljoenen mensen dagelijks gebruiken. Wel is het minder geschikt voor formele situaties zoals een sollicitatiegesprek, een schoolopdracht of een brief aan de gemeente.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Tussentaal</span>
+        <p class="begrip-def">Tussentaal is de alledaagse gesproken variëteit in Vlaanderen die kenmerken combineert van dialect en Standaardnederlands. Typische kenmerken zijn het gebruik van "ge/gij" in plaats van "je/jij", "da" in plaats van "dat", en de toekomende tijd met "gaan" in plaats van "zullen". Tussentaal is de meest gehoorde spreektaal op Vlaamse televisie en in informele sociale situaties.</p>
+      </div>
+    </div>
+
+    <div class="voorbeeldtekst">
+      <span class="vt-label">Voorbeeldtekst 1 · Dialoog in tussentaal met vertaling</span>
+      <p class="vt-title">Na school — twee vriendinnen</p>
+      <p class="vt-meta">Gesprek in tussentaal, daarna omgezet naar Standaardnederlands</p>
+      <div class="vt-body">
+        <p><strong>In tussentaal:</strong></p>
+        <p>— "Heej, ga je mee naar da nieuwe bubbeltea-café op de Meir?"<br>
+        — "Ik weet het nie, hé. Ik moet nog da taak afmaken voor morgen."<br>
+        — "Allé, da duurt toch maar ne keer ne kwartiertje? Kom, we gaan da snel doen en daarna gaan we."<br>
+        — "Gij zegt altijd 'ne kwartiertje' en dan zijn we twee uur bezig."<br>
+        — "Dat is nie waar! Ge overdrijft gewoon. Kom nu mee, 't gaat plezant zijn."<br>
+        — "Oké dan, maar ge betaalt voor mij als we te laat gaan zijn."</p>
+        <p><strong>In Standaardnederlands:</strong></p>
+        <p>— "Hé, ga je mee naar dat nieuwe bubbeltea-café op de Meir?"<br>
+        — "Ik weet het niet, hoor. Ik moet nog die taak afmaken voor morgen."<br>
+        — "Kom, dat duurt toch maar een kwartiertje? Kom, we doen dat snel en daarna gaan we."<br>
+        — "Jij zegt altijd 'een kwartiertje' en dan zijn we twee uur bezig."<br>
+        — "Dat is niet waar! Je overdrijft gewoon. Kom nu mee, het wordt leuk."<br>
+        — "Oké dan, maar jij betaalt voor mij als we te laat zijn."</p>
+      </div>
+      <p class="vt-source">Fictief gesprek ter illustratie van tussentaal vs. Standaardnederlands.</p>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">Gebruik jij zelf "ge/gij" of "je/jij" als je met vrienden praat? En wissel je dat bewust af naargelang de situatie? Wanneer zou jij het zeker <em>niet</em> gepast vinden om tussentaal te gebruiken?</p>
+    </div>
+  </section>
+
+  <section class="section-block" id="s4">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Standaardnederlands</h2>
+    </div>
+    <div class="prose-text">
+      <p>Standaardnederlands is de officiële, genormeerde vorm van de taal. Je gebruikt het bij schoolopdrachten, formele brieven, in het nieuws, bij presentaties en in officiële gesprekken. Het is de taal die beschreven staat in woordenboeken en grammaticaboeken, en die iedereen in het Nederlandse taalgebied — van Brugge tot Amsterdam tot Paramaribo — begrijpt.</p>
+
+      <p>Maar opgelet: "het" Standaardnederlands bestaat eigenlijk ook in twee varianten. Er is <strong>Belgisch-Nederlands</strong> (ook wel Belgisch Standaardnederlands of "Vlaams Standaardnederlands" genaamd) en er is <strong>Nederlands-Nederlands</strong> (de standaard in Nederland). Die twee varianten lijken sterk op elkaar — maar er zijn ook opvallende verschillen, niet alleen in uitspraak maar ook in woordkeuze.</p>
+
+      <p>Enkele bekende voorbeelden:</p>
+
+      <ul style="padding-left: 1.4rem; margin: 0.5rem 0 1rem;">
+        <li style="margin-bottom: 0.5rem;"><strong>gsm</strong> (Belgisch-NL) — <strong>mobiel</strong> of <strong>mobieltje</strong> (Nederlands-NL)</li>
+        <li style="margin-bottom: 0.5rem;"><strong>kot</strong> (Belgisch-NL voor studentenkamer) — <strong>studentenkamer / kamer</strong> (Nederlands-NL)</li>
+        <li style="margin-bottom: 0.5rem;"><strong>friet</strong> (Belgisch-NL) — <strong>patat</strong> (Nederlands-NL, hoewel "friet" ook in NL bekend is)</li>
+        <li style="margin-bottom: 0.5rem;"><strong>bakfiets</strong> (Belgisch-NL voor een bakfiets) is in NL ook bekend, maar <strong>fiets</strong> zelf klinkt al anders in uitspraak</li>
+        <li style="margin-bottom: 0.5rem;"><strong>rekentoestel</strong> (Belgisch-NL) — <strong>rekenmachine</strong> (Nederlands-NL)</li>
+      </ul>
+
+      <p>Die verschillen zijn normaal. Taal past zich aan aan de gemeenschap die haar gebruikt. Belgisch-Nederlands en Nederlands-Nederlands zijn allebei correcte, volwaardige vormen van het Standaardnederlands — ze zijn gewoon niet identiek.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Belgisch-Nederlands</span>
+        <p class="begrip-def">Belgisch-Nederlands (of Belgisch Standaardnederlands) is de variëteit van het Standaardnederlands zoals die in België wordt gebruikt. Het verschilt van Nederlands-Nederlands in uitspraak, woordkeuze en soms in grammatica, maar is even correct en volledig als de Nederlandse variant. Voorbeelden van typisch Belgisch-Nederlandse woorden zijn "gsm", "kot", "friet" en "rekentoestel".</p>
+      </div>
+    </div>
+
+    <div class="voorbeeldtekst">
+      <span class="vt-label">Voorbeeldtekst 2 · Nieuwsbericht in Standaardnederlands</span>
+      <p class="vt-title">Belgische wielrenner wint bergetappe in de Ronde van Spanje</p>
+      <p class="vt-meta">Standaard nieuwsbericht · Belgisch-Nederlands</p>
+      <div class="vt-body">
+        <p>De Belgische wielrenner Tibo Claes heeft gisteren de zesde etappe van de Ronde van Spanje gewonnen. De renner van ploeg Lotto-Dstny reed de slotklim solo op en finishte met meer dan een minuut voorsprong op zijn naaste belager. Na zijn aankomst nam hij zijn <strong>gsm</strong> (1) tevoorschijn om zijn familie te bellen.</p>
+        <p>Claes, die zijn <strong>kot</strong> (2) in Leuven deelt met drie ploeggenoten, was zichtbaar ontroerd na zijn overwinning. "Ik had het mezelf beloofd toen ik nog op de middelbare school zat," zei hij aan de microfoon. "Mijn <strong>rekentoestel</strong> (3) lag al weken ongebruikt, want ik trainde elke dag na school."</p>
+        <p>Na de finish trakteerde zijn ploegleider de volledige ploeg op een portie <strong>friet</strong> (4) met stoofvlees — een stukje België midden in Spanje. De renners genoten zichtbaar van het Belgische <strong>gerecht</strong> (5) na weken van Mediterraan eten.</p>
+        <p>Morgen wacht de ploeg een vlakke etappe. Claes staat nu derde in het algemeen klassement.</p>
+      </div>
+      <p class="vt-source">Fictief nieuwsbericht. Vetgedrukte woorden (1–5) zijn typisch Belgisch-Nederlands: in Nederland zou men "mobieltje", "studentenkamer", "rekenmachine", "patat" en "maaltijd/schotel" zeggen.</p>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">Heb jij wel eens een Nederlandse YouTuber, streamer of acteur gehoord en dacht je: "die klinkt raar"? Welke woorden of klanken vielen je op? Zijn er Nederlandse woorden die jij grappig of vreemd vindt?</p>
+    </div>
+  </section>
+
+  <section class="section-block" id="s5">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Formeel en informeel register</h2>
+    </div>
+    <div class="prose-text">
+      <p>Taalvariatie wordt niet alleen bepaald door regio of variëteit — ook de <em>situatie</em> speelt een grote rol. Je praat anders met je beste vriend dan met een onbekende volwassene. Je schrijft anders in een WhatsApp-bericht dan in een sollicitatiebrief. Dat verschil noemen we <strong>register</strong>.</p>
+
+      <p>Je hebt dit eigenlijk al geleerd in het hoofdstuk over het communicatiemodel: de ontvanger bepaalt mee hoe je communiceert. Als je weet wie je publiek is en wat de context is, kies je automatisch een gepast register. Dat doe je al de hele tijd — misschien zonder het te weten.</p>
+
+      <p>In grote lijnen onderscheid je twee registers: formeel en informeel. Maar in de praktijk is het een glijdende schaal. Je kunt iets zeggen op een licht informele maar toch beleefde manier, of je kunt juist heel strikt formeel zijn. Alles hangt af van de situatie.</p>
+
+      <p><strong>Wanneer gebruik je welk register?</strong></p>
+
+      <ul style="padding-left: 1.4rem; margin: 0.5rem 0 1rem;">
+        <li style="margin-bottom: 0.5rem;"><strong>Formeel:</strong> brieven aan de directeur, e-mails naar leraren, schoolopdrachten, sollicitatiegesprekken, officiële vergaderingen, nieuwsberichten.</li>
+        <li style="margin-bottom: 0.5rem;"><strong>Informeel:</strong> gesprekken met vrienden, berichten op sociale media, gesprekken thuis, babbelen op de speelplaats.</li>
+      </ul>
+
+      <p>Hieronder zie je hoe dezelfde boodschap er uitziet in drie verschillende registers:</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Register</span>
+        <p class="begrip-def">Register is de taalvariëteit die je kiest op basis van de situatie: wie je publiek is, wat het doel is en hoe formeel de context is. Je gebruikt een formeel register in officiële situaties en een informeel register met mensen die je goed kent. Goed taalgebruik betekent het juiste register kiezen voor de juiste situatie.</p>
+      </div>
+    </div>
+
+    <div class="voorbeeldtekst">
+      <span class="vt-label">Mini-vergelijking · Drie registers</span>
+      <p class="vt-title">Dezelfde boodschap, drie varianten</p>
+      <p class="vt-meta">Situatie: je wil je leraar vertellen dat je te laat was omdat je de bus miste.</p>
+      <div class="vt-body">
+        <p><strong>Dialect (Antwerps):</strong><br>
+        "Profkes, ik was te laat want ik em de bus gemist, é. Morgen zal ik vroeger zien."</p>
+        <p><strong>Informeel Standaardnederlands (tussentaal):</strong><br>
+        "Sorry dat ik te laat ben, ik heb de bus gemist. Morgen zorg ik dat ik er op tijd bij ben."</p>
+        <p><strong>Formeel Standaardnederlands:</strong><br>
+        "Goedemorgen. Ik wil u verontschuldigen voor mijn laattijdige aankomst. Ik heb de bus gemist en was daardoor niet op tijd aanwezig. In de toekomst zal ik ervoor zorgen dat dit niet opnieuw gebeurt."</p>
+      </div>
+      <p class="vt-source">Fictief voorbeeld ter illustratie van de drie registers.</p>
+    </div>
+
+    <div class="prose-text">
+      <p>Je ziet meteen hoe anders dezelfde inhoud overkomt. Het formele register klinkt respectvoller en beter gepland — het is gepast als je tegen een leraar praat die je niet goed kent, of in een officiële situatie. Het informele register is vriendelijker en meer direct, maar toont toch dat je weet hoe je je moet uitdrukken. Het puur dialectische register is niet gepast in een formele schoolsituatie, ook al is er niets mis mee op zich.</p>
+    </div>
+  </section>
+
+  <section class="section-block" id="s6">
+    <div class="section-heading">
+      <span class="section-num">6</span>
+      <h2 class="section-title">Jargon en jongerentaal</h2>
+    </div>
+    <div class="prose-text">
+      <p>Naast regio en situatie is er nog een derde factor die taalvariatie bepaalt: sociale groepen. Bepaalde groepen mensen — dokters, bouwvakkers, gamers, tieners — ontwikkelen hun eigen vocabulaire. Dat heet jargon of, als het specifiek over jongeren gaat, jongerentaal.</p>
+
+      <p><strong>Jargon</strong> is de gespecialiseerde woordenschat van een bepaalde groep of beroepssector. Artsen praten over "myocardinfarct" terwijl gewone mensen "hartaanval" zeggen. Informatici praten over "deployen", "debuggen" en "de back-end". Bouwvakkers hebben eigen namen voor elk gereedschap. Jargon maakt communicatie efficiënter binnen de groep — maar het sluit mensen buiten die groep ook uit.</p>
+
+      <p><strong>Jongerentaal</strong> is de taalvariant van jongeren: creatief, snel veranderend, sterk beïnvloed door andere talen. Waar klassieke dialecten eeuwenoud zijn en traag evolueren, verandert jongerentaal razendsnel. Een woord dat vorig jaar "fire" was, kan volgend jaar al "cringe" zijn om te zeggen.</p>
+
+      <p>Jongerentaal wordt sterk beïnvloed door andere talen — vooral het <strong>Engels</strong>, maar ook het <strong>Marokkaans-Arabisch</strong> en het <strong>Surinaams</strong>. Dat maakt jongerentaal tot een soort smeltkroes van culturen en talen:</p>
+
+      <ul style="padding-left: 1.4rem; margin: 0.5rem 0 1rem;">
+        <li style="margin-bottom: 0.5rem;"><strong>cringe</strong> (Engels: "to cringe" = ineenkrimpen van schaamte) — iets gênants, beschamends</li>
+        <li style="margin-bottom: 0.5rem;"><strong>fire</strong> (Engels: "on fire") — geweldig, top</li>
+        <li style="margin-bottom: 0.5rem;"><strong>slay</strong> (Engels: letterlijk "doden", figuurlijk "schitteren") — iets geweldig doen</li>
+        <li style="margin-bottom: 0.5rem;"><strong>ewa</strong> (uit het Marokkaans-Arabisch: "jawel", bevestiging) — oke, ja, tuurlijk</li>
+        <li style="margin-bottom: 0.5rem;"><strong>khey</strong> (uit het Marokkaans-Arabisch: "broer") — vriend, maat (vriendschappelijke aanspreking)</li>
+        <li style="margin-bottom: 0.5rem;"><strong>no cap</strong> (Engels slang) — zonder te liegen, echt waar</li>
+        <li style="margin-bottom: 0.5rem;"><strong>lowkey</strong> (Engels) — een beetje, eigenlijk wel</li>
+      </ul>
+
+      <p>Jongerentaal heeft een belangrijke sociale functie: het creëert verbondenheid binnen een groep en onderscheidt jongeren van de wereld van volwassenen. Dat is al eeuwenlang zo — elke generatie heeft zijn eigen taal. Alleen de specifieke woorden veranderen.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Jargon</span>
+        <p class="begrip-def">Jargon is de gespecialiseerde woordenschat die gebruikt wordt binnen een bepaalde beroepsgroep, hobby of sociale groep. Jargon maakt communicatie binnen de groep efficiënter, maar kan voor buitenstaanders onbegrijpelijk zijn. Voorbeelden: medisch jargon, gamerjargon, juridisch taalgebruik.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Jongerentaal</span>
+        <p class="begrip-def">Jongerentaal is de taalvariëteit die jongeren gebruiken onder elkaar. Ze kenmerkt zich door creatieve woordvorming, snelle verandering en sterke beïnvloeding door andere talen — vooral het Engels, het Marokkaans-Arabisch en het Surinaams. Jongerentaal heeft een sociale bindingsfunctie en onderscheidt jongeren van andere generaties.</p>
+      </div>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">Waarom verandert jongerentaal zo snel? Wat gebeurt er met een jongerentaalwoord dat ook volwassenen beginnen te gebruiken? En welke talen of culturen beïnvloeden jouw eigen taalgebruik het meest?</p>
+    </div>
+  </section>
+
+  <section class="section-block" id="s7">
+    <div class="section-heading">
+      <span class="section-num">7</span>
+      <h2 class="section-title">Nederlands, Engels en Frans naast elkaar</h2>
+    </div>
+    <div class="prose-text">
+      <p>België is een meertalig land. De meeste Belgen komen dagelijks in contact met drie talen: Nederlands, Frans en Engels. Op school leer je ze allemaal. Op straat zie je ze naast elkaar op borden en in winkels. Op je telefoon wissel je moeiteloos tussen apps in verschillende talen. Dat meertalige klimaat heeft een grote invloed op het Nederlands dat jij gebruikt.</p>
+
+      <p>Elke taal leent woorden van andere talen. Dat is al altijd zo geweest en is een teken van cultureel contact, handel en technologische uitwisseling. Woorden die een taal overneemt van een andere taal, noem je <strong>leenwoorden</strong>. Het Nederlands is vol leenwoorden:</p>
+
+      <ul style="padding-left: 1.4rem; margin: 0.5rem 0 1rem;">
+        <li style="margin-bottom: 0.5rem;"><strong>Uit het Frans:</strong> café, bureau, garage, trottoir, restaurant, parfum — typisch voor het Frans-Nederlandse contact in de Lage Landen.</li>
+        <li style="margin-bottom: 0.5rem;"><strong>Uit het Engels:</strong> computer, weekend, sport, film, stress, hamburger, deadline — met name door de Engelse dominantie in technologie en populaire cultuur.</li>
+        <li style="margin-bottom: 0.5rem;"><strong>Uit het Arabisch:</strong> jasmine (jasmijn), alcohol, algebra, algoritme — historische leenwoorden via de Arabische wetenschap in de middeleeuwen.</li>
+      </ul>
+
+      <p><strong>Anglicismen</strong> zijn leenwoorden of uitdrukkingen die specifiek uit het Engels zijn overgenomen en nu standaard in het Nederlands worden gebruikt. Sommige zijn zo ingeburgerd dat je ze niet meer als Engelse leenwoorden herkent: "film", "sport", "toast". Andere zijn recenter en worden soms nog als "niet echt Nederlands" beschouwd, zoals "updaten", "mailen" of "browsen".</p>
+
+      <p>Het Nederlands, het Engels en het Duits zijn alle drie <strong>Germaanse talen</strong>. Ze stammen af van dezelfde taalstam en delen daardoor veel overeenkomsten. Vergelijk maar:</p>
+
+      <ul style="padding-left: 1.4rem; margin: 0.5rem 0 1rem;">
+        <li style="margin-bottom: 0.5rem;"><strong>water:</strong> Nederlands "water" — Engels "water" — Duits "Wasser"</li>
+        <li style="margin-bottom: 0.5rem;"><strong>huis:</strong> Nederlands "huis" — Engels "house" — Duits "Haus"</li>
+        <li style="margin-bottom: 0.5rem;"><strong>maken:</strong> Nederlands "maken" — Engels "make" — Duits "machen"</li>
+        <li style="margin-bottom: 0.5rem;"><strong>boek:</strong> Nederlands "boek" — Engels "book" — Duits "Buch"</li>
+      </ul>
+
+      <p>Frans is een <strong>Romaanse taal</strong> en stamt af van het Latijn. Toch zijn er ook tussen het Nederlands en het Frans veel overeenkomsten dankzij eeuwen van contact in België en de Lage Landen. Veel woorden die je als "typisch Frans" beschouwt, zijn eigenlijk al zo lang ingeburgerd in het Nederlands dat ze als gewone Nederlandse woorden worden gebruikt.</p>
+
+      <p>Die rijke verwevenheid van talen maakt het Nederlands tot een fascinerende taal — en maakt jou als Belgische taalgebruiker tot iemand die constant meerdere taalsystemen tegelijk hanteert, misschien zonder het te beseffen.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Leenwoord</span>
+        <p class="begrip-def">Een leenwoord is een woord dat een taal heeft overgenomen uit een andere taal. Het Nederlands heeft door de eeuwen heen leenwoorden opgenomen uit het Frans, het Engels, het Latijn, het Arabisch en vele andere talen. Voorbeelden: "café" (Frans), "computer" (Engels), "algebra" (Arabisch).</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Anglicisme</span>
+        <p class="begrip-def">Een anglicisme is een woord, uitdrukking of constructie die uit het Engels is overgenomen in het Nederlands. Sommige anglicismen zijn volledig ingeburgerd (zoals "film" of "sport"), andere zijn recenter en worden nog als informeel of ongewenst beschouwd in formele teksten (zoals "updaten" of "browsen").</p>
+      </div>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">Hoeveel Engelse woorden gebruik jij op een gewone dag — in berichten, in gesprekken, online? Zijn er ook Franse woorden die jij gebruikt zonder erbij na te denken? Denk je dat het erg is dat talen zo veel van elkaar lenen? Waarom wel of niet?</p>
+    </div>
+  </section>
+
+  <section class="exercises-section" id="oefeningen">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Van dialect of tussentaal naar Standaardnederlands</p>
+      <p>Schrijf elk van de onderstaande zinnen om naar correct Standaardnederlands. Let op: sommige zinnen zijn in dialect, andere in tussentaal. Verklaar ook telkens welk kenmerk je hebt aangepast.</p>
+      <ol>
+        <li>"Ge moet da nie doen, hé."</li>
+        <li>"Ik ga morgen vroeg opstaan." (tussentaalvorm voor toekomst)</li>
+        <li>"Gie zijt toch een echte vriend." (West-Vlaams)</li>
+        <li>"Da's ne proper dag vandaag."</li>
+        <li>"Allé, kom nu mee, we gaan te laat zijn."</li>
+        <li>"Ze heeft hem gezegd da ze te laat gaat zijn."</li>
+        <li>"Profkes, ik em mijn taak thuis laten liggen." (Antwerps)</li>
+        <li>"Joeng, wist ge da ik het gemaakt em?" (Gents)</li>
+        <li>"Hem heeft gezegd da hij nie meekomt."</li>
+        <li>"Ik peize da da wel gaat lukken." (West-Vlaams)</li>
+      </ol>
+      <p class="ex-tip">Tip: Lees elke zin luidop. Welke woorden klinken niet als Standaardnederlands? Begin met die woorden te vervangen.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Welke taalvariant past hier?</p>
+      <p>Lees elk van de communicatiesituaties hieronder. Kies telkens de meest gepaste taalvariant: <strong>A) dialect</strong>, <strong>B) tussentaal</strong> of <strong>C) formeel Standaardnederlands</strong>. Leg je keuze in een zin uit.</p>
+      <ol>
+        <li>Je stuurt een e-mail naar je leraar om afwezig te melden.</li>
+        <li>Je begroet je oma die altijd Antwerps dialect spreekt.</li>
+        <li>Je schrijft een boekbespreking als schoolopdracht.</li>
+        <li>Je spreekt met een nieuwe klasgenoot die je niet kent.</li>
+        <li>Je schrijft een brief aan de burgemeester om een probleem in je buurt te melden.</li>
+      </ol>
+      <p class="ex-tip">Tip: denk niet alleen aan de taalvariant zelf, maar ook aan het register (formeel/informeel) en de verhouding tot je ontvanger.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Jouw eigen jongerentaalwoordenboek</p>
+      <p>Kies vijf woorden of uitdrukkingen uit jouw eigen dagelijkse jongerentaal — woorden die jij zelf gebruikt of vaak hoort. Maak een mini-woordenboekje:</p>
+      <ol>
+        <li>Schrijf het woord op.</li>
+        <li>Leg in gewone woorden uit wat het betekent.</li>
+        <li>Geef een voorbeeldzin.</li>
+        <li>Geef je beste gok over de herkomst: komt het uit het Engels? Het Arabisch? Het Surinaams? Of is het een eigen vinding?</li>
+      </ol>
+      <p>Vergelijk achteraf je woordenlijst met die van een klasgenoot. Hoeveel woorden deelden jullie? Hoeveel waren er uniek voor jou?</p>
+      <p class="ex-tip">Tip: je hoeft niet zeker te zijn van de herkomst — een goede gok met uitleg is al prima. Gebruik eventueel Van Dale of Google om te controleren.</p>
+    </div>
+  </section>
+
+  <section class="summary-section" id="samenvatting">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>Nederlands is geen blok</strong> maar een spectrum: dialect, tussentaal en Standaardnederlands zijn alle drie volwaardige taalvariëteiten die elk hun eigen plek en functie hebben.</li>
+      <li><strong>Dialect</strong> is een regionale taalvorm met eigen woorden, klanken en soms eigen grammatica. Het is geen "slecht" Nederlands — dialecten zijn complete taalsystemen met een rijke geschiedenis.</li>
+      <li><strong>Tussentaal</strong> (of "Verkavelingsvlaams") is de alledaagse gesproken taal in Vlaanderen, herkenbaar aan vormen zoals "ge/gij" in plaats van "je/jij", "da" in plaats van "dat", en de toekomende tijd met "gaan".</li>
+      <li><strong>Belgisch-Nederlands</strong> en <strong>Nederlands-Nederlands</strong> zijn beide correcte varianten van het Standaardnederlands, maar verschillen in woordkeuze (bv. "gsm" vs. "mobiel", "friet" vs. "patat") en uitspraak.</li>
+      <li><strong>Register</strong> is de taalvariëteit die je kiest op basis van de situatie: formele situaties vragen om formeel Standaardnederlands, informele situaties laten meer ruimte voor tussentaal of dialect.</li>
+      <li><strong>Jargon</strong> is de gespecialiseerde woordenschat van een beroepsgroep of sociale groep. <strong>Jongerentaal</strong> verandert snel en wordt sterk beïnvloed door het Engels, het Marokkaans-Arabisch en het Surinaams.</li>
+      <li><strong>Leenwoorden</strong> en <strong>anglicismen</strong> tonen dat talen voortdurend met elkaar in contact staan. Het Nederlands, Engels en Duits zijn verwante Germaanse talen; het Frans heeft het Nederlands via eeuwen van contact ook sterk beïnvloed.</li>
+    </ul>
+  </section>
+
+</div>
+
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Terug naar boven">↑</button>
+<script>
+  const btn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => btn.classList.toggle('visible', window.scrollY > 400));
+</script>
+<script src="nav.js"></script>
+</body>
+</html>

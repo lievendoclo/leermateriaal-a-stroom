@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoofdstuk 2 — Oriënteren en lokaliseren | Aardrijkskunde 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     ILLUSTRATIE PLACEHOLDERS
+  ============================================================ */
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+    cursor: default;
+    transition: background var(--transition);
+  }
+
+  .illustratie:hover { background: #EDE7D8; }
+
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     BRONMATERIAAL — geographic source / map / data block
+     Key component for Aardrijkskunde: use for map descriptions,
+     climate tables, satellite image descriptions, GPS data, etc.
+  ============================================================ */
+  .bronmateriaal {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 2rem 2.2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .bronmateriaal .bron-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--darkblue);
+    opacity: 0.6;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  .bronmateriaal .bron-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  .bronmateriaal .bron-meta {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    font-style: italic;
+    margin-bottom: 0.9rem;
+    display: block;
+  }
+
+  .bronmateriaal .bron-body { margin-bottom: 0.8rem; }
+
+  .bronmateriaal .bron-body p {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-bottom: 0.6em;
+  }
+
+  .bronmateriaal .bron-body p:last-child { margin-bottom: 0; }
+
+  .bronmateriaal .bron-body table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+  }
+
+  .bronmateriaal .bron-body th {
+    background: var(--darkblue);
+    color: white;
+    padding: 0.4rem 0.75rem;
+    text-align: left;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    font-size: 0.83rem;
+  }
+
+  .bronmateriaal .bron-body td {
+    padding: 0.35rem 0.75rem;
+    border-bottom: 1px solid var(--sand);
+    color: var(--text-mid);
+    font-size: 0.93rem;
+  }
+
+  .bronmateriaal .bron-body tr:last-child td { border-bottom: none; }
+
+  .bronmateriaal .bron-body tr:nth-child(even) td {
+    background: var(--sand-light);
+  }
+
+  .bronmateriaal .bron-vraag {
+    background: rgba(26,43,74,0.06);
+    border-left: 3px solid var(--darkblue);
+    border-radius: 0 4px 4px 0;
+    padding: 0.7rem 1rem;
+    font-size: 0.93rem;
+    color: var(--text-mid);
+    font-style: italic;
+    margin-top: 1rem;
+  }
+
+  .bronmateriaal .bron-vraag::before {
+    content: '🔍 ';
+    font-style: normal;
+  }
+
+  .bronmateriaal .bron-source {
+    font-size: 0.78rem;
+    color: var(--text-light);
+    border-top: 1px solid var(--sand);
+    padding-top: 0.6rem;
+    font-style: italic;
+    margin-top: 0.8rem;
+    display: block;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     CLOSING QUOTE
+  ============================================================ */
+  .closing-quote {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0D1E38 100%);
+    border-radius: var(--border-radius);
+    padding: 3rem 3rem 2.5rem;
+    margin: 3.5rem 0 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.5rem; left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .closing-quote .cq-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--gold);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 1.2rem;
+  }
+
+  .closing-quote .cq-attribution {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(212,160,23,0.6);
+  }
+
+  .closing-quote .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .closing-quote .ornament-line::before,
+  .closing-quote .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.4), transparent);
+  }
+
+  .closing-quote .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.7;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .closing-quote { padding: 2rem 1.2rem 1.8rem; }
+    .bronmateriaal { padding: 1.4rem 1.2rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <a class="label" href="index.html">Aardrijkskunde 1A</a>
+  <span class="label label-right">Hoofdstuk 2</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Aardrijkskunde &nbsp;&middot;&nbsp; 1A &nbsp;&middot;&nbsp; Domein 1</div>
+  <h1>Hoofdstuk 2<br>Ori&euml;nteren en lokaliseren</h1>
+  <p class="subtitle">Hoe vind je de weg in een wereld vol informatie?</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- PROLOGUE -->
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Stel je voor &hellip;</span>
+
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+
+    <p>Het is een grijze zaterdagochtend in oktober. Je staat met je rugzak op een modderig pad in de Ardennen. De dennenbomen staan dicht om je heen en de mist hangt laag boven de vallei. Je wou een kaart raadplegen op je telefoon &mdash; maar er is geen signaal. Geen enkel streepje. De batterij staat op twintig procent.</p>
+
+    <p>Gelukkig heb je een papieren topografische kaart in je rugzak zitten en een kompas dat je grootvader je ooit gegeven heeft. Je weet dat het dorp La Roche-en-Ardenne ergens in het noorden ligt, op zo'n vier kilometer afstand. Maar welke kant is het noorden? Alle bomen lijken op elkaar. Het pad splitst in drie richtingen.</p>
+
+    <p>Je haalt het kompas tevoorschijn. De kleine rode naald trilt even en gaat dan rustig liggen, wijzend naar &eacute;&eacute;n richting. Dat is het noorden. Je vouwt de kaart open, richt hem zo dat noord op de kaart overeenkomt met de richting van de naald &mdash; en plotseling begrijp je waar je bent. Links de heuvelkam, rechts de beekdal, recht voor je het pad naar het dorp.</p>
+
+    <p><strong style="color: var(--gold);">Precies dit is wat ori&euml;nteren betekent: weten waar je bent en weten hoe je van hier naar daar komt &mdash; met of zonder technologie.</strong></p>
+
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+  </section>
+
+  <!-- SECTION 1: Windrichtingen en het kompas -->
+  <section class="section-block" id="windrichtingen">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Windrichtingen en het kompas</h2>
+    </div>
+
+    <p>Om je te ori&euml;nteren &mdash; om te weten waar je bent en in welke richting je beweegt &mdash; heb je eerst een referentiekader nodig. Dat referentiekader zijn de windrichtingen. Ze verdelen de horizon in vaste richtingen die overal ter wereld gelden.</p>
+
+    <h3 class="sub-heading">De vier hoofdwindrichtingen</h3>
+
+    <p>De vier <strong>hoofdwindrichtingen</strong> zijn de basis van elk ori&euml;ntatiesysteem. Je kent ze misschien al, maar het is belangrijk ze in de juiste volgorde te leren: <strong>Noord (N)</strong>, <strong>Oost (O)</strong>, <strong>Zuid (Z)</strong> en <strong>West (W)</strong>. Een handig ezelsbruggetje om ze rechtsom te onthouden is: <em>"Nooit Oud en Wijs"</em> of <em>"Never Eat Shredded Wheat"</em> in het Engels.</p>
+
+    <p>Op een kaart staat <strong>noord altijd bovenaan</strong>, tenzij anders aangegeven in de legende. Dit is een internationale afspraak die al eeuwen gebruikt wordt. Zuid is dan automatisch onderaan, oost rechts en west links.</p>
+
+    <h3 class="sub-heading">De vier tussenwindrichtingen</h3>
+
+    <p>Tussen de vier hoofdwindrichtingen in liggen de <strong>tussenwindrichtingen</strong>. Ze worden gevormd door de twee aangrenzende hoofdrichtingen te combineren, waarbij de noord-zuidrichting altijd eerst vermeld wordt:</p>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.5rem"><strong>NO &mdash; Noordoost</strong>: precies tussen noord en oost (45&deg; vanaf noord, rechtsom)</li>
+      <li style="margin-bottom:0.5rem"><strong>ZO &mdash; Zuidoost</strong>: precies tussen oost en zuid (135&deg; vanaf noord, rechtsom)</li>
+      <li style="margin-bottom:0.5rem"><strong>ZW &mdash; Zuidwest</strong>: precies tussen zuid en west (225&deg; vanaf noord, rechtsom)</li>
+      <li style="margin-bottom:0.5rem"><strong>NW &mdash; Noordwest</strong>: precies tussen west en noord (315&deg; vanaf noord, rechtsom)</li>
+    </ul>
+
+    <p>Samen vormen de vier hoofdwindrichtingen en de vier tussenwindrichtingen de <strong>windroos met acht punten</strong>. Voor professionele navigatie bestaan ook 16- en zelfs 32-puntige windrozen, maar voor het middelbaar onderwijs volstaat de 8-puntige windroos.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#127759;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Windrichting</span>
+        <p class="begrip-def">Een windrichting geeft aan in welke richting men kijkt of beweegt ten opzichte van het noorden. Er zijn vier hoofdwindrichtingen (N, O, Z, W) en vier tussenwindrichtingen (NO, ZO, ZW, NW). Let op: een windrichting geeft niet aan waar de wind naartoe waait, maar waar hij vandaan komt. Een noordenwind waait <em>vanuit</em> het noorden.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Het kompas</h3>
+
+    <p>Een <strong>kompas</strong> is een instrument dat de magnetische pool van de aarde detecteert. In een kompas zit een kleine magneetnaald die vrijelijk kan draaien. Het ene uiteinde van de naald &mdash; altijd rood of met een pijl gemarkeerd &mdash; wijst naar het <strong>magnetisch noorden</strong>. Dat is een punt in het noordpoolgebied van Canada dat niet samenvalt met het geografisch noordpool.</p>
+
+    <p>Het verschil tussen het magnetisch noorden en het geografisch noorden heet de <strong>magnetische declinatie</strong>. In Belgi&euml; bedraagt dit verschil momenteel ongeveer 1 tot 2 graden oost &mdash; verwaarloosbaar voor gewone wandeltochten, maar belangrijk voor precieze navigatie.</p>
+
+    <h3 class="sub-heading">Een kaart ori&euml;nteren met een kompas</h3>
+
+    <p>Om een kaart correct te ori&euml;nteren met een kompas, voer je de volgende stappen uit:</p>
+
+    <ol style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.5rem">Houd de kaart horizontaal voor je, met noord bovenaan.</li>
+      <li style="margin-bottom:0.5rem">Leg het kompas plat op de kaart.</li>
+      <li style="margin-bottom:0.5rem">Draai de kaart &eacute;n het kompas samen totdat de rode naald naar de noordmarkering op het kompas wijst.</li>
+      <li style="margin-bottom:0.5rem">Nu is de kaart gecorrigeerd: de richting op de kaart stemt overeen met de richting in de werkelijkheid.</li>
+      <li style="margin-bottom:0.5rem">Zoek twee herkenbare punten in je omgeving (een heuvel, een kerk, een weg) en identificeer ze op de kaart. Zo weet je waar je bent.</li>
+    </ol>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#129517;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Kompas &amp; Magnetisch noorden</span>
+        <p class="begrip-def">Een <strong>kompas</strong> is een navigatie-instrument met een vrijelijk draaiende magneetnaald die altijd het magnetisch noorden aanwijst. Het <strong>magnetisch noorden</strong> is het punt dat door de aardse magneetveld aangetrokken wordt; het wijkt licht af van het geografische noordpool. Het verschil tussen beide noemt men de magnetische declinatie.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- SECTION 2: Oriëntatietechnieken zonder kompas -->
+  <section class="section-block" id="technieken-zonder-kompas">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Ori&euml;ntatietechnieken zonder kompas</h2>
+    </div>
+
+    <p>Wat als je geen kompas bij je hebt? Of wat als het kompas stuk is? Door de eeuwen heen hebben mensen manieren ontwikkeld om de richting te bepalen aan de hand van de natuur. Sommige van deze methoden zijn verrassend betrouwbaar.</p>
+
+    <h3 class="sub-heading">De zon als kompas</h3>
+
+    <p>De zon is voor reizigers in de gematigde zone &mdash; zoals Belgi&euml; &mdash; de meest betrouwbare natuurlijke richtingaanwijzer. De zon beweegt in een vaste boog over de hemel:</p>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.5rem"><strong>'s Ochtends (rond 9u)</strong>: de zon staat in het oosten. Als je je gezicht naar de zon keert, kijk je naar het oosten.</li>
+      <li style="margin-bottom:0.5rem"><strong>'s Middags (rond 12u-13u)</strong>: de zon staat op haar hoogste punt en staat dan in het zuiden (op het noordelijk halfrond). Je schaduw wijst dan naar het noorden.</li>
+      <li style="margin-bottom:0.5rem"><strong>'s Avonds (rond 18u-19u)</strong>: de zon staat in het westen. Als je je gezicht naar de zon keert, kijk je naar het westen.</li>
+    </ul>
+
+    <p>Een handig hulpmiddel is de <strong>horloge-methode</strong>: richt de kleine wijzer van een analoog horloge naar de zon. De bissectrix van de hoek tussen de kleine wijzer en de 12-positie wijst naar het zuiden (op het noordelijk halfrond). Let op: dit werkt enkel met analoge horloges en bij zonnig weer.</p>
+
+    <h3 class="sub-heading">De maan</h3>
+
+    <p>Bij <strong>volle maan</strong> gedraagt de maan zich vergelijkbaar met de zon. Ze staat 's avonds in het oosten, rond middernacht in het zuiden en vroeg in de ochtend in het westen. Bij halve maan gelden de regels minder goed en is de maan minder bruikbaar als ori&euml;ntatiemiddel.</p>
+
+    <h3 class="sub-heading">De sterren: de Poolster</h3>
+
+    <p>In een heldere nacht zonder bewolking biedt de sterrenhemel de meest nauwkeurige ori&euml;ntatie zonder instrumenten. De <strong>Poolster</strong> (Polaris) staat bijna precies boven de geografische noordpool en wijkt slechts een fractie van een graad af van het exacte noorden. Ze staat altijd op dezelfde plek aan de hemel.</p>
+
+    <p>Hoe vind je de Poolster? Zoek eerst de <strong>Grote Beer</strong> (ook wel de Steelpan of de Grote Wagen), een herkenbaar sterrenbeeld in de vorm van een pan met steel. Trek een denkbeeldige lijn door de twee achterste sterren van de pan (de "aanwijzers"), vijf maal de afstand tussen die sterren verder &mdash; en je stoot op de Poolster.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#11088;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Poolster &amp; ori&euml;ntatie</span>
+        <p class="begrip-def">De <strong>Poolster</strong> (Polaris) is de ster die nagenoeg precies boven de geografische noordpool staat en daardoor altijd het ware noorden aanwijst. <strong>Ori&euml;ntatie</strong> is het proces waarbij je bepaalt waar je je bevindt en in welke richting je beweegt, op basis van bekende referentiepunten in de omgeving of de hemel.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Mos aan boomstammen</h3>
+
+    <p>Een bekende, maar minder betrouwbare methode is het kijken naar mos op boomstammen. Mos groeit het best op de <strong>schaduwzijde</strong> van bomen, en in Belgi&euml; is dat vaak de noordkant (want de zon staat hier in het zuiden). Je zult echter merken dat dit sterk afhangt van de lokale omgeving: wind, vochtigheid en de aanwezigheid van andere bomen spelen ook een rol. Gebruik deze methode enkel ter bevestiging van andere technieken, niet als enige richtingaanwijzer.</p>
+
+    <p>Andere natuurtekens: sommige bomen (zoals sparren) hebben meer takken aan de zuidkant omdat ze naar het licht groeien. Mierenhopen staan vaak aan de zuidkant van een boom of steen. Sneeuw smelt sneller op de zuidhelling van een heuvel.</p>
+
+  </section>
+
+  <!-- SECTION 3: Satellietbeelden en luchtfoto's -->
+  <section class="section-block" id="satellietbeelden">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Satellietbeelden en luchtfoto&rsquo;s</h2>
+    </div>
+
+    <p>Naast kompas en sterren beschikken we vandaag over een derde manier om de wereld te begrijpen: beelden vanuit de lucht en vanuit de ruimte. <strong>Satellietzbeelden</strong> en <strong>luchtfoto's</strong> tonen ons de aarde als een patroon van kleuren, texturen en vormen &mdash; een blik die vroeger enkel voor piloten en astronauten was weggelegd.</p>
+
+    <h3 class="sub-heading">Het verschil tussen een foto en een kaart</h3>
+
+    <p>Een <strong>satellietfoto</strong> (of luchtfoto) is een rechtstreekse registratie van de werkelijkheid, gemaakt door sensoren aan boord van satellieten of vliegtuigen. Wat je ziet, is wat er echt is op het moment dat de foto genomen werd: de kleur van het dak, de groene vlek van een park, de grijze band van een autosnelweg.</p>
+
+    <p>Een <strong>topografische kaart</strong> daarentegen is een <em>interpretatie en vereenvoudiging</em> van die werkelijkheid. Een cartograaf (kaartenmaker) heeft beslissingen genomen: welke wegen toon ik, en in welke kleur? Welke gebouwen zijn belangrijk genoeg om in te tekenen? Hoe geef ik hoogteverschillen weer? Een kaart bevat dus meer informatie per oppervlakte dan een foto, maar het is gefilterde, gecategoriseerde informatie.</p>
+
+    <p>Kort samengevat:</p>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.5rem"><strong>Foto</strong>: toont de werkelijkheid zoals ze is, maar zonder labels, categorisering of uitleg.</li>
+      <li style="margin-bottom:0.5rem"><strong>Kaart</strong>: toont een vereenvoudigde, gecategoriseerde weergave die makkelijker te lezen is voor navigatie en analyse, maar meer interpretatie bevat.</li>
+    </ul>
+
+    <h3 class="sub-heading">Wat zie je op een satellietfoto?</h3>
+
+    <p>Geografen analyseren satellietbeelden aan de hand van vijf visuele kenmerken:</p>
+
+    <ol style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.5rem"><strong>Kleur</strong>: groen wijst op vegetatie, blauw op water, grijs op verharde oppervlakten, bruin op kale grond of bebouwing.</li>
+      <li style="margin-bottom:0.5rem"><strong>Textuur</strong>: een bos heeft een ruwe, onregelmatige textuur; een grasveld is glad en uniform; een stad is rommelig en gevarieerd.</li>
+      <li style="margin-bottom:0.5rem"><strong>Vorm</strong>: akkers zijn rechthoekig, natuurgebieden hebben organische (ronde, onregelmatige) vormen, stadswijken hebben geometrische patronen.</li>
+      <li style="margin-bottom:0.5rem"><strong>Patroon</strong>: hoe zijn elementen ten opzichte van elkaar gerangschikt? Een woonwijk heeft een regelmatig patroon van straten; een industrieterrein heeft grote, gegroepeerde gebouwen.</li>
+      <li style="margin-bottom:0.5rem"><strong>Schaduwen</strong>: uit de schaduw van gebouwen of bomen kun je de hoogte en de richting van de zon op het moment van de opname afleiden.</li>
+    </ol>
+
+    <h3 class="sub-heading">Gebruik bij ori&euml;ntatie: Google Maps satellietweergave</h3>
+
+    <p>Via <strong>Google Maps</strong> &mdash; of vergelijkbare diensten zoals Bing Maps of Apple Maps &mdash; kun je eenvoudig schakelen tussen de standaard kaartweergave en de satellietweergave. In de satellietweergave zie je de werkelijke kleur van het terrein, wat bijzonder nuttig is als je een onbekende plek gaat bezoeken: je herkent de plek al v&oacute;&oacute;r je er aankomt. Gecombineerd met de kaartweergave (die wegen, plaatsnamen en afstanden toont) is dit een krachtig navigatiemiddel.</p>
+
+    <p>Voor professioneel gebruik &mdash; bij stadsplanning, bosbeheer, landbouwanalyse of rampendetectie &mdash; wordt gebruik gemaakt van multispectrale satellietzbeelden die ook infraroodlicht registreren en zo plantengezondheid, bodemvochtigheid of bebossingsgraad kunnen meten.</p>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Wat kun je op een satellietfoto zien dat je <em>niet</em> op een gewone topografische kaart kunt zien? Denk aan kleur, materiaalgebruik van gebouwen, de toestand van de begroeiing&hellip; Omgekeerd: wat toont een topografische kaart dat je <em>niet</em> kunt afleiden uit een satellietfoto? Bespreek met je buur.</p>
+    </div>
+
+  </section>
+
+  <!-- BRONMATERIAAL 1: GPS-coördinaten -->
+  <div class="bronmateriaal" id="bron-gps-coordinaten">
+    <span class="bron-label">Bronmateriaal 1 &mdash; Geografische gegevens</span>
+    <span class="bron-title">GPS-co&ouml;rdinaten van bekende Belgische plaatsen</span>
+    <span class="bron-meta">Co&ouml;rdinaten in graden-minuten-seconden (DMS) &nbsp;&middot;&nbsp; Datum: WGS84 &nbsp;&middot;&nbsp; Bewerking op basis van openbare geodata</span>
+    <div class="bron-body">
+      <p>Hieronder vind je de GPS-co&ouml;rdinaten van vijf bekende Belgische bezienswaardigheden. De co&ouml;rdinaten zijn uitgedrukt in het DMS-formaat: graden (&deg;), minuten (&rsquo;) en seconden (&rdquo;), gevolgd door de hemelsrichting (N voor noord, O voor oost).</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Stad</th>
+            <th>Locatie</th>
+            <th>Breedtegraad (N)</th>
+            <th>Lengtegraad (O)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Brussel</td>
+            <td>Grote Markt</td>
+            <td>50&deg;51&rsquo;03&rdquo; N</td>
+            <td>4&deg;21&rsquo;09&rdquo; O</td>
+          </tr>
+          <tr>
+            <td>Brugge</td>
+            <td>Markt</td>
+            <td>51&deg;12&rsquo;34&rdquo; N</td>
+            <td>3&deg;13&rsquo;28&rdquo; O</td>
+          </tr>
+          <tr>
+            <td>Luik</td>
+            <td>Sint-Pauluskerk</td>
+            <td>50&deg;38&rsquo;49&rdquo; N</td>
+            <td>5&deg;34&rsquo;16&rdquo; O</td>
+          </tr>
+          <tr>
+            <td>Antwerpen</td>
+            <td>O.-L.-Vrouwekathedraal</td>
+            <td>51&deg;13&rsquo;13&rdquo; N</td>
+            <td>4&deg;24&rsquo;08&rdquo; O</td>
+          </tr>
+          <tr>
+            <td>Gent</td>
+            <td>Sint-Baafskathedraal</td>
+            <td>51&deg;03&rsquo;12&rdquo; N</td>
+            <td>3&deg;43&rsquo;14&rdquo; O</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="bron-vraag">Welke stad ligt het meest naar het noorden? Hoe kun je dat afleiden uit de co&ouml;rdinaten? Welke stad ligt het meest naar het oosten? Leg telkens je redenering uit.</p>
+    <span class="bron-source">Bron: bewerking op basis van OpenStreetMap-geodata en de Belgische geodetische referentie WGS84. Co&ouml;rdinaten zijn afgerond op seconden.</span>
+  </div>
+
+  <!-- SECTION 4: GPS -->
+  <section class="section-block" id="gps">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">GPS: Global Positioning System</h2>
+    </div>
+
+    <p>Het meest gebruikte moderne ori&euml;ntatiesysteem ter wereld is het <strong>GPS</strong>, ofwel Global Positioning System. Het werd oorspronkelijk ontwikkeld door het Amerikaanse leger in de jaren 1970 en 1980, maar is tegenwoordig gratis beschikbaar voor iedereen met een geschikte ontvanger &mdash; zoals een smartphone.</p>
+
+    <h3 class="sub-heading">Hoe werkt GPS?</h3>
+
+    <p>GPS bestaat uit een netwerk van <strong>minimaal 24 satellieten</strong> die in een baan om de aarde draaien op een hoogte van ongeveer 20.200 kilometer. Op elk moment zijn er minstens vier satellieten zichtbaar boven elke plek op aarde. Jouw GPS-ontvanger ontvangt radiosignalen van meerdere satellieten tegelijk en berekent op basis van de aankomsttijden van die signalen hoe ver hij van elke satelliet verwijderd is. Door de afstanden tot vier of meer satellieten te combineren, kan de ontvanger zijn exacte positie bepalen &mdash; een techniek die <em>trilateratie</em> heet.</p>
+
+    <p>De nauwkeurigheid van een gewone smartphone-GPS bedraagt 3 tot 5 meter. Professionele GPS-ontvangers (gebruikt in geodesie, scheepvaart en luchtvaart) kunnen nauwkeuriger zijn dan 1 centimeter.</p>
+
+    <h3 class="sub-heading">GPS-co&ouml;rdinaten: DMS en decimale graden</h3>
+
+    <p>Een GPS-positie wordt uitgedrukt als een combinatie van een <strong>breedtegraad</strong> en een <strong>lengtegraad</strong>. Er zijn twee gangbare notaties:</p>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.6rem"><strong>DMS (graden-minuten-seconden)</strong>: bijvoorbeeld 50&deg;51&rsquo;03&rdquo; N, 4&deg;21&rsquo;09&rdquo; O. Dit is de klassieke, menselijk leesbare notatie. Een graad bestaat uit 60 minuten, een minuut uit 60 seconden.</li>
+      <li style="margin-bottom:0.6rem"><strong>Decimale graden</strong>: bijvoorbeeld 50,8508 N, 4,3525 O. Dit is de notatie die computers en navigatiesoftware prefereren. Je berekent decimale graden door de minuten te delen door 60 en de seconden door 3600, en die bij de graden op te tellen.</li>
+    </ul>
+
+    <p>In dit boek werken we voornamelijk met DMS omdat die notatie intuiti&euml;ver is: je ziet meteen of iets meer naar het noorden (hogere breedtegraad) of meer naar het oosten (hogere lengtegraad) ligt.</p>
+
+    <h3 class="sub-heading">Toepassingen van GPS</h3>
+
+    <p>GPS wordt in talloze domeinen ingezet:</p>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.4rem"><strong>Navigatie te voet, per fiets of auto</strong>: apps zoals Google Maps, Waze of Komoot gebruiken GPS om je positie te bepalen en de kortste of snelste route te berekenen.</li>
+      <li style="margin-bottom:0.4rem"><strong>Scheepvaart</strong>: zeeschepen gebruiken GPS voor precieze positiebepaling op open zee, waar geen bakens of wegen zijn.</li>
+      <li style="margin-bottom:0.4rem"><strong>Luchtvaart</strong>: vliegtuigen navigeren via GPS, gecombineerd met radarsystemen van luchtverkeersleiders.</li>
+      <li style="margin-bottom:0.4rem"><strong>Precisie-landbouw</strong>: tractoren rijden via GPS-sturing met millimeternauwkeurigheid over akkers.</li>
+      <li style="margin-bottom:0.4rem"><strong>Wetenschappelijk onderzoek</strong>: geologen meten via GPS de beweging van aardplaten; klimatologen volgen gletsjers.</li>
+      <li style="margin-bottom:0.4rem"><strong>Sporten en recreatie</strong>: wandelaars en fietsers tracken hun routes, hardlopers meten afstand en tempo.</li>
+    </ul>
+
+    <h3 class="sub-heading">GPS versus de papieren kaart</h3>
+
+    <p>GPS en de papieren kaart zijn geen concurrenten &mdash; ze vullen elkaar aan. Elk heeft voor- en nadelen:</p>
+
+    <table style="width:100%;border-collapse:collapse;font-size:0.94rem;margin:1rem 0;">
+      <thead>
+        <tr style="background:var(--darkblue);color:white;">
+          <th style="padding:0.5rem 0.8rem;text-align:left;font-weight:600;">Kenmerk</th>
+          <th style="padding:0.5rem 0.8rem;text-align:left;font-weight:600;">GPS / Smartphone</th>
+          <th style="padding:0.5rem 0.8rem;text-align:left;font-weight:600;">Papieren kaart + kompas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:0.4rem 0.8rem;border-bottom:1px solid var(--sand);color:var(--text-mid);">Batterij nodig?</td>
+          <td style="padding:0.4rem 0.8rem;border-bottom:1px solid var(--sand);color:var(--text-mid);">Ja</td>
+          <td style="padding:0.4rem 0.8rem;border-bottom:1px solid var(--sand);color:var(--text-mid);">Nee</td>
+        </tr>
+        <tr style="background:var(--sand-light);">
+          <td style="padding:0.4rem 0.8rem;border-bottom:1px solid var(--sand);color:var(--text-mid);">Netwerksignaal nodig?</td>
+          <td style="padding:0.4rem 0.8rem;border-bottom:1px solid var(--sand);color:var(--text-mid);">Niet voor GPS, wel voor kaartdata</td>
+          <td style="padding:0.4rem 0.8rem;border-bottom:1px solid var(--sand);color:var(--text-mid);">Nee</td>
+        </tr>
+        <tr>
+          <td style="padding:0.4rem 0.8rem;border-bottom:1px solid var(--sand);color:var(--text-mid);">Nauwkeurigheid</td>
+          <td style="padding:0.4rem 0.8rem;border-bottom:1px solid var(--sand);color:var(--text-mid);">Hoog (3&ndash;5 m voor smartphones)</td>
+          <td style="padding:0.4rem 0.8rem;border-bottom:1px solid var(--sand);color:var(--text-mid);">Afhankelijk van vaardigheid</td>
+        </tr>
+        <tr style="background:var(--sand-light);">
+          <td style="padding:0.4rem 0.8rem;border-bottom:1px solid var(--sand);color:var(--text-mid);">Overzicht terrein</td>
+          <td style="padding:0.4rem 0.8rem;border-bottom:1px solid var(--sand);color:var(--text-mid);">Goed (maar klein scherm)</td>
+          <td style="padding:0.4rem 0.8rem;border-bottom:1px solid var(--sand);color:var(--text-mid);">Uitstekend (breed overzicht)</td>
+        </tr>
+        <tr>
+          <td style="padding:0.4rem 0.8rem;color:var(--text-mid);">Betrouwbaarheid</td>
+          <td style="padding:0.4rem 0.8rem;color:var(--text-mid);">Gevoelig voor storingen, lege batterij</td>
+          <td style="padding:0.4rem 0.8rem;color:var(--text-mid);">Altijd beschikbaar</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128225;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">GPS &amp; Satellietnavigatie</span>
+        <p class="begrip-def"><strong>GPS</strong> (Global Positioning System) is een Amerikaans netwerk van satellieten dat wereldwijd nauwkeurige positiebepaling mogelijk maakt. Een GPS-ontvanger berekent zijn positie door de aankomsttijden van signalen van minimaal vier satellieten te vergelijken. De positie wordt uitgedrukt in <strong>co&ouml;rdinaten</strong>: breedtegraad en lengtegraad, in DMS-formaat of decimale graden. Andere systemen zijn het Europese Galileo, het Russische GLONASS en het Chinese BeiDou.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- BRONMATERIAAL 2: Satellietfoto vs. topografische kaart -->
+  <div class="bronmateriaal" id="bron-satelliet-vs-topo">
+    <span class="bron-label">Bronmateriaal 2 &mdash; Vergelijkende analyse</span>
+    <span class="bron-title">Satellietfoto versus topografische kaart: Brussel (stadscentrum)</span>
+    <span class="bron-meta">Vergelijkende beschrijving &nbsp;&middot;&nbsp; Schaal topo-kaart: 1:25.000 &nbsp;&middot;&nbsp; Satellietopname: Google Earth, zomerseizoen</span>
+    <div class="bron-body">
+      <p><strong>Wat je ziet op de satellietfoto van Brussel:</strong> Het stadscentrum is overwegend grijs en beige gekleurd, met de dichte bebouwing van de Vijfhoek (de historische stadskern) duidelijk herkenbaar als een compacte massa van aansluitende bruine en grijze daken. Het Warandepark verschijnt als een grote, rechthoekige groene vlek ten noorden van het Koningsplein. De Zenne &mdash; nu grotendeels overwelfd &mdash; is slechts als een vage lichtere band onder de bebouwing te vermoeden. De grote verkeersassen (de kleine ring, de Wetstraat) zijn zichtbaar als grijze lintstructuren. Schaduwzones aan de noordzijde van hogere gebouwen onthullen de oriëntatie van de opname.</p>
+      <p><strong>Wat je ziet op de topografische kaart van hetzelfde gebied:</strong> De topografische kaart toont de straten gecategoriseerd naar type: de primaire ringwegen in rood, de secundaire wegen in oranje, de lokale straten in geel of wit. Gebouwomtrekken zijn als zwarte rechthoeken ingetekend, parken in groen gearceerd. Plaatsnamen, wijknamen en openbare gebouwen zijn gelabeld. De Zenne staat op de historische kaart als een blauwe lijn ingetekend. Hoogtecijfers en eventueel hoogtelijnen tonen het reliëf van de Coudenberg (de historische heuvel) en de lager gelegen kwartieren nabij het kanaal.</p>
+    </div>
+    <p class="bron-vraag">Noem twee dingen die je op de satellietfoto kunt zien maar niet op de topografische kaart, en vice versa: noem ook twee dingen die de topografische kaart toont die je niet kunt afleiden uit de satellietfoto.</p>
+    <span class="bron-source">Bron: beschrijving gebaseerd op Google Earth satellietbeelden en de NGI-topografische kaart 1:25.000, bladnummer 31/3, Brussel. Tekst is een educatieve beschrijving, geen officieel kaartproduct.</span>
+  </div>
+
+  <!-- SECTION 5: De meest geschikte techniek kiezen -->
+  <section class="section-block" id="techniek-kiezen">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">De meest geschikte techniek kiezen</h2>
+    </div>
+
+    <p>We hebben nu vier ori&euml;ntatietechnieken bestudeerd: het kompas, technieken zonder kompas (zon, sterren, natuur), satellietzbeelden en GPS. Elk van deze technieken heeft zijn eigen sterktes en beperkingen. Een goede geograaf &mdash; en een goede navigeerder &mdash; weet welke techniek het best past bij de situatie.</p>
+
+    <h3 class="sub-heading">Wanneer gebruik je welke techniek?</h3>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.4rem;">
+      <li style="margin-bottom:0.7rem">
+        <strong>GPS (smartphone of GPS-toestel)</strong>: de beste keuze wanneer je snel en nauwkeurig een specifiek adres of co&ouml;rdinaat moet bereiken. Ideaal voor stedelijke navigatie, autorijden, fietsen in onbekend terrein. Vereist batterij en soms internettoegang voor kaartdata.
+      </li>
+      <li style="margin-bottom:0.7rem">
+        <strong>Kompas + topografische kaart</strong>: de betrouwbaarste keuze voor wandelen en trekking in afgelegen gebieden zonder telefoonbereik. Werkt altijd, ongeacht weer, batterij of signaal. Vereist oefening om goed te gebruiken.
+      </li>
+      <li style="margin-bottom:0.7rem">
+        <strong>Satellietzbeelden</strong>: het meest geschikt voor <em>analyse</em> van landgebruik, vegetatie, bodembedekking en ruimtelijke patronen. Wordt gebruikt door planologen, ecologen, landbouwkundigen en reddingsdiensten. Minder geschikt voor real-time navigatie te voet.
+      </li>
+      <li style="margin-bottom:0.7rem">
+        <strong>Technieken zonder instrumenten (zon, sterren)</strong>: enkel zinvol als noodoplossing wanneer alle andere middelen ontbreken. Geeft een globale richting, geen nauwkeurige positiebepaling.
+      </li>
+    </ul>
+
+    <p>In de praktijk worden technieken vaak <strong>gecombineerd</strong>. Een ervaren bergwandelaar neemt zowel zijn smartphone (met offline kaart) als een papieren topografische kaart en een kompas mee. Als de smartphone uitvalt, kan hij nog steeds navigeren. En als hij wil weten hoe het terrein er op grotere schaal uitziet, raadpleegt hij satellietzbeelden thuis v&oacute;&oacute;r vertrek.</p>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Stel je de volgende situaties voor: (a) je moet naar een concert in een stad die je niet kent; (b) je gaat kayakken op de Ourthe in de Ardennen zonder telefoonbereik; (c) een boswachter wil controleren of een bepaald bosgebied in de afgelopen tien jaar gekrompen is. Welke ori&euml;ntatietechniek of welke combinatie van technieken zou jij in elk van deze situaties kiezen? Verklaar je keuze.</p>
+    </div>
+
+  </section>
+
+  <!-- ILLUSTRATIE: Windroosdiagram -->
+  <div class="illustratie" role="img" aria-label="Illustratieplekhouder: Windroosdiagram">
+    <span class="ill-icon">&#127759;</span>
+    <p class="ill-caption">
+      <strong>Illustratie: Windroosdiagram met de acht windrichtingen</strong><br>
+      Dit diagram toont de vier hoofdwindrichtingen (Noord, Oost, Zuid, West) en de vier tussenwindrichtingen (Noordoost, Zuidoost, Zuidwest, Noordwest) op een klassieke kompasroos. De rode pijl geeft de noordrichting aan. De hoek tussen twee naastliggende richtingen bedraagt telkens 45 graden. [Illustratie wordt hier ingevoegd door de grafisch vormgever.]
+    </p>
+  </div>
+
+  <!-- CLOSING QUOTE -->
+  <div class="closing-quote" role="note" aria-label="Slotcitaat">
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p class="cq-text">Je hebt geen kostbaar instrument nodig om de weg te vinden &mdash; je hebt kennis nodig. De wereld is vol tekens voor wie ze leert lezen.</p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <span class="cq-attribution">Aardrijkskunde 1A &nbsp;&middot;&nbsp; Domein 1: Lokaliseren, ori&euml;nteren en situeren</span>
+  </div>
+
+</div><!-- end page-wrapper -->
+
+<!-- ============================================================
+     EXERCISES
+============================================================ -->
+<section class="exercises-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <!-- Exercise 1 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Windrichtingen: kennis en toepassing</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.7rem;">Beantwoord de volgende vragen over windrichtingen en het kompas.</p>
+      <ol>
+        <li>Je staat in Brussel en kijkt naar Luik. Luik ligt ten oosten van Brussel. Als je rechtdoor blijft lopen naar Luik, in welke windrichting beweeg je dan?</li>
+        <li>Op een kaart staat Brugge linksboven en Gent rechtsmidden. Welke windrichting legt de verplaatsing van Gent naar Brugge het best vast: noordwest, noordoost, zuidwest of zuidoost?</li>
+        <li>Je bent aan het wandelen. Je kompas wijst aan dat je naar het ZW loopt. Je wil 90 graden rechtsaf draaien. In welke windrichting loop je nu?</li>
+        <li>De zon staat recht voor je en het is 12u30. In welke windrichting kijk je (op het noordelijk halfrond)? Waar is dan het westen?</li>
+        <li>Geef de volledige namen van alle acht punten van een standaardwindroos en vermeld de hoek (in graden vanaf het noorden, rechtsom gemeten) bij elk punt.</li>
+      </ol>
+      <p class="ex-tip">Tip: teken een windroos op kladpapier als je vastloopt bij de hoekberekeningen.</p>
+    </div>
+
+    <!-- Exercise 2 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Analyse van een satellietfoto-beschrijving</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.7rem;">Lees de beschrijving van de satellietfoto van Brussel in Bronmateriaal 2 opnieuw. Beantwoord dan de volgende vragen.</p>
+      <ol>
+        <li>Welke kleur heeft de bebouwing in het centrum op de satellietfoto? Wat kun je daaruit afleiden over het gebruikte bouwmateriaal?</li>
+        <li>Hoe is het Warandepark te herkennen op de satellietfoto? Welk visueel kenmerk (kleur, vorm, textuur of patroon) is daarbij het meest doorslaggevend?</li>
+        <li>De Zenne is op de satellietfoto nauwelijks te zien, maar op de historische topografische kaart wel als een blauwe lijn. Wat vertelt dit over de evolutie van de stad Brussel? Wat is er met de Zenne gebeurd?</li>
+      </ol>
+      <p class="ex-tip">Tip: raadpleeg eventueel Google Earth om de beschrijving te toetsen aan het echte beeld.</p>
+    </div>
+
+    <!-- Exercise 3 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Kies de juiste ori&euml;ntatietechniek</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.7rem;">Voor elk van de vijf situaties hieronder kies je de meest geschikte ori&euml;ntatietechniek uit de volgende lijst: <em>GPS/smartphone, kompas + papieren kaart, satellietzbeelden, observatie van de zon/sterren, topografische kaart zonder kompas</em>. Verklaar telkens je keuze in &eacute;&eacute;n zin.</p>
+      <ol>
+        <li>Een ecoloog wil nagaan of een moerasgebied in de provincie Antwerpen de afgelopen 20 jaar gekrompen is door landbouwuitbreiding.</li>
+        <li>Een groep scouts is 's nachts verdwaald in een bos in de Ardennen. Er is geen telefoonbereik en de batterijen zijn leeg. De hemel is helder.</li>
+        <li>Je fietst voor het eerst door het centrum van Gent en wilt de snelste route van het Sint-Pietersstation naar de Graslei vinden.</li>
+        <li>Een zeiler vaart vanuit Oostende naar Dover en heeft geen zicht op de kust. Welke techniek gebruikt hij voor zijn positiebepaling?</li>
+        <li>Je wandelt op een daguitstap in het Hoge Venen. Je telefoon heeft nog 5% batterij. De mist is opgetrokken en je wil controleren of je op de goede weg bent.</li>
+      </ol>
+      <p class="ex-tip">Tip: er kunnen meerdere antwoorden verdedigbaar zijn. De kwaliteit van je redenering telt mee.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SUMMARY
+============================================================ -->
+<section class="summary-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>Windrichtingen</strong> vormen het basisreferentiekader voor ori&euml;ntatie: vier hoofdwindrichtingen (N, O, Z, W) en vier tussenwindrichtingen (NO, ZO, ZW, NW) samen vormen de 8-puntige windroos.</li>
+      <li>Een <strong>kompas</strong> heeft een magneetnaald die altijd naar het <strong>magnetisch noorden</strong> wijst; door de kaart te ori&euml;nteren zodat kaartnoord en kompasnoord samenvallen, weet je in welke richting je beweegt.</li>
+      <li>Zonder instrument kun je de richting bepalen aan de hand van de <strong>zon</strong> (oost &rsquo;s ochtends, zuiden &rsquo;s middags, west &rsquo;s avonds), de <strong>Poolster</strong> (&rsquo;s nachts altijd naar het noorden) of natuurtekens zoals mos.</li>
+      <li><strong>Satellietzbeelden</strong> tonen de werkelijkheid zoals ze is (kleur, textuur, vorm, patroon, schaduwen); een <strong>topografische kaart</strong> is een vereenvoudiging en interpretatie met categorieën, labels en symbolen.</li>
+      <li><strong>GPS</strong> bepaalt je positie via een netwerk van satellieten en drukt die uit in co&ouml;rdinaten (breedtegraad en lengtegraad) in DMS-formaat of decimale graden; het systeem vereist een batterij maar geen mobiel netwerksignaal.</li>
+      <li>De keuze van de meest geschikte ori&euml;ntatietechniek hangt af van de situatie: <strong>GPS</strong> voor nauwkeurige stedelijke navigatie, <strong>kompas + kaart</strong> voor betrouwbare navigatie in afgelegen gebieden, <strong>satellietzbeelden</strong> voor landgebruiksanalyse, en <strong>sterren of zon</strong> als ultiem noodmiddel.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

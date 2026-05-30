@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inleiding — Waarom leer je Engels? | Engels 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --gold: #D4A017;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    /* Extended tokens used internally */
+    --terracotta-light: #D4561E;
+    --gold-light: #E8B82A;
+    --darkblue-light: #243B63;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     CLOSING QUOTE
+  ============================================================ */
+  .closing-quote {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0D1E38 100%);
+    border-radius: var(--border-radius);
+    padding: 3rem 3rem 2.5rem;
+    margin: 3.5rem 0 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.5rem; left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .closing-quote .cq-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--gold);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 1.2rem;
+  }
+
+  .closing-quote .cq-attribution {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(212,160,23,0.6);
+  }
+
+  .closing-quote .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .closing-quote .ornament-line::before,
+  .closing-quote .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.4), transparent);
+  }
+
+  .closing-quote .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.7;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .closing-quote { padding: 2rem 1.2rem 1.8rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     ENGELS-SPECIFIC COMPONENTS
+  ============================================================ */
+
+  .vocab-kader { background: linear-gradient(135deg,rgba(212,160,23,.08),rgba(200,146,58,.08)); border: 1px solid rgba(212,160,23,.35); border-left: 4px solid var(--gold); border-radius: var(--border-radius); padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+  .vocab-kader h4 { color: var(--gold); font-family:'Playfair Display',serif; font-size:1rem; margin-bottom:.75rem; }
+  .grammar-kader { background: linear-gradient(135deg,rgba(26,43,74,.06),rgba(26,43,74,.02)); border:1px solid rgba(26,43,74,.2); border-left:4px solid var(--darkblue); border-radius:var(--border-radius); padding:1.25rem 1.5rem; margin:1.5rem 0; }
+  .grammar-kader h4 { color:var(--darkblue); font-family:'Playfair Display',serif; font-size:1rem; margin-bottom:.75rem; }
+  .grammar-regel { background:var(--darkblue); color:white; padding:.45rem 1rem; border-radius:4px; font-size:.95rem; margin:.6rem 0; display:block; font-family:'Source Sans 3',monospace; }
+  .example-kader { background:var(--sand-light); border-left:3px solid var(--oker); border-radius:0 var(--border-radius) var(--border-radius) 0; padding:.9rem 1.2rem; margin:.75rem 0; }
+  .example-en { font-weight:600; font-style:italic; color:var(--text-dark); display:block; }
+  .example-nl { color:var(--text-light); font-size:.9rem; display:block; margin-top:.1rem; }
+  .tip-kader { background:linear-gradient(135deg,rgba(193,68,14,.08),rgba(193,68,14,.04)); border:1px solid rgba(193,68,14,.25); border-left:4px solid var(--terracotta); border-radius:var(--border-radius); padding:1.25rem 1.5rem; margin:1.5rem 0; }
+  .tip-kader::before { content:'Tip'; display:block; font-size:.75rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--terracotta); margin-bottom:.5rem; }
+  .erk-tabel { width:100%; border-collapse:collapse; margin:1.25rem 0; font-size:.93rem; }
+  .erk-tabel th { background:var(--darkblue); color:var(--gold); padding:.55rem 1rem; text-align:left; font-family:'Source Sans 3',sans-serif; font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; }
+  .erk-tabel td { padding:.55rem 1rem; border-bottom:1px solid var(--sand); vertical-align:top; }
+  .erk-tabel tr:last-child td { border-bottom:none; }
+  .erk-tabel tr:nth-child(even) td { background:rgba(232,220,200,.25); }
+  .niveau-badge { display:inline-block; background:var(--terracotta); color:white; font-size:.75rem; font-weight:700; letter-spacing:.08em; padding:.2rem .6rem; border-radius:3px; text-transform:uppercase; }
+  .niveau-badge.active { background:var(--gold); color:var(--text-dark); font-size:.85rem; padding:.25rem .8rem; }
+  .examen-deel { display:flex; gap:1rem; align-items:flex-start; padding:1rem 0; border-bottom:1px solid var(--sand); }
+  .examen-deel:last-child { border-bottom:none; }
+  .examen-nummer { background:var(--terracotta); color:white; width:2.2rem; height:2.2rem; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1rem; flex-shrink:0; margin-top:.15rem; }
+
+  /* ── CONCEPT GRID (like wiskunde domein-grid) ────────── */
+  .concept-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+    margin: 1.8rem 0;
+  }
+  .concept-card {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 3px solid var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 1.2rem 1.3rem;
+    box-shadow: var(--shadow-sm);
+  }
+  .concept-card .cc-naam {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+  .concept-card .cc-label {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    font-style: italic;
+  }
+  .concept-card .cc-beschrijving {
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    margin-top: 0.5rem;
+    line-height: 1.55;
+  }
+
+  /* ── DEEL BLOKKEN ──────────────────────────────────── */
+  .deel-lijst {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+  }
+  .deel-lijst li {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1rem 1.1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 0.6rem;
+    background: white;
+    border: 1px solid var(--sand);
+    border-left: 4px solid var(--oker);
+    box-shadow: var(--shadow-sm);
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.55;
+  }
+  .deel-nummer {
+    flex-shrink: 0;
+    background: var(--darkblue);
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    margin-top: 0.1rem;
+    white-space: nowrap;
+  }
+  .deel-lijst li strong { color: var(--darkblue); }
+
+  /* ── WEGING TABEL ──────────────────────────────────── */
+  .weging-tabel { width:100%; border-collapse:collapse; margin:1.25rem 0; font-size:.93rem; }
+  .weging-tabel th { background:var(--darkblue); color:var(--gold); padding:.55rem 1rem; text-align:left; font-family:'Source Sans 3',sans-serif; font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; }
+  .weging-tabel td { padding:.55rem 1rem; border-bottom:1px solid var(--sand); vertical-align:top; }
+  .weging-tabel tr:last-child td { border-bottom:none; }
+  .weging-tabel tr:nth-child(even) td { background:rgba(232,220,200,.25); }
+  .weging-tabel .weging-pct { font-weight:700; color:var(--darkblue); }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <span class="label">Engels</span>
+  <span class="label label-right">Eerste Graad A-stroom</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Eerste Graad A-stroom &nbsp;&middot;&nbsp; ERK A2</div>
+  <h1>Waarom leer je Engels?</h1>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- SECTION 1 — De rol van Engels in de wereld -->
+  <section class="section-block" id="s1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">De rol van Engels in de wereld</h2>
+    </div>
+
+    <p>Engels is de meest gesproken taal ter wereld als je native speakers en niet-native speakers samenrekent. Het is de internationale taal van <strong>wetenschap</strong>, <strong>technologie</strong>, <strong>sport</strong>, <strong>muziek</strong>, <strong>film</strong> en <strong>business</strong>. Wetenschappers uit Japan, Brazili&euml; en Duitsland schrijven hun onderzoek in het Engels. Piloten en luchtverkeersleiders communiceren wereldwijd in het Engels. Technologiebedrijven publiceren hun documentatie in het Engels. Wie Engels spreekt, kan met bijna iedereen ter wereld communiceren.</p>
+
+    <p>Engelstalige cultuur &mdash; uit het Verenigd Koninkrijk, de Verenigde Staten, Australi&euml; en vele andere landen &mdash; be&iuml;nvloedt dagelijks onze eigen cultuur. De series die je streamt, de muziek die je luistert, de games die je speelt, de memes die je deelt: ze zijn voor een groot deel afkomstig uit of beïnvloed door Engelstalige cultuur. Sociale media zijn grotendeels Engelstalig. Wie die taal begrijpt, heeft toegang tot een veel rijker aanbod aan informatie, entertainment en gemeenschappen.</p>
+
+    <p>In dit vak werk je naar het niveau <strong>ERK A2</strong> toe. Dat betekent dat je leert om korte, eenvoudige gesprekken te voeren over vertrouwde onderwerpen, dat je eenvoudige teksten begrijpt, en dat je jezelf en je omgeving kunt beschrijven. A2 is geen einddoel &mdash; het is een stap op weg naar een leven lang taalvaardigheid.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#127760;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Lingua franca</span>
+        <p class="begrip-def">Een <em>lingua franca</em> is een taal die mensen met verschillende moedertalen gebruiken om met elkaar te communiceren. Engels is vandaag de voornaamste lingua franca ter wereld.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2 — Het ERK: Europees Referentiekader -->
+  <section class="section-block" id="s2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Het ERK: Europees Referentiekader</h2>
+    </div>
+
+    <p>Hoe weet je hoe goed je een taal spreekt? Daar heeft Europa een systeem voor bedacht: het <strong>Europees Referentiekader voor Talen</strong>, afgekort <strong>ERK</strong> (of in het Engels: CEFR). Het ERK beschrijft zes niveaus, van A1 (absolute beginner) tot C2 (bijna moedertaalspreker). Elk niveau omschrijft precies wat je kunt begrijpen, zeggen, lezen en schrijven.</p>
+
+    <p>Het voordeel van het ERK is dat het voor alle Europese talen geldt. Of je nu Engels, Frans, Duits of Spaans leert: de niveaus zijn overal hetzelfde. Een A2-certificaat in het Engels betekent hetzelfde als een A2-certificaat in het Frans.</p>
+
+    <table class="erk-tabel">
+      <thead>
+        <tr>
+          <th>Niveau</th>
+          <th>Omschrijving</th>
+          <th>Vaardigheidsniveau</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="niveau-badge">A1</span></td>
+          <td>Beginner</td>
+          <td>Je begrijpt en gebruikt heel eenvoudige uitdrukkingen</td>
+        </tr>
+        <tr>
+          <td><span class="niveau-badge active">A2 &#8592; jij!</span></td>
+          <td><strong>Basisgebruiker</strong></td>
+          <td><strong>Je begrijpt eenvoudige zinnen over vertrouwde onderwerpen</strong></td>
+        </tr>
+        <tr>
+          <td><span class="niveau-badge">B1</span></td>
+          <td>Zelfstandig gebruiker</td>
+          <td>Je kunt de hoofdpunten begrijpen van duidelijke standaardteksten</td>
+        </tr>
+        <tr>
+          <td><span class="niveau-badge">B2</span></td>
+          <td>Gevorderd</td>
+          <td>Je begrijpt de hoofdinhoud van complexe teksten</td>
+        </tr>
+        <tr>
+          <td><span class="niveau-badge">C1</span></td>
+          <td>Gevorderd / Proficient</td>
+          <td>Je begrijpt een breed scala van langere teksten</td>
+        </tr>
+        <tr>
+          <td><span class="niveau-badge">C2</span></td>
+          <td>Mastery</td>
+          <td>Je begrijpt bijna alles wat je leest of hoort</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip-kader">
+      Je ERK-niveau bepaalt niet je cijfer op het examen. Het is een richtsnoer dat aangeeft wat je globaal kunt, geen garantie voor een bepaald resultaat. Twee leerlingen op A2-niveau kunnen toch een ander cijfer halen afhankelijk van hoe nauwkeurig ze werken, hoeveel ze studeren en hoe goed ze strategieën toepassen.
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Welk ERK-niveau denk je nu al te hebben? Probeer eerlijk te zijn: wat kun je al zeggen, begrijpen of lezen in het Engels? Bespreek dit met een klasgenoot.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 3 — Wat ga je leren? -->
+  <section class="section-block" id="s3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Wat ga je leren?</h2>
+    </div>
+
+    <p>Dit vak is opgebouwd rond drie grote pijlers: woordenschat, grammatica en vaardigheden. Ze versterken elkaar voortdurend: je leert woorden en grammatica zodat je vaardigheden kunt ontwikkelen, en door je vaardigheden te oefenen worden je woordenschat en grammatica sterker.</p>
+
+    <div class="concept-grid">
+      <div class="concept-card">
+        <span class="cc-naam">Woordenschat</span>
+        <span class="cc-label">23 woordvelden</span>
+        <p class="cc-beschrijving">Dagelijks leven: familie, school, eten, reizen, beroepen&hellip; Op elk woordveld krijg je voldoende basiswoordenschat voor het examen.</p>
+      </div>
+      <div class="concept-card">
+        <span class="cc-naam">Grammatica</span>
+        <span class="cc-label">Bouwstenen van de taal</span>
+        <p class="cc-beschrijving">Werkwoordstijden (present simple, past simple, future), woordsoorten, zinsbouw. Fouten zijn oké zolang je boodschap overkomt.</p>
+      </div>
+      <div class="concept-card">
+        <span class="cc-naam">Vaardigheden</span>
+        <span class="cc-label">Lezen · Luisteren · Schrijven · Spreken</span>
+        <p class="cc-beschrijving">Lezen (30%), luisteren (30%), schrijven (8%), spreken en interactie (32%). Je leert strategieën om ook moeilijkere teksten aan te pakken.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Een woordje over fouten</h3>
+    <p>In taalonderwijs is het verleidelijk om bang te zijn voor fouten. Maar fouten zijn de motor van taalverwerving. Elke fout die je maakt en begrijpt, brengt je een stap dichter bij de correcte vorm. Het doel van A2 is <strong>communicatieve vaardigheid</strong>: kunnen je boodschap overbrengen, de andere persoon begrijpen, en reageren. Perfecte grammatica is mooi, maar niet het hoofddoel op dit niveau.</p>
+
+    <div class="example-kader">
+      <span class="example-en">"Yesterday I go to the shop with my friend."</span>
+      <span class="example-nl">Gisteren ben ik naar de winkel gegaan met mijn vriend.</span>
+    </div>
+    <p style="font-size:0.93rem;color:var(--text-mid);">Bovenstaande zin bevat een grammaticafout (go &rarr; went), maar de boodschap is volkomen duidelijk. Op A2-niveau is dit al een prima prestatie.</p>
+  </section>
+
+  <!-- SECTION 4 — De opbouw van dit leermateriaal -->
+  <section class="section-block" id="s4">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">De opbouw van dit leermateriaal</h2>
+    </div>
+
+    <p>Het leermateriaal is opgebouwd in vier grote delen. Elk deel bouwt voort op het vorige: je begint bij jezelf en je directe omgeving, en breidt je horizon steeds verder uit naar de wereld om je heen.</p>
+
+    <ul class="deel-lijst">
+      <li>
+        <span class="deel-nummer">Deel 1 &middot; H1&ndash;H3</span>
+        <div><strong>Jezelf en je omgeving</strong> &mdash; wie ben je, hoe ziet je dag eruit, hoe beschrijf je je uiterlijk en dat van anderen. De meest persoonlijke woordenschat en de eerste grammaticale structuren.</div>
+      </li>
+      <li>
+        <span class="deel-nummer">Deel 2 &middot; H4&ndash;H6</span>
+        <div><strong>Eten, wonen en vrije tijd</strong> &mdash; eten en drinken bestellen en beschrijven, je huis en buurt beschrijven, hobby&rsquo;s en sport bespreken, winkelen. Praktische taal voor het dagelijkse leven.</div>
+      </li>
+      <li>
+        <span class="deel-nummer">Deel 3 &middot; H7&ndash;H10</span>
+        <div><strong>De wereld om ons heen</strong> &mdash; beroepen en ambities, reizen en transport, praten over het verleden, plannen voor de toekomst. Je leert ook de past simple en future tenses.</div>
+      </li>
+      <li>
+        <span class="deel-nummer">Deel 4 &middot; H11&ndash;H12</span>
+        <div><strong>Taalvaardigheden</strong> &mdash; leesstrategieën voor onbekende teksten, schrijfvaardigheid (e-mails, korte teksten), spreekvaardigheid en mondelinge interactie. Voorbereiding op het examen.</div>
+      </li>
+    </ul>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Welk deel spreekt je het meest aan? En welk deel lijkt je het moeilijkst? Noteer je verwachtingen nu en vergelijk ze aan het einde van het jaar.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 5 — Zo verloopt het examen -->
+  <section class="section-block" id="s5">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Zo verloopt het examen</h2>
+    </div>
+
+    <p>Het examen bestaat uit drie aparte onderdelen die elk een andere vaardigheid meten. Het is belangrijk om te weten hoe elk onderdeel werkt, zodat je je goed kunt voorbereiden.</p>
+
+    <div class="examen-deel">
+      <div class="examen-nummer">1</div>
+      <div>
+        <strong>Spreekopdracht (thuis)</strong>
+        <p style="margin-top:0.35rem;font-size:0.96rem;color:var(--text-mid);">Je bereidt een monoloog voor over een opgegeven onderwerp en neemt die op als audio- of videofragment. Je dient deze opname in v&oacute;&oacute;r je digitale examen. Zo heb je thuis de tijd om je voor te bereiden en te oefenen zonder de stress van een live situatie.</p>
+      </div>
+    </div>
+
+    <div class="examen-deel">
+      <div class="examen-nummer">2</div>
+      <div>
+        <strong>Digitaal examen (150 minuten, Brussel)</strong>
+        <p style="margin-top:0.35rem;font-size:0.96rem;color:var(--text-mid);">Je maakt opdrachten voor lezen, luisteren en schrijven op een computer in een examencentrum in Brussel. Je mag een spellingcontrole en een digitaal woordenboek gebruiken. De 150 minuten zijn verdeeld over de drie vaardigheden; je mag je eigen tempo bepalen binnen de toegewezen tijd.</p>
+      </div>
+    </div>
+
+    <div class="examen-deel">
+      <div class="examen-nummer">3</div>
+      <div>
+        <strong>Mondeling gesprek (10 minuten)</strong>
+        <p style="margin-top:0.35rem;font-size:0.96rem;color:var(--text-mid);">Na het digitale examen volgt een mondeling gesprek van 10 minuten met een examinator. Je krijgt 15 minuten voorbereidingstijd voor 2 opdrachten. Het gesprek toetst je spreekvaardigheid en je vermogen tot mondelinge interactie: reageren, vragen stellen, een mening geven.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Weging van de onderdelen</h3>
+
+    <table class="weging-tabel">
+      <thead>
+        <tr>
+          <th>Onderdeel</th>
+          <th>Gewicht</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Lezen</td>
+          <td class="weging-pct">30%</td>
+        </tr>
+        <tr>
+          <td>Luisteren</td>
+          <td class="weging-pct">30%</td>
+        </tr>
+        <tr>
+          <td>Schrijven</td>
+          <td class="weging-pct">8%</td>
+        </tr>
+        <tr>
+          <td>Schriftelijke interactie</td>
+          <td class="weging-pct">8%</td>
+        </tr>
+        <tr>
+          <td>Spreken</td>
+          <td class="weging-pct">8%</td>
+        </tr>
+        <tr>
+          <td>Mondelinge interactie 1</td>
+          <td class="weging-pct">8%</td>
+        </tr>
+        <tr>
+          <td>Mondelinge interactie 2</td>
+          <td class="weging-pct">8%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip-kader">
+      Lezen en luisteren samen zijn goed voor 60% van je totaalscore. Dat betekent dat je <em>receptieve vaardigheden</em> &mdash; begrijpen wat je leest en hoort &mdash; het zwaarst wegen. Train die vaardigheden dagelijks: lees Engelse teksten, kijk Engelstalige series (eventueel met ondertitels), luister naar Engelstalige podcasts of muziek.
+    </div>
+  </section>
+
+  <!-- CLOSING QUOTE -->
+  <div class="closing-quote" role="note" aria-label="Slotcitaat">
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p class="cq-text">The limits of my language mean the limits of my world.</p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <span class="cq-attribution">Ludwig Wittgenstein &nbsp;&middot;&nbsp; filosoof</span>
+  </div>
+
+  <div style="margin-top: 2.5rem;">
+    <p style="font-size: 1.05rem; color: var(--text-mid); font-style: italic; text-align: center;">Open je oren. We beginnen te praten.</p>
+  </div>
+
+</div><!-- end page-wrapper -->
+
+<!-- EXERCISES -->
+<section class="exercises-section">
+  <div style="max-width:820px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Het ERK in je eigen woorden</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);">Verklaar in je eigen woorden wat ERK A2 betekent. Wat kun je op dat niveau? Wat kun je nog niet? Schrijf minimaal drie zinnen.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Slimmer studeren</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);">Op welke onderdelen zijn er de meeste punten te rapen? Bekijk de wegingtabel. Wat vertelt je dat over hoe je het best studeert en welke vaardigheden je het meest moet oefenen?</p>
+      <p class="ex-tip">Tip: tel de gewichten samen per categorie (digitaal examen vs. mondeling) en denk na over welke studiestrategieën passen bij elk onderdeel.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Engels in je dagelijks leven</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);">Zoek drie situaties in je dagelijks leven waar je al Engels tegenkomt. Denk aan games, muziek, sociale media, series, websites, sportcommentaar&hellip; Beschrijf elk voorbeeld in &eacute;&eacute;n of twee zinnen: wat was het en wat verstond of begreep je er al van?</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 4</p>
+      <p class="ex-name">Taal en cultuur</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);">Waarom is het nuttig om een taal te leren van het land of de cultuur die ze spreekt? Geef minstens twee redenen en illustreer elke reden met een concreet voorbeeld uit de Engelstalige wereld (VK, VS, Australi&euml;, &hellip;).</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 5</p>
+      <p class="ex-name">Wat kan ik al, wat wil ik leren?</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);">Schrijf drie dingen die je al kunt in het Engels (zinnen, woorden, situaties) en drie dingen die je dit jaar nog wil leren. Wees zo concreet mogelijk: niet &ldquo;beter spreken&rdquo; maar &ldquo;een gesprek voeren over mijn hobby&rsquo;s&rdquo;.</p>
+      <p class="ex-tip">Bewaar je antwoord. Kijk er aan het einde van het jaar naar terug: hoeveel heb je van je wensenlijst bereikt?</p>
+    </div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="summary-section">
+  <div style="max-width:820px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>Engels is de wereldtaal</strong> van wetenschap, technologie, cultuur en business. Engelstalige cultuur be&iuml;nvloedt dagelijks onze leefwereld via muziek, games, sociale media en film.</li>
+      <li>Het <strong>Europees Referentiekader (ERK)</strong> beschrijft zes taalniveaus van A1 tot C2. Jij werkt dit jaar naar <strong>ERK A2</strong> toe: basisgebruiker die eenvoudige zinnen begrijpt en korte gesprekken kan voeren over vertrouwde onderwerpen.</li>
+      <li>Het vak is opgebouwd rond drie pijlers: <strong>woordenschat</strong> (23 woordvelden), <strong>grammatica</strong> (basisstructuren) en <strong>vaardigheden</strong> (lezen, luisteren, schrijven, spreken).</li>
+      <li>Het leermateriaal is verdeeld in <strong>vier delen</strong>: jezelf en je omgeving &rarr; eten, wonen en vrije tijd &rarr; de wereld om ons heen &rarr; taalvaardigheden en examenvoorbereiding.</li>
+      <li>Het examen bestaat uit drie onderdelen: een <strong>spreekopdracht thuis</strong>, een <strong>digitaal examen</strong> (150 min., lezen/luisteren/schrijven) en een <strong>mondeling gesprek</strong> (10 min.).</li>
+      <li><strong>Lezen en luisteren</strong> wegen samen 60% van je score. Train deze receptieve vaardigheden dagelijks door Engelstalige media te consumeren.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoofdstuk 13 — Werken met Geopunt | Aardrijkskunde 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     ILLUSTRATIE PLACEHOLDERS
+  ============================================================ */
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+    cursor: default;
+    transition: background var(--transition);
+  }
+
+  .illustratie:hover { background: #EDE7D8; }
+
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     BRONMATERIAAL — geographic source / map / data block
+     Key component for Aardrijkskunde: use for map descriptions,
+     climate tables, satellite image descriptions, GPS data, etc.
+  ============================================================ */
+  .bronmateriaal {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 2rem 2.2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .bronmateriaal .bron-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--darkblue);
+    opacity: 0.6;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  .bronmateriaal .bron-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  .bronmateriaal .bron-meta {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    font-style: italic;
+    margin-bottom: 0.9rem;
+    display: block;
+  }
+
+  .bronmateriaal .bron-body { margin-bottom: 0.8rem; }
+
+  .bronmateriaal .bron-body p {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-bottom: 0.6em;
+  }
+
+  .bronmateriaal .bron-body p:last-child { margin-bottom: 0; }
+
+  .bronmateriaal .bron-body table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+  }
+
+  .bronmateriaal .bron-body th {
+    background: var(--darkblue);
+    color: white;
+    padding: 0.4rem 0.75rem;
+    text-align: left;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    font-size: 0.83rem;
+  }
+
+  .bronmateriaal .bron-body td {
+    padding: 0.35rem 0.75rem;
+    border-bottom: 1px solid var(--sand);
+    color: var(--text-mid);
+    font-size: 0.93rem;
+  }
+
+  .bronmateriaal .bron-body tr:last-child td { border-bottom: none; }
+
+  .bronmateriaal .bron-body tr:nth-child(even) td {
+    background: var(--sand-light);
+  }
+
+  .bronmateriaal .bron-vraag {
+    background: rgba(26,43,74,0.06);
+    border-left: 3px solid var(--darkblue);
+    border-radius: 0 4px 4px 0;
+    padding: 0.7rem 1rem;
+    font-size: 0.93rem;
+    color: var(--text-mid);
+    font-style: italic;
+    margin-top: 1rem;
+  }
+
+  .bronmateriaal .bron-vraag::before {
+    content: '🔍 ';
+    font-style: normal;
+  }
+
+  .bronmateriaal .bron-source {
+    font-size: 0.78rem;
+    color: var(--text-light);
+    border-top: 1px solid var(--sand);
+    padding-top: 0.6rem;
+    font-style: italic;
+    margin-top: 0.8rem;
+    display: block;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     CLOSING QUOTE
+  ============================================================ */
+  .closing-quote {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0D1E38 100%);
+    border-radius: var(--border-radius);
+    padding: 3rem 3rem 2.5rem;
+    margin: 3.5rem 0 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.5rem; left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .closing-quote .cq-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--gold);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 1.2rem;
+  }
+
+  .closing-quote .cq-attribution {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(212,160,23,0.6);
+  }
+
+  .closing-quote .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .closing-quote .ornament-line::before,
+  .closing-quote .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.4), transparent);
+  }
+
+  .closing-quote .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.7;
+  }
+
+  /* ============================================================
+     STAPPENPLAN / PROTOCOL LIST
+  ============================================================ */
+  .stappenplan {
+    counter-reset: stap-counter;
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+  }
+
+  .stappenplan li {
+    counter-increment: stap-counter;
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+    margin-bottom: 1.3rem;
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1rem 1.3rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(200,146,58,0.18);
+  }
+
+  .stappenplan li::before {
+    content: counter(stap-counter);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    flex-shrink: 0;
+    min-width: 1.8rem;
+    text-align: center;
+    padding-top: 0.1rem;
+  }
+
+  .stappenplan li .stap-content { flex: 1; }
+
+  .stappenplan li .stap-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--darkblue);
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  .stappenplan li .stap-desc {
+    font-size: 0.95rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+  }
+
+  /* ============================================================
+     FUNCTIES LIST (Geopunt functions)
+  ============================================================ */
+  .functies-list {
+    counter-reset: functie-counter;
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+  }
+
+  .functies-list li {
+    counter-increment: functie-counter;
+    display: flex;
+    gap: 1.1rem;
+    align-items: flex-start;
+    margin-bottom: 1.1rem;
+    padding: 1.1rem 1.3rem;
+    background: white;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--darkblue);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .functies-list li::before {
+    content: counter(functie-counter);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: white;
+    background: var(--darkblue);
+    border-radius: 50%;
+    width: 1.7rem;
+    height: 1.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .functies-list li .functie-body { flex: 1; }
+
+  .functies-list li .functie-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--darkblue);
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  .functies-list li .functie-desc {
+    font-size: 0.95rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+  }
+
+  /* ============================================================
+     VOORBEELD BLOK (inline example)
+  ============================================================ */
+  .voorbeeld-blok {
+    background: #F0F4FA;
+    border-radius: var(--border-radius);
+    padding: 1.2rem 1.5rem;
+    margin: 1.2rem 0;
+    border: 1px solid rgba(26,43,74,0.12);
+  }
+
+  .voorbeeld-blok .vb-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--darkblue);
+    opacity: 0.65;
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  .voorbeeld-blok p {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    margin-bottom: 0.4em;
+  }
+
+  .voorbeeld-blok .goed { color: #2A6B2A; font-weight: 700; }
+  .voorbeeld-blok .fout { color: #8B1A0E; font-weight: 700; }
+
+  /* ============================================================
+     CRITERIA TABLE
+  ============================================================ */
+  .criteria-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.2rem 0;
+    font-size: 0.95rem;
+  }
+
+  .criteria-table th {
+    background: var(--darkblue);
+    color: white;
+    padding: 0.5rem 0.9rem;
+    text-align: left;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.83rem;
+    font-weight: 600;
+  }
+
+  .criteria-table td {
+    padding: 0.5rem 0.9rem;
+    border-bottom: 1px solid var(--sand);
+    color: var(--text-mid);
+  }
+
+  .criteria-table tr:nth-child(even) td { background: var(--sand-light); }
+  .criteria-table tr:last-child td { border-bottom: none; }
+
+  /* ============================================================
+     TEMPLATE / INVULBLAD
+  ============================================================ */
+  .invulblad {
+    background: white;
+    border: 1.5px dashed rgba(26,43,74,0.3);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.8rem;
+    margin: 1.5rem 0;
+  }
+
+  .invulblad .invul-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--sand);
+    padding-bottom: 0.5rem;
+  }
+
+  .invulblad .invul-rij {
+    margin-bottom: 1rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(200,146,58,0.12);
+  }
+
+  .invulblad .invul-rij:last-child { border-bottom: none; margin-bottom: 0; }
+
+  .invulblad .invul-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  .invulblad .invul-lijn {
+    display: block;
+    border-bottom: 1px solid #C0B49A;
+    margin-bottom: 0.4rem;
+    min-height: 1.6em;
+    font-size: 0.93rem;
+    color: var(--text-light);
+    font-style: italic;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .closing-quote { padding: 2rem 1.2rem 1.8rem; }
+    .bronmateriaal { padding: 1.4rem 1.2rem; }
+    .functies-list li { flex-direction: column; gap: 0.6rem; }
+    .stappenplan li { flex-direction: column; gap: 0.4rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <a class="label" href="index.html">Aardrijkskunde 1A</a>
+  <span class="label label-right">Hoofdstuk 13</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Aardrijkskunde &nbsp;&middot;&nbsp; 1A &nbsp;&middot;&nbsp; Domein 5</div>
+  <h1>Hoofdstuk 13<br>Werken met Geopunt</h1>
+  <p class="subtitle">Digitaal geografisch onderzoek in Vlaanderen</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- PROLOGUE -->
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Stel je voor &hellip;</span>
+
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+
+    <p>Je wil weten of jouw gemeente meer groen heeft dan de buurgemeente. Je zou dagenlang kunnen rondslenteren met een meetlint, aantekeningen maken op papier, alles optellen. Je zou blauwe plekken oplopen van de fietspalen en verdwaald raken in industriezones.</p>
+
+    <p>Of je opent <strong style="color: var(--gold);">www.geopunt.be</strong> en vindt het antwoord in tien minuten.</p>
+
+    <p>Dit is wat een <strong style="color: var(--gold);">GIS &mdash; een Geografisch Informatiesysteem</strong> &mdash; mogelijk maakt: je kunt vanuit je eigen computer de volledige bodemkaart van Vlaanderen raadplegen, groenoppervlakten meten, hoogteverschillen aflezen, en twee gebieden naast elkaar vergelijken. Geopunt is de gratis Vlaamse GIS-viewer die precies dat doet. In dit hoofdstuk leer je er mee werken: van de basisinterface tot het opzetten van een volledig geografisch onderzoek.</p>
+
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+  </section>
+
+  <!-- SECTION 1: Wat is GIS? -->
+  <section class="section-block" id="sectie-1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Wat is GIS?</h2>
+    </div>
+
+    <p>GIS staat voor <strong>Geografisch Informatiesysteem</strong> (of in het Engels: <em>Geographic Information System</em>). Het is een computerprogramma dat geografische gegevens opslaat, analyseert en visueel weergeeft in de vorm van kaartlagen. Je kunt het vergelijken met een digitale stapel transparante folies: elke folie toont andere informatie over hetzelfde gebied, en samen geven ze een volledig beeld van dat landschap.</p>
+
+    <h3 class="sub-heading">Kaartlagen</h3>
+
+    <p>Het sleutelconcept in GIS is de <strong>kaartlaag</strong>. Elke laag bevat &eacute;&eacute;n type geografische informatie, bijvoorbeeld:</p>
+
+    <ul style="padding-left:1.4rem;margin:0.6rem 0 1rem;">
+      <li style="margin-bottom:0.45rem"><strong>Topografische kaart</strong> &mdash; wegen, dorpen, waterlopen, hoogtecijfers</li>
+      <li style="margin-bottom:0.45rem"><strong>Bodemgebruik</strong> &mdash; welke percelen zijn akkerland, bebouwing, bos of natuur?</li>
+      <li style="margin-bottom:0.45rem"><strong>Bevolkingsdichtheid</strong> &mdash; hoeveel mensen wonen er per vierkante kilometer?</li>
+      <li style="margin-bottom:0.45rem"><strong>Hoogte (digitaal hoogtemodel)</strong> &mdash; de exacte hoogte boven zeeniveau van elk punt</li>
+      <li style="margin-bottom:0.45rem"><strong>Overstromingsgebieden</strong> &mdash; welke zones lopen risico bij een overstroming?</li>
+    </ul>
+
+    <p>Door meerdere lagen tegelijk te tonen, ontstaan verbanden die je op een gewone kaart nooit zou zien. Ligt het gebied dat overstromingsrisico loopt ook in een laaggelegen zone? Is de bebouwing geconcentreerd langs bepaalde transportassen? GIS laat je dat zien en meten.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128204;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">GIS &mdash; Geografisch Informatiesysteem</span>
+        <p class="begrip-def">Software die geografische gegevens opslaat, analyseert en als kaartlagen visualiseert. Verschillende lagen kunnen over elkaar heen worden getoond, waardoor ruimtelijke verbanden zichtbaar worden.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128257;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Kaartlaag</span>
+        <p class="begrip-def">Een digitale laag die &eacute;&eacute;n type geografische informatie bevat (bv. bodemgebruik, wegen, hoogte). In een GIS kun je meerdere kaartlagen tegelijk tonen en ze transparant over elkaar leggen.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Wie gebruikt GIS?</h3>
+
+    <p>GIS is niet alleen voor geografen. Het wordt gebruikt door:</p>
+
+    <ul style="padding-left:1.4rem;margin:0.6rem 0 1rem;">
+      <li style="margin-bottom:0.45rem"><strong>Stedenbouwkundigen</strong> &mdash; om te bepalen waar nieuwe woningen of wegen mogen komen</li>
+      <li style="margin-bottom:0.45rem"><strong>Boeren en landbouwers</strong> &mdash; om perceelsgrenzen en bodemkwaliteit te raadplegen</li>
+      <li style="margin-bottom:0.45rem"><strong>Hulpdiensten</strong> &mdash; brandweer en politie gebruiken GIS om snel de kortste route te berekenen</li>
+      <li style="margin-bottom:0.45rem"><strong>Milieudiensten</strong> &mdash; om te meten hoeveel bos er gekapt is of hoe groot een overstromingsgebied is</li>
+      <li style="margin-bottom:0.45rem"><strong>Leerlingen en onderzoekers</strong> &mdash; om geografische onderzoeksvragen te beantwoorden</li>
+    </ul>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#127758;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Geopunt</span>
+        <p class="begrip-def">Een gratis, online GIS-viewer voor Vlaanderen, aangeboden door Digitaal Vlaanderen. Via www.geopunt.be kun je honderden officiële kaartlagen over het Vlaamse grondgebied raadplegen, lagen stapelen, afstanden meten en hoogte aflezen.</p>
+      </div>
+    </div>
+
+    <p>Geopunt is dus de Vlaamse versie van GIS die voor iedereen gratis beschikbaar is. Je hebt geen software nodig: alles werkt in de browser. De kaartgegevens zijn officieel en up-to-date, want ze komen van de Vlaamse overheid.</p>
+
+  </section>
+
+  <!-- SECTION 2: De Geopunt-interface -->
+  <section class="section-block" id="sectie-2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">De Geopunt-interface &mdash; 8 functies</h2>
+    </div>
+
+    <p>Wanneer je www.geopunt.be opent, zie je een kaartscherm. Misschien lijkt het eerst ingewikkeld, maar de interface bestaat uit duidelijke onderdelen. Er zijn <strong>8 functies</strong> die je volledig moet kennen.</p>
+
+    <!-- Illustratie placeholder -->
+    <div class="illustratie" role="img" aria-label="Illustratie: Screenshot van de Geopunt-interface">
+      <span class="ill-icon">&#128506;</span>
+      <p class="ill-caption">Screenshot van de Geopunt-interface met aanduiding van de 8 functies: zoekbalk (1), kaartlagen (2), transparantieschuif (3), achtergrondkaart (4), informatiepopup (5), meetfunctie (6), hoogte (7) en startscherm (8).<br><em>[Illustratie volgt &mdash; te vervangen door actuele screenshot van www.geopunt.be]</em></p>
+    </div>
+
+    <ol class="functies-list">
+      <li>
+        <div class="functie-body">
+          <span class="functie-name">Het startscherm begrijpen</span>
+          <span class="functie-desc">Wanneer je Geopunt opent, zie je vier hoofddelen: bovenaan een <strong>zoekbalk</strong> om adressen en plaatsnamen te zoeken; in het midden het <strong>kaartvenster</strong> dat het kaartgebied toont; links een <strong>lagenpaneel</strong> om kaartlagen te beheren; en rechts <strong>zoomknoppen</strong> (+ en &minus;) om in en uit te zoomen. Familiariseer jezelf met dit layout voordat je verdere functies gebruikt.</span>
+        </div>
+      </li>
+      <li>
+        <div class="functie-body">
+          <span class="functie-name">Plaatsen zoeken</span>
+          <span class="functie-desc">Typ een adres, plaatsnaam of postcode in de <strong>zoekbalk</strong> bovenaan het scherm. Geopunt geeft een lijst met suggesties. Klik op de juiste locatie en de kaart zoomt automatisch in op dat punt. Je kunt zoeken op straatnaam + gemeente (bv. <em>Naamsestraat, Leuven</em>) of gewoon op de gemeente.</span>
+        </div>
+      </li>
+      <li>
+        <div class="functie-body">
+          <span class="functie-name">Kaartlagen aanmaken en legende raadplegen</span>
+          <span class="functie-desc">Klik op het knopje <strong>"Kaartlagen"</strong> in het lagenpaneel links. Er opent een zoekveld. Typ een thema in (bv. <em>bodemgebruik</em>, <em>overstromingsgebied</em>, <em>natura 2000</em>). Klik op de laag en kies <em>"Voeg toe aan kaart"</em>. De laag verschijnt nu over de basiskaart. Klik op de laagnaam om de <strong>legende</strong> te openen: de legende legt uit welke kleur welke categorie voorstelt. <em>Lees altijd eerst de legende voordat je conclusies trekt!</em></span>
+        </div>
+      </li>
+      <li>
+        <div class="functie-body">
+          <span class="functie-name">Kaartlagen doorzichtig maken</span>
+          <span class="functie-desc">Wanneer je meerdere lagen tegelijk toont, overlappen ze elkaar. Met de <strong>transparantieschuif</strong> (ook wel doorzichtigheidsschuif) maak je een laag gedeeltelijk doorzichtig, zodat de onderliggende kaart of laag nog zichtbaar blijft. Sleep de schuif naar links voor meer transparantie, naar rechts voor volle dekking. Dit is handig wanneer je bv. de bodemgebruikslaag &eacute;n de topografische kaart tegelijk wil zien.</span>
+        </div>
+      </li>
+      <li>
+        <div class="functie-body">
+          <span class="functie-name">Achtergrondkaarten selecteren</span>
+          <span class="functie-desc">Geopunt biedt verschillende <strong>achtergrondkaarten</strong> aan als basis voor jouw analyse. Je kunt kiezen uit: de <em>topografische kaart</em> (met wegen, hoogtelijnen en plaatsnamen), een <em>satellietopname</em> (luchtfoto), een <em>stratenkaart</em> (gelijkaardig aan Google Maps), en een <em>historische kaart</em> (om te vergelijken hoe het landschap er vroeger uitzag). Kies de achtergrond die het best past bij jouw onderzoeksvraag.</span>
+        </div>
+      </li>
+      <li>
+        <div class="functie-body">
+          <span class="functie-name">Informatie over een gekende locatie bekijken</span>
+          <span class="functie-desc">Klik op een object of punt op de kaart om een <strong>informatiepopup</strong> te openen. Die popup toont de attributen van dat object: naam, categorie, eigenaar, oppervlakte, enz. Dit werkt bij alle actieve lagen. <em>Voorbeeld</em>: activeer de laag "Beschermde landschappen" en klik op het park <em>Roosendaele</em> in Ardooie. De popup toont: naam, classificatie als beschermd dorpsgezicht, jaar van bescherming en de bevoegde overheid.</span>
+        </div>
+      </li>
+      <li>
+        <div class="functie-body">
+          <span class="functie-name">Afstand en oppervlakte meten</span>
+          <span class="functie-desc">Geopunt heeft een ingebouwde <strong>meetfunctie</strong>. Kies in de werkbalk "Meten". Je kunt nu twee dingen doen: (a) <em>Afstand meten</em>: klik op een startpunt en eindigpunt (of meerdere tussenpunten voor een route) &mdash; Geopunt berekent automatisch de afstand in meter of kilometer; (b) <em>Oppervlakte meten</em>: teken een veelhoek rond een gebied door meerdere punten te klikken en het vlak te sluiten &mdash; Geopunt berekent de oppervlakte in m&#178; of ha.</span>
+        </div>
+      </li>
+      <li>
+        <div class="functie-body">
+          <span class="functie-name">Hoogte of specifieke hoogte van plaatsen bekijken</span>
+          <span class="functie-desc">Met de <strong>hoogte-tool</strong> kun je de exacte hoogte boven zeeniveau van elk punt in Vlaanderen aflezen. Activeer de functie en klik op een punt op de kaart: een popup toont de hoogte in meter. Je kunt ook een lijn tekenen en een <em>hoogteprofiel</em> opvragen: een grafiek die toont hoe de hoogte varieert langs een traject. Dit is handig voor reliëfonderzoek.</span>
+        </div>
+      </li>
+    </ol>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128269;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begripen &mdash; Geopunt-functies</span>
+        <span class="begrip-name">Transparantie &mdash; Achtergrondkaart &mdash; Meetfunctie</span>
+        <p class="begrip-def"><strong>Transparantie:</strong> de mate waarin een kaartlaag doorzichtig is, zodat onderliggende lagen zichtbaar blijven. <strong>Achtergrondkaart:</strong> de basiskaart waarover thematische lagen worden gelegd (bv. topografisch, satelliet, historisch). <strong>Meetfunctie:</strong> de tool in Geopunt waarmee je afstanden (in m of km) en oppervlakten (in m&#178; of ha) op de kaart kunt berekenen.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- SECTION 3: Een onderzoeksvraag formuleren -->
+  <section class="section-block" id="sectie-3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Een onderzoeksvraag formuleren</h2>
+    </div>
+
+    <p>Voordat je Geopunt opent, moet je weten <strong>wat je wil onderzoeken</strong>. Dat begin je met een goede onderzoeksvraag. Niet elke vraag is een goede onderzoeksvraag. Een goede geografische onderzoeksvraag is:</p>
+
+    <table class="criteria-table">
+      <thead>
+        <tr>
+          <th>Criterium</th>
+          <th>Wat betekent het?</th>
+          <th>Voorbeeld</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Geografisch relevant</strong></td>
+          <td>De vraag gaat over een <em>plaats</em>, <em>ruimte</em> of <em>ruimtelijk patroon</em></td>
+          <td>Waar bevindt de meeste bebouwing zich in Mechelen?</td>
+        </tr>
+        <tr>
+          <td><strong>Meetbaar</strong></td>
+          <td>Je kunt het antwoord vinden met kaartdata: meten, vergelijken, tellen</td>
+          <td>Wat is het percentage landbouwgrond in Hasselt?</td>
+        </tr>
+        <tr>
+          <td><strong>Specifiek</strong></td>
+          <td>Een duidelijk afgebakend gebied en een concreet thema</td>
+          <td>Is de groenoppervlakte per inwoner in Gent groter dan in Antwerpen?</td>
+        </tr>
+        <tr>
+          <td><strong>Realistisch</strong></td>
+          <td>Antwoord is haalbaar met de beschikbare Geopunt-lagen</td>
+          <td>Gebruik beschikbare lagen: bodemgebruik, bevolkingsdata</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub-heading">Slechte versus goede onderzoeksvragen</h3>
+
+    <div class="voorbeeld-blok">
+      <span class="vb-label">Voorbeelden</span>
+      <p><span class="fout">&#10007; Slecht:</span> <em>"Is Vlaanderen groen?"</em><br>
+      <span style="font-size:0.93rem;color:var(--text-light);">Te vaag: geen specifiek gebied, geen maatstaf voor "groen", onmeetbaar.</span></p>
+      <p><span class="fout">&#10007; Slecht:</span> <em>"Zijn mensen gelukkig in Brugge?"</em><br>
+      <span style="font-size:0.93rem;color:var(--text-light);">Niet geografisch meetbaar met kaartdata; geen ruimtelijk patroon.</span></p>
+      <p style="margin-top:0.8rem;"><span class="goed">&#10003; Goed:</span> <em>"Is het percentage groenoppervlakte in Gent hoger dan in Antwerpen?"</em><br>
+      <span style="font-size:0.93rem;color:var(--text-light);">Specifiek (twee steden), meetbaar (percentage via bodemgebruikslaag), geografisch.</span></p>
+      <p><span class="goed">&#10003; Goed:</span> <em>"Welk percentage van het grondgebied van Lier bestaat uit landbouwgrond?"</em><br>
+      <span style="font-size:0.93rem;color:var(--text-light);">Specifiek (Lier), meetbaar (percentage via oppervlaktemeting), realistisch.</span></p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#10067;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Onderzoeksvraag</span>
+        <p class="begrip-def">Een duidelijk geformuleerde vraag die het doel van een geografisch onderzoek bepaalt. Een goede geografische onderzoeksvraag is specifiek, meetbaar, geografisch relevant en realistisch beantwoordbaar met beschikbare kaartdata.</p>
+      </div>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Bekijk de volgende drie vragen en beoordeel elk van hen: is het een goede geografische onderzoeksvraag of niet? Leg je redenering uit. (a) "Hoeveel bossen zijn er in Vlaanderen?" &mdash; (b) "Welk deel van de gemeente Genk bestaat uit industriegebied?" &mdash; (c) "Waarom is het klimaat aangenamer in Spanje dan in Belgi&euml;?"</p>
+    </div>
+
+  </section>
+
+  <!-- SECTION 4: Een hypothese opstellen -->
+  <section class="section-block" id="sectie-4">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Een hypothese opstellen</h2>
+    </div>
+
+    <p>Wanneer je een onderzoeksvraag hebt, stel je een <strong>hypothese</strong> op. Een hypothese is een <em>beredeneerde verwachting</em>: wat denk jij dat het antwoord zal zijn, en waarom? Het is geen wilde gok, maar een voorspelling op basis van wat je al weet of denkt te weten over het gebied.</p>
+
+    <h3 class="sub-heading">Kenmerken van een goede hypothese</h3>
+
+    <ul style="padding-left:1.4rem;margin:0.6rem 0 1rem;">
+      <li style="margin-bottom:0.5rem"><strong>Gebaseerd op voorkennis of verwachting</strong> &mdash; wat weet je al over dit gebied of dit type landgebruik?</li>
+      <li style="margin-bottom:0.5rem"><strong>Testbaar met beschikbare kaartdata</strong> &mdash; je moet kunnen controleren of de hypothese klopt via Geopunt</li>
+      <li style="margin-bottom:0.5rem"><strong>Concreet geformuleerd</strong> &mdash; met een richting (meer/minder, groter/kleiner, hoger/lager)</li>
+      <li style="margin-bottom:0.5rem"><strong>Voorzien van een reden</strong> &mdash; leg uit waarom je dat verwacht</li>
+    </ul>
+
+    <h3 class="sub-heading">Het standaardformaat</h3>
+
+    <p>Gebruik het volgende formaat voor je hypothese:</p>
+
+    <div class="voorbeeld-blok">
+      <span class="vb-label">Formaat</span>
+      <p style="font-size:1.05rem;font-style:italic;color:var(--darkblue);">"Ik vermoed dat [beschrijving van wat je verwacht te vinden], omdat [reden of redenering op basis van voorkennis]."</p>
+    </div>
+
+    <div class="voorbeeld-blok">
+      <span class="vb-label">Voorbeeld</span>
+      <p><em>"Ik vermoed dat Gent meer groen heeft per inwoner dan Antwerpen, omdat Gent een kleiner stadscentrum heeft en meer parken aansluitend aan de Leie en de Schelde. Antwerpen is een grotere havenstad met meer industrie en bebouwing."</em></p>
+    </div>
+
+    <p>Na het onderzoek controleer je of je hypothese klopt, gedeeltelijk klopt, of onjuist was. <strong>Het is niet erg als de hypothese niet klopt</strong> &mdash; ook een onjuiste hypothese leidt tot leren, omdat je dan begrijpt waarom de werkelijkheid anders is dan verwacht.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128270;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Hypothese</span>
+        <p class="begrip-def">Een beredeneerde verwachting of voorspelling over het antwoord op een onderzoeksvraag. Een hypothese is gebaseerd op voorkennis, is concreet geformuleerd (met richting &eacute;n reden), en moet testbaar zijn met de beschikbare kaartdata. Formaat: "Ik vermoed dat [X] omdat [reden]."</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- BRONMATERIAAL 1: Uitgewerkt onderzoeksvoorbeeld -->
+  <section class="section-block" id="bron-1">
+    <div class="bronmateriaal">
+      <span class="bron-label">Bronmateriaal 1 &mdash; Uitgewerkt GIS-onderzoeksvoorbeeld</span>
+      <span class="bron-title">Heeft Leuven meer landbouwgrond of meer bebouwde oppervlakte?</span>
+      <span class="bron-meta">Geopunt &nbsp;&middot;&nbsp; Laag: Bodemgebruik (VITO/Vlaanderen) &nbsp;&middot;&nbsp; Onderzoeksgebied: gemeente Leuven</span>
+
+      <div class="bron-body">
+        <p><strong>Stap 1 &mdash; Onderzoeksvraag:</strong> "Welk percentage van het grondgebied van Leuven is landbouwgrond en welk percentage is bebouwd?"</p>
+
+        <p><strong>Stap 2 &mdash; Hypothese:</strong> "Ik vermoed dat bebouwing domineert, omdat Leuven een grote universitaire stad is met een uitgebreid stadscentrum, veel studentenwijken en een dichte infrastructuur. Ik schat: circa 60% bebouwd, 30% landbouw en 10% natuur en bos."</p>
+
+        <p><strong>Stap 3 &mdash; Benodigde kaartlagen:</strong></p>
+        <ul>
+          <li>Laag <em>"Bodemgebruik"</em> &mdash; toont het landgebruik per perceel in kleur</li>
+          <li>Achtergrond: topografische kaart &mdash; voor ruimtelijke ori&euml;ntatie</li>
+        </ul>
+
+        <p><strong>Stap 4 &mdash; Analyse:</strong> Na het activeren van de bodemgebruikslaag verschijnt een kleurenkaart over Leuven. De legende toont de volgende categorieën:</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Kleur op kaart</th>
+              <th>Categorie bodemgebruik</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Oranje / rood</td><td>Bebouwing (wonen, industrie, handel)</td></tr>
+            <tr><td>Geel</td><td>Akkerland (landbouw)</td></tr>
+            <tr><td>Donkergroen</td><td>Bos</td></tr>
+            <tr><td>Lichtgroen</td><td>Grasland / natuur</td></tr>
+            <tr><td>Blauw</td><td>Water (rivieren, vijvers)</td></tr>
+          </tbody>
+        </table>
+
+        <p>Het stadscentrum van Leuven toont overwegend oranje: hier domineren bebouwing en verharde oppervlaktes. De oostelijke en zuidoostelijke rand van de gemeente toont gele vlakken: dit zijn de landbouwpercelen richting Tienen en Tienen-Landen. Het Arenbergpark (campus KU Leuven) en de vallei van de Dijle tonen donkergroen.</p>
+
+        <p><strong>Stap 5 &mdash; Conclusie en vergelijking met hypothese:</strong></p>
+        <p>Op basis van de kaartanalyse en oppervlaktemeting: bebouwing 45%, landbouw 38%, natuur en bos 17%. De hypothese werd <em>gedeeltelijk bevestigd</em>: bebouwing domineert inderdaad, maar niet zo sterk als verwacht (45% in plaats van de geschatte 60%). De hoeveelheid landbouwgrond was groter dan gedacht (38% in plaats van 30%), omdat Leuven als gemeente ook uitgestrekte landelijke randgebieden heeft naast het dichte stadscentrum. De natuur scoort iets hoger dan verwacht door de universitaire groene campusdomeinen.</p>
+      </div>
+
+      <p class="bron-vraag">Klopte de hypothese? Welk deel van de hypothese klopte wél, en welk deel niet? Verklaar ook waarom de werkelijkheid afweek van de voorspelling: welke factor had de onderzoeker onderschat?</p>
+
+      <span class="bron-source">Bron: Geopunt &mdash; Digitaal Vlaanderen &mdash; www.geopunt.be &nbsp;&middot;&nbsp; Bodemgebruikslaag VITO Vlaanderen &nbsp;&middot;&nbsp; Referentiejaar 2023</span>
+    </div>
+  </section>
+
+  <!-- SECTION 5: Het stappenplan voor GIS-onderzoek -->
+  <section class="section-block" id="sectie-5">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Het stappenplan voor GIS-onderzoek</h2>
+    </div>
+
+    <p>Elke keer dat je een geografisch onderzoek uitvoert met Geopunt, volg je hetzelfde vijfstappenplan. Als je dit schema goed kent, ben je ook goed voorbereid voor het examen, want de examenvragen zijn dikwijls opgebouwd rond dit protocol.</p>
+
+    <ol class="stappenplan">
+      <li>
+        <div class="stap-content">
+          <span class="stap-title">Formuleer een onderzoeksvraag</span>
+          <span class="stap-desc">Omschrijf duidelijk <em>wat</em> je wil onderzoeken, <em>waar</em> (welk gebied?) en <em>hoe</em> je het gaat meten. Controleer: is de vraag geografisch relevant, meetbaar, specifiek en realistisch?</span>
+        </div>
+      </li>
+      <li>
+        <div class="stap-content">
+          <span class="stap-title">Stel een hypothese op</span>
+          <span class="stap-desc">Gebruik het formaat "Ik vermoed dat [X] omdat [reden]." Baseer je hypothese op voorkennis over het gebied of het thema. Zorg dat ze testbaar is met kaartdata.</span>
+        </div>
+      </li>
+      <li>
+        <div class="stap-content">
+          <span class="stap-title">Plan het onderzoek</span>
+          <span class="stap-desc">Beslis welke kaartlagen je nodig hebt, welk gebied je bekijkt en wat je precies gaat meten of vergelijken. Welke achtergrondkaart gebruik je? Meet je oppervlakte, afstand of hoogte?</span>
+        </div>
+      </li>
+      <li>
+        <div class="stap-content">
+          <span class="stap-title">Selecteer de kaartlagen en analyseer ze in Geopunt</span>
+          <span class="stap-desc">Open Geopunt, zoek het gebied op, activeer de gekozen lagen, raadpleeg de legende en gebruik de meet- of informatietool. Noteer je bevindingen: kleurpatronen, oppervlakten, hoogteverschillen.</span>
+        </div>
+      </li>
+      <li>
+        <div class="stap-content">
+          <span class="stap-title">Beantwoord de onderzoeksvraag en controleer de hypothese</span>
+          <span class="stap-desc">Trek een conclusie op basis van je kaartanalyse. Vergelijk met de hypothese: klopte ze volledig, gedeeltelijk, of helemaal niet? Geef een verklaring voor eventuele afwijkingen.</span>
+        </div>
+      </li>
+    </ol>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Formuleer zelf een onderzoeksvraag over jouw eigen gemeente die je met Geopunt kunt beantwoorden. Controleer of ze voldoet aan alle vier criteria (geografisch relevant, meetbaar, specifiek, realistisch). Stel ook een bijpassende hypothese op in het standaardformaat.</p>
+    </div>
+
+  </section>
+
+  <!-- BRONMATERIAAL 2: Praktijkoefening -->
+  <section class="section-block" id="bron-2">
+    <div class="bronmateriaal">
+      <span class="bron-label">Bronmateriaal 2 &mdash; Praktijkoefening Geopunt</span>
+      <span class="bron-title">Vergelijk twee gemeenten: Mechelen en Turnhout</span>
+      <span class="bron-meta">Opdracht voor leerling &nbsp;&middot;&nbsp; Beschikbare lagen: bodemgebruik, digitaal hoogtemodel, satellietopname &nbsp;&middot;&nbsp; Geopunt &mdash; www.geopunt.be</span>
+
+      <div class="bron-body">
+        <p>In deze oefening vergelijk je twee Vlaamse steden: <strong>Mechelen</strong> (provincie Antwerpen, gelegen aan de Dijle, centraal in Vlaanderen) en <strong>Turnhout</strong> (provincie Antwerpen, in de Kempen, meer naar het noorden). Beide zijn middelgrote steden, maar hun ligging en omgeving zijn heel anders.</p>
+
+        <p><strong>Beschikbare kaartlagen in Geopunt:</strong></p>
+        <ul>
+          <li>Laag <em>"Bodemgebruik"</em> &mdash; toont landbouw, bebouwing, natuur, bos en water</li>
+          <li>Laag <em>"Digitaal Hoogtemodel Vlaanderen"</em> &mdash; toont de hoogte boven zeeniveau</li>
+          <li>Achtergrond: <em>satellietopname</em> &mdash; voor visuele vergelijking van groen en bebouwing</li>
+        </ul>
+
+        <p><strong>Wat weet je al over deze gebieden?</strong> Mechelen ligt in de vruchtbare Vlaamse vallei en is sterk verstedelijkt. Turnhout ligt in de Kempen, een regio met veel heide, dennenbossen en kleinschaliger landbouw. Het hoogteverschil tussen beide gebieden is gering, maar de Kempen liggen gemiddeld iets hoger dan de Dijlevallei.</p>
+
+        <div class="invulblad">
+          <p class="invul-title">Onderzoeksprotocol &mdash; in te vullen door de leerling</p>
+
+          <div class="invul-rij">
+            <span class="invul-label">Onderzoeksvraag (jouw specifieke vraag over Mechelen vs. Turnhout)</span>
+            <span class="invul-lijn">&nbsp;</span>
+            <span class="invul-lijn">&nbsp;</span>
+          </div>
+
+          <div class="invul-rij">
+            <span class="invul-label">Hypothese (formaat: "Ik vermoed dat ... omdat ...")</span>
+            <span class="invul-lijn">&nbsp;</span>
+            <span class="invul-lijn">&nbsp;</span>
+            <span class="invul-lijn">&nbsp;</span>
+          </div>
+
+          <div class="invul-rij">
+            <span class="invul-label">Welke kaartlagen gebruik je? Waarom?</span>
+            <span class="invul-lijn">&nbsp;</span>
+            <span class="invul-lijn">&nbsp;</span>
+          </div>
+
+          <div class="invul-rij">
+            <span class="invul-label">Wat verwacht je te zien op de bodemgebruikslaag van Mechelen?</span>
+            <span class="invul-lijn">&nbsp;</span>
+            <span class="invul-lijn">&nbsp;</span>
+          </div>
+
+          <div class="invul-rij">
+            <span class="invul-label">Wat verwacht je te zien op de bodemgebruikslaag van Turnhout?</span>
+            <span class="invul-lijn">&nbsp;</span>
+            <span class="invul-lijn">&nbsp;</span>
+          </div>
+
+          <div class="invul-rij">
+            <span class="invul-label">Verwachte conclusie (voordat je Geopunt opent)</span>
+            <span class="invul-lijn">&nbsp;</span>
+            <span class="invul-lijn">&nbsp;</span>
+          </div>
+        </div>
+
+        <p><strong>Opdracht:</strong> Open nu Geopunt, activeer de lagen en voer de vergelijking uit. Noteer je werkelijke bevindingen en vergelijk ze met je hypothese. Klopte je voorspelling?</p>
+      </div>
+
+      <p class="bron-vraag">Welke Geopunt-functies gebruik je om (a) de oppervlakte van een bos te meten en (b) de hoogte van een bepaald punt te weten? Noem telkens de naam van de functie en beschrijf kort hoe je ze gebruikt.</p>
+
+      <span class="bron-source">Oefening gebaseerd op officiële Geopunt-lagen &mdash; Digitaal Vlaanderen &nbsp;&middot;&nbsp; www.geopunt.be</span>
+    </div>
+  </section>
+
+  <!-- SECTION 6: Geopunt en het examen -->
+  <section class="section-block" id="sectie-6">
+    <div class="section-heading">
+      <span class="section-num">6</span>
+      <h2 class="section-title">Geopunt en het examen</h2>
+    </div>
+
+    <p>Geopunt is niet alleen een oefentool: op het examen van Aardrijkskunde 1A mag je Geopunt gebruiken op je laptop of tablet. Dat betekent dat je er vertrouwd mee moet zijn v&oacute;&oacute;r het examen &mdash; je zal geen tijd hebben om de interface te verkennen tijdens het examen zelf.</p>
+
+    <h3 class="sub-heading">Wat wordt er op het examen gevraagd?</h3>
+
+    <p>Typische examentaken met Geopunt zijn:</p>
+
+    <ul style="padding-left:1.4rem;margin:0.6rem 0 1rem;">
+      <li style="margin-bottom:0.5rem"><strong>Afstand meten</strong> &mdash; meet de rechte lijn of wegafstand tussen twee opgegeven punten</li>
+      <li style="margin-bottom:0.5rem"><strong>Landgebruik identificeren</strong> &mdash; activeer de bodemgebruikslaag en beschrijf het landgebruik van een bepaald perceel of gebied</li>
+      <li style="margin-bottom:0.5rem"><strong>Twee gebieden vergelijken</strong> &mdash; gebruik een thematische laag om twee gemeenten of gebieden te beschrijven en te vergelijken</li>
+      <li style="margin-bottom:0.5rem"><strong>Hoogte aflezen</strong> &mdash; gebruik de hoogte-tool om de hoogte van een opgegeven punt op te zoeken</li>
+      <li style="margin-bottom:0.5rem"><strong>Legende lezen</strong> &mdash; verklaar wat een kleur of symbool op een geactiveerde laag betekent</li>
+      <li style="margin-bottom:0.5rem"><strong>Onderzoeksvraag beantwoorden</strong> &mdash; gebruik meerdere lagen om een geografische onderzoeksvraag te beantwoorden en een conclusie te formuleren</li>
+    </ul>
+
+    <h3 class="sub-heading">Tips voor het examen</h3>
+
+    <ul style="padding-left:1.4rem;margin:0.6rem 0 1.5rem;">
+      <li style="margin-bottom:0.5rem"><strong>Lees altijd eerst de legende</strong> voordat je iets zegt over kleuren op de kaart. Dezelfde kleur kan in verschillende lagen een andere betekenis hebben.</li>
+      <li style="margin-bottom:0.5rem"><strong>Gebruik de transparantiefunctie</strong> om lagen te stapelen en verbanden te zoeken: bv. bodemgebruik &eacute;n hoogtemodel tegelijk.</li>
+      <li style="margin-bottom:0.5rem"><strong>Zoom in voldoende</strong> om details te zien. Soms zijn percelen klein en zie je het landgebruik pas goed op een hogere zoomniveau.</li>
+      <li style="margin-bottom:0.5rem"><strong>Let op eenheden</strong> bij het meten: Geopunt geeft afstanden in meter of kilometer en oppervlakten in m&#178; of ha.</li>
+      <li style="margin-bottom:0.5rem"><strong>Oefen thuis met echte lagen</strong>: bodemgebruik, beschermde landschappen, overstromingsgebieden en het digitaal hoogtemodel zijn de meest gebruikte lagen op examens.</li>
+    </ul>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Oefentip &mdash; Denkvraag</div>
+      <p class="dv-text">Open nu www.geopunt.be, zoek je eigen school op en activeer de laag <em>'Bodemgebruik'</em>. Zoom in op de omgeving van je school. Beschrijf wat je ziet in &eacute;&eacute;n alinea: welk bodemgebruik domineert in de buurt van je school? Zijn er groene zones, landbouwpercelen of industrie in de omgeving? Klopt dit met wat je ter plaatse kent?</p>
+    </div>
+
+  </section>
+
+  <!-- CLOSING QUOTE -->
+  <div class="closing-quote" role="note" aria-label="Slotcitaat">
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p class="cq-text">Elke kaartlaag vertelt een verhaal. Wie ze leert stapelen en lezen, begrijpt het landschap beter dan wie er enkel doorheen fietst.</p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <span class="cq-attribution">Aardrijkskunde 1A &nbsp;&middot;&nbsp; Domein 5 &mdash; Geografisch onderzoek</span>
+  </div>
+
+</div><!-- end page-wrapper -->
+
+<!-- EXERCISES -->
+<section class="exercises-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <!-- Oefening 1 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Koppel de Geopunt-taak aan de juiste functie</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.8rem;">Hieronder staan 8 taken die je kunt uitvoeren in Geopunt, en 8 functienamen. Koppel elke taak aan de bijpassende functie door de juiste letter voor het nummer te schrijven.</p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:0.5rem;">
+        <div>
+          <p style="font-size:0.9rem;font-weight:700;color:var(--darkblue);margin-bottom:0.5rem;">Taken:</p>
+          <ol style="padding-left:1.2rem;">
+            <li>Je wil weten hoe hoog een bepaald punt in de Ardennen ligt.</li>
+            <li>Je wil de oppervlakte berekenen van een bos bij Geel.</li>
+            <li>Je wil de topografische kaart vervangen door een satellietfoto.</li>
+            <li>Je wil twee lagen tegelijk zien zonder dat ze elkaar volledig bedekken.</li>
+            <li>Je wil weten wat voor grond er gebruikt wordt in een bepaald perceel.</li>
+            <li>Je wil de gemeente Kortrijk centreren in het kaartvenster.</li>
+            <li>Je wil weten welke naam en status een bepaald beschermd landschap heeft.</li>
+            <li>Je wil begrijpen hoe het kaartvenster, lagenpaneel en zoekbalk samenhangen.</li>
+          </ol>
+        </div>
+        <div>
+          <p style="font-size:0.9rem;font-weight:700;color:var(--darkblue);margin-bottom:0.5rem;">Functies:</p>
+          <ul style="padding-left:1.2rem;list-style:upper-alpha;">
+            <li>Het startscherm begrijpen</li>
+            <li>Plaatsen zoeken</li>
+            <li>Kaartlagen aanmaken en legende raadplegen</li>
+            <li>Kaartlagen doorzichtig maken</li>
+            <li>Achtergrondkaarten selecteren</li>
+            <li>Informatie over een locatie bekijken (infopopup)</li>
+            <li>Afstand en oppervlakte meten</li>
+            <li>Hoogte of specifieke hoogte bekijken</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="ex-tip">Tip: elke functie wordt slechts &eacute;&eacute;n keer gebruikt. Lees alle taken aandachtig voor je begint.</p>
+    </div>
+
+    <!-- Oefening 2 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Beoordeel en verbeter vier onderzoeksvragen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.8rem;">Hieronder staan vier onderzoeksvragen. Beoordeel elke vraag op de vier criteria (geografisch relevant, meetbaar, specifiek, realistisch). Als een vraag tekortkomt, herschrijf je ze zodat ze wel aan alle criteria voldoet.</p>
+
+      <ol>
+        <li style="margin-bottom:1rem;">
+          <strong>"Is Vlaanderen een mooi gewest?"</strong>
+          <br><span style="font-size:0.9rem;color:var(--text-light);">Beoordeling: &hellip; &mdash; Verbeterde versie: &hellip;</span>
+        </li>
+        <li style="margin-bottom:1rem;">
+          <strong>"Welk percentage van de gemeente Roeselare bestaat uit landbouwgrond?"</strong>
+          <br><span style="font-size:0.9rem;color:var(--text-light);">Beoordeling: &hellip; &mdash; Verbeterde versie (indien nodig): &hellip;</span>
+        </li>
+        <li style="margin-bottom:1rem;">
+          <strong>"Zijn er veel mensen in Belgi&euml;?"</strong>
+          <br><span style="font-size:0.9rem;color:var(--text-light);">Beoordeling: &hellip; &mdash; Verbeterde versie: &hellip;</span>
+        </li>
+        <li style="margin-bottom:1rem;">
+          <strong>"Ligt de provincie Limburg gemiddeld hoger dan de provincie Oost-Vlaanderen op basis van het digitaal hoogtemodel?"</strong>
+          <br><span style="font-size:0.9rem;color:var(--text-light);">Beoordeling: &hellip; &mdash; Verbeterde versie (indien nodig): &hellip;</span>
+        </li>
+      </ol>
+
+      <p class="ex-tip">Gebruik de vier criteria als checklist: geografisch relevant &mdash; meetbaar &mdash; specifiek &mdash; realistisch. Een vraag moet aan alle vier voldoen.</p>
+    </div>
+
+    <!-- Oefening 3 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Volledig GIS-onderzoeksprotocol invullen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:1rem;">Kies een gemeente naar keuze (niet Leuven, Mechelen of Turnhout &mdash; die zijn al gebruikt in dit hoofdstuk). Voer een volledig geografisch onderzoek uit met Geopunt door de vijf stappen hieronder in te vullen. Gebruik minstens twee kaartlagen.</p>
+
+      <ol>
+        <li style="margin-bottom:0.9rem;">
+          <strong>Onderzoeksvraag</strong><br>
+          <span style="font-size:0.9rem;color:var(--text-light);">Schrijf een geografische onderzoeksvraag over jouw gekozen gemeente. Controleer op alle vier criteria.</span>
+          <br><em style="font-size:0.9rem;color:var(--text-light);">"Welk percentage van het grondgebied van [gemeente] is [type bodemgebruik]?"</em>
+        </li>
+        <li style="margin-bottom:0.9rem;">
+          <strong>Hypothese</strong><br>
+          <span style="font-size:0.9rem;color:var(--text-light);">Formuleer je hypothese in het standaardformaat: "Ik vermoed dat &hellip; omdat &hellip;"</span>
+        </li>
+        <li style="margin-bottom:0.9rem;">
+          <strong>Onderzoeksplan: kaartlagen en methode</strong><br>
+          <span style="font-size:0.9rem;color:var(--text-light);">Noteer welke kaartlagen je activeert, welke achtergrondkaart je kiest, en wat je gaat meten (oppervlakte / afstand / hoogte).</span>
+        </li>
+        <li style="margin-bottom:0.9rem;">
+          <strong>Analyse: bevindingen uit Geopunt</strong><br>
+          <span style="font-size:0.9rem;color:var(--text-light);">Open Geopunt en voer de analyse uit. Beschrijf wat je ziet (kleuren, patronen, gemeten waarden). Wees zo concreet mogelijk: percentages, afstanden of hoogtes.</span>
+        </li>
+        <li style="margin-bottom:0.9rem;">
+          <strong>Conclusie: antwoord op de onderzoeksvraag en controle van de hypothese</strong><br>
+          <span style="font-size:0.9rem;color:var(--text-light);">Beantwoord de onderzoeksvraag op basis van je bevindingen. Vergelijk met je hypothese: wat klopte, wat niet? Waarom week de werkelijkheid eventueel af?</span>
+        </li>
+      </ol>
+
+      <p class="ex-tip">Tip: gebruik de transparantiefunctie om twee lagen tegelijk te vergelijken. Noteer de legendakleuren voor je conclusies trekt.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="summary-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>GIS (Geografisch Informatiesysteem)</strong> is software die geografische gegevens opslaat, analyseert en weergeeft als stapelbare kaartlagen. Geopunt is de gratis Vlaamse GIS-viewer op www.geopunt.be.</li>
+      <li>De <strong>Geopunt-interface</strong> heeft 8 kernfuncties: startscherm begrijpen, plaatsen zoeken, kaartlagen aanmaken en legende lezen, lagen doorzichtig maken, achtergrondkaart kiezen, infopopup raadplegen, afstand/oppervlakte meten en hoogte aflezen.</li>
+      <li>Een goede <strong>onderzoeksvraag</strong> is geografisch relevant, meetbaar, specifiek (afgebakend gebied) en realistisch beantwoordbaar met kaartdata.</li>
+      <li>Een <strong>hypothese</strong> is een beredeneerde verwachting op basis van voorkennis, geformuleerd als "Ik vermoed dat [X] omdat [reden]". Ze moet testbaar zijn met Geopunt.</li>
+      <li>Het <strong>vijfstappenplan</strong> voor GIS-onderzoek: (1) formuleer een onderzoeksvraag, (2) stel een hypothese op, (3) plan het onderzoek, (4) analyseer de kaartlagen in Geopunt, (5) beantwoord de vraag en controleer de hypothese.</li>
+      <li>Na de analyse trek je een <strong>conclusie</strong> en vergelijk je die met de hypothese: was ze juist, gedeeltelijk juist of onjuist? Een onjuiste hypothese is leerzaam, omdat ze verklaart waarom de werkelijkheid anders is dan verwacht.</li>
+      <li>Op het examen mag je Geopunt gebruiken: oefen thuis met lagen zoals <strong>bodemgebruik</strong>, het <strong>digitaal hoogtemodel</strong>, <strong>overstromingsgebieden</strong> en <strong>beschermde landschappen</strong>, en lees altijd eerst de legende.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

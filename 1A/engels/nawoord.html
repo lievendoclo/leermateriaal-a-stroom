@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nawoord — Op weg naar het examen | Engels 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --gold: #D4A017;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    /* Extended tokens used internally */
+    --terracotta-light: #D4561E;
+    --gold-light: #E8B82A;
+    --darkblue-light: #243B63;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     CLOSING QUOTE
+  ============================================================ */
+  .closing-quote {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0D1E38 100%);
+    border-radius: var(--border-radius);
+    padding: 3rem 3rem 2.5rem;
+    margin: 3.5rem 0 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.5rem; left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .closing-quote .cq-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--gold);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 1.2rem;
+  }
+
+  .closing-quote .cq-attribution {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(212,160,23,0.6);
+  }
+
+  .closing-quote .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .closing-quote .ornament-line::before,
+  .closing-quote .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.4), transparent);
+  }
+
+  .closing-quote .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.7;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .closing-quote { padding: 2rem 1.2rem 1.8rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     ENGELS-SPECIFIC COMPONENTS
+  ============================================================ */
+
+  .grammar-tabel { width:100%; border-collapse:collapse; margin:.75rem 0; font-size:.93rem; }
+  .grammar-tabel th { background:var(--darkblue); color:var(--gold); padding:.5rem .9rem; text-align:left; font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; }
+  .grammar-tabel td { padding:.5rem .9rem; border-bottom:1px solid var(--sand); }
+  .grammar-tabel tr:nth-child(even) td { background:rgba(232,220,200,.25); }
+  .tip-kader { background:linear-gradient(135deg,rgba(193,68,14,.08),rgba(193,68,14,.04)); border:1px solid rgba(193,68,14,.25); border-left:4px solid var(--terracotta); border-radius:var(--border-radius); padding:1.25rem 1.5rem; margin:1.5rem 0; }
+  .tip-kader::before { content:'Tip'; display:block; font-size:.75rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--terracotta); margin-bottom:.5rem; }
+  .checklist-section { background:white; border:1px solid var(--sand); border-radius:var(--border-radius); padding:1.5rem; margin:1.5rem 0; }
+  .checklist-section h4 { font-family:'Playfair Display',serif; color:var(--darkblue); margin-bottom:1rem; font-size:1.1rem; }
+  .checklist-item { display:flex; gap:.75rem; align-items:flex-start; padding:.4rem 0; border-bottom:1px solid rgba(232,220,200,.5); font-size:.93rem; }
+  .checklist-item:last-child { border-bottom:none; }
+  .checklist-box { width:1.1rem; height:1.1rem; border:2px solid var(--sand); border-radius:3px; flex-shrink:0; margin-top:.2rem; }
+  .examen-weging { width:100%; border-collapse:collapse; margin:1rem 0; }
+  .examen-weging th { background:var(--darkblue); color:var(--gold); padding:.55rem 1rem; text-align:left; font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; }
+  .examen-weging td { padding:.55rem 1rem; border-bottom:1px solid var(--sand); }
+  .examen-weging .weging-pct { font-weight:700; color:var(--terracotta); }
+  .examen-weging tr:nth-child(even) td { background:rgba(232,220,200,.2); }
+  .vocab-blok { background:var(--sand-light); border-radius:var(--border-radius); padding:1.25rem 1.5rem; margin:.75rem 0; }
+  .vocab-blok h5 { color:var(--oker); font-family:'Playfair Display',serif; font-size:.95rem; margin-bottom:.6rem; }
+  .vocab-kolommen { columns:2; gap:1.5rem; }
+  .vocab-kolommen li { font-size:.88rem; margin-bottom:.2rem; line-height:1.5; }
+  .onregelmatig-tabel { width:100%; border-collapse:collapse; font-size:.88rem; }
+  .onregelmatig-tabel th { background:var(--darkblue); color:var(--gold); padding:.4rem .75rem; font-size:.75rem; letter-spacing:.06em; text-transform:uppercase; }
+  .onregelmatig-tabel td { padding:.4rem .75rem; border-bottom:1px solid var(--sand); }
+  .onregelmatig-tabel tr:nth-child(even) td { background:rgba(232,220,200,.2); }
+
+  /* Exam part boxes */
+  .examen-delen { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:1rem; margin:1.5rem 0; }
+  .examen-deel { background:white; border:1px solid var(--sand); border-top:3px solid var(--darkblue); border-radius:var(--border-radius); padding:1.3rem 1.4rem; box-shadow:var(--shadow-sm); }
+  .examen-deel .ed-num { font-family:'Playfair Display',serif; font-size:2rem; font-weight:700; color:var(--terracotta); opacity:.7; line-height:1; display:block; margin-bottom:.3rem; }
+  .examen-deel .ed-naam { font-family:'Playfair Display',serif; font-size:1rem; font-weight:700; color:var(--darkblue); display:block; margin-bottom:.4rem; }
+  .examen-deel .ed-details { font-size:.88rem; color:var(--text-light); line-height:1.6; }
+
+  /* Exam tip numbered list */
+  .tip-kader-numbered { counter-reset: tip-teller; }
+  .tip-kader-item { background:linear-gradient(135deg,rgba(193,68,14,.08),rgba(193,68,14,.04)); border:1px solid rgba(193,68,14,.25); border-left:4px solid var(--terracotta); border-radius:var(--border-radius); padding:1.25rem 1.5rem 1.25rem 4rem; margin:1rem 0; position:relative; }
+  .tip-kader-item::before { counter-increment: tip-teller; content:counter(tip-teller); position:absolute; left:1rem; top:1.1rem; background:var(--terracotta); color:white; width:1.8rem; height:1.8rem; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:.85rem; font-weight:700; }
+  .tip-kader-item strong { color:var(--darkblue); }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <span class="label">Engels</span>
+  <span class="label label-right">Nawoord &nbsp;&middot;&nbsp; Eerste Graad A-stroom</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Nawoord &nbsp;&middot;&nbsp; Engels Eerste Graad A-stroom</div>
+  <h1>Op weg naar het examen</h1>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- ============================================================
+       SECTION 1 — Examenstructuur
+  ============================================================ -->
+  <section class="section-block" id="s1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Examenstructuur</h2>
+    </div>
+
+    <p>Je hebt alle twaalf eenheden doorlopen. Nu is het tijd om alles samen te brengen en je voor te bereiden op het examen.</p>
+
+    <h3 class="sub-heading">Zo ziet het examen eruit</h3>
+
+    <div class="examen-delen">
+      <div class="examen-deel">
+        <span class="ed-num">1</span>
+        <span class="ed-naam">Spreekopdracht (thuis)</span>
+        <p class="ed-details">Monoloog, op te nemen thuis, in te dienen v&oacute;&oacute;r het digitale examen.</p>
+      </div>
+      <div class="examen-deel">
+        <span class="ed-num">2</span>
+        <span class="ed-naam">Digitaal examen (150 minuten, Brussel)</span>
+        <p class="ed-details">Lezen, luisteren, schrijven. Je mag spellingcontrole en digitaal woordenboek gebruiken.</p>
+      </div>
+      <div class="examen-deel">
+        <span class="ed-num">3</span>
+        <span class="ed-naam">Mondeling gesprek (10 minuten)</span>
+        <p class="ed-details">Na het digitale examen. 15 minuten voorbereiding voor 2 opdrachten.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Weging</h3>
+
+    <table class="examen-weging">
+      <thead>
+        <tr>
+          <th>Onderdeel</th>
+          <th>Gewicht</th>
+          <th>Eenheden</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Lezen</td>
+          <td class="weging-pct">30%</td>
+          <td>H11 + alle leesoefeningen</td>
+        </tr>
+        <tr>
+          <td>Luisteren</td>
+          <td class="weging-pct">30%</td>
+          <td>H11 + extra oefening</td>
+        </tr>
+        <tr>
+          <td>Schrijven</td>
+          <td class="weging-pct">8%</td>
+          <td>H12 + H4, H8, H9, H10</td>
+        </tr>
+        <tr>
+          <td>Schriftelijke interactie</td>
+          <td class="weging-pct">8%</td>
+          <td>H12 + alle dialoogoefeningen</td>
+        </tr>
+        <tr>
+          <td>Spreken</td>
+          <td class="weging-pct">8%</td>
+          <td>H12 + H1, H5, H7</td>
+        </tr>
+        <tr>
+          <td>Mondelinge interactie 1</td>
+          <td class="weging-pct">8%</td>
+          <td>H12 + alle gespreksoefeningen</td>
+        </tr>
+        <tr>
+          <td>Mondelinge interactie 2</td>
+          <td class="weging-pct">8%</td>
+          <td>H12 + alle gespreksoefeningen</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip-kader">
+      Lezen en luisteren zijn samen goed voor 60% van je punten. Besteed hier de meeste studietijd aan.
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 2 — Checklist per eenheid
+  ============================================================ -->
+  <section class="section-block" id="s2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Checklist per eenheid</h2>
+    </div>
+
+    <p>Kan je alles afvinken? Dan ben je klaar voor het examen.</p>
+
+    <!-- H1 -->
+    <div class="checklist-section">
+      <h4>H1 &mdash; Hello! Who Are You?</h4>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik kan mezelf voorstellen in het Engels (naam, leeftijd, nationaliteit, familie)</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik vervoeg <em>to be</em> correct (am/is/are + ontkenning + vraag)</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik gebruik persoonlijke en bezittelijke voornaamwoorden correct</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik weet wanneer ik <em>a</em>, <em>an</em> of <em>the</em> gebruik</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik beheers de begroetingsformules (Hi, Nice to meet you, Goodbye...)</span></div>
+    </div>
+
+    <!-- H2 -->
+    <div class="checklist-section">
+      <h4>H2 &mdash; My Day at School</h4>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik vervoeg present simple correct (ook 3e persoon enkelvoud: works, goes, studies)</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik maak ontkennende zinnen (don&rsquo;t/doesn&rsquo;t + infinitive)</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik stel vragen met do/does</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik gebruik frequentieadverbia op de juiste plaats</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik kan de klok lezen en zeggen in het Engels</span></div>
+    </div>
+
+    <!-- H3 -->
+    <div class="checklist-section">
+      <h4>H3 &mdash; Appearance and Health</h4>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik ken de lichaamsdelen (incl. onregelmatige meervouden: feet, teeth)</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik vervoeg <em>have got</em> correct (affirmative, negative, question)</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik plaats bijvoeglijke naamwoorden voor het zelfstandig naamwoord</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik vorm de vergrotende trap (&minus;er / more)</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik vorm de overtreffende trap (the &minus;est / the most)</span></div>
+    </div>
+
+    <!-- H4 -->
+    <div class="checklist-section">
+      <h4>H4 &mdash; Food and Home</h4>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik gebruik <em>there is / there are</em> correct (incl. ontkenning en vraag)</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik weet het verschil tussen <em>some</em> en <em>any</em></span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik herken telbare en ontelbare zelfstandige naamwoorden</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik gebruik voorzetsels van plaats correct (in, on, under, next to...)</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik kan een maaltijd bestellen in een restaurant</span></div>
+    </div>
+
+    <!-- H5 -->
+    <div class="checklist-section">
+      <h4>H5 &mdash; Free Time and Hobbies</h4>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik vervoeg present continuous correct (am/is/are + &minus;ing)</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik ken de spellingregels voor &minus;ing (make&rarr;making, swim&rarr;swimming)</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik ken stative verbs die NOOIT in continuous staan (know, like, want...)</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik gebruik <em>can/can&rsquo;t</em> correct voor bekwaamheid</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik gebruik <em>would like to</em> voor beleefde wensen</span></div>
+    </div>
+
+    <!-- H6 -->
+    <div class="checklist-section">
+      <h4>H6 &mdash; Numbers, Time and Shopping</h4>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik ken hoofd- en rangtelwoorden (one/first, two/second...)</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik gebruik <em>at/on/in</em> correct bij tijdsaanduidingen</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik gebruik modale werkwoorden (must, should, can, would like)</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik kan een winkeldialoog voeren in het Engels</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik weet dat modale werkwoorden nooit van vorm veranderen</span></div>
+    </div>
+
+    <!-- H7 -->
+    <div class="checklist-section">
+      <h4>H7 &mdash; Jobs and the World</h4>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik gebruik <em>a/an</em> voor beroepen (I am a teacher)</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik schrijf nationaliteiten en talen met hoofdletter</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik gebruik <em>this/that/these/those</em> correct</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik ken het verschil tussen bezittelijke determiners en voornaamwoorden (<em>my</em> vs <em>mine</em>)</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik gebruik voegwoorden: and, but, so, because, when, although</span></div>
+    </div>
+
+    <!-- H8 -->
+    <div class="checklist-section">
+      <h4>H8 &mdash; Travel and Transport</h4>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik vervoeg <em>was/were</em> correct (past simple van <em>to be</em>)</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik vorm de past simple van regelmatige werkwoorden (&minus;ed)</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik ken de spellingregels voor &minus;ed (arrive&rarr;arrived, stop&rarr;stopped, study&rarr;studied)</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik gebruik <em>didn&rsquo;t + infinitive</em> voor ontkenning in past simple</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik gebruik tijdsaanduidingen: yesterday, last week, ago, in + year</span></div>
+    </div>
+
+    <!-- H9 -->
+    <div class="checklist-section">
+      <h4>H9 &mdash; Stories from the Past</h4>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik ken de 40 belangrijkste onregelmatige werkwoorden van buiten</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik gebruik <em>did/didn&rsquo;t + INFINITIVE</em> (niet &minus;ed) voor vragen en ontkenningen</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik stel vragen in de verleden tijd (What/Where/When did...?)</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik schrijf een verhaal met chronologische volgorde en verbindingswoorden</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik ken verhaalelementen: begin/midden/einde, personages, setting</span></div>
+    </div>
+
+    <!-- H10 -->
+    <div class="checklist-section">
+      <h4>H10 &mdash; The Future and Our World</h4>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik gebruik <em>will + infinitive</em> voor spontane beslissingen, beloften, voorspellingen</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik gebruik <em>going to + infinitive</em> voor concrete plannen en voorspellingen op basis van bewijs</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik weet het verschil tussen <em>will</em> en <em>going to</em></span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik kan mijn mening geven (I think, in my opinion, I believe...)</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik gebruik vraagwoorden correct (who, what, where, when, why, how, how many...)</span></div>
+    </div>
+
+    <!-- H11 -->
+    <div class="checklist-section">
+      <h4>H11 &mdash; Reading and Listening</h4>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik herken de 5 teksttypes (informatief, opini&euml;rend, prescriptief, narratief, literair)</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik kan het onderwerp en de hoofdgedachte van een tekst bepalen</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik gebruik leesstrategie: ori&euml;nteren, teksttype, context</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik gebruik luisterstrategie: structuuraanduiders, sleutelwoorden</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik kan de betekenis van onbekende woorden afleiden uit de context</span></div>
+    </div>
+
+    <!-- H12 -->
+    <div class="checklist-section">
+      <h4>H12 &mdash; Writing, Speaking and Interaction</h4>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik schrijf een tekst met inleiding, midden en slot</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik gebruik gevarieerde verbindingswoorden</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik schrijf een informele e-mail correct (begroeting, body, afsluiting)</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik kan een monoloog structureren en uitspreken</span></div>
+      <div class="checklist-item"><span class="checklist-box"></span><span>Ik kan een gesprek beginnen, gaande houden en afronden</span></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 3 — Grammaticaoverzicht
+  ============================================================ -->
+  <section class="section-block" id="s3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Grammaticaoverzicht</h2>
+    </div>
+
+    <p>Een referentietabel van alle grammaticastructuren die in dit boek aan bod komen.</p>
+
+    <table class="grammar-tabel">
+      <thead>
+        <tr>
+          <th>Grammatica</th>
+          <th>Structuur</th>
+          <th>Eenheid</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>To be</td><td>am/is/are + not; Am/Is/Are + ?</td><td>H1</td></tr>
+        <tr><td>Persoonlijke vnw.</td><td>I, you, he, she, it, we, they</td><td>H1</td></tr>
+        <tr><td>Bezittelijke det.</td><td>my, your, his, her, its, our, their</td><td>H1, H7</td></tr>
+        <tr><td>Lidwoorden</td><td>a/an/the/&mdash;</td><td>H1</td></tr>
+        <tr><td>Present simple</td><td>works/goes/studies; don&rsquo;t/doesn&rsquo;t; Do/Does?</td><td>H2</td></tr>
+        <tr><td>Frequentieadverbia</td><td>always, usually, often, sometimes, never</td><td>H2</td></tr>
+        <tr><td>Have got</td><td>&rsquo;ve got / &rsquo;s got / haven&rsquo;t / hasn&rsquo;t</td><td>H3</td></tr>
+        <tr><td>Bijvoeglijke naamwoorden</td><td>comparative (&minus;er/more) / superlative (the &minus;est/most)</td><td>H3</td></tr>
+        <tr><td>There is / There are</td><td>There&rsquo;s a... / There are... / Is there...?</td><td>H4</td></tr>
+        <tr><td>Some / Any</td><td>some (affirm.) / any (neg./vraag)</td><td>H4</td></tr>
+        <tr><td>Present continuous</td><td>am/is/are + &minus;ing; am not/isn&rsquo;t/aren&rsquo;t</td><td>H5</td></tr>
+        <tr><td>Can / Can&rsquo;t</td><td>can + infinitive; can&rsquo;t; Can...?</td><td>H5</td></tr>
+        <tr><td>Ordinal numbers</td><td>first, second, third...</td><td>H6</td></tr>
+        <tr><td>At/On/In (tijd)</td><td>at (klok), on (dag/datum), in (maand/jaar)</td><td>H6</td></tr>
+        <tr><td>Modal verbs</td><td>must/mustn&rsquo;t, should/shouldn&rsquo;t, can, would like</td><td>H6</td></tr>
+        <tr><td>Demonstratieve det.</td><td>this/that/these/those</td><td>H7</td></tr>
+        <tr><td>Voegwoorden</td><td>and, but, or, so, because, when, if, although</td><td>H7</td></tr>
+        <tr><td>Past simple: to be</td><td>was (I/he/she/it) / were (you/we/they)</td><td>H8</td></tr>
+        <tr><td>Past simple: regelmatig</td><td>verb + &minus;ed; didn&rsquo;t + inf.; Did...?</td><td>H8</td></tr>
+        <tr><td>Past simple: onregelmatig</td><td>go&rarr;went, see&rarr;saw, buy&rarr;bought...</td><td>H9</td></tr>
+        <tr><td>Future simple (will)</td><td>will + inf.; won&rsquo;t; Will...?</td><td>H10</td></tr>
+        <tr><td>Going to</td><td>am/is/are going to + inf.</td><td>H10</td></tr>
+        <tr><td>Interrogatieve vnw.</td><td>who, what, where, when, why, how (many/much/long/far)</td><td>H10</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ============================================================
+       SECTION 4 — Woordenschatoverzicht per thema
+  ============================================================ -->
+  <section class="section-block" id="s4">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Woordenschatoverzicht per thema</h2>
+    </div>
+
+    <div class="vocab-blok">
+      <h5>Persoonlijke gegevens &amp; Familie</h5>
+      <ul class="vocab-kolommen">
+        <li>name &mdash; naam</li>
+        <li>age &mdash; leeftijd</li>
+        <li>nationality &mdash; nationaliteit</li>
+        <li>address &mdash; adres</li>
+        <li>birthday &mdash; verjaardag</li>
+        <li>family &mdash; familie</li>
+        <li>parents &mdash; ouders</li>
+        <li>brother &mdash; broer</li>
+        <li>sister &mdash; zus</li>
+        <li>friend &mdash; vriend/vriendin</li>
+        <li>only child &mdash; enig kind</li>
+        <li>twin &mdash; tweeling</li>
+        <li>grandparents &mdash; grootouders</li>
+        <li>husband / wife &mdash; man / vrouw</li>
+        <li>neighbour &mdash; buur</li>
+      </ul>
+    </div>
+
+    <div class="vocab-blok">
+      <h5>Dagelijkse bezigheden &amp; School</h5>
+      <ul class="vocab-kolommen">
+        <li>wake up &mdash; wakker worden</li>
+        <li>get dressed &mdash; je aankleden</li>
+        <li>have breakfast &mdash; ontbijten</li>
+        <li>go to school &mdash; naar school gaan</li>
+        <li>lesson &mdash; les</li>
+        <li>homework &mdash; huiswerk</li>
+        <li>timetable &mdash; uurrooster</li>
+        <li>subject &mdash; vak</li>
+        <li>break &mdash; pauze</li>
+        <li>canteen &mdash; kantine</li>
+        <li>classmate &mdash; klasgenoot</li>
+        <li>teacher &mdash; leerkracht</li>
+        <li>exam &mdash; examen</li>
+        <li>mark / grade &mdash; punt / cijfer</li>
+        <li>library &mdash; bibliotheek</li>
+      </ul>
+    </div>
+
+    <div class="vocab-blok">
+      <h5>Lichaam, gezondheid &amp; kleding</h5>
+      <ul class="vocab-kolommen">
+        <li>head &mdash; hoofd</li>
+        <li>shoulder &mdash; schouder</li>
+        <li>arm &mdash; arm</li>
+        <li>hand &mdash; hand</li>
+        <li>leg &mdash; been</li>
+        <li>foot / feet &mdash; voet / voeten</li>
+        <li>tooth / teeth &mdash; tand / tanden</li>
+        <li>headache &mdash; hoofdpijn</li>
+        <li>cold &mdash; verkoudheid</li>
+        <li>shirt &mdash; hemd</li>
+        <li>trousers &mdash; broek</li>
+        <li>jacket &mdash; jasje</li>
+        <li>trainers &mdash; sportschoenen</li>
+        <li>glasses &mdash; bril</li>
+        <li>hat &mdash; hoed</li>
+      </ul>
+    </div>
+
+    <div class="vocab-blok">
+      <h5>Eten, wonen &amp; voorwerpen</h5>
+      <ul class="vocab-kolommen">
+        <li>bread &mdash; brood</li>
+        <li>fruit &mdash; fruit</li>
+        <li>vegetables &mdash; groenten</li>
+        <li>chicken &mdash; kip</li>
+        <li>water &mdash; water</li>
+        <li>kitchen &mdash; keuken</li>
+        <li>bedroom &mdash; slaapkamer</li>
+        <li>living room &mdash; woonkamer</li>
+        <li>fridge &mdash; koelkast</li>
+        <li>window &mdash; raam</li>
+        <li>table &mdash; tafel</li>
+        <li>chair &mdash; stoel</li>
+        <li>menu &mdash; menu</li>
+        <li>bill &mdash; rekening</li>
+        <li>waiter &mdash; ober</li>
+      </ul>
+    </div>
+
+    <div class="vocab-blok">
+      <h5>Vrije tijd &amp; technologie</h5>
+      <ul class="vocab-kolommen">
+        <li>hobby &mdash; hobby</li>
+        <li>sport &mdash; sport</li>
+        <li>music &mdash; muziek</li>
+        <li>film &mdash; film</li>
+        <li>game &mdash; spel</li>
+        <li>internet &mdash; internet</li>
+        <li>smartphone &mdash; smartphone</li>
+        <li>social media &mdash; sociale media</li>
+        <li>video call &mdash; videogesprek</li>
+        <li>download &mdash; downloaden</li>
+        <li>channel &mdash; kanaal / zender</li>
+        <li>concert &mdash; concert</li>
+        <li>match &mdash; wedstrijd</li>
+        <li>team &mdash; team</li>
+        <li>practice &mdash; oefenen</li>
+      </ul>
+    </div>
+
+    <div class="vocab-blok">
+      <h5>Getallen, tijd &amp; winkelen</h5>
+      <ul class="vocab-kolommen">
+        <li>o&rsquo;clock &mdash; uur (exact)</li>
+        <li>half past &mdash; half</li>
+        <li>quarter to/past &mdash; kwart voor/over</li>
+        <li>morning &mdash; ochtend</li>
+        <li>afternoon &mdash; namiddag</li>
+        <li>evening &mdash; avond</li>
+        <li>week &mdash; week</li>
+        <li>month &mdash; maand</li>
+        <li>price &mdash; prijs</li>
+        <li>size &mdash; maat</li>
+        <li>receipt &mdash; kassabon</li>
+        <li>shop / store &mdash; winkel</li>
+        <li>sale &mdash; uitverkoop</li>
+        <li>cash &mdash; contant geld</li>
+        <li>change &mdash; wisselgeld</li>
+      </ul>
+    </div>
+
+    <div class="vocab-blok">
+      <h5>Beroepen &amp; landen</h5>
+      <ul class="vocab-kolommen">
+        <li>doctor &mdash; dokter</li>
+        <li>nurse &mdash; verpleegkundige</li>
+        <li>teacher &mdash; leerkracht</li>
+        <li>engineer &mdash; ingenieur</li>
+        <li>police officer &mdash; politieagent</li>
+        <li>chef &mdash; kok</li>
+        <li>journalist &mdash; journalist</li>
+        <li>lawyer &mdash; advocaat</li>
+        <li>Belgium &mdash; Belgi&euml;</li>
+        <li>France &mdash; Frankrijk</li>
+        <li>Germany &mdash; Duitsland</li>
+        <li>Spain &mdash; Spanje</li>
+        <li>United Kingdom &mdash; Verenigd Koninkrijk</li>
+        <li>United States &mdash; Verenigde Staten</li>
+        <li>capital &mdash; hoofdstad</li>
+      </ul>
+    </div>
+
+    <div class="vocab-blok">
+      <h5>Reizen &amp; transport</h5>
+      <ul class="vocab-kolommen">
+        <li>train &mdash; trein</li>
+        <li>bus &mdash; bus</li>
+        <li>plane &mdash; vliegtuig</li>
+        <li>car &mdash; auto</li>
+        <li>bicycle &mdash; fiets</li>
+        <li>station &mdash; station</li>
+        <li>airport &mdash; luchthaven</li>
+        <li>ticket &mdash; ticket</li>
+        <li>passport &mdash; paspoort</li>
+        <li>suitcase &mdash; koffer</li>
+        <li>hotel &mdash; hotel</li>
+        <li>map &mdash; kaart</li>
+        <li>journey &mdash; reis</li>
+        <li>platform &mdash; perron</li>
+        <li>delay &mdash; vertraging</li>
+      </ul>
+    </div>
+
+    <div class="vocab-blok">
+      <h5>Verleden &amp; verhalen &mdash; Top 20 onregelmatige werkwoorden</h5>
+      <ul class="vocab-kolommen">
+        <li>go &rarr; went &mdash; gaan</li>
+        <li>come &rarr; came &mdash; komen</li>
+        <li>see &rarr; saw &mdash; zien</li>
+        <li>say &rarr; said &mdash; zeggen</li>
+        <li>get &rarr; got &mdash; krijgen/worden</li>
+        <li>make &rarr; made &mdash; maken</li>
+        <li>know &rarr; knew &mdash; weten/kennen</li>
+        <li>think &rarr; thought &mdash; denken</li>
+        <li>take &rarr; took &mdash; nemen</li>
+        <li>give &rarr; gave &mdash; geven</li>
+        <li>find &rarr; found &mdash; vinden</li>
+        <li>tell &rarr; told &mdash; vertellen</li>
+        <li>become &rarr; became &mdash; worden</li>
+        <li>leave &rarr; left &mdash; vertrekken</li>
+        <li>feel &rarr; felt &mdash; voelen</li>
+        <li>put &rarr; put &mdash; leggen/zetten</li>
+        <li>bring &rarr; brought &mdash; brengen</li>
+        <li>begin &rarr; began &mdash; beginnen</li>
+        <li>write &rarr; wrote &mdash; schrijven</li>
+        <li>run &rarr; ran &mdash; lopen/rennen</li>
+      </ul>
+    </div>
+
+    <div class="vocab-blok">
+      <h5>Toekomst, weer &amp; meningen</h5>
+      <ul class="vocab-kolommen">
+        <li>weather &mdash; weer</li>
+        <li>sunny &mdash; zonnig</li>
+        <li>cloudy &mdash; bewolkt</li>
+        <li>rain &mdash; regen</li>
+        <li>snow &mdash; sneeuw</li>
+        <li>temperature &mdash; temperatuur</li>
+        <li>forecast &mdash; weersvoorspelling</li>
+        <li>environment &mdash; milieu</li>
+        <li>future &mdash; toekomst</li>
+        <li>opinion &mdash; mening</li>
+        <li>agree &mdash; akkoord zijn</li>
+        <li>disagree &mdash; niet akkoord zijn</li>
+        <li>solution &mdash; oplossing</li>
+        <li>problem &mdash; probleem</li>
+        <li>change &mdash; verandering</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 5 — Onregelmatige werkwoorden referentie
+  ============================================================ -->
+  <section class="section-block" id="s5">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Onregelmatige werkwoorden referentie</h2>
+    </div>
+
+    <p>De 40 onregelmatige werkwoorden uit H9. Ken ze van buiten.</p>
+
+    <table class="onregelmatig-tabel">
+      <thead>
+        <tr>
+          <th>Infinitive</th>
+          <th>Past</th>
+          <th>Dutch</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>be</td><td>was / were</td><td>zijn</td><td>She <strong>was</strong> happy.</td></tr>
+        <tr><td>become</td><td>became</td><td>worden</td><td>He <strong>became</strong> a doctor.</td></tr>
+        <tr><td>begin</td><td>began</td><td>beginnen</td><td>The film <strong>began</strong> late.</td></tr>
+        <tr><td>break</td><td>broke</td><td>breken</td><td>I <strong>broke</strong> my arm.</td></tr>
+        <tr><td>bring</td><td>brought</td><td>brengen</td><td>She <strong>brought</strong> a gift.</td></tr>
+        <tr><td>build</td><td>built</td><td>bouwen</td><td>They <strong>built</strong> a house.</td></tr>
+        <tr><td>buy</td><td>bought</td><td>kopen</td><td>We <strong>bought</strong> tickets.</td></tr>
+        <tr><td>come</td><td>came</td><td>komen</td><td>He <strong>came</strong> home early.</td></tr>
+        <tr><td>do</td><td>did</td><td>doen</td><td>She <strong>did</strong> her homework.</td></tr>
+        <tr><td>drink</td><td>drank</td><td>drinken</td><td>We <strong>drank</strong> water.</td></tr>
+        <tr><td>drive</td><td>drove</td><td>rijden</td><td>Dad <strong>drove</strong> to work.</td></tr>
+        <tr><td>eat</td><td>ate</td><td>eten</td><td>They <strong>ate</strong> pasta.</td></tr>
+        <tr><td>fall</td><td>fell</td><td>vallen</td><td>He <strong>fell</strong> off his bike.</td></tr>
+        <tr><td>feel</td><td>felt</td><td>voelen</td><td>I <strong>felt</strong> tired.</td></tr>
+        <tr><td>find</td><td>found</td><td>vinden</td><td>She <strong>found</strong> her keys.</td></tr>
+        <tr><td>get</td><td>got</td><td>krijgen / worden</td><td>I <strong>got</strong> a letter.</td></tr>
+        <tr><td>give</td><td>gave</td><td>geven</td><td>He <strong>gave</strong> me a book.</td></tr>
+        <tr><td>go</td><td>went</td><td>gaan</td><td>We <strong>went</strong> to the park.</td></tr>
+        <tr><td>grow</td><td>grew</td><td>groeien</td><td>The plant <strong>grew</strong> fast.</td></tr>
+        <tr><td>have</td><td>had</td><td>hebben</td><td>She <strong>had</strong> a cold.</td></tr>
+        <tr><td>hear</td><td>heard</td><td>horen</td><td>I <strong>heard</strong> a noise.</td></tr>
+        <tr><td>know</td><td>knew</td><td>weten / kennen</td><td>He <strong>knew</strong> the answer.</td></tr>
+        <tr><td>leave</td><td>left</td><td>vertrekken</td><td>She <strong>left</strong> at eight.</td></tr>
+        <tr><td>lose</td><td>lost</td><td>verliezen</td><td>We <strong>lost</strong> the game.</td></tr>
+        <tr><td>make</td><td>made</td><td>maken</td><td>He <strong>made</strong> a cake.</td></tr>
+        <tr><td>meet</td><td>met</td><td>ontmoeten</td><td>I <strong>met</strong> her yesterday.</td></tr>
+        <tr><td>put</td><td>put</td><td>leggen / zetten</td><td>She <strong>put</strong> the bag down.</td></tr>
+        <tr><td>read</td><td>read*</td><td>lezen</td><td>He <strong>read</strong> the article.</td></tr>
+        <tr><td>run</td><td>ran</td><td>lopen / rennen</td><td>She <strong>ran</strong> to school.</td></tr>
+        <tr><td>say</td><td>said</td><td>zeggen</td><td>He <strong>said</strong> goodbye.</td></tr>
+        <tr><td>see</td><td>saw</td><td>zien</td><td>I <strong>saw</strong> a rainbow.</td></tr>
+        <tr><td>send</td><td>sent</td><td>sturen</td><td>She <strong>sent</strong> an email.</td></tr>
+        <tr><td>sing</td><td>sang</td><td>zingen</td><td>They <strong>sang</strong> a song.</td></tr>
+        <tr><td>sit</td><td>sat</td><td>zitten</td><td>He <strong>sat</strong> next to me.</td></tr>
+        <tr><td>sleep</td><td>slept</td><td>slapen</td><td>I <strong>slept</strong> well.</td></tr>
+        <tr><td>speak</td><td>spoke</td><td>spreken</td><td>She <strong>spoke</strong> English.</td></tr>
+        <tr><td>take</td><td>took</td><td>nemen</td><td>He <strong>took</strong> the bus.</td></tr>
+        <tr><td>tell</td><td>told</td><td>vertellen</td><td>She <strong>told</strong> a story.</td></tr>
+        <tr><td>think</td><td>thought</td><td>denken</td><td>I <strong>thought</strong> it was fun.</td></tr>
+        <tr><td>write</td><td>wrote</td><td>schrijven</td><td>He <strong>wrote</strong> a letter.</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:.85rem;color:var(--text-light);font-style:italic;margin-top:.5rem;">* <em>read</em> wordt in de verleden tijd hetzelfde gespeld maar anders uitgesproken: /r&epsilon;d/ (als &ldquo;red&rdquo;).</p>
+  </section>
+
+  <!-- ============================================================
+       SECTION 6 — Top 10 Examentips
+  ============================================================ -->
+  <section class="section-block" id="s6">
+    <div class="section-heading">
+      <span class="section-num">6</span>
+      <h2 class="section-title">Top 10 Examentips</h2>
+    </div>
+
+    <div class="tip-kader-numbered">
+      <div class="tip-kader-item">
+        <strong>Lees en luister elke dag</strong> &mdash; 15 minuten per dag BBC Learning English of een Engelstalig YouTube-kanaal is meer waard dan 2 uur een dag voor het examen.
+      </div>
+      <div class="tip-kader-item">
+        <strong>Oefen onregelmatige werkwoorden in groepjes</strong> &mdash; go&ndash;went, know&ndash;knew, grow&ndash;grew. Flashcards of een app helpen.
+      </div>
+      <div class="tip-kader-item">
+        <strong>Gebruik het digitale woordenboek slim</strong> &mdash; Zoek alleen woorden op die &eacute;cht noodzakelijk zijn. Je hebt niet de tijd voor elk onbekend woord.
+      </div>
+      <div class="tip-kader-item">
+        <strong>Schrijf de spreekopdracht vroeg</strong> &mdash; Bereid je monoloog minstens een week voor het examen voor. Oefen het hardop, niet alleen in je hoofd.
+      </div>
+      <div class="tip-kader-item">
+        <strong>Ken de teksttypes</strong> &mdash; Als je het teksttype herkent (informatief, opini&euml;rend...), weet je meteen welke strategie je moet gebruiken.
+      </div>
+      <div class="tip-kader-item">
+        <strong>Gebruik verbindingswoorden gevarieerd</strong> &mdash; Niet alleen &lsquo;and&rsquo; en &lsquo;but&rsquo;, maar ook &lsquo;however&rsquo;, &lsquo;because&rsquo;, &lsquo;in addition&rsquo;, &lsquo;as a result&rsquo;.
+      </div>
+      <div class="tip-kader-item">
+        <strong>Schrijf de structuur voor je schrijft</strong> &mdash; Intro / midden / slot. Noteer 3 sleutelwoorden per deel voor je begint.
+      </div>
+      <div class="tip-kader-item">
+        <strong>Bij het gesprek: geef altijd een reactie</strong> &mdash; Zeg nooit gewoon &lsquo;yes&rsquo; of &lsquo;no&rsquo;. Voeg altijd iets toe: &lsquo;Yes, and I also think that...&rsquo;
+      </div>
+      <div class="tip-kader-item">
+        <strong>Ken je sterktes en zwaktes</strong> &mdash; Lezen is 30%. Als je daar zwak in bent, besteed er meer tijd aan dan aan schrijven (8%).
+      </div>
+      <div class="tip-kader-item">
+        <strong>Fouten zijn oké</strong> &mdash; Het examen meet communicatie, niet perfectie. Ga altijd voor een volledige, heldere boodschap, zelfs als je grammaticafouten maakt.
+      </div>
+    </div>
+  </section>
+
+</div><!-- end page-wrapper -->
+
+<!-- FOOTER -->
+<footer style="background:var(--darkblue);color:rgba(212,160,23,0.7);text-align:center;padding:1.5rem 2rem;font-family:'Source Sans 3',sans-serif;font-size:.82rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;">
+  Engels &nbsp;&middot;&nbsp; Eerste Graad A-stroom &nbsp;&middot;&nbsp; &copy; 2026 &nbsp;&middot;&nbsp; AGPL-3.0
+</footer>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

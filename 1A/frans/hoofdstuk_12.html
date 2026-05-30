@@ -1,0 +1,1806 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H12 — Les vacances | Frans 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     ILLUSTRATIE PLACEHOLDERS
+  ============================================================ */
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+    cursor: default;
+    transition: background var(--transition);
+  }
+
+  .illustratie:hover { background: #EDE7D8; }
+
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '&#10003;';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     CLOSING QUOTE
+  ============================================================ */
+  .closing-quote {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0D1E38 100%);
+    border-radius: var(--border-radius);
+    padding: 3rem 3rem 2.5rem;
+    margin: 3.5rem 0 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.5rem; left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .closing-quote .cq-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--gold);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 1.2rem;
+  }
+
+  .closing-quote .cq-attribution {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(212,160,23,0.6);
+  }
+
+  .closing-quote .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .closing-quote .ornament-line::before,
+  .closing-quote .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.4), transparent);
+  }
+
+  .closing-quote .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.7;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .closing-quote { padding: 2rem 1.2rem 1.8rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     FRANS-SPECIFIC COMPONENTS
+  ============================================================ */
+
+  /* -- Tekst-fragment: narrative/reading text block ----------- */
+  .tekst-fragment {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 2rem 2.2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .tekst-fragment .tf-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--darkblue);
+    opacity: 0.6;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  .tekst-fragment .tf-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+
+  .tekst-fragment .tf-meta {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    font-style: italic;
+    margin-bottom: 1.1rem;
+    display: block;
+  }
+
+  .tekst-fragment .tf-body p {
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.8;
+    margin-bottom: 0.85em;
+  }
+
+  .tekst-fragment .tf-body p:last-child { margin-bottom: 0; }
+
+  .tekst-fragment .tf-vragen {
+    margin-top: 1.4rem;
+    background: rgba(26,43,74,0.05);
+    border-left: 3px solid var(--darkblue);
+    border-radius: 0 4px 4px 0;
+    padding: 1rem 1.2rem;
+  }
+
+  .tekst-fragment .tf-vragen-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--darkblue);
+    margin-bottom: 0.6rem;
+    display: block;
+  }
+
+  .tekst-fragment .tf-vragen ol {
+    padding-left: 1.3rem;
+    margin: 0;
+  }
+
+  .tekst-fragment .tf-vragen ol li {
+    font-size: 0.95rem;
+    color: var(--text-mid);
+    margin-bottom: 0.4rem;
+    font-style: italic;
+  }
+
+  /* -- Gesprek: dialogue block --------------------------------- */
+  .gesprek {
+    background: var(--sand-light);
+    border: 1px solid rgba(200,146,58,0.3);
+    border-radius: var(--border-radius);
+    padding: 1.8rem 2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .gesprek .gp-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--oker);
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  .gesprek .gp-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    display: block;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid rgba(200,146,58,0.3);
+  }
+
+  .gesprek .gp-line {
+    display: grid;
+    grid-template-columns: 6rem 1fr;
+    gap: 0.5rem 1rem;
+    align-items: baseline;
+    margin-bottom: 0.7rem;
+  }
+
+  .gesprek .gp-speaker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    text-align: right;
+    padding-top: 0.1rem;
+  }
+
+  .gesprek .gp-text {
+    font-size: 1rem;
+    color: var(--text-dark);
+    line-height: 1.65;
+    border-left: 2px solid rgba(200,146,58,0.4);
+    padding-left: 0.9rem;
+  }
+
+  .gesprek .gp-note {
+    margin-top: 1.2rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.25);
+    padding-top: 0.7rem;
+  }
+
+  /* -- Grammatica-kader: grammar explanation box --------------- */
+  .grammatica-kader {
+    background: #EEF3FA;
+    border: 1px solid rgba(26,43,74,0.18);
+    border-left: 5px solid var(--darkblue);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1.6rem 1.8rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .grammatica-kader .gk-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--darkblue);
+    opacity: 0.65;
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  .grammatica-kader .gk-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    display: block;
+    margin-bottom: 1.1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(26,43,74,0.15);
+  }
+
+  .grammatica-kader .gk-body p {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-bottom: 0.75em;
+  }
+
+  .grammatica-kader .gk-body p:last-child { margin-bottom: 0; }
+
+  .grammatica-kader .gk-body ul,
+  .grammatica-kader .gk-body ol {
+    padding-left: 1.3rem;
+    margin: 0.5rem 0 0.75rem;
+  }
+
+  .grammatica-kader .gk-body li {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    margin-bottom: 0.35rem;
+    line-height: 1.65;
+  }
+
+  .grammatica-kader .gk-example {
+    background: rgba(26,43,74,0.06);
+    border-radius: 4px;
+    padding: 0.8rem 1rem;
+    margin: 0.7rem 0;
+    font-style: italic;
+    font-size: 0.97rem;
+    color: var(--text-dark);
+  }
+
+  .grammatica-kader .gk-example strong {
+    color: var(--darkblue);
+  }
+
+  .grammatica-kader table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.93rem;
+    margin: 0.8rem 0;
+  }
+
+  .grammatica-kader table th {
+    background: var(--darkblue);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    text-align: left;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    font-size: 0.83rem;
+  }
+
+  .grammatica-kader table td {
+    padding: 0.35rem 0.8rem;
+    border-bottom: 1px solid rgba(26,43,74,0.1);
+    color: var(--text-mid);
+  }
+
+  .grammatica-kader table tr:last-child td { border-bottom: none; }
+  .grammatica-kader table tr:nth-child(even) td { background: rgba(26,43,74,0.04); }
+
+  /* -- Woordenschat-kader: vocabulary box --------------------- */
+  .woordenschat-kader {
+    background: #F5F9EE;
+    border: 1px solid rgba(100,140,60,0.25);
+    border-left: 5px solid #5C8A2A;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1.6rem 1.8rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .woordenschat-kader .wk-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #4A7020;
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  .woordenschat-kader .wk-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #3A5C18;
+    display: block;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(100,140,60,0.2);
+  }
+
+  .woordenschat-kader .wk-group {
+    margin-bottom: 1.2rem;
+  }
+
+  .woordenschat-kader .wk-group:last-child { margin-bottom: 0; }
+
+  .woordenschat-kader .wk-group-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #5C8A2A;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .woordenschat-kader .wk-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .woordenschat-kader .wk-list li {
+    font-size: 0.96rem;
+    color: var(--text-mid);
+    line-height: 1.55;
+  }
+
+  .woordenschat-kader .wk-list li .fr {
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+
+  .woordenschat-kader .wk-list li .nl {
+    font-size: 0.88rem;
+    color: var(--text-light);
+  }
+
+  .woordenschat-kader .wk-note {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: #4A7020;
+    border-top: 1px solid rgba(100,140,60,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* -- Francophonie cultural block ---------------------------- */
+  .cultuur-kader {
+    background: linear-gradient(135deg, #FDF3E7 0%, #FBF0D0 100%);
+    border: 1px solid rgba(212,160,23,0.3);
+    border-top: 4px solid var(--gold);
+    border-radius: var(--border-radius);
+    padding: 1.8rem 2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .cultuur-kader .ck-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--oker);
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  .cultuur-kader .ck-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    display: block;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .cultuur-kader p {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-bottom: 0.75em;
+  }
+
+  .cultuur-kader p:last-child { margin-bottom: 0; }
+
+  .cultuur-kader ul {
+    padding-left: 1.3rem;
+    margin: 0.4rem 0 0.7rem;
+  }
+
+  .cultuur-kader ul li {
+    font-size: 0.96rem;
+    color: var(--text-mid);
+    margin-bottom: 0.35rem;
+    line-height: 1.65;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <span class="label">Frans 1A</span>
+  <span class="label label-right">H12 &mdash; Les vacances</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Frans &nbsp;&middot;&nbsp; 1A &nbsp;&middot;&nbsp; Eerste graad</div>
+  <h1>Hoofdstuk 12<br><em>Les vacances</em></h1>
+  <p class="subtitle">Reizen, vakantie en het verleden &mdash; le pass&eacute; compos&eacute; met &ecirc;tre</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- PROLOGUE -->
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Mise en route &hellip;</span>
+
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+
+    <p>De zomervakantie is eindelijk begonnen. Lucie pakt haar koffer, neemt haar paspoort mee en stapt op het vliegtuig naar Parijs. Haar vriend Thomas blijft thuis, maar zijn ouders zijn naar Spanje vertrokken. En jij? Ben jij al eens naar het buitenland gegaan?</p>
+
+    <p>In dit hoofdstuk leer je praten over vakanties en reizen: waar je naartoe bent gegaan, wat je hebt gedaan en hoe lang je er bent gebleven. Daarvoor heb je het <strong style="color: var(--gold);">pass&eacute; compos&eacute;</strong> nodig &mdash; en in dit hoofdstuk leer je de bijzondere groep werkwoorden die dit verleden tijd vormt met het hulpwerkwoord <strong style="color: var(--gold);">être</strong> in plaats van <em>avoir</em>.</p>
+
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+  </section>
+
+  <!-- =========================================================
+       SECTIE 1 — Les vacances et les voyages (woordenschat)
+  ========================================================== -->
+  <section class="section-block" id="sectie-1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Les vacances et les voyages</h2>
+    </div>
+
+    <p>Voordat je over je vakantie kunt vertellen, heb je de juiste woorden nodig. Bekijk de woordenschat hieronder en leer de woorden per groep.</p>
+
+    <div class="woordenschat-kader">
+      <span class="wk-label">Woordenschat</span>
+      <span class="wk-title">Les vacances et les voyages &mdash; Vakantie en reizen</span>
+
+      <div class="wk-group">
+        <span class="wk-group-label">De vakantieperiodes</span>
+        <ul class="wk-list">
+          <li><span class="fr">les vacances d&rsquo;&eacute;t&eacute;</span> <span class="nl">(de zomervakantie)</span></li>
+          <li><span class="fr">les vacances d&rsquo;hiver</span> <span class="nl">(de wintervakantie)</span></li>
+          <li><span class="fr">les vacances de P&acirc;ques</span> <span class="nl">(de paasvakantie)</span></li>
+          <li><span class="fr">pendant les vacances</span> <span class="nl">(tijdens de vakantie)</span></li>
+        </ul>
+      </div>
+
+      <div class="wk-group">
+        <span class="wk-group-label">Werkwoorden voor reizen</span>
+        <ul class="wk-list">
+          <li><span class="fr">partir en vacances</span> <span class="nl">(op vakantie vertrekken)</span></li>
+          <li><span class="fr">voyager</span> <span class="nl">(reizen)</span></li>
+          <li><span class="fr">visiter</span> <span class="nl">(bezoeken)</span></li>
+          <li><span class="fr">passer une semaine</span> <span class="nl">(een week doorbrengen)</span></li>
+          <li><span class="fr">r&eacute;server</span> <span class="nl">(reserveren)</span></li>
+        </ul>
+      </div>
+
+      <div class="wk-group">
+        <span class="wk-group-label">Vakantiebestemmingen</span>
+        <ul class="wk-list">
+          <li><span class="fr">une station baln&eacute;aire</span> <span class="nl">(een badplaats)</span></li>
+          <li><span class="fr">la montagne</span> <span class="nl">(de bergen)</span></li>
+          <li><span class="fr">la campagne</span> <span class="nl">(het platteland)</span></li>
+          <li><span class="fr">la ville</span> <span class="nl">(de stad)</span></li>
+          <li><span class="fr">la mer</span> <span class="nl">(de zee)</span></li>
+          <li><span class="fr">l&rsquo;&eacute;tranger</span> <span class="nl">(het buitenland)</span></li>
+        </ul>
+      </div>
+
+      <div class="wk-group">
+        <span class="wk-group-label">Verblijf en vervoer</span>
+        <ul class="wk-list">
+          <li><span class="fr">un h&ocirc;tel</span> <span class="nl">(een hotel)</span></li>
+          <li><span class="fr">un camping</span> <span class="nl">(een camping)</span></li>
+          <li><span class="fr">une auberge de jeunesse</span> <span class="nl">(een jeugdherberg)</span></li>
+          <li><span class="fr">faire sa valise</span> <span class="nl">(zijn koffer pakken)</span></li>
+          <li><span class="fr">le passeport</span> <span class="nl">(het paspoort)</span></li>
+          <li><span class="fr">le billet d&rsquo;avion</span> <span class="nl">(het vliegtuigticket)</span></li>
+          <li><span class="fr">le billet de train</span> <span class="nl">(het treinticket)</span></li>
+          <li><span class="fr">la r&eacute;servation</span> <span class="nl">(de reservering / boeking)</span></li>
+        </ul>
+      </div>
+
+      <p class="wk-note">Let op: <em>les vacances</em> staat altijd in het meervoud in het Frans, ook als je over &eacute;&eacute;n vakantieperiode spreekt.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Question de r&eacute;flexion</div>
+      <p class="dv-text">O&ugrave; est-ce que tu aimes partir en vacances ? &Agrave; la mer, &agrave; la montagne ou &agrave; la ville ? Et comment est-ce que tu voyages d&rsquo;habitude &mdash; en avion, en train ou en voiture ?</p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTIE 2 — Les pays et les prépositions (grammatica)
+  ========================================================== -->
+  <section class="section-block" id="sectie-2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Les pays et les pr&eacute;positions</h2>
+    </div>
+
+    <p>Wanneer je zegt naar welk land je op vakantie gaat, gebruik je in het Frans een andere voorzetsel naargelang het geslacht en het getal van het land.</p>
+
+    <div class="grammatica-kader">
+      <span class="gk-label">Grammatica</span>
+      <span class="gk-title">Voorzetsels bij landen en steden</span>
+      <div class="gk-body">
+        <table>
+          <thead>
+            <tr>
+              <th>Soort land/stad</th>
+              <th>Voorzetsel</th>
+              <th>Voorbeelden</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Vrouwelijk land (eindigend op <em>-e</em>)</td>
+              <td><strong>en</strong></td>
+              <td><em>en France, en Belgique, en Espagne, en Italie, en Allemagne, en Suisse</em></td>
+            </tr>
+            <tr>
+              <td>Mannelijk land</td>
+              <td><strong>au</strong></td>
+              <td><em>au Portugal, au Mexique, au Maroc, au Canada, au S&eacute;n&eacute;gal</em></td>
+            </tr>
+            <tr>
+              <td>Meervoudig land</td>
+              <td><strong>aux</strong></td>
+              <td><em>aux &Eacute;tats-Unis, aux Pays-Bas</em></td>
+            </tr>
+            <tr>
+              <td>Stad</td>
+              <td><strong>&agrave;</strong></td>
+              <td><em>&agrave; Paris, &agrave; Rome, &agrave; Madrid, &agrave; Bruxelles, &agrave; Marrakech</em></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p><strong>Opmerking:</strong> De meeste landnamen die eindigen op <em>-e</em> zijn vrouwelijk: <em>la France, la Belgique, l&rsquo;Espagne</em> &hellip; Uitzonderingen zijn <em>le Mexique, le Mozambique</em>.</p>
+
+        <div class="gk-example">
+          <strong>Ik ga naar Frankrijk:</strong> Je vais <strong>en</strong> France.<br>
+          <strong>Hij woont in Portugal:</strong> Il habite <strong>au</strong> Portugal.<br>
+          <strong>Ze komen uit de VS:</strong> Elles viennent <strong>des</strong> &Eacute;tats-Unis.<br>
+          <strong>We gaan naar Parijs:</strong> On va <strong>&agrave;</strong> Paris.
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">La Francophonie &mdash; Franstalige landen</h3>
+    <p>Frans is niet alleen de taal van Frankrijk. Het is de offici&euml;le taal van meer dan 29 landen verspreid over alle continenten.</p>
+
+    <div class="grammatica-kader">
+      <span class="gk-label">Culturele kennis</span>
+      <span class="gk-title">Belangrijke Franstalige landen</span>
+      <div class="gk-body">
+        <table>
+          <thead>
+            <tr>
+              <th>Land</th>
+              <th>Hoofdstad</th>
+              <th>Continent</th>
+              <th>Voorzetsel</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><em>la France</em></td>
+              <td>Paris</td>
+              <td>Europa</td>
+              <td>en France</td>
+            </tr>
+            <tr>
+              <td><em>la Belgique</em></td>
+              <td>Bruxelles</td>
+              <td>Europa</td>
+              <td>en Belgique</td>
+            </tr>
+            <tr>
+              <td><em>la Suisse</em></td>
+              <td>Berne</td>
+              <td>Europa</td>
+              <td>en Suisse</td>
+            </tr>
+            <tr>
+              <td><em>le Canada</em></td>
+              <td>Ottawa</td>
+              <td>Noord-Amerika</td>
+              <td>au Canada</td>
+            </tr>
+            <tr>
+              <td><em>le Maroc</em></td>
+              <td>Rabat</td>
+              <td>Afrika</td>
+              <td>au Maroc</td>
+            </tr>
+            <tr>
+              <td><em>le S&eacute;n&eacute;gal</em></td>
+              <td>Dakar</td>
+              <td>Afrika</td>
+              <td>au S&eacute;n&eacute;gal</td>
+            </tr>
+            <tr>
+              <td><em>Madagascar</em></td>
+              <td>Antananarivo</td>
+              <td>Afrika</td>
+              <td>&agrave; Madagascar</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTIE 3 — Le passé composé avec être (grammatica)
+  ========================================================== -->
+  <section class="section-block" id="sectie-3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Le pass&eacute; compos&eacute; avec <em>&ecirc;tre</em></h2>
+    </div>
+
+    <p>Je kent al het pass&eacute; compos&eacute; met het hulpwerkwoord <em>avoir</em>. Maar een bijzondere groep werkwoorden &mdash; vaak werkwoorden van beweging of toestandsverandering &mdash; vormt het pass&eacute; compos&eacute; met <strong>&ecirc;tre</strong>.</p>
+
+    <div class="grammatica-kader">
+      <span class="gk-label">Grammatica</span>
+      <span class="gk-title">Vorming: pass&eacute; compos&eacute; avec &ecirc;tre</span>
+      <div class="gk-body">
+        <p><strong>Formule:</strong> onderwerp + geconjugeerde vorm van <em>&ecirc;tre</em> + voltooid deelwoord</p>
+
+        <div class="gk-example">
+          <strong>je suis all&eacute;(e)</strong> &mdash; ik ben gegaan<br>
+          <strong>tu es parti(e)</strong> &mdash; jij bent vertrokken<br>
+          <strong>il est arriv&eacute;</strong> / <strong>elle est arriv&eacute;e</strong> &mdash; hij/zij is aangekomen<br>
+          <strong>nous sommes rest&eacute;s</strong> &mdash; wij zijn gebleven<br>
+          <strong>vous &ecirc;tes sortis</strong> &mdash; jullie zijn uitgegaan<br>
+          <strong>ils sont tomb&eacute;s</strong> / <strong>elles sont tomb&eacute;es</strong> &mdash; zij zijn gevallen
+        </div>
+
+        <p><strong>Belangrijk:</strong> het voltooid deelwoord <em>akkoreert</em> met het onderwerp in geslacht en getal!</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Mannelijk enkelvoud</th>
+              <th>Vrouwelijk enkelvoud</th>
+              <th>Mannelijk meervoud</th>
+              <th>Vrouwelijk meervoud</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><em>aller</em></td>
+              <td>all&eacute;</td>
+              <td>all&eacute;<strong>e</strong></td>
+              <td>all&eacute;<strong>s</strong></td>
+              <td>all&eacute;<strong>es</strong></td>
+            </tr>
+            <tr>
+              <td><em>partir</em></td>
+              <td>parti</td>
+              <td>parti<strong>e</strong></td>
+              <td>parti<strong>s</strong></td>
+              <td>parti<strong>es</strong></td>
+            </tr>
+            <tr>
+              <td><em>arriver</em></td>
+              <td>arriv&eacute;</td>
+              <td>arriv&eacute;<strong>e</strong></td>
+              <td>arriv&eacute;<strong>s</strong></td>
+              <td>arriv&eacute;<strong>es</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="grammatica-kader">
+      <span class="gk-label">Grammatica</span>
+      <span class="gk-title">Het &ldquo;huis van &ecirc;tre&rdquo; &mdash; de 17 DR MRS VANDERTRAMP-werkwoorden</span>
+      <div class="gk-body">
+        <p>Een handig ezelsbruggetje om de werkwoorden te onthouden is <strong>DR MRS VANDERTRAMP</strong> (of ook wel: het &ldquo;huis van &ecirc;tre&rdquo; ingedeeld als ingang, verdiepingen en uitgang). Elk hoofdletter staat voor een werkwoord:</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Letter</th>
+              <th>Werkwoord</th>
+              <th>Voltooid deelwoord</th>
+              <th>Betekenis</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>D</td><td><em>descendre</em></td><td>descendu</td><td>afdalen, naar beneden gaan</td></tr>
+            <tr><td>R</td><td><em>rentrer</em></td><td>rentr&eacute;</td><td>naar huis terugkeren</td></tr>
+            <tr><td>M</td><td><em>monter</em></td><td>mont&eacute;</td><td>omhooggaan, opstijgen</td></tr>
+            <tr><td>R</td><td><em>rester</em></td><td>rest&eacute;</td><td>blijven</td></tr>
+            <tr><td>S</td><td><em>sortir</em></td><td>sorti</td><td>uitgaan, buitenkomen</td></tr>
+            <tr><td>V</td><td><em>venir</em></td><td>venu</td><td>komen</td></tr>
+            <tr><td>A</td><td><em>aller</em></td><td>all&eacute;</td><td>gaan</td></tr>
+            <tr><td>N</td><td><em>na&icirc;tre</em></td><td>n&eacute;</td><td>geboren worden</td></tr>
+            <tr><td>D</td><td><em>devenir</em></td><td>devenu</td><td>worden</td></tr>
+            <tr><td>E</td><td><em>entrer</em></td><td>entr&eacute;</td><td>binnengaan</td></tr>
+            <tr><td>R</td><td><em>retourner</em></td><td>retourn&eacute;</td><td>terugkeren</td></tr>
+            <tr><td>T</td><td><em>tomber</em></td><td>tomb&eacute;</td><td>vallen</td></tr>
+            <tr><td>R</td><td><em>revenir</em></td><td>revenu</td><td>terugkomen</td></tr>
+            <tr><td>A</td><td><em>arriver</em></td><td>arriv&eacute;</td><td>aankomen</td></tr>
+            <tr><td>M</td><td><em>mourir</em></td><td>mort</td><td>sterven (onregelmatig!)</td></tr>
+            <tr><td>P</td><td><em>partir</em></td><td>parti</td><td>vertrekken</td></tr>
+            <tr><td>+</td><td><em>passer</em></td><td>pass&eacute;</td><td>passeren, doorgaan</td></tr>
+          </tbody>
+        </table>
+
+        <p>Vergeet ook niet de reflexieve werkwoorden: <em>se lever, se coucher, se promener, se baigner</em> &hellip; Die vormen het pass&eacute; compos&eacute; <em>altijd</em> met &ecirc;tre.</p>
+
+        <div class="gk-example">
+          <strong>Elle est all&eacute;e &agrave; Paris.</strong> &mdash; Zij is naar Parijs gegaan.<br>
+          <strong>Ils sont rest&eacute;s chez eux.</strong> &mdash; Ze zijn thuis gebleven.<br>
+          <strong>Nous sommes arriv&eacute;s le lundi.</strong> &mdash; We zijn maandag aangekomen.<br>
+          <strong>Elle s&rsquo;est lev&eacute;e t&ocirc;t.</strong> &mdash; Ze is vroeg opgestaan.
+        </div>
+      </div>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Vergelijk: <em>Elle a visit&eacute; le mus&eacute;e</em> (avec avoir) en <em>Elle est all&eacute;e au mus&eacute;e</em> (avec &ecirc;tre). Waarom gebruikt <em>visiter</em> het hulpwerkwoord <em>avoir</em> maar <em>aller</em> het hulpwerkwoord <em>&ecirc;tre</em>?</p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTIE 4 — Raconter des vacances
+  ========================================================== -->
+  <section class="section-block" id="sectie-4">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Raconter des vacances</h2>
+    </div>
+
+    <p>Om over je vakantie te vertellen combineer je het pass&eacute; compos&eacute; met <em>avoir</em> &eacute;n met <em>&ecirc;tre</em>. Tijdsaanduidingen helpen je het verhaal te structureren.</p>
+
+    <div class="grammatica-kader">
+      <span class="gk-label">Grammatica &amp; Vocabulaire</span>
+      <span class="gk-title">Tijdsaanduidingen en structuurwoorden</span>
+      <div class="gk-body">
+        <table>
+          <thead>
+            <tr>
+              <th>Frans</th>
+              <th>Nederlands</th>
+              <th>Gebruik</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><em>hier</em></td>
+              <td>gisteren</td>
+              <td>voor acties van gisteren</td>
+            </tr>
+            <tr>
+              <td><em>la semaine derni&egrave;re</em></td>
+              <td>vorige week</td>
+              <td>voor acties van vorige week</td>
+            </tr>
+            <tr>
+              <td><em>l&rsquo;ann&eacute;e derni&egrave;re</em></td>
+              <td>vorig jaar</td>
+              <td>voor acties van vorig jaar</td>
+            </tr>
+            <tr>
+              <td><em>pendant les vacances</em></td>
+              <td>tijdens de vakantie</td>
+              <td>voor de volledige vakantieperiode</td>
+            </tr>
+            <tr>
+              <td><em>d&rsquo;abord</em></td>
+              <td>eerst, allereerst</td>
+              <td>voor de eerste actie in een reeks</td>
+            </tr>
+            <tr>
+              <td><em>ensuite / puis</em></td>
+              <td>daarna</td>
+              <td>voor de volgende actie</td>
+            </tr>
+            <tr>
+              <td><em>finalement</em></td>
+              <td>uiteindelijk, ten slotte</td>
+              <td>voor de laatste actie</td>
+            </tr>
+            <tr>
+              <td><em>le matin / le soir</em></td>
+              <td>&rsquo;s morgens / &rsquo;s avonds</td>
+              <td>voor acties op een bepaald moment</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="gk-example">
+          <strong>Voorbeeld &mdash; een vakantieverhaal:</strong><br><br>
+          L&rsquo;ann&eacute;e derni&egrave;re, <strong>je suis all&eacute;</strong> en France avec ma famille. D&rsquo;abord, <strong>nous sommes arriv&eacute;s</strong> &agrave; Paris. <strong>On a visit&eacute;</strong> la tour Eiffel et <strong>on a mang&eacute;</strong> des croissants. Ensuite, <strong>nous sommes partis</strong> vers le sud. <strong>J&rsquo;ai nag&eacute;</strong> dans la mer et <strong>j&rsquo;ai pris</strong> beaucoup de photos. Finalement, <strong>nous sommes rentr&eacute;s</strong> en Belgique le dimanche soir.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTIE 5 — Les activités de vacances (woordenschat)
+  ========================================================== -->
+  <section class="section-block" id="sectie-5">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Les activit&eacute;s de vacances</h2>
+    </div>
+
+    <p>Wat doe je op vakantie? Leer de meest gebruikte vakantieactiviteiten.</p>
+
+    <div class="woordenschat-kader">
+      <span class="wk-label">Woordenschat</span>
+      <span class="wk-title">Les activit&eacute;s de vacances &mdash; Vakantieactiviteiten</span>
+
+      <div class="wk-group">
+        <span class="wk-group-label">Aan het water</span>
+        <ul class="wk-list">
+          <li><span class="fr">se baigner</span> <span class="nl">(zwemmen, een bad nemen)</span></li>
+          <li><span class="fr">bronzer</span> <span class="nl">(bruinen, zonnebaden)</span></li>
+          <li><span class="fr">faire du snorkeling</span> <span class="nl">(snorkelen)</span></li>
+          <li><span class="fr">faire du surf</span> <span class="nl">(surfen)</span></li>
+          <li><span class="fr">faire de la voile</span> <span class="nl">(zeilen)</span></li>
+        </ul>
+      </div>
+
+      <div class="wk-group">
+        <span class="wk-group-label">In de natuur en stad</span>
+        <ul class="wk-list">
+          <li><span class="fr">faire de la randonn&eacute;e</span> <span class="nl">(wandelen / hiken)</span></li>
+          <li><span class="fr">faire du ski</span> <span class="nl">(ski&euml;n)</span></li>
+          <li><span class="fr">visiter des monuments</span> <span class="nl">(monumenten bezoeken)</span></li>
+          <li><span class="fr">go&ucirc;ter des sp&eacute;cialit&eacute;s locales</span> <span class="nl">(lokale specialiteiten proeven)</span></li>
+          <li><span class="fr">prendre des photos</span> <span class="nl">(foto&rsquo;s nemen)</span></li>
+        </ul>
+      </div>
+
+      <div class="wk-group">
+        <span class="wk-group-label">Mensen en ontspanning</span>
+        <ul class="wk-list">
+          <li><span class="fr">acheter des souvenirs</span> <span class="nl">(souvenirs kopen)</span></li>
+          <li><span class="fr">rencontrer des gens</span> <span class="nl">(mensen ontmoeten)</span></li>
+          <li><span class="fr">se reposer</span> <span class="nl">(uitrusten)</span></li>
+          <li><span class="fr">lire un livre</span> <span class="nl">(een boek lezen)</span></li>
+          <li><span class="fr">se promener</span> <span class="nl">(wandelen / slenteren)</span></li>
+        </ul>
+      </div>
+
+      <p class="wk-note">Let op: werkwoorden met <em>se</em> (reflexief) zijn altijd &ecirc;tre-werkwoorden in het pass&eacute; compos&eacute;: <em>je me suis repos&eacute;(e), elle s&rsquo;est promen&eacute;e</em>.</p>
+    </div>
+
+    <div class="illustratie">
+      <span class="ill-icon">&#9978;&#65039;</span>
+      <p class="ill-caption">Illustratie: een zomerse badplaats met mensen die zonnebaden, zwemmen en ijsjes eten &mdash; vakantieactiviteiten in beeld.</p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTIE 6 — Gesprek
+  ========================================================== -->
+  <section class="section-block" id="sectie-6">
+    <div class="section-heading">
+      <span class="section-num">6</span>
+      <h2 class="section-title">Gesprek: Tu as pass&eacute; de bonnes vacances&nbsp;?</h2>
+    </div>
+
+    <p>Lees het gesprek tussen twee leerlingen, Camille en Noah, die na de zomervakantie weer naar school gaan. Let op het gebruik van avoir en &ecirc;tre in het pass&eacute; compos&eacute;.</p>
+
+    <div class="gesprek">
+      <span class="gp-label">Gesprek &mdash; Dialogue</span>
+      <span class="gp-title">Tu as pass&eacute; de bonnes vacances ?</span>
+
+      <div class="gp-line">
+        <span class="gp-speaker">Camille</span>
+        <span class="gp-text">Salut Noah ! Tu as pass&eacute; de bonnes vacances ?</span>
+      </div>
+      <div class="gp-line">
+        <span class="gp-speaker">Noah</span>
+        <span class="gp-text">Oui, super ! Je suis all&eacute; en Espagne avec mes parents. Et toi ?</span>
+      </div>
+      <div class="gp-line">
+        <span class="gp-speaker">Camille</span>
+        <span class="gp-text">Moi, je suis rest&eacute;e en Belgique. Mais j&rsquo;ai beaucoup lu et je me suis repos&eacute;e. Tu es all&eacute; o&ugrave; exactement ?</span>
+      </div>
+      <div class="gp-line">
+        <span class="gp-speaker">Noah</span>
+        <span class="gp-text">On est parti&nbsp;s &agrave; Barcelone. On y est rest&eacute;s quatre jours, puis on est all&eacute;s &agrave; la mer. C&rsquo;&eacute;tait magnifique !</span>
+      </div>
+      <div class="gp-line">
+        <span class="gp-speaker">Camille</span>
+        <span class="gp-text">Qu&rsquo;est-ce que vous avez fait &agrave; Barcelone ?</span>
+      </div>
+      <div class="gp-line">
+        <span class="gp-speaker">Noah</span>
+        <span class="gp-text">On a visit&eacute; la Sagrada Fam&iacute;lia et on a go&ucirc;t&eacute; des tapas. Le soir, on est sortis dans les restaurants. Et j&rsquo;ai pris plein de photos !</span>
+      </div>
+      <div class="gp-line">
+        <span class="gp-speaker">Camille</span>
+        <span class="gp-text">Vous y &ecirc;tes all&eacute;s comment &mdash; en avion ou en voiture ?</span>
+      </div>
+      <div class="gp-line">
+        <span class="gp-speaker">Noah</span>
+        <span class="gp-text">En avion. On est partis de l&rsquo;a&eacute;roport de Bruxelles. Le vol a dur&eacute; presque deux heures. Et tu as quand m&ecirc;me fait quelque chose de sympa ici ?</span>
+      </div>
+      <div class="gp-line">
+        <span class="gp-speaker">Camille</span>
+        <span class="gp-text">Oui ! La semaine derni&egrave;re, je suis all&eacute;e &agrave; Gand avec ma copine. On a visit&eacute; des mus&eacute;es et on a achet&eacute; des souvenirs pour nos familles.</span>
+      </div>
+      <div class="gp-line">
+        <span class="gp-speaker">Noah</span>
+        <span class="gp-text">Cool ! Bon, on entre en classe maintenant &mdash; le prof est d&eacute;j&agrave; arriv&eacute; !</span>
+      </div>
+
+      <p class="gp-note">Let op: Camille zegt <em>je suis rest&eacute;e</em> (met -e, want vrouwelijk) en Noah zegt <em>je suis all&eacute;</em> (zonder -e, want mannelijk). Het deelwoord akkoreert altijd met het onderwerp bij &ecirc;tre-werkwoorden.</p>
+    </div>
+
+    <h3 class="sub-heading">Vragen en antwoorden over vakanties</h3>
+    <div class="grammatica-kader">
+      <span class="gk-label">Communicatie</span>
+      <span class="gk-title">Nuttige vragen en antwoorden</span>
+      <div class="gk-body">
+        <table>
+          <thead>
+            <tr>
+              <th>Vraag</th>
+              <th>Mogelijk antwoord</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><em>Tu as pass&eacute; de bonnes vacances ?</em></td>
+              <td><em>Oui, super ! / Pas vraiment&hellip;</em></td>
+            </tr>
+            <tr>
+              <td><em>Tu es all&eacute;(e) o&ugrave; ?</em></td>
+              <td><em>Je suis all&eacute;(e) en Italie / au Portugal.</em></td>
+            </tr>
+            <tr>
+              <td><em>Tu es parti(e) avec qui ?</em></td>
+              <td><em>Avec ma famille / mes amis.</em></td>
+            </tr>
+            <tr>
+              <td><em>Tu es rest&eacute;(e) combien de temps ?</em></td>
+              <td><em>Je suis rest&eacute;(e) une semaine / dix jours.</em></td>
+            </tr>
+            <tr>
+              <td><em>Qu&rsquo;est-ce que tu as fait ?</em></td>
+              <td><em>J&rsquo;ai visit&eacute; / j&rsquo;ai mang&eacute; / je me suis baign&eacute;(e).</em></td>
+            </tr>
+            <tr>
+              <td><em>C&rsquo;&eacute;tait comment ?</em></td>
+              <td><em>C&rsquo;&eacute;tait magnifique / sympa / bof.</em></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTIE 7 — Tekst: Une semaine à Paris
+  ========================================================== -->
+  <section class="section-block" id="sectie-7">
+    <div class="section-heading">
+      <span class="section-num">7</span>
+      <h2 class="section-title">Tekst: <em>Une semaine &agrave; Paris</em></h2>
+    </div>
+
+    <p>Lees de dagboektekst van Lena, een 14-jarige leerling die met haar school een week naar Parijs is gegaan. Beantwoord daarna de vragen.</p>
+
+    <div class="tekst-fragment">
+      <span class="tf-label">Tekst &mdash; Dagboek / Blog</span>
+      <span class="tf-title">Une semaine &agrave; Paris &mdash; Mon journal de voyage</span>
+      <span class="tf-meta">door Lena, 14 ans &nbsp;&middot;&nbsp; juillet</span>
+
+      <div class="tf-body">
+        <p><strong>Lundi</strong> &mdash; Ce matin, nous sommes partis de Bruxelles en train. Le trajet a dur&eacute; environ une heure et vingt minutes. Quand nous sommes arriv&eacute;s &agrave; Paris, il faisait beau et chaud. D&rsquo;abord, nous sommes all&eacute;s &agrave; l&rsquo;h&ocirc;tel pour laisser nos valises. Ensuite, notre guide nous a emmen&eacute;s au Louvre. J&rsquo;ai vu la Joconde ! Elle est plus petite que je pensais. Le soir, on est sortis manger dans un bistrot et j&rsquo;ai command&eacute; une quiche lorraine. D&eacute;licieux !</p>
+
+        <p><strong>Mardi</strong> &mdash; Aujourd&rsquo;hui, nous sommes mont&eacute;s en haut de la tour Eiffel. J&rsquo;ai eu un peu peur dans l&rsquo;ascenseur, mais la vue &eacute;tait &eacute;poustouflante. On a pris des centaines de photos. L&rsquo;apr&egrave;s-midi, je me suis promen&eacute;e le long de la Seine avec ma copine Isobel. Nous avons achet&eacute; des macarons dans une boulangerie. Ils &eacute;taient tr&egrave;s bons mais un peu chers !</p>
+
+        <p><strong>Mercredi</strong> &mdash; Le matin, nous sommes all&eacute;s &agrave; Montmartre. Nous sommes entr&eacute;s dans la basilique du Sacr&eacute;-C&oelig;ur. C&rsquo;&eacute;tait calme et beau. Dans les petites ruelles, des artistes dessinaient des portraits. Un artiste a dessin&eacute; mon portrait en dix minutes ! Je l&rsquo;ai achet&eacute; comme souvenir. L&rsquo;apr&egrave;s-midi, il a plu, alors on est rest&eacute;s dans un caf&eacute; et on a jou&eacute; aux cartes.</p>
+
+        <p><strong>Jeudi</strong> &mdash; Aujourd&rsquo;hui, nous avons visit&eacute; le mus&eacute;e d&rsquo;Orsay. J&rsquo;ai vraiment aim&eacute; les peintures impressionnistes &mdash; Monet, Renoir, Degas. Le soir, notre professeur nous a emmen&eacute;s voir un spectacle de danse au Th&eacute;&acirc;tre du Ch&acirc;telet. C&rsquo;&eacute;tait magnifique !</p>
+
+        <p><strong>Vendredi</strong> &mdash; Dernier jour &agrave; Paris. Le matin, nous sommes return&eacute;s au march&eacute; pour acheter des cadeaux. J&rsquo;ai achet&eacute; des petites tours Eiffel pour ma famille et du fromage pour mon p&egrave;re. L&rsquo;apr&egrave;s-midi, nous sommes rentr&eacute;s en train. Quand je suis arriv&eacute;e &agrave; Bruxelles, j&rsquo;&eacute;tais fatigue mais heureuse. Paris, c&rsquo;est vraiment une ville incroyable !</p>
+      </div>
+
+      <div class="tf-vragen">
+        <span class="tf-vragen-label">Begripsvragen &mdash; Questions de compr&eacute;hension</span>
+        <ol>
+          <li>Hoe is Lena naar Parijs gereisd en hoelang duurde de reis?</li>
+          <li>Wat heeft Lena maandag gegeten en waarom vond ze het lekker?</li>
+          <li>Welk monument heeft Lena dinsdag bezocht? Hoe voelde ze zich daarboven?</li>
+          <li>Wat heeft ze woensdag als souvenir gekocht en waar?</li>
+          <li>Noem twee activiteiten die Lena donderdag heeft gedaan.</li>
+          <li>Geef drie voorbeelden uit de tekst van een pass&eacute; compos&eacute; met <em>&ecirc;tre</em>. Verklaar de akkordering van het deelwoord.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTIE 8 — La francophonie
+  ========================================================== -->
+  <section class="section-block" id="sectie-8">
+    <div class="section-heading">
+      <span class="section-num">8</span>
+      <h2 class="section-title">La Francophonie</h2>
+    </div>
+
+    <p>Frans is een van de meest gesproken talen ter wereld. Meer dan 300 miljoen mensen spreken Frans als moedertaal of offici&euml;le taal, verspreid over alle continenten. Dat netwerk van Franstalige landen en gemeenschappen noem je de <strong>Francophonie</strong>.</p>
+
+    <div class="cultuur-kader">
+      <span class="ck-label">Cultuur &mdash; La Francophonie</span>
+      <span class="ck-title">Frans over de hele wereld</span>
+
+      <p>Frans is offici&euml;le taal in 29 landen en wordt gesproken in nog veel meer regio&rsquo;s. Het is een van de zes offici&euml;le talen van de VN en een werktaal van de Europese Unie. Hier zijn enkele voorbeelden per continent:</p>
+
+      <ul>
+        <li><strong>Europa:</strong> Frankrijk, Belgi&euml; (Walloni&euml; en Brussel), Zwitserland (romandie), Monaco, Luxemburg</li>
+        <li><strong>Noord-Amerika:</strong> Qu&eacute;bec (Canada), Acadi&euml;, Louisiana (VS)</li>
+        <li><strong>Afrika:</strong> Marokko, Senegal, C&ocirc;te d&rsquo;Ivoire, Algerije, Tunesie, Madagascar, DR Congo, Kameroen</li>
+        <li><strong>Azi&euml; &amp; Oceani&euml;:</strong> Nieuw-Caledoni&euml;, Frans-Polynesi&euml;, Vanuatu</li>
+        <li><strong>Amerika (Carabi&euml;n):</strong> Ha&iuml;ti, Martinique, Guadeloupe</li>
+      </ul>
+
+      <p>Waarom spreekt men in zoveel landen Frans? Dat is een gevolg van de Franse koloniale geschiedenis (16de&ndash;20ste eeuw), maar ook van de invloed van de Belgische kolonisatie in Centraal-Afrika.</p>
+    </div>
+
+    <div class="cultuur-kader">
+      <span class="ck-label">Cultuur &mdash; F&ecirc;tes et traditions</span>
+      <span class="ck-title">Feesten en culturele tradities in de Franstalige wereld</span>
+
+      <p>De Franstalige wereld heeft rijke culturele tradities die vaak over de landsgrenzen heen gekend zijn:</p>
+
+      <ul>
+        <li><strong>La F&ecirc;te de la Musique (21 juni):</strong> Elk jaar op de langste dag van het jaar spelen muzikanten gratis op straten en pleinen in heel Frankrijk en in vele andere landen. Iedereen kan meedoen, amateur of professional.</li>
+        <li><strong>Le Carnaval de Binche (Belgi&euml;):</strong> Dit carnaval in Henegouwen is erkend door UNESCO als Immaterieel Cultureel Erfgoed van de Mensheid. De Gilles &mdash; mannen in traditionele kostuums met grote veerhoeden &mdash; gooien sinaasappels naar het publiek.</li>
+        <li><strong>Le 14 juillet (Bastille-dag):</strong> De Franse nationale feestdag herdenkt de bestorming van de Bastille in 1789. Er zijn grote militaire parades op de Champs-&Eacute;lys&eacute;es en overal in het land zijn er vuurwerkshows.</li>
+        <li><strong>La F&ecirc;te des Rois (6 januari):</strong> In Frankrijk en Belgi&euml; eet men op Driekoningen een speciale taart (<em>la galette des rois</em>) met een verborgen figuurtje erin. Wie het figuurtje vindt, wordt &ldquo;roi&rdquo; of &ldquo;reine&rdquo; voor de dag.</li>
+      </ul>
+
+      <p>Spreken van een grote taal als Frans opent deuren: voor reizen, studie, werk en contact met mensen over de hele wereld.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Welk Franstalig land of welke regio buiten Europa zou jij het liefst bezoeken? Waarom? Gebruik de woorden van dit hoofdstuk om je antwoord te formuleren: <em>Je voudrais aller en / au / aux&hellip; parce que&hellip;</em></p>
+    </div>
+  </section>
+
+  <!-- CLOSING QUOTE -->
+  <div class="closing-quote" role="note" aria-label="Slotcitaat">
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p class="cq-text">Voyager, c&rsquo;est vivre deux fois.</p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <span class="cq-attribution">Frans 1A &nbsp;&middot;&nbsp; Eerste Graad A-stroom</span>
+  </div>
+
+</div><!-- end page-wrapper -->
+
+<!-- ============================================================
+     OEFENINGEN
+============================================================ -->
+<section class="exercises-section" id="oefeningen">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <!-- OEFENING 1 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Avoir of &ecirc;tre ? Kies het juiste hulpwerkwoord.</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.7rem;">Kies voor elk zin het juiste hulpwerkwoord (<em>avoir</em> of <em>&ecirc;tre</em>) en schrijf de volledige zin in het pass&eacute; compos&eacute; op.</p>
+      <ol>
+        <li>Marie &mdash; (aller) &agrave; Rome la semaine derni&egrave;re.</li>
+        <li>Nous &mdash; (visiter) le Louvre hier.</li>
+        <li>Ils &mdash; (partir) en vacances le 1er juillet.</li>
+        <li>Tu &mdash; (manger) des cr&ecirc;pes au march&eacute; ?</li>
+        <li>Elle &mdash; (rester) &agrave; l&rsquo;h&ocirc;tel pendant trois jours.</li>
+        <li>Je &mdash; (prendre) beaucoup de photos.</li>
+        <li>Vous &mdash; (arriver) &agrave; quelle heure ?</li>
+        <li>Les enfants &mdash; (tomber) sur la plage.</li>
+      </ol>
+      <p class="ex-tip">Tip: Onthoud DR MRS VANDERTRAMP + reflexieve werkwoorden &rarr; altijd &ecirc;tre. Alle andere werkwoorden &rarr; avoir.</p>
+    </div>
+
+    <!-- OEFENING 2 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Akkordering van het voltooid deelwoord</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.7rem;">Schrijf het voltooid deelwoord in de correcte vorm (let op geslacht en getal van het onderwerp).</p>
+      <ol>
+        <li>Emma est <strong>all___</strong> en Suisse. (aller)</li>
+        <li>Les filles sont <strong>parti___</strong> t&ocirc;t le matin. (partir)</li>
+        <li>Paul et Marc sont <strong>arriv___</strong> hier soir. (arriver)</li>
+        <li>Ma m&egrave;re est <strong>rest___</strong> &agrave; la maison. (rester)</li>
+        <li>Nous (f.) sommes <strong>entr___</strong> dans le mus&eacute;e. (entrer)</li>
+        <li>Elle s&rsquo;est <strong>repos___</strong> sur la plage. (se reposer)</li>
+        <li>Ils sont <strong>tomb___</strong> dans la neige. (tomber)</li>
+        <li>Les touristes sont <strong>mont___</strong> &agrave; la tour Eiffel. (monter)</li>
+      </ol>
+    </div>
+
+    <!-- OEFENING 3 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Vakantieverhaal ordenen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.7rem;">Zet de zinnen in de juiste volgorde om een logisch vakantieverhaal te maken. Gebruik de tijdsaanduidingen als leidraad.</p>
+      <ol type="A">
+        <li>Finalement, nous sommes rentr&eacute;s &agrave; la maison le dimanche soir.</li>
+        <li>D&rsquo;abord, nous avons fait nos valises et nous sommes all&eacute;s &agrave; la gare.</li>
+        <li>L&rsquo;ann&eacute;e derni&egrave;re, ma famille a d&eacute;cid&eacute; de partir en vacances &agrave; Nice.</li>
+        <li>Ensuite, nous sommes arriv&eacute;s &agrave; l&rsquo;h&ocirc;tel et nous nous sommes repos&eacute;s.</li>
+        <li>Le lendemain, nous nous sommes baign&eacute;s dans la mer et nous avons go&ucirc;t&eacute; la cuisine proven&ccedil;ale.</li>
+      </ol>
+      <p class="ex-tip">Schrijf de correcte volgorde op: __ &rarr; __ &rarr; __ &rarr; __ &rarr; __</p>
+    </div>
+
+    <!-- OEFENING 4 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 4</p>
+      <p class="ex-name">Begripsvragen bij &ldquo;Une semaine &agrave; Paris&rdquo;</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.7rem;">Beantwoord de vragen over de dagboektekst van Lena (sectie 7). Schrijf volledige zinnen in het Frans.</p>
+      <ol>
+        <li>Comment est-ce que Lena est all&eacute;e &agrave; Paris ?</li>
+        <li>Qu&rsquo;est-ce que Lena a achet&eacute; comme souvenir &agrave; Montmartre ?</li>
+        <li>Qu&rsquo;est-ce que Lena a fait quand il a plu le mercredi ?</li>
+        <li>Quel mus&eacute;e est-ce que Lena a pr&eacute;f&eacute;r&eacute;, le Louvre ou le mus&eacute;e d&rsquo;Orsay ? Comment le sais-tu ?</li>
+        <li>Trouve dans le texte deux exemples de pass&eacute; compos&eacute; avec <em>&ecirc;tre</em> et explique l&rsquo;accord du participe pass&eacute;.</li>
+      </ol>
+    </div>
+
+    <!-- OEFENING 5 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 5</p>
+      <p class="ex-name">Landen en voorzetsels &mdash; vul in</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.7rem;">Vul het juiste voorzetsel in (<em>en, au, aux</em> of <em>&agrave;</em>).</p>
+      <ol>
+        <li>Cet &eacute;t&eacute;, je vais ___ Espagne avec mes grands-parents.</li>
+        <li>Mon oncle habite ___ Canada, &agrave; Montr&eacute;al.</li>
+        <li>Ils sont partis ___ &Eacute;tats-Unis pour les vacances.</li>
+        <li>Elle a grandi ___ Maroc avant de venir en Belgique.</li>
+        <li>Nous allons ___ Rome pour le week-end.</li>
+        <li>Mon professeur vient ___ S&eacute;n&eacute;gal.</li>
+        <li>Vous &ecirc;tes all&eacute;s ___ Pays-Bas en train ?</li>
+        <li>Il travaille ___ Paris depuis deux ans.</li>
+      </ol>
+    </div>
+
+    <!-- OEFENING 6 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 6</p>
+      <p class="ex-name">Schrijf over jouw laatste vakantie</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.7rem;">Schrijf een kort tekst (8&ndash;12 zinnen) over jouw laatste vakantie of een vakantie die je zou willen maken. Gebruik:</p>
+      <ul>
+        <li>minstens <strong>3 werkwoorden met &ecirc;tre</strong> in het pass&eacute; compos&eacute;</li>
+        <li>minstens <strong>3 werkwoorden met avoir</strong> in het pass&eacute; compos&eacute;</li>
+        <li>minstens <strong>3 tijdsaanduidingen</strong> (d&rsquo;abord, ensuite, finalement, &hellip;)</li>
+        <li>het juiste voorzetsel bij het land of de stad</li>
+      </ul>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-top:0.6rem;font-style:italic;">Begin met: <em>L&rsquo;ann&eacute;e derni&egrave;re / Pendant les grandes vacances, je suis all&eacute;(e) &agrave; / en / au &hellip;</em></p>
+      <p class="ex-tip">Tip: gebruik de woordenschat uit secties 1 en 5 voor de activiteiten, en sectie 4 voor de tijdsaanduidingen.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SAMENVATTING
+============================================================ -->
+<section class="summary-section" id="samenvatting">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting &mdash; R&eacute;sum&eacute;</h2>
+    <ul>
+      <li><strong>Les vacances:</strong> belangrijke woordenschat voor vakantie en reizen &mdash; <em>partir en vacances, voyager, visiter, faire sa valise, le passeport, la r&eacute;servation</em> &hellip;</li>
+      <li><strong>Voorzetsels bij landen:</strong> <em>en</em> + vrouwelijk land (France, Belgique), <em>au</em> + mannelijk land (Maroc, Canada), <em>aux</em> + meervoudig land (&Eacute;tats-Unis), <em>&agrave;</em> + stad (Paris, Rome).</li>
+      <li><strong>Pass&eacute; compos&eacute; avec &ecirc;tre:</strong> de 17 DR MRS VANDERTRAMP-werkwoorden + alle reflexieve werkwoorden vormen het pass&eacute; compos&eacute; met <em>&ecirc;tre</em> als hulpwerkwoord.</li>
+      <li><strong>Akkordering van het deelwoord:</strong> bij &ecirc;tre-werkwoorden akkoreert het voltooid deelwoord met het onderwerp: <em>-e</em> (vrouwelijk enk.), <em>-s</em> (mannelijk mv.), <em>-es</em> (vrouwelijk mv.).</li>
+      <li><strong>Vakantie vertellen:</strong> combineer avoir en &ecirc;tre en gebruik tijdsaanduidingen: <em>d&rsquo;abord, ensuite, finalement, hier, la semaine derni&egrave;re, l&rsquo;ann&eacute;e derni&egrave;re</em>.</li>
+      <li><strong>Vakantieactiviteiten:</strong> <em>se baigner, faire de la randon&eacute;e, visiter des monuments, go&ucirc;ter des sp&eacute;cialit&eacute;s, prendre des photos, se reposer, bronzer</em> &hellip;</li>
+      <li><strong>La Francophonie:</strong> meer dan 300 miljoen mensen spreken Frans als offici&euml;le taal, in 29 landen op alle continenten. Feesten zoals de F&ecirc;te de la Musique en het Carnaval de Binche tonen de rijkdom van de Franstalige cultuur.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

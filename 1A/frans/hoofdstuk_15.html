@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H15 — Révision et bilan | Frans 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Source Sans 3', sans-serif; font-size: 17px; line-height: 1.75; color: var(--text-dark); background: var(--creme); }
+  h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.25; }
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+  strong { font-weight: 700; color: var(--text-dark); }
+
+  /* SITE HEADER */
+  .site-header { background: var(--darkblue); color: var(--gold); display: flex; justify-content: space-between; align-items: center; padding: 0.65rem 2.5rem; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.35); }
+  .site-header .label { font-family: 'Source Sans 3', sans-serif; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); opacity: 0.9; }
+  .site-header .label-right { text-align: right; }
+
+  /* CHAPTER HERO */
+  .chapter-hero { background-color: var(--darkblue); background-image: radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0); background-size: 28px 28px; padding: 5rem 2.5rem 4.5rem; text-align: center; position: relative; overflow: hidden; }
+  .chapter-hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta)); }
+  .chapter-hero .chapter-kicker { font-family: 'Source Sans 3', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); opacity: 0.75; margin-bottom: 1.2rem; }
+  .chapter-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 700; color: #FFFDF8; max-width: 820px; margin: 0 auto; text-shadow: 0 2px 20px rgba(0,0,0,0.4); }
+  .chapter-hero .subtitle { margin-top: 1.4rem; font-size: 1.05rem; color: rgba(250,246,239,0.65); max-width: 560px; margin-left: auto; margin-right: auto; }
+
+  /* PAGE WRAPPER */
+  .page-wrapper { max-width: 860px; margin: 0 auto; padding: 0 1.5rem 5rem; }
+
+  /* SECTION BLOCKS */
+  .section-block { padding: 3rem 0 2rem; border-bottom: 1px solid rgba(200,146,58,0.2); }
+  .section-block:last-of-type { border-bottom: none; }
+  .section-alt { background: var(--sand-light); margin: 0 -1.5rem; padding: 3rem 1.5rem 2rem; border-top: 1px solid rgba(200,146,58,0.15); border-bottom: 1px solid rgba(200,146,58,0.15); }
+
+  .section-heading { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1.8rem; padding-bottom: 0.8rem; border-bottom: 2px solid rgba(193,68,14,0.15); }
+  .section-num { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; color: var(--terracotta); line-height: 1; opacity: 0.85; flex-shrink: 0; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.4rem, 3vw, 1.85rem); font-weight: 600; color: var(--darkblue); }
+  .sub-heading { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 600; color: var(--darkblue); margin: 2rem 0 0.8rem; padding-bottom: 0.3rem; border-bottom: 1px solid rgba(26,43,74,0.12); }
+
+  /* BEGRIP */
+  .begrip { background: #FDF3E7; border-left: 4px solid var(--terracotta); border-radius: 0 var(--border-radius) var(--border-radius) 0; padding: 1rem 1.2rem; margin: 1.4rem 0; display: flex; gap: 0.9rem; align-items: flex-start; }
+  .begrip .begrip-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .begrip .begrip-body { flex: 1; }
+  .begrip .begrip-term { display: block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--terracotta); margin-bottom: 0.25rem; }
+  .begrip .begrip-def { font-size: 0.97rem; color: var(--text-mid); line-height: 1.65; margin: 0; }
+
+  /* EXERCISES */
+  .exercises-section { background: var(--sand-light); margin: 0 -1.5rem; padding: 3rem 1.5rem 2.5rem; border-top: 4px solid var(--terracotta); }
+  .exercises-heading { font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 700; color: var(--darkblue); margin-bottom: 2rem; }
+  .exercise-card { background: var(--creme); border-radius: var(--border-radius); padding: 1.5rem 1.6rem; margin-bottom: 1.4rem; box-shadow: var(--shadow-sm); border-left: 4px solid var(--oker); }
+  .exercise-card .ex-title { font-family: 'Source Sans 3', sans-serif; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--terracotta); margin-bottom: 0.7rem; }
+  .exercise-card .ex-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 600; color: var(--darkblue); margin-bottom: 0.9rem; }
+  .exercise-card ol, .exercise-card ul { padding-left: 1.4rem; margin-top: 0.5rem; }
+  .exercise-card li { margin-bottom: 0.45rem; font-size: 0.96rem; color: var(--text-mid); }
+  .exercise-card .ex-tip { margin-top: 0.9rem; font-size: 0.88rem; font-style: italic; color: var(--text-light); border-top: 1px solid rgba(200,146,58,0.2); padding-top: 0.6rem; }
+
+  /* SUMMARY */
+  .summary-section { background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%); margin: 0 -1.5rem; padding: 4rem 1.5rem; }
+  .summary-inner { max-width: 780px; margin: 0 auto; }
+  .summary-label { font-family: 'Source Sans 3', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); opacity: 0.7; display: block; margin-bottom: 0.5rem; }
+  .summary-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: #FFFDF8; margin-bottom: 2rem; }
+  .summary-list { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem 2rem; }
+  .summary-list li { font-size: 0.95rem; color: rgba(250,246,239,0.8); padding-left: 1.4rem; position: relative; }
+  .summary-list li::before { content: '✓'; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
+  @media (max-width: 600px) { .summary-list { grid-template-columns: 1fr; } }
+
+  /* BACK TO TOP */
+  #back-to-top { display: none; position: fixed; bottom: 2rem; right: 2rem; background: var(--darkblue); color: var(--gold); border: 1px solid rgba(212,160,23,0.4); border-radius: 50%; width: 3rem; height: 3rem; align-items: center; justify-content: center; font-size: 1.2rem; cursor: pointer; z-index: 90; box-shadow: var(--shadow-md); transition: background var(--transition), transform var(--transition); }
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.65rem 1.2rem; }
+    .chapter-hero { padding: 3.5rem 1.2rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+  }
+
+  /* ── FRANS-SPECIFIC COMPONENTS ──────────────────────── */
+
+  /* Grammatica-kader */
+  .grammatica-kader { background: #EEF3FF; border-left: 4px solid var(--darkblue); border-radius: 0 var(--border-radius) var(--border-radius) 0; padding: 1.2rem 1.5rem; margin: 1.5rem 0; }
+  .grammatica-kader .gk-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--darkblue); opacity: 0.7; display: block; margin-bottom: 0.35rem; }
+  .grammatica-kader .gk-titel { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--darkblue); margin-bottom: 0.75rem; }
+  .grammatica-kader .gk-body { font-size: 0.95rem; color: var(--text-dark); }
+  .grammatica-kader .gk-body table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin-top: 0.5rem; }
+  .grammatica-kader .gk-body th { background: var(--darkblue); color: white; padding: 0.35rem 0.75rem; text-align: left; font-size: 0.82rem; }
+  .grammatica-kader .gk-body td { padding: 0.3rem 0.75rem; border-bottom: 1px solid rgba(26,43,74,0.1); vertical-align: top; }
+  .grammatica-kader .gk-body tr:last-child td { border-bottom: none; }
+  .grammatica-kader .gk-body .let-op { background: rgba(193,68,14,0.07); border-left: 3px solid var(--terracotta); padding: 0.5rem 0.8rem; border-radius: 0 4px 4px 0; margin-top: 0.75rem; font-size: 0.92rem; }
+
+  /* Woordenschat-kader */
+  .woordenschat-kader { background: white; border: 1px solid var(--sand); border-top: 4px solid var(--oker); border-radius: var(--border-radius); padding: 1.5rem 1.8rem; margin: 1.5rem 0; box-shadow: var(--shadow-sm); }
+  .woordenschat-kader .wk-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--oker); display: block; margin-bottom: 0.75rem; }
+  .woordenschat-kader .wk-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.4rem 1.5rem; }
+  .woordenschat-kader .wk-item { font-size: 0.95rem; padding: 0.25rem 0; border-bottom: 1px solid var(--sand-light); }
+  .woordenschat-kader .wk-item .fr { font-weight: 600; color: var(--darkblue); }
+  .woordenschat-kader .wk-item .nl { color: var(--text-light); font-size: 0.88rem; }
+
+  /* Tekst-fragment */
+  .tekst-fragment { background: white; border: 1px solid var(--sand); border-top: 4px solid var(--terracotta); border-radius: var(--border-radius); padding: 2rem 2.2rem; margin: 2rem 0; box-shadow: var(--shadow-sm); }
+  .tekst-fragment .tf-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--terracotta); display: block; margin-bottom: 0.3rem; }
+  .tekst-fragment .tf-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--darkblue); display: block; }
+  .tekst-fragment .tf-meta { font-size: 0.82rem; color: var(--text-light); font-style: italic; display: block; margin-bottom: 0.9rem; }
+  .tekst-fragment .tf-body { font-size: 0.97rem; color: var(--text-mid); line-height: 1.8; }
+  .tekst-fragment .tf-body p { margin-bottom: 0.6rem; }
+  .tekst-fragment .tf-vragen { background: rgba(193,68,14,0.05); border-left: 3px solid var(--terracotta); border-radius: 0 4px 4px 0; padding: 0.9rem 1.1rem; margin-top: 1.2rem; }
+  .tekst-fragment .tf-vragen p { font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--terracotta); margin-bottom: 0.5rem; }
+  .tekst-fragment .tf-vragen ol { padding-left: 1.4rem; }
+  .tekst-fragment .tf-vragen li { font-size: 0.95rem; color: var(--text-mid); margin-bottom: 0.35rem; }
+
+  /* Gesprek */
+  .gesprek { background: var(--sand-light); border-radius: var(--border-radius); padding: 1.5rem 1.8rem; margin: 2rem 0; border: 1px solid var(--sand); }
+  .gesprek .gesprek-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--oker); display: block; margin-bottom: 1rem; }
+  .gesprek-lijn { display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 0.6rem; }
+  .gesprek-spreker { font-weight: 700; font-size: 0.82rem; color: var(--darkblue); min-width: 3.5rem; padding-top: 0.1rem; flex-shrink: 0; }
+  .gesprek-tekst { font-size: 0.97rem; color: var(--text-dark); line-height: 1.6; }
+  .gesprek-tekst em { color: var(--terracotta); font-style: normal; font-weight: 600; }
+
+  /* Checklist */
+  .checklist-section { margin: 1.5rem 0; }
+  .checklist-section .cl-groep { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--darkblue); margin: 1.5rem 0 0.6rem; border-bottom: 1px solid var(--sand); padding-bottom: 0.3rem; }
+  .checklist-section ul { list-style: none; padding: 0; }
+  .checklist-section li { font-size: 0.96rem; color: var(--text-mid); padding: 0.3rem 0 0.3rem 2rem; position: relative; border-bottom: 1px solid var(--sand-light); }
+  .checklist-section li::before { content: '□'; position: absolute; left: 0.3rem; color: var(--oker); font-size: 1.1rem; }
+
+  /* Fout-kader */
+  .fout-kader { background: #FFF0EC; border: 1px solid rgba(193,68,14,0.25); border-left: 4px solid var(--terracotta); border-radius: 0 var(--border-radius) var(--border-radius) 0; padding: 1.2rem 1.5rem; margin: 1.5rem 0; }
+  .fout-kader .fk-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--terracotta); display: block; margin-bottom: 0.75rem; }
+  .fout-kader ol { padding-left: 1.4rem; }
+  .fout-kader li { font-size: 0.95rem; color: var(--text-mid); margin-bottom: 0.6rem; line-height: 1.55; }
+  .fout-kader .fout { color: var(--terracotta); text-decoration: line-through; }
+  .fout-kader .goed { color: #1a6b3a; font-weight: 600; }
+
+  /* Conj-grid voor parallelle conjugatietabellen */
+  .conj-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-top: 0.75rem; }
+  .conj-block { background: white; border: 1px solid var(--sand); border-radius: 4px; padding: 0.8rem 1rem; }
+  .conj-block .cb-verb { font-family: 'Playfair Display', serif; font-size: 0.9rem; font-weight: 700; color: var(--darkblue); margin-bottom: 0.5rem; }
+  .conj-block table { width: 100%; font-size: 0.85rem; border-collapse: collapse; }
+  .conj-block td { padding: 0.15rem 0.3rem; }
+  .conj-block td:first-child { color: var(--text-light); width: 40%; }
+  .conj-block td:last-child { font-weight: 600; color: var(--darkblue); }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <span class="label">Frans 1A</span>
+  <span class="label label-right">H15 — Révision et bilan</span>
+</header>
+
+<section class="chapter-hero">
+  <p class="chapter-kicker">Frans 1A &nbsp;·&nbsp; Hoofdstuk 15 &nbsp;·&nbsp; Eerste graad</p>
+  <h1>Révision et bilan</h1>
+  <p class="subtitle">Alles wat je geleerd hebt, op één plek. Klaar voor je examen.</p>
+</section>
+
+<main class="page-wrapper">
+
+  <!-- ── SECTION 1: GRAMMATICA OVERZICHT ─────────────────── -->
+  <section class="section-block">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Vue d'ensemble — La grammaire</h2>
+    </div>
+    <p>Hieronder vind je alle grammaticaonderwerpen uit hoofdstukken 1 t.e.m. 14 in een compact overzicht. Gebruik deze tabellen als spiekbriefje bij het studeren.</p>
+
+    <h3 class="sub-heading">1.1 Les pronoms personnels sujets (H1)</h3>
+    <div class="grammatica-kader">
+      <span class="gk-label">Grammatica</span>
+      <p class="gk-titel">Persoonlijke voornaamwoorden (subject)</p>
+      <div class="gk-body">
+        <table>
+          <tr><th>Pronom</th><th>Nederlands</th><th>Voorbeeld</th></tr>
+          <tr><td>je / j'</td><td>ik</td><td>Je parle français.</td></tr>
+          <tr><td>tu</td><td>jij (informeel)</td><td>Tu habites où ?</td></tr>
+          <tr><td>il / elle / on</td><td>hij / zij / men/we</td><td>On mange à midi.</td></tr>
+          <tr><td>nous</td><td>wij</td><td>Nous allons à l'école.</td></tr>
+          <tr><td>vous</td><td>jullie / u (formeel)</td><td>Vous avez une question ?</td></tr>
+          <tr><td>ils / elles</td><td>zij (mv.)</td><td>Ils sont belges.</td></tr>
+        </table>
+        <p class="let-op">⚠ <strong>on</strong> = informeel "we" in gesproken Frans: <em>On va au cinéma ?</em> = Gaan we naar de bioscoop?</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">1.2 Être et avoir (H1)</h3>
+    <div class="grammatica-kader">
+      <span class="gk-label">Grammatica</span>
+      <p class="gk-titel">Présent: être en avoir</p>
+      <div class="gk-body">
+        <div class="conj-grid">
+          <div class="conj-block">
+            <div class="cb-verb">être (zijn)</div>
+            <table>
+              <tr><td>je</td><td>suis</td></tr>
+              <tr><td>tu</td><td>es</td></tr>
+              <tr><td>il/elle</td><td>est</td></tr>
+              <tr><td>nous</td><td>sommes</td></tr>
+              <tr><td>vous</td><td>êtes</td></tr>
+              <tr><td>ils/elles</td><td>sont</td></tr>
+            </table>
+          </div>
+          <div class="conj-block">
+            <div class="cb-verb">avoir (hebben)</div>
+            <table>
+              <tr><td>j'</td><td>ai</td></tr>
+              <tr><td>tu</td><td>as</td></tr>
+              <tr><td>il/elle</td><td>a</td></tr>
+              <tr><td>nous</td><td>avons</td></tr>
+              <tr><td>vous</td><td>avez</td></tr>
+              <tr><td>ils/elles</td><td>ont</td></tr>
+            </table>
+          </div>
+        </div>
+        <p class="let-op">⚠ Leeftijd: <em>j'ai 12 ans</em> (NIET: <del>je suis 12 ans</del>)</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">1.3 Les verbes réguliers en -ER et les irréguliers (H2, H4)</h3>
+    <div class="grammatica-kader">
+      <span class="gk-label">Grammatica</span>
+      <p class="gk-titel">Présent: regelmatig -ER + veelgebruikte onregelmatige werkwoorden</p>
+      <div class="gk-body">
+        <div class="conj-grid">
+          <div class="conj-block">
+            <div class="cb-verb">parler (-ER model)</div>
+            <table>
+              <tr><td>je</td><td>parle</td></tr>
+              <tr><td>tu</td><td>parles</td></tr>
+              <tr><td>il/elle</td><td>parle</td></tr>
+              <tr><td>nous</td><td>parlons</td></tr>
+              <tr><td>vous</td><td>parlez</td></tr>
+              <tr><td>ils/elles</td><td>parlent</td></tr>
+            </table>
+          </div>
+          <div class="conj-block">
+            <div class="cb-verb">aller (gaan)</div>
+            <table>
+              <tr><td>je</td><td>vais</td></tr>
+              <tr><td>tu</td><td>vas</td></tr>
+              <tr><td>il/elle</td><td>va</td></tr>
+              <tr><td>nous</td><td>allons</td></tr>
+              <tr><td>vous</td><td>allez</td></tr>
+              <tr><td>ils/elles</td><td>vont</td></tr>
+            </table>
+          </div>
+          <div class="conj-block">
+            <div class="cb-verb">faire (doen/maken)</div>
+            <table>
+              <tr><td>je</td><td>fais</td></tr>
+              <tr><td>tu</td><td>fais</td></tr>
+              <tr><td>il/elle</td><td>fait</td></tr>
+              <tr><td>nous</td><td>faisons</td></tr>
+              <tr><td>vous</td><td>faites</td></tr>
+              <tr><td>ils/elles</td><td>font</td></tr>
+            </table>
+          </div>
+          <div class="conj-block">
+            <div class="cb-verb">prendre (nemen)</div>
+            <table>
+              <tr><td>je</td><td>prends</td></tr>
+              <tr><td>tu</td><td>prends</td></tr>
+              <tr><td>il/elle</td><td>prend</td></tr>
+              <tr><td>nous</td><td>prenons</td></tr>
+              <tr><td>vous</td><td>prenez</td></tr>
+              <tr><td>ils/elles</td><td>prennent</td></tr>
+            </table>
+          </div>
+          <div class="conj-block">
+            <div class="cb-verb">devoir (moeten)</div>
+            <table>
+              <tr><td>je</td><td>dois</td></tr>
+              <tr><td>tu</td><td>dois</td></tr>
+              <tr><td>il/elle</td><td>doit</td></tr>
+              <tr><td>nous</td><td>devons</td></tr>
+              <tr><td>vous</td><td>devez</td></tr>
+              <tr><td>ils/elles</td><td>doivent</td></tr>
+            </table>
+          </div>
+          <div class="conj-block">
+            <div class="cb-verb">pouvoir (kunnen)</div>
+            <table>
+              <tr><td>je</td><td>peux</td></tr>
+              <tr><td>tu</td><td>peux</td></tr>
+              <tr><td>il/elle</td><td>peut</td></tr>
+              <tr><td>nous</td><td>pouvons</td></tr>
+              <tr><td>vous</td><td>pouvez</td></tr>
+              <tr><td>ils/elles</td><td>peuvent</td></tr>
+            </table>
+          </div>
+          <div class="conj-block">
+            <div class="cb-verb">vouloir (willen)</div>
+            <table>
+              <tr><td>je</td><td>veux</td></tr>
+              <tr><td>tu</td><td>veux</td></tr>
+              <tr><td>il/elle</td><td>veut</td></tr>
+              <tr><td>nous</td><td>voulons</td></tr>
+              <tr><td>vous</td><td>voulez</td></tr>
+              <tr><td>ils/elles</td><td>veulent</td></tr>
+            </table>
+          </div>
+          <div class="conj-block">
+            <div class="cb-verb">venir (komen)</div>
+            <table>
+              <tr><td>je</td><td>viens</td></tr>
+              <tr><td>tu</td><td>viens</td></tr>
+              <tr><td>il/elle</td><td>vient</td></tr>
+              <tr><td>nous</td><td>venons</td></tr>
+              <tr><td>vous</td><td>venez</td></tr>
+              <tr><td>ils/elles</td><td>viennent</td></tr>
+            </table>
+          </div>
+        </div>
+        <p class="let-op">⚠ Eindletters -e, -es, -ent zijn stil in het Frans bij -ER-werkwoorden.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">1.4 Les verbes pronominaux (H4)</h3>
+    <div class="grammatica-kader">
+      <span class="gk-label">Grammatica</span>
+      <p class="gk-titel">Wederkerende werkwoorden — model: se lever</p>
+      <div class="gk-body">
+        <table>
+          <tr><th>Pronom</th><th>Réfléchi</th><th>Verbe</th></tr>
+          <tr><td>je</td><td>me (m')</td><td>lève</td></tr>
+          <tr><td>tu</td><td>te (t')</td><td>lèves</td></tr>
+          <tr><td>il/elle</td><td>se (s')</td><td>lève</td></tr>
+          <tr><td>nous</td><td>nous</td><td>levons</td></tr>
+          <tr><td>vous</td><td>vous</td><td>levez</td></tr>
+          <tr><td>ils/elles</td><td>se (s')</td><td>lèvent</td></tr>
+        </table>
+        <p class="let-op">Ontkenning: <em>Je ne me lève pas</em> (ne...pas omsluiten het wedk. vnw. + ww.)</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">1.5 Les articles (H5, H6)</h3>
+    <div class="grammatica-kader">
+      <span class="gk-label">Grammatica</span>
+      <p class="gk-titel">Overzichtstabel artikelen</p>
+      <div class="gk-body">
+        <table>
+          <tr><th>Type</th><th>Masculin</th><th>Féminin</th><th>Pluriel</th><th>Gebruik</th></tr>
+          <tr><td><strong>Défini</strong></td><td>le / l'</td><td>la / l'</td><td>les</td><td>bepaald, algemeen (j'aime le chocolat)</td></tr>
+          <tr><td><strong>Indéfini</strong></td><td>un</td><td>une</td><td>des</td><td>onbepaald, enkelvoud</td></tr>
+          <tr><td><strong>Partitif</strong></td><td>du</td><td>de la / de l'</td><td>des</td><td>ontelbare hoeveelheid (je mange du pain)</td></tr>
+          <tr><td><strong>Contracté à</strong></td><td>au</td><td>à la / à l'</td><td>aux</td><td>naar/bij (je vais au marché)</td></tr>
+          <tr><td><strong>Contracté de</strong></td><td>du</td><td>de la / de l'</td><td>des</td><td>van (je viens du marché)</td></tr>
+        </table>
+        <p class="let-op">⚠ Na ontkenning: altijd <strong>de / d'</strong> — geen partitief of onbepaald artikel: <em>Je ne mange pas de viande.</em></p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">1.6 Les adjectifs possessifs (H2)</h3>
+    <div class="grammatica-kader">
+      <span class="gk-label">Grammatica</span>
+      <p class="gk-titel">Bezittelijke voornaamwoorden — overeenkomst met het bezit (niet de bezitter)</p>
+      <div class="gk-body">
+        <table>
+          <tr><th>Bezitter</th><th>M. enkelvoud</th><th>V. enkelvoud</th><th>Meervoud</th></tr>
+          <tr><td>je</td><td>mon</td><td>ma (mon*)</td><td>mes</td></tr>
+          <tr><td>tu</td><td>ton</td><td>ta (ton*)</td><td>tes</td></tr>
+          <tr><td>il/elle</td><td>son</td><td>sa (son*)</td><td>ses</td></tr>
+          <tr><td>nous</td><td>notre</td><td>notre</td><td>nos</td></tr>
+          <tr><td>vous</td><td>votre</td><td>votre</td><td>vos</td></tr>
+          <tr><td>ils/elles</td><td>leur</td><td>leur</td><td>leurs</td></tr>
+        </table>
+        <p class="let-op">* Voor een vrouwelijk zelfstandig naamwoord dat begint met een klinker: <em>mon amie</em> (niet: <del>ma amie</del>)</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">1.7 Les adjectifs qualificatifs (H2, H8)</h3>
+    <div class="grammatica-kader">
+      <span class="gk-label">Grammatica</span>
+      <p class="gk-titel">Bijvoeglijke naamwoorden: 4 regels</p>
+      <div class="gk-body">
+        <table>
+          <tr><th>Regel</th><th>Uitleg</th><th>Voorbeeld</th></tr>
+          <tr><td><strong>Overeenkomst</strong></td><td>adj. past zich aan aan m./v./mv.</td><td>un garçon grand / une fille grande / des filles grandes</td></tr>
+          <tr><td><strong>Plaats</strong></td><td>Meestal NA het zelfstandig naamwoord</td><td>une robe rouge, un garçon sympa</td></tr>
+          <tr><td><strong>BAGS vóór</strong></td><td>beau, ancien, grand, bon, autre, premier, petit, jeune...</td><td>un beau jardin, une petite maison</td></tr>
+          <tr><td><strong>Onveranderlijk</strong></td><td>marron, orange, sympa blijven altijd gelijk</td><td>des yeux marron, une robe orange</td></tr>
+        </table>
+        <p class="let-op">Onregelmatige vormen: beau/belle/beaux/belles, vieux/vieille/vieux/vieilles, nouveau/nouvelle/nouveaux/nouvelles, blanc/blanche</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">1.8 Le comparatif et superlatif (H8)</h3>
+    <div class="grammatica-kader">
+      <span class="gk-label">Grammatica</span>
+      <p class="gk-titel">Vergrotende en overtreffende trap</p>
+      <div class="gk-body">
+        <table>
+          <tr><th>Vorm</th><th>Structuur</th><th>Voorbeeld</th></tr>
+          <tr><td>Comparatif +</td><td>plus + adj + que</td><td>Le vélo est plus rapide que la marche.</td></tr>
+          <tr><td>Comparatif –</td><td>moins + adj + que</td><td>Ce film est moins ennuyeux que l'autre.</td></tr>
+          <tr><td>Comparatif =</td><td>aussi + adj + que</td><td>Ma sœur est aussi grande que moi.</td></tr>
+          <tr><td>Superlatif +</td><td>le/la/les plus + adj</td><td>C'est la plus belle ville du monde.</td></tr>
+          <tr><td>Superlatif –</td><td>le/la/les moins + adj</td><td>C'est le restaurant le moins cher.</td></tr>
+        </table>
+        <p class="let-op">Onregelmatig: <strong>bon → meilleur</strong> (beter/best), <strong>mauvais → pire</strong> (slechter/slechtst)</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">1.9 La négation (H4)</h3>
+    <div class="grammatica-kader">
+      <span class="gk-label">Grammatica</span>
+      <p class="gk-titel">Ontkenning — ne ... plaatst zich rond het geconjugeerde werkwoord</p>
+      <div class="gk-body">
+        <table>
+          <tr><th>Ontkenning</th><th>Betekenis</th><th>Voorbeeld</th></tr>
+          <tr><td>ne ... pas</td><td>niet</td><td>Je ne comprends pas.</td></tr>
+          <tr><td>ne ... jamais</td><td>nooit</td><td>Il ne mange jamais de viande.</td></tr>
+          <tr><td>ne ... plus</td><td>niet meer</td><td>Elle n'habite plus ici.</td></tr>
+          <tr><td>ne ... rien</td><td>niets</td><td>Je ne vois rien.</td></tr>
+        </table>
+        <p class="let-op">Na ontkenning: <em>de / d'</em> i.p.v. partitief/onbepaald artikel. In gesproken Frans laat men <em>ne</em> soms weg.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">1.10 Le futur proche (H7)</h3>
+    <div class="grammatica-kader">
+      <span class="gk-label">Grammatica</span>
+      <p class="gk-titel">Nabije toekomst: aller (présent) + infinitief</p>
+      <div class="gk-body">
+        <table>
+          <tr><th>Pronom</th><th>Aller</th><th>Voorbeeld</th></tr>
+          <tr><td>je</td><td>vais</td><td>Je vais étudier ce soir.</td></tr>
+          <tr><td>tu</td><td>vas</td><td>Tu vas partir demain ?</td></tr>
+          <tr><td>il/elle</td><td>va</td><td>Elle va acheter un vélo.</td></tr>
+          <tr><td>nous</td><td>allons</td><td>Nous allons voyager en France.</td></tr>
+          <tr><td>vous</td><td>allez</td><td>Vous allez voir ce film ?</td></tr>
+          <tr><td>ils/elles</td><td>vont</td><td>Ils vont jouer au foot.</td></tr>
+        </table>
+        <p class="let-op">Ontkenning: <em>Je ne vais pas travailler</em>. Tijdsaanduidingen: ce soir, demain, la semaine prochaine, bientôt.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">1.11 Le passé composé (H11, H12)</h3>
+    <div class="grammatica-kader">
+      <span class="gk-label">Grammatica</span>
+      <p class="gk-titel">Voltooid verleden tijd: avec avoir</p>
+      <div class="gk-body">
+        <table>
+          <tr><th>Pronom</th><th>Avoir</th><th>Participe passé</th><th>Voorbeeld</th></tr>
+          <tr><td>j'</td><td>ai</td><td rowspan="6" style="vertical-align:middle">mangé</td><td>J'ai mangé une pomme.</td></tr>
+          <tr><td>tu</td><td>as</td><td>Tu as regardé la télé ?</td></tr>
+          <tr><td>il/elle</td><td>a</td><td>Elle a fait ses devoirs.</td></tr>
+          <tr><td>nous</td><td>avons</td><td>Nous avons pris le bus.</td></tr>
+          <tr><td>vous</td><td>avez</td><td>Vous avez vu ce film ?</td></tr>
+          <tr><td>ils/elles</td><td>ont</td><td>Ils ont bu du café.</td></tr>
+        </table>
+        <p style="margin-top:0.75rem"><strong>Regelmatige voltooid deelwoorden:</strong> -ER → -é (parlé, mangé) &nbsp;|&nbsp; -IR → -i (fini) &nbsp;|&nbsp; -RE → -u (vendu)</p>
+        <p><strong>Frequente onregelmatige deelwoorden:</strong> avoir → eu, être → été, faire → fait, prendre → pris, voir → vu, boire → bu, écrire → écrit, lire → lu, venir → venu, partir → parti</p>
+        <p class="let-op">⚠ Ontkenning: <em>Je n'ai pas mangé.</em></p>
+      </div>
+    </div>
+    <div class="grammatica-kader">
+      <span class="gk-label">Grammatica</span>
+      <p class="gk-titel">Passé composé: avec être — bewegings- en toestandswerkwoorden</p>
+      <div class="gk-body">
+        <p>Gebruik <strong>être</strong> als hulpwerkwoord bij: aller, venir, partir, arriver, entrer, sortir, monter, descendre, naître, mourir, rester, retourner, tomber, passer, rentrer (+ wederkerenden zoals se lever, se coucher).</p>
+        <table style="margin-top:0.5rem">
+          <tr><th>Overeenkomst deelwoord</th><th>Voorbeeld</th></tr>
+          <tr><td>m. enkelvoud: -</td><td>Il est <strong>allé</strong> à Paris.</td></tr>
+          <tr><td>v. enkelvoud: + -e</td><td>Elle est <strong>allée</strong> à Paris.</td></tr>
+          <tr><td>m. meervoud: + -s</td><td>Ils sont <strong>allés</strong> à Paris.</td></tr>
+          <tr><td>v. meervoud: + -es</td><td>Elles sont <strong>allées</strong> à Paris.</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">1.12 L'impératif (H10)</h3>
+    <div class="grammatica-kader">
+      <span class="gk-label">Grammatica</span>
+      <p class="gk-titel">Gebiedende wijs — 3 vormen: tu, nous, vous</p>
+      <div class="gk-body">
+        <table>
+          <tr><th>Werkwoord</th><th>Tu</th><th>Nous</th><th>Vous</th></tr>
+          <tr><td>parler</td><td>Parle !</td><td>Parlons !</td><td>Parlez !</td></tr>
+          <tr><td>finir</td><td>Finis !</td><td>Finissons !</td><td>Finissez !</td></tr>
+          <tr><td>être</td><td>Sois !</td><td>Soyons !</td><td>Soyez !</td></tr>
+          <tr><td>avoir</td><td>Aie !</td><td>Ayons !</td><td>Ayez !</td></tr>
+          <tr><td>aller</td><td>Va !</td><td>Allons !</td><td>Allez !</td></tr>
+          <tr><td>faire</td><td>Fais !</td><td>Faisons !</td><td>Faites !</td></tr>
+        </table>
+        <p class="let-op">⚠ -ER-werkwoorden: tu-vorm verliest de -s: <em>Parle !</em> (niet: <del>Parles !</del>) — uitzondering: vóór <em>y/en</em> keert -s terug: <em>Vas-y !</em></p>
+        <p style="margin-top:0.5rem">Wederkerend: <em>Lève-toi ! / Levons-nous ! / Levez-vous !</em> &nbsp;|&nbsp; Ontkenning: <em>Ne parle pas !</em></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 2: WOORDENSCHAT OVERZICHT ──────────────── -->
+  <section class="section-block section-alt">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Vue d'ensemble — Le vocabulaire</h2>
+    </div>
+    <p>Kernwoordenschat per thema. Leer deze woorden actief: je moet ze zowel herkennen (lezen/luisteren) als gebruiken (schrijven/spreken).</p>
+
+    <div class="woordenschat-kader">
+      <span class="wk-label">Domein 1 — Se présenter &amp; La famille (H1–H2)</span>
+      <div class="wk-grid">
+        <div class="wk-item"><span class="fr">je m'appelle</span><span class="nl">ik heet</span></div>
+        <div class="wk-item"><span class="fr">j'ai ... ans</span><span class="nl">ik ben ... jaar</span></div>
+        <div class="wk-item"><span class="fr">j'habite à</span><span class="nl">ik woon in</span></div>
+        <div class="wk-item"><span class="fr">le père / la mère</span><span class="nl">vader / moeder</span></div>
+        <div class="wk-item"><span class="fr">le frère / la sœur</span><span class="nl">broer / zus</span></div>
+        <div class="wk-item"><span class="fr">grand / petit</span><span class="nl">groot / klein</span></div>
+        <div class="wk-item"><span class="fr">sympa / gentil</span><span class="nl">aardig / vriendelijk</span></div>
+        <div class="wk-item"><span class="fr">belge / français(e)</span><span class="nl">Belgisch / Frans</span></div>
+        <div class="wk-item"><span class="fr">tu / vous</span><span class="nl">informeel / formeel</span></div>
+        <div class="wk-item"><span class="fr">les grands-parents</span><span class="nl">de grootouders</span></div>
+      </div>
+    </div>
+
+    <div class="woordenschat-kader">
+      <span class="wk-label">Domein 2 — Les nombres, jours, mois, l'heure (H3)</span>
+      <div class="wk-grid">
+        <div class="wk-item"><span class="fr">vingt / trente</span><span class="nl">twintig / dertig</span></div>
+        <div class="wk-item"><span class="fr">soixante-dix</span><span class="nl">zeventig (Fr.) / septante (Be.)</span></div>
+        <div class="wk-item"><span class="fr">quatre-vingts</span><span class="nl">tachtig</span></div>
+        <div class="wk-item"><span class="fr">lundi / vendredi</span><span class="nl">maandag / vrijdag</span></div>
+        <div class="wk-item"><span class="fr">janvier / juillet</span><span class="nl">januari / juli</span></div>
+        <div class="wk-item"><span class="fr">le premier janvier</span><span class="nl">1 januari</span></div>
+        <div class="wk-item"><span class="fr">il est ... heures</span><span class="nl">het is ... uur</span></div>
+        <div class="wk-item"><span class="fr">et quart / et demie</span><span class="nl">kwart over / half</span></div>
+        <div class="wk-item"><span class="fr">le printemps / l'été</span><span class="nl">de lente / de zomer</span></div>
+        <div class="wk-item"><span class="fr">l'automne / l'hiver</span><span class="nl">de herfst / de winter</span></div>
+      </div>
+    </div>
+
+    <div class="woordenschat-kader">
+      <span class="wk-label">Domein 3 — La maison, le quotidien, les repas (H4–H6)</span>
+      <div class="wk-grid">
+        <div class="wk-item"><span class="fr">se lever / se coucher</span><span class="nl">opstaan / gaan slapen</span></div>
+        <div class="wk-item"><span class="fr">d'abord / ensuite</span><span class="nl">eerst / daarna</span></div>
+        <div class="wk-item"><span class="fr">le salon / la cuisine</span><span class="nl">de woonkamer / de keuken</span></div>
+        <div class="wk-item"><span class="fr">il y a / il n'y a pas</span><span class="nl">er is / er is geen</span></div>
+        <div class="wk-item"><span class="fr">du pain / de la viande</span><span class="nl">brood / vlees (partitief)</span></div>
+        <div class="wk-item"><span class="fr">j'aime le chocolat</span><span class="nl">ik hou van chocolade (+ défini)</span></div>
+        <div class="wk-item"><span class="fr">je mange du chocolat</span><span class="nl">ik eet chocolade (+ partitief)</span></div>
+        <div class="wk-item"><span class="fr">le petit-déjeuner</span><span class="nl">het ontbijt</span></div>
+        <div class="wk-item"><span class="fr">un kilo de / une tranche de</span><span class="nl">een kilo / een snee</span></div>
+        <div class="wk-item"><span class="fr">dans / sur / sous</span><span class="nl">in / op / onder</span></div>
+      </div>
+    </div>
+
+    <div class="woordenschat-kader">
+      <span class="wk-label">Domein 4 — Les loisirs, la mode, la santé (H7–H9)</span>
+      <div class="wk-grid">
+        <div class="wk-item"><span class="fr">jouer au football</span><span class="nl">voetballen</span></div>
+        <div class="wk-item"><span class="fr">faire de la natation</span><span class="nl">zwemmen</span></div>
+        <div class="wk-item"><span class="fr">je vais + infinitif</span><span class="nl">ik ga (futur proche)</span></div>
+        <div class="wk-item"><span class="fr">un pull / une robe</span><span class="nl">een trui / een jurk</span></div>
+        <div class="wk-item"><span class="fr">plus cher que</span><span class="nl">duurder dan</span></div>
+        <div class="wk-item"><span class="fr">j'ai mal à la tête</span><span class="nl">ik heb hoofdpijn</span></div>
+        <div class="wk-item"><span class="fr">je dois me reposer</span><span class="nl">ik moet rusten</span></div>
+        <div class="wk-item"><span class="fr">il faut / il ne faut pas</span><span class="nl">men moet / men mag niet</span></div>
+        <div class="wk-item"><span class="fr">être fatigué(e) / stressé(e)</span><span class="nl">moe / gestresseerd zijn</span></div>
+        <div class="wk-item"><span class="fr">Vous avez ça en bleu ?</span><span class="nl">Heeft u dat in blauw?</span></div>
+      </div>
+    </div>
+
+    <div class="woordenschat-kader">
+      <span class="wk-label">Domein 5 — L'école, la ville, les vacances (H10–H12)</span>
+      <div class="wk-grid">
+        <div class="wk-item"><span class="fr">ma matière préférée</span><span class="nl">mijn lievelingsvak</span></div>
+        <div class="wk-item"><span class="fr">Parlez ! / Écoutez !</span><span class="nl">Spreek! / Luister!</span></div>
+        <div class="wk-item"><span class="fr">tournez à gauche/droite</span><span class="nl">sla links/rechts af</span></div>
+        <div class="wk-item"><span class="fr">prendre le bus / le train</span><span class="nl">de bus / trein nemen</span></div>
+        <div class="wk-item"><span class="fr">j'ai pris / j'ai vu</span><span class="nl">ik heb genomen / gezien</span></div>
+        <div class="wk-item"><span class="fr">je suis allé(e) en France</span><span class="nl">ik ben naar Frankrijk gegaan</span></div>
+        <div class="wk-item"><span class="fr">en France / au Portugal</span><span class="nl">naar/in Frankrijk / Portugal</span></div>
+        <div class="wk-item"><span class="fr">aux États-Unis</span><span class="nl">in/naar de VS</span></div>
+        <div class="wk-item"><span class="fr">hier / la semaine dernière</span><span class="nl">gisteren / vorige week</span></div>
+        <div class="wk-item"><span class="fr">faire de la randonnée</span><span class="nl">wandelen</span></div>
+      </div>
+    </div>
+
+    <div class="woordenschat-kader">
+      <span class="wk-label">Domein 6 — Communicatievaardigheden (H13–H14)</span>
+      <div class="wk-grid">
+        <div class="wk-item"><span class="fr">d'abord / ensuite / enfin</span><span class="nl">eerst / daarna / ten slotte</span></div>
+        <div class="wk-item"><span class="fr">mais / cependant</span><span class="nl">maar / echter</span></div>
+        <div class="wk-item"><span class="fr">parce que / donc</span><span class="nl">omdat / dus</span></div>
+        <div class="wk-item"><span class="fr">Cher ... / Salut ...</span><span class="nl">Geachte / Dag (brief)</span></div>
+        <div class="wk-item"><span class="fr">Je voudrais (conditionnel)</span><span class="nl">Ik zou graag (beleefd)</span></div>
+        <div class="wk-item"><span class="fr">Pouvez-vous répéter ?</span><span class="nl">Kunt u herhalen?</span></div>
+        <div class="wk-item"><span class="fr">Je ne suis pas d'accord.</span><span class="nl">Ik ben het er niet mee eens.</span></div>
+        <div class="wk-item"><span class="fr">À mon avis...</span><span class="nl">Naar mijn mening...</span></div>
+        <div class="wk-item"><span class="fr">le sujet / la thèse</span><span class="nl">het onderwerp / de these</span></div>
+        <div class="wk-item"><span class="fr">un texte informatif / narratif</span><span class="nl">informatieve / narratieve tekst</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 3: TEKST DE RÉVISION ───────────────────── -->
+  <section class="section-block">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Tekst de révision — Ma vie à Namur</h2>
+    </div>
+    <p>Lees de onderstaande tekst aandachtig. Gebruik je leesstrategie: lees eerst globaal (waar gaat de tekst over?), dan selectief (zoek specifieke informatie).</p>
+
+    <div class="tekst-fragment">
+      <span class="tf-label">Tekst — Narratief / Beschrijvend</span>
+      <span class="tf-title">Ma vie à Namur</span>
+      <span class="tf-meta">Door: Inès, 13 ans, Namur (Belgique)</span>
+      <div class="tf-body">
+        <p>Je m'appelle Inès et j'ai treize ans. J'habite à Namur, une belle ville au bord de la Meuse, en Belgique wallonne. Je suis la deuxième enfant de la famille : j'ai un grand frère qui s'appelle Théo et une petite sœur qui s'appelle Lou.</p>
+        <p>En semaine, je me lève à sept heures et quart. Je prends mon petit-déjeuner — du pain grillé avec du beurre et un grand verre de jus d'orange — et je pars à l'école à pied avec mes amies. Ma matière préférée, c'est l'anglais, mais j'aime aussi les sciences. Je trouve les maths assez difficiles.</p>
+        <p>Après l'école, je fais mes devoirs, puis je joue de la guitare ou je regarde des séries en streaming. Le week-end, je fais souvent de la natation avec mon frère. Parfois, on va au cinéma ou on se promène dans le centre-ville.</p>
+        <p>Le mois dernier, ma famille et moi, nous sommes allés en France. Nous avons visité Paris pendant trois jours. J'ai vu la Tour Eiffel et j'ai mangé une crêpe délicieuse près du Louvre ! Mon frère a pris beaucoup de photos. C'était vraiment magnifique.</p>
+        <p>L'année prochaine, je vais apprendre l'espagnol. Je voudrais aussi voyager en Espagne pendant les grandes vacances. C'est mon rêve !</p>
+      </div>
+      <div class="tf-vragen">
+        <p>Begripsvragen</p>
+        <ol>
+          <li>Wat is het <strong>sujet</strong> (onderwerp) van de tekst? Geef antwoord in 1-2 woorden.</li>
+          <li>Formuleer de <strong>hoofdgedachte</strong> in één volledige zin.</li>
+          <li>Hoe gaat Inès naar school, en hoe laat vertrekt ze?</li>
+          <li>Wat heeft de familie vorige maand gedaan? Noem twee dingen.</li>
+          <li>Wat zijn de plannen van Inès voor volgend jaar? Gebruik de tekst.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 4: GESPREK DE RÉVISION ─────────────────── -->
+  <section class="section-block section-alt">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Gesprek de révision</h2>
+    </div>
+    <p>Onderstaand gesprek toont een realistisch A2-niveau gesprek tussen twee jongeren. Let op: hoe worden de verschillende grammaticastructuren gebruikt?</p>
+
+    <div class="gesprek">
+      <span class="gesprek-label">Gesprek — Ontmoeting op een jeugduitwisseling in Brussel</span>
+      <div class="gesprek-lijn">
+        <span class="gesprek-spreker">Lucas:</span>
+        <span class="gesprek-tekst">Bonjour ! Je m'appelle Lucas. Et toi, comment tu t'appelles ?</span>
+      </div>
+      <div class="gesprek-lijn">
+        <span class="gesprek-spreker">Amara:</span>
+        <span class="gesprek-tekst">Salut, moi c'est Amara. Tu viens d'où ?</span>
+      </div>
+      <div class="gesprek-lijn">
+        <span class="gesprek-spreker">Lucas:</span>
+        <span class="gesprek-tekst">Je viens de Liège, en Belgique. Et toi ?</span>
+      </div>
+      <div class="gesprek-lijn">
+        <span class="gesprek-spreker">Amara:</span>
+        <span class="gesprek-tekst">Je viens de Lyon, en France. C'est ta première fois à Bruxelles ?</span>
+      </div>
+      <div class="gesprek-lijn">
+        <span class="gesprek-spreker">Lucas:</span>
+        <span class="gesprek-tekst">Non, je suis déjà venu deux fois. L'année dernière, <em>je suis allé</em> visiter l'Atomium avec ma famille. C'était super ! Et toi, tu connais Bruxelles ?</span>
+      </div>
+      <div class="gesprek-lijn">
+        <span class="gesprek-spreker">Amara:</span>
+        <span class="gesprek-tekst">Un peu. Hier, <em>j'ai visité</em> la Grand-Place. J'ai trouvé ça magnifique. Tu fais quoi comme sport ?</span>
+      </div>
+      <div class="gesprek-lijn">
+        <span class="gesprek-spreker">Lucas:</span>
+        <span class="gesprek-tekst"><em>Je joue au basketball</em> trois fois par semaine. Et j'aime aussi faire de la randonnée. Et toi ?</span>
+      </div>
+      <div class="gesprek-lijn">
+        <span class="gesprek-spreker">Amara:</span>
+        <span class="gesprek-tekst">Moi, <em>je fais de la danse</em>. J'adore ça. Le week-end prochain, <em>je vais participer</em> à un spectacle ici à Bruxelles.</span>
+      </div>
+      <div class="gesprek-lijn">
+        <span class="gesprek-spreker">Lucas:</span>
+        <span class="gesprek-tekst">Oh, c'est cool ! Tu <em>dois</em> beaucoup t'entraîner ?</span>
+      </div>
+      <div class="gesprek-lijn">
+        <span class="gesprek-spreker">Amara:</span>
+        <span class="gesprek-tekst">Oui, <em>je dois m'entraîner</em> tous les jours. C'est beaucoup de travail mais j'adore ça. Et tes matières préférées à l'école ?</span>
+      </div>
+      <div class="gesprek-lijn">
+        <span class="gesprek-spreker">Lucas:</span>
+        <span class="gesprek-tekst">J'aime bien la géographie et le français. Je trouve les maths difficiles. Et toi ?</span>
+      </div>
+      <div class="gesprek-lijn">
+        <span class="gesprek-spreker">Amara:</span>
+        <span class="gesprek-tekst">Ma matière préférée, c'est l'histoire. Je ne suis pas très forte en chimie. Tu habites dans quel quartier à Liège ?</span>
+      </div>
+      <div class="gesprek-lijn">
+        <span class="gesprek-spreker">Lucas:</span>
+        <span class="gesprek-tekst">J'habite dans le centre, près de la gare. Notre appartement n'est pas très grand mais il est sympa. <em>Il y a</em> un beau balcon.</span>
+      </div>
+      <div class="gesprek-lijn">
+        <span class="gesprek-spreker">Amara:</span>
+        <span class="gesprek-tekst">Super ! Demain, <em>on va visiter</em> le quartier européen ensemble. Tu veux venir ?</span>
+      </div>
+      <div class="gesprek-lijn">
+        <span class="gesprek-spreker">Lucas:</span>
+        <span class="gesprek-tekst">Oui, avec plaisir ! À quelle heure on se retrouve ?</span>
+      </div>
+      <div class="gesprek-lijn">
+        <span class="gesprek-spreker">Amara:</span>
+        <span class="gesprek-tekst">À dix heures devant l'hôtel. À demain !</span>
+      </div>
+      <div class="gesprek-lijn">
+        <span class="gesprek-spreker">Lucas:</span>
+        <span class="gesprek-tekst">À demain, Amara !</span>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">💡</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Tip</span>
+        <p class="begrip-def">In dit gesprek zie je: présent, passé composé (avoir + être), futur proche, modalen (devoir), en verbes pronominaux (s'entraîner, se retrouver). Kleur elke structuur aan in een andere kleur om ze te oefenen.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 5: AUTO-ÉVALUATION ─────────────────────── -->
+  <section class="section-block">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Auto-évaluation — Kan je dit al?</h2>
+    </div>
+    <p>Duid aan wat je al goed beheerst (✓), wat redelijk gaat (~) en wat je nog moet oefenen (✗).</p>
+
+    <div class="checklist-section">
+      <p class="cl-groep">Lezen &amp; luisteren</p>
+      <ul>
+        <li>Ik kan het onderwerp van een tekst bepalen in 1-2 woorden.</li>
+        <li>Ik kan de hoofdgedachte formuleren in één volledige zin.</li>
+        <li>Ik kan specifieke informatie selecteren uit een informatieve tekst.</li>
+        <li>Ik kan de betekenis van onbekende woorden afleiden uit de context.</li>
+        <li>Ik kan het verschil herkennen tussen informatieve, narratieve en prescriptieve teksten.</li>
+        <li>Ik kan een eenvoudig gesprek of audiofragment globaal begrijpen.</li>
+        <li>Ik herken signaalwoorden (d'abord, ensuite, mais, parce que) en hun functie.</li>
+        <li>Ik kan aspecten van de Franse en Belgische cultuur herkennen in teksten.</li>
+      </ul>
+
+      <p class="cl-groep">Schrijven &amp; spreken</p>
+      <ul>
+        <li>Ik kan een informele e-mail schrijven met correcte aanhef en slotzin.</li>
+        <li>Ik kan een formele e-mail schrijven met gepaste beleefdheidsformules.</li>
+        <li>Ik kan mijn tekst structureren: inleiding, kern, slot.</li>
+        <li>Ik gebruik signaalwoorden om mijn tekst samenhangend te maken.</li>
+        <li>Ik kan mezelf en mijn dagelijks leven beschrijven in het Frans.</li>
+        <li>Ik kan een korte monoloog (1-2 min) voorbereiden en presenteren.</li>
+        <li>Ik kan reageren op mijn gesprekspartner en doorvragen.</li>
+        <li>Ik kan herhaling vragen als ik iets niet begrijp.</li>
+      </ul>
+
+      <p class="cl-groep">Grammatica</p>
+      <ul>
+        <li>Ik kan werkwoorden correct vervoegen in het présent (regelmatig + aller, faire, prendre, venir, vouloir, pouvoir, devoir).</li>
+        <li>Ik kan de juiste artikelvorm kiezen: défini, indéfini, partitif, contracté.</li>
+        <li>Ik pas adjectievenovereenkomst correct toe (m./v./mv.).</li>
+        <li>Ik kan een ontkenning correct vormen (ne...pas, ne...jamais, ne...plus).</li>
+        <li>Ik kan de futur proche gebruiken voor plannen en intenties.</li>
+        <li>Ik kan de passé composé vormen met avoir (+ onregelmatige deelwoorden).</li>
+        <li>Ik kan de passé composé vormen met être (+ deelwoordovereenkomst).</li>
+        <li>Ik kan gebiedende zinnen vormen in de tu-, nous- en vous-vorm.</li>
+      </ul>
+
+      <p class="cl-groep">Woordenschat</p>
+      <ul>
+        <li>Ik ken de basiswoordenschat voor de 5 domeinen (familie, dagelijks leven, vrije tijd, school/stad, communicatie).</li>
+        <li>Ik gebruik frequentie-adverbia correct (toujours, souvent, parfois, rarement, jamais).</li>
+        <li>Ik kan mijn mening uitdrukken: À mon avis... / Je pense que... / Je trouve ça...</li>
+        <li>Ik ken de beleefde uitdrukkingen voor e-mails en gesprekken.</li>
+        <li>Ik kan sociale contacten leggen: begroeten, afscheid nemen, bedanken, verontschuldigen.</li>
+        <li>Ik ken de landen met hun preposities (en, au, aux, à).</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── SECTION 6: VEELGEMAAKTE FOUTEN ─────────────────── -->
+  <section class="section-block">
+    <div class="section-heading">
+      <span class="section-num">6</span>
+      <h2 class="section-title">Les pièges classiques — Veelgemaakte fouten</h2>
+    </div>
+    <p>Belgische leerlingen maken steeds dezelfde fouten in het Frans. Ken je ze — en vermijd ze.</p>
+
+    <div class="fout-kader">
+      <span class="fk-label">Veelgemaakte fouten — 7 klassieke valkuilen</span>
+      <ol>
+        <li>
+          <strong>Leeftijd met avoir, niet être.</strong><br>
+          <span class="fout">Je suis 13 ans.</span> &nbsp;→&nbsp; <span class="goed">J'ai 13 ans.</span>
+        </li>
+        <li>
+          <strong>Adjectievenovereenkomst vergeten.</strong><br>
+          <span class="fout">une robe bleu</span> &nbsp;→&nbsp; <span class="goed">une robe bleue</span> &nbsp;|&nbsp; <span class="fout">des filles content</span> &nbsp;→&nbsp; <span class="goed">des filles contentes</span>
+        </li>
+        <li>
+          <strong>Na ontkenning: de / d', geen partitief of onbepaald artikel.</strong><br>
+          <span class="fout">Je ne mange pas de la viande.</span> &nbsp;→&nbsp; <span class="goed">Je ne mange pas de viande.</span>
+        </li>
+        <li>
+          <strong>Défini of partitif na aimer/manger?</strong><br>
+          Gevoel: <span class="goed">J'aime le chocolat.</span> (défini) &nbsp;|&nbsp; Handeling: <span class="goed">Je mange du chocolat.</span> (partitif)
+        </li>
+        <li>
+          <strong>Zijn vs. hebben in passé composé.</strong><br>
+          <span class="fout">J'ai allé à Paris.</span> &nbsp;→&nbsp; <span class="goed">Je suis allé(e) à Paris.</span><br>
+          <span class="fout">Je suis mangé une pomme.</span> &nbsp;→&nbsp; <span class="goed">J'ai mangé une pomme.</span>
+        </li>
+        <li>
+          <strong>Deelwoordovereenkomst vergeten bij être.</strong><br>
+          <span class="fout">Elle est allé à Paris.</span> &nbsp;→&nbsp; <span class="goed">Elle est allée à Paris.</span><br>
+          <span class="fout">Elles sont resté.</span> &nbsp;→&nbsp; <span class="goed">Elles sont restées.</span>
+        </li>
+        <li>
+          <strong>Hoofdletter bij nationaliteiten en talen? Nee!</strong><br>
+          <span class="fout">Je suis Belge. Je parle Français.</span> &nbsp;→&nbsp; <span class="goed">Je suis belge. Je parle français.</span><br>
+          (Uitzondering: La Belge = de Belgische vrouw — als zelfstandig naamwoord wél hoofdletter)
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ── OEFENINGEN ──────────────────────────────────────── -->
+  <section class="exercises-section">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <div class="exercise-card">
+      <div class="ex-title">Oefening 1</div>
+      <div class="ex-name">Gemengde grammatica — vul in</div>
+      <p>Kies het correcte woord en schrijf de volledige zin.</p>
+      <ol>
+        <li>Hier, je (aller / être) ___ au marché. J'ai acheté ___ (du / de la / des) légumes.</li>
+        <li>Ma sœur (prendre / avoir) ___ le bus tous les matins. Elle ___ (être / avoir) 15 ans.</li>
+        <li>Nous (ne...pas / ne...jamais) ___ mangeons ___ de poisson. C'est notre choix.</li>
+        <li>La semaine prochaine, ils (aller + visiter) ___ le musée.</li>
+        <li>Elle est (allé / allée) en Espagne l'été dernier.</li>
+        <li>C'est ___ (le / un / du) restaurant ___ (plus / moins / aussi) cher de la ville.</li>
+        <li>Vous ___ (devoir) écouter les instructions avant de commencer.</li>
+        <li>___ (Mon / Ma / Mes) amie Sophie est très sympa. J'aime ___ (son / sa / ses) style.</li>
+        <li>Il n'y a pas ___ (de / du / des) pain sur la table.</li>
+        <li>Hier nous sommes (rester / resté / restés) à la maison parce qu'il pleuvait.</li>
+      </ol>
+      <p class="ex-tip">Tip: Denk telkens aan de regel. Bij twijfel: schrijf de uitleg naast je antwoord.</p>
+    </div>
+
+    <div class="exercise-card">
+      <div class="ex-title">Oefening 2</div>
+      <div class="ex-name">Vocabulaire — koppel Frans aan Nederlands</div>
+      <p>Verbind de Franse woorden met de juiste Nederlandse betekenis.</p>
+      <ol>
+        <li>se lever &nbsp;|&nbsp; faire de la randonnée &nbsp;|&nbsp; tourner à gauche &nbsp;|&nbsp; j'ai mal au dos &nbsp;|&nbsp; les soldes</li>
+        <li>la boulangerie &nbsp;|&nbsp; se retrouver &nbsp;|&nbsp; d'abord &nbsp;|&nbsp; en train de &nbsp;|&nbsp; par contre</li>
+      </ol>
+      <p>Nederlands: opstaan / wandelen / links afslaan / ik heb rugpijn / de uitverkoop / de bakkerij / afspreken / eerst / bezig met / maar / aan de andere kant</p>
+      <p class="ex-tip">Schrijf ook een voorbeeldzin bij elk woord dat je moeilijk vindt.</p>
+    </div>
+
+    <div class="exercise-card">
+      <div class="ex-title">Oefening 3</div>
+      <div class="ex-name">Begripsvragen — tekst "Ma vie à Namur"</div>
+      <p>Beantwoord op basis van de tekst uit sectie 3 (schrijf in het Frans):</p>
+      <ol>
+        <li>Combien de frères et sœurs a Inès ?</li>
+        <li>À quelle heure est-ce qu'elle se lève en semaine ?</li>
+        <li>Qu'est-ce qu'elle a fait à Paris ? (Donne deux détails.)</li>
+        <li>Quels sont ses projets pour l'année prochaine ?</li>
+      </ol>
+    </div>
+
+    <div class="exercise-card">
+      <div class="ex-title">Oefening 4 — Schrijven</div>
+      <div class="ex-name">Schrijf een informele e-mail (60-80 woorden)</div>
+      <p>Je schrijft een e-mail aan een Franse correspondentie-vriend(in). Beschrijf:</p>
+      <ul>
+        <li>Je weekend (wat heb je gedaan? → passé composé)</li>
+        <li>Je plannen voor volgende week (→ futur proche)</li>
+        <li>Eén vraag aan je vriend(in)</li>
+      </ul>
+      <p>Gebruik: correcte aanhef (Salut .../Cher .../Chère ...), signaalwoorden, slotzin (À bientôt / Bises).</p>
+      <p class="ex-tip">Controleer: adjectievenovereenkomst, artikels na ontkenning, passé composé met avoir of zijn.</p>
+    </div>
+
+    <div class="exercise-card">
+      <div class="ex-title">Oefening 5 — Spreken</div>
+      <div class="ex-name">Monologue — Mijn lievelingshobby</div>
+      <p>Bereid een monoloog van 1 minuut voor over je favoriete hobby. Gebruik dit kader:</p>
+      <ul>
+        <li><strong>Introduction:</strong> Ma passion, c'est... / J'adore...</li>
+        <li><strong>Description:</strong> Je fais ça... fois par semaine. / Je joue à... / Je fais de...</li>
+        <li><strong>Pourquoi ?</strong> Parce que c'est... / J'aime ça parce que...</li>
+        <li><strong>Récemment:</strong> La semaine dernière, j'ai... / Je suis allé(e)...</li>
+        <li><strong>Projets:</strong> L'année prochaine, je vais...</li>
+      </ul>
+      <p class="ex-tip">Oefen luidop! Neem jezelf op en beluister je uitspraak. Gebruik vulstoppen als je even nadenkt: <em>euh, voyons, c'est-à-dire...</em></p>
+    </div>
+  </section>
+
+  <!-- ── SAMENVATTING ────────────────────────────────────── -->
+  <section class="summary-section">
+    <div class="summary-inner">
+      <span class="summary-label">Samenvatting</span>
+      <h2 class="summary-title">Révision complète — alles op een rij</h2>
+      <ul class="summary-list">
+        <li>Pronoms sujets: je, tu, il/elle/on, nous, vous, ils/elles</li>
+        <li>Être &amp; avoir: onregelmatig, essentieel voor alle tijden</li>
+        <li>Présent: -ER regelmatig + aller, faire, prendre, venir, devoir, pouvoir, vouloir</li>
+        <li>Verbes pronominaux: me/te/se/nous/vous/se + werkwoord</li>
+        <li>Artikels: défini / indéfini / partitif / contracté (au, du, aux, des)</li>
+        <li>Na ontkenning: altijd de / d'</li>
+        <li>Adjectifs possessifs: overeenkomst met het bezit, niet de bezitter</li>
+        <li>Adjectifs qualificatifs: overeenkomst m./v./mv., meeste NA het zelfstandig naamwoord</li>
+        <li>Comparatif: plus/moins/aussi + adj + que &nbsp;|&nbsp; meilleur / pire</li>
+        <li>Négation: ne...pas / ne...jamais / ne...plus / ne...rien</li>
+        <li>Futur proche: aller (présent) + infinitief</li>
+        <li>Passé composé avoir: deelwoord op -é/-i/-u + onregelmatige</li>
+        <li>Passé composé être: 17 werkwoorden + deelwoordovereenkomst</li>
+        <li>Impératif: tu/nous/vous — -ER verliest -s in tu-vorm</li>
+        <li>Woordenschat: 6 domeinen — presenteren, cijfers/tijd, huis/eten, vrije tijd, school/stad, communicatie</li>
+        <li>Tekstsoorten: informatief, opinierend, prescriptief, narratief, literair</li>
+        <li>Schrijven: aanhef + inleiding/kern/slot + signaalwoorden + slotzin</li>
+        <li>Spreken: voorbereiding, kader, vulstoppen, lichaamstaal</li>
+        <li>Veelgemaakte fouten: leeftijd met avoir, adj-overeenkomst, de na ontkenning</li>
+        <li>ERK A2: eenvoudige communicatie in vertrouwde situaties — dat kan jij!</li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<button id="back-to-top" aria-label="Terug naar boven">↑</button>
+
+<script>
+  var btn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 400) { btn.classList.add('visible'); }
+    else { btn.classList.remove('visible'); }
+  });
+  btn.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+</script>
+<script src="nav.js"></script>
+</body>
+</html>

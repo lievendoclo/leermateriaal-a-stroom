@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H8 — La mode | Frans 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     FRANS-SPECIFIC COMPONENTS
+  ============================================================ */
+
+  /* Tekst-fragment — reading text with comprehension questions */
+  .tekst-fragment {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 2rem 2.2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .tekst-fragment .tf-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--darkblue);
+    opacity: 0.6;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  .tekst-fragment .tf-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    display: block;
+    margin-bottom: 1.1rem;
+  }
+
+  .tekst-fragment .tf-body p {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.8;
+    margin-bottom: 0.75em;
+  }
+
+  .tekst-fragment .tf-body p:last-child { margin-bottom: 0; }
+
+  .tekst-fragment .tf-vragen {
+    background: rgba(26,43,74,0.05);
+    border-left: 3px solid var(--darkblue);
+    border-radius: 0 4px 4px 0;
+    padding: 1rem 1.2rem;
+    margin-top: 1.4rem;
+  }
+
+  .tekst-fragment .tf-vragen .tv-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--darkblue);
+    opacity: 0.65;
+    display: block;
+    margin-bottom: 0.6rem;
+  }
+
+  .tekst-fragment .tf-vragen ol {
+    padding-left: 1.3rem;
+  }
+
+  .tekst-fragment .tf-vragen ol li {
+    margin-bottom: 0.4rem;
+    font-size: 0.94rem;
+    color: var(--text-mid);
+    font-style: italic;
+    line-height: 1.65;
+  }
+
+  /* Gesprek — dialogue / conversation block */
+  .gesprek {
+    background: #F5F0FB;
+    border: 1.5px solid rgba(100,60,160,0.18);
+    border-radius: var(--border-radius);
+    padding: 1.6rem 2rem;
+    margin: 1.8rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .gesprek .gesprek-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #5B3BA0;
+    opacity: 0.75;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .gesprek .gesprek-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #3D2870;
+    display: block;
+    margin-bottom: 1.1rem;
+  }
+
+  .gesprek .tour {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    align-items: flex-start;
+  }
+
+  .gesprek .tour:last-child { margin-bottom: 0; }
+
+  .gesprek .tour .sp {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #5B3BA0;
+    min-width: 3.5rem;
+    padding-top: 0.18rem;
+    flex-shrink: 0;
+  }
+
+  .gesprek .tour .utt {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+  }
+
+  .gesprek .tour .utt em {
+    color: var(--text-light);
+    font-size: 0.88rem;
+  }
+
+  /* Grammatica-kader — grammar explanation box */
+  .grammatica-kader {
+    background: #EBF3FB;
+    border: 1.5px solid rgba(26,80,160,0.2);
+    border-left: 4px solid #1A5099;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1.5rem 1.8rem;
+    margin: 1.8rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .grammatica-kader .gk-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #1A5099;
+    opacity: 0.8;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .grammatica-kader .gk-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0F3870;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .grammatica-kader p {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-bottom: 0.7em;
+  }
+
+  .grammatica-kader p:last-child { margin-bottom: 0; }
+
+  .grammatica-kader table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+    margin: 0.8rem 0;
+  }
+
+  .grammatica-kader table th {
+    background: #1A5099;
+    color: white;
+    padding: 0.4rem 0.8rem;
+    text-align: left;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    font-size: 0.83rem;
+  }
+
+  .grammatica-kader table td {
+    padding: 0.35rem 0.8rem;
+    border-bottom: 1px solid rgba(26,80,153,0.12);
+    color: var(--text-mid);
+  }
+
+  .grammatica-kader table tr:last-child td { border-bottom: none; }
+
+  .grammatica-kader table tr:nth-child(even) td {
+    background: rgba(26,80,153,0.05);
+  }
+
+  .grammatica-kader .gk-formule {
+    background: rgba(26,80,153,0.1);
+    border-radius: 4px;
+    padding: 0.55rem 1rem;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.97rem;
+    font-weight: 600;
+    color: #0F3870;
+    margin: 0.6rem 0;
+    display: inline-block;
+  }
+
+  .grammatica-kader .gk-voorbeeld {
+    font-style: italic;
+    color: var(--text-light);
+    font-size: 0.93rem;
+    margin-left: 0.5rem;
+  }
+
+  /* Woordenschat-kader — vocabulary box */
+  .woordenschat-kader {
+    background: #F0FAF3;
+    border: 1.5px solid rgba(30,130,70,0.2);
+    border-left: 4px solid #1E8246;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1.5rem 1.8rem;
+    margin: 1.8rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .woordenschat-kader .wk-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #1E8246;
+    opacity: 0.8;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .woordenschat-kader .wk-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0F5530;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .woordenschat-kader .wk-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.4rem 1.5rem;
+    margin: 0.5rem 0;
+  }
+
+  .woordenschat-kader .wk-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.5rem;
+    padding: 0.25rem 0;
+    border-bottom: 1px dotted rgba(30,130,70,0.2);
+    font-size: 0.95rem;
+  }
+
+  .woordenschat-kader .wk-item .wk-fr {
+    font-style: italic;
+    color: #0F5530;
+    font-weight: 600;
+  }
+
+  .woordenschat-kader .wk-item .wk-nl {
+    color: var(--text-light);
+    font-size: 0.88rem;
+    text-align: right;
+  }
+
+  .woordenschat-kader .wk-note {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(30,130,70,0.18);
+    padding-top: 0.6rem;
+  }
+
+  .woordenschat-kader p {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-bottom: 0.6em;
+  }
+
+  .woordenschat-kader p:last-child { margin-bottom: 0; }
+
+  /* Culturele noot */
+  .culturele-noot {
+    background: #FDF3E7;
+    border-left: 4px solid var(--oker);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1.2rem 1.5rem;
+    margin: 1.8rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .culturele-noot .cn-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--oker);
+    opacity: 0.9;
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  .culturele-noot p {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-bottom: 0.6em;
+  }
+
+  .culturele-noot p:last-child { margin-bottom: 0; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <span class="label">Frans 1A</span>
+  <span class="label label-right">H8 &mdash; La mode</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Frans &nbsp;&middot;&nbsp; 1A &nbsp;&middot;&nbsp; Eerste graad</div>
+  <h1>Hoofdstuk 8<br><em>La mode</em></h1>
+  <p class="subtitle">Kleding, winkelen, bijvoeglijke naamwoorden en vergelijkingen</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- PROLOGUE -->
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Stel je voor &hellip;</span>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p>Samedi matin. Je winkelstraat bruist van leven. In de etalage van een kledingzaak hangt een rode jurk &mdash; <em>la plus belle robe de la saison</em>, zegt het bord ernaast. Maar is ze mooier dan de blauwe? En is ze te duur? Je gaat naar binnen, en de verkoopster zegt: <em>&laquo;&nbsp;Bonjour, je peux vous aider&nbsp;?&raquo;</em></p>
+    <p>In dit hoofdstuk leer je praten over kleding, kleuren en stoffen. Je leert bijvoeglijke naamwoorden vervoegen en vergelijkingen maken. Aan het einde kun je een outfit beschrijven &eacute;n een gesprek voeren in een Franstalige kledingzaak.</p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 1 — LES VÊTEMENTS
+  ============================================================ -->
+  <section class="section-block" id="vetements">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Les v&ecirc;tements</h2>
+    </div>
+
+    <p>Hieronder vind je de meest gebruikte kledingstukken in het Frans. Let goed op het lidwoord: <strong>un/une</strong> (onbepaald) of <strong>des</strong> (meervoud). Dat lidwoord vertelt je meteen het geslacht van het woord.</p>
+
+    <div class="woordenschat-kader">
+      <span class="wk-label">Woordenschat</span>
+      <span class="wk-title">Les v&ecirc;tements &mdash; kledingstukken</span>
+      <div class="wk-grid">
+        <div class="wk-item"><span class="wk-fr">un t-shirt</span><span class="wk-nl">een t-shirt</span></div>
+        <div class="wk-item"><span class="wk-fr">une chemise</span><span class="wk-nl">een (over)hemd</span></div>
+        <div class="wk-item"><span class="wk-fr">un pantalon</span><span class="wk-nl">een broek</span></div>
+        <div class="wk-item"><span class="wk-fr">un jean</span><span class="wk-nl">een spijkerbroek</span></div>
+        <div class="wk-item"><span class="wk-fr">une jupe</span><span class="wk-nl">een rok</span></div>
+        <div class="wk-item"><span class="wk-fr">une robe</span><span class="wk-nl">een jurk</span></div>
+        <div class="wk-item"><span class="wk-fr">un pull</span><span class="wk-nl">een trui</span></div>
+        <div class="wk-item"><span class="wk-fr">un manteau</span><span class="wk-nl">een jas (lang)</span></div>
+        <div class="wk-item"><span class="wk-fr">une veste</span><span class="wk-nl">een jasje / vest</span></div>
+        <div class="wk-item"><span class="wk-fr">un blouson</span><span class="wk-nl">een korte jas</span></div>
+        <div class="wk-item"><span class="wk-fr">des chaussures</span><span class="wk-nl">schoenen</span></div>
+        <div class="wk-item"><span class="wk-fr">des baskets</span><span class="wk-nl">sneakers</span></div>
+        <div class="wk-item"><span class="wk-fr">des chaussettes</span><span class="wk-nl">sokken</span></div>
+        <div class="wk-item"><span class="wk-fr">un chapeau</span><span class="wk-nl">een hoed</span></div>
+        <div class="wk-item"><span class="wk-fr">une &eacute;charpe</span><span class="wk-nl">een sjaal</span></div>
+        <div class="wk-item"><span class="wk-fr">des gants</span><span class="wk-nl">handschoenen</span></div>
+        <div class="wk-item"><span class="wk-fr">un sac &agrave; dos</span><span class="wk-nl">een rugzak</span></div>
+        <div class="wk-item"><span class="wk-fr">des lunettes</span><span class="wk-nl">een bril</span></div>
+      </div>
+      <p class="wk-note">Let op: <em>des chaussures</em>, <em>des baskets</em>, <em>des chaussettes</em> en <em>des gants</em> worden altijd in het meervoud gebruikt, net als in het Nederlands.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Kijk naar je eigen kleding van vandaag. Kun je elk kledingstuk al benoemen in het Frans? Probeer een volledige zin te maken: <em>Je porte un jean et un pull bleu.</em></p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 2 — LES COULEURS ET LES MATIÈRES
+  ============================================================ -->
+  <section class="section-block" id="couleurs">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Les couleurs et les mati&egrave;res</h2>
+    </div>
+
+    <p>Om een outfit te beschrijven heb je kleuren en stoffen nodig. Kleuren zijn bijvoeglijke naamwoorden en passen zich meestal aan aan het zelfstandig naamwoord (meer hierover in sectie 3). Stoffen gebruik je met de voorzetsel <strong>en</strong>.</p>
+
+    <div class="woordenschat-kader">
+      <span class="wk-label">Woordenschat</span>
+      <span class="wk-title">Les couleurs &mdash; kleuren</span>
+      <div class="wk-grid">
+        <div class="wk-item"><span class="wk-fr">rouge</span><span class="wk-nl">rood (onveranderlijk)</span></div>
+        <div class="wk-item"><span class="wk-fr">bleu / bleue</span><span class="wk-nl">blauw</span></div>
+        <div class="wk-item"><span class="wk-fr">vert / verte</span><span class="wk-nl">groen</span></div>
+        <div class="wk-item"><span class="wk-fr">jaune</span><span class="wk-nl">geel (onveranderlijk)</span></div>
+        <div class="wk-item"><span class="wk-fr">orange</span><span class="wk-nl">oranje (onveranderlijk)</span></div>
+        <div class="wk-item"><span class="wk-fr">violet / violette</span><span class="wk-nl">paars</span></div>
+        <div class="wk-item"><span class="wk-fr">rose</span><span class="wk-nl">roze (onveranderlijk)</span></div>
+        <div class="wk-item"><span class="wk-fr">blanc / blanche</span><span class="wk-nl">wit</span></div>
+        <div class="wk-item"><span class="wk-fr">noir / noire</span><span class="wk-nl">zwart</span></div>
+        <div class="wk-item"><span class="wk-fr">gris / grise</span><span class="wk-nl">grijs</span></div>
+        <div class="wk-item"><span class="wk-fr">marron</span><span class="wk-nl">bruin (onveranderlijk)</span></div>
+        <div class="wk-item"><span class="wk-fr">beige</span><span class="wk-nl">beige (onveranderlijk)</span></div>
+      </div>
+      <p class="wk-note"><strong>Onveranderlijke kleuren:</strong> <em>marron</em> en <em>orange</em> veranderen nooit van vorm, ook niet in het vrouwelijk of meervoud: <em>des chaussures orange</em>, <em>une veste marron</em>. Ook kleuren die afgeleid zijn van zelfstandige naamwoorden (zoals <em>rose</em>, <em>beige</em>) zijn in de praktijk onveranderlijk.</p>
+    </div>
+
+    <div class="woordenschat-kader">
+      <span class="wk-label">Woordenschat</span>
+      <span class="wk-title">Les mati&egrave;res &mdash; stoffen</span>
+      <div class="wk-grid">
+        <div class="wk-item"><span class="wk-fr">en coton</span><span class="wk-nl">van katoen</span></div>
+        <div class="wk-item"><span class="wk-fr">en laine</span><span class="wk-nl">van wol</span></div>
+        <div class="wk-item"><span class="wk-fr">en cuir</span><span class="wk-nl">van leer</span></div>
+        <div class="wk-item"><span class="wk-fr">en soie</span><span class="wk-nl">van zijde</span></div>
+        <div class="wk-item"><span class="wk-fr">en synth&eacute;tique</span><span class="wk-nl">van synthetisch materiaal</span></div>
+      </div>
+      <p class="wk-note">Gebruik <em>en</em> + stof om materiaal aan te geven: <em>un pull en laine</em> (een wollen trui), <em>des chaussures en cuir</em> (lederen schoenen).</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 3 — LES ADJECTIFS: ACCORD ET PLACE
+  ============================================================ -->
+  <section class="section-block" id="adjectifs">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Les adjectifs&nbsp;: accord et place</h2>
+    </div>
+
+    <p>Bijvoeglijke naamwoorden in het Frans passen hun vorm aan aan het zelfstandig naamwoord waarmee ze verbonden zijn. Er zijn twee dingen om op te letten: <strong>het geslacht</strong> (mannelijk of vrouwelijk) en <strong>het getal</strong> (enkelvoud of meervoud). Bovendien staat een bijvoeglijk naamwoord in het Frans <em>meestal na</em> het zelfstandig naamwoord.</p>
+
+    <div class="grammatica-kader">
+      <span class="gk-label">Grammatica</span>
+      <span class="gk-title">Accord des adjectifs &mdash; verbuiging van bijvoeglijke naamwoorden</span>
+
+      <p><strong>Basisregel:</strong> voeg <em>-e</em> toe voor vrouwelijk, <em>-s</em> voor meervoud, <em>-es</em> voor vrouwelijk meervoud.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Geslacht / getal</th>
+            <th>Mannelijk</th>
+            <th>Vrouwelijk</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Enkelvoud</td>
+            <td><em>un jean bleu</em></td>
+            <td><em>une jupe bleue</em></td>
+          </tr>
+          <tr>
+            <td>Meervoud</td>
+            <td><em>des jeans bleus</em></td>
+            <td><em>des jupes bleues</em></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p style="margin-top:1rem;"><strong>Onregelmatige vormen</strong> &mdash; let op deze vormen, ze komen vaak voor bij kleding:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Basisvorm (m. enkv.)</th>
+            <th>Vrouwelijk enkv.</th>
+            <th>M. meervoud</th>
+            <th>V. meervoud</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><em>beau</em></td>
+            <td><em>belle</em></td>
+            <td><em>beaux</em></td>
+            <td><em>belles</em></td>
+          </tr>
+          <tr>
+            <td><em>nouveau</em></td>
+            <td><em>nouvelle</em></td>
+            <td><em>nouveaux</em></td>
+            <td><em>nouvelles</em></td>
+          </tr>
+          <tr>
+            <td><em>vieux</em></td>
+            <td><em>vieille</em></td>
+            <td><em>vieux</em></td>
+            <td><em>vieilles</em></td>
+          </tr>
+          <tr>
+            <td><em>blanc</em></td>
+            <td><em>blanche</em></td>
+            <td><em>blancs</em></td>
+            <td><em>blanches</em></td>
+          </tr>
+          <tr>
+            <td><em>violet</em></td>
+            <td><em>violette</em></td>
+            <td><em>violets</em></td>
+            <td><em>violettes</em></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p style="margin-top:1rem;"><strong>Positie van het bijvoeglijk naamwoord:</strong> de meeste bijvoeglijke naamwoorden staan <em>na</em> het zelfstandig naamwoord. Er zijn echter een aantal veelgebruikte bijvoeglijke naamwoorden die <em>v&oacute;&oacute;r</em> het zelfstandig naamwoord staan. Deze groep heet de <strong>BAGS-adjectieven</strong>:</p>
+
+      <p><span class="gk-formule">B</span> eauty &nbsp;&bull;&nbsp; <span class="gk-formule">A</span> ge &nbsp;&bull;&nbsp; <span class="gk-formule">G</span> oodness &nbsp;&bull;&nbsp; <span class="gk-formule">S</span> ize</p>
+
+      <table>
+        <thead>
+          <tr><th>Categorie</th><th>Voorbeelden</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Beauty (schoonheid)</td><td><em>beau/belle, joli/jolie, laid/laide</em></td></tr>
+          <tr><td>Age (leeftijd)</td><td><em>vieux/vieille, nouveau/nouvelle, ancien/ancienne, jeune</em></td></tr>
+          <tr><td>Goodness (kwaliteit)</td><td><em>bon/bonne, mauvais/mauvaise, meilleur/meilleure</em></td></tr>
+          <tr><td>Size (grootte)</td><td><em>grand/grande, petit/petite, gros/grosse, long/longue</em></td></tr>
+        </tbody>
+      </table>
+
+      <p style="margin-top:0.9rem;"><strong>Voorbeelden met kleding:</strong></p>
+      <p><em>une <strong>belle</strong> robe</em> <span class="gk-voorbeeld">(een mooie jurk &mdash; v&oacute;&oacute;r het zelfstandig naamwoord)</span><br>
+      <em>un t-shirt <strong>rouge</strong></em> <span class="gk-voorbeeld">(een rood t-shirt &mdash; na het zelfstandig naamwoord)</span><br>
+      <em>un <strong>vieux</strong> manteau <strong>gris</strong></em> <span class="gk-voorbeeld">(een oude grijze jas &mdash; <em>vieux</em> ervoor, <em>gris</em> erna)</span></p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Vertaal: &laquo;&nbsp;een nieuw wit hemd&nbsp;&raquo; en &laquo;&nbsp;mooie zwarte schoenen&nbsp;&raquo;. Welke bijvoeglijke naamwoorden staan v&oacute;&oacute;r, welke erna? Controleer met de BAGS-lijst.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 4 — LE COMPARATIF
+  ============================================================ -->
+  <section class="section-block" id="comparatif">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Le comparatif</h2>
+    </div>
+
+    <p>Met de vergrotende trap (<em>le comparatif</em>) vergelijk je twee zaken met elkaar. In het Frans gebruik je drie vaste constructies, afhankelijk van of je meer, minder of even veel wilt uitdrukken.</p>
+
+    <div class="grammatica-kader">
+      <span class="gk-label">Grammatica</span>
+      <span class="gk-title">Le comparatif &mdash; de vergrotende trap</span>
+
+      <table>
+        <thead>
+          <tr><th>Type vergelijking</th><th>Constructie</th><th>Voorbeeld</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Meer dan</td>
+            <td><em>plus + adj + que</em></td>
+            <td><em>Cette robe est plus ch&egrave;re que le jean.</em></td>
+          </tr>
+          <tr>
+            <td>Minder dan</td>
+            <td><em>moins + adj + que</em></td>
+            <td><em>Le t-shirt est moins cher que la veste.</em></td>
+          </tr>
+          <tr>
+            <td>Even &hellip; als</td>
+            <td><em>aussi + adj + que</em></td>
+            <td><em>Ce pull est aussi chaud que le manteau.</em></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p style="margin-top:1rem;">Het bijvoeglijk naamwoord in de vergelijking past zich <strong>gewoon aan</strong> aan het onderwerp van de zin:</p>
+      <p><em>Cette jupe est plus longue que la robe.</em> <span class="gk-voorbeeld">(longue: vrouwelijk)</span><br>
+      <em>Ces chaussures sont moins ch&egrave;res que les baskets.</em> <span class="gk-voorbeeld">(ch&egrave;res: vrouwelijk meervoud)</span></p>
+
+      <p style="margin-top:1rem;"><strong>Onregelmatige vormen:</strong></p>
+      <table>
+        <thead>
+          <tr><th>Bijvoeglijk naamwoord</th><th>Vergelijkende trap</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><em>bon / bonne</em> (goed)</td><td><em>meilleur / meilleure</em> (beter) &mdash; <strong>niet</strong> <em>plus bon</em></td></tr>
+          <tr><td><em>mauvais / mauvaise</em> (slecht)</td><td><em>pire</em> (slechter) of <em>plus mauvais</em></td></tr>
+        </tbody>
+      </table>
+
+      <p style="margin-top:0.9rem;"><strong>Meer voorbeelden met kleding en winkelen:</strong></p>
+      <p><em>Ce blouson est <strong>meilleur que</strong> l&rsquo;ancien mod&egrave;le.</em> <span class="gk-voorbeeld">(Dit jack is beter dan het oude model.)</span><br>
+      <em>La qualit&eacute; de cette chemise est <strong>pire que</strong> celle du magasin d&rsquo;en face.</em> <span class="gk-voorbeeld">(De kwaliteit is slechter.)</span><br>
+      <em>Ce pull en laine est <strong>plus chaud que</strong> le pull en synth&eacute;tique.</em></p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 5 — LE SUPERLATIF
+  ============================================================ -->
+  <section class="section-block" id="superlatif">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Le superlatif</h2>
+    </div>
+
+    <p>De overtreffende trap (<em>le superlatif</em>) gebruik je om te zeggen dat iets het meest of het minst is van een groep. Je voegt het bepaald lidwoord <em>le / la / les</em> toe v&oacute;&oacute;r de vergelijkende constructie.</p>
+
+    <div class="grammatica-kader">
+      <span class="gk-label">Grammatica</span>
+      <span class="gk-title">Le superlatif &mdash; de overtreffende trap</span>
+
+      <table>
+        <thead>
+          <tr><th>Type</th><th>Constructie</th><th>Voorbeeld</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Het meest &hellip;</td>
+            <td><em>le / la / les plus + adj</em></td>
+            <td><em>C&rsquo;est la robe la plus ch&egrave;re.</em></td>
+          </tr>
+          <tr>
+            <td>Het minst &hellip;</td>
+            <td><em>le / la / les moins + adj</em></td>
+            <td><em>C&rsquo;est le t-shirt le moins cher.</em></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p style="margin-top:1rem;"><strong>Positie van de superlatief:</strong> als het bijvoeglijk naamwoord normaal na het zelfstandig naamwoord staat, staat de superlatief &oacute;&oacute;k erna (met herhaling van het lidwoord):</p>
+      <p><span class="gk-formule">le/la/les + zelfstandig naamwoord + le/la/les + plus/moins + adj</span></p>
+      <p><em>la robe <strong>la plus ch&egrave;re</strong></em> <span class="gk-voorbeeld">(de duurste jurk)</span><br>
+      <em>le t-shirt <strong>le moins cher</strong></em> <span class="gk-voorbeeld">(het goedkoopste t-shirt)</span><br>
+      <em>les chaussures <strong>les plus confortables</strong></em> <span class="gk-voorbeeld">(de comfortabelste schoenen)</span></p>
+
+      <p style="margin-top:1rem;">Als het bijvoeglijk naamwoord <em>v&oacute;&oacute;r</em> het zelfstandig naamwoord staat (BAGS), staat de superlatief er ook v&oacute;&oacute;r:</p>
+      <p><em><strong>la plus belle</strong> robe</em> <span class="gk-voorbeeld">(de mooiste jurk)</span><br>
+      <em><strong>le plus grand</strong> magasin</em> <span class="gk-voorbeeld">(de grootste winkel)</span></p>
+
+      <p style="margin-top:1rem;"><strong>Onregelmatige superlatieven:</strong><br>
+      <em>bon &rarr; le meilleur / la meilleure</em> <span class="gk-voorbeeld">(de beste)</span><br>
+      <em>mauvais &rarr; le pire / la pire</em> <span class="gk-voorbeeld">(de slechtste)</span></p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 6 — FAIRE DU SHOPPING
+  ============================================================ -->
+  <section class="section-block" id="shopping">
+    <div class="section-heading">
+      <span class="section-num">6</span>
+      <h2 class="section-title">Faire du shopping</h2>
+    </div>
+
+    <p>Als je in een Franstalige kledingzaak staat, heb je de juiste zinnen nodig om een gesprek te voeren: vragen naar je maat, een andere kleur, de prijs &mdash; en hoe je beleefd aangeeft dat je het artikel toch niet neemt.</p>
+
+    <div class="woordenschat-kader">
+      <span class="wk-label">Woordenschat &amp; uitdrukkingen</span>
+      <span class="wk-title">Faire du shopping &mdash; winkelen</span>
+      <div class="wk-grid">
+        <div class="wk-item"><span class="wk-fr">Je cherche&hellip;</span><span class="wk-nl">Ik zoek&hellip;</span></div>
+        <div class="wk-item"><span class="wk-fr">Quelle taille ?</span><span class="wk-nl">Welke maat?</span></div>
+        <div class="wk-item"><span class="wk-fr">Je fais du&hellip;</span><span class="wk-nl">Ik draag maat&hellip;</span></div>
+        <div class="wk-item"><span class="wk-fr">Vous avez &ccedil;a en&hellip; ?</span><span class="wk-nl">Heeft u dat in&hellip;?</span></div>
+        <div class="wk-item"><span class="wk-fr">Je peux l&rsquo;essayer ?</span><span class="wk-nl">Mag ik het passen?</span></div>
+        <div class="wk-item"><span class="wk-fr">&Ccedil;a me va ?</span><span class="wk-nl">Staat het mij?</span></div>
+        <div class="wk-item"><span class="wk-fr">&Ccedil;a me va bien.</span><span class="wk-nl">Het staat mij goed.</span></div>
+        <div class="wk-item"><span class="wk-fr">C&rsquo;est trop grand.</span><span class="wk-nl">Het is te groot.</span></div>
+        <div class="wk-item"><span class="wk-fr">C&rsquo;est trop petit.</span><span class="wk-nl">Het is te klein.</span></div>
+        <div class="wk-item"><span class="wk-fr">C&rsquo;est trop cher.</span><span class="wk-nl">Het is te duur.</span></div>
+        <div class="wk-item"><span class="wk-fr">Je le prends.</span><span class="wk-nl">Ik neem het.</span></div>
+        <div class="wk-item"><span class="wk-fr">Je vais r&eacute;fl&eacute;chir.</span><span class="wk-nl">Ik ga er over nadenken.</span></div>
+        <div class="wk-item"><span class="wk-fr">La caisse, c&rsquo;est o&ugrave; ?</span><span class="wk-nl">Waar is de kassa?</span></div>
+        <div class="wk-item"><span class="wk-fr">Vous payez comment ?</span><span class="wk-nl">Hoe betaalt u?</span></div>
+        <div class="wk-item"><span class="wk-fr">Par carte, s&rsquo;il vous pla&icirc;t.</span><span class="wk-nl">Met kaart, alstublieft.</span></div>
+        <div class="wk-item"><span class="wk-fr">En esp&egrave;ces.</span><span class="wk-nl">Cash.</span></div>
+      </div>
+      <p class="wk-note">In winkels gebruik je <em>vous</em> (beleefdheidsvorm) om de verkoopster of verkoper aan te spreken. Gebruik <em>tu</em> alleen als je iemand goed kent.</p>
+    </div>
+
+    <h3 class="sub-heading">Dialogue dans un magasin de v&ecirc;tements</h3>
+
+    <div class="gesprek">
+      <span class="gesprek-label">Gesprek</span>
+      <span class="gesprek-title">Dans une boutique &mdash; In een kledingzaak</span>
+
+      <div class="tour">
+        <span class="sp">Vendeuse</span>
+        <span class="utt">Bonjour ! Je peux vous aider ?</span>
+      </div>
+      <div class="tour">
+        <span class="sp">Lucas</span>
+        <span class="utt">Bonjour. Oui, je cherche un pull pour l&rsquo;hiver. Quelque chose en laine, si possible.</span>
+      </div>
+      <div class="tour">
+        <span class="sp">Vendeuse</span>
+        <span class="utt">Bien s&ucirc;r. Vous faites quelle taille ?</span>
+      </div>
+      <div class="tour">
+        <span class="sp">Lucas</span>
+        <span class="utt">Je fais du M, normalement.</span>
+      </div>
+      <div class="tour">
+        <span class="sp">Vendeuse</span>
+        <span class="utt">Alors, j&rsquo;ai ce pull bleu marine en laine &mdash; c&rsquo;est notre nouveau mod&egrave;le. Et voil&agrave; un pull gris, plus classique.</span>
+      </div>
+      <div class="tour">
+        <span class="sp">Lucas</span>
+        <span class="utt">Ils co&ucirc;tent combien ?</span>
+      </div>
+      <div class="tour">
+        <span class="sp">Vendeuse</span>
+        <span class="utt">Le bleu co&ucirc;te quarante-cinq euros, et le gris trente-neuf euros.</span>
+      </div>
+      <div class="tour">
+        <span class="sp">Lucas</span>
+        <span class="utt">Je peux essayer le bleu ?</span>
+      </div>
+      <div class="tour">
+        <span class="sp">Vendeuse</span>
+        <span class="utt">Bien s&ucirc;r ! Les cabines d&rsquo;essayage sont l&agrave;-bas, &agrave; droite.</span>
+      </div>
+      <div class="tour">
+        <span class="sp">Lucas</span>
+        <span class="utt"><em>(na het passen)</em> &Ccedil;a me va bien, mais c&rsquo;est un peu cher&hellip; Vous avez &ccedil;a en promotion ?</span>
+      </div>
+      <div class="tour">
+        <span class="sp">Vendeuse</span>
+        <span class="utt">Non, pas encore. Les soldes commencent le dix janvier.</span>
+      </div>
+      <div class="tour">
+        <span class="sp">Lucas</span>
+        <span class="utt">Alors, je prends le gris. C&rsquo;est moins cher et aussi chaud.</span>
+      </div>
+      <div class="tour">
+        <span class="sp">Vendeuse</span>
+        <span class="utt">Excellent choix ! Vous payez comment ?</span>
+      </div>
+      <div class="tour">
+        <span class="sp">Lucas</span>
+        <span class="utt">Par carte, s&rsquo;il vous pla&icirc;t. La caisse, c&rsquo;est o&ugrave; ?</span>
+      </div>
+      <div class="tour">
+        <span class="sp">Vendeuse</span>
+        <span class="utt">C&rsquo;est ici. Voil&agrave;, bonne journ&eacute;e !</span>
+      </div>
+      <div class="tour">
+        <span class="sp">Lucas</span>
+        <span class="utt">Merci, vous aussi !</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 7 — LES SOLDES ET LES PRIX
+  ============================================================ -->
+  <section class="section-block" id="soldes">
+    <div class="section-heading">
+      <span class="section-num">7</span>
+      <h2 class="section-title">Les soldes et les prix</h2>
+    </div>
+
+    <div class="culturele-noot">
+      <span class="cn-label">Culturele noot</span>
+      <p>In Frankrijk en Belgi&euml; zijn de <strong>soldes</strong> (solden) een vast onderdeel van het shoppingjaar. Ze beginnen twee keer per jaar op een vaste datum: <em>les soldes de janvier</em> (januari) en <em>les soldes de juillet</em> (juli). In Frankrijk duurt elke periode officieel vier weken en wordt de datum wettelijk vastgelegd door de overheid. Winkels mogen dan echt de prijs verlagen &mdash; niet alleen een nep-promotie aanbieden. Voor de Belgische consument vallen de solden in dezelfde periode, maar de regelgeving verschilt licht.</p>
+      <p>Tijdens de solden zoeken shoppers naar de <em>meilleures affaires</em> (beste koopjes). Het eerste weekend is altijd het drukste: mensen staan soms uren in de rij voor de deuren van grote winkels zoals H&amp;M of Zara.</p>
+    </div>
+
+    <div class="woordenschat-kader">
+      <span class="wk-label">Woordenschat</span>
+      <span class="wk-title">Les prix et les promotions &mdash; prijzen en kortingen</span>
+      <div class="wk-grid">
+        <div class="wk-item"><span class="wk-fr">C&rsquo;est combien ?</span><span class="wk-nl">Hoeveel kost het?</span></div>
+        <div class="wk-item"><span class="wk-fr">&Ccedil;a co&ucirc;te&hellip; euros.</span><span class="wk-nl">Het kost&hellip; euro.</span></div>
+        <div class="wk-item"><span class="wk-fr">C&rsquo;est (pas) cher.</span><span class="wk-nl">Het is (niet) duur.</span></div>
+        <div class="wk-item"><span class="wk-fr">C&rsquo;est bon march&eacute;.</span><span class="wk-nl">Het is goedkoop.</span></div>
+        <div class="wk-item"><span class="wk-fr">une promotion</span><span class="wk-nl">een aanbieding</span></div>
+        <div class="wk-item"><span class="wk-fr">une r&eacute;duction</span><span class="wk-nl">een korting</span></div>
+        <div class="wk-item"><span class="wk-fr">les soldes (m. pl.)</span><span class="wk-nl">de solden</span></div>
+        <div class="wk-item"><span class="wk-fr">une affaire</span><span class="wk-nl">een koopje</span></div>
+        <div class="wk-item"><span class="wk-fr">le prix</span><span class="wk-nl">de prijs</span></div>
+        <div class="wk-item"><span class="wk-fr">gratuit / gratuite</span><span class="wk-nl">gratis</span></div>
+        <div class="wk-item"><span class="wk-fr">50 % de r&eacute;duction</span><span class="wk-nl">50% korting</span></div>
+        <div class="wk-item"><span class="wk-fr">la cabine d&rsquo;essayage</span><span class="wk-nl">het pashokje</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 8 — TEKST: LA MODE BELGE
+  ============================================================ -->
+  <section class="section-block" id="tekst">
+    <div class="section-heading">
+      <span class="section-num">8</span>
+      <h2 class="section-title">Tekst&nbsp;: La mode belge</h2>
+    </div>
+
+    <p>Lees de tekst hieronder aandachtig. Beantwoord daarna de begripsvragen.</p>
+
+    <div class="tekst-fragment">
+      <span class="tf-label">Leestekst</span>
+      <span class="tf-title">La mode belge &mdash; une cr&eacute;ativit&eacute; reconnue dans le monde entier</span>
+
+      <div class="tf-body">
+        <p>La Belgique est un petit pays, mais dans le monde de la mode, elle occupe une place importante. Depuis les ann&eacute;es 1980, des cr&eacute;ateurs belges ont r&eacute;volutionn&eacute; la mode internationale. Le groupe le plus c&eacute;l&egrave;bre est celui des &laquo;&nbsp;Six d&rsquo;Anvers&nbsp;&raquo; (<em>de Antwerpse Zes</em>): six &eacute;tudiants de l&rsquo;Acad&eacute;mie royale des Beaux-Arts d&rsquo;Anvers, qui ont pr&eacute;sent&eacute; leurs collections &agrave; Londres en 1987. Parmi eux se trouvait Dries Van Noten, aujourd&rsquo;hui l&rsquo;un des cr&eacute;ateurs les plus influents du monde.</p>
+
+        <p>La ville d&rsquo;Anvers est toujours consid&eacute;r&eacute;e comme la capitale belge de la mode. On y trouve de nombreuses boutiques de cr&eacute;ateurs, comme le magasin <em>Het Modepaleis</em> de Dries Van Noten. Chaque ann&eacute;e, la ville organise la <em>Dmode Week</em>, une semaine d&eacute;di&eacute;e &agrave; la mode, avec des expositions, des d&eacute;fil&eacute;s et des ateliers ouverts au public.</p>
+
+        <p>Mais la mode, ce n&rsquo;est pas seulement pour les cr&eacute;ateurs professionnels. Dans les &eacute;coles belges, il y a un d&eacute;bat int&eacute;ressant sur l&rsquo;uniforme scolaire. Certains &eacute;l&egrave;ves pensent qu&rsquo;un uniforme est la meilleure solution: tout le monde est &eacute;gal, et on ne doit pas choisir chaque matin ce qu&rsquo;on porte. D&rsquo;autres trouvent que les v&ecirc;tements sont une forme d&rsquo;expression personnelle &mdash; une fa&ccedil;on de montrer qui on est. Pour eux, porter un uniforme, c&rsquo;est la pire id&eacute;e possible.</p>
+
+        <p>Qu&rsquo;en pensez-vous&nbsp;?</p>
+      </div>
+
+      <div class="tf-vragen">
+        <span class="tv-label">Begripsvragen</span>
+        <ol>
+          <li>Waarom zijn &laquo;&nbsp;les Six d&rsquo;Anvers&nbsp;&raquo; belangrijk voor de Belgische mode? Noem twee feiten uit de tekst.</li>
+          <li>Welke stad wordt in de tekst beschreven als de Belgische modehoofdstad? Welk bewijs geeft de tekst daarvoor?</li>
+          <li>Wat zijn de twee standpunten over het schooluniform die in de tekst worden genoemd? Vat elk standpunt samen in &eacute;&eacute;n Nederlandse zin.</li>
+          <li>Zoek in de tekst twee superlativen (overtreffende trap). Schrijf ze op en vertaal ze.</li>
+          <li>Wat is jouw mening over het schooluniform? Schrijf twee Franse zinnen met je argument.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</div><!-- end page-wrapper -->
+
+<!-- ============================================================
+     EXERCISES
+============================================================ -->
+<section class="exercises-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <!-- Oefening 1 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Verbuiging van bijvoeglijke naamwoorden bij kleding</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.7rem;">Schrijf de volledige zin opnieuw en zet het bijvoeglijk naamwoord tussen haakjes in de juiste vorm.</p>
+      <ol>
+        <li>Elle porte une robe ___. (vert)</li>
+        <li>Il a un vieux manteau ___. (gris)</li>
+        <li>Ce sont des chaussures ___. (blanc)</li>
+        <li>J&rsquo;aime cette ___ veste ___. (nouveau / rouge)</li>
+        <li>Il porte des baskets ___. (noir)</li>
+        <li>C&rsquo;est une ___ chemise ___. (beau / violet)</li>
+        <li>Elle a des &eacute;charpes ___. (orange) <em>&mdash; let op: onveranderlijk!</em></li>
+        <li>C&rsquo;est un pantalon ___. (marron) <em>&mdash; let op: onveranderlijk!</em></li>
+      </ol>
+      <p class="ex-tip">Tip: controleer voor elk bijvoeglijk naamwoord: is het een BAGS-adjectief? Staat het voor of na het zelfstandig naamwoord?</p>
+    </div>
+
+    <!-- Oefening 2 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Comparatif &mdash; zinnen maken</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.7rem;">Maak een vergelijkende zin met de gegeven elementen. Gebruik <em>plus &hellip; que</em>, <em>moins &hellip; que</em> of <em>aussi &hellip; que</em>.</p>
+      <ol>
+        <li>la robe / cher (+) / le jean &rarr; ___</li>
+        <li>les baskets / confortable (+) / les chaussures en cuir &rarr; ___</li>
+        <li>ce pull / chaud (=) / ce manteau &rarr; ___</li>
+        <li>le t-shirt / cher (&minus;) / la veste &rarr; ___</li>
+        <li>cette chemise / beau (+) / l&rsquo;ancienne &rarr; <em>(gebruik de onregelmatige vorm!)</em></li>
+      </ol>
+      <p class="ex-tip">Vergeet niet dat het bijvoeglijk naamwoord in de comparatif moet overeenstemmen met het onderwerp van de zin.</p>
+    </div>
+
+    <!-- Oefening 3 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Winkeldialoog aanvullen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.7rem;">Vul het gesprek aan met de juiste zin uit het kader. Niet alle zinnen worden gebruikt.</p>
+      <p style="font-size:0.91rem;font-style:italic;color:var(--text-light);margin-bottom:0.8rem;">
+        <em>Kader: Je fais du S. / C&rsquo;est trop grand. / Vous avez &ccedil;a en rouge ? / Je le prends. / La caisse, c&rsquo;est o&ugrave; ? / &Ccedil;a me va bien. / Je vais r&eacute;fl&eacute;chir. / C&rsquo;est combien ?</em>
+      </p>
+      <ol>
+        <li>Vendeur&nbsp;: Vous faites quelle taille ?<br>
+            Cliente&nbsp;: ___ (1)</li>
+        <li>Vendeur&nbsp;: Voil&agrave; un t-shirt blanc en taille S.<br>
+            Cliente&nbsp;: Il est beau, mais &hellip; ___ (2) Vous avez &ccedil;a en bleu ?</li>
+        <li>Vendeur&nbsp;: Oui, voici le m&ecirc;me en bleu.<br>
+            Cliente&nbsp;: ___ (3) &mdash; 25 euros, c&rsquo;est le prix.</li>
+        <li>Cliente&nbsp;: C&rsquo;est raisonnable. ___ (4)<br>
+            Vendeur&nbsp;: Parfait ! La caisse est l&agrave;-bas.</li>
+      </ol>
+    </div>
+
+    <!-- Oefening 4 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 4</p>
+      <p class="ex-name">Een outfit beschrijven</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.7rem;">Kijk naar de omschrijving hieronder en schrijf in het Frans een beschrijving van de outfit. Gebruik minimaal vier bijvoeglijke naamwoorden in de correcte vorm.</p>
+      <ul>
+        <li>Een nieuw wit hemd (mannelijk)</li>
+        <li>Een donkerblauwe broek (<em>bleu fonc&eacute;</em> = donkerblauw)</li>
+        <li>Zwarte leren schoenen</li>
+        <li>Een grijze wollen sjaal</li>
+      </ul>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-top:0.6rem;">Begin zo: <em>Il porte une nouvelle chemise blanche&hellip;</em></p>
+      <p class="ex-tip">Tip: gebruik <em>et</em> of <em>avec</em> om de kledingstukken aan elkaar te koppelen.</p>
+    </div>
+
+    <!-- Oefening 5 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 5</p>
+      <p class="ex-name">Begripstoets op de leestekst</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.7rem;">Beantwoord de begripsvragen bij de tekst <em>La mode belge</em> (sectie 8) in volledige zinnen. Schrijf voor vraag 5 je mening in het Frans.</p>
+      <ol>
+        <li>Wanneer en waar maakten &laquo;&nbsp;les Six d&rsquo;Anvers&nbsp;&raquo; zich bekend?</li>
+        <li>Noem twee dingen die Antwerpen doet om de mode te promoten.</li>
+        <li>Schrijf de twee superlativen die je gevonden hebt op (zie begripsvraag 4 bij de tekst).</li>
+        <li>Schrijf in twee Franse zinnen jouw standpunt over het schooluniform. Gebruik een superlatief of vergrotende trap.</li>
+      </ol>
+    </div>
+
+    <!-- Oefening 6 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 6</p>
+      <p class="ex-name">Schrijftaak&nbsp;: Mon style</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.7rem;">Schrijf een kort tekst van 8 tot 10 zinnen in het Frans over jouw kledingstijl. Gebruik de onderstaande structuur als leidraad.</p>
+      <ul>
+        <li><strong>Introduceer jezelf en je stijl:</strong> <em>En g&eacute;n&eacute;ral, je porte&hellip;</em></li>
+        <li><strong>Beschrijf je favoriete kledingstuk:</strong> kleur, stof, merk (optioneel)</li>
+        <li><strong>Vergelijk twee kledingstukken die je hebt:</strong> gebruik een comparatief</li>
+        <li><strong>Beschrijf je ideale outfit:</strong> gebruik bijvoeglijke naamwoorden in de juiste vorm</li>
+        <li><strong>Geef je mening over mode:</strong> <em>Je pense que la mode est&hellip;</em></li>
+      </ul>
+      <p class="ex-tip">Woordenschat nodig? Gebruik de woordenschatkaders in dit hoofdstuk. Controleer de verbuiging van elk bijvoeglijk naamwoord.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SUMMARY
+============================================================ -->
+<section class="summary-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>Les v&ecirc;tements:</strong> kledingstukken hebben een vast geslacht (mannelijk/vrouwelijk) &mdash; leer ze altijd met het lidwoord: <em>un pull, une robe, des chaussures</em>.</li>
+      <li><strong>Les couleurs:</strong> kleuren zijn bijvoeglijke naamwoorden en passen zich aan. Uitzondering: <em>marron</em> en <em>orange</em> zijn onveranderlijk. Stoffen verbind je met <em>en</em>: <em>en coton, en laine</em>.</li>
+      <li><strong>Accord des adjectifs:</strong> voeg <em>-e</em> toe voor vrouwelijk, <em>-s</em> voor meervoud. Onregelmatig: <em>beau/belle, nouveau/nouvelle, vieux/vieille, blanc/blanche</em>.</li>
+      <li><strong>Place des adjectifs:</strong> de meeste bijvoeglijke naamwoorden staan <em>na</em> het zelfstandig naamwoord. BAGS-adjectieven (Beauty, Age, Goodness, Size) staan <em>ervoor</em>.</li>
+      <li><strong>Le comparatif:</strong> <em>plus + adj + que</em> (meer), <em>moins + adj + que</em> (minder), <em>aussi + adj + que</em> (even). Onregelmatig: <em>bon &rarr; meilleur, mauvais &rarr; pire</em>.</li>
+      <li><strong>Le superlatif:</strong> <em>le/la/les plus + adj</em> of <em>le/la/les moins + adj</em>. Positie: na het zelfstandig naamwoord als het adj. normaal ook erna staat (met herhaald lidwoord).</li>
+      <li><strong>Faire du shopping:</strong> sleutelzinnen zijn <em>Je cherche&hellip;</em>, <em>Quelle taille&nbsp;?</em>, <em>Vous avez &ccedil;a en&hellip;&nbsp;?</em>, <em>Je le prends</em>, <em>Je vais r&eacute;fl&eacute;chir</em>. Gebruik <em>vous</em> voor de verkoopster.</li>
+      <li><strong>Les soldes:</strong> in Frankrijk en Belgi&euml; beginnen de solden in januari en juli &mdash; een vaste culturele traditie met wettelijk geregelde kortingen.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

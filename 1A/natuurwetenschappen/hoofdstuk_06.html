@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H6 — Materie en het deeltjesmodel | Natuurwetenschappen 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --gold: #D4A017;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --terracotta-light: #D4561E;
+    --gold-light: #E8B82A;
+    --darkblue-light: #243B63;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     CLOSING QUOTE
+  ============================================================ */
+  .closing-quote {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0D1E38 100%);
+    border-radius: var(--border-radius);
+    padding: 3rem 3rem 2.5rem;
+    margin: 3.5rem 0 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.5rem; left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .closing-quote .cq-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--gold);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 1.2rem;
+  }
+
+  .closing-quote .cq-attribution {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(212,160,23,0.6);
+  }
+
+  .closing-quote .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .closing-quote .ornament-line::before,
+  .closing-quote .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.4), transparent);
+  }
+
+  .closing-quote .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.7;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .closing-quote { padding: 2rem 1.2rem 1.8rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     NATUURWETENSCHAPPEN-SPECIFIC COMPONENTS
+  ============================================================ */
+
+  /* ── EXPERIMENT KADER ───────────────────────────────── */
+  .experiment-kader { background: #FFF8F5; border-left: 4px solid var(--terracotta); border-radius: 0 var(--border-radius) var(--border-radius) 0; padding: 1.3rem 1.5rem; margin: 1.8rem 0; box-shadow: var(--shadow-sm); }
+  .experiment-kader .exp-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--terracotta); display: block; margin-bottom: 0.35rem; }
+  .experiment-kader .exp-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--darkblue); display: block; margin-bottom: 0.8rem; }
+  .experiment-kader .exp-stappen { list-style: none; padding: 0; counter-reset: stap-teller; }
+  .experiment-kader .exp-stappen li { counter-increment: stap-teller; padding: 0.5rem 0.8rem 0.5rem 3rem; position: relative; background: var(--creme); border-radius: 4px; margin-bottom: 0.4rem; font-size: 0.96rem; }
+  .experiment-kader .exp-stappen li::before { content: counter(stap-teller); position: absolute; left: 0.6rem; top: 50%; transform: translateY(-50%); background: var(--terracotta); color: white; width: 1.7rem; height: 1.7rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; }
+
+  /* ── WETENSCHAPS KADER ──────────────────────────────── */
+  .wetenschaps-kader { background: #EEF3FF; border-left: 4px solid var(--darkblue); border-radius: 0 var(--border-radius) var(--border-radius) 0; padding: 1.2rem 1.5rem; margin: 1.5rem 0; }
+  .wetenschaps-kader .wk-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--darkblue); opacity: 0.7; display: block; margin-bottom: 0.35rem; }
+  .wetenschaps-kader .wk-body { font-size: 0.97rem; color: var(--text-dark); }
+
+  /* ── TABEL WRAP ─────────────────────────────────────── */
+  .tabel-wrap { margin: 1.8rem 0; overflow-x: auto; border-radius: var(--border-radius); box-shadow: var(--shadow-sm); }
+  .tabel-wrap table { width: 100%; border-collapse: collapse; font-size: 0.96rem; }
+  .tabel-wrap th { background: var(--darkblue); color: var(--gold); padding: 0.75rem 1rem; text-align: left; font-family: 'Source Sans 3', sans-serif; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; }
+  .tabel-wrap td { padding: 0.65rem 1rem; border-bottom: 1px solid rgba(200,146,58,0.2); color: var(--text-mid); }
+  .tabel-wrap tr:last-child td { border-bottom: none; }
+  .tabel-wrap tr:nth-child(even) td { background: rgba(232,220,200,0.3); }
+
+  /* ── SVG CONTAINER ──────────────────────────────────── */
+  .svg-container { margin: 1.8rem 0; padding: 1.5rem; background: white; border: 1px solid var(--sand); border-radius: var(--border-radius); text-align: center; }
+  .svg-container .svg-caption { font-size: 0.85rem; color: var(--text-light); font-style: italic; display: block; margin-top: 0.75rem; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <span class="label">Natuurwetenschappen 1A</span>
+  <span class="label label-right">Eerste graad A-stroom</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Natuurwetenschappen &nbsp;&middot;&nbsp; 1A &nbsp;&middot;&nbsp; Chemie</div>
+  <h1>H6 &mdash; Materie<br>En het deeltjesmodel</h1>
+  <p class="subtitle">Alles om je heen bestaat uit onzichtbare deeltjes &mdash; leer hoe ze zich gedragen</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- CHAPTER TITLE BLOCK -->
+  <div style="padding: 2.5rem 0 0.5rem;">
+    <div style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.2em;color:var(--oker);margin-bottom:0.5rem;">H6 &mdash; Chemie</div>
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;color:var(--darkblue);margin-bottom:1.2rem;line-height:1.2;">Materie en het deeltjesmodel</h1>
+    <p style="font-size:1.08rem;color:var(--text-mid);line-height:1.8;max-width:720px;border-left:3px solid var(--oker);padding-left:1.2rem;">In dit hoofdstuk ontdekken we wat materie precies is, hoe deeltjes zich gedragen in vaste stoffen, vloeistoffen en gassen, en waarom stoffen van toestand kunnen veranderen. Het deeltjesmodel is een van de krachtigste gereedschappen in de wetenschappen: een eenvoudig idee dat een enorme hoeveelheid verschijnselen verklaart.</p>
+  </div>
+
+  <!-- PROLOGUE -->
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Stel je voor &hellip;</span>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p>Je legt een suikerklontje in een glas water. Eerst zie je het duidelijk liggen op de bodem. Dan beginnen de randen te vervagen. Na een paar minuten is het suikerklontje volledig verdwenen &mdash; maar als je het water proeft, is het zoet. Hoe kan iets zichtbaar verdwijnen en toch nog aanwezig zijn?</p>
+    <p>Of je blaast in een ballon. Je voelt weerstand: de lucht drukt terug. Maar lucht is toch &ldquo;niets&rdquo;? Je ziet het niet, je kunt er doorheen lopen. En toch duwt het.</p>
+    <p><strong style="color: var(--gold);">Het antwoord ligt in iets wat je nooit met het blote oog zult zien: de onvoorstelbaar kleine deeltjes waaruit alle materie is opgebouwd. Zodra je begrijpt hoe deeltjes bewegen en op elkaar inwerken, valt een heel universum aan verschijnselen plots op zijn plaats.</strong></p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 1 — Materie: wat is het?
+  ============================================================ -->
+  <section class="section-block" id="s1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Materie: wat is het?</h2>
+    </div>
+
+    <p>Kijk om je heen. De bank waarop je zit, de lucht die je inademt, het water in je drinkfles, jijzelf &mdash; al die dingen hebben iets gemeen. Ze zijn allemaal gemaakt van <strong>materie</strong>.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9883;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Materie</span>
+        <p class="begrip-def">Materie is alles wat <strong>massa heeft</strong> en <strong>ruimte inneemt</strong>. Voorbeelden: stenen, water, lucht, metalen, hout, levende organismen &mdash; ook jijzelf ben je volledig opgebouwd uit materie.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Massa en volume: de twee kenmerken van materie</h3>
+    <p>Een stof is materie als ze aan twee voorwaarden voldoet. Ten eerste moet ze <strong>massa</strong> hebben: ze weegt iets, hoe weinig ook. Ten tweede moet ze <strong>volume</strong> innemen: ze heeft een zekere uitgestrektheid in de ruimte en verdringt andere materie.</p>
+    <p>Een veelgemaakte fout is dat leerlingen denken dat lucht <em>geen</em> materie is, omdat je haar niet kunt zien. Maar lucht heeft wel degelijk massa &mdash; een kubieke meter lucht weegt ongeveer 1,2 kg &mdash; en lucht neemt ruimte in: je kunt niet tezelfdertijd op dezelfde plek lucht en water hebben staan. Lucht is dus volwaardige materie.</p>
+
+    <h3 class="sub-heading">Wat is g&eacute;&eacute;n materie?</h3>
+    <p>Niet alles om ons heen is materie. <strong>Licht, geluid, warmte en elektriciteit</strong> zijn vormen van <strong>energie</strong>, geen materie. Ze hebben geen massa en nemen geen ruimte in op de manier waarop materie dat doet. Een lichtstraal weegt niets. Een geluidsgolf verdringt geen andere stof. Energie en materie zijn twee fundamenteel verschillende begrippen, al kunnen ze wel op elkaar inwerken &mdash; licht kan materie opwarmen, elektriciteit kan materie in beweging brengen.</p>
+
+    <div class="tabel-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Ding</th>
+            <th>Materie?</th>
+            <th>Reden</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Steen</td>
+            <td><strong>Ja</strong></td>
+            <td>Heeft massa, neemt ruimte in</td>
+          </tr>
+          <tr>
+            <td>Lucht</td>
+            <td><strong>Ja</strong></td>
+            <td>Heeft massa (~1,2 kg/m&sup3;), neemt ruimte in</td>
+          </tr>
+          <tr>
+            <td>Water</td>
+            <td><strong>Ja</strong></td>
+            <td>Heeft massa, neemt ruimte in</td>
+          </tr>
+          <tr>
+            <td>Licht</td>
+            <td>Nee</td>
+            <td>Vorm van energie, heeft geen rustmassa</td>
+          </tr>
+          <tr>
+            <td>Geluid</td>
+            <td>Nee</td>
+            <td>Trillingsenergie die zich voortplant door materie</td>
+          </tr>
+          <tr>
+            <td>Warmte</td>
+            <td>Nee</td>
+            <td>Vorm van energie (bewegingsenergie van deeltjes)</td>
+          </tr>
+          <tr>
+            <td>Elektriciteit</td>
+            <td>Nee</td>
+            <td>Stroom van elektrische lading &mdash; een energievorm</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Is lucht materie? Bewijs je antwoord aan de hand van twee eigenschappen van materie. Hoe zou je aan een klasgenoot aantonen dat lucht massa heeft en ruimte inneemt, zonder wetenschappelijk materiaal te gebruiken?</p>
+    </div>
+
+    <div class="experiment-kader">
+      <span class="exp-label">Experiment</span>
+      <span class="exp-title">Lucht heeft massa</span>
+      <ol class="exp-stappen">
+        <li>Blaas twee ballonnen even groot op en bind ze goed dicht.</li>
+        <li>Hang beide ballonnen met touwtjes aan de uiteinden van een lat of liniaal (als een weegschaal).</li>
+        <li>Controleer dat de lat in evenwicht is: beide ballonnen wegen evenveel.</li>
+        <li>Laat voorzichtig de lucht uit &eacute;&eacute;n ballon ontsnappen door het touwtje los te maken.</li>
+        <li>Observeer wat er met de lat gebeurt. De kant met de volle ballon zakt naar beneden &mdash; bewijs dat lucht massa heeft.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 2 — Chemisch vs. fysisch verschijnsel
+  ============================================================ -->
+  <section class="section-block" id="s2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Chemisch vs. fysisch verschijnsel</h2>
+    </div>
+
+    <p>Materie kan veranderen. Water kan bevriezen, ijzer kan roesten, papier kan verbranden. Maar niet alle veranderingen zijn hetzelfde. In de wetenschappen maken we een heel belangrijk onderscheid: een <strong>fysisch verschijnsel</strong> versus een <strong>chemisch verschijnsel</strong>.</p>
+
+    <h3 class="sub-heading">Fysisch verschijnsel</h3>
+    <p>Bij een <strong>fysisch verschijnsel</strong> verandert de <em>vorm</em> of de <em>toestand</em> van een stof, maar de stof zelf blijft dezelfde stof. De moleculen veranderen niet van aard &mdash; ze worden alleen anders gerangschikt of bewegen anders.</p>
+    <p>Voorbeelden van fysische verschijnselen:</p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.4rem"><strong>Water bevriezen:</strong> vloeibaar water wordt ijs, maar het blijft water (H&#x2082;O). Smelt het ijs, dan krijg je gewoon water terug.</li>
+      <li style="margin-bottom:0.4rem"><strong>Suiker oplossen in water:</strong> de suikermoleculen verspreiden zich in het water, maar het zijn nog steeds suikermoleculen. Verdamp je het water, dan houd je suiker over.</li>
+      <li style="margin-bottom:0.4rem"><strong>Glas breken:</strong> de brokstukken zijn nog steeds glas. De chemische samenstelling is niet veranderd.</li>
+      <li style="margin-bottom:0.4rem"><strong>Was smelten:</strong> vaste was wordt vloeibare was bij warmte, maar als je haar laat afkoelen stolt ze opnieuw tot dezelfde was.</li>
+    </ul>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9684;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Fysisch verschijnsel</span>
+        <p class="begrip-def">Een verandering waarbij <strong>geen nieuwe stoffen ontstaan</strong>. De stof verandert van vorm, toestand of verdeling, maar haar chemische aard blijft onveranderd. Fysische veranderingen zijn meestal omkeerbaar.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Chemisch verschijnsel</h3>
+    <p>Bij een <strong>chemisch verschijnsel</strong> (ook wel een <em>chemische reactie</em> genoemd) ontstaan er <em>nieuwe stoffen</em>. De oorspronkelijke stoffen worden omgezet in andere stoffen met andere eigenschappen. Dit proces is doorgaans <strong>onomkeerbaar</strong> onder gewone omstandigheden.</p>
+    <p>Voorbeelden van chemische verschijnselen:</p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.4rem"><strong>Papier verbranden:</strong> papier reageert met zuurstof uit de lucht en wordt omgezet in as, roet, koolstofdioxide en water. Je kunt de as niet meer terugveranderen in papier.</li>
+      <li style="margin-bottom:0.4rem"><strong>Roestvorming:</strong> ijzer reageert langzaam met zuurstof en water en vormt ijzeroxide (roest). Roest heeft heel andere eigenschappen dan ijzer: het is broos, roodbruin en brokkelig.</li>
+      <li style="margin-bottom:0.4rem"><strong>Een ei bakken:</strong> de eiwitten in een ei veranderen door hitte van structuur. Het gebakken ei is een nieuwe stof; je kunt het niet terug rauwen.</li>
+      <li style="margin-bottom:0.4rem"><strong>Melk zuur worden:</strong> bacteriën zetten melksuiker om in melkzuur. De melk heeft een nieuwe samenstelling gekregen.</li>
+    </ul>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9883;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Chemisch verschijnsel</span>
+        <p class="begrip-def">Een verandering waarbij <strong>nieuwe stoffen ontstaan</strong>. De oorspronkelijke stoffen zijn omgezet; de producten hebben andere eigenschappen dan de beginstoffen. Chemische reacties zijn meestal niet zomaar terug te draaien.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Hoe herken je een chemische reactie?</h3>
+    <p>Kijk voor de volgende aanwijzingen &mdash; als je er &eacute;&eacute;n of meer ziet, is er waarschijnlijk een chemische reactie aan de gang:</p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.4rem"><strong>Kleurverandering:</strong> de stof krijgt een duidelijk andere kleur (roest is roodbruin, verbrand hout is zwart)</li>
+      <li style="margin-bottom:0.4rem"><strong>Gasvorming:</strong> er ontstaan belletjes of een gas dat vrijkomt (azijn + zuiveringszout)</li>
+      <li style="margin-bottom:0.4rem"><strong>Neerslag:</strong> een troebeling of vaste stof die uit een oplossing precipiteert</li>
+      <li style="margin-bottom:0.4rem"><strong>Warmte- of lichtontwikkeling:</strong> de reactie produceert warmte (vuur) of licht (chemische lichtstaafjes)</li>
+      <li style="margin-bottom:0.4rem"><strong>Reuk:</strong> er ontstaat een nieuwe geur die er voor de reactie niet was</li>
+      <li style="margin-bottom:0.4rem"><strong>Onomkeerbaarheid:</strong> je kunt de beginsituatie niet eenvoudig herstellen</li>
+    </ul>
+
+    <div class="tabel-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Verschijnsel</th>
+            <th>Fysisch of chemisch?</th>
+            <th>Hoe weet je dat?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>IJsblokje smelt</td>
+            <td>Fysisch</td>
+            <td>Water blijft water (H&#x2082;O), omkeerbaarheid: vries het opnieuw in</td>
+          </tr>
+          <tr>
+            <td>Hout verbrandt</td>
+            <td>Chemisch</td>
+            <td>Nieuwe stoffen: as, CO&#x2082;, waterdamp; onomkeerbaar</td>
+          </tr>
+          <tr>
+            <td>Suiker oplossen</td>
+            <td>Fysisch</td>
+            <td>Suikermoleculen verspreiden zich maar veranderen niet; verdampen geeft suiker terug</td>
+          </tr>
+          <tr>
+            <td>IJzer roest</td>
+            <td>Chemisch</td>
+            <td>Nieuwe stof: ijzeroxide; kleurverandering, brokkelig product</td>
+          </tr>
+          <tr>
+            <td>Glas breken</td>
+            <td>Fysisch</td>
+            <td>Brokstukken zijn nog steeds glas; samenstelling onveranderd</td>
+          </tr>
+          <tr>
+            <td>Ei bakken</td>
+            <td>Chemisch</td>
+            <td>Eiwitten denatureren; onomkeerbaar, andere structuur en textuur</td>
+          </tr>
+          <tr>
+            <td>Water koken</td>
+            <td>Fysisch</td>
+            <td>Stoom is nog steeds water (H&#x2082;O); condenseer het en je krijgt water terug</td>
+          </tr>
+          <tr>
+            <td>Melk zuur worden</td>
+            <td>Chemisch</td>
+            <td>Bacteriën zetten melksuiker om in melkzuur; nieuwe stof, zure smaak</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="experiment-kader">
+      <span class="exp-label">Experiment</span>
+      <span class="exp-title">Fysisch of chemisch?</span>
+      <ol class="exp-stappen">
+        <li>Verwarm een klein stukje was in een bekerglas op een warmtebron tot de was volledig gesmolten is.</li>
+        <li>Observeer goed: welke kleur heeft de was? Ruikt ze anders? Zijn er belletjes of gasvorming?</li>
+        <li>Laat de vloeibare was afkoelen en stollen. Vergelijk met de oorspronkelijke was.</li>
+        <li>Verbrand nu een klein stukje papier boven een vuurvaste ondergrond (pas op voor de veiligheid!).</li>
+        <li>Vergelijk beide experimenten: bij de was krijg je de oorspronkelijke stof terug &mdash; fysisch. Bij het papier is de stof voorgoed verdwenen en omgezet in as en rook &mdash; chemisch.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 3 — Het deeltjesmodel
+  ============================================================ -->
+  <section class="section-block" id="s3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Het deeltjesmodel</h2>
+    </div>
+
+    <p>Om te begrijpen waarom stoffen zich gedragen zoals ze doen &mdash; waarom ijs smelt, waarom gas uitdijt, waarom je een parfum ruikt door de kamer heen &mdash; gebruiken wetenschappers het <strong>deeltjesmodel</strong>. Dit model zegt dat alle materie is opgebouwd uit onvoorstelbaar kleine deeltjes (atomen en moleculen) die voortdurend in beweging zijn.</p>
+
+    <h3 class="sub-heading">De drie basisprincipes van het deeltjesmodel</h3>
+    <p>Het deeltjesmodel steunt op drie fundamentele idee&euml;n:</p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.6rem"><strong>Deeltjes zijn in constante beweging</strong> (thermische beweging): ook in een rotsblok dat je als &ldquo;stil&rdquo; ziet liggen, trillen de atomen voortdurend op hun plaatsen. Hoe warmer een stof, hoe sneller de deeltjes bewegen.</li>
+      <li style="margin-bottom:0.6rem"><strong>Deeltjes trekken elkaar aan</strong>: er zijn aantrekkingskrachten tussen deeltjes. In een vaste stof zijn die krachten zo sterk dat de deeltjes op vaste plaatsen gehouden worden. In een gas zijn ze verwaarloosbaar klein.</li>
+      <li style="margin-bottom:0.6rem"><strong>Deeltjes nemen ruimte in</strong>: elk deeltje heeft een eigen volume. Tussen deeltjes zitten lege ruimtes, maar die ruimtes zijn in een vaste stof of vloeistof veel kleiner dan in een gas.</li>
+    </ul>
+
+    <h3 class="sub-heading">Deeltjes in de drie toestanden</h3>
+    <p>De manier waarop deeltjes gerangschikt zijn en bewegen, bepaalt in welke <em>aggregatietoestand</em> een stof zich bevindt:</p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.6rem"><strong>Vaste stof:</strong> de deeltjes staan heel dicht bij elkaar in een regelmatig, geordend patroon (roosterstructuur). Ze kunnen trillen maar bewegen niet vrij. De aantrekkingskrachten zijn sterk &mdash; daarom hebben vaste stoffen een eigen, vaste vorm.</li>
+      <li style="margin-bottom:0.6rem"><strong>Vloeistof:</strong> de deeltjes bewegen vrij langs elkaar, maar blijven door de aantrekkingskrachten toch bij elkaar in de buurt. De schikking is ongeordend en wisselend. Vloeistoffen hebben een vast volume maar geen vaste vorm: ze passen zich aan aan de vorm van het vat.</li>
+      <li style="margin-bottom:0.6rem"><strong>Gas:</strong> de deeltjes bewegen snel en willekeurig in alle richtingen. Ze liggen ver van elkaar en de onderlinge aantrekkingskrachten zijn te zwak om ze bij elkaar te houden. Een gas heeft geen vaste vorm of volume &mdash; het vult altijd de volledige beschikbare ruimte.</li>
+    </ul>
+
+    <div class="svg-container">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 200" width="100%" aria-label="Deeltjesmodel: vaste stof, vloeistof en gas">
+        <!-- Achtergrond vakken -->
+        <rect x="10" y="10" width="155" height="155" rx="6" fill="#EEF3FF" stroke="#1A2B4A" stroke-width="1.5"/>
+        <rect x="192" y="10" width="155" height="155" rx="6" fill="#FFF8F5" stroke="#C1440E" stroke-width="1.5"/>
+        <rect x="374" y="10" width="155" height="155" rx="6" fill="#FFFDF4" stroke="#C8923A" stroke-width="1.5"/>
+
+        <!-- Vaste stof: geordend rooster -->
+        <g fill="#1A2B4A">
+          <circle cx="45"  cy="45"  r="10"/>
+          <circle cx="88"  cy="45"  r="10"/>
+          <circle cx="131" cy="45"  r="10"/>
+          <circle cx="45"  cy="88"  r="10"/>
+          <circle cx="88"  cy="88"  r="10"/>
+          <circle cx="131" cy="88"  r="10"/>
+          <circle cx="45"  cy="131" r="10"/>
+          <circle cx="88"  cy="131" r="10"/>
+          <circle cx="131" cy="131" r="10"/>
+        </g>
+        <!-- Verbindingen vaste stof -->
+        <g stroke="#1A2B4A" stroke-width="1" stroke-dasharray="3,2" opacity="0.4">
+          <line x1="45" y1="45" x2="88" y2="45"/><line x1="88" y1="45" x2="131" y2="45"/>
+          <line x1="45" y1="88" x2="88" y2="88"/><line x1="88" y1="88" x2="131" y2="88"/>
+          <line x1="45" y1="131" x2="88" y2="131"/><line x1="88" y1="131" x2="131" y2="131"/>
+          <line x1="45" y1="45" x2="45" y2="88"/><line x1="45" y1="88" x2="45" y2="131"/>
+          <line x1="88" y1="45" x2="88" y2="88"/><line x1="88" y1="88" x2="88" y2="131"/>
+          <line x1="131" y1="45" x2="131" y2="88"/><line x1="131" y1="88" x2="131" y2="131"/>
+        </g>
+
+        <!-- Vloeistof: ongeordend, geclusterd -->
+        <g fill="#C1440E">
+          <circle cx="222" cy="42"  r="9"/>
+          <circle cx="258" cy="55"  r="9"/>
+          <circle cx="240" cy="85"  r="9"/>
+          <circle cx="280" cy="38"  r="9"/>
+          <circle cx="310" cy="62"  r="9"/>
+          <circle cx="215" cy="110" r="9"/>
+          <circle cx="255" cy="118" r="9"/>
+          <circle cx="295" cy="105" r="9"/>
+          <circle cx="330" cy="88"  r="9"/>
+          <circle cx="330" cy="130" r="9"/>
+          <circle cx="230" cy="145" r="9"/>
+          <circle cx="272" cy="148" r="9"/>
+        </g>
+
+        <!-- Gas: verspreid, pijlen -->
+        <g fill="#C8923A">
+          <circle cx="410" cy="35"  r="8"/>
+          <circle cx="490" cy="45"  r="8"/>
+          <circle cx="450" cy="80"  r="8"/>
+          <circle cx="400" cy="115" r="8"/>
+          <circle cx="515" cy="100" r="8"/>
+          <circle cx="430" cy="145" r="8"/>
+          <circle cx="500" cy="150" r="8"/>
+        </g>
+        <!-- Bewegingspijlen gas -->
+        <g stroke="#C8923A" stroke-width="1.5" fill="none" marker-end="url(#arrowGas)">
+          <defs>
+            <marker id="arrowGas" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6" fill="none" stroke="#C8923A" stroke-width="1.5"/>
+            </marker>
+          </defs>
+          <line x1="418" y1="35"  x2="440" y2="28"/>
+          <line x1="498" y1="45"  x2="516" y2="55"/>
+          <line x1="458" y1="80"  x2="475" y2="68"/>
+          <line x1="408" y1="115" x2="392" y2="128"/>
+          <line x1="438" y1="145" x2="422" y2="158"/>
+        </g>
+
+        <!-- Labels -->
+        <text x="87"  y="183" font-family="'Source Sans 3',sans-serif" font-size="13" font-weight="700" fill="#1A2B4A" text-anchor="middle">Vaste stof</text>
+        <text x="87"  y="197" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#6B5F4A" text-anchor="middle">geordend rooster</text>
+        <text x="269" y="183" font-family="'Source Sans 3',sans-serif" font-size="13" font-weight="700" fill="#C1440E" text-anchor="middle">Vloeistof</text>
+        <text x="269" y="197" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#6B5F4A" text-anchor="middle">vrij maar bij elkaar</text>
+        <text x="451" y="183" font-family="'Source Sans 3',sans-serif" font-size="13" font-weight="700" fill="#C8923A" text-anchor="middle">Gas</text>
+        <text x="451" y="197" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#6B5F4A" text-anchor="middle">snel en ver van elkaar</text>
+      </svg>
+      <span class="svg-caption">Het deeltjesmodel in de drie aggregatietoestanden. In een vaste stof (links) staan deeltjes in een regelmatig rooster. In een vloeistof (midden) bewegen ze vrij maar blijven geclusterd. In een gas (rechts) bewegen deeltjes snel in alle richtingen.</span>
+    </div>
+
+    <div class="wetenschaps-kader">
+      <span class="wk-label">&#128270; Wetenschappelijk feit</span>
+      <p class="wk-body">Een suikerklontje bevat zo&rsquo;n 10&#x00B2;&#x00B3; (honderd sextiljoen) suikermoleculen. Stel je voor: als elk molecuul zo groot was als een zandkorrel, zou het suikerklontje zo groot zijn als de Aarde! De schaal van de microscopische wereld is volledig onvoorstelbaar groot voor onze hersenen &mdash; maar het deeltjesmodel helpt ons toch om die wereld te begrijpen.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 4 — Aggregatietoestanden
+  ============================================================ -->
+  <section class="section-block" id="s4">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Aggregatietoestanden</h2>
+    </div>
+
+    <p>Elke stof kan voorkomen in drie fundamentele vormen, die we <strong>aggregatietoestanden</strong> noemen. De toestand waarin een stof zich bevindt, hangt af van de temperatuur en de druk. Water is het klassieke voorbeeld: ijs, vloeibaar water en waterdamp zijn allemaal dezelfde stof (H&#x2082;O), maar in drie verschillende toestanden.</p>
+
+    <h3 class="sub-heading">Vaste stof</h3>
+    <p>Een <strong>vaste stof</strong> heeft een <em>vaste vorm</em> en een <em>vast volume</em>. Je kunt een vaste stof niet samendrukken (de deeltjes zitten al dicht op elkaar). De deeltjes trillen op vaste plaatsen maar bewegen niet vrij. Voorbeelden: ijs, zout, ijzer, glas, hout, steen.</p>
+
+    <h3 class="sub-heading">Vloeistof</h3>
+    <p>Een <strong>vloeistof</strong> heeft een <em>vast volume</em> maar <em>geen vaste vorm</em>: ze neemt de vorm aan van het vat waarin ze zit. Vloeistoffen zijn nagenoeg niet samendrukbaar. De deeltjes bewegen vrij langs elkaar maar blijven door aantrekkingskrachten bij elkaar. Voorbeelden: water, olie, kwik, alcohol, melk.</p>
+
+    <h3 class="sub-heading">Gas</h3>
+    <p>Een <strong>gas</strong> heeft <em>noch een vaste vorm noch een vast volume</em>: het vult altijd de volledige beschikbare ruimte op. Gassen zijn gemakkelijk samendrukbaar omdat er grote lege ruimtes zijn tussen de deeltjes. Voorbeelden: lucht, stoom, koolstofdioxide, helium in een ballon.</p>
+
+    <div class="tabel-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Toestand</th>
+            <th>Vorm</th>
+            <th>Volume</th>
+            <th>Samendrukbaar</th>
+            <th>Deeltjesmodel</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Vaste stof</strong></td>
+            <td>Vast (eigen vorm)</td>
+            <td>Vast</td>
+            <td>Nee</td>
+            <td>Geordend rooster, deeltjes trillen op vaste plaatsen</td>
+          </tr>
+          <tr>
+            <td><strong>Vloeistof</strong></td>
+            <td>Past zich aan aan vat</td>
+            <td>Vast</td>
+            <td>Nauwelijks</td>
+            <td>Ongeordend, deeltjes bewegen vrij maar blijven bij elkaar</td>
+          </tr>
+          <tr>
+            <td><strong>Gas</strong></td>
+            <td>Vult de volledige ruimte</td>
+            <td>Geen vast volume</td>
+            <td>Ja, gemakkelijk</td>
+            <td>Deeltjes ver van elkaar, snelle willekeurige beweging</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub-heading">Water als model</h3>
+    <p>Water is het perfecte voorbeeld om de drie toestanden te illustreren. Bij temperaturen onder 0&deg;C is water een vaste stof: <strong>ijs</strong>. Tussen 0&deg;C en 100&deg;C (bij normale luchtdruk) is water een vloeistof: <strong>water</strong>. Boven 100&deg;C verdampt water en wordt het een gas: <strong>waterdamp (stoom)</strong>. Chemisch gezien zijn ijs, water en stoom volledig identiek &mdash; het zijn allemaal H&#x2082;O-moleculen &mdash; maar de afstand en bewegingsvrijheid van de moleculen is telkens anders.</p>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Een plastic fles gevuld met lucht kun je gemakkelijk indrukken. Een plastic fles gevuld met water kun je niet samendrukken. Verklaar dit verschil aan de hand van het deeltjesmodel. Wat zegt dit over de ruimte tussen de deeltjes in gas versus vloeistof?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 5 — Faseovergangen
+  ============================================================ -->
+  <section class="section-block" id="s5">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Faseovergangen</h2>
+    </div>
+
+    <p>Een <strong>faseovergang</strong> (of aggregaatverandering) is een fysisch verschijnsel waarbij een stof van de ene aggregatietoestand overgaat naar de andere. Dit gebeurt bij bepaalde temperaturen en is voor elke zuivere stof karakteristiek. Water gaat over van ijs naar vloeibaar water bij precies 0&deg;C &mdash; niet bij &minus;1&deg;C of 1&deg;C, maar bij exact 0&deg;C (bij normale druk).</p>
+
+    <h3 class="sub-heading">De zes faseovergangen</h3>
+    <p>Er zijn zes mogelijke overgangen tussen de drie toestanden. We nemen water als voorbeeld:</p>
+
+    <div class="tabel-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Naam</th>
+            <th>Van &rarr; naar</th>
+            <th>Voorbeeld (water)</th>
+            <th>Energie</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Smelten</strong></td>
+            <td>Vaste stof &rarr; vloeistof</td>
+            <td>Ijs smelt bij 0&deg;C</td>
+            <td>Energie nodig (opnemen)</td>
+          </tr>
+          <tr>
+            <td><strong>Stollen</strong></td>
+            <td>Vloeistof &rarr; vaste stof</td>
+            <td>Water bevriest bij 0&deg;C</td>
+            <td>Energie vrijgegeven</td>
+          </tr>
+          <tr>
+            <td><strong>Verdampen</strong></td>
+            <td>Vloeistof &rarr; gas</td>
+            <td>Water kookt bij 100&deg;C</td>
+            <td>Energie nodig (opnemen)</td>
+          </tr>
+          <tr>
+            <td><strong>Condenseren</strong></td>
+            <td>Gas &rarr; vloeistof</td>
+            <td>Dauw op gras, beslagen raam</td>
+            <td>Energie vrijgegeven</td>
+          </tr>
+          <tr>
+            <td><strong>Sublimeren</strong></td>
+            <td>Vaste stof &rarr; gas</td>
+            <td>Droog ijs (CO&#x2082;, &minus;78&deg;C)</td>
+            <td>Energie nodig (opnemen)</td>
+          </tr>
+          <tr>
+            <td><strong>Desublimeren</strong></td>
+            <td>Gas &rarr; vaste stof</td>
+            <td>Rijp op venster op koude ochtend</td>
+            <td>Energie vrijgegeven</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub-heading">Energie bij faseovergangen</h3>
+    <p>Om deeltjes van een sterk geordende, nauw samenhangende toestand (vaste stof) naar een vrijere toestand (vloeistof of gas) te brengen, moet je aantrekkingskrachten overwinnen. Dat kost energie. Omgekeerd, als deeltjes overgaan van vrij naar gebonden, <em>geven</em> ze energie vrij. Dit verklaart waarom je een verbrand gevoel kunt krijgen van stoom: stoom geeft bij condenseren op je huid extra warmte vrij (condensatiewarmte) bovenop de warmte die al in het hete water zit.</p>
+
+    <div class="svg-container">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 300" width="100%" aria-label="Kringloop van faseovergangen">
+        <!-- Drie toestanden als cirkels -->
+        <circle cx="250" cy="60"  r="52" fill="#EEF3FF" stroke="#1A2B4A" stroke-width="2"/>
+        <circle cx="90"  cy="230" r="52" fill="#FFF8F5" stroke="#C1440E" stroke-width="2"/>
+        <circle cx="410" cy="230" r="52" fill="#FFFDF4" stroke="#C8923A" stroke-width="2"/>
+
+        <!-- Labels toestanden -->
+        <text x="250" y="55"  font-family="'Playfair Display',serif" font-size="14" font-weight="700" fill="#1A2B4A" text-anchor="middle">Vaste stof</text>
+        <text x="250" y="72"  font-family="'Source Sans 3',sans-serif" font-size="11" fill="#6B5F4A" text-anchor="middle">ijs (0&deg;C)</text>
+        <text x="90"  y="225" font-family="'Playfair Display',serif" font-size="14" font-weight="700" fill="#C1440E" text-anchor="middle">Vloeistof</text>
+        <text x="90"  y="242" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#6B5F4A" text-anchor="middle">water</text>
+        <text x="410" y="225" font-family="'Playfair Display',serif" font-size="14" font-weight="700" fill="#C8923A" text-anchor="middle">Gas</text>
+        <text x="410" y="242" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#6B5F4A" text-anchor="middle">waterdamp</text>
+
+        <!-- Pijlen: Smelten (vaste &rarr; vloeistof, links neer) -->
+        <path d="M198,100 Q140,160 130,178" fill="none" stroke="#C1440E" stroke-width="2" marker-end="url(#a1)"/>
+        <text x="140" y="148" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#C1440E" text-anchor="middle" transform="rotate(-55,140,148)">Smelten</text>
+
+        <!-- Pijlen: Stollen (vloeistof &rarr; vaste, rechts op) -->
+        <path d="M148,200 Q178,155 205,108" fill="none" stroke="#1A2B4A" stroke-width="2" marker-end="url(#a2)"/>
+        <text x="185" y="165" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#1A2B4A" text-anchor="middle" transform="rotate(-55,185,165)">Stollen</text>
+
+        <!-- Pijlen: Verdampen (vloeistof &rarr; gas, onder rechts) -->
+        <path d="M142,230 Q260,260 358,232" fill="none" stroke="#C8923A" stroke-width="2" marker-end="url(#a3)"/>
+        <text x="255" y="270" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#C8923A" text-anchor="middle">Verdampen</text>
+
+        <!-- Pijlen: Condenseren (gas &rarr; vloeistof, boven links) -->
+        <path d="M358,228 Q260,195 142,225" fill="none" stroke="#C1440E" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#a4)"/>
+        <text x="255" y="216" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#C1440E" text-anchor="middle">Condenseren</text>
+
+        <!-- Pijlen: Sublimeren (vaste &rarr; gas, boven rechts) -->
+        <path d="M300,80 Q380,100 368,178" fill="none" stroke="#C8923A" stroke-width="2" marker-end="url(#a5)"/>
+        <text x="362" y="130" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#C8923A" text-anchor="middle" transform="rotate(55,362,130)">Sublimeren</text>
+
+        <!-- Pijlen: Desublimeren (gas &rarr; vaste, links boven) -->
+        <path d="M370,182 Q355,110 308,85" fill="none" stroke="#1A2B4A" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#a6)"/>
+        <text x="325" y="115" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#1A2B4A" text-anchor="middle" transform="rotate(55,325,115)">Desublimeren</text>
+
+        <defs>
+          <marker id="a1" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6" fill="none" stroke="#C1440E" stroke-width="1.5"/></marker>
+          <marker id="a2" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6" fill="none" stroke="#1A2B4A" stroke-width="1.5"/></marker>
+          <marker id="a3" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6" fill="none" stroke="#C8923A" stroke-width="1.5"/></marker>
+          <marker id="a4" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6" fill="none" stroke="#C1440E" stroke-width="1.5"/></marker>
+          <marker id="a5" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6" fill="none" stroke="#C8923A" stroke-width="1.5"/></marker>
+          <marker id="a6" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6" fill="none" stroke="#1A2B4A" stroke-width="1.5"/></marker>
+        </defs>
+      </svg>
+      <span class="svg-caption">De zes faseovergangen tussen de drie aggregatietoestanden. Volle pijlen: energie nodig (stof neemt warmte op). Stippelpijlen: energie vrijgegeven (stof geeft warmte af).</span>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128336;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Smeltpunt</span>
+        <p class="begrip-def">De temperatuur waarbij een vaste stof overgaat in een vloeistof. Het smeltpunt van water is 0&deg;C (bij normale luchtdruk). Het smeltpunt is voor elke zuivere stof karakteristiek en kan worden gebruikt om stoffen te identificeren.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128293;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Kookpunt</span>
+        <p class="begrip-def">De temperatuur waarbij een vloeistof overgaat in een gas (verdampt). Het kookpunt van water is 100&deg;C bij een luchtdruk van 1 atmosfeer. Op grotere hoogte is de luchtdruk lager en kookt water al bij een lagere temperatuur (op de Mount Everest bij ca. 70&deg;C).</p>
+      </div>
+    </div>
+
+    <div class="wetenschaps-kader">
+      <span class="wk-label">&#128270; Wetenschappelijk feit</span>
+      <p class="wk-body">Sublimatie is heel nuttig in de praktijk. <strong>Droog ijs</strong> (vaste CO&#x2082; bij &minus;78&deg;C) sublimeert direct van vaste stof naar gas, zonder een vloeibare fase. Het geeft koude, witte rook en laat geen nat spoor achter &mdash; ideaal voor theatereffecten en voor het vervoer van geneesmiddelen en vaccins die koud gehouden moeten worden zonder water of lekkende vloeistof.</p>
+    </div>
+
+    <div class="experiment-kader">
+      <span class="exp-label">Experiment</span>
+      <span class="exp-title">Smeltpunt en stollpunt meten</span>
+      <ol class="exp-stappen">
+        <li>Doe een stukje was in een reageerbuis en verwarm die voorzichtig in een waterbad.</li>
+        <li>Meet de temperatuur met een thermometer en noteer ze elke 30 seconden in een tabel.</li>
+        <li>Noteer nauwkeurig het moment waarop de was begint te smelten (overgang van vast naar vloeibaar) en de temperatuur op dat moment.</li>
+        <li>Verwijder de warmtebron en laat de reageerbuis afkoelen. Blijf de temperatuur elke 30 seconden meten.</li>
+        <li>Noteer wanneer de was begint te stollen en de temperatuur. Vergelijk het smeltpunt en het stollpunt &mdash; ze zijn gelijk. Dit is de karakteristieke eigenschap van elke zuivere stof.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 6 — Thermisch uitzetten en krimpen
+  ============================================================ -->
+  <section class="section-block" id="s6">
+    <div class="section-heading">
+      <span class="section-num">6</span>
+      <h2 class="section-title">Thermisch uitzetten en krimpen</h2>
+    </div>
+
+    <p>Bijna alle stoffen zetten uit wanneer ze opgewarmd worden, en krimpen wanneer ze afkoelen. Dit heet <strong>thermisch uitzetten</strong> (of dilatatie). Het deeltjesmodel verklaart dit heel mooi: warmte doet deeltjes sneller bewegen. Sneller bewegende deeltjes zwaaien verder uit en hebben meer ruimte nodig. Het gevolg: de stof neemt meer volume in.</p>
+
+    <h3 class="sub-heading">Uitzetting in de drie toestanden</h3>
+    <p>Thermisch uitzetten geldt voor vaste stoffen, vloeistoffen &eacute;n gassen, maar de mate van uitzetting verschilt sterk:</p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.4rem"><strong>Gassen</strong> zetten verreweg het meest uit bij opwarming: de deeltjes liggen al ver van elkaar en bewegen vrij, dus een kleine temperatuurstijging vergroot het volume aanzienlijk.</li>
+      <li style="margin-bottom:0.4rem"><strong>Vloeistoffen</strong> zetten ook uit, maar veel minder dan gassen. Het is merkbaar maar minder spectaculair.</li>
+      <li style="margin-bottom:0.4rem"><strong>Vaste stoffen</strong> zetten het minst uit: de deeltjes zitten vast in een rooster en kunnen maar beperkt verder van elkaar komen. Toch zijn de effecten groot genoeg om rekening mee te houden in de techniek.</li>
+    </ul>
+
+    <h3 class="sub-heading">Toepassingen in het dagelijks leven</h3>
+    <p>Thermische uitzetting heeft concrete gevolgen die ingenieurs en bouwers dagelijks in rekening moeten nemen:</p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.6rem"><strong>Dilatatievoegen in betonwegen:</strong> betonnen wegen worden aangelegd met smalle spleten (voegen) op regelmatige afstanden. In de zomer, als de beton uitzet door de warmte, vult de beton die voegen op. Zonder voegen zou de beton opbuigen en barsten.</li>
+      <li style="margin-bottom:0.6rem"><strong>Bimetaalstrip in thermostaten:</strong> een bimetaalstrip bestaat uit twee metaalsoorten (die anders uitzetten) die op elkaar gelijmd zijn. Bij opwarming buigt de strip door omdat het ene metaal meer uitzet dan het andere. Die buiging schakelt een elektrisch contact in of uit, waardoor een thermostaat of beveiligingsschakelaar werkt.</li>
+      <li style="margin-bottom:0.6rem"><strong>Thermometer:</strong> vloeistof (kwik of alcohol) zet uit bij warmte en stijgt op in een smalle buis. De hoogte van de vloeistofkolom geeft de temperatuur aan.</li>
+      <li style="margin-bottom:0.6rem"><strong>Bruggen:</strong> grote stalen bruggen hebben beweegbare beugels of oplegpunten die uitzetting en krimp toestaan. Een stalen brug van 500 meter kan bij temperatuursverschillen van 40&deg;C tientallen centimeters langer of korter zijn.</li>
+      <li style="margin-bottom:0.6rem"><strong>Borosilicaatglas:</strong> gewoon glas barst gemakkelijk in de oven omdat de buitenkant sneller opwarmt dan de binnenkant, waardoor spanning ontstaat. Borosilicaatglas (zoals Pyrex) zet veel minder uit en is daardoor ovenvast.</li>
+    </ul>
+
+    <h3 class="sub-heading">De uitzondering: water</h3>
+    <p>Water gedraagt zich anders dan de meeste stoffen: het heeft zijn <strong>hoogste dichtheid bij 4&deg;C</strong>, niet bij 0&deg;C. Bij verdere afkoeling van 4&deg;C naar 0&deg;C zet water uit in plaats van te krimpen. Ijs is daarom <em>minder dicht</em> dan vloeibaar water &mdash; ijs drijft op water. Dit heet de <strong>anomalie van water</strong>.</p>
+    <p>De verklaring ligt in de moleculaire structuur: waterdeeltjes vormen bij bevriezing een regelmatig kristalrooster (via waterstofbruggen) waarbij de moleculen juist verder uit elkaar komen te staan dan in de vloeibare toestand. Dat neemt meer ruimte in &mdash; vandaar de lagere dichtheid van ijs.</p>
+
+    <div class="wetenschaps-kader">
+      <span class="wk-label">&#128270; Ecologisch belang</span>
+      <p class="wk-body">De anomalie van water is levensreddend voor waterorganismen. In de winter koelt een vijver af van bovenaan. Het koudste water (4&deg;C) is het zwaarste en zinkt naar de bodem. Water onder 4&deg;C is lichter en blijft bovenaan &mdash; en bevriest tot ijs. Het ijs drijft op het vloeibare water en werkt als een isolerende laag. Daardoor blijft het water eronder vloeibaar, ook bij strenge vorst, en kunnen vissen en andere dieren overleven. Als ijs <em>zwaarder</em> was geweest dan water, had het gezonken en was een vijver van bodem tot oppervlak kunnen bevriezen &mdash; met dramatische gevolgen voor het aquatisch leven.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Waarom drijft ijs op water? Beschrijf het aan de hand van het deeltjesmodel. Wat zou er met vissen in een vijver gebeuren als ijs zwaarder was dan water? En waarom zetten waterleidingen soms kapot in de winter?</p>
+    </div>
+  </section>
+
+  <!-- CLOSING QUOTE -->
+  <div class="closing-quote" role="note" aria-label="Slotcitaat">
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p class="cq-text">De onzichtbare wereld van de deeltjes is de sleutel tot de zichtbare wereld van de verschijnselen. Wie de deeltjes begrijpt, begrijpt de materie.</p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <span class="cq-attribution">Natuurwetenschappen 1A &nbsp;&middot;&nbsp; Eerste Graad A-stroom</span>
+  </div>
+
+</div><!-- end page-wrapper -->
+
+<!-- EXERCISES -->
+<section class="exercises-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Materie of geen materie?</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Classificeer elk van de volgende dingen als <strong>materie</strong> of <strong>geen materie</strong>. Motiveer je antwoord telkens in &eacute;&eacute;n zin.</p>
+      <ol>
+        <li>Steen</li>
+        <li>Geluid van een gitaar</li>
+        <li>Elektriciteit in een stopcontact</li>
+        <li>Lucht in een fietsband</li>
+        <li>Licht van een lamp</li>
+        <li>Zout in een zoutvaatje</li>
+        <li>Een vlam van een kaars</li>
+        <li>Warmte van de zon</li>
+        <li>Benzine in een auto</li>
+        <li>Radioactiviteit van uranium</li>
+      </ol>
+      <p class="ex-tip">Tip: test elk item aan de twee kenmerken van materie: heeft het massa? Neemt het ruimte in?</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Fysisch of chemisch?</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Geef bij elk scenario aan of het om een fysisch of chemisch verschijnsel gaat, en leg uit <strong>hoe je dat weet</strong>.</p>
+      <ol>
+        <li>Een ijsblokje smelt in je hand.</li>
+        <li>Kaarsen branden op een verjaardagstaart.</li>
+        <li>Suiker lost op in warme thee.</li>
+        <li>Een koperen dak kleurt groen door de jaren heen (patina).</li>
+        <li>Een stuk chocolade breekt doormidden.</li>
+        <li>Melk wordt zuur als je haar vergeet in de zon.</li>
+        <li>Water kookt op het fornuis.</li>
+        <li>Een beukenboom verliest zijn bladeren in de herfst en de bladeren vergaan op de bosbodem.</li>
+      </ol>
+      <p class="ex-tip">Denk aan de aanwijzingen: kleurverandering, gasvorming, neerslag, onomkeerbaarheid, warmteontwikkeling.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Deeltjesmodel tekenen</p>
+      <ol>
+        <li>Teken voor water in drie toestanden (ijs, vloeibaar water, stoom) een schematische voorstelling van de deeltjesschikking. Gebruik rondjes voor de moleculen en toon duidelijk het verschil in afstand en ordening.</li>
+        <li>Leg uit waarom je een gas gemakkelijk kunt samendrukken maar een vloeistof nauwelijks. Gebruik het deeltjesmodel in je verklaring.</li>
+        <li>Waarom heeft een vaste stof een eigen vorm maar een vloeistof niet? Verklaar aan de hand van de bewegingsvrijheid van de deeltjes.</li>
+      </ol>
+      <p class="ex-tip">Gebruik drie aparte vakjes voor je tekeningen en voeg labels toe (geordend/ongeordend, vrij/gebonden, afstand groot/klein).</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 4</p>
+      <p class="ex-name">Faseovergangen benoemen</p>
+      <ol>
+        <li>Geef de naam van de faseovergang en zeg of er energie opgenomen of vrijgegeven wordt:
+          <ul style="margin-top:0.4rem;">
+            <li>Regen die bevriest tot hagel</li>
+            <li>Natte kleren die drogen op een waslijn</li>
+            <li>Rijp die verschijnt op een koude auto op een winter&shy;ochtend</li>
+            <li>Chocolade die smelt in je warme handen</li>
+            <li>Droog ijs dat witte rook afgeeft</li>
+            <li>Stoom die op een koude spiegel condenseerteert</li>
+          </ul>
+        </li>
+        <li>Maak een volledig schema van de zes faseovergangen tussen de drie toestanden en noteer bij elke pijl: naam van de overgang + warmte opnemen of afgeven.</li>
+      </ol>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 5</p>
+      <p class="ex-name">Thermisch uitzetten berekenen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Een stalen brug heeft bij 0&deg;C een lengte van 500 meter. Staal zet uit met een co&euml;ffici&euml;nt van 1,2&nbsp;&times;&nbsp;10&#x207B;&sup5; per graad Celsius (dit betekent: per graad wordt 1 meter staal 0,000012 meter langer).</p>
+      <ol>
+        <li>Bereken hoeveel de brug uitzet op een warme zomerse dag van 30&deg;C ten opzichte van 0&deg;C.<br>
+          <em>Formule: &Delta;L = L &times; &alpha; &times; &Delta;T</em><br>
+          waarbij L = beginlengte, &alpha; = uitzettings&shy;co&euml;ffici&euml;nt, &Delta;T = temperatuursverschil
+        </li>
+        <li>Hoeveel centimeter is dat? Is dit merkbaar?</li>
+        <li>Stel dat de brug geen ruimte heeft om uit te zetten. Welke problemen zou dat veroorzaken? Verbind je antwoord met het deeltjesmodel.</li>
+      </ol>
+      <p class="ex-tip">Tip: &Delta;L = 500 &times; 1,2&times;10&#x207B;&sup5; &times; 30. Bereken stap voor stap.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 6</p>
+      <p class="ex-name">De wateranomalie</p>
+      <ol>
+        <li>Leg uit waarom ijs minder dicht is dan vloeibaar water. Gebruik het deeltjesmodel en het begrip &ldquo;kristalrooster&rdquo; in je antwoord.</li>
+        <li>Een volle glazen fles water wordt in de vriezer gelegd. Na een nacht is de fles gebarsten. Verklaar dit verschijnsel aan de hand van de anomalie van water.</li>
+        <li>Beschrijf wat er in een vijver zou gebeuren in de winter als ijs <em>zwaarder</em> was dan water (normaal gedrag van stoffen). Stel een scenario op stap voor stap.</li>
+        <li>Waarom is de anomalie van water zo belangrijk voor het leven op aarde? Geef minstens twee redenen.</li>
+      </ol>
+      <p class="ex-tip">Denk ook aan de rol van het ijs als isolerende laag en aan het feit dat alle zoetwaterorganismen afhankelijk zijn van dit mechanisme voor hun overleving in de winter.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="summary-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>Materie</strong> is alles wat massa heeft en ruimte inneemt. Licht, geluid, warmte en elektriciteit zijn vormen van energie en zijn g&eacute;&eacute;n materie. Lucht is wel degelijk materie: ze heeft massa en neemt ruimte in.</li>
+      <li>Een <strong>fysisch verschijnsel</strong> verandert de vorm of toestand van een stof zonder nieuwe stoffen te vormen (smilten, oplossen, breken). Een <strong>chemisch verschijnsel</strong> vormt nieuwe stoffen met andere eigenschappen (verbranding, roestvorming, vergisting) en is doorgaans onomkeerbaar.</li>
+      <li>Het <strong>deeltjesmodel</strong> zegt dat alle materie uit kleine, voortdurend bewegende deeltjes bestaat die elkaar aantrekken. In een <strong>vaste stof</strong> staan ze geordend en trillen ze op vaste plaatsen; in een <strong>vloeistof</strong> bewegen ze vrij maar blijven bij elkaar; in een <strong>gas</strong> bewegen ze snel en ver van elkaar.</li>
+      <li>Er zijn zes <strong>faseovergangen</strong>: smelten, stollen, verdampen, condenseren, sublimeren en desublimeren. Overgangen naar vrijere toestanden (smelten, verdampen, sublimeren) vereisen energie; overgangen naar geordende toestanden (stollen, condenseren, desublimeren) geven energie vrij.</li>
+      <li>Bijna alle stoffen zetten uit bij warmte (<strong>thermische uitzetting</strong>), omdat deeltjes sneller bewegen en meer ruimte nodig hebben. Dit heeft technische gevolgen: dilatatievoegen in wegen, bewegende brugoplegpunten, bimetaalstrips in thermostaten.</li>
+      <li>Water heeft een bijzondere <strong>anomalie</strong>: het is het dichtst bij 4&deg;C en zet uit bij verder afkoelen naar 0&deg;C. Daardoor drijft ijs op water, wat een isolerende laag vormt en aquatisch leven in de winter beschermt.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

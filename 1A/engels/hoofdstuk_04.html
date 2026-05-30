@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H4 — Food and Home | Engels 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --gold: #D4A017;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    /* Extended tokens used internally */
+    --terracotta-light: #D4561E;
+    --gold-light: #E8B82A;
+    --darkblue-light: #243B63;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     CLOSING QUOTE
+  ============================================================ */
+  .closing-quote {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0D1E38 100%);
+    border-radius: var(--border-radius);
+    padding: 3rem 3rem 2.5rem;
+    margin: 3.5rem 0 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.5rem; left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .closing-quote .cq-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--gold);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 1.2rem;
+  }
+
+  .closing-quote .cq-attribution {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(212,160,23,0.6);
+  }
+
+  .closing-quote .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .closing-quote .ornament-line::before,
+  .closing-quote .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.4), transparent);
+  }
+
+  .closing-quote .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.7;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .closing-quote { padding: 2rem 1.2rem 1.8rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     WISKUNDE-SPECIFIC COMPONENTS
+  ============================================================ */
+
+  /* ── REKENVOORBEELD ─────────────────────────────────── */
+  .rekenvoorbeeld {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--oker);
+    border-radius: var(--border-radius);
+    padding: 1.8rem 2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .rekenvoorbeeld .rv-label {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--oker); display: block; margin-bottom: 0.35rem;
+  }
+  .rekenvoorbeeld .rv-vraag {
+    font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700;
+    color: var(--darkblue); margin-bottom: 1rem; line-height: 1.4;
+  }
+  .rv-stappen { list-style: none; padding: 0; counter-reset: stap-teller; margin-bottom: 1rem; }
+  .rv-stappen li {
+    counter-increment: stap-teller;
+    padding: 0.6rem 0.8rem 0.6rem 3.2rem;
+    position: relative;
+    background: var(--creme);
+    border-radius: 4px;
+    margin-bottom: 0.4rem;
+    font-size: 0.97rem;
+  }
+  .rv-stappen li::before {
+    content: counter(stap-teller);
+    position: absolute; left: 0.6rem; top: 50%; transform: translateY(-50%);
+    background: var(--darkblue); color: white;
+    width: 1.7rem; height: 1.7rem; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; font-weight: 700;
+  }
+  .rv-antwoord {
+    background: var(--darkblue); color: var(--gold);
+    padding: 0.75rem 1.1rem; border-radius: 4px;
+    font-weight: 700; font-size: 1rem;
+  }
+  .rv-antwoord math { color: var(--gold); }
+
+  /* ── STELLING ───────────────────────────────────────── */
+  .stelling {
+    background: #EEF3FF;
+    border-left: 4px solid var(--darkblue);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1.2rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .stelling .st-label {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--darkblue); opacity: 0.7;
+    display: block; margin-bottom: 0.35rem;
+  }
+  .stelling .st-body { font-size: 0.97rem; color: var(--text-dark); }
+
+  /* ── FORMULE ────────────────────────────────────────── */
+  .formule {
+    background: var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 1.4rem 1.8rem;
+    text-align: center;
+    margin: 1.8rem 0;
+  }
+  .formule math { color: white; font-size: 1.2rem; }
+  .formule .formule-naam {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--gold); opacity: 0.8;
+    display: block; margin-bottom: 0.5rem;
+  }
+
+  /* ── SVG CONTAINER ──────────────────────────────────── */
+  .svg-container {
+    margin: 1.8rem 0;
+    padding: 1.5rem;
+    background: white;
+    border: 1px solid var(--sand);
+    border-radius: var(--border-radius);
+    overflow-x: auto;
+    text-align: center;
+  }
+  .svg-container .svg-caption {
+    font-size: 0.85rem; color: var(--text-light); font-style: italic;
+    display: block; margin-top: 0.75rem;
+  }
+
+  /* ── DOMEIN GRID ────────────────────────────────────── */
+  .domein-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+    margin: 1.8rem 0;
+  }
+  .domein-card {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 3px solid var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 1.2rem 1.3rem;
+    box-shadow: var(--shadow-sm);
+  }
+  .domein-card .dc-naam {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+  .domein-card .dc-hoofdstukken {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    font-style: italic;
+  }
+  .domein-card .dc-beschrijving {
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    margin-top: 0.5rem;
+    line-height: 1.55;
+  }
+
+  /* ── SYMBOLTABEL ────────────────────────────────────── */
+  .symbool-tabel {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    margin: 1.2rem 0;
+  }
+  .symbool-tabel th {
+    background: var(--darkblue);
+    color: white;
+    padding: 0.5rem 1rem;
+    text-align: left;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    font-size: 0.83rem;
+  }
+  .symbool-tabel td {
+    padding: 0.45rem 1rem;
+    border-bottom: 1px solid var(--sand);
+    color: var(--text-mid);
+  }
+  .symbool-tabel tr:last-child td { border-bottom: none; }
+  .symbool-tabel tr:nth-child(even) td { background: var(--sand-light); }
+  .symbool-tabel .sym { font-size: 1.1rem; font-weight: 700; color: var(--darkblue); }
+
+  /* ── WERKWIJZE LIST ─────────────────────────────────── */
+  .werkwijze-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.2rem 0;
+  }
+  .werkwijze-list li {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 0.8rem 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 0.5rem;
+    background: var(--sand-light);
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.55;
+  }
+  .werkwijze-list li .wl-kleur {
+    flex-shrink: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-top: 0.42rem;
+  }
+  .werkwijze-list li strong { color: var(--darkblue); }
+
+  /* ============================================================
+     ENGELS-SPECIFIC COMPONENTS
+  ============================================================ */
+  .vocab-kader { background:linear-gradient(135deg,rgba(212,160,23,.08),rgba(200,146,58,.08)); border:1px solid rgba(212,160,23,.35); border-left:4px solid var(--gold); border-radius:var(--border-radius); padding:1.25rem 1.5rem; margin:1.5rem 0; }
+  .vocab-kader h4 { color:var(--gold); font-family:'Playfair Display',serif; font-size:1rem; margin-bottom:.75rem; }
+  .vocab-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:.4rem .75rem; }
+  .vocab-item { display:flex; gap:.5rem; padding:.3rem 0; border-bottom:1px solid rgba(212,160,23,.15); font-size:.95rem; }
+  .vocab-en { font-weight:700; color:var(--text-dark); min-width:120px; }
+  .vocab-nl { color:var(--text-light); font-style:italic; }
+  .grammar-kader { background:linear-gradient(135deg,rgba(26,43,74,.06),rgba(26,43,74,.02)); border:1px solid rgba(26,43,74,.2); border-left:4px solid var(--darkblue); border-radius:var(--border-radius); padding:1.25rem 1.5rem; margin:1.5rem 0; }
+  .grammar-kader h4 { color:var(--darkblue); font-family:'Playfair Display',serif; font-size:1rem; margin-bottom:.75rem; }
+  .grammar-regel { background:var(--darkblue); color:white; padding:.45rem 1rem; border-radius:4px; font-size:.95rem; margin:.6rem 0; display:block; }
+  .grammar-tabel { width:100%; border-collapse:collapse; margin:.75rem 0; font-size:.93rem; }
+  .grammar-tabel th { background:var(--darkblue); color:var(--gold); padding:.5rem .9rem; text-align:left; font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; }
+  .grammar-tabel td { padding:.5rem .9rem; border-bottom:1px solid var(--sand); }
+  .grammar-tabel tr:nth-child(even) td { background:rgba(232,220,200,.25); }
+  .example-kader { background:var(--sand-light); border-left:3px solid var(--oker); border-radius:0 var(--border-radius) var(--border-radius) 0; padding:.9rem 1.2rem; margin:.75rem 0; }
+  .example-en { font-weight:600; font-style:italic; color:var(--text-dark); display:block; }
+  .example-nl { color:var(--text-light); font-size:.9rem; display:block; margin-top:.1rem; }
+  .tip-kader { background:linear-gradient(135deg,rgba(193,68,14,.08),rgba(193,68,14,.04)); border:1px solid rgba(193,68,14,.25); border-left:4px solid var(--terracotta); border-radius:var(--border-radius); padding:1.25rem 1.5rem; margin:1.5rem 0; }
+  .tip-kader::before { content:'Tip'; display:block; font-size:.75rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--terracotta); margin-bottom:.5rem; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <span class="label">Engels</span>
+  <span class="label label-right">H4 &nbsp;&middot;&nbsp; Eerste Graad A-stroom</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Eenheid 4 &nbsp;&middot;&nbsp; Eten &amp; Wonen</div>
+  <h1>Food and Home</h1>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- SECTION 1 — Woordenschat: Eten en drinken -->
+  <section class="section-block" id="s1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Woordenschat: Eten en drinken</h2>
+    </div>
+
+    <div class="vocab-kader">
+      <h4>Food and Drink</h4>
+      <div class="vocab-grid">
+        <div class="vocab-item"><span class="vocab-en">bread</span><span class="vocab-nl">brood</span></div>
+        <div class="vocab-item"><span class="vocab-en">butter</span><span class="vocab-nl">boter</span></div>
+        <div class="vocab-item"><span class="vocab-en">cheese</span><span class="vocab-nl">kaas</span></div>
+        <div class="vocab-item"><span class="vocab-en">egg</span><span class="vocab-nl">ei</span></div>
+        <div class="vocab-item"><span class="vocab-en">milk</span><span class="vocab-nl">melk</span></div>
+        <div class="vocab-item"><span class="vocab-en">yoghurt</span><span class="vocab-nl">yoghurt</span></div>
+        <div class="vocab-item"><span class="vocab-en">cereal</span><span class="vocab-nl">ontbijtgranen</span></div>
+        <div class="vocab-item"><span class="vocab-en">apple</span><span class="vocab-nl">appel</span></div>
+        <div class="vocab-item"><span class="vocab-en">banana</span><span class="vocab-nl">banaan</span></div>
+        <div class="vocab-item"><span class="vocab-en">orange</span><span class="vocab-nl">sinaasappel</span></div>
+        <div class="vocab-item"><span class="vocab-en">strawberry</span><span class="vocab-nl">aardbei</span></div>
+        <div class="vocab-item"><span class="vocab-en">carrot</span><span class="vocab-nl">wortel</span></div>
+        <div class="vocab-item"><span class="vocab-en">potato</span><span class="vocab-nl">aardappel</span></div>
+        <div class="vocab-item"><span class="vocab-en">tomato</span><span class="vocab-nl">tomaat</span></div>
+        <div class="vocab-item"><span class="vocab-en">salad</span><span class="vocab-nl">salade</span></div>
+        <div class="vocab-item"><span class="vocab-en">rice</span><span class="vocab-nl">rijst</span></div>
+        <div class="vocab-item"><span class="vocab-en">pasta</span><span class="vocab-nl">pasta</span></div>
+        <div class="vocab-item"><span class="vocab-en">meat</span><span class="vocab-nl">vlees</span></div>
+        <div class="vocab-item"><span class="vocab-en">chicken</span><span class="vocab-nl">kip</span></div>
+        <div class="vocab-item"><span class="vocab-en">fish</span><span class="vocab-nl">vis</span></div>
+        <div class="vocab-item"><span class="vocab-en">soup</span><span class="vocab-nl">soep</span></div>
+        <div class="vocab-item"><span class="vocab-en">chocolate</span><span class="vocab-nl">chocolade</span></div>
+        <div class="vocab-item"><span class="vocab-en">cake</span><span class="vocab-nl">taart</span></div>
+        <div class="vocab-item"><span class="vocab-en">water</span><span class="vocab-nl">water</span></div>
+        <div class="vocab-item"><span class="vocab-en">juice</span><span class="vocab-nl">sap</span></div>
+        <div class="vocab-item"><span class="vocab-en">coffee</span><span class="vocab-nl">koffie</span></div>
+        <div class="vocab-item"><span class="vocab-en">tea</span><span class="vocab-nl">thee</span></div>
+        <div class="vocab-item"><span class="vocab-en">sugar</span><span class="vocab-nl">suiker</span></div>
+        <div class="vocab-item"><span class="vocab-en">salt</span><span class="vocab-nl">zout</span></div>
+        <div class="vocab-item"><span class="vocab-en">pepper</span><span class="vocab-nl">peper</span></div>
+      </div>
+    </div>
+
+    <div class="vocab-kader">
+      <h4>At the Restaurant</h4>
+      <div class="vocab-grid">
+        <div class="vocab-item"><span class="vocab-en">menu</span><span class="vocab-nl">menukaart</span></div>
+        <div class="vocab-item"><span class="vocab-en">starter</span><span class="vocab-nl">voorgerecht</span></div>
+        <div class="vocab-item"><span class="vocab-en">main course</span><span class="vocab-nl">hoofdgerecht</span></div>
+        <div class="vocab-item"><span class="vocab-en">dessert</span><span class="vocab-nl">dessert</span></div>
+        <div class="vocab-item"><span class="vocab-en">order</span><span class="vocab-nl">bestellen</span></div>
+        <div class="vocab-item"><span class="vocab-en">waiter/waitress</span><span class="vocab-nl">ober/serveerster</span></div>
+        <div class="vocab-item"><span class="vocab-en">bill</span><span class="vocab-nl">rekening</span></div>
+        <div class="vocab-item"><span class="vocab-en">tip</span><span class="vocab-nl">fooi</span></div>
+        <div class="vocab-item"><span class="vocab-en">delicious</span><span class="vocab-nl">heerlijk/lekker</span></div>
+        <div class="vocab-item"><span class="vocab-en">I'd like&hellip;</span><span class="vocab-nl">Ik zou graag&hellip;</span></div>
+        <div class="vocab-item"><span class="vocab-en">Can I have&hellip;?</span><span class="vocab-nl">Kan ik &hellip; hebben?</span></div>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Dialogue: At the restaurant</h3>
+    <div class="example-kader">
+      <span class="example-en">Waiter: Good evening! Are you ready to order?</span>
+      <span class="example-en">Customer: Yes, I'd like the tomato soup as a starter, please.</span>
+      <span class="example-en">Waiter: And for your main course?</span>
+      <span class="example-en">Customer: I'll have the pasta with chicken. Is it spicy?</span>
+      <span class="example-en">Waiter: No, it's mild. What would you like to drink?</span>
+      <span class="example-en">Customer: Water, please. And can I have the bill later?</span>
+      <span class="example-en">Waiter: Of course! Enjoy your meal!</span>
+    </div>
+  </section>
+
+  <!-- SECTION 2 — Woordenschat: Thuis -->
+  <section class="section-block" id="s2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Woordenschat: Thuis</h2>
+    </div>
+
+    <div class="vocab-kader">
+      <h4>Rooms in the House</h4>
+      <div class="vocab-grid">
+        <div class="vocab-item"><span class="vocab-en">bedroom</span><span class="vocab-nl">slaapkamer</span></div>
+        <div class="vocab-item"><span class="vocab-en">living room</span><span class="vocab-nl">woonkamer</span></div>
+        <div class="vocab-item"><span class="vocab-en">kitchen</span><span class="vocab-nl">keuken</span></div>
+        <div class="vocab-item"><span class="vocab-en">bathroom</span><span class="vocab-nl">badkamer</span></div>
+        <div class="vocab-item"><span class="vocab-en">toilet</span><span class="vocab-nl">toilet/wc</span></div>
+        <div class="vocab-item"><span class="vocab-en">hall</span><span class="vocab-nl">gang/hal</span></div>
+        <div class="vocab-item"><span class="vocab-en">garden</span><span class="vocab-nl">tuin</span></div>
+        <div class="vocab-item"><span class="vocab-en">garage</span><span class="vocab-nl">garage</span></div>
+        <div class="vocab-item"><span class="vocab-en">upstairs</span><span class="vocab-nl">boven</span></div>
+        <div class="vocab-item"><span class="vocab-en">downstairs</span><span class="vocab-nl">beneden</span></div>
+        <div class="vocab-item"><span class="vocab-en">floor</span><span class="vocab-nl">verdieping</span></div>
+      </div>
+    </div>
+
+    <div class="vocab-kader">
+      <h4>Furniture and Objects</h4>
+      <div class="vocab-grid">
+        <div class="vocab-item"><span class="vocab-en">table</span><span class="vocab-nl">tafel</span></div>
+        <div class="vocab-item"><span class="vocab-en">chair</span><span class="vocab-nl">stoel</span></div>
+        <div class="vocab-item"><span class="vocab-en">sofa</span><span class="vocab-nl">sofa/zetel</span></div>
+        <div class="vocab-item"><span class="vocab-en">bed</span><span class="vocab-nl">bed</span></div>
+        <div class="vocab-item"><span class="vocab-en">wardrobe</span><span class="vocab-nl">kledingkast</span></div>
+        <div class="vocab-item"><span class="vocab-en">desk</span><span class="vocab-nl">bureau</span></div>
+        <div class="vocab-item"><span class="vocab-en">shelf</span><span class="vocab-nl">rek</span></div>
+        <div class="vocab-item"><span class="vocab-en">lamp</span><span class="vocab-nl">lamp</span></div>
+        <div class="vocab-item"><span class="vocab-en">window</span><span class="vocab-nl">raam</span></div>
+        <div class="vocab-item"><span class="vocab-en">door</span><span class="vocab-nl">deur</span></div>
+        <div class="vocab-item"><span class="vocab-en">wall</span><span class="vocab-nl">muur</span></div>
+        <div class="vocab-item"><span class="vocab-en">floor</span><span class="vocab-nl">vloer</span></div>
+        <div class="vocab-item"><span class="vocab-en">carpet</span><span class="vocab-nl">tapijt</span></div>
+        <div class="vocab-item"><span class="vocab-en">curtains</span><span class="vocab-nl">gordijnen</span></div>
+        <div class="vocab-item"><span class="vocab-en">mirror</span><span class="vocab-nl">spiegel</span></div>
+        <div class="vocab-item"><span class="vocab-en">fridge</span><span class="vocab-nl">koelkast</span></div>
+        <div class="vocab-item"><span class="vocab-en">oven</span><span class="vocab-nl">oven</span></div>
+        <div class="vocab-item"><span class="vocab-en">washing machine</span><span class="vocab-nl">wasmachine</span></div>
+        <div class="vocab-item"><span class="vocab-en">phone</span><span class="vocab-nl">telefoon</span></div>
+        <div class="vocab-item"><span class="vocab-en">computer</span><span class="vocab-nl">computer</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3 — Grammatica: There is / There are -->
+  <section class="section-block" id="s3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Grammatica: There is / There are</h2>
+    </div>
+
+    <div class="grammar-kader">
+      <ul style="list-style:none;padding:0;margin:0;">
+        <li style="margin-bottom:.5rem;"><strong>There is</strong> (there&rsquo;s) &rarr; enkelvoud / ontelbaar</li>
+        <li><strong>There are</strong> &rarr; meervoud</li>
+      </ul>
+
+      <table class="grammar-tabel" style="margin-top:1rem;">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Bevestigend</th>
+            <th>Ontkennend</th>
+            <th>Vraag</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Enkelvoud</strong></td>
+            <td>There is a table</td>
+            <td>There isn&rsquo;t a table</td>
+            <td>Is there a table?</td>
+          </tr>
+          <tr>
+            <td><strong>Meervoud</strong></td>
+            <td>There are two chairs</td>
+            <td>There aren&rsquo;t any chairs</td>
+            <td>Are there any chairs?</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="example-kader">
+      <span class="example-en">There&rsquo;s a big kitchen in my house.</span>
+      <span class="example-nl">Er is een grote keuken in mijn huis.</span>
+    </div>
+    <div class="example-kader">
+      <span class="example-en">There aren&rsquo;t any chairs in the garden.</span>
+      <span class="example-nl">Er zijn geen stoelen in de tuin.</span>
+    </div>
+    <div class="example-kader">
+      <span class="example-en">Is there a bathroom upstairs? &mdash; Yes, there is.</span>
+      <span class="example-nl">Is er een badkamer boven? &mdash; Ja, die is er.</span>
+    </div>
+  </section>
+
+  <!-- SECTION 4 — Grammatica: Some / Any + Telbare en ontelbare zelfstandige naamwoorden -->
+  <section class="section-block" id="s4">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Grammatica: Some / Any + Telbare en ontelbare zelfstandige naamwoorden</h2>
+    </div>
+
+    <div class="grammar-kader">
+      <h4>Some and Any</h4>
+      <table class="grammar-tabel">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Bevestigend</th>
+            <th>Ontkennend</th>
+            <th>Vraag</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Telbaar (meervoud)</strong></td>
+            <td>some apples</td>
+            <td>any apples / no apples</td>
+            <td>any apples?</td>
+          </tr>
+          <tr>
+            <td><strong>Ontelbaar</strong></td>
+            <td>some milk</td>
+            <td>any milk / no milk</td>
+            <td>any milk?</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="grammar-tabel" style="margin-top:1rem;">
+        <thead>
+          <tr>
+            <th>Telbaar (Countable)</th>
+            <th>Ontelbaar (Uncountable)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>an apple, two apples</td>
+            <td>milk (geen meervoud)</td>
+          </tr>
+          <tr>
+            <td>a sandwich, sandwiches</td>
+            <td>bread (geen meervoud)</td>
+          </tr>
+          <tr>
+            <td>a potato, potatoes</td>
+            <td>rice (geen meervoud)</td>
+          </tr>
+          <tr>
+            <td>Gebruik: a/an, some, any, many, (a) few</td>
+            <td>Gebruik: some, any, much, (a) little</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <span class="grammar-regel">How many + countable noun? / How much + uncountable noun?</span>
+    </div>
+
+    <div class="example-kader">
+      <span class="example-en">I have some apples but I haven&rsquo;t got any bread.</span>
+      <span class="example-nl">Ik heb wat appels maar ik heb geen brood.</span>
+    </div>
+    <div class="example-kader">
+      <span class="example-en">Is there any milk in the fridge? &mdash; No, there isn&rsquo;t any.</span>
+      <span class="example-nl">Is er melk in de koelkast? &mdash; Nee, die is er niet.</span>
+    </div>
+    <div class="example-kader">
+      <span class="example-en">How much sugar do you want? &mdash; Just a little, please.</span>
+      <span class="example-nl">Hoeveel suiker wil je? &mdash; Maar een beetje, alsjeblieft.</span>
+    </div>
+  </section>
+
+  <!-- SECTION 5 — Grammatica: Voorzetsels van plaats -->
+  <section class="section-block" id="s5">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Grammatica: Voorzetsels van plaats</h2>
+    </div>
+
+    <div class="grammar-kader">
+      <h4>Prepositions of Place</h4>
+      <table class="grammar-tabel">
+        <thead>
+          <tr>
+            <th>Voorzetsel</th>
+            <th>Betekenis</th>
+            <th>Voorbeeld</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>in</strong></td>
+            <td>in</td>
+            <td>The cat is in the box.</td>
+          </tr>
+          <tr>
+            <td><strong>on</strong></td>
+            <td>op</td>
+            <td>The book is on the table.</td>
+          </tr>
+          <tr>
+            <td><strong>under</strong></td>
+            <td>onder</td>
+            <td>The bag is under the chair.</td>
+          </tr>
+          <tr>
+            <td><strong>next to</strong></td>
+            <td>naast</td>
+            <td>The lamp is next to the bed.</td>
+          </tr>
+          <tr>
+            <td><strong>behind</strong></td>
+            <td>achter</td>
+            <td>The garden is behind the house.</td>
+          </tr>
+          <tr>
+            <td><strong>in front of</strong></td>
+            <td>voor</td>
+            <td>The car is in front of the house.</td>
+          </tr>
+          <tr>
+            <td><strong>between</strong></td>
+            <td>tussen</td>
+            <td>The kitchen is between the living room and the hall.</td>
+          </tr>
+          <tr>
+            <td><strong>opposite</strong></td>
+            <td>tegenover</td>
+            <td>The bathroom is opposite the bedroom.</td>
+          </tr>
+          <tr>
+            <td><strong>near</strong></td>
+            <td>dichtbij</td>
+            <td>The school is near my house.</td>
+          </tr>
+          <tr>
+            <td><strong>far from</strong></td>
+            <td>ver van</td>
+            <td>The hospital is far from here.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tip-kader">
+      Onthoud: &lsquo;in&rsquo; voor omsloten ruimtes (in the box, in the kitchen), &lsquo;on&rsquo; voor oppervlaktes (on the table, on the floor), &lsquo;at&rsquo; voor locaties als punt (at school, at home, at the station).
+    </div>
+  </section>
+
+</div><!-- end page-wrapper -->
+
+<!-- EXERCISES -->
+<section class="exercises-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">There is / There are</p>
+      <p style="font-size:.96rem;color:var(--text-mid);">Vul de juiste vorm in.</p>
+      <ol>
+        <li>___ a sofa in the living room.</li>
+        <li>___ two beds in the bedroom.</li>
+        <li>___ any plants in the kitchen?</li>
+      </ol>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Some / Any / No</p>
+      <p style="font-size:.96rem;color:var(--text-mid);">Kies het juiste woord.</p>
+      <ol>
+        <li>I&rsquo;d like ___ milk.</li>
+        <li>We haven&rsquo;t got ___ eggs.</li>
+        <li>Are there ___ potatoes?</li>
+        <li>There are ___ apples in the bowl.</li>
+      </ol>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Telbaar of ontelbaar?</p>
+      <p style="font-size:.96rem;color:var(--text-mid);">Sorteer de woorden in de juiste kolom: telbaar of ontelbaar.</p>
+      <p style="font-size:.96rem;color:var(--text-mid);margin-top:.4rem;"><em>bread &ndash; chair &ndash; milk &ndash; table &ndash; rice &ndash; sofa &ndash; water &ndash; sandwich &ndash; salt &ndash; lamp</em></p>
+      <p class="ex-tip">Tip: ontelbare naamwoorden hebben geen meervoud en combineren niet met &lsquo;a/an&rsquo; of een getal.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 4</p>
+      <p class="ex-name">Voorzetsels van plaats</p>
+      <p style="font-size:.96rem;color:var(--text-mid);">Beschrijf je slaapkamer. Gebruik minstens 5 voorzetsels van plaats uit de tabel hierboven.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 5</p>
+      <p class="ex-name">Schrijfoefening: Een recept</p>
+      <p style="font-size:.96rem;color:var(--text-mid);">Schrijf een recept voor je lievelingseten in het Engels. Gebruik minimaal 5 ingrediënten en 4 stappen. Gebruik ook <em>there is / there are</em> en <em>some / any</em>.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 6</p>
+      <p class="ex-name">Gespreksoefening: Mijn huis</p>
+      <p style="font-size:.96rem;color:var(--text-mid);">Beschrijf je huis aan een vriend die er nooit geweest is. Schrijf 60&ndash;80 woorden in het Engels. Gebruik voorzetsels van plaats, <em>there is / there are</em> en woordenschat uit dit hoofdstuk.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="summary-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>There is</strong> (enkelvoud) / <strong>there are</strong> (meervoud) voor de beschrijving van locaties en aanwezigheid.</li>
+      <li>Ontkenning: <strong>there isn&rsquo;t</strong> / <strong>there aren&rsquo;t</strong>; vraag: <strong>Is there&hellip;?</strong> / <strong>Are there&hellip;?</strong></li>
+      <li><strong>Some</strong> (bevestigend) / <strong>any</strong> (ontkennend + vraag) / <strong>no</strong> (krachtige ontkenning).</li>
+      <li><strong>Telbare naamwoorden</strong>: hebben een meervoud, gebruik many/few (a chair &rarr; two chairs).</li>
+      <li><strong>Ontelbare naamwoorden</strong>: geen meervoud, gebruik much/little &mdash; nooit: <em>a water</em>, <em>two breads</em>.</li>
+      <li><strong>Voorzetsels</strong>: <em>in</em> (omsloten ruimte), <em>on</em> (oppervlak), <em>at</em> (locatiepunt).</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

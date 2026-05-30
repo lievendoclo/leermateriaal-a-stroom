@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoofdstuk 8 — Ik vind dat… | Nederlands 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.25; }
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+    text-decoration: none;
+  }
+  .site-header .label-right { text-align: right; }
+
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image: radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+  .chapter-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+  .prologue .ornament-line .ornament-sym { color: var(--gold); font-size: 1.1rem; opacity: 0.8; }
+  .prologue p { font-style: italic; font-size: 1.05rem; line-height: 1.85; color: rgba(250,246,239,0.9); }
+  .prologue p + p { margin-top: 0.9em; }
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+  .begrip .begrip-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .begrip .begrip-body { flex: 1; }
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+  .begrip .begrip-def { font-size: 0.97rem; color: var(--text-mid); line-height: 1.65; margin: 0; }
+
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .denkvraag .dv-text { font-style: italic; font-size: 1rem; color: var(--text-mid); line-height: 1.7; }
+
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+  }
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ── VOORBEELDTEKST ── */
+  .voorbeeldtekst {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 2rem 2.2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .voorbeeldtekst .vt-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--darkblue);
+    opacity: 0.6;
+    margin-bottom: 0.4rem;
+    display: block;
+  }
+  .voorbeeldtekst .vt-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 0.3rem;
+  }
+  .voorbeeldtekst .vt-meta {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    margin-bottom: 1.2rem;
+    font-style: italic;
+  }
+  .voorbeeldtekst .vt-body p {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-bottom: 0.9em;
+  }
+  .voorbeeldtekst .vt-body p:last-child { margin-bottom: 0; }
+  .voorbeeldtekst .vt-source {
+    margin-top: 1rem;
+    font-size: 0.78rem;
+    color: var(--text-light);
+    border-top: 1px solid var(--sand);
+    padding-top: 0.6rem;
+    font-style: italic;
+  }
+
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+  .exercise-card ol, .exercise-card ul { padding-left: 1.4rem; margin-top: 0.5rem; }
+  .exercise-card li { margin-bottom: 0.45rem; font-size: 0.96rem; color: var(--text-mid); }
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+  .summary-section ul { list-style: none; padding: 0; }
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0; top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem; right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px; height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  .prose-text { max-width: 100%; }
+  .highlighted-para {
+    background: rgba(212,160,23,0.08);
+    border-left: 3px solid var(--gold);
+    padding: 0.8rem 1.1rem;
+    border-radius: 0 4px 4px 0;
+    margin: 1.2rem 0;
+    font-size: 0.97rem;
+    color: var(--text-mid);
+  }
+
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section, .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .voorbeeldtekst { padding: 1.4rem 1.2rem; }
+  }
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ── Extra stijlen voor dit hoofdstuk ── */
+  .compare-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  @media (max-width: 600px) {
+    .compare-block { grid-template-columns: 1fr; }
+  }
+  .compare-card {
+    border-radius: var(--border-radius);
+    padding: 1.1rem 1.2rem;
+    font-size: 0.96rem;
+    line-height: 1.65;
+  }
+  .compare-card.before {
+    background: #FFF0EE;
+    border: 1.5px solid rgba(193,68,14,0.3);
+  }
+  .compare-card.after {
+    background: #EEF5EE;
+    border: 1.5px solid rgba(60,140,60,0.3);
+  }
+  .compare-card .compare-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  .compare-card.before .compare-label { color: var(--terracotta); }
+  .compare-card.after .compare-label { color: #2E7D32; }
+  .compare-card p { margin: 0; color: var(--text-mid); }
+
+  .dialogue {
+    background: #F7F4EF;
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin: 1.5rem 0;
+    border: 1px solid var(--sand);
+  }
+  .dialogue .dialogue-line {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 0.9rem;
+    align-items: flex-start;
+  }
+  .dialogue .dialogue-line:last-child { margin-bottom: 0; }
+  .dialogue .speaker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    min-width: 70px;
+    padding-top: 0.18rem;
+    flex-shrink: 0;
+  }
+  .dialogue .speaker.s1 { color: var(--terracotta); }
+  .dialogue .speaker.s2 { color: var(--darkblue); }
+  .dialogue .speech {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+  }
+
+  .arg-types {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+  }
+  .arg-types li {
+    display: flex;
+    gap: 0.7rem;
+    align-items: flex-start;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+    font-size: 0.97rem;
+    color: var(--text-mid);
+  }
+  .arg-types li:last-child { border-bottom: none; }
+  .arg-types .arg-type-name {
+    font-weight: 700;
+    color: var(--darkblue);
+    min-width: 130px;
+    flex-shrink: 0;
+  }
+
+  .signal-words {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin: 1rem 0;
+  }
+  .signal-tag {
+    background: rgba(193,68,14,0.1);
+    color: var(--terracotta);
+    border: 1px solid rgba(193,68,14,0.25);
+    border-radius: 20px;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    font-family: 'Source Sans 3', sans-serif;
+  }
+
+  .vt-annotation {
+    background: var(--sand-light);
+    border-radius: var(--border-radius);
+    padding: 1.1rem 1.3rem;
+    margin-top: 1.4rem;
+    border: 1px solid var(--sand);
+  }
+  .vt-annotation .ann-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--darkblue);
+    margin-bottom: 0.7rem;
+    display: block;
+  }
+  .vt-annotation ol { padding-left: 1.3rem; }
+  .vt-annotation li { margin-bottom: 0.4rem; font-size: 0.95rem; color: var(--text-mid); }
+</style>
+</head>
+<body>
+
+<header class="site-header" id="top">
+  <a class="label" href="index.html">Nederlands 1A</a>
+  <span class="label label-right">Hoofdstuk 8</span>
+</header>
+
+<div class="chapter-hero">
+  <div class="chapter-kicker">Nederlands &nbsp;·&nbsp; 1A &nbsp;·&nbsp; Eerste graad</div>
+  <h1>Hoofdstuk 8<br>Ik vind dat…</h1>
+  <p class="subtitle">Argumenten, standpunten en overtuigingstechnieken — hoe verdedig jij wat je denkt?</p>
+</div>
+
+<div class="page-wrapper">
+
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Stel je voor &hellip;</span>
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+
+    <p>Het is debatles. De leraar stelt een stelling voor: "Schooluniformen zouden verplicht moeten zijn." Twee leerlingen mogen hun mening geven.</p>
+
+    <p>Yasmine staat op. Ze kijkt naar de grond. "Ik vind dat niet leuk," zegt ze. "Ik vind het gewoon niet leuk." Ze gaat zitten. Stille klas.</p>
+
+    <p>Dan staat Daan op. Hij kijkt iedereen aan. "Ik ben <em>tegen</em> schooluniformen, omdat ze individualiteit onderdrukken. Je kunt je kleding gebruiken om te laten zien wie je bent — dat is een manier om jezelf te ontwikkelen. Bovendien toont Belgisch onderzoek aan dat uniforms schoolprestaties niet verbeteren. Als we écht willen aanpakken dat kleding sociale ongelijkheid zichtbaar maakt, zijn er betere oplossingen, zoals kledingbudgetten voor gezinnen die dat nodig hebben." Hij gaat zitten. De klas knikt.</p>
+
+    <p>Yasmine en Daan hebben <em>dezelfde mening</em>: ze zijn allebei tegen schooluniformen. Maar hun impact is totaal anders. Yasmine heeft een gevoel gedeeld. Daan heeft een standpunt verdedigd. Wat is het verschil — en hoe maak jij dat verschil zelf?</p>
+
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+  </section>
+
+  <!-- SECTIE 1 -->
+  <section class="section-block" id="s1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Feiten en meningen</h2>
+    </div>
+    <div class="prose-text">
+      <p>Voordat je iemand kunt overtuigen, moet je weten wat je <em>soort uitspraak</em> eigenlijk is. Want niet alles wat mensen zeggen, is even sterk. Er is een groot verschil tussen iets wat je kunt controleren en iets wat iemand vindt of denkt.</p>
+
+      <p>Een <strong>feit</strong> is een uitspraak die je kunt controleren. Je kunt nagaan of het klopt via bronnen, cijfers of waarneming. "België heeft 11 miljoen inwoners" is een feit. "Water kookt bij 100 graden Celsius" is een feit. Of het klopt of niet, kun je checken.</p>
+
+      <p>Een <strong>mening</strong> is een persoonlijk oordeel. Het hangt af van wat jij belangrijk vindt, hoe jij iets ervaart, of welke waarden jij hebt. "Sociale media zijn slecht voor jongeren" is een mening. Iemand anders kan het daar volledig mee oneens zijn — en ze hebben allebei een punt, afhankelijk van hoe je ernaar kijkt.</p>
+
+      <p>Een <strong>standpunt</strong> gaat nog een stap verder: het is een mening die je actief verdedigt met argumenten. Je zegt niet alleen wat je vindt — je legt ook <em>waarom</em> uit.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Feit</span>
+        <p class="begrip-def">Een feit is een uitspraak die je kunt controleren en die onafhankelijk van je persoonlijke mening waar of onwaar is. Feiten zijn verifieerbaar: je kunt ze nakijken via bronnen, metingen of waarneming.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Mening</span>
+        <p class="begrip-def">Een mening is een persoonlijk oordeel of gevoel over iets. Meningen zijn niet goed of fout — maar ze zijn ook niet controleerbaar. Ze hangen af van iemands waarden, smaak of ervaringen.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Standpunt</span>
+        <p class="begrip-def">Een standpunt is een mening die je actief verdedigt. Je formuleert niet alleen wat je vindt, maar ook waarom — met argumenten die je positie ondersteunen.</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>Om meningen te herkennen, kun je letten op <strong>meningswoorden</strong>: signaalwoorden die aangeven dat de auteur of spreker een persoonlijk oordeel geeft in plaats van een feit.</p>
+    </div>
+
+    <div class="signal-words">
+      <span class="signal-tag">ik denk</span>
+      <span class="signal-tag">ik vind</span>
+      <span class="signal-tag">naar mijn mening</span>
+      <span class="signal-tag">volgens mij</span>
+      <span class="signal-tag">zou moeten</span>
+      <span class="signal-tag">is niet goed</span>
+      <span class="signal-tag">het is jammer dat</span>
+      <span class="signal-tag">gelukkig</span>
+      <span class="signal-tag">helaas</span>
+      <span class="signal-tag">terecht</span>
+      <span class="signal-tag">onterecht</span>
+      <span class="signal-tag">ik ben ervan overtuigd dat</span>
+    </div>
+
+    <div class="voorbeeldtekst">
+      <span class="vt-label">Mini-tekst · Sociale media</span>
+      <p class="vt-title">Jongeren en sociale media: een gemengd beeld</p>
+      <p class="vt-meta">Lees de tekst en beslis bij elke zin: is het een feit of een mening?</p>
+      <div class="vt-body">
+        <p>(1) In België gebruikt meer dan 85% van de jongeren tussen 12 en 18 jaar dagelijks sociale media. (2) Volgens mij is dat veel te veel. (3) Onderzoek van de Universiteit Gent toont aan dat intensief gebruik van sociale media slaapproblemen kan veroorzaken. (4) Ik vind dat scholen meer aandacht moeten geven aan digitale gezondheid. (5) De meeste leerlingen gebruiken hun smartphone ook 's avonds laat nog in bed.</p>
+      </div>
+      <div class="vt-annotation">
+        <span class="ann-label">Analyseer</span>
+        <ol>
+          <li>Zin 1: feit — controleerbaar via onderzoek.</li>
+          <li>Zin 2: mening — signaalwoord "volgens mij"; persoonlijk oordeel.</li>
+          <li>Zin 3: feit — verwijst naar wetenschappelijk onderzoek.</li>
+          <li>Zin 4: mening — signaalwoorden "ik vind" en "moeten".</li>
+          <li>Zin 5: feit — observeerbaar en meetbaar gedrag.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTIE 2 -->
+  <section class="section-block" id="s2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Een standpunt formuleren</h2>
+    </div>
+    <div class="prose-text">
+      <p>Terug naar Yasmine en Daan uit de proloog. Yasmine had een mening — een gevoel. Daan had een <em>standpunt</em>. Wat is het verschil in de praktijk?</p>
+
+      <p>Een vage reactie zegt alleen <em>wat</em> je voelt. Een standpunt zegt <em>wat</em> je vindt én <em>waarom</em>. Een goed standpunt bevat drie dingen:</p>
+    </div>
+
+    <div class="highlighted-para">
+      <strong>Een standpunt heeft:</strong> (1) een duidelijke positie — je bent voor of tegen, of je kiest een nuance; (2) minstens één argument dat je positie ondersteunt; (3) bewustzijn van het onderwerp — je laat zien dat je weet waarover het gaat.
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Standpunt</span>
+        <p class="begrip-def">Een standpunt is een duidelijk geformuleerde positie over een onderwerp, ondersteund door minstens één argument. Het verschil met een losse mening: je verdedigt actief wat je denkt.</p>
+      </div>
+    </div>
+
+    <p>Bekijk het verschil tussen een vage reactie en een sterk standpunt:</p>
+
+    <div class="compare-block">
+      <div class="compare-card before">
+        <span class="compare-label">Vage reactie</span>
+        <p>"Ik vind huiswerk niet leuk. Het is gewoon te veel en ik ben er niet blij mee."</p>
+      </div>
+      <div class="compare-card after">
+        <span class="compare-label">Sterk standpunt</span>
+        <p>"Ik ben tegen te veel huiswerk, omdat leerlingen na zes uur school ook tijd nodig hebben om te herstellen. Onderzoek toont aan dat vrije tijd cruciaal is voor creativiteit en welbevinden."</p>
+      </div>
+    </div>
+
+    <div class="compare-block">
+      <div class="compare-card before">
+        <span class="compare-label">Vage reactie</span>
+        <p>"Klimaatverandering is erg. Ik maak me er zorgen over."</p>
+      </div>
+      <div class="compare-card after">
+        <span class="compare-label">Sterk standpunt</span>
+        <p>"Ik vind dat de overheid strengere maatregelen moet nemen tegen CO₂-uitstoot, want de huidige doelstellingen zijn onvoldoende om de opwarming onder 1,5 graden te houden."</p>
+      </div>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">Kies een onderwerp dat jou bezighoudt — een spelregel op school, een nieuwtje, iets wat je in de buurt ziet veranderen. Kun je er in één zin een standpunt over formuleren? Probeer het: begin met "Ik ben voor/tegen… omdat…"</p>
+    </div>
+  </section>
+
+  <!-- SECTIE 3 -->
+  <section class="section-block" id="s3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Argumenten: de steun voor je standpunt</h2>
+    </div>
+    <div class="prose-text">
+      <p>Een standpunt zonder argument is als een stoel zonder poten. Het staat niet. Maar niet elk argument is even sterk. Sterke argumenten zijn relevant, onderbouwd en eerlijk. Zwakke argumenten klinken misschien overtuigend, maar houden geen stand als iemand doorvraagt.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Argument</span>
+        <p class="begrip-def">Een argument is een reden die je geeft om je standpunt te ondersteunen. Een sterk argument is relevant (het heeft echt te maken met het onderwerp), onderbouwd (je kunt het bewijzen of illustreren) en eerlijk (het verdraait de feiten niet).</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>Er zijn verschillende soorten argumenten. Elk type heeft zijn kracht:</p>
+    </div>
+
+    <ul class="arg-types">
+      <li>
+        <span class="arg-type-name">Feiten &amp; cijfers</span>
+        <span>Controleerbare informatie die je standpunt ondersteunt. Voorbeeld: "Uit onderzoek blijkt dat 1 op de 3 jongeren te weinig slaapt."</span>
+      </li>
+      <li>
+        <span class="arg-type-name">Statistieken</span>
+        <span>Getallen en percentages die een trend of omvang aantonen. Voorbeeld: "In 2023 steeg het aantal fietsongevallen in steden met 18%."</span>
+      </li>
+      <li>
+        <span class="arg-type-name">Voorbeelden</span>
+        <span>Concrete situaties die laten zien dat je standpunt klopt. Voorbeeld: "In Finland werken scholen al jaren met minder huiswerk — en de resultaten zijn uitstekend."</span>
+      </li>
+      <li>
+        <span class="arg-type-name">Vergelijkingen</span>
+        <span>Je vergelijkt twee situaties om een punt duidelijk te maken. Voorbeeld: "Net zoals je een sporter niet twaalf uur per dag laat trainen, kun je een hersenen ook niet eindeloos belasten."</span>
+      </li>
+      <li>
+        <span class="arg-type-name">Gevoel &amp; beleving</span>
+        <span>Persoonlijke ervaringen of emoties die iets menselijk en herkenbaar maken. Werkt het best in combinatie met andere argumenttypes.</span>
+      </li>
+    </ul>
+
+    <div class="prose-text">
+      <p>Naast sterke argumenten zijn er ook <strong>zwakke redeneringen</strong> die je beter vermijdt — en herkent als iemand ze tegen jou gebruikt:</p>
+    </div>
+
+    <div class="compare-block">
+      <div class="compare-card before">
+        <span class="compare-label">Cirkelredenering</span>
+        <p>"Huiswerk is nuttig omdat het goed is voor leerlingen." — De reden herhaalt gewoon het standpunt zonder iets te verklaren.</p>
+      </div>
+      <div class="compare-card before">
+        <span class="compare-label">Ad hominem</span>
+        <p>"Dat zegt iemand die zelf nooit zijn kamer opruimt." — Aanval op de persoon in plaats van het argument.</p>
+      </div>
+    </div>
+
+    <div class="compare-block">
+      <div class="compare-card before">
+        <span class="compare-label">Appel aan emotie zonder bewijs</span>
+        <p>"Als we dit toestaan, worden kinderen totaal ongelukkig." — Angst oproepen zonder dat er bewijs is voor de claim.</p>
+      </div>
+      <div class="compare-card before">
+        <span class="compare-label">Iedereen doet het</span>
+        <p>"Alle jongeren doen dat toch." — Populariteit is geen argument voor waarheid of juistheid.</p>
+      </div>
+    </div>
+
+    <div class="illustratie">
+      <span class="ill-icon">💡</span>
+      <p class="ill-caption">Illustratie: een "argumentenpiramide" — bovenaan feiten en statistieken (sterkste basis), daarna voorbeelden en vergelijkingen, onderaan gevoel en appel aan emotie (het zwakst als ze alleen staan). Een pijl wijst omhoog met het label: "Hoe onderbouwder, hoe sterker."</p>
+    </div>
+  </section>
+
+  <!-- SECTIE 4: VOORBEELDTEKST 1 -->
+  <section class="section-block" id="s4">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Een mening lezen: de recensie</h2>
+    </div>
+    <div class="prose-text">
+      <p>Een <strong>recensie</strong> is een tekst waarin iemand zijn of haar mening geeft over een boek, film, muziekalbum of voorstelling. Een goede recensie bevat altijd een duidelijk standpunt én argumenten die dat standpunt ondersteunen. Lees de filmrecensie hieronder aandachtig.</p>
+    </div>
+
+    <div class="voorbeeldtekst">
+      <span class="vt-label">Voorbeeldtekst 1 · Filmrecensie</span>
+      <p class="vt-title">Recensie: <em>Iron Vortex 2 — Rise of the Machine Lords</em></p>
+      <p class="vt-meta">Fictieve actiefilm · recensie door een scholier</p>
+      <div class="vt-body">
+        <p><em>Iron Vortex 2</em> is een actiefilm die belooft groots te zijn. Helaas houdt die belofte geen stand. Naar mijn mening is dit een van de meest teleurstellende films van het jaar — en dat terwijl de eerste <em>Iron Vortex</em> me écht enthousiast maakte.</p>
+        <p>Het grootste probleem is het verhaal. De scriptschrijvers hebben duidelijk meer moeite gestoken in de explosies dan in de personages. Hoofdpersonage Dex Kovacs heeft in twee uur filmtijd nauwelijks een ontwikkeling doorgemaakt: hij is aan het begin even stoïcijns als aan het einde. Ik vind dat een actieheld méér moet zijn dan een wandelende spierbundel.</p>
+        <p>Daar komt bij dat de visuele effecten — ondanks een budget van naar verluidt 200 miljoen dollar — er goedkoop uitzien. Meerdere scènes zien er uit als een computerspel uit 2012. Dat is geen mening, dat is gewoon opvallend slecht CGI-werk dat vakbladen als <em>CineVFX</em> als "technisch ondermaats" hebben beschreven.</p>
+        <p>Tot slot mist de film elke emotionele diepgang. Er zijn wel negen doden in het laatste uur, maar omdat we die personages amper kennen, maakt geen enkele dood indruk. Daardoor blijf je als kijker volledig onbewogen achter.</p>
+        <p>Kortom: <em>Iron Vortex 2</em> is een verspilling van tijd en talent. Ga pas kijken als je echt niets beters te doen hebt.</p>
+      </div>
+      <p class="vt-source">Fictieve recensie, geschreven voor didactisch gebruik. Film en maker zijn verzonnen.</p>
+    </div>
+
+    <div class="vt-annotation">
+      <span class="ann-label">Analyseer de recensie</span>
+      <ol>
+        <li><strong>Standpunt:</strong> "Iron Vortex 2 is een teleurstellende film" — geformuleerd in de eerste alinea.</li>
+        <li><strong>Argument 1:</strong> Het verhaal is zwak; het hoofdpersonage ontwikkelt zich niet (voorbeeld + vergelijking).</li>
+        <li><strong>Argument 2:</strong> De visuele effecten zijn van slechte kwaliteit, ondanks het hoge budget (feit + externe bron).</li>
+        <li><strong>Argument 3:</strong> De film mist emotionele diepgang; sterfgevallen maken geen indruk (gevoel + redenering).</li>
+        <li><strong>Meningswoorden:</strong> "naar mijn mening", "ik vind", "mist", "blijf je onbewogen achter".</li>
+      </ol>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">Ben jij overtuigd door deze recensie? Welk argument vind jij het sterkste? Zou je de film nu anders beoordelen als het eerste <em>Iron Vortex</em>-deel wél goed was? Bespreek met een klasgenoot.</p>
+    </div>
+  </section>
+
+  <!-- SECTIE 5 -->
+  <section class="section-block" id="s5">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Overtuigen: meer dan alleen argumenten</h2>
+    </div>
+    <div class="prose-text">
+      <p>Je hebt nu geleerd hoe je een standpunt opbouwt met argumenten. Maar overtuigen gaat verder dan alleen de juiste feiten op tafel leggen. Goede sprekers en schrijvers gebruiken drie soorten overtuigingstechnieken — al meer dan tweeduizend jaar geleden beschreven door de Griekse filosoof Aristoteles.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Logos</span>
+        <p class="begrip-def">Logos is overtuigen via logica en feiten. Je gebruikt cijfers, bewijs, statistieken en heldere redeneringen om te laten zien dat je standpunt klopt. Logos spreekt het verstand aan.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Ethos</span>
+        <p class="begrip-def">Ethos is overtuigen via geloofwaardigheid. Je laat zien dat je betrouwbaar, deskundig of eerlijk bent — of je citeert iemand die dat is. De lezer gelooft je omdat je weet waarover je praat.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Pathos</span>
+        <p class="begrip-def">Pathos is overtuigen via emotie. Je speelt in op gevoelens zoals empathie, trots, angst of hoop. Verhalen, beelden en persoonlijke ervaringen zijn typische pathostechnieken.</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>In de reclamewereld worden deze drie technieken volop gebruikt. Lees de volgende advertentietekst en zoek welke technieken je herkent.</p>
+    </div>
+
+    <div class="voorbeeldtekst">
+      <span class="vt-label">Voorbeeldtekst 2 · Advertentie</span>
+      <p class="vt-title">VitaBlend — De gezondste keuze voor jou en je gezin</p>
+      <p class="vt-meta">Fictieve advertentie voor een sappmerk</p>
+      <div class="vt-body">
+        <p>Elke ochtend begint jouw kind de dag vol energie. Maar weet je echt wat er in zijn of haar glas zit? Bij VitaBlend niet. Wij maken onze sappen van 100% vers fruit, zonder toegevoegde suikers, kleurstoffen of conserveermiddelen. Punt.</p>
+        <p>Onderzoek uitgevoerd door het Voedingscentrum bevestigt: kinderen die dagelijks vers vruchtensap drinken, hebben gemiddeld 23% meer vitamine C dan leeftijdgenoten die dat niet doen. VitaBlend voldoet aan de strengste Europese kwaliteitsnormen — gecertificeerd door Bureau Levensmiddelencontrole.</p>
+        <p>Stel je voor: een zondagochtend, zonlicht door het raam, jouw gezin aan tafel. Een glas sinaasappelsap dat smaakt zoals het hoort — fris, echt, en gemaakt met zorg. Dat is wat wij elke dag voor je doen.</p>
+        <p><em>VitaBlend. Omdat je gezin het beste verdient.</em></p>
+      </div>
+      <p class="vt-source">Fictieve advertentie, geschreven voor didactisch gebruik.</p>
+    </div>
+
+    <div class="vt-annotation">
+      <span class="ann-label">Zoek de overtuigingstechnieken</span>
+      <ol>
+        <li><strong>Logos:</strong> de statistiek over vitamine C (23%) en de verwijzing naar Europese kwaliteitsnormen en het Bureau Levensmiddelencontrole.</li>
+        <li><strong>Ethos:</strong> de vermelding van een officiële certificering en het Voedingscentrum — daarmee wil VitaBlend betrouwbaar overkomen.</li>
+        <li><strong>Pathos:</strong> het beeld van de zondagochtend met zonlicht en gezin — een emotionele, warme scène die gevoelens van geborgenheid oproept. Ook de slotzin "omdat je gezin het beste verdient" speelt in op ouderliefde.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- SECTIE 6 -->
+  <section class="section-block" id="s6">
+    <div class="section-heading">
+      <span class="section-num">6</span>
+      <h2 class="section-title">In gesprek gaan: discussiëren</h2>
+    </div>
+    <div class="prose-text">
+      <p>Een standpunt formuleer je niet alleen op papier — je verdedigt het ook mondeling, in een discussie. Een goede discussie is geen ruzie: het is een geordend gesprek waarbij mensen elkaars argumenten serieus nemen en proberen tot inzicht te komen.</p>
+
+      <p>Er zijn drie basismanieren om te reageren in een discussie:</p>
+    </div>
+
+    <ul class="arg-types">
+      <li>
+        <span class="arg-type-name">Instemmen</span>
+        <span>Je bent het eens met wat iemand zegt, misschien met een kleine nuance erbij.</span>
+      </li>
+      <li>
+        <span class="arg-type-name">Tegenspreken</span>
+        <span>Je bent het oneens en legt uit waarom — altijd met een argument, nooit alleen met "nee".</span>
+      </li>
+      <li>
+        <span class="arg-type-name">Opbouwen</span>
+        <span>Je neemt een punt van iemand anders over en voegt er iets aan toe.</span>
+      </li>
+    </ul>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Discussie</span>
+        <p class="begrip-def">Een discussie is een gesprek waarbij deelnemers standpunten uitwisselen en argumenten geven, met als doel meer inzicht te krijgen of tot een conclusie te komen. In een goede discussie luister je naar de ander en reageer je op zijn of haar argumenten — niet op de persoon.</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>Hier zijn handige zinnen die je kunt gebruiken tijdens een discussie:</p>
+    </div>
+
+    <div class="highlighted-para">
+      <strong>Instemmen met nuance:</strong> "Ik ben het ermee eens dat…, maar ik denk dat je ook moet kijken naar…" &nbsp;|&nbsp; "Dat klopt, en ik voeg daar nog aan toe dat…"<br><br>
+      <strong>Tegenspreken:</strong> "Dat klopt, maar je vergeet dat…" &nbsp;|&nbsp; "Daar heb je een punt, alleen…" &nbsp;|&nbsp; "Ik begrijp wat je bedoelt, maar ik denk dat het eerder zo zit: …"<br><br>
+      <strong>Opbouwen:</strong> "Wat jij zegt klopt, en het wordt nog sterker als je bedenkt dat…" &nbsp;|&nbsp; "Aanvullend daarop: …"
+    </div>
+
+    <div class="prose-text">
+      <p>Bekijk hoe twee leerlingen een discussie voeren over het gebruik van smartphones op school:</p>
+    </div>
+
+    <div class="dialogue">
+      <div class="dialogue-line">
+        <span class="speaker s1">Lena</span>
+        <span class="speech">"Ik vind dat smartphones volledig verboden moeten worden op school. Ze leiden af en leerlingen presteren er slechter door."</span>
+      </div>
+      <div class="dialogue-line">
+        <span class="speaker s2">Raf</span>
+        <span class="speech">"Ik begrijp wat je bedoelt, maar ik denk dat een volledig verbod te ver gaat. Smartphones kunnen ook nuttig zijn: je kunt er snel iets opzoeken, een woordenboek gebruiken, of notities maken. Het probleem is eerder hoe leerlingen ermee omgaan, niet het toestel zelf."</span>
+      </div>
+      <div class="dialogue-line">
+        <span class="speaker s1">Lena</span>
+        <span class="speech">"Daar heb je een punt. Maar onderzoek toont aan dat zelfs de aanwezigheid van een smartphone op het bureau de concentratie verlaagt — zelfs als hij uitstaat. Dus misschien is de oplossing: smartphones in de tas, en alleen gebruiken als de leraar het toestaat."</span>
+      </div>
+      <div class="dialogue-line">
+        <span class="speaker s2">Raf</span>
+        <span class="speech">"Dat klinkt als een goed compromis. En dan voeg ik eraan toe: scholen kunnen leerlingen ook leren om verantwoord met hun toestel om te gaan — dat is een vaardigheid die ze de rest van hun leven nodig hebben."</span>
+      </div>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">Wie "won" deze discussie volgens jou — Lena of Raf? Of kwamen ze samen tot een beter standpunt dan elk apart had? Wat zegt dat over hoe discussiëren werkt?</p>
+    </div>
+  </section>
+
+  <!-- OEFENINGEN -->
+  <section class="exercises-section" id="oefeningen">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Analyseer een opiniestuk</p>
+      <p>Lees de tekst hieronder aandachtig. Beantwoord daarna de vragen.</p>
+      <div class="voorbeeldtekst" style="margin-top:0.9rem; margin-bottom:1rem;">
+        <span class="vt-label">Tekst · Opinie over huiswerk</span>
+        <p class="vt-title">Te veel huiswerk schaadt leerlingen</p>
+        <div class="vt-body">
+          <p>Ik vind dat leerlingen in het eerste middelbaar veel te veel huiswerk krijgen. Ze komen 's avonds thuis na een dag van zes lesuren en moeten dan nog uren aan tafel zitten. Dat is toch niet normaal? Onderzoek van de OESO toont aan dat leerlingen die meer dan twee uur huiswerk per dag maken, niet significant beter presteren dan leerlingen die één uur maken. De extra belasting wekt bij veel jongeren stress en slaapontregeling op. Bovendien zouden leerlingen na schooltijd ook moeten kunnen sporten, vrienden zien en gewoon ontspannen — want dat hoort bij een gezonde ontwikkeling. Scholen zouden dus kritisch moeten nadenken over hoeveel huiswerk ze écht nodig vinden.</p>
+        </div>
+      </div>
+      <ol>
+        <li>Wat is het <strong>standpunt</strong> van de auteur? Formuleer het in één zin.</li>
+        <li>Noem <strong>twee argumenten</strong> die de auteur geeft ter ondersteuning.</li>
+        <li>Zoek <strong>drie meningswoorden of -zinnen</strong> in de tekst.</li>
+        <li>Is er ook een <strong>feit</strong> in de tekst? Welk? Hoe herken je het?</li>
+      </ol>
+      <p class="ex-tip">💡 Tip: lees de tekst twee keer. Eerste keer globaal, tweede keer met een potlood in de hand.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Kies een standpunt en verdedig het</p>
+      <p>Kies één van de drie onderwerpen hieronder. Schrijf een kort standpunttekstje van 6 tot 8 zinnen. Zorg voor:</p>
+      <ul>
+        <li>Een duidelijke openingszin met je standpunt</li>
+        <li>Minstens 2 sterke argumenten (gebruik verschillende types: feit, voorbeeld, vergelijking…)</li>
+        <li>Een slotconclusie</li>
+      </ul>
+      <p style="margin-top:0.6rem;"><strong>Kies uit:</strong></p>
+      <ol>
+        <li>Klimaat: "Jongeren hebben meer inspraak nodig in klimaatbeleid." — voor of tegen?</li>
+        <li>Sociale media: "Sociale media zouden verboden moeten zijn voor wie jonger is dan 14." — voor of tegen?</li>
+        <li>Schooluniformen: "Verplichte schooluniformen zijn een goed idee." — voor of tegen?</li>
+      </ol>
+      <p class="ex-tip">💡 Je hoeft het niet eens te zijn met het standpunt dat je verdedigt. Probeer eens te redeneren vanuit het tegenovergestelde — dat scherpt je denken.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Schrijf een productrecensie</p>
+      <p>Kies iets dat je goed kent: een boek, een film, een spel, een voedingsproduct of een muziekalbum. Schrijf een recensie van 8 tot 10 zinnen. Zorg dat je tekst de volgende elementen bevat:</p>
+      <ul>
+        <li>Een duidelijk <strong>standpunt</strong> in de eerste zin</li>
+        <li>Minstens <strong>twee argumenten</strong></li>
+        <li>Een voorbeeld van <strong>logos</strong> (feit of statistiek)</li>
+        <li>Een voorbeeld van <strong>pathos</strong> (emotie of persoonlijke beleving)</li>
+        <li>Een voorbeeld van <strong>ethos</strong> (geloofwaardigheid — verwijs naar een bron, expert of andere gebruikers)</li>
+        <li>Een <strong>slotbeoordeling</strong>: zou je het aanraden of niet?</li>
+      </ul>
+      <p class="ex-tip">💡 Ethos hoeft niet ingewikkeld te zijn: "Mijn klasgenoten vonden het ook geweldig" of "Critici noemden het een klassieker" volstaat al.</p>
+    </div>
+  </section>
+
+  <!-- SAMENVATTING -->
+  <section class="summary-section" id="samenvatting">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>Feiten</strong> zijn controleerbaar en objectief; <strong>meningen</strong> zijn persoonlijke oordelen. Je herkent meningen aan signaalwoorden zoals "ik vind", "volgens mij" en "zou moeten".</li>
+      <li>Een <strong>standpunt</strong> is meer dan een mening: het bevat een duidelijke positie én minstens één argument, en toont begrip van het onderwerp.</li>
+      <li>Sterke <strong>argumenten</strong> zijn relevant, onderbouwd en eerlijk. Je kunt feiten, statistieken, voorbeelden, vergelijkingen en beleving gebruiken — combineer ze voor het beste effect.</li>
+      <li>Vermijd <strong>zwakke redeneringen</strong> zoals de cirkelredenering, de ad-hominemredenering en het ongegronde appel aan emotie — ze klinken overtuigend maar houden geen stand.</li>
+      <li>Overtuigen werkt via drie technieken: <strong>logos</strong> (feiten en logica), <strong>ethos</strong> (geloofwaardigheid) en <strong>pathos</strong> (emotie). De sterkste teksten combineren alle drie.</li>
+      <li>Een <strong>recensie</strong> is een tekst met een duidelijk standpunt en argumenten over een cultureel product. Je kunt een recensie analyseren door het standpunt, de argumenten en de meningswoorden te labelen.</li>
+      <li>In een <strong>discussie</strong> reageer je op de argumenten van de ander — niet op de persoon. Je kunt instemmen, tegenspreken of opbouwen, altijd met respect en onderbouwing.</li>
+    </ul>
+  </section>
+
+</div>
+
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Terug naar boven">↑</button>
+<script>
+  const btn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => btn.classList.toggle('visible', window.scrollY > 400));
+</script>
+<script src="nav.js"></script>
+</body>
+</html>

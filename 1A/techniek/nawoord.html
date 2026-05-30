@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nawoord — Op weg naar het examen | Techniek</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --gold: #D4A017;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    /* Extended tokens used internally */
+    --terracotta-light: #D4561E;
+    --gold-light: #E8B82A;
+    --darkblue-light: #243B63;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     CLOSING QUOTE
+  ============================================================ */
+  .closing-quote {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0D1E38 100%);
+    border-radius: var(--border-radius);
+    padding: 3rem 3rem 2.5rem;
+    margin: 3.5rem 0 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.5rem; left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .closing-quote .cq-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--gold);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 1.2rem;
+  }
+
+  .closing-quote .cq-attribution {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(212,160,23,0.6);
+  }
+
+  .closing-quote .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .closing-quote .ornament-line::before,
+  .closing-quote .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.4), transparent);
+  }
+
+  .closing-quote .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.7;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .closing-quote { padding: 2rem 1.2rem 1.8rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     WISKUNDE-SPECIFIC COMPONENTS
+  ============================================================ */
+
+  /* ── REKENVOORBEELD ─────────────────────────────────── */
+  .rekenvoorbeeld {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--oker);
+    border-radius: var(--border-radius);
+    padding: 1.8rem 2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .rekenvoorbeeld .rv-label {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--oker); display: block; margin-bottom: 0.35rem;
+  }
+  .rekenvoorbeeld .rv-vraag {
+    font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700;
+    color: var(--darkblue); margin-bottom: 1rem; line-height: 1.4;
+  }
+  .rv-stappen { list-style: none; padding: 0; counter-reset: stap-teller; margin-bottom: 1rem; }
+  .rv-stappen li {
+    counter-increment: stap-teller;
+    padding: 0.6rem 0.8rem 0.6rem 3.2rem;
+    position: relative;
+    background: var(--creme);
+    border-radius: 4px;
+    margin-bottom: 0.4rem;
+    font-size: 0.97rem;
+  }
+  .rv-stappen li::before {
+    content: counter(stap-teller);
+    position: absolute; left: 0.6rem; top: 50%; transform: translateY(-50%);
+    background: var(--darkblue); color: white;
+    width: 1.7rem; height: 1.7rem; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; font-weight: 700;
+  }
+  .rv-antwoord {
+    background: var(--darkblue); color: var(--gold);
+    padding: 0.75rem 1.1rem; border-radius: 4px;
+    font-weight: 700; font-size: 1rem;
+  }
+  .rv-antwoord math { color: var(--gold); }
+
+  /* ── STELLING ───────────────────────────────────────── */
+  .stelling {
+    background: #EEF3FF;
+    border-left: 4px solid var(--darkblue);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1.2rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .stelling .st-label {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--darkblue); opacity: 0.7;
+    display: block; margin-bottom: 0.35rem;
+  }
+  .stelling .st-body { font-size: 0.97rem; color: var(--text-dark); }
+
+  /* ── FORMULE ────────────────────────────────────────── */
+  .formule {
+    background: var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 1.4rem 1.8rem;
+    text-align: center;
+    margin: 1.8rem 0;
+  }
+  .formule math { color: white; font-size: 1.2rem; }
+  .formule .formule-naam {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--gold); opacity: 0.8;
+    display: block; margin-bottom: 0.5rem;
+  }
+
+  /* ── SVG CONTAINER ──────────────────────────────────── */
+  .svg-container {
+    margin: 1.8rem 0;
+    padding: 1.5rem;
+    background: white;
+    border: 1px solid var(--sand);
+    border-radius: var(--border-radius);
+    overflow-x: auto;
+    text-align: center;
+  }
+  .svg-container .svg-caption {
+    font-size: 0.85rem; color: var(--text-light); font-style: italic;
+    display: block; margin-top: 0.75rem;
+  }
+
+  /* ── DOMEIN GRID ────────────────────────────────────── */
+  .domein-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+    margin: 1.8rem 0;
+  }
+  .domein-card {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 3px solid var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 1.2rem 1.3rem;
+    box-shadow: var(--shadow-sm);
+  }
+  .domein-card .dc-naam {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+  .domein-card .dc-hoofdstukken {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    font-style: italic;
+  }
+  .domein-card .dc-beschrijving {
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    margin-top: 0.5rem;
+    line-height: 1.55;
+  }
+
+  /* ── SYMBOLTABEL ────────────────────────────────────── */
+  .symbool-tabel {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    margin: 1.2rem 0;
+  }
+  .symbool-tabel th {
+    background: var(--darkblue);
+    color: white;
+    padding: 0.5rem 1rem;
+    text-align: left;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    font-size: 0.83rem;
+  }
+  .symbool-tabel td {
+    padding: 0.45rem 1rem;
+    border-bottom: 1px solid var(--sand);
+    color: var(--text-mid);
+  }
+  .symbool-tabel tr:last-child td { border-bottom: none; }
+  .symbool-tabel tr:nth-child(even) td { background: var(--sand-light); }
+  .symbool-tabel .sym { font-size: 1.1rem; font-weight: 700; color: var(--darkblue); }
+
+  /* ── WERKWIJZE LIST ─────────────────────────────────── */
+  .werkwijze-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.2rem 0;
+  }
+  .werkwijze-list li {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 0.8rem 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 0.5rem;
+    background: var(--sand-light);
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.55;
+  }
+  .werkwijze-list li .wl-kleur {
+    flex-shrink: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-top: 0.42rem;
+  }
+  .werkwijze-list li strong { color: var(--darkblue); }
+
+  /* ============================================================
+     TECHNIEK — EXTRA COMPONENTS
+  ============================================================ */
+  .begrip-kader { background: #fff8f5; border-left: 4px solid var(--terracotta); border-radius: 0 6px 6px 0; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+  .begrip-kader strong { color: var(--terracotta); display: block; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem; }
+  .schema-kader { background: var(--sand-light, #F2EAD8); border: 1px solid var(--sand); border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; }
+  .schema-kader h4 { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 0.75rem; color: var(--darkblue); }
+  .data-tabel { width: 100%; border-collapse: collapse; margin: 1.25rem 0; font-size: 0.92rem; }
+  .data-tabel th { background: var(--darkblue); color: var(--gold); font-family: 'Source Sans 3', sans-serif; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.75rem 1rem; text-align: left; }
+  .data-tabel td { padding: 0.65rem 1rem; border-bottom: 1px solid var(--sand); vertical-align: top; }
+  .data-tabel tr:nth-child(even) td { background: var(--sand-light, #F2EAD8); }
+  .stap-kader { display: flex; gap: 1rem; align-items: flex-start; background: white; border: 1px solid var(--sand); border-radius: 8px; padding: 1.25rem; margin: 0.75rem 0; }
+  .stap-nummer { background: var(--terracotta); color: white; font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .stap-inhoud h4 { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--darkblue); margin-bottom: 0.3rem; }
+  .stap-inhoud p { font-size: 0.95rem; color: var(--text-mid, #3D3425); margin: 0; }
+
+  /* Exam info cards */
+  .examen-info-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:1rem; margin:1.5rem 0; }
+  .examen-info-card { background:white; border:1px solid var(--sand); border-top:3px solid var(--darkblue); border-radius:var(--border-radius); padding:1.2rem 1.4rem; box-shadow:var(--shadow-sm); }
+  .examen-info-card .eic-label { font-family:'Source Sans 3',sans-serif; font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; color:var(--oker); display:block; margin-bottom:0.3rem; }
+  .examen-info-card .eic-value { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:700; color:var(--darkblue); line-height:1.35; }
+
+  /* Warning box */
+  .waarschuwing { background:linear-gradient(135deg,rgba(193,68,14,.1),rgba(193,68,14,.05)); border:1.5px solid rgba(193,68,14,.4); border-left:4px solid var(--terracotta); border-radius:var(--border-radius); padding:1.25rem 1.5rem; margin:1.5rem 0; }
+  .waarschuwing .w-header { font-family:'Source Sans 3',sans-serif; font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; color:var(--terracotta); margin-bottom:0.5rem; display:flex; align-items:center; gap:0.4rem; }
+  .waarschuwing .w-body { font-size:0.97rem; color:var(--text-mid); line-height:1.65; }
+
+  /* Chapter weight table */
+  .weging-tabel { width:100%; border-collapse:collapse; margin:1rem 0; font-size:0.95rem; }
+  .weging-tabel thead th { background:var(--darkblue); color:var(--gold); padding:0.55rem 1rem; text-align:left; font-family:'Source Sans 3',sans-serif; font-size:0.78rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; }
+  .weging-tabel tbody td { padding:0.55rem 1rem; border-bottom:1px solid var(--sand); color:var(--text-mid); }
+  .weging-tabel tbody tr:last-child td { border-bottom:none; background:var(--sand-light); font-weight:700; color:var(--darkblue); }
+  .weging-tabel tbody tr:nth-child(even) td { background:rgba(232,220,200,.2); }
+  .weging-tabel .pct { font-weight:700; color:var(--terracotta); }
+  .weging-tabel .pct-total { font-weight:700; color:var(--darkblue); }
+  .weging-tabel .h-num { font-family:'Playfair Display',serif; font-weight:700; color:var(--darkblue); }
+
+  /* Checklist sections */
+  .checklist-section { background:white; border:1px solid var(--sand); border-radius:var(--border-radius); padding:1.5rem; margin:1.2rem 0; box-shadow:var(--shadow-sm); }
+  .checklist-section .cs-header { display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem; padding-bottom:0.6rem; border-bottom:2px solid rgba(26,43,74,0.08); }
+  .checklist-section .cs-badge { background:var(--darkblue); color:var(--gold); font-family:'Source Sans 3',sans-serif; font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; padding:0.2rem 0.55rem; border-radius:3px; flex-shrink:0; }
+  .checklist-section .cs-pct { background:var(--terracotta); color:white; font-family:'Source Sans 3',sans-serif; font-size:0.72rem; font-weight:700; padding:0.2rem 0.55rem; border-radius:3px; flex-shrink:0; }
+  .checklist-section h4 { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:700; color:var(--darkblue); }
+  .checklist-item { display:flex; gap:0.75rem; align-items:flex-start; padding:0.4rem 0; border-bottom:1px solid rgba(232,220,200,.5); font-size:0.93rem; color:var(--text-mid); line-height:1.55; }
+  .checklist-item:last-child { border-bottom:none; }
+  .checklist-item input[type="checkbox"] { width:1.1rem; height:1.1rem; flex-shrink:0; margin-top:0.2rem; accent-color:var(--darkblue); cursor:pointer; }
+
+  /* Tip numbered list */
+  .tip-kader-numbered { counter-reset: tip-teller; }
+  .tip-kader-item { background:linear-gradient(135deg,rgba(193,68,14,.08),rgba(193,68,14,.04)); border:1px solid rgba(193,68,14,.25); border-left:4px solid var(--terracotta); border-radius:var(--border-radius); padding:1.25rem 1.5rem 1.25rem 4rem; margin:1rem 0; position:relative; font-size:0.97rem; color:var(--text-mid); line-height:1.65; }
+  .tip-kader-item::before { counter-increment: tip-teller; content:counter(tip-teller); position:absolute; left:1rem; top:1.1rem; background:var(--terracotta); color:white; width:1.8rem; height:1.8rem; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:.85rem; font-weight:700; font-family:'Source Sans 3',sans-serif; }
+  .tip-kader-item strong { color:var(--darkblue); }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <span class="label">Techniek</span>
+  <span class="label label-right">Nawoord &nbsp;&middot;&nbsp; Examenvoorbereiding</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Nawoord</div>
+  <h1>Op weg naar het examen</h1>
+  <p class="subtitle">Alles wat je moet weten voor het techniekexamen op een rij.</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- ============================================================
+       SECTION 1 — Exameninformatie
+  ============================================================ -->
+  <section class="section-block" id="s1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Exameninformatie</h2>
+    </div>
+
+    <p>Je hebt alle negen hoofdstukken doorlopen. Hieronder vind je alles wat je moet weten over het techniekexamen zelf.</p>
+
+    <div class="examen-info-grid">
+      <div class="examen-info-card">
+        <span class="eic-label">Duur</span>
+        <span class="eic-value">90 minuten</span>
+      </div>
+      <div class="examen-info-card">
+        <span class="eic-label">Formaat</span>
+        <span class="eic-value">Digitaal, in Brussel</span>
+      </div>
+      <div class="examen-info-card">
+        <span class="eic-label">Vraagvormen</span>
+        <span class="eic-value">Gesloten &eacute;n open vragen</span>
+      </div>
+      <div class="examen-info-card">
+        <span class="eic-label">Vraagtypes</span>
+        <span class="eic-value">Invulvragen, sleepvragen, dropdownvragen, meerkeuzevragen</span>
+      </div>
+      <div class="examen-info-card">
+        <span class="eic-label">Schrijftablet</span>
+        <span class="eic-value">Voor sommige vragen &mdash; digitale pen vereist</span>
+      </div>
+      <div class="examen-info-card">
+        <span class="eic-label">Bronmateriaal</span>
+        <span class="eic-value">Prenten, foto&rsquo;s, schema&rsquo;s, tekeningen bij opdrachten</span>
+      </div>
+      <div class="examen-info-card">
+        <span class="eic-label">Giscorrectie</span>
+        <span class="eic-value">Geen giscorrectie</span>
+      </div>
+      <div class="examen-info-card">
+        <span class="eic-label">Toegelaten hulpmiddelen</span>
+        <span class="eic-value">Spellingscontrole, woordenboek, digitale rekenapps; geodriehoek/passer/meetlat op aanvraag</span>
+      </div>
+    </div>
+
+    <div class="waarschuwing">
+      <div class="w-header">&#9888; Let op: bijlagen</div>
+      <p class="w-body"><strong>Bijlage 1</strong> (grootheden en pictogrammen) is <strong>NIET toegelaten</strong> op het examen. <strong>Bijlage 2</strong> (formularium) is <strong>WEL toegelaten</strong> &mdash; leer hoe je het formularium effici&euml;nt gebruikt!</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 2 — Examenverdeling
+  ============================================================ -->
+  <section class="section-block" id="s2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Examenverdeling per onderdeel</h2>
+    </div>
+
+    <p>Het examen is verdeeld over drie grote onderdelen. Het zwaarste onderdeel is <strong>Technische systemen</strong> (82,5%) &mdash; dit omvat H2 t.e.m. H6, H8 en H9.</p>
+
+    <table class="weging-tabel">
+      <thead>
+        <tr>
+          <th>Onderdeel</th>
+          <th>Hoofdstukken</th>
+          <th>Gewicht</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Materialen en grondstoffen</td>
+          <td class="h-num">H1</td>
+          <td class="pct">7,5%</td>
+        </tr>
+        <tr>
+          <td>Technische systemen</td>
+          <td class="h-num">H2 t.e.m. H6 + H8 + H9</td>
+          <td class="pct">82,5%</td>
+        </tr>
+        <tr>
+          <td>Algoritmen</td>
+          <td class="h-num">H7</td>
+          <td class="pct">10%</td>
+        </tr>
+        <tr>
+          <td><strong>Totaal</strong></td>
+          <td></td>
+          <td class="pct-total">100%</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ============================================================
+       SECTION 3 — Checklist per hoofdstuk
+  ============================================================ -->
+  <section class="section-block" id="s3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Checklist per hoofdstuk</h2>
+    </div>
+
+    <p>Vink af wat je al beheerst. Alles afgevinkt? Dan ben je klaar voor het examen.</p>
+
+    <!-- H1 — Materialen en grondstoffen -->
+    <div class="checklist-section">
+      <div class="cs-header">
+        <span class="cs-badge">H1</span>
+        <h4>Materialen en grondstoffen</h4>
+        <span class="cs-pct">7,5%</span>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="h1-1">
+        <label for="h1-1">Ik ken de 4 indelingen van materialen (enkelvoudig/legering, metaal/niet-metaal, ferro/non-ferro, natuurlijk/kunstmatig)</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="h1-2">
+        <label for="h1-2">Ik ken de eigenschappen van materialen (elektrisch, fysisch, magnetisch, mechanisch, technologisch)</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="h1-3">
+        <label for="h1-3">Ik kan eenvoudige onderzoekstechnieken toepassen (uitrekken, onderdompeling, stroomkring)</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="h1-4">
+        <label for="h1-4">Ik kan veiligheidspictogrammen herkennen en uitleggen</label>
+      </div>
+    </div>
+
+    <!-- H2 — Energiesysteem -->
+    <div class="checklist-section">
+      <div class="cs-header">
+        <span class="cs-badge">H2</span>
+        <h4>Energiesysteem</h4>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="h2-1">
+        <label for="h2-1">Ik ken de 6 energievormen en kan voor elke vorm een voorbeeld geven</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="h2-2">
+        <label for="h2-2">Ik kan nuttige vs. niet-nuttige energie onderscheiden bij een energieomzetting</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="h2-3">
+        <label for="h2-3">Ik kan fossiele brandstoffen onderscheiden van hernieuwbare energie en ken het broeikaseffect</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="h2-4">
+        <label for="h2-4">Ik kan elektrische componenten herkennen in schema&rsquo;s</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="h2-5">
+        <label for="h2-5">Ik ken het verschil tussen serie- en parallelschakeling</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="h2-6">
+        <label for="h2-6">Ik ken de gevaren en veiligheidsvoorzieningen bij elektriciteit</label>
+      </div>
+    </div>
+
+    <!-- H3 — Informatieverwerkend systeem -->
+    <div class="checklist-section">
+      <div class="cs-header">
+        <span class="cs-badge">H3</span>
+        <h4>Informatieverwerkend systeem</h4>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="h3-1">
+        <label for="h3-1">Ik ken het IPO-model (Input &ndash; Process &ndash; Output) en kan het toepassen</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="h3-2">
+        <label for="h3-2">Ik kan sensoren en actuatoren herkennen en benoemen in voorbeelden</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="h3-3">
+        <label for="h3-3">Ik kan waarheidstabellen opstellen en interpreteren voor EN-, OF- en NIET-poorten</label>
+      </div>
+    </div>
+
+    <!-- H4 — Constructiesysteem -->
+    <div class="checklist-section">
+      <div class="cs-header">
+        <span class="cs-badge">H4</span>
+        <h4>Constructiesysteem</h4>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="h4-1">
+        <label for="h4-1">Ik kan druk-, trek- en buigkrachten herkennen in constructies</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="h4-2">
+        <label for="h4-2">Ik ken de stabiliteit van driehoek, rechthoek en boog</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="h4-3">
+        <label for="h4-3">Ik ken soorten verbindingen en weet wanneer ik ze gebruik</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="h4-4">
+        <label for="h4-4">Ik kan PBM (persoonlijke beschermingsmiddelen) herkennen en de juiste keuze maken</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="h4-5">
+        <label for="h4-5">Ik kan een functiedriehoek opstellen</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="h4-6">
+        <label for="h4-6">Ik ken modelvoorstellingen: aanzichten en schaal</label>
+      </div>
+    </div>
+
+    <!-- H5 — Transportsysteem -->
+    <div class="checklist-section">
+      <div class="cs-header">
+        <span class="cs-badge">H5</span>
+        <h4>Transportsysteem</h4>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="h5-1">
+        <label for="h5-1">Ik ken de 6 overbrengingen en kan voor elke een voorbeeld geven</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="h5-2">
+        <label for="h5-2">Ik kan de drijver en de volger aanduiden in een overbrenging</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="h5-3">
+        <label for="h5-3">Ik ken het verschil tussen rechtstreekse en onrechtstreekse aandrijving</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="h5-4">
+        <label for="h5-4">Ik kan de invloed van een overbrenging op snelheid en richting uitleggen</label>
+      </div>
+    </div>
+
+    <!-- H6 — Biotechnisch systeem -->
+    <div class="checklist-section">
+      <div class="cs-header">
+        <span class="cs-badge">H6</span>
+        <h4>Biotechnisch systeem</h4>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="h6-1">
+        <label for="h6-1">Ik ken de rol van micro-organismen bij voedselproductie</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="h6-2">
+        <label for="h6-2">Ik weet wat het FAVV is en wat het doet</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="h6-3">
+        <label for="h6-3">Ik ken bewaartechnieken en hun principe</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="h6-4">
+        <label for="h6-4">Ik kan de verplichte informatie op een voedseletiket lezen en interpreteren</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="h6-5">
+        <label for="h6-5">Ik ken de functies van verpakkingen en hun duurzaamheidsaspecten</label>
+      </div>
+    </div>
+
+    <!-- H7 — Algoritmen -->
+    <div class="checklist-section">
+      <div class="cs-header">
+        <span class="cs-badge">H7</span>
+        <h4>Algoritmen</h4>
+        <span class="cs-pct">10%</span>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="h7-1">
+        <label for="h7-1">Ik ken de definitie van een algoritme</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="h7-2">
+        <label for="h7-2">Ik ken de 4 principes van computationeel denken</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="h7-3">
+        <label for="h7-3">Ik kan een algoritme ontwerpen in duidelijke stappen</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="h7-4">
+        <label for="h7-4">Ik kan flowchartsymbolen herkennen en gebruiken</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="h7-5">
+        <label for="h7-5">Ik kan debuggen: fouten in een algoritme opsporen en verbeteren</label>
+      </div>
+    </div>
+
+    <!-- H8 — Veiligheid, meetinstrumenten en grootheden -->
+    <div class="checklist-section">
+      <div class="cs-header">
+        <span class="cs-badge">H8</span>
+        <h4>Veiligheid, meetinstrumenten en grootheden</h4>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="h8-1">
+        <label for="h8-1">Ik ken de veiligheidsregels in het technisch labo en weet welke PBM ik wanneer gebruik</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="h8-2">
+        <label for="h8-2">Ik kan het juiste meetinstrument kiezen voor een gegeven meetopdracht</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="h8-3">
+        <label for="h8-3">Ik ken grootheden en eenheden (symbolen en SI-eenheden)</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="h8-4">
+        <label for="h8-4">Ik ken de voorvoegsels van milli (m) tot kilo (k) en kan omrekenen</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="h8-5">
+        <label for="h8-5">Ik ken de formules voor omtrek, oppervlakte en volume en kan ze toepassen</label>
+      </div>
+    </div>
+
+    <!-- H9 — Technisch proces en STEM -->
+    <div class="checklist-section">
+      <div class="cs-header">
+        <span class="cs-badge">H9</span>
+        <h4>Technisch proces en STEM</h4>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="h9-1">
+        <label for="h9-1">Ik ken de 5 fasen van het technisch proces in de juiste volgorde</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="h9-2">
+        <label for="h9-2">Ik kan elke fase van het technisch proces uitleggen met een voorbeeld</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="h9-3">
+        <label for="h9-3">Ik ken de vier STEM-disciplines en kan hun samenwerking uitleggen aan de hand van een voorbeeld</label>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 4 — Top 10 Examentips
+  ============================================================ -->
+  <section class="section-block" id="s4">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Top 10 Examentips</h2>
+    </div>
+
+    <div class="tip-kader-numbered">
+      <div class="tip-kader-item">
+        <strong>Lees elke vraag twee keer</strong> &mdash; Technische vragen zijn soms complex geformuleerd. De eerste keer om te begrijpen wat er gevraagd wordt, de tweede keer om zeker te zijn dat je antwoord klopt.
+      </div>
+      <div class="tip-kader-item">
+        <strong>Besteed aandacht aan afbeeldingen</strong> &mdash; Schema&rsquo;s, pictogrammen en tekeningen bevatten hints. Bij techniek zijn de visuele elementen bij een vraag essentieel &mdash; gebruik ze altijd!
+      </div>
+      <div class="tip-kader-item">
+        <strong>Bij elektrische schema&rsquo;s: volg de stroomrichting systematisch</strong> &mdash; Trace de kring stap voor stap van de plus- naar de minpool. Zo mis je geen component en herken je serie- vs. parallelschakelingen.
+      </div>
+      <div class="tip-kader-item">
+        <strong>Ken de 5 fasen van het technisch proces van buiten</strong> &mdash; Ze komen zeker aan bod. Oefen ook de juiste volgorde &mdash; sleepvragen testen dit expliciet.
+      </div>
+      <div class="tip-kader-item">
+        <strong>Oefen de waarheidstabellen voor EN, OF en NIET-poorten</strong> &mdash; Dit is een veelgesteld onderdeel van H3. Maak de tabel altijd volledig (alle invoercombinaties).
+      </div>
+      <div class="tip-kader-item">
+        <strong>Bij overbrengingen: groot naar klein = versnelling, klein naar groot = vertraging</strong> &mdash; Denk ook aan de draairichting: kruisband = omgekeerde richting, rechte band = zelfde richting.
+      </div>
+      <div class="tip-kader-item">
+        <strong>Oefen eenheidconversies</strong> &mdash; km&harr;m, L&harr;ml, m&sup2;&harr;cm&sup2;. Het formularium (bijlage 2) is toegelaten &mdash; leer hoe je het snel terugvindt en correct gebruikt.
+      </div>
+      <div class="tip-kader-item">
+        <strong>Het formularium (bijlage 2) is toegelaten &mdash; leer het kennen</strong> &mdash; Weet welke formules erin staan en hoe je ze effici&euml;nt opzoekt. Tijdverspilling aan zoeken kost je punten.
+      </div>
+      <div class="tip-kader-item">
+        <strong>Schrijftablet: oefen thuis met een stylus</strong> &mdash; Sommige vragen vereisen handgeschreven antwoorden via een digitale pen. Oefen vooraf zodat je geen tijd verliest met wennen op het examen.
+      </div>
+      <div class="tip-kader-item">
+        <strong>Review je antwoorden als je nog tijd hebt</strong> &mdash; Controleer of je geen vragen hebt overgeslagen. Een tweede blik op je invulantwoorden kan spellingsfouten of rekenfoutjes blootleggen.
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING QUOTE -->
+  <div class="closing-quote" role="note" aria-label="Slotcitaat">
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p class="cq-text">Techniek is niet alleen iets maken &mdash; het is een probleem begrijpen, een oplossing bedenken, en de moed hebben om het te proberen. Vertrouw op wat je dit jaar hebt geleerd.</p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <span class="cq-attribution">Techniek &nbsp;&middot;&nbsp; Eerste Graad A-stroom</span>
+  </div>
+
+</div><!-- end page-wrapper -->
+
+<!-- FOOTER -->
+<footer style="background:var(--darkblue);color:rgba(212,160,23,0.7);text-align:center;padding:1.5rem 2rem;font-family:'Source Sans 3',sans-serif;font-size:.82rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;">
+  Techniek &nbsp;&middot;&nbsp; Eerste Graad A-stroom &nbsp;&middot;&nbsp; &copy; 2026 &nbsp;&middot;&nbsp; AGPL-3.0
+</footer>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">Naar boven &#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

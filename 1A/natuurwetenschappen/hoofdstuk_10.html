@@ -1,0 +1,1672 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H10 — Krachten en snelheid | Natuurwetenschappen 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --gold: #D4A017;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --terracotta-light: #D4561E;
+    --gold-light: #E8B82A;
+    --darkblue-light: #243B63;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '\2713';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     CLOSING QUOTE
+  ============================================================ */
+  .closing-quote {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0D1E38 100%);
+    border-radius: var(--border-radius);
+    padding: 3rem 3rem 2.5rem;
+    margin: 3.5rem 0 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.5rem; left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .closing-quote .cq-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--gold);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 1.2rem;
+  }
+
+  .closing-quote .cq-attribution {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(212,160,23,0.6);
+  }
+
+  .closing-quote .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .closing-quote .ornament-line::before,
+  .closing-quote .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.4), transparent);
+  }
+
+  .closing-quote .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.7;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .closing-quote { padding: 2rem 1.2rem 1.8rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     SCIENCE-SPECIFIC COMPONENTS
+  ============================================================ */
+
+  /* ── EXPERIMENT KADER ───────────────────────────────── */
+  .experiment-kader { background: #FFF8F5; border-left: 4px solid var(--terracotta); border-radius: 0 var(--border-radius) var(--border-radius) 0; padding: 1.3rem 1.5rem; margin: 1.8rem 0; box-shadow: var(--shadow-sm); }
+  .experiment-kader .exp-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--terracotta); display: block; margin-bottom: 0.35rem; }
+  .experiment-kader .exp-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--darkblue); display: block; margin-bottom: 0.8rem; }
+  .experiment-kader .exp-stappen { list-style: none; padding: 0; counter-reset: stap-teller; }
+  .experiment-kader .exp-stappen li { counter-increment: stap-teller; padding: 0.5rem 0.8rem 0.5rem 3rem; position: relative; background: var(--creme); border-radius: 4px; margin-bottom: 0.4rem; font-size: 0.96rem; }
+  .experiment-kader .exp-stappen li::before { content: counter(stap-teller); position: absolute; left: 0.6rem; top: 50%; transform: translateY(-50%); background: var(--terracotta); color: white; width: 1.7rem; height: 1.7rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; }
+
+  /* ── WETENSCHAPS KADER ──────────────────────────────── */
+  .wetenschaps-kader { background: #EEF3FF; border-left: 4px solid var(--darkblue); border-radius: 0 var(--border-radius) var(--border-radius) 0; padding: 1.2rem 1.5rem; margin: 1.5rem 0; }
+  .wetenschaps-kader .wk-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--darkblue); opacity: 0.7; display: block; margin-bottom: 0.35rem; }
+  .wetenschaps-kader .wk-body { font-size: 0.97rem; color: var(--text-dark); }
+
+  /* ── FORMULE KADER ──────────────────────────────────── */
+  .formule-kader { background: var(--darkblue); border-radius: var(--border-radius); padding: 1.6rem 2rem; text-align: center; margin: 1.8rem 0; box-shadow: var(--shadow-md); }
+  .formule-kader .fk-naam { font-family: 'Source Sans 3', sans-serif; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--gold); opacity: 0.8; display: block; margin-bottom: 0.6rem; }
+  .formule-kader math { color: white; font-size: 1.3rem; display: block; }
+  .formule-kader .fk-uitleg { margin-top: 0.9rem; font-size: 0.88rem; color: rgba(250,246,239,0.7); line-height: 1.6; }
+
+  /* ── TABEL WRAP ─────────────────────────────────────── */
+  .tabel-wrap { margin: 1.8rem 0; overflow-x: auto; border-radius: var(--border-radius); box-shadow: var(--shadow-sm); }
+  .tabel-wrap table { width: 100%; border-collapse: collapse; font-size: 0.96rem; }
+  .tabel-wrap th { background: var(--darkblue); color: var(--gold); padding: 0.75rem 1rem; text-align: left; font-family: 'Source Sans 3', sans-serif; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; }
+  .tabel-wrap td { padding: 0.65rem 1rem; border-bottom: 1px solid rgba(200,146,58,0.2); color: var(--text-mid); }
+  .tabel-wrap tr:last-child td { border-bottom: none; }
+  .tabel-wrap tr:nth-child(even) td { background: rgba(232,220,200,0.3); }
+
+  /* ── REKENVOORBEELD ─────────────────────────────────── */
+  .rekenvoorbeeld { background: #FFF8F0; border-left: 4px solid var(--oker); border-radius: 0 var(--border-radius) var(--border-radius) 0; padding: 1.2rem 1.5rem; margin: 1.8rem 0; }
+  .rekenvoorbeeld .rv-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--oker); display: block; margin-bottom: 0.35rem; }
+  .rekenvoorbeeld .rv-vraag { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--darkblue); margin-bottom: 1rem; line-height: 1.4; }
+  .rv-stappen { list-style: none; padding: 0; counter-reset: stap-teller; margin-bottom: 1rem; }
+  .rv-stappen li { counter-increment: stap-teller; padding: 0.6rem 0.8rem 0.6rem 3.2rem; position: relative; background: var(--creme); border-radius: 4px; margin-bottom: 0.4rem; font-size: 0.97rem; }
+  .rv-stappen li::before { content: counter(stap-teller); position: absolute; left: 0.6rem; top: 50%; transform: translateY(-50%); background: var(--darkblue); color: white; width: 1.7rem; height: 1.7rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; }
+  .rv-antwoord { background: var(--darkblue); color: var(--gold); padding: 0.75rem 1.1rem; border-radius: 4px; font-weight: 700; font-size: 1rem; }
+
+  /* ── SVG CONTAINER ──────────────────────────────────── */
+  .svg-container { margin: 1.8rem 0; padding: 1.5rem; background: white; border: 1px solid var(--sand); border-radius: var(--border-radius); text-align: center; }
+  .svg-container .svg-caption { font-size: 0.85rem; color: var(--text-light); font-style: italic; display: block; margin-top: 0.75rem; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <span class="label">Natuurwetenschappen &middot; 1A</span>
+  <span class="label label-right">Eerste graad A-stroom</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Natuurwetenschappen &nbsp;&middot;&nbsp; 1A &nbsp;&middot;&nbsp; Fysica</div>
+  <h1>H10 &mdash; Krachten en snelheid</h1>
+  <p class="subtitle">Van het gewicht van een appel tot de snelheid van een trein &mdash; de wetten die beweging beschrijven</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- CHAPTER TITLE BLOCK -->
+  <div style="padding: 2.5rem 0 0.5rem;">
+    <div style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.2em;color:var(--oker);margin-bottom:0.5rem;">H10 &mdash; Fysica</div>
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;color:var(--darkblue);margin-bottom:1.2rem;line-height:1.2;">Krachten en snelheid</h1>
+    <p style="font-size:1.08rem;color:var(--text-mid);line-height:1.8;max-width:720px;border-left:3px solid var(--oker);padding-left:1.2rem;">Elke dag worden we omringd door krachten. Een tas trekt aan je schouder, de wind duwt je fiets opzij, een trampolinespringer stuitert omhoog. In dit hoofdstuk leer je krachten herkennen, beschrijven en berekenen &mdash; en ontdek je hoe krachten bepalen hoe snel iets beweegt.</p>
+  </div>
+
+  <!-- PROLOGUE -->
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Stel je voor &hellip;</span>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p>Isaac Newton zit in zijn tuin, ergens in 1666. Een appel valt van de boom. Een gewone gebeurtenis &mdash; maar Newton denkt dieper na. Waarom valt die appel omlaag? Wat trekt hem naar de grond? Is het dezelfde kracht die de maan in haar baan houdt?</p>
+    <p>Newton besluit dat het dezelfde kracht is: de <em>zwaartekracht</em>. Hij formuleert zijn beroemde wetten, die beschrijven hoe krachten de beweging van voorwerpen bepalen. Drie eeuwen later berekenen ingenieurs met dezelfde wetten de baan van ruimteschepen, de draagkracht van bruggen en de remsystemen van auto&rsquo;s.</p>
+    <p><strong style="color: var(--gold);">Elke kracht die je aanraakt, meet of berekent &mdash; van de kleinste veer tot de grootste kraan &mdash; volgt dezelfde basiswetten. Die leer je in dit hoofdstuk kennen.</strong></p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 1 — KRACHTEN
+  ============================================================ -->
+  <section class="section-block" id="s1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Krachten</h2>
+    </div>
+
+    <p>Een <strong>kracht</strong> is een duw of een trek die op een voorwerp inwerkt. Je kunt een kracht niet zien, maar je kunt haar gevolgen waarnemen: een voorwerp vervormt, versnelt, vertraagt of verandert van richting. Krachten zijn overal: de zwaartekracht trekt alles naar de aarde, spierkracht beweegt je lichaam, een magneet trekt ijzer aan.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9651;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Kracht</span>
+        <p class="begrip-def">Een kracht is een wisselwerking waarbij het ene object het andere een duw of trek geeft. Krachten kunnen een voorwerp vervormen of zijn bewegingstoestand veranderen. Symbool: <strong>F</strong>. Eenheid: Newton (N). Meetinstrument: dynamometer (veerbalans).</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Soorten krachten</h3>
+
+    <p>Er zijn veel verschillende soorten krachten. De meest voorkomende in het dagelijks leven zijn:</p>
+
+    <p><strong>Zwaartekracht (F<sub>z</sub>)</strong> &mdash; De aantrekkingskracht die de Aarde uitoefent op elk voorwerp met massa. De zwaartekracht werkt altijd <em>neerwaarts</em>, recht naar het middelpunt van de Aarde. Hoe groter de massa van een voorwerp, hoe groter de zwaartekracht. Op Aarde geldt: F<sub>z</sub> &asymp; 10 N per kilogram massa. Een persoon van 60 kg ervaart dus een zwaartekracht van ongeveer 600 N.</p>
+
+    <p><strong>Normaalkracht (F<sub>N</sub>)</strong> &mdash; De kracht die een oppervlak uitoefent op een voorwerp dat erop rust, loodrecht (= rechthoekig) op dat oppervlak. Een boek dat op een tafel ligt, wordt omlaag getrokken door de zwaartekracht, maar de tafel oefent een even grote kracht omhoog uit: de normaalkracht. Zonder normaalkracht zou het boek door de tafel zakken.</p>
+
+    <p><strong>Wrijvingskracht (F<sub>w</sub>)</strong> &mdash; De kracht die beweging tegengaat of de neiging tot beweging vermindert tussen twee oppervlakken die met elkaar in contact zijn. Wrijving zorgt ervoor dat je kunt lopen zonder uit te glijden, maar ook dat een rijdend voorwerp vertraagt als er geen aandrijving is. Ruw oppervlak &rarr; grote wrijving; glad oppervlak &rarr; kleine wrijving.</p>
+
+    <p><strong>Veerkracht (F<sub>v</sub>)</strong> &mdash; De kracht die een uitgerekte of samengedrukte veer uitoefent. Een veer die je uitrekt, trekt terug; een veer die je samendrukt, duwt terug. Hoe meer je een veer vervormt, hoe groter de veerkracht (Hookesche wet).</p>
+
+    <p><strong>Actief uitgeoefende krachten</strong> &mdash; Trekkracht, duwkracht, spierkracht, motorkracht: krachten die wij of machines actief uitoefenen. Je duwt een kar, een motor trekt een trein voort, een spier buigt een gewricht.</p>
+
+    <p><strong>Luchtweerstand</strong> &mdash; Een bijzondere vorm van wrijving: de wrijving van een voorwerp met de lucht. Hoe sneller een voorwerp beweegt, hoe groter de luchtweerstand. Hoe groter het oppervlak dat de lucht raakt (frontaal oppervlak), hoe groter de weerstand. Daarom rijden wielrenners gebogen voorover en hebben sprintraces gestroomlijnde pakken.</p>
+
+    <div class="tabel-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Kracht</th>
+            <th>Symbool</th>
+            <th>Oorzaak</th>
+            <th>Richting</th>
+            <th>Voorbeeld</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Zwaartekracht</strong></td>
+            <td>F<sub>z</sub></td>
+            <td>Massa van voorwerp + Aarde</td>
+            <td>Neerwaarts, naar middelpunt Aarde</td>
+            <td>Appel valt van boom</td>
+          </tr>
+          <tr>
+            <td><strong>Normaalkracht</strong></td>
+            <td>F<sub>N</sub></td>
+            <td>Contact met oppervlak</td>
+            <td>Loodrecht op oppervlak, omhoog</td>
+            <td>Boek op tafel wordt omhooggeduwd</td>
+          </tr>
+          <tr>
+            <td><strong>Wrijvingskracht</strong></td>
+            <td>F<sub>w</sub></td>
+            <td>Contact tussen twee oppervlakken</td>
+            <td>Tegengesteld aan beweging</td>
+            <td>Remmen van fiets, lopen zonder glijden</td>
+          </tr>
+          <tr>
+            <td><strong>Veerkracht</strong></td>
+            <td>F<sub>v</sub></td>
+            <td>Vervormd elastisch materiaal</td>
+            <td>Naar evenwichtsstand van de veer</td>
+            <td>Trampoline, veerbalans, matras</td>
+          </tr>
+          <tr>
+            <td><strong>Spierkracht</strong></td>
+            <td>F<sub>spier</sub></td>
+            <td>Spiercontractie</td>
+            <td>Naar waar de spier trekt</td>
+            <td>Gewicht optillen, bal gooien</td>
+          </tr>
+          <tr>
+            <td><strong>Luchtweerstand</strong></td>
+            <td>F<sub>lw</sub></td>
+            <td>Botsing met luchtdeeltjes</td>
+            <td>Tegengesteld aan bewegingsrichting</td>
+            <td>Wind rem op fiets, parachute</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="experiment-kader">
+      <span class="exp-label">Experiment</span>
+      <span class="exp-title">Krachten meten met een dynamometer</span>
+      <ul class="exp-stappen">
+        <li>Neem een dynamometer (veerbalans) en kijk naar de schaalverdeling. Let op de eenheid: Newton (N).</li>
+        <li>Hang verschillende voorwerpen aan de dynamometer en lees telkens de kracht af. Noteer: voorwerp, massa (in kg) en afgelezen kracht (in N). Wat merk je op?</li>
+        <li>Leg een boek op de tafel. Trek het boek horizontaal voort met de dynamometer (snel en traag). Vergelijk de krachten: wanneer is de wrijving het grootst?</li>
+        <li>Leg hetzelfde boek op een ruwe ondergrond (handdoek) en een gladde ondergrond (plastic map). Meet telkens de kracht nodig om het te doen bewegen. Wat besluit je over oppervlakruwheid en wrijving?</li>
+        <li>Reken na: is de gemeten kracht van een voorwerp in Newton gelijk aan de massa &times; 10? Klopt die formule voor alle voorwerpen die je gemeten hebt?</li>
+      </ul>
+    </div>
+
+    <div class="wetenschaps-kader">
+      <span class="wk-label">Wetenschapsweetje &mdash; Zwaartekracht op de maan</span>
+      <p class="wk-body">Op de maan is de zwaartekracht <strong>6&times; kleiner</strong> dan op Aarde. Een persoon van 600 N (dat is een massa van &plusmn;60 kg) op Aarde weegt op de maan slechts <strong>100 N</strong>. Je zou er zes keer zo hoog kunnen springen! Maar zijn <strong>massa van 60 kg verandert niet</strong> &mdash; massa is de hoeveelheid materie in een lichaam en hangt niet af van de zwaartekracht. Gewicht (in Newton) is de kracht die de zwaartekracht uitoefent op die massa &mdash; <em>dat</em> verandert wel.</p>
+    </div>
+
+  </section>
+
+  <!-- ============================================================
+       SECTION 2 — VECTORIËLE KENMERKEN
+  ============================================================ -->
+  <section class="section-block" id="s2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Vectori&euml;le kenmerken van een kracht</h2>
+    </div>
+
+    <p>Een kracht is meer dan alleen een getal. Om een kracht volledig te beschrijven heb je vier kenmerken nodig. Dat maakt een kracht een <strong>vectori&euml;le grootheid</strong>.</p>
+
+    <h3 class="sub-heading">De vier kenmerken van een kracht</h3>
+
+    <p><strong>1. Aangrijpingspunt</strong> &mdash; De plek op het voorwerp waar de kracht inwerkt. Je duwt een doos aan de linkerkant of de rechterkant: het effect is anders, ook al is de kracht even groot.</p>
+
+    <p><strong>2. Werkingslijn</strong> &mdash; De rechte lijn die de richting van de kracht aangeeft, verlengd naar beide kanten. De werkingslijn loopt door het aangrijpingspunt en heeft de richting van de kracht.</p>
+
+    <p><strong>3. Richting en zin</strong> &mdash; Naar welke kant de kracht wijst langs de werkingslijn. Twee krachten kunnen dezelfde werkingslijn hebben maar tegengestelde zin: &ldquo;naar rechts&rdquo; of &ldquo;naar links&rdquo;. We stellen een kracht voor als een <strong>pijl</strong>: de punt wijst in de zin van de kracht.</p>
+
+    <p><strong>4. Grootte</strong> &mdash; Hoe sterk de kracht is, uitgedrukt in <strong>Newton (N)</strong>. Groter getal = sterkere kracht. De lengte van de pijl in een diagram stelt de grootte voor.</p>
+
+    <div class="svg-container">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 200" width="100%" aria-label="Vectoriële kenmerken van een kracht">
+        <defs>
+          <marker id="arrowForce" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#D4A017"/>
+          </marker>
+          <marker id="arrowWL" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="#6B5F4A" opacity="0.5"/>
+          </marker>
+        </defs>
+        <!-- Voorwerp -->
+        <rect x="160" y="80" width="100" height="70" rx="4" fill="#1A2B4A" opacity="0.9"/>
+        <text x="210" y="120" font-family="'Source Sans 3',sans-serif" font-size="13" fill="#FAF6EF" text-anchor="middle" font-weight="600">Voorwerp</text>
+        <!-- Werkingslijn (streepjes) -->
+        <line x1="30" y1="115" x2="490" y2="115" stroke="#6B5F4A" stroke-width="1" stroke-dasharray="6,4" opacity="0.5"/>
+        <!-- Kracht pijl -->
+        <line x1="260" y1="115" x2="400" y2="115" stroke="#D4A017" stroke-width="3" marker-end="url(#arrowForce)"/>
+        <!-- Aangrijpingspunt -->
+        <circle cx="260" cy="115" r="6" fill="#C1440E"/>
+        <!-- Label: Aangrijpingspunt -->
+        <line x1="260" y1="121" x2="260" y2="155" stroke="#C1440E" stroke-width="1.2" stroke-dasharray="3,2"/>
+        <text x="260" y="168" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#C1440E" text-anchor="middle" font-weight="700">Aangrijpingspunt</text>
+        <!-- Label: Werkingslijn -->
+        <text x="72" y="108" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#6B5F4A" text-anchor="middle" font-style="italic">Werkingslijn</text>
+        <!-- Label: Zin (richting pijl) -->
+        <text x="390" y="100" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#D4A017" text-anchor="middle" font-weight="700">Zin</text>
+        <line x1="390" y1="103" x2="390" y2="110" stroke="#D4A017" stroke-width="1.2"/>
+        <!-- Label: Grootte -->
+        <line x1="260" y1="130" x2="400" y2="130" stroke="#D4A017" stroke-width="1.2"/>
+        <line x1="260" y1="126" x2="260" y2="134" stroke="#D4A017" stroke-width="1.2"/>
+        <line x1="400" y1="126" x2="400" y2="134" stroke="#D4A017" stroke-width="1.2"/>
+        <text x="330" y="148" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#C8923A" text-anchor="middle" font-weight="700">Grootte (in N)</text>
+        <!-- F label -->
+        <text x="420" y="111" font-family="'Playfair Display',serif" font-size="17" fill="#D4A017" font-weight="700">F</text>
+      </svg>
+      <span class="svg-caption">De vier vectori&euml;le kenmerken van een kracht: het aangrijpingspunt (rood), de werkingslijn (gestreept), de zin (richting van de pijl) en de grootte (lengte van de pijl in Newton).</span>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#8594;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Vectori&euml;le grootheid</span>
+        <p class="begrip-def">Een grootheid die zowel een <strong>grootte</strong> als een <strong>richting</strong> heeft. Je kunt haar niet volledig beschrijven met alleen een getal. Voorbeelden: kracht, snelheid, verplaatsing.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9632;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Scalaire grootheid</span>
+        <p class="begrip-def">Een grootheid die alleen een <strong>grootte</strong> heeft, zonder richting. Een getal met eenheid volstaat. Voorbeelden: massa, temperatuur, tijd, energie.</p>
+      </div>
+    </div>
+
+    <div class="tabel-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Grootheid</th>
+            <th>Scalair of vectorieel?</th>
+            <th>Eenheid</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Massa</td>
+            <td>Scalair</td>
+            <td>kilogram (kg)</td>
+          </tr>
+          <tr>
+            <td>Kracht</td>
+            <td><strong>Vectorieel</strong></td>
+            <td>Newton (N)</td>
+          </tr>
+          <tr>
+            <td>Snelheid</td>
+            <td><strong>Vectorieel</strong></td>
+            <td>m/s of km/h</td>
+          </tr>
+          <tr>
+            <td>Temperatuur</td>
+            <td>Scalair</td>
+            <td>graden Celsius (&deg;C)</td>
+          </tr>
+          <tr>
+            <td>Verplaatsing</td>
+            <td><strong>Vectorieel</strong></td>
+            <td>meter (m)</td>
+          </tr>
+          <tr>
+            <td>Tijd</td>
+            <td>Scalair</td>
+            <td>seconde (s)</td>
+          </tr>
+          <tr>
+            <td>Gewicht</td>
+            <td><strong>Vectorieel</strong></td>
+            <td>Newton (N)</td>
+          </tr>
+          <tr>
+            <td>Energie</td>
+            <td>Scalair</td>
+            <td>Joule (J)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </section>
+
+  <!-- ============================================================
+       SECTION 3 — UITWERKING VAN KRACHTEN
+  ============================================================ -->
+  <section class="section-block" id="s3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Uitwerking van krachten</h2>
+    </div>
+
+    <p>Wanneer een kracht op een voorwerp inwerkt, kan er twee dingen gebeuren: het voorwerp <strong>vervormt</strong>, of zijn <strong>bewegingstoestand verandert</strong>. Soms gebeuren beide tegelijk. We noemen dit de <em>statische</em> en de <em>dynamische</em> uitwerking van een kracht.</p>
+
+    <h3 class="sub-heading">Statische uitwerking: vervorming</h3>
+
+    <p>Bij een statische uitwerking verandert de <strong>vorm</strong> van het voorwerp, maar zijn bewegingstoestand niet. De kracht drukt, trekt, buigt of draait het materiaal.</p>
+
+    <p>We onderscheiden twee soorten vervorming:</p>
+
+    <p><strong>Elastische vervorming</strong> &mdash; Het voorwerp neemt na het wegnemen van de kracht zijn oorspronkelijke vorm terug aan. Het &ldquo;veert terug&rdquo;. Voorbeelden: een veer uitrekken en loslaten, een rubber band uitrekken, een trampolinedoek dat omlaag buigt en terugspringt, een sportschoen die de schok opvangt bij elke stap.</p>
+
+    <p><strong>Plastische (blijvende) vervorming</strong> &mdash; Het voorwerp behoudt zijn nieuwe vorm nadat de kracht is weggenomen. Voorbeelden: klei pletten en een bol vormen, een auto-onderdeel in een pers stampen, een dent in een auto, een spijker inslaan die krom wordt.</p>
+
+    <p>Of een materiaal elastisch of plastisch vervormt, hangt af van de <strong>grootte van de kracht</strong> en de <strong>eigenschappen van het materiaal</strong>. Staal is elastisch bij kleine krachten, maar plastisch bij heel grote krachten. Klei is al bij kleine krachten plastisch.</p>
+
+    <div class="tabel-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Voorbeeld</th>
+            <th>Soort vervorming</th>
+            <th>Toelichting</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Veer uitrekken en loslaten</td>
+            <td>Elastisch</td>
+            <td>Veer keert terug naar oorspronkelijke lengte</td>
+          </tr>
+          <tr>
+            <td>Klei een andere vorm geven</td>
+            <td>Plastisch</td>
+            <td>Klei behoudt de nieuwe vorm</td>
+          </tr>
+          <tr>
+            <td>Voetbal inschieten</td>
+            <td>Elastisch (kort)</td>
+            <td>Bal vervormt bij contact, veert terug</td>
+          </tr>
+          <tr>
+            <td>Auto-onderdeel persen</td>
+            <td>Plastisch</td>
+            <td>Metaal behoudt geperste vorm</td>
+          </tr>
+          <tr>
+            <td>Brug onder zwaar verkeer</td>
+            <td>Elastisch (ontworpen)</td>
+            <td>Brug buigt iets door maar veert terug</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub-heading">Dynamische uitwerking: verandering van bewegingstoestand</h3>
+
+    <p>Bij een dynamische uitwerking verandert de <strong>bewegingstoestand</strong> van het voorwerp: het begint te bewegen, stopt, versnelt, vertraagt of verandert van richting.</p>
+
+    <p>Er zijn drie soorten dynamische uitwerkingen:</p>
+
+    <p><strong>Versnelling</strong> &mdash; De snelheid neemt toe. Een kracht in de richting van de beweging versnelt het voorwerp. Voorbeelden: gas geven in een auto, een bal trappen, een pijl afschudden van een boog.</p>
+
+    <p><strong>Vertraging</strong> &mdash; De snelheid neemt af. Een kracht <em>tegengesteld</em> aan de bewegingsrichting vertraagt het voorwerp. Voorbeelden: remmen van een fiets, een fietser die bergop rijdt met tegenwind, luchtweerstand op een vallend voorwerp.</p>
+
+    <p><strong>Richtingsverandering</strong> &mdash; De grootte van de snelheid blijft hetzelfde, maar de richting verandert. Dit vereist een kracht <em>loodrecht</em> op de bewegingsrichting. Voorbeeld: een auto die een bocht neemt (de banden grijpen in de weg), een planeet in een cirkelbaan rond de zon.</p>
+
+    <div class="wetenschaps-kader">
+      <span class="wk-label">Newtons eerste wet (vereenvoudigd)</span>
+      <p class="wk-body"><strong>Als de resulterende kracht op een voorwerp gelijk is aan 0 N, verandert zijn bewegingstoestand niet.</strong> Een stilstaand voorwerp blijft stilstaan. Een voorwerp dat beweegt met constante snelheid, blijft dat doen. Je hoeft geen kracht uit te oefenen om een beweging te <em>onderhouden</em> &mdash; je hebt kracht nodig om hem te <em>veranderen</em>. In de ruimte, ver van alle wrijving, zou een object dat je een duw geeft, eeuwig rechtdoor bewegen.</p>
+    </div>
+
+    <div class="tabel-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Situatie</th>
+            <th>Kracht aanwezig?</th>
+            <th>Effect</th>
+            <th>Soort uitwerking</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Bal aftrappen</td>
+            <td>Ja (schop)</td>
+            <td>Bal begint te bewegen</td>
+            <td>Dynamisch: versnelling</td>
+          </tr>
+          <tr>
+            <td>Fiets remt</td>
+            <td>Ja (rem + wrijving)</td>
+            <td>Fiets vertraagt</td>
+            <td>Dynamisch: vertraging</td>
+          </tr>
+          <tr>
+            <td>Auto neemt bocht</td>
+            <td>Ja (banden op weg)</td>
+            <td>Richting verandert</td>
+            <td>Dynamisch: richtingsverandering</td>
+          </tr>
+          <tr>
+            <td>Klei pletten</td>
+            <td>Ja (handkracht)</td>
+            <td>Klei vervormt blijvend</td>
+            <td>Statisch: plastische vervorming</td>
+          </tr>
+          <tr>
+            <td>Veer uitrekken</td>
+            <td>Ja (trekkracht)</td>
+            <td>Veer verlengt, veert terug</td>
+            <td>Statisch: elastische vervorming</td>
+          </tr>
+          <tr>
+            <td>Boek op tafel (in rust)</td>
+            <td>Ja (zwaarte + normaal)</td>
+            <td>Niets verandert</td>
+            <td>Krachtenevenwicht: F<sub>res</sub> = 0 N</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </section>
+
+  <!-- ============================================================
+       SECTION 4 — RESULTERENDE KRACHT
+  ============================================================ -->
+  <section class="section-block" id="s4">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Resulterende kracht</h2>
+    </div>
+
+    <p>In werkelijkheid werken er op de meeste voorwerpen tegelijk <em>meerdere krachten</em>. Een fietser wordt vooruitgetrokken door zijn spierkracht, maar wordt tegengehouden door luchtweerstand en wrijving. We willen weten wat het <em>nettoresultaat</em> is van al die krachten samen: dat is de <strong>resulterende kracht</strong> (F<sub>res</sub>).</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#931;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Resulterende kracht (F<sub>res</sub>)</span>
+        <p class="begrip-def">De enkele kracht die hetzelfde effect heeft als alle krachten samen die op een voorwerp inwerken. Als F<sub>res</sub> = 0 N spreek je van <strong>krachtenevenwicht</strong>.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Krachten samenvoegen langs dezelfde lijn</h3>
+
+    <p><strong>Krachten in dezelfde richting en zin</strong>: optellen. F<sub>res</sub> = F<sub>1</sub> + F<sub>2</sub>. De resulterende kracht heeft dezelfde zin als beide krachten.</p>
+
+    <p><strong>Krachten in tegengestelde richting</strong>: aftrekken. F<sub>res</sub> = F<sub>groot</sub> &minus; F<sub>klein</sub>. De resulterende kracht heeft de zin van de grootste kracht.</p>
+
+    <p><strong>Krachtenevenwicht</strong>: als de krachten in tegengestelde richting even groot zijn, is F<sub>res</sub> = 0 N. Het voorwerp verandert zijn bewegingstoestand niet.</p>
+
+    <div class="svg-container">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260" width="100%" aria-label="Resulterende krachten: drie gevallen">
+        <defs>
+          <marker id="arr1" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#D4A017"/></marker>
+          <marker id="arr2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#C1440E"/></marker>
+          <marker id="arr3" markerWidth="8" markerHeight="6" refX="0" refY="3" orient="auto"><polygon points="8 0,0 3,8 6" fill="#C8923A"/></marker>
+          <marker id="arr4" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#2a6e3f"/></marker>
+        </defs>
+
+        <!-- Case A: Zelfde richting -->
+        <text x="20" y="22" font-family="'Source Sans 3',sans-serif" font-size="12" fill="#1A2B4A" font-weight="700">(a) Zelfde richting: optellen</text>
+        <rect x="220" y="30" width="60" height="34" rx="3" fill="#1A2B4A" opacity="0.85"/>
+        <line x1="140" y1="47" x2="218" y2="47" stroke="#D4A017" stroke-width="2.5" marker-end="url(#arr1)"/>
+        <text x="176" y="42" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#D4A017">F₁ = 20 N</text>
+        <line x1="282" y1="47" x2="370" y2="47" stroke="#D4A017" stroke-width="2.5" marker-end="url(#arr1)"/>
+        <text x="312" y="42" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#D4A017">F₂ = 15 N</text>
+        <text x="395" y="51" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#2a6e3f" font-weight="700">→ F&#8346;&#8337;&#8338; = 35 N</text>
+
+        <!-- Case B: Tegengestelde richting -->
+        <text x="20" y="105" font-family="'Source Sans 3',sans-serif" font-size="12" fill="#1A2B4A" font-weight="700">(b) Tegengesteld: aftrekken</text>
+        <rect x="220" y="112" width="60" height="34" rx="3" fill="#1A2B4A" opacity="0.85"/>
+        <line x1="120" y1="129" x2="218" y2="129" stroke="#D4A017" stroke-width="2.5" marker-end="url(#arr1)"/>
+        <text x="155" y="124" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#D4A017">F₁ = 30 N</text>
+        <line x1="282" y1="129" x2="350" y2="129" stroke="#C8923A" stroke-width="2.5" marker-start="url(#arr3)"/>
+        <text x="295" y="124" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#C8923A">F₂ = 20 N</text>
+        <text x="395" y="133" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#2a6e3f" font-weight="700">→ F&#8346;&#8337;&#8338; = 10 N →</text>
+
+        <!-- Case C: Evenwicht -->
+        <text x="20" y="192" font-family="'Source Sans 3',sans-serif" font-size="12" fill="#1A2B4A" font-weight="700">(c) Evenwicht: F&#8346;&#8337;&#8338; = 0 N</text>
+        <rect x="220" y="199" width="60" height="34" rx="3" fill="#1A2B4A" opacity="0.85"/>
+        <line x1="130" y1="216" x2="218" y2="216" stroke="#D4A017" stroke-width="2.5" marker-end="url(#arr1)"/>
+        <text x="162" y="211" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#D4A017">F₁ = 25 N</text>
+        <line x1="282" y1="216" x2="370" y2="216" stroke="#C8923A" stroke-width="2.5" marker-start="url(#arr3)"/>
+        <text x="298" y="211" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#C8923A">F₂ = 25 N</text>
+        <text x="395" y="220" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#C1440E" font-weight="700">F&#8346;&#8337;&#8338; = 0 N</text>
+      </svg>
+      <span class="svg-caption">Drie gevallen van resulterende krachten: (a) krachten in dezelfde richting worden opgeteld, (b) krachten in tegengestelde richting worden afgetrokken, (c) gelijke krachten in tegengestelde richting: evenwicht.</span>
+    </div>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld 1</span>
+      <p class="rv-vraag">F<sub>1</sub> = 20 N naar rechts en F<sub>2</sub> = 15 N naar rechts werken op een krat. Bereken F<sub>res</sub>.</p>
+      <ol class="rv-stappen">
+        <li>Beide krachten wijzen in <em>dezelfde richting</em> (rechts): we tellen op.</li>
+        <li>F<sub>res</sub> = F<sub>1</sub> + F<sub>2</sub> = 20 N + 15 N = 35 N</li>
+        <li>De richting van F<sub>res</sub> is dezelfde als die van beide krachten: naar rechts.</li>
+      </ol>
+      <p class="rv-antwoord">F<sub>res</sub> = 35 N naar rechts &rarr; de krat versnelt naar rechts.</p>
+    </div>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld 2</span>
+      <p class="rv-vraag">F<sub>1</sub> = 30 N naar rechts en F<sub>2</sub> = 20 N naar links. Bereken F<sub>res</sub>.</p>
+      <ol class="rv-stappen">
+        <li>De krachten wijzen in <em>tegengestelde richtingen</em>: we trekken de kleinste van de grootste af.</li>
+        <li>F<sub>res</sub> = 30 N &minus; 20 N = 10 N</li>
+        <li>De richting van F<sub>res</sub> is de richting van de grootste kracht: naar rechts.</li>
+      </ol>
+      <p class="rv-antwoord">F<sub>res</sub> = 10 N naar rechts &rarr; het voorwerp beweegt of versnelt naar rechts.</p>
+    </div>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld 3</span>
+      <p class="rv-vraag">F<sub>1</sub> = 25 N naar rechts en F<sub>2</sub> = 25 N naar links. Bereken F<sub>res</sub> en beschrijf wat er met het voorwerp gebeurt.</p>
+      <ol class="rv-stappen">
+        <li>Tegengestelde richtingen, gelijke grootte: F<sub>res</sub> = 25 N &minus; 25 N = 0 N.</li>
+        <li>Als F<sub>res</sub> = 0 N spreek je van <strong>krachtenevenwicht</strong>.</li>
+        <li>Volgens de eerste wet van Newton: geen verandering in bewegingstoestand. Als het voorwerp stilstond, blijft het stilstaan. Bewoog het al met constante snelheid, dan blijft het dat doen.</li>
+      </ol>
+      <p class="rv-antwoord">F<sub>res</sub> = 0 N &rarr; krachtenevenwicht: geen verandering in bewegingstoestand.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag &mdash; De kraan op de werf</div>
+      <p class="dv-text">Een kraandrijver trekt een container omhoog met een trekkracht van 5000 N. De zwaartekracht op de container is 4800 N naar beneden.<br><br>
+      (a) Wat is de resulterende kracht op de container?<br>
+      (b) In welke richting beweegt de container?<br>
+      (c) Stel dat de kraandrijver nu exact 4800 N trekt. Wat gebeurt er dan met de bewegingstoestand?</p>
+    </div>
+
+    <div class="wetenschaps-kader">
+      <span class="wk-label">Wetenschapsweetje &mdash; Vliegtuig in kruisvlucht</span>
+      <p class="wk-body">Een vliegtuig op kruishoogte wordt door <strong>vier krachten</strong> in evenwicht gehouden: de <strong>stuwkracht</strong> (motoren, naar voor) is even groot als de <strong>luchtweerstand</strong> (naar achter), en de <strong>liftkracht</strong> (vleugels, naar boven) is even groot als de <strong>zwaartekracht</strong> (naar beneden). Omdat F<sub>res</sub> = 0 N in beide richtingen, vliegt het vliegtuig met <em>constante snelheid op constante hoogte</em> &mdash; zonder meer motorvermogen dan nodig is om die balans te handhaven.</p>
+    </div>
+
+  </section>
+
+  <!-- ============================================================
+       SECTION 5 — CONSTANTE SNELHEID
+  ============================================================ -->
+  <section class="section-block" id="s5">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Constante snelheid</h2>
+    </div>
+
+    <p>Snelheid geeft aan hoe snel een voorwerp beweegt: hoeveel afstand het aflegt per tijdseenheid. Een fiets rijdt 15 km per uur; een sprinter loopt 10 meter per seconde. Om snelheid te berekenen hebben we twee grootheden nodig: de afgelegde weg (&Delta;x) en de tijdsduur (&Delta;t).</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#10132;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Snelheid (v)</span>
+        <p class="begrip-def">De afgelegde weg per tijdseenheid. Symbool: <strong>v</strong>. Eenheid: meter per seconde (m/s) of kilometer per uur (km/h). Snelheid is een vectori&euml;le grootheid: ze heeft zowel grootte als richting. De <em>grootte</em> van de snelheid noemen we ook het <em>tempo</em> of de snelheidswaarde.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#8596;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Verplaatsing (&Delta;x)</span>
+        <p class="begrip-def">De afstand die een voorwerp aflegt. Het Griekse letter &Delta; (delta) betekent &ldquo;verandering van&rdquo;. Eenheid: meter (m) of kilometer (km).</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128336;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Tijdsduur (&Delta;t)</span>
+        <p class="begrip-def">De tijd die verloopt tijdens de beweging. Eenheid: seconde (s), maar ook minuten (min) of uren (h) worden gebruikt. Let op: zet altijd om naar dezelfde eenheid v&oacute;&oacute;r je berekent!</p>
+      </div>
+    </div>
+
+    <div class="formule-kader">
+      <span class="fk-naam">Formule voor snelheid</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <mi>v</mi>
+          <mo>=</mo>
+          <mfrac>
+            <mrow><mi>&Delta;</mi><mi>x</mi></mrow>
+            <mrow><mi>&Delta;</mi><mi>t</mi></mrow>
+          </mfrac>
+        </mrow>
+      </math>
+      <p class="fk-uitleg">
+        <strong style="color:var(--gold);">v</strong> = snelheid (m/s of km/h) &nbsp;&nbsp;|&nbsp;&nbsp;
+        <strong style="color:var(--gold);">&Delta;x</strong> = verplaatsing (m of km) &nbsp;&nbsp;|&nbsp;&nbsp;
+        <strong style="color:var(--gold);">&Delta;t</strong> = tijdsduur (s of h)<br>
+        Afgeleid: &Delta;x = v &times; &Delta;t &nbsp;&nbsp;|&nbsp;&nbsp; &Delta;t = &Delta;x / v
+      </p>
+    </div>
+
+    <h3 class="sub-heading">Constante snelheid</h3>
+
+    <p>Een voorwerp beweegt met <strong>constante snelheid</strong> als het in gelijke tijdsintervallen steeds even grote stukken weg aflegt. Op een positie-tijdgrafiek ziet dat eruit als een rechte lijn (zie sectie 7). Een auto op de snelweg met cruisecontrol op 120 km/h, een trein op een rechte spoorlijn &mdash; dat zijn voorbeelden van (benadering van) constante snelheid.</p>
+
+    <p>Constante snelheid vereist krachtenevenwicht: de motorkracht compenseert exact de wrijving en luchtweerstand. F<sub>res</sub> = 0 N.</p>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld 1</span>
+      <p class="rv-vraag">Een fietser rijdt 24 km in 40 minuten. Bereken zijn gemiddelde snelheid in km/h en m/s.</p>
+      <ol class="rv-stappen">
+        <li>Zet de tijd om naar uren: &Delta;t = 40 min = 40/60 h &asymp; 0,667 h</li>
+        <li>Bereken de snelheid in km/h: v = &Delta;x / &Delta;t = 24 km / 0,667 h = 36 km/h</li>
+        <li>Zet om naar m/s (deel door 3,6): v = 36 / 3,6 = 10 m/s</li>
+      </ol>
+      <p class="rv-antwoord">v = 36 km/h = 10 m/s</p>
+    </div>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld 2</span>
+      <p class="rv-vraag">Een trein rijdt met een constante snelheid van 200 km/h. Hoelang duurt een rit van 450 km?</p>
+      <ol class="rv-stappen">
+        <li>Gebruik de formule: &Delta;t = &Delta;x / v = 450 km / 200 km/h = 2,25 h</li>
+        <li>Zet de decimalen om naar minuten: 0,25 h &times; 60 min/h = 15 min</li>
+        <li>Totale rijtijd: 2 uur en 15 minuten</li>
+      </ol>
+      <p class="rv-antwoord">&Delta;t = 2 uur 15 minuten</p>
+    </div>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld 3</span>
+      <p class="rv-vraag">Een atleet sprint met een constante snelheid van 8 m/s. Hoever loopt hij in 45 seconden?</p>
+      <ol class="rv-stappen">
+        <li>Gebruik de formule: &Delta;x = v &times; &Delta;t</li>
+        <li>&Delta;x = 8 m/s &times; 45 s = 360 m</li>
+      </ol>
+      <p class="rv-antwoord">&Delta;x = 360 m</p>
+    </div>
+
+  </section>
+
+  <!-- ============================================================
+       SECTION 6 — EENHEDEN EN OMZETTINGEN
+  ============================================================ -->
+  <section class="section-block" id="s6">
+    <div class="section-heading">
+      <span class="section-num">6</span>
+      <h2 class="section-title">Eenheden en omzettingen</h2>
+    </div>
+
+    <p>In de wetenschap werk je met de SI-eenheden (Internationaal Stelsel). Voor snelheid is de basisenheid <strong>meter per seconde (m/s)</strong>. In het dagelijks leven gebruiken we ook <strong>kilometer per uur (km/h)</strong>. Het is essentieel om vlot tussen die twee te kunnen omzetten.</p>
+
+    <h3 class="sub-heading">Waarom is 1 km/h gelijk aan 1/3,6 m/s?</h3>
+
+    <p>1 km/h betekent: 1 kilometer per uur. We zetten beide eenheden om naar de basisgrootheden:</p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1rem;">
+      <li style="margin-bottom:0.4rem">1 km = 1000 m</li>
+      <li style="margin-bottom:0.4rem">1 uur = 3600 seconden</li>
+    </ul>
+
+    <div class="formule-kader">
+      <span class="fk-naam">Omzetting km/h &harr; m/s</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <mn>1</mn>
+          <mspace width="0.3em"/>
+          <mfrac>
+            <mi>km</mi>
+            <mi>h</mi>
+          </mfrac>
+          <mo>=</mo>
+          <mfrac>
+            <mrow><mn>1000</mn><mspace width="0.2em"/><mi>m</mi></mrow>
+            <mrow><mn>3600</mn><mspace width="0.2em"/><mi>s</mi></mrow>
+          </mfrac>
+          <mo>=</mo>
+          <mfrac>
+            <mn>1</mn>
+            <mn>3,6</mn>
+          </mfrac>
+          <mspace width="0.3em"/>
+          <mfrac>
+            <mi>m</mi>
+            <mi>s</mi>
+          </mfrac>
+        </mrow>
+      </math>
+      <p class="fk-uitleg">
+        <strong style="color:var(--gold);">km/h &rarr; m/s:</strong> deel door 3,6 &nbsp;&nbsp;|&nbsp;&nbsp;
+        <strong style="color:var(--gold);">m/s &rarr; km/h:</strong> vermenigvuldig met 3,6
+      </p>
+    </div>
+
+    <div class="tabel-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Snelheid (km/h)</th>
+            <th>Snelheid (m/s)</th>
+            <th>Context</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>30 km/h</td><td>8,3 m/s</td><td>Snelheidszone in woonwijk</td></tr>
+          <tr><td>50 km/h</td><td>13,9 m/s</td><td>Snelheid in bebouwde kom</td></tr>
+          <tr><td>90 km/h</td><td>25,0 m/s</td><td>Gewestweg buiten bebouwde kom</td></tr>
+          <tr><td>120 km/h</td><td>33,3 m/s</td><td>Autosnelweg Belgi&euml;</td></tr>
+          <tr><td>140 km/h</td><td>38,9 m/s</td><td>Hogere snelheidslimiet (NL)</td></tr>
+          <tr><td>18,0 km/h</td><td>5 m/s</td><td>Wandelende jogger</td></tr>
+          <tr><td>36,0 km/h</td><td>10 m/s</td><td>Rustige fietser</td></tr>
+          <tr><td>108 km/h</td><td>30 m/s</td><td>Snelle auto op ring</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub-heading">Afstand omzetten</h3>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1rem;">
+      <li style="margin-bottom:0.4rem"><strong>1 km = 1000 m</strong> &nbsp;(vermenigvuldig met 1000 om km &rarr; m; deel door 1000 om m &rarr; km)</li>
+      <li style="margin-bottom:0.4rem"><strong>1 m = 100 cm</strong> &nbsp;(vermenigvuldig met 100 om m &rarr; cm; deel door 100 om cm &rarr; m)</li>
+    </ul>
+
+    <h3 class="sub-heading">Tijd omzetten</h3>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1rem;">
+      <li style="margin-bottom:0.4rem"><strong>1 uur (h) = 60 minuten (min) = 3600 seconden (s)</strong></li>
+      <li style="margin-bottom:0.4rem"><strong>1 minuut (min) = 60 seconden (s)</strong></li>
+    </ul>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld 1</span>
+      <p class="rv-vraag">Zet 72 km/h om naar m/s.</p>
+      <ol class="rv-stappen">
+        <li>Gebruik de omzetting: m/s = km/h &divide; 3,6</li>
+        <li>v = 72 / 3,6 = 20 m/s</li>
+      </ol>
+      <p class="rv-antwoord">72 km/h = 20 m/s</p>
+    </div>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld 2</span>
+      <p class="rv-vraag">Zet 15 m/s om naar km/h.</p>
+      <ol class="rv-stappen">
+        <li>Gebruik de omzetting: km/h = m/s &times; 3,6</li>
+        <li>v = 15 &times; 3,6 = 54 km/h</li>
+      </ol>
+      <p class="rv-antwoord">15 m/s = 54 km/h</p>
+    </div>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld 3</span>
+      <p class="rv-vraag">Zet 2 uur 30 minuten om naar seconden.</p>
+      <ol class="rv-stappen">
+        <li>Zet uren om: 2 h &times; 3600 s/h = 7200 s</li>
+        <li>Zet minuten om: 30 min &times; 60 s/min = 1800 s</li>
+        <li>Totaal: 7200 s + 1800 s = 9000 s</li>
+      </ol>
+      <p class="rv-antwoord">2 uur 30 minuten = 9000 seconden</p>
+    </div>
+
+  </section>
+
+  <!-- ============================================================
+       SECTION 7 — POSITIE-TIJD GRAFIEKEN
+  ============================================================ -->
+  <section class="section-block" id="s7">
+    <div class="section-heading">
+      <span class="section-num">7</span>
+      <h2 class="section-title">Positie-tijdgrafieken</h2>
+    </div>
+
+    <p>Een <strong>positie-tijdgrafiek</strong> (ook wel <em>x-t-grafiek</em> of <em>plaatsgrafiek</em> genannt) toont hoe de positie van een voorwerp verandert in de tijd. De <strong>y-as</strong> (verticaal) geeft de positie in meter, de <strong>x-as</strong> (horizontaal) geeft de tijd in seconden.</p>
+
+    <p>Door de grafiek te lezen kun je veel afleiden over de beweging: staat het voorwerp stil? Beweegt het snel of traag? Keert het terug?</p>
+
+    <h3 class="sub-heading">Wat zegt de helling?</h3>
+
+    <p>De <strong>helling</strong> (ook: rico, rico, of steilheid) van de lijn in een x-t-grafiek geeft de snelheid:</p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1rem;">
+      <li style="margin-bottom:0.5rem"><strong>Steile helling omhoog</strong> = grote snelheid voorwaarts</li>
+      <li style="margin-bottom:0.5rem"><strong>Flauwe helling omhoog</strong> = kleine snelheid voorwaarts</li>
+      <li style="margin-bottom:0.5rem"><strong>Horizontale lijn</strong> = het voorwerp staat stil (&Delta;x = 0, maar de tijd verstrijkt)</li>
+      <li style="margin-bottom:0.5rem"><strong>Negatieve helling</strong> = het voorwerp beweegt terug (positie neemt af)</li>
+      <li style="margin-bottom:0.5rem"><strong>Rechte lijn</strong> = constante snelheid (even steil over het hele segment)</li>
+    </ul>
+
+    <p>De snelheid bereken je uit de grafiek met:</p>
+
+    <div class="formule-kader">
+      <span class="fk-naam">Snelheid uit grafiek</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <mi>v</mi>
+          <mo>=</mo>
+          <mfrac>
+            <mrow><mi>&Delta;</mi><mi>x</mi></mrow>
+            <mrow><mi>&Delta;</mi><mi>t</mi></mrow>
+          </mfrac>
+          <mo>=</mo>
+          <mfrac>
+            <mtext>stijging</mtext>
+            <mtext>loop</mtext>
+          </mfrac>
+          <mo>=</mo>
+          <mtext>helling van de lijn</mtext>
+        </mrow>
+      </math>
+      <p class="fk-uitleg">Kies twee punten op de lijn, bereken het verschil in positie (&Delta;x = x<sub>2</sub> &minus; x<sub>1</sub>) en het verschil in tijd (&Delta;t = t<sub>2</sub> &minus; t<sub>1</sub>). Deel &Delta;x door &Delta;t om de snelheid te krijgen.</p>
+    </div>
+
+    <div class="svg-container">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 310" width="100%" aria-label="Positie-tijdgrafiek met vier segmenten">
+        <!-- Assen -->
+        <defs>
+          <marker id="axArr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#1A2B4A"/></marker>
+        </defs>
+        <!-- Y-as -->
+        <line x1="60" y1="260" x2="60" y2="20" stroke="#1A2B4A" stroke-width="2" marker-end="url(#axArr)"/>
+        <!-- X-as -->
+        <line x1="60" y1="260" x2="490" y2="260" stroke="#1A2B4A" stroke-width="2" marker-end="url(#axArr)"/>
+        <!-- Y-as label -->
+        <text x="15" y="145" font-family="'Source Sans 3',sans-serif" font-size="13" fill="#1A2B4A" text-anchor="middle" transform="rotate(-90,15,145)">Positie x (m)</text>
+        <!-- X-as label -->
+        <text x="490" y="278" font-family="'Source Sans 3',sans-serif" font-size="13" fill="#1A2B4A" text-anchor="end">Tijd t (s)</text>
+
+        <!-- Rasterlijnen en y-ticks -->
+        <g stroke="#E8DCC8" stroke-width="1">
+          <line x1="60" y1="220" x2="480" y2="220"/>
+          <line x1="60" y1="180" x2="480" y2="180"/>
+          <line x1="60" y1="140" x2="480" y2="140"/>
+          <line x1="60" y1="100" x2="480" y2="100"/>
+          <line x1="60" y1="60" x2="480" y2="60"/>
+        </g>
+        <!-- y labels -->
+        <g font-family="'Source Sans 3',sans-serif" font-size="11" fill="#6B5F4A" text-anchor="end">
+          <text x="55" y="224">20</text>
+          <text x="55" y="184">40</text>
+          <text x="55" y="144">60</text>
+          <text x="55" y="104">80</text>
+          <text x="55" y="64">100</text>
+        </g>
+        <!-- x-ticks en labels -->
+        <g font-family="'Source Sans 3',sans-serif" font-size="11" fill="#6B5F4A" text-anchor="middle">
+          <line x1="144" y1="258" x2="144" y2="264" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="144" y="276">2</text>
+          <line x1="228" y1="258" x2="228" y2="264" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="228" y="276">4</text>
+          <line x1="312" y1="258" x2="312" y2="264" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="312" y="276">6</text>
+          <line x1="396" y1="258" x2="396" y2="264" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="396" y="276">8</text>
+          <line x1="480" y1="258" x2="480" y2="264" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="480" y="276">10</text>
+        </g>
+
+        <!-- Grafieklijn in 4 segmenten -->
+        <!-- Segment 1: stil (t=0 tot t=2), x = 20m -->
+        <line x1="60" y1="220" x2="144" y2="220" stroke="#C1440E" stroke-width="2.5"/>
+        <!-- Segment 2: snel voorwaarts (t=2 tot t=5), x: 20 → 80m -->
+        <line x1="144" y1="220" x2="312" y2="100" stroke="#1A2B4A" stroke-width="2.5"/>
+        <!-- Segment 3: traag voorwaarts (t=5 tot t=7), x: 80 → 100m -->
+        <line x1="312" y1="100" x2="396" y2="60" stroke="#D4A017" stroke-width="2.5"/>
+        <!-- Segment 4: terug (t=7 tot t=10), x: 100 → 40m -->
+        <line x1="396" y1="60" x2="480" y2="140" stroke="#C8923A" stroke-width="2.5"/>
+
+        <!-- Segment labels -->
+        <rect x="62" y="200" width="70" height="18" rx="3" fill="#C1440E" opacity="0.12"/>
+        <text x="97" y="213" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#C1440E" text-anchor="middle" font-weight="700">&#9312; Stilstand</text>
+
+        <text x="200" y="148" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#1A2B4A" font-weight="700">&#9313; Snel voorwaarts</text>
+
+        <text x="336" y="76" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#C8923A" font-weight="700">&#9314; Traag</text>
+
+        <text x="425" y="88" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#C8923A" font-weight="700">&#9315; Terug</text>
+      </svg>
+      <span class="svg-caption">Positie-tijdgrafiek met vier segmenten: (1) stilstand &mdash; horizontale lijn; (2) snelle voorwaartse beweging &mdash; steile positieve helling; (3) trage voorwaartse beweging &mdash; flauwe positieve helling; (4) beweging terug &mdash; negatieve helling (positie neemt af).</span>
+    </div>
+
+    <h3 class="sub-heading">Snelheid berekenen vanuit een grafiek</h3>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Een auto vertrekt van positie 0 m. Na 6 seconden is de auto op positie 120 m. De grafiek toont een rechte lijn. Bereken de snelheid van de auto.</p>
+      <ol class="rv-stappen">
+        <li>Lees van de grafiek af: op t = 0 s is x = 0 m; op t = 6 s is x = 120 m.</li>
+        <li>Bereken &Delta;x: &Delta;x = 120 m &minus; 0 m = 120 m</li>
+        <li>Bereken &Delta;t: &Delta;t = 6 s &minus; 0 s = 6 s</li>
+        <li>Bereken v: v = &Delta;x / &Delta;t = 120 m / 6 s = 20 m/s</li>
+        <li>Zet om naar km/h als gewenst: 20 &times; 3,6 = 72 km/h</li>
+      </ol>
+      <p class="rv-antwoord">v = 20 m/s = 72 km/h</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag &mdash; De bus en de fietser</div>
+      <p class="dv-text">Op een x-t-grafiek zie je twee rechte lijnen: lijn A heeft een steile helling, lijn B een flauwe helling. Beide lijnen beginnen op hetzelfde punt (zelfde startpositie, zelfde starttijd) en lopen naar het volgende station.<br><br>
+      (a) Wie komt sneller aan: A of B?<br>
+      (b) Als lijn A een bus voorstelt (snelheid 50 km/h) en lijn B een fietser, hoelang heeft de fietser nodig als de bus er 10 minuten over doet en de afstand 8,33 km is?<br>
+      (c) Stel dat de fietser eerder vertrekt maar trager rijdt. Teken in gedachten hoe de grafieken er dan uitzien. Op welk punt &ldquo;halen de twee elkaar in&rdquo;?</p>
+    </div>
+
+  </section>
+
+  <!-- CLOSING QUOTE -->
+  <div class="closing-quote" role="note" aria-label="Slotcitaat">
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p class="cq-text">&ldquo;Als ik een appel zie vallen, denk ik niet aan kracht. Ik denk aan de vraag die Newton stelde &mdash; en hoeveel eeuwen wij daarna daarmee konden bouwen.&rdquo;</p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <span class="cq-attribution">Natuurwetenschappen 1A &nbsp;&middot;&nbsp; Eerste Graad A-stroom</span>
+  </div>
+
+</div><!-- end page-wrapper -->
+
+<!-- ============================================================
+     EXERCISES
+============================================================ -->
+<section class="exercises-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <!-- Oefening 1 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Krachten herkennen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Beschrijf voor elke situatie hieronder <strong>alle krachten</strong> die op het vetgedrukte voorwerp inwerken. Geef voor elke kracht: de naam, het symbool en de richting.</p>
+      <ol>
+        <li>Een <strong>boek</strong> ligt stilliggen op een horizontale tafel.</li>
+        <li>Een <strong>parachutist</strong> valt met constante snelheid naar beneden (hij valt niet sneller meer).</li>
+        <li>Een <strong>fietser</strong> rijdt met constante snelheid horizontaal op een vlakke weg.</li>
+        <li>Een <strong>magneet</strong> hangt vast aan een metalen koelkast (denk aan de contactkracht en de zwaartekracht).</li>
+        <li>Een <strong>voetbal</strong> bevindt zich op het moment dat hij door de lucht vliegt (geen spin, geen luchtweerstand buiten beschouwing laten).</li>
+        <li>Een <strong>krat</strong> wordt op een helling omhooggeduwd met een constante kracht. Noem minstens drie krachten.</li>
+      </ol>
+      <p class="ex-tip">Tip: teken voor elke situatie een schetsje met pijlen. Een pijl omhoog = kracht naar boven, enzovoort.</p>
+    </div>
+
+    <!-- Oefening 2 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Vectori&euml;le kenmerken tekenen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Teken voor elke krachtbeschrijving een pijldiagram. Label alle vier vectori&euml;le kenmerken: aangrijpingspunt, werkingslijn, richting/zin en grootte. Gebruik een liniaal en stel 1 cm = 10 N.</p>
+      <ol>
+        <li>Een kracht van 40 N naar rechts, aangrijpend op het midden van een rechthoekige doos.</li>
+        <li>Een kracht van 25 N schuin omhoog (onder 45&deg;), aangrijpend op de linkeronderhoek van een blok.</li>
+        <li>Twee krachten tegelijk op hetzelfde blok: 30 N naar rechts (aangrijpend op midden) en 15 N naar links (aangrijpend op hetzelfde punt). Teken ook de resulterende kracht.</li>
+      </ol>
+      <p class="ex-tip">Tip: de lengte van de pijl stelt de grootte voor. Een pijl van 4 cm = 40 N bij de schaal 1 cm = 10 N.</p>
+    </div>
+
+    <!-- Oefening 3 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Resulterende kracht berekenen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Bereken de resulterende kracht in elke situatie. Geef ook de richting. Is er evenwicht? Zo ja, wat betekent dat voor de bewegingstoestand?</p>
+      <ol>
+        <li>(a) F<sub>1</sub> = 12 N naar rechts, F<sub>2</sub> = 8 N naar rechts</li>
+        <li>(b) F<sub>1</sub> = 45 N naar rechts, F<sub>2</sub> = 30 N naar rechts</li>
+        <li>(c) F<sub>1</sub> = 60 N naar rechts, F<sub>2</sub> = 40 N naar links</li>
+        <li>(d) F<sub>1</sub> = 35 N naar rechts, F<sub>2</sub> = 35 N naar links</li>
+        <li>(e) F<sub>1</sub> = 50 N naar rechts, F<sub>2</sub> = 20 N naar links, F<sub>3</sub> = 15 N naar rechts (drie krachten)</li>
+        <li>(f) <em>Woordprobleem:</em> Een kraan tilt een container op. De trekkracht van de kraan is 12 000 N omhoog. De zwaartekracht op de container is 11 500 N omlaag. (1) Bereken F<sub>res</sub>. (2) In welke richting beweegt de container? (3) Wat moet de trekkracht zijn om de container met constante snelheid te hijsen?</li>
+      </ol>
+    </div>
+
+    <!-- Oefening 4 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 4</p>
+      <p class="ex-name">Snelheid berekenen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Gebruik de formule v = &Delta;x / &Delta;t (of de afgeleide formules). Schrijf altijd de gegeven grootheden op, de formule, de berekening en het antwoord met eenheid.</p>
+      <ol>
+        <li>Een auto legt in 2 uur een afstand af van 150 km. Bereken de gemiddelde snelheid in km/h en m/s.</li>
+        <li>Een trein rijdt 3,5 uur aan 160 km/h. Hoeveel kilometer legt hij af?</li>
+        <li>Een zwemmer zwemt 1500 m aan 1,5 m/s. Hoelang duurt dat in minuten?</li>
+        <li>Een vliegtuig legt 4500 km af in 5 uur. Bereken de gemiddelde snelheid in km/h en m/s.</li>
+        <li>Een loper finisht een marathon (42,195 km) in 3 uur 30 minuten. Bereken zijn gemiddelde snelheid in km/h en m/s.</li>
+        <li>Het licht legt in 1 seconde 300 000 km af. Hoelang doet het licht erover om van de zon (150 000 000 km van de Aarde) naar ons te reizen? Geef het antwoord in minuten.</li>
+      </ol>
+      <p class="ex-tip">Tip bij vraag 5: zet eerst de tijd om naar uren voordat je deelt.</p>
+    </div>
+
+    <!-- Oefening 5 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 5</p>
+      <p class="ex-name">Eenheden omzetten</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Zet de volgende grootheden om naar de gevraagde eenheid. Toon altijd je berekening.</p>
+      <p style="font-size:0.93rem;color:var(--text-mid);font-weight:700;margin-top:0.6rem;">Snelheden:</p>
+      <ol>
+        <li>54 km/h &rarr; m/s</li>
+        <li>108 km/h &rarr; m/s</li>
+        <li>25 m/s &rarr; km/h</li>
+        <li>12,5 m/s &rarr; km/h</li>
+        <li>30 km/h &rarr; m/s</li>
+        <li>7 m/s &rarr; km/h</li>
+        <li>180 km/h &rarr; m/s</li>
+        <li>0,5 m/s &rarr; km/h</li>
+      </ol>
+      <p style="font-size:0.93rem;color:var(--text-mid);font-weight:700;margin-top:0.6rem;">Afstanden:</p>
+      <ol start="9">
+        <li>3,5 km &rarr; m</li>
+        <li>850 m &rarr; km</li>
+        <li>2400 cm &rarr; m</li>
+        <li>0,075 km &rarr; cm</li>
+      </ol>
+      <p style="font-size:0.93rem;color:var(--text-mid);font-weight:700;margin-top:0.6rem;">Tijden:</p>
+      <ol start="13">
+        <li>1 uur 45 minuten &rarr; seconden</li>
+        <li>4500 s &rarr; uur en minuten</li>
+        <li>0,25 uur &rarr; minuten</li>
+        <li>90 minuten &rarr; seconden</li>
+      </ol>
+    </div>
+
+    <!-- Oefening 6 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 6</p>
+      <p class="ex-name">Grafiek lezen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Hieronder is een positie-tijdgrafiek beschreven met 5 segmenten. Gebruik de gegevens om de vragen te beantwoorden.</p>
+      <ul style="font-size:0.93rem;color:var(--text-mid);margin-bottom:0.8rem;">
+        <li><strong>Segment A</strong> (t = 0 tot 3 s): positie stijgt van 0 m tot 60 m</li>
+        <li><strong>Segment B</strong> (t = 3 s tot 5 s): positie blijft constant op 60 m</li>
+        <li><strong>Segment C</strong> (t = 5 s tot 8 s): positie stijgt van 60 m tot 90 m</li>
+        <li><strong>Segment D</strong> (t = 8 s tot 10 s): positie daalt van 90 m tot 50 m</li>
+        <li><strong>Segment E</strong> (t = 10 s tot 12 s): positie blijft constant op 50 m</li>
+      </ul>
+      <ol>
+        <li>Bereken de snelheid in elk segment (A t/m E). Geef de richting mee (+ = voorwaarts, &minus; = achterwaarts).</li>
+        <li>In welke segmenten staat het object stil?</li>
+        <li>Bereken de totale afgelegde <em>afstand</em> (alle bewegingen bij elkaar opgeteld, los van richting).</li>
+        <li>Bereken de netto <em>verplaatsing</em>: hoeveel meter is het object verschoven ten opzichte van zijn startpositie na 12 seconden?</li>
+        <li>(Extra) Teken de grafiek zelf op ruitjespapier en voeg bij elk segment een label toe met de berekende snelheid.</li>
+      </ol>
+      <p class="ex-tip">Tip: totale afstand = som van alle |&Delta;x| per segment (absolute waarden). Netto verplaatsing = eindpositie &minus; startpositie.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SUMMARY
+============================================================ -->
+<section class="summary-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting &mdash; H10: Krachten en snelheid</h2>
+    <ul>
+      <li><strong>Een kracht</strong> is een duw of trek die op een voorwerp inwerkt. Eenheid: Newton (N). Meetinstrument: dynamometer. Krachten hebben twee soorten uitwerking: statisch (vervorming) of dynamisch (verandering van bewegingstoestand).</li>
+      <li><strong>Vier vectori&euml;le kenmerken</strong> beschrijven een kracht volledig: (1) aangrijpingspunt, (2) werkingslijn, (3) richting/zin, (4) grootte in Newton. Kracht is een vectori&euml;le grootheid &mdash; massa en temperatuur zijn scalaire grootheden.</li>
+      <li><strong>Twee soorten uitwerking:</strong> statisch = vervorming (elastisch: veert terug; plastisch: blijvend); dynamisch = verandering van bewegingstoestand (versnelling, vertraging of richtingsverandering). Als F<sub>res</sub> = 0 N: krachtenevenwicht en geen verandering van bewegingstoestand (Newtons eerste wet).</li>
+      <li><strong>Resulterende kracht:</strong> krachten in dezelfde richting optellen; krachten in tegengestelde richting aftrekken. Als F<sub>res</sub> = 0 N &rarr; krachtenevenwicht.</li>
+      <li><strong>Formule snelheid:</strong> v = &Delta;x / &Delta;t, met &Delta;x in meter (of km) en &Delta;t in seconden (of uren). Afgeleid: &Delta;x = v &times; &Delta;t en &Delta;t = &Delta;x / v.</li>
+      <li><strong>Omzetting km/h &harr; m/s:</strong> km/h &divide; 3,6 = m/s &nbsp;&nbsp;|&nbsp;&nbsp; m/s &times; 3,6 = km/h. Dit volgt uit 1 km = 1000 m en 1 uur = 3600 s.</li>
+      <li><strong>Positie-tijdgrafiek (x-t-grafiek):</strong> de helling van de lijn = snelheid. Horizontale lijn = stilstand. Steile positieve helling = grote snelheid voorwaarts. Negatieve helling = terugkerende beweging. Constante snelheid &rarr; rechte lijn.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

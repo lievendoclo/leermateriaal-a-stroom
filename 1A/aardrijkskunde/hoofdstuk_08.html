@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoofdstuk 8 — Duurzaamheid en de 5 P's | Aardrijkskunde 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     ILLUSTRATIE PLACEHOLDERS
+  ============================================================ */
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+    cursor: default;
+    transition: background var(--transition);
+  }
+
+  .illustratie:hover { background: #EDE7D8; }
+
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     BRONMATERIAAL — geographic source / map / data block
+     Key component for Aardrijkskunde: use for map descriptions,
+     climate tables, satellite image descriptions, GPS data, etc.
+  ============================================================ */
+  .bronmateriaal {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 2rem 2.2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .bronmateriaal .bron-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--darkblue);
+    opacity: 0.6;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  .bronmateriaal .bron-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  .bronmateriaal .bron-meta {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    font-style: italic;
+    margin-bottom: 0.9rem;
+    display: block;
+  }
+
+  .bronmateriaal .bron-body { margin-bottom: 0.8rem; }
+
+  .bronmateriaal .bron-body p {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-bottom: 0.6em;
+  }
+
+  .bronmateriaal .bron-body p:last-child { margin-bottom: 0; }
+
+  .bronmateriaal .bron-body table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+  }
+
+  .bronmateriaal .bron-body th {
+    background: var(--darkblue);
+    color: white;
+    padding: 0.4rem 0.75rem;
+    text-align: left;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    font-size: 0.83rem;
+  }
+
+  .bronmateriaal .bron-body td {
+    padding: 0.35rem 0.75rem;
+    border-bottom: 1px solid var(--sand);
+    color: var(--text-mid);
+    font-size: 0.93rem;
+  }
+
+  .bronmateriaal .bron-body tr:last-child td { border-bottom: none; }
+
+  .bronmateriaal .bron-body tr:nth-child(even) td {
+    background: var(--sand-light);
+  }
+
+  .bronmateriaal .bron-vraag {
+    background: rgba(26,43,74,0.06);
+    border-left: 3px solid var(--darkblue);
+    border-radius: 0 4px 4px 0;
+    padding: 0.7rem 1rem;
+    font-size: 0.93rem;
+    color: var(--text-mid);
+    font-style: italic;
+    margin-top: 1rem;
+  }
+
+  .bronmateriaal .bron-vraag::before {
+    content: '🔍 ';
+    font-style: normal;
+  }
+
+  .bronmateriaal .bron-source {
+    font-size: 0.78rem;
+    color: var(--text-light);
+    border-top: 1px solid var(--sand);
+    padding-top: 0.6rem;
+    font-style: italic;
+    margin-top: 0.8rem;
+    display: block;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     CLOSING QUOTE
+  ============================================================ */
+  .closing-quote {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0D1E38 100%);
+    border-radius: var(--border-radius);
+    padding: 3rem 3rem 2.5rem;
+    margin: 3.5rem 0 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.5rem; left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .closing-quote .cq-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--gold);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 1.2rem;
+  }
+
+  .closing-quote .cq-attribution {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(212,160,23,0.6);
+  }
+
+  .closing-quote .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .closing-quote .ornament-line::before,
+  .closing-quote .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.4), transparent);
+  }
+
+  .closing-quote .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.7;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .closing-quote { padding: 2rem 1.2rem 1.8rem; }
+    .bronmateriaal { padding: 1.4rem 1.2rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <a class="label" href="index.html">Aardrijkskunde 1A</a>
+  <span class="label label-right">Hoofdstuk 8</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Aardrijkskunde &nbsp;&middot;&nbsp; 1A &nbsp;&middot;&nbsp; Domein 3</div>
+  <h1>Hoofdstuk 8<br>Duurzaamheid en de 5 P&rsquo;s</h1>
+  <p class="subtitle">Hoe zorgen we voor een eerlijke wereld voor iedereen, nu en later?</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- PROLOGUE -->
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Een verhaal uit de wereld &hellip;</span>
+
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+
+    <p>Ergens in de provincie Katanga, in het oosten van de Democratische Republiek Congo, daalt een jongen van twaalf jaar een smalle schacht in. Het is nog geen zeven uur &rsquo;s ochtends. Hij draagt geen helm, geen veiligheidslaarzen. Zijn handen zijn kaal. Diep onder de grond graven hij en zijn vader met de hand naar kobalt &mdash; een blauwgrijs metaal dat nauwelijks iemand bij naam kent, maar dat iedereen gebruikt.</p>
+
+    <p>Kobalt zit in de batterij van jouw gsm. In die van je laptop, je tablet, de elektrische fiets van je vader. Elke keer dat een nieuwe smartphone uitkomt, neemt de vraag naar kobalt toe. De prijs van een gsm daalt, maar het loon van deze jongen stijgt niet mee. Hij verdient minder dan twee euro per dag. Op slechte dagen minder dan &eacute;&eacute;n.</p>
+
+    <p>Is dit eerlijk? Is dit houdbaar? Kan de wereld blijven draaien op een systeem waarbij de ene kant goedkope producten geniet en de andere kant de prijs betaalt met zijn gezondheid, zijn toekomst, zijn kindertijd?</p>
+
+    <p><strong style="color: var(--gold);">D&iacute;t is precies waar dit hoofdstuk over gaat: duurzaamheid. En de grote vraag die eronder schuilt &mdash; hoe bouwen we een wereld die rechtvaardig is voor iedereen, nu en later?</strong></p>
+
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+  </section>
+
+  <!-- SECTION 1: Wat is duurzaamheid? -->
+  <section class="section-block" id="sectie1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Wat is duurzaamheid?</h2>
+    </div>
+
+    <p>Het woord <em>duurzaamheid</em> hoor je overal: op het nieuws, in reclames, in beleidsdocumenten. Maar wat betekent het eigenlijk, precies? En is het meer dan een modieus begrip?</p>
+
+    <p>De meest gebruikte definitie komt uit 1987. Dat jaar bracht de Noren Gro Harlem Brundtland, als voorzitter van de VN-commissie voor milieu en ontwikkeling, een baanbrekend rapport uit. Daarin werd voor het eerst duidelijk omschreven wat <strong>duurzame ontwikkeling</strong> inhoudt.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#127758;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Duurzame ontwikkeling</span>
+        <p class="begrip-def">Ontwikkeling die voorziet in de behoeften van de huidige generatie zonder de mogelijkheden van toekomstige generaties om in h&uacute;n behoeften te voorzien in gevaar te brengen. (Brundtland-commissie, 1987)</p>
+      </div>
+    </div>
+
+    <p>Die definitie klinkt misschien ingewikkeld, maar de kern is simpel: <strong>gebruik de aarde niet sneller op dan ze zichzelf kan herstellen</strong>. En zorg ervoor dat ook mensen die na ons komen nog genoeg hebben om goed te leven.</p>
+
+    <h3 class="sub-heading">Drie pijlers in evenwicht</h3>
+
+    <p>Duurzame ontwikkeling rust op drie pijlers die <em>allemaal tegelijk</em> in evenwicht moeten zijn:</p>
+
+    <ul style="padding-left:1.4rem; margin: 0.6rem 0 1.2rem;">
+      <li style="margin-bottom:0.5rem"><strong>Ecologisch</strong> &mdash; bescherm de natuur, het klimaat, de biodiversiteit en de bodem.</li>
+      <li style="margin-bottom:0.5rem"><strong>Economisch</strong> &mdash; zorg voor economische groei en welvaart, maar niet ten koste van alles.</li>
+      <li style="margin-bottom:0.5rem"><strong>Sociaal</strong> &mdash; garandeer rechtvaardigheid, gelijke kansen en mensenrechten voor iedereen.</li>
+    </ul>
+
+    <p>Wanneer &eacute;&eacute;n van die pijlers te veel druk krijgt, komt het evenwicht in gevaar. Een land dat economisch groeit door massaal te ontbossen, offert de ecologische pijler op. Een land dat zijn natuur streng beschermt maar zijn bevolking in armoede houdt, verwaarloost de sociale pijler.</p>
+
+    <h3 class="sub-heading">Een concreet voorbeeld: bosbeheer</h3>
+
+    <p>Stel je een bos voor. Je kunt bomen kappen voor hout &mdash; dat levert geld op en voorziet in bouwmateriaal (economisch). Maar als je sneller kapt dan bomen groeien, verdwijnt het bos. Dan verdwijnen ook de dieren die er leven, de rivieren die het bos voeden, de CO&sup2; die het bos opslaat (ecologisch). En de gemeenschappen die van het bos afhangen, verliezen hun bron van inkomsten en voedsel (sociaal).</p>
+
+    <p>Duurzaam bosbeheer betekent: kap alleen zoveel als er bijgroeit. Plant nieuwe bomen. Bescherm kwetsbare zones. Z&oacute; kan het bos blijven bestaan voor de volgende generatie. Dit principe geldt voor alle grondstoffen: vis, water, grond, olie.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128218;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Brundtland-definitie</span>
+        <p class="begrip-def">De omschrijving van duurzame ontwikkeling uit het rapport <em>Our Common Future</em> (1987), opgesteld door de VN-commissie onder leiding van Gro Harlem Brundtland. Dit rapport legde de basis voor het internationale duurzaamheidsbeleid.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- SECTION 2: Het 5P-model -->
+  <section class="section-block" id="sectie2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Het 5P-model</h2>
+    </div>
+
+    <p>Om duurzaamheid concreet te maken, werken de Verenigde Naties met het <strong>5P-model</strong>. Dit model verdeelt duurzame ontwikkeling in vijf grote thema&rsquo;s, elk beginnend met de letter P. Samen vormen ze een raamwerk om de uitdagingen van de wereld te begrijpen &mdash; en aan te pakken.</p>
+
+    <p>De vijf P&rsquo;s zijn: <strong>Planet</strong>, <strong>People</strong>, <strong>Prosperity</strong>, <strong>Peace</strong> en <strong>Partnership</strong>. Ze zijn niet onafhankelijk van elkaar: ze beïnvloeden elkaar voortdurend. Klimaatverandering (Planet) veroorzaakt droogte en hongersnood (People). Armoede (People) kan leiden tot conflict (Peace). Internationale samenwerking (Partnership) is nodig om klimaatakkoorden te bereiken (Planet). Alles hangt samen.</p>
+
+    <!-- Illustratie -->
+    <div class="illustratie" role="img" aria-label="Illustratie: 5P-model infographic">
+      <span class="ill-icon">&#127758;</span>
+      <p class="ill-caption">Infographic van het 5P-model met de vijf cirkels en voorbeelden &mdash; Planet, People, Prosperity, Peace, Partnership (te vervangen door definitieve illustratie)</p>
+    </div>
+
+    <h3 class="sub-heading">Planet &mdash; De aarde beschermen</h3>
+
+    <p>De eerste P staat voor <strong>Planet</strong>: de planeet waarop we leven. Zonder een gezonde aarde is geen enkele andere P mogelijk. Planet gaat over het beschermen van ecosystemen, de biodiversiteit, het klimaat, de bodems en het zoetwater.</p>
+
+    <p>Onze planeet staat onder druk. Door de uitstoot van broeikasgassen warmt de atmosfeer op. Door ontbossing verdwijnen leefgebieden voor duizenden diersoorten. Door overbevissing raken zeebestanden uitgeput. Door plastic afval vervuilen oceanen en rivieren.</p>
+
+    <p><strong>Voorbeelden van acties voor Planet:</strong> het beschermen van tropische regenwouden in Brazili&euml; en Indonesi&euml;, het verbod op plastic zakken in Belgi&euml; en andere Europese landen, de investering in hernieuwbare energie (wind- en zonne-energie), en de aanleg van beschermde zeereservaten.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#127807;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip &mdash; 5P-model</span>
+        <span class="begrip-name">Planet</span>
+        <p class="begrip-def">De P van <em>Planet</em> staat voor het beschermen van de aarde: haar ecosystemen, klimaat, biodiversiteit, bodem en watervoorraden. Zonder een leefbare planeet zijn de andere P&rsquo;s onmogelijk.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">People &mdash; Mensen centraal</h3>
+
+    <p>De tweede P staat voor <strong>People</strong>: de mensen. Duurzaamheid heeft geen zin als mensen in armoede, onwetendheid of onrecht leven. De P van People streeft naar het garanderen van mensenrechten, het be&euml;indigen van extreme armoede, en het verzekeren van basisbehoeften zoals gezondheid, onderwijs en schoon drinkwater voor iedereen.</p>
+
+    <p>Vandaag leven nog altijd meer dan 700 miljoen mensen in extreme armoede (minder dan $2,15 per dag). Meer dan 700 miljoen mensen hebben geen toegang tot veilig drinkwater. Kinderarbeid, zoals bij de kobaltmijnen in Congo, is een schending van de rechten van het kind.</p>
+
+    <p><strong>Voorbeelden van acties voor People:</strong> de aanleg van drinkwaterinstallaties in de Sahel, gratis schoolmaaltijden in Belgi&euml; en andere landen, het internationale Kinderrechtenverdrag van de VN, en programma&rsquo;s voor eerlijk loon in de kledingindustrie.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128104;&#8205;&#128105;&#8205;&#128103;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip &mdash; 5P-model</span>
+        <span class="begrip-name">People</span>
+        <p class="begrip-def">De P van <em>People</em> staat voor het garanderen van mensenrechten, het be&euml;indigen van armoede en het verzekeren van onderwijs, gezondheid en eerlijk loon voor alle mensen op aarde.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Prosperity &mdash; Welvaart voor iedereen</h3>
+
+    <p>De derde P staat voor <strong>Prosperity</strong>: welvaart. Maar niet zomaar economische groei &mdash; groei die ten goede komt aan iedereen, en die de grenzen van de planeet respecteert. Prosperity gaat over eerlijke handel, groene jobs, en een economie die hulpbronnen hergebruikt in plaats van weggooit.</p>
+
+    <p>Vandaag is de wereldeconomie sterk ongelijk verdeeld. De rijkste 1% van de wereldbevolking bezit meer dan de helft van alle rijkdom. Eerlijke handel, zoals het Max Havelaar-keurmerk, probeert producenten in ontwikkelingslanden een eerlijker prijs te geven. De circulaire economie streeft ernaar om producten zo lang mogelijk te gebruiken en grondstoffen te hergebruiken.</p>
+
+    <p><strong>Voorbeelden van acties voor Prosperity:</strong> fair trade-koffie en -cacao, groene jobs in de wind- en zonne-energiesector, circulaire productie waarbij oude telefoons worden hersteld en hergebruikt, en duurzaam toerisme dat lokale gemeenschappen ten goede komt.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128200;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip &mdash; 5P-model</span>
+        <span class="begrip-name">Prosperity</span>
+        <p class="begrip-def">De P van <em>Prosperity</em> staat voor economische ontwikkeling die iedereen ten goede komt en binnen de grenzen van de planeet blijft. Denk aan eerlijke handel, groene jobs en de circulaire economie.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Peace &mdash; Vrede en rechtvaardigheid</h3>
+
+    <p>De vierde P staat voor <strong>Peace</strong>: vrede. Duurzame ontwikkeling is onmogelijk in een wereld vol gewapende conflicten, corruptie en onrecht. Peace gaat over het bouwen van vreedzame, rechtvaardige samenlevingen.</p>
+
+    <p>De link met aardrijkskunde is direct: conflicten hebben vaak een geografische oorzaak. Landen kunnen in conflict geraken over water, land, olie of mineralen. Klimaatverandering kan conflicten uitlokken: als rivieren opdrogen of oogsten mislukken, komen mensen in beweging en kan spanning toenemen. Omgekeerd: conflicten vernietigen landbouwgrond, bossen en waterinfrastructuur. Ze maken duurzame ontwikkeling onmogelijk.</p>
+
+    <p><strong>Voorbeelden van acties voor Peace:</strong> internationale klimaatakkoorden die landen samenwerking opleggen, de verbods op conflictmineralen (grondstoffen uit conflictgebieden), en vredesbemiddeling door de VN in regio&rsquo;s waar klimaatstress leidt tot spanningen.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9774;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip &mdash; 5P-model</span>
+        <span class="begrip-name">Peace</span>
+        <p class="begrip-def">De P van <em>Peace</em> staat voor het bouwen van vreedzame, rechtvaardige samenlevingen zonder conflicten. Conflicten maken duurzame ontwikkeling onmogelijk; klimaatstress kan op zijn beurt nieuwe conflicten uitlokken.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Partnership &mdash; Samenwerking als sleutel</h3>
+
+    <p>De vijfde P staat voor <strong>Partnership</strong>: samenwerking. Geen enkel land, bedrijf of individu kan de grote uitdagingen van onze tijd alleen oplossen. Klimaatverandering, biodiversiteitsverlies, armoede &mdash; dit zijn globale problemen die globale oplossingen vragen.</p>
+
+    <p>Partnership gaat over samenwerking tussen landen, maar ook tussen overheden, bedrijven, ngo&rsquo;s, wetenschappers en gewone burgers. De kracht van partnership is zichtbaar in grote akkoorden: het Klimaatakkoord van Parijs (2015), waarbij 196 landen zich engageerden om de opwarming van de aarde te beperken, werd alleen mogelijk omdat landen samenwerkten over grenzen, talen en belangen heen.</p>
+
+    <p><strong>Voorbeelden van acties voor Partnership:</strong> het Akkoord van Parijs over klimaatverandering, de Europese Green Deal waarbij alle EU-landen samenwerken aan klimaatdoelen, internationale hulporganisaties zoals Oxfam en M&eacute;decins Sans Fronti&egrave;res, en stedenpartnerschappen waarbij Belgische steden samenwerken met Afrikaanse of Aziatische steden.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#129309;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip &mdash; 5P-model</span>
+        <span class="begrip-name">Partnership</span>
+        <p class="begrip-def">De P van <em>Partnership</em> staat voor mondiale samenwerking: tussen landen, overheden, bedrijven, ngo&rsquo;s en burgers. Zonder samenwerking kunnen de grote uitdagingen van duurzame ontwikkeling niet worden opgelost.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- BRONMATERIAAL 1: Krantenartikel -->
+  <div class="bronmateriaal" id="bron1">
+    <span class="bron-label">Bronmateriaal 1 &mdash; Krantenartikel</span>
+    <span class="bron-title">Belgi&euml; wil 50% hernieuwbare energie in 2030</span>
+    <span class="bron-meta">De Morgen &nbsp;&middot;&nbsp; 14 maart 2026 &nbsp;&middot;&nbsp; Door Annelies Verbeke, energie-correspondent</span>
+    <div class="bron-body">
+      <p>De federale regering heeft donderdag haar nieuwe energiestrategie voorgesteld, met als centrale doelstelling dat Belgi&euml; tegen 2030 minstens 50% van zijn elektriciteit haalt uit hernieuwbare bronnen. Dat is een forse sprong: vandaag staat de teller op ongeveer 25%. Om dat doel te halen, zet de regering in op drie sporen: uitbreiding van windenergie op zee, meer zonnepanelen op daken van publieke gebouwen, en verdere verlenging van de meest recente kernreactoren.</p>
+
+      <p>Het vlaggenschip van het plan zijn de offshore windparken in de Noordzee. Belgi&euml; beschikt al over een van de dichtstbezette offshore windzones ter wereld, de Belgische mariene zone (BMZ) voor de kust van Zeebrugge en Oostende. Nieuwe concessies moeten het geïnstalleerde vermogen tegen 2030 optrekken van 2,3 gigawatt naar 4 gigawatt &mdash; genoeg om ruim 4 miljoen huishoudens van stroom te voorzien.</p>
+
+      <p>Daarnaast kondigt minister van Energie Petra Claes een ambitieus zonnepanelenprogramma aan: tegen eind 2028 krijgen alle Belgische scholen, gemeentehuizen en sportinfrastructuur zonnepanelen op het dak. &ldquo;Elke schooldag kan straks worden gevoed door de zon,&rdquo; zei Claes tijdens de persconferentie. &ldquo;Dat is niet alleen goed voor het klimaat, maar ook voor de schoolbudgetten.&rdquo;</p>
+
+      <p>Het kerndebat blijft echter polariserend. Energiebedrijf Engie wil twee oudere kerncentrales langer openhouden, maar milieuorganisaties als Greenpeace en WWF vrezen dat kernenergie investeringen in hernieuwbare energie vertraagt. &ldquo;Elke euro die naar kernenergie gaat, gaat niet naar wind en zon,&rdquo; stelt campagneleider Dirk Holemans. De coalitie verdedigt haar aanpak: de kerncentrales dienen als betrouwbare achtervang op windstille en bewolkte dagen.</p>
+
+      <p>Internationale experten zijn voorzichtig positief. Belgi&euml; loopt achter op buurlanden als Nederland en Duitsland, maar de nieuwe doelstellingen zijn ambitieus. Of ze gehaald worden, zal afhangen van vergunningsprocedures, netwerkinvesteringen en politieke continuïteit na de volgende verkiezingen.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Energiebron</th>
+            <th>Aandeel in de Belgische elektriciteitsmix (2025)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Kernenergie</td>
+            <td>40%</td>
+          </tr>
+          <tr>
+            <td>Aardgas</td>
+            <td>28%</td>
+          </tr>
+          <tr>
+            <td>Windenergie</td>
+            <td>15%</td>
+          </tr>
+          <tr>
+            <td>Zonne-energie</td>
+            <td>10%</td>
+          </tr>
+          <tr>
+            <td>Overige (biomassa, waterkracht, import)</td>
+            <td>7%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="bron-vraag">Tot welke P van het 5P-model behoort het doel om meer hernieuwbare energie te gebruiken? Leg uit waarom, en geef aan of er ook andere P&rsquo;s een rol spelen.</p>
+    <span class="bron-source">Bron: fictief krantenartikel ter illustratie, gebaseerd op reële Belgische energiedoelstellingen (Nationaal Energie- en Klimaatplan)</span>
+  </div>
+
+  <!-- SECTION 3: De SDG's -->
+  <section class="section-block" id="sectie3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">De SDG&rsquo;s: een wereldplan</h2>
+    </div>
+
+    <p>In 2015 namen 193 landen in de VN een historisch besluit: samen werken aan een betere wereld voor 2030. Dat plan heet <strong>Agenda 2030</strong> en bestaat uit 17 doelstellingen: de <strong>Sustainable Development Goals</strong>, of SDG&rsquo;s. In het Nederlands noemen we ze de <em>Duurzame Ontwikkelingsdoelstellingen</em>.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#127760;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">SDG&rsquo;s (Sustainable Development Goals)</span>
+        <p class="begrip-def">17 wereldwijde doelstellingen die in 2015 door de VN werden aangenomen als onderdeel van Agenda 2030. Ze bestrijken thema&rsquo;s als armoede, honger, klimaat, onderwijs, gelijkheid en samenwerking, en moeten tegen 2030 zijn bereikt.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128203;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Agenda 2030</span>
+        <p class="begrip-def">Het mondiale actieplan dat in 2015 door alle VN-lidstaten werd aangenomen. Het bevat de 17 SDG&rsquo;s en 169 concrete subdoelstellingen die de wereld tegen 2030 duurzamer en rechtvaardiger moeten maken.</p>
+      </div>
+    </div>
+
+    <p>De SDG&rsquo;s zijn geen vage wensen: ze zijn concreet en meetbaar. Bij elk doel horen specifieke targets. SDG 1 (Geen armoede) heeft als doel: extreme armoede (minder dan $2,15 per dag) uitroeien voor iedereen, overal ter wereld. SDG 13 (Klimaatactie) vraagt landen maatregelen te nemen om klimaatverandering te beperken en zich erop voor te bereiden.</p>
+
+    <h3 class="sub-heading">Vijf SDG&rsquo;s en hun aardrijkskundige verbinding</h3>
+
+    <p>Alle 17 SDG&rsquo;s zijn relevant voor aardrijkskunde, maar vijf zijn bijzonder nauw verbonden met de thema&rsquo;s die jij dit jaar bestudeert:</p>
+
+    <ul style="padding-left:1.4rem; margin: 0.6rem 0 1.4rem;">
+      <li style="margin-bottom:0.8rem">
+        <strong>SDG 1 &mdash; Geen armoede:</strong> rechtstreeks verbonden met de P van People. Meer dan 700 miljoen mensen leven vandaag in extreme armoede. Armoede heeft een duidelijke geografische verdeling: de meeste arme mensen leven in Sub-Sahara-Afrika en Zuid-Azi&euml;.
+      </li>
+      <li style="margin-bottom:0.8rem">
+        <strong>SDG 6 &mdash; Schoon water en sanitair:</strong> toegang tot veilig drinkwater is een basisrecht, maar voor honderden miljoenen mensen nog steeds niet vanzelfsprekend. In de Sahel en delen van Zuid-Azi&euml; is waterschaarste een groeiend geografisch probleem, mede door klimaatverandering.
+      </li>
+      <li style="margin-bottom:0.8rem">
+        <strong>SDG 11 &mdash; Duurzame steden:</strong> tegen 2050 zal meer dan 2/3 van de wereldbevolking in steden wonen. Hoe organiseer je een stad duurzaam? Dat is een geografisch vraagstuk dat je in hoofdstuk 12 over verstedelijking verder uitdiept.
+      </li>
+      <li style="margin-bottom:0.8rem">
+        <strong>SDG 13 &mdash; Klimaatactie:</strong> klimaatverandering is misschien wel het grootste geografische thema van onze tijd. De stijging van de zeespiegel, extreme weersomstandigheden, droogtes en overstromingen &mdash; dit alles behandel je uitgebreid in de hoofdstukken 11 en 12.
+      </li>
+      <li style="margin-bottom:0.8rem">
+        <strong>SDG 15 &mdash; Leven op het land:</strong> biodiversiteit, ontbossing en bodemerosie zijn geografische processen met directe gevolgen voor ecosystemen wereldwijd. Het verlies van de Amazone of de regenwouden van Borneo is niet alleen een ecologische ramp &mdash; het raakt ook People en Prosperity.
+      </li>
+    </ul>
+
+    <p>Het mooie van de SDG&rsquo;s is dat ze de verbondenheid van de 5P&rsquo;s weerspiegelen. SDG 13 (klimaat, Planet) hangt samen met SDG 1 (armoede, People): klimaatverandering treft de armsten het hardst. SDG 17 (Partnership) is de overkoepelende P: zonder samenwerking halen we geen enkel doel.</p>
+
+  </section>
+
+  <!-- SECTION 4: Duurzaamheid in het dagelijks leven -->
+  <section class="section-block" id="sectie4">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Duurzaamheid in het dagelijks leven</h2>
+    </div>
+
+    <p>Duurzaamheid is niet alleen iets voor regeringen en grote bedrijven. Elke persoon laat een spoor na op de aarde. Dat spoor noemen we de <strong>ecologische voetafdruk</strong>: de hoeveelheid natuurlijke hulpbronnen die jij verbruikt, uitgedrukt in de oppervlakte productief land die daarvoor nodig is.</p>
+
+    <h3 class="sub-heading">De ecologische voetafdruk van Belgi&euml;</h3>
+
+    <p>Als alle mensen op aarde zo zouden leven als de gemiddelde Belg, dan zouden we <strong>3,5 aardes</strong> nodig hebben om iedereen te voorzien. We hebben er maar &eacute;&eacute;n. Dat betekent dat de Belgische manier van leven structureel onhoudbaar is: we consumeren veel meer dan de aarde kan aanvullen.</p>
+
+    <p>Vergelijk dat met het world average: als iedereen zo zou leven als de gemiddelde wereldburger, hebben we 1,7 aardes nodig. Ook dat is te veel. Maar de kloof tussen een gemiddelde Belg en iemand in Mali (0,8 aardes) is enorm. Dit toont de ongelijkheid in de globale consumptie.</p>
+
+    <h3 class="sub-heading">Jouw persoonlijke voetafdruk</h3>
+
+    <p>Jouw ecologische voetafdruk bestaat uit verschillende componenten. De drie grootste zijn:</p>
+
+    <ul style="padding-left:1.4rem; margin:0.6rem 0 1.2rem;">
+      <li style="margin-bottom:0.6rem">
+        <strong>Voeding:</strong> vlees eten &mdash; en zeker rood vlees zoals rundvlees &mdash; heeft een enorme CO&sup2;-voetafdruk. De productie van 1 kg rundvlees stoot gemiddeld 27 kg CO&sup2; uit. 1 kg tomaten produceert slechts 1,1 kg CO&sup2;. Wie minder vlees eet en meer plantaardig voedsel kiest, verlaagt zijn voetafdruk aanzienlijk.
+      </li>
+      <li style="margin-bottom:0.6rem">
+        <strong>Transport:</strong> een vlucht van Brussel naar Barcelona stoot per passagier ongeveer 150 kg CO&sup2; uit. Een treinrit dezelfde afstand: slechts 12 kg. De auto ligt daar tussenin. De fiets of het openbaar vervoer voor dagelijkse verplaatsingen verlaagt jouw transportvoetafdruk drastisch.
+      </li>
+      <li style="margin-bottom:0.6rem">
+        <strong>Energie thuis:</strong> verwarming via aardgas of stookolie stoot CO&sup2; uit. Een goed ge&iuml;soleerd huis met een warmtepomp en zonnepanelen verbruikt een fractie van een slecht ge&iuml;soleerd huis met een gasketel. Korter douchen en apparaten uitschakelen helpen ook, maar zijn klein in vergelijking met isolatie en verwarmingstype.
+      </li>
+    </ul>
+
+    <h3 class="sub-heading">Wat kan een twaalf-jarige doen?</h3>
+
+    <p>Je bent twaalf. Je kan nog niet zelf beslissen over de auto van je ouders of de isolatie van je huis. Maar er zijn dingen die jij w&eacute;l kunt doen &mdash; en die er echt toe doen:</p>
+
+    <ul style="padding-left:1.4rem; margin:0.6rem 0 1.2rem;">
+      <li style="margin-bottom:0.45rem">Eet een of twee keer per week vegetarisch of veganistisch.</li>
+      <li style="margin-bottom:0.45rem">Vermijd voedselverspilling: koop en kook wat je echt eet.</li>
+      <li style="margin-bottom:0.45rem">Ga met de fiets of het openbaar vervoer naar school.</li>
+      <li style="margin-bottom:0.45rem">Koop minder nieuwe kleding &mdash; en als je koopt, kies dan voor tweedehands of duurzame merken.</li>
+      <li style="margin-bottom:0.45rem">Gebruik je apparaten langer in plaats van elk jaar te upgraden.</li>
+      <li style="margin-bottom:0.45rem">Praat erover thuis &mdash; bewustzijn begint bij jou.</li>
+    </ul>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Bereken jouw eigen ecologische voetafdruk voor &eacute;&eacute;n dag. Noteer alles wat je at, hoe je je verplaatste, welke apparaten je gebruikte en wat je kocht. Welk aspect heeft de grootste impact op jouw voetafdruk? Wat zou je kunnen veranderen zonder je leven heel anders te hoeven inrichten?</p>
+    </div>
+
+  </section>
+
+  <!-- BRONMATERIAAL 2: Tabel per P -->
+  <div class="bronmateriaal" id="bron2">
+    <span class="bron-label">Bronmateriaal 2 &mdash; Overzichtstabel</span>
+    <span class="bron-title">Voorbeelden per P van het 5P-model</span>
+    <span class="bron-meta">Gebaseerd op SDG-rapportage Belgi&euml; &amp; VN &nbsp;&middot;&nbsp; 2025</span>
+    <div class="bron-body">
+      <p>De tabel hieronder geeft voor elke P drie concrete voorbeelden, zowel uit Belgi&euml; als uit de rest van de wereld. Let op: veel voorbeelden raken meer dan &eacute;&eacute;n P tegelijk.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>P</th>
+            <th>Voorbeeld 1</th>
+            <th>Voorbeeld 2</th>
+            <th>Voorbeeld 3</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Planet</strong></td>
+            <td>Offshore windmolens in de Noordzee (Belgi&euml;)</td>
+            <td>Verbod op plastic zakken in de EU</td>
+            <td>Bescherming van de Hoge Venen (Walloni&euml;)</td>
+          </tr>
+          <tr>
+            <td><strong>People</strong></td>
+            <td>Gratis schoolmaaltijden in Brussel</td>
+            <td>VN-Kinderrechtenverdrag</td>
+            <td>Drinkwaterputten in de Sahel (NGO&rsquo;s)</td>
+          </tr>
+          <tr>
+            <td><strong>Prosperity</strong></td>
+            <td>Eerlijke handel: Max Havelaar-label (Belgi&euml;)</td>
+            <td>Groene jobs in de windenergie- en isolatiesector</td>
+            <td>Circulaire economie: hergebruik van elektrische apparaten</td>
+          </tr>
+          <tr>
+            <td><strong>Peace</strong></td>
+            <td>VN-Klimaatakkoord van Parijs (2015)</td>
+            <td>EU-regelgeving conflictvrijemineralen</td>
+            <td>Diplomatie bij klimaatgerelateerde vluchtelingencrises</td>
+          </tr>
+          <tr>
+            <td><strong>Partnership</strong></td>
+            <td>Europese Green Deal (alle EU-landen)</td>
+            <td>Internationale hulporganisaties (Oxfam, M&eacute;decins Sans Fronti&egrave;res)</td>
+            <td>Stadspartnerschappen Belgische steden met steden in Afrika en Azi&euml;</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="bron-vraag">Kies &eacute;&eacute;n voorbeeld uit de tabel en leg uit hoe het meerdere P&rsquo;s tegelijk be&iuml;nvloedt. Geef aan welke P&rsquo;s een rol spelen en verklaar de verbanden.</p>
+    <span class="bron-source">Bron: samengesteld op basis van SDG-voortgangsrapporten VN (2025) en Federaal Plan Duurzame Ontwikkeling Belgi&euml;</span>
+  </div>
+
+  <!-- SECTION 5: Geografisch perspectief -->
+  <section class="section-block" id="sectie5">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Geografisch perspectief op duurzaamheid</h2>
+    </div>
+
+    <p>Duurzaamheid is geen abstract begrip dat overal hetzelfde klinkt. Het is een geografisch thema: niet elke regio ter wereld staat voor dezelfde uitdagingen. De problemen van een eilandstaat in de Stille Oceaan zijn heel anders dan die van een stadsregio in de Belgische Kempen. Geografie bepaalt wat er op het spel staat &mdash; en wat er moet veranderen.</p>
+
+    <h3 class="sub-heading">Regio&rsquo;s met specifieke duurzaamheidsuitdagingen</h3>
+
+    <p><strong>Kleine eilandstaten (zoals de Malediven, Tuvalu):</strong> door de stijging van de zeespiegel dreigen sommige eilanden letterlijk te verdwijnen. De gemiddelde hoogte van de Malediven boven zeeniveau is minder dan 1 meter. Al bij een stijging van 50 cm raken de meeste eilanden geregeld overstroomd. Dit is een existenti&euml;le bedreiging: niet voor het welzijn, maar voor het bestaan zelf van deze gemeenschappen. Toch stoten eilandstaten zelf nauwelijks CO&sup2; uit &mdash; ze betalen de prijs voor de uitstoot van anderen.</p>
+
+    <p><strong>De Sahel (Mali, Niger, Burkina Faso, Tsjaad):</strong> deze gordel ten zuiden van de Sahara wordt harder dan bijna elke andere regio getroffen door klimaatverandering. De regenval neemt af, droogtes worden langer en intensiever, en landbouwgrond degradeert. Gevolg: hongersnood, migratie en politieke instabiliteit. De link tussen klimaatverandering (Planet) en conflict (Peace) is hier bijzonder duidelijk.</p>
+
+    <p><strong>Laaggelegen kustgebieden en delta&rsquo;s (Bangladesh, Vietnam, Nederland):</strong> rivierdeltas zijn vruchtbaar en dicht bevolkt, maar bijzonder kwetsbaar voor overstromingen. In Bangladesh wonen 170 miljoen mensen, waarvan een groot deel in het laaggelegen Ganges-Brahmaputra-delta. Cyclonen en overstromingen kosten elk jaar tientallen levens en vernietigen oogsten.</p>
+
+    <p><strong>Het Arctisch gebied:</strong> nergens warmt de aarde zo snel op als in het Arctisch gebied. De temperatuur daar stijgt twee tot vier keer sneller dan het wereldgemiddelde. Het ijs smelt, de permafrost dooit (waardoor methaan vrijkomt, een krachtig broeikasgas) en de leefwereld van de inheemse Inuit-bevolking verandert radicaal. Tegelijk openen de smeltende poolzee&euml;n nieuwe scheepvaartroutes, wat geopolitieke spanningen uitlokt.</p>
+
+    <h3 class="sub-heading">Verband met andere hoofdstukken</h3>
+
+    <p>Duurzaamheid is geen losstaand thema. Het loopt als een rode draad door het hele schooljaar aardrijkskunde:</p>
+
+    <ul style="padding-left:1.4rem; margin:0.6rem 0 1.2rem;">
+      <li style="margin-bottom:0.5rem"><strong>Landschapsverandering</strong> (hoofdstukken 3&ndash;5): ontbossing, bodemerosie en verstedelijking zijn vormen van landschapsverandering die de duurzaamheid bedreigen (Planet).</li>
+      <li style="margin-bottom:0.5rem"><strong>Klimaatverandering</strong> (hoofdstukken 11&ndash;12): het broeikaseffect en de gevolgen ervan &mdash; zeespiegelstijging, extreme weersomstandigheden &mdash; zijn de grootste bedreiging voor Planet, en indirect ook voor People en Peace.</li>
+      <li style="margin-bottom:0.5rem"><strong>Verstedelijking</strong> (hoofdstuk 12): hoe steden groeien en ruimte innemen, heeft directe gevolgen voor biodiversiteit, energie en transport (SDG 11).</li>
+    </ul>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Welke P van het 5P-model staat volgens jou het meest onder druk in de wereld van vandaag? Kies &eacute;&eacute;n P, geef een concreet geografisch voorbeeld uit een regio die je in dit hoofdstuk bent tegengekomen, en leg uit waarom die P zo urgent is.</p>
+    </div>
+
+  </section>
+
+  <!-- CLOSING QUOTE -->
+  <div class="closing-quote" role="note" aria-label="Slotcitaat">
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p class="cq-text">&ldquo;We do not inherit the earth from our ancestors; we borrow it from our children.&rdquo;</p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <span class="cq-attribution">Spreekwoord &nbsp;&middot;&nbsp; bron onbekend &nbsp;&middot;&nbsp; geciteerd in het Brundtland-rapport (1987)</span>
+  </div>
+
+</div><!-- end page-wrapper -->
+
+<!-- EXERCISES -->
+<section class="exercises-section" id="oefeningen">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <!-- OEFENING 1 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Klasse&euml;ren onder de juiste P</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Lees de tien acties en krantenkoppen hieronder. Klasse&euml;er elke actie onder &eacute;&eacute;n of meerdere P&rsquo;s van het 5P-model. Sommige acties passen bij meerdere P&rsquo;s &mdash; leg dan uit waarom.</p>
+      <ol>
+        <li>&ldquo;Gent investeert in 50 km nieuwe fietspaden&rdquo;</li>
+        <li>&ldquo;VN vraagt landen meer bij te dragen aan humanitaire hulp na droogte in Kenia&rdquo;</li>
+        <li>&ldquo;Plastic rietjes verboden in Belgische horeca&rdquo;</li>
+        <li>&ldquo;Eerlijk handelskeurmerk voor Congolees kobalt gelanceerd&rdquo;</li>
+        <li>&ldquo;196 landen ondertekenen nieuw klimaatakkoord in Dubai&rdquo;</li>
+        <li>&ldquo;Belgische school installeert zonnepanelen op elk dak&rdquo;</li>
+        <li>&ldquo;Bamboeontbossing bedreigt leefgebied berggorilla&rdquo;</li>
+        <li>&ldquo;Vluchtelingenkamp in Soedan lijdt water- en voedseltekort&rdquo;</li>
+        <li>&ldquo;Circulaire fabriek repareert en herverkoopt 100.000 smartphones per jaar&rdquo;</li>
+        <li>&ldquo;Klimaatverandering vergroot kans op gewapend conflict in Sahel, zegt VN&rdquo;</li>
+      </ol>
+      <p class="ex-tip">Tip: sommige acties passen bij meerdere P&rsquo;s tegelijk. Verklaar dan voor elke P afzonderlijk hoe het verband werkt.</p>
+    </div>
+
+    <!-- OEFENING 2 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Analyse van bronmateriaal 1: de Belgische energietransitie</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Lees het krantenartikel in bronmateriaal 1 opnieuw. Beantwoord de volgende vragen zo volledig mogelijk.</p>
+      <ol>
+        <li>Welk aandeel heeft hernieuwbare energie vandaag in de Belgische elektriciteitsmix? Welke twee hernieuwbare bronnen zijn het grootst? Gebruik de tabel in het artikel.</li>
+        <li>Wat is het concrete doel van de Belgische regering voor 2030? Hoeveel procentpunten moet het aandeel hernieuwbare energie stijgen ten opzichte van vandaag?</li>
+        <li>Het artikel vermeldt twee tegengestelde standpunten over kernenergie. Wie is voor langere werking en waarom? Wie is ertegen en waarom?</li>
+        <li>Tot welke P of P&rsquo;s van het 5P-model behoort de energietransitie die het artikel beschrijft? Noem minstens twee P&rsquo;s en leg voor elke P afzonderlijk uit hoe het verband werkt.</li>
+      </ol>
+      <p class="ex-tip">Tip: denk bij vraag 4 ook aan de indirecte gevolgen van energie-opwekking: wie werkt er in de energiesector? Welke internationale akkoorden sturen het energiebeleid?</p>
+    </div>
+
+    <!-- OEFENING 3 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Ontwerp een duurzame schoolweek</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Jouw school wil een &ldquo;duurzame schoolweek&rdquo; organiseren. Jouw taak: bedenk <strong>drie concrete initiatieven</strong> voor die week en koppel elk initiatief aan minstens &eacute;&eacute;n P van het 5P-model. Werk je idee&euml;n schriftelijk uit.</p>
+      <ol>
+        <li>
+          <strong>Initiatief 1:</strong> beschrijf wat je organiseert, hoe het in zijn werk gaat, wie betrokken is, en welke P(s) het vertegenwoordigt. Leg het verband met de P(s) duidelijk uit.
+        </li>
+        <li>
+          <strong>Initiatief 2:</strong> zelfde structuur als initiatief 1, maar kies een ander thema en een andere P dan bij initiatief 1.
+        </li>
+        <li>
+          <strong>Initiatief 3:</strong> kies bij voorkeur een initiatief dat meerdere P&rsquo;s tegelijk aanraakt. Leg uit hoe de P&rsquo;s met elkaar verbonden zijn in jouw initiatief.
+        </li>
+      </ol>
+      <p class="ex-tip">Tip: wees concreet. &ldquo;We doen iets voor het milieu&rdquo; is te vaag. &ldquo;We organiseren een vegetarische schooldag waarbij leerlingen zelf gerechten koken uit seizoensgroenten van een lokale boer&rdquo; is goed.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="summary-section" id="samenvatting">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>Duurzame ontwikkeling</strong> (Brundtland, 1987) betekent: voorzien in de behoeften van nu zonder de mogelijkheden van toekomstige generaties te hypothekeren. Het rust op drie pijlers: ecologisch, economisch en sociaal.</li>
+      <li>Het <strong>5P-model</strong> verdeelt duurzaamheid in vijf thema&rsquo;s: <strong>Planet</strong> (aarde beschermen), <strong>People</strong> (mensen centraal), <strong>Prosperity</strong> (eerlijke welvaart), <strong>Peace</strong> (vrede en rechtvaardigheid) en <strong>Partnership</strong> (mondiale samenwerking). De vijf P&rsquo;s zijn onderling verbonden.</li>
+      <li>De <strong>SDG&rsquo;s</strong> (Sustainable Development Goals) zijn 17 wereldwijde doelstellingen die de VN in 2015 aannam als Agenda 2030. Ze vertalen de 5P&rsquo;s in concrete, meetbare doelen voor landen, bedrijven en burgers.</li>
+      <li>De <strong>ecologische voetafdruk</strong> van Belgi&euml; bedraagt 3,5 aardes: als iedereen zo leeft als een gemiddelde Belg, verbruiken we 3,5 keer de capaciteit van de planeet. De grootste bijdragen aan onze persoonlijke voetafdruk zijn voeding (vlees), transport (vliegtuig, auto) en energie (verwarming).</li>
+      <li>Duurzaamheidsuitdagingen zijn <strong>geografisch ongelijk verdeeld</strong>: eilandstaten worden bedreigd door zeespiegelstijging, de Sahel door droogte, deltagebieden door overstromingen, en het Arctisch gebied door ijssmelt &mdash; terwijl de grootste CO&sup2;-uitstoters elders liggen.</li>
+      <li>Duurzaamheid loopt als een rode draad door aardrijkskunde: landschapsverandering, klimaatverandering en verstedelijking hebben elk een direct verband met de 5P&rsquo;s en de SDG&rsquo;s.</li>
+      <li>Elke persoon kan bijdragen: minder vlees, minder vliegen, minder weggooien, meer openbaar vervoer en meer bewustzijn zijn kleine stappen die samen een groot verschil maken &mdash; zeker als ze gecombineerd worden met structurele keuzes van overheden en bedrijven.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

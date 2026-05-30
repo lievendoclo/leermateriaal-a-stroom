@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H7 — Algoritmen | Techniek 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --gold: #D4A017;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    /* Extended tokens used internally */
+    --terracotta-light: #D4561E;
+    --gold-light: #E8B82A;
+    --darkblue-light: #243B63;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--oker);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     CLOSING QUOTE
+  ============================================================ */
+  .closing-quote {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0D1E38 100%);
+    border-radius: var(--border-radius);
+    padding: 3rem 3rem 2.5rem;
+    margin: 3.5rem 0 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.5rem; left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .closing-quote .cq-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--gold);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 1.2rem;
+  }
+
+  .closing-quote .cq-attribution {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(212,160,23,0.6);
+  }
+
+  .closing-quote .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .closing-quote .ornament-line::before,
+  .closing-quote .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.4), transparent);
+  }
+
+  .closing-quote .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.7;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .closing-quote { padding: 2rem 1.2rem 1.8rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     WISKUNDE-SPECIFIC COMPONENTS
+  ============================================================ */
+
+  /* ── REKENVOORBEELD ─────────────────────────────────── */
+  .rekenvoorbeeld {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--oker);
+    border-radius: var(--border-radius);
+    padding: 1.8rem 2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .rekenvoorbeeld .rv-label {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--oker); display: block; margin-bottom: 0.35rem;
+  }
+  .rekenvoorbeeld .rv-vraag {
+    font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700;
+    color: var(--darkblue); margin-bottom: 1rem; line-height: 1.4;
+  }
+  .rv-stappen { list-style: none; padding: 0; counter-reset: stap-teller; margin-bottom: 1rem; }
+  .rv-stappen li {
+    counter-increment: stap-teller;
+    padding: 0.6rem 0.8rem 0.6rem 3.2rem;
+    position: relative;
+    background: var(--creme);
+    border-radius: 4px;
+    margin-bottom: 0.4rem;
+    font-size: 0.97rem;
+  }
+  .rv-stappen li::before {
+    content: counter(stap-teller);
+    position: absolute; left: 0.6rem; top: 50%; transform: translateY(-50%);
+    background: var(--darkblue); color: white;
+    width: 1.7rem; height: 1.7rem; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; font-weight: 700;
+  }
+  .rv-antwoord {
+    background: var(--darkblue); color: var(--gold);
+    padding: 0.75rem 1.1rem; border-radius: 4px;
+    font-weight: 700; font-size: 1rem;
+  }
+
+  /* ── STELLING ───────────────────────────────────────── */
+  .stelling {
+    background: #EEF3FF;
+    border-left: 4px solid var(--darkblue);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1.2rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .stelling .st-label {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--darkblue); opacity: 0.7;
+    display: block; margin-bottom: 0.35rem;
+  }
+  .stelling .st-body { font-size: 0.97rem; color: var(--text-dark); }
+
+  /* ── FORMULE ────────────────────────────────────────── */
+  .formule {
+    background: var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 1.4rem 1.8rem;
+    text-align: center;
+    margin: 1.8rem 0;
+  }
+  .formule .formule-naam {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--gold); opacity: 0.8;
+    display: block; margin-bottom: 0.5rem;
+  }
+  .formule .formule-tekst {
+    font-family: monospace;
+    font-size: 1.15rem;
+    color: white;
+    background: rgba(255,255,255,0.08);
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    display: inline-block;
+  }
+
+  /* ── SVG CONTAINER ──────────────────────────────────── */
+  .svg-container {
+    margin: 1.8rem 0;
+    padding: 1.5rem;
+    background: white;
+    border: 1px solid var(--sand);
+    border-radius: var(--border-radius);
+    overflow-x: auto;
+    text-align: center;
+  }
+  .svg-container .svg-caption {
+    font-size: 0.85rem; color: var(--text-light); font-style: italic;
+    display: block; margin-top: 0.75rem;
+  }
+
+  /* ── WERKWIJZE LIST ─────────────────────────────────── */
+  .werkwijze-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.2rem 0;
+  }
+  .werkwijze-list li {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 0.8rem 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 0.5rem;
+    background: var(--sand-light);
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.55;
+  }
+  .werkwijze-list li .wl-kleur {
+    flex-shrink: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-top: 0.42rem;
+  }
+  .werkwijze-list li strong { color: var(--darkblue); }
+
+  /* ============================================================
+     ALGORITMEN — EXTRA CSS CLASSES
+  ============================================================ */
+  .begrip-kader { background: #fff8f5; border-left: 4px solid var(--terracotta); border-radius: 0 6px 6px 0; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+  .begrip-kader strong { color: var(--terracotta); display: block; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem; }
+  .schema-kader { background: var(--sand-light, #F2EAD8); border: 1px solid var(--sand); border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; }
+  .schema-kader h4 { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 0.75rem; color: var(--darkblue); }
+  .data-tabel { width: 100%; border-collapse: collapse; margin: 1.25rem 0; font-size: 0.92rem; }
+  .data-tabel th { background: var(--darkblue); color: var(--gold); font-family: 'Source Sans 3', sans-serif; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.75rem 1rem; text-align: left; }
+  .data-tabel td { padding: 0.65rem 1rem; border-bottom: 1px solid var(--sand); vertical-align: top; }
+  .data-tabel tr:nth-child(even) td { background: var(--sand-light, #F2EAD8); }
+  .stap-kader { display: flex; gap: 1rem; align-items: flex-start; background: white; border: 1px solid var(--sand); border-radius: 8px; padding: 1.25rem; margin: 0.75rem 0; }
+  .stap-nummer { background: var(--terracotta); color: white; font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .stap-inhoud h4 { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--darkblue); margin-bottom: 0.3rem; }
+  .stap-inhoud p { font-size: 0.95rem; color: var(--text-mid, #3D3425); margin: 0; }
+  .flowchart-symbool { display: flex; gap: 1rem; align-items: center; padding: 0.75rem 1rem; border: 1px solid var(--sand); border-radius: 6px; margin: 0.5rem 0; background: white; }
+  .flowchart-symbool .fs-vorm { width: 50px; height: 36px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; }
+  .flowchart-symbool .fs-tekst h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.2rem; }
+  .flowchart-symbool .fs-tekst p { font-size: 0.85rem; color: var(--text-light); margin: 0; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <span class="label">Techniek</span>
+  <span class="label label-right">H7 &middot; Algoritmen</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Hoofdstuk 7 &nbsp;&middot;&nbsp; 10% van het examen</div>
+  <h1>Algoritmen</h1>
+  <p class="subtitle">Stappenplannen, computationeel denken, flowcharts en Scratch</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- PROLOGUE -->
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Denk even na &hellip;</span>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p>Elke ochtend zet je een alarm, poets je je tanden en maak je je ontbijt klaar. Je volgt daarvoor altijd een vaste volgorde &mdash; eerst de tandenborstel nat maken, dan tandpasta erop, dan poetsen. Als je de stappen door elkaar doet, werkt het niet meer. Dat is precies wat een algoritme is: een stappenplan in een <em>vaste volgorde</em>.</p>
+    <p>Computers zijn erg goed in het uitvoeren van algoritmen. Snel, precies en zonder fouten &mdash; maar alleen als het algoritme goed is ontworpen. Een computerspel, een navigatie-app, een sorteerprogramma: ze werken allemaal op basis van algoritmen die iemand heeft bedacht en uitgeschreven.</p>
+    <p><strong style="color: var(--gold);">Leren denken als een computer &mdash; stap voor stap, logisch en gestructureerd &mdash; is een vaardigheid die je overal kunt gebruiken.</strong></p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 1 — WAT IS EEN ALGORITME?
+  ============================================================ -->
+  <section class="section-block" id="s1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Wat is een algoritme?</h2>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9654;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Definitie</span>
+        <span class="begrip-name">Algoritme</span>
+        <p class="begrip-def">Een algoritme is een <strong>stappenplan met instructies in een vaste volgorde</strong> om tot het einddoel of de oplossing van een probleem te komen.</p>
+      </div>
+    </div>
+
+    <p>Algoritmen komen overal voor, niet alleen in computers. Ze kunnen digitaal zijn (gebruikt door een computer) of niet-digitaal (uitgevoerd door een mens).</p>
+
+    <h3 class="sub-heading">Voorbeelden van algoritmen</h3>
+
+    <div class="schema-kader">
+      <h4>Niet-digitale algoritmen</h4>
+      <ul style="padding-left:1.4rem;font-size:0.95rem;line-height:2;color:var(--text-mid);">
+        <li>Het <strong>recept om een cake te bakken</strong>: de stappen moeten in de juiste volgorde worden uitgevoerd</li>
+        <li>Het <strong>stappenplan om getallen te sorteren</strong> van klein naar groot</li>
+        <li>De instructies om een <strong>rechthoek te tekenen</strong></li>
+      </ul>
+    </div>
+
+    <div class="schema-kader">
+      <h4>Digitale algoritmen</h4>
+      <ul style="padding-left:1.4rem;font-size:0.95rem;line-height:2;color:var(--text-mid);">
+        <li>Het <strong>coderen van een computerspel</strong>: de computer volgt instructies bij elke actie van de speler</li>
+        <li>Een <strong>zoekalgoritme</strong> dat de snelste route berekent in een GPS-app</li>
+        <li>Een <strong>sorteeralgoritme</strong> dat een lijst namen alfabetisch ordent</li>
+      </ul>
+    </div>
+
+    <p>Een algoritme wordt gebruikt om eenvoudige of complexe problemen op te lossen door het uitschrijven van een stappenplan. Zelf een algoritme kunnen ontwerpen is relevant voor heel veel beroepen en situaties.</p>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Welk algoritme gebruik jij elke dag zonder het te beseffen? Denk aan dingen zoals brood smeren, een wiskundevraagstuk oplossen, of je schooltas inpakken. Schrijf het stappenplan op en vergelijk met een klasgenoot.</p>
+    </div>
+
+  </section>
+
+  <!-- ============================================================
+       SECTIE 2 — COMPUTATIONEEL DENKEN
+  ============================================================ -->
+  <section class="section-block" id="s2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Computationeel denken</h2>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128161;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Definitie</span>
+        <span class="begrip-name">Computationeel denken</span>
+        <p class="begrip-def">Computationeel denken is een <strong>probleemoplossende aanpak</strong> waarbij je problemen analyseert en oplost op een manier die ook door een computer kan worden uitgevoerd. Het steunt op vier principes.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">De 4 principes</h3>
+
+    <div class="begrip-kader">
+      <strong>Principe 1 &mdash; Abstractie</strong>
+      Irrelevante details weglaten om zo vlotter het probleem op te lossen. Je focust op wat belangrijk is en laat de rest weg.<br><br>
+      <em>Voorbeeld:</em> een kaart van een stad &mdash; huisnummers zijn weggelaten, alleen straatnamen en routes blijven zichtbaar. Zo zie je sneller hoe je van A naar B geraakt.
+    </div>
+
+    <div class="begrip-kader">
+      <strong>Principe 2 &mdash; Decompositie</strong>
+      Een probleem opsplitsen in kleinere, goed gekozen deelproblemen en elk deel afzonderlijk aanpakken. Grote problemen zijn makkelijker op te lossen als je ze opdeelt.<br><br>
+      <em>Voorbeeld:</em> een website bouwen &rarr; opsplitsen in: navigatie bouwen / inhoud schrijven / stijl opmaken. Elk deel kun je apart aanpakken.
+    </div>
+
+    <div class="begrip-kader">
+      <strong>Principe 3 &mdash; Patroonherkenning</strong>
+      Het achterhalen van een gelijkenis tussen verschillende problemen om een oplossing te vereenvoudigen. Als je een gelijkaardig probleem al eens hebt opgelost, kun je die oplossing hergebruiken.<br><br>
+      <em>Voorbeeld:</em> als je weet hoe je een cirkel tekent, kun je ook een spiraal programmeren &mdash; dezelfde basisbeweging, maar met een kleine aanpassing.
+    </div>
+
+    <div class="begrip-kader">
+      <strong>Principe 4 &mdash; Algoritme</strong>
+      Het systematisch omschrijven van een reeks stappen om een probleem op te lossen. Dit is het eindresultaat van de drie andere principes: je hebt het probleem geanalyseerd, opgesplitst en gelijkenissen gezien &mdash; nu schrijf je de oplossing stap voor stap uit.
+    </div>
+
+    <h3 class="sub-heading">Overzicht van de 4 principes</h3>
+
+    <table class="data-tabel">
+      <thead>
+        <tr>
+          <th>Principe</th>
+          <th>Beschrijving</th>
+          <th>Voorbeeld</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Abstractie</strong></td>
+          <td>Irrelevante details weglaten</td>
+          <td>Kaart met alleen hoofdwegen en straatnamen</td>
+        </tr>
+        <tr>
+          <td><strong>Decompositie</strong></td>
+          <td>Probleem opsplitsen in deelproblemen</td>
+          <td>Website bouwen in afzonderlijke deelstappen</td>
+        </tr>
+        <tr>
+          <td><strong>Patroonherkenning</strong></td>
+          <td>Gelijkenissen vinden tussen problemen</td>
+          <td>Sorting-algoritme hergebruiken voor verschillende lijsten</td>
+        </tr>
+        <tr>
+          <td><strong>Algoritme</strong></td>
+          <td>Stapsgewijze oplossing uitschrijven</td>
+          <td>Stappenplan om een getal te controleren op deelbaarheid</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Kies een activiteit die je goed kent, zoals een sportregel of een kookrecept. Welk principe van computationeel denken zou je toepassen om die activiteit makkelijker te maken? Leg uit waarom.</p>
+    </div>
+
+  </section>
+
+  <!-- ============================================================
+       SECTIE 3 — EEN ALGORITME ONTWERPEN
+  ============================================================ -->
+  <section class="section-block" id="s3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Een algoritme ontwerpen</h2>
+    </div>
+
+    <p>Het ontwerpen van een algoritme doe je stap voor stap. Hieronder volg je het voorbeeld: <em>&ldquo;Ik wil weten of een getal een priemgetal is.&rdquo;</em></p>
+
+    <div class="stap-kader">
+      <div class="stap-nummer">1</div>
+      <div class="stap-inhoud">
+        <h4>Probleemstelling formuleren</h4>
+        <p>Wat is precies het probleem? Wat moet het algoritme doen?<br>
+        <em>Voorbeeld: &ldquo;Ik wil weten of een getal een priemgetal is.&rdquo;</em></p>
+      </div>
+    </div>
+
+    <div class="stap-kader">
+      <div class="stap-nummer">2</div>
+      <div class="stap-inhoud">
+        <h4>Analyseer het probleem (IPO-model)</h4>
+        <p>Het IPO-model beschrijft wat het algoritme nodig heeft en wat het oplevert:<br>
+        &bull; <strong>Input:</strong> wat gaat er in? &rarr; het getal dat gecontroleerd moet worden<br>
+        &bull; <strong>Process:</strong> hoe wordt het verwerkt? &rarr; deel door alle getallen van 2 tot getal&minus;1<br>
+        &bull; <strong>Output:</strong> wat komt er uit? &rarr; ja (priemgetal) of neen (geen priemgetal)</p>
+      </div>
+    </div>
+
+    <div class="stap-kader">
+      <div class="stap-nummer">3</div>
+      <div class="stap-inhoud">
+        <h4>Deelproblemen opstellen</h4>
+        <p>Splits het probleem op indien nodig (decompositie):<br>
+        &bull; Deelprobleem 1: hoe controleer je of een getal deelbaar is door een ander getal?<br>
+        &bull; Deelprobleem 2: hoe loop je door alle getallen van 2 tot n&minus;1?</p>
+      </div>
+    </div>
+
+    <div class="stap-kader">
+      <div class="stap-nummer">4</div>
+      <div class="stap-inhoud">
+        <h4>Oplossing uitwerken (flowchart/stappenplan)</h4>
+        <p>Zet het algoritme om in een gestructureerde, leesbare vorm &mdash; een flowchart of een genummerd stappenplan. Elk stap moet duidelijk en ondubbelzinnig zijn.</p>
+      </div>
+    </div>
+
+    <div class="stap-kader">
+      <div class="stap-nummer">5</div>
+      <div class="stap-inhoud">
+        <h4>Testen en debuggen</h4>
+        <p>Test het algoritme met voorbeelden. Zoek en herstel fouten. Dit proces heet <strong>debuggen</strong>.<br>
+        <em>Voorbeeld: test met getal 7 (priemgetal) en met getal 8 (geen priemgetal). Geeft het algoritme de juiste uitvoer?</em></p>
+      </div>
+    </div>
+
+    <div class="begrip-kader">
+      <strong>Begrip &mdash; Debuggen</strong>
+      Debuggen is het <strong>opsporen en oplossen van een fout</strong> in een algoritme of computerprogramma. De naam komt van het Engels: &ldquo;bug&rdquo; betekent letterlijk insect, maar in de informatica staat het voor een fout in een programma. Fouten kunnen logische fouten zijn (het algoritme doet iets verkeerd) of schrijffouten in de code.
+    </div>
+
+    <div class="begrip-kader">
+      <strong>Begrip &mdash; IPO-model</strong>
+      Het IPO-model staat voor <strong>Input &ndash; Process &ndash; Output</strong>. Het beschrijft elk probleem als een transformatie: je geeft iets in (input), er wordt iets mee gedaan (process), en er komt een resultaat uit (output). Het is een handige manier om een probleem te analyseren v&oacute;&oacute;r je begint te programmeren.
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Analyseer het volgende probleem via het IPO-model: &ldquo;Een wekker die afgaat als de ingestelde tijd bereikt is.&rdquo; Wat is de input? Wat is het process? Wat is de output?</p>
+    </div>
+
+  </section>
+
+  <!-- ============================================================
+       SECTIE 4 — DE FLOWCHART
+  ============================================================ -->
+  <section class="section-block" id="s4">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">De flowchart (stroomdiagram)</h2>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9654;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Definitie</span>
+        <span class="begrip-name">Flowchart</span>
+        <p class="begrip-def">Een flowchart is een <strong>visuele voorstelling van een algoritme</strong>. Elke stap wordt weergegeven door een symbool met een vaste betekenis. Pijlen verbinden de symbolen en geven de volgorde aan.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Symbolen van de flowchart</h3>
+
+    <div class="flowchart-symbool">
+      <div class="fs-vorm">
+        <svg width="50" height="36" viewBox="0 0 50 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="1" width="48" height="34" rx="17" ry="17" stroke="var(--terracotta)" stroke-width="2" fill="#fff8f5"/>
+        </svg>
+      </div>
+      <div class="fs-tekst">
+        <h4>Ovaal / afgeronde rechthoek</h4>
+        <p>Start of Stop van het algoritme. Elke flowchart begint en eindigt met een ovaal.</p>
+      </div>
+    </div>
+
+    <div class="flowchart-symbool">
+      <div class="fs-vorm">
+        <svg width="50" height="36" viewBox="0 0 50 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="1" width="48" height="34" stroke="var(--darkblue)" stroke-width="2" fill="#EEF3FF"/>
+        </svg>
+      </div>
+      <div class="fs-tekst">
+        <h4>Rechthoek</h4>
+        <p>Een actie of instructie uitvoeren. Bijv.: &ldquo;tel x op bij y&rdquo;, &ldquo;sla de waarde op&rdquo;.</p>
+      </div>
+    </div>
+
+    <div class="flowchart-symbool">
+      <div class="fs-vorm">
+        <svg width="50" height="36" viewBox="0 0 50 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="25,1 49,18 25,35 1,18" stroke="var(--oker)" stroke-width="2" fill="#FBF0D0"/>
+        </svg>
+      </div>
+      <div class="fs-tekst">
+        <h4>Ruit / diamant</h4>
+        <p>Een beslissing of conditie. Bijv.: &ldquo;Is x &gt; 5?&rdquo; Heeft altijd een JA- en een NEEN-uitgang.</p>
+      </div>
+    </div>
+
+    <div class="flowchart-symbool">
+      <div class="fs-vorm">
+        <svg width="50" height="36" viewBox="0 0 50 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="8,1 49,1 42,35 1,35" stroke="var(--gold)" stroke-width="2" fill="#FDF3E7"/>
+        </svg>
+      </div>
+      <div class="fs-tekst">
+        <h4>Parallelogram</h4>
+        <p>Invoer of uitvoer. Bijv.: &ldquo;Lees getal in&rdquo; (invoer) of &ldquo;Druk resultaat af&rdquo; (uitvoer).</p>
+      </div>
+    </div>
+
+    <div class="flowchart-symbool">
+      <div class="fs-vorm">
+        <svg width="50" height="36" viewBox="0 0 50 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6 Z" fill="var(--text-mid)"/>
+            </marker>
+          </defs>
+          <line x1="25" y1="4" x2="25" y2="30" stroke="var(--text-mid)" stroke-width="2" marker-end="url(#arr)"/>
+        </svg>
+      </div>
+      <div class="fs-tekst">
+        <h4>Pijl</h4>
+        <p>Verbindt de stappen en geeft de volgorde (richting) aan van het algoritme.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Voorbeeld-flowchart: even of oneven?</h3>
+
+    <p>Hieronder zie je een tekstuele beschrijving van de flowchart om te controleren of een getal even of oneven is:</p>
+
+    <div class="schema-kader">
+      <h4>Flowchart: is een getal even of oneven?</h4>
+      <ol style="padding-left:1.4rem;font-size:0.95rem;line-height:2.1;color:var(--text-mid);">
+        <li><strong>[OVAAL] Start</strong></li>
+        <li><strong>[PARALLELOGRAM] Invoer:</strong> lees het getal in &rarr; sla op als n</li>
+        <li><strong>[RUIT] Beslissing:</strong> Is n deelbaar door 2? (n mod 2 = 0?)<br>
+          &bull; <strong>JA</strong> &rarr; ga naar stap 4<br>
+          &bull; <strong>NEEN</strong> &rarr; ga naar stap 5</li>
+        <li><strong>[PARALLELOGRAM] Uitvoer:</strong> druk af &ldquo;Het getal is even&rdquo; &rarr; ga naar stap 6</li>
+        <li><strong>[PARALLELOGRAM] Uitvoer:</strong> druk af &ldquo;Het getal is oneven&rdquo; &rarr; ga naar stap 6</li>
+        <li><strong>[OVAAL] Stop</strong></li>
+      </ol>
+    </div>
+
+    <div class="stelling">
+      <span class="st-label">Onthoud</span>
+      <p class="st-body">Elke flowchart heeft precies <strong>&eacute;&eacute;n beginpunt</strong> (Start) en minstens <strong>&eacute;&eacute;n eindpunt</strong> (Stop). Pijlen gaan altijd van boven naar beneden of van links naar rechts, tenzij je een lus (herhaling) tekent. Een ruit heeft altijd <strong>twee uitgangen</strong>: JA en NEEN.</p>
+    </div>
+
+  </section>
+
+  <!-- ============================================================
+       SECTIE 5 — SCRATCH
+  ============================================================ -->
+  <section class="section-block" id="s5">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Scratch</h2>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128736;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Definitie</span>
+        <span class="begrip-name">Scratch</span>
+        <p class="begrip-def">Scratch is een <strong>visuele programmeertaal</strong> waarmee je algoritmen kunt programmeren door gekleurde codeblokjes samen te klikken. Ontwikkeld door MIT, gratis beschikbaar op scratch.mit.edu.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Hoe werkt Scratch?</h3>
+
+    <ul class="werkwijze-list">
+      <li>
+        <span class="wl-kleur" style="background:var(--terracotta);"></span>
+        <div><strong>Geblokte code:</strong> instructies zijn gekleurde blokjes die je samenklikt. Zo maak je geen schrijffouten in de code.</div>
+      </li>
+      <li>
+        <span class="wl-kleur" style="background:var(--darkblue);"></span>
+        <div><strong>Vertakkingen (als/dan):</strong> je kunt beslissingen inbouwen &mdash; &ldquo;als de speler de spatiebalk drukt, dan spring&rdquo;.</div>
+      </li>
+      <li>
+        <span class="wl-kleur" style="background:var(--oker);"></span>
+        <div><strong>Lussen (herhaal):</strong> je kunt een reeks instructies meerdere keren herhalen, bijv. &ldquo;herhaal 10 keer: zet 10 stappen vooruit&rdquo;.</div>
+      </li>
+      <li>
+        <span class="wl-kleur" style="background:var(--gold);"></span>
+        <div><strong>Variabelen:</strong> je kunt waarden opslaan en gebruiken, bijv. de score bijhouden in een spel.</div>
+      </li>
+      <li>
+        <span class="wl-kleur" style="background:#5B8C5A;"></span>
+        <div><strong>Testen en bijsturen:</strong> je test het algoritme direct in Scratch en stuurt bij waar nodig &mdash; dat is debuggen in de praktijk.</div>
+      </li>
+    </ul>
+
+    <h3 class="sub-heading">Niet-digitale vs. digitale algoritmen</h3>
+
+    <table class="data-tabel">
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Beschrijving</th>
+          <th>Voorbeeld</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Niet-digitaal algoritme</strong></td>
+          <td>Wordt uitgevoerd door een mens, op papier of in het hoofd. Geen computer nodig.</td>
+          <td>Stappenplan voor het smeren van een boterham met choco: brood pakken &rarr; mes pakken &rarr; choco opscheppen &rarr; smeren &rarr; klaar</td>
+        </tr>
+        <tr>
+          <td><strong>Digitaal algoritme</strong></td>
+          <td>Wordt uitgevoerd door een computer of elektronisch apparaat. Geschreven in een programmeertaal.</td>
+          <td>Programmeren van een flikkerend lampje in Scratch: herhaal voor altijd &rarr; zet kleur op rood &rarr; wacht 1 seconde &rarr; zet kleur op blauw &rarr; wacht 1 seconde</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Je wil in Scratch een personage laten rondlopen in een vierkant. Schrijf eerst het algoritme als niet-digitaal stappenplan (bijv. &ldquo;zet 100 stappen, draai 90 graden, &hellip;&rdquo;) en vertaal het daarna naar een Scratch-lus. Hoeveel stappen heeft je algoritme?</p>
+    </div>
+
+  </section>
+
+  <!-- CLOSING QUOTE -->
+  <div class="closing-quote" role="note" aria-label="Slotcitaat">
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p class="cq-text">Een algoritme is als een recept: als je de ingredi&euml;nten en de stappen kent, kun je het resultaat altijd opnieuw maken &mdash; voor mensen &eacute;n voor machines.</p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <span class="cq-attribution">Techniek &nbsp;&middot;&nbsp; Eerste Graad A-stroom</span>
+  </div>
+
+</div><!-- end page-wrapper -->
+
+<!-- ============================================================
+     EXERCISES
+============================================================ -->
+<section class="exercises-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Niet-digitaal algoritme schrijven</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);">Schrijf een niet-digitaal algoritme (stappenplan) voor: het zetten van een kop thee. Gebruik minstens 8 stappen. Schrijf elke stap als een duidelijke instructie in de gebiedende wijs (bijv. &ldquo;Vul de waterkoker met water&rdquo;).</p>
+      <p class="ex-tip">Tip: denk aan de volgorde. Wat moet er zeker eerder gebeuren dan iets anders? Wat mag je niet vergeten?</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">De 4 principes van computationeel denken</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);">Leg de 4 principes van computationeel denken uit met een <strong>eigen voorbeeld</strong> voor elk principe. Kies voorbeelden uit je dagelijks leven (school, sport, hobby, &hellip;) die <em>niet</em> in dit hoofdstuk voorkomen.</p>
+      <ol>
+        <li>Abstractie &mdash; eigen voorbeeld + uitleg</li>
+        <li>Decompositie &mdash; eigen voorbeeld + uitleg</li>
+        <li>Patroonherkenning &mdash; eigen voorbeeld + uitleg</li>
+        <li>Algoritme &mdash; eigen voorbeeld + uitleg</li>
+      </ol>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Flowchart: temperatuuralarm</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);">Teken of beschrijf de flowchart voor het volgende probleem: een temperatuurmeter die een alarm afgeeft als de temperatuur boven 30&deg;C komt.</p>
+      <ol>
+        <li>Wat is de input? Wat is de output? (IPO-model)</li>
+        <li>Schrijf of teken de flowchart met de juiste symbolen: ovaal (start/stop), parallelogram (invoer/uitvoer), ruit (beslissing), rechthoek (actie).</li>
+        <li>Welk symbool gebruik je voor de beslissing &ldquo;Is de temperatuur &gt; 30?&rdquo;</li>
+      </ol>
+      <p class="ex-tip">Tip: vergeet de JA- en NEEN-takken niet bij de beslissing.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 4</p>
+      <p class="ex-name">Debuggen &mdash; fouten opsporen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);">Een algoritme bevat een fout: bij het sorteren van getallen worden twee getallen niet omgewisseld op het juiste moment, waardoor de lijst niet correct gesorteerd is.</p>
+      <ol>
+        <li>Hoe noem je het proces van fouten opsporen in een algoritme? Wat is de juiste term?</li>
+        <li>Beschrijf in twee zinnen hoe je zo&rsquo;n fout zou aanpakken.</li>
+        <li>Geef een voorbeeld van een test die je zou uitvoeren om te controleren of het sorteeralgoritme nu wel correct werkt.</li>
+      </ol>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 5</p>
+      <p class="ex-name">IPO-model: getallen sorteren</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);">Analyseer het probleem &ldquo;willekeurige getallen sorteren van klein naar groot&rdquo; via het IPO-model.</p>
+      <ol>
+        <li><strong>Input:</strong> wat gaat er in het algoritme?</li>
+        <li><strong>Process:</strong> wat doet het algoritme stap voor stap? Beschrijf het in je eigen woorden.</li>
+        <li><strong>Output:</strong> wat komt er uit het algoritme?</li>
+        <li>Welk principe van computationeel denken gebruik je als je dit sorteermethode ook wil toepassen op een lijst namen? Leg uit.</li>
+      </ol>
+      <p class="ex-tip">Tip voor deelvraag 2: denk aan hoe je zelf een rij getallen zou sorteren. Vergelijk je het eerste met het tweede? Wissel je om?</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SUMMARY
+============================================================ -->
+<section class="summary-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>Algoritme</strong> = een stappenplan met instructies in een vaste volgorde om een probleem op te lossen. Kan digitaal (computer) of niet-digitaal (mens) zijn.</li>
+      <li><strong>Computationeel denken</strong> steunt op 4 principes: <strong>abstractie</strong> (details weglaten), <strong>decompositie</strong> (opsplitsen), <strong>patroonherkenning</strong> (gelijkenissen vinden) en <strong>algoritme</strong> (stapsgewijze oplossing).</li>
+      <li><strong>Algoritme ontwerpen</strong> in 5 stappen: (1) probleemstelling formuleren &rarr; (2) analyseren via IPO &rarr; (3) deelproblemen opstellen &rarr; (4) flowchart/stappenplan uitwerken &rarr; (5) testen en debuggen.</li>
+      <li><strong>IPO-model</strong>: Input &ndash; Process &ndash; Output. Beschrijft wat een algoritme nodig heeft, doet en oplevert.</li>
+      <li><strong>Flowchart-symbolen</strong>: ovaal (start/stop), rechthoek (actie), ruit (beslissing met JA/NEEN), parallelogram (invoer/uitvoer), pijl (volgorde).</li>
+      <li><strong>Debuggen</strong> = fouten opsporen en oplossen in een algoritme of programma.</li>
+      <li><strong>Scratch</strong> = visuele programmeertaal met blokcode. Bevat vertakkingen (als/dan), lussen (herhaal) en variabelen.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

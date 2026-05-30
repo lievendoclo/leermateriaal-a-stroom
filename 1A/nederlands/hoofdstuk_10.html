@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoofdstuk 10 — Woorden, woorden, woorden | Nederlands 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.25; }
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+    text-decoration: none;
+  }
+  .site-header .label-right { text-align: right; }
+
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image: radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+  .chapter-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+  .prologue .ornament-line .ornament-sym { color: var(--gold); font-size: 1.1rem; opacity: 0.8; }
+  .prologue p { font-style: italic; font-size: 1.05rem; line-height: 1.85; color: rgba(250,246,239,0.9); }
+  .prologue p + p { margin-top: 0.9em; }
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+  .begrip .begrip-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .begrip .begrip-body { flex: 1; }
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+  .begrip .begrip-def { font-size: 0.97rem; color: var(--text-mid); line-height: 1.65; margin: 0; }
+
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .denkvraag .dv-text { font-style: italic; font-size: 1rem; color: var(--text-mid); line-height: 1.7; }
+
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+  }
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ── VOORBEELDTEKST ── */
+  .voorbeeldtekst {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 2rem 2.2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .voorbeeldtekst .vt-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--darkblue);
+    opacity: 0.6;
+    margin-bottom: 0.4rem;
+    display: block;
+  }
+  .voorbeeldtekst .vt-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 0.3rem;
+  }
+  .voorbeeldtekst .vt-meta {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    margin-bottom: 1.2rem;
+    font-style: italic;
+  }
+  .voorbeeldtekst .vt-body p {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-bottom: 0.9em;
+  }
+  .voorbeeldtekst .vt-body p:last-child { margin-bottom: 0; }
+  .voorbeeldtekst .vt-source {
+    margin-top: 1rem;
+    font-size: 0.78rem;
+    color: var(--text-light);
+    border-top: 1px solid var(--sand);
+    padding-top: 0.6rem;
+    font-style: italic;
+  }
+
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+  .exercise-card ol, .exercise-card ul { padding-left: 1.4rem; margin-top: 0.5rem; }
+  .exercise-card li { margin-bottom: 0.45rem; font-size: 0.96rem; color: var(--text-mid); }
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+  .summary-section ul { list-style: none; padding: 0; }
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0; top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem; right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px; height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  .prose-text { max-width: 100%; }
+  .highlighted-para {
+    background: rgba(212,160,23,0.08);
+    border-left: 3px solid var(--gold);
+    padding: 0.8rem 1.1rem;
+    border-radius: 0 4px 4px 0;
+    margin: 1.2rem 0;
+    font-size: 0.97rem;
+    color: var(--text-mid);
+  }
+
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section, .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .voorbeeldtekst { padding: 1.4rem 1.2rem; }
+  }
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header" id="top">
+  <a class="label" href="index.html">Nederlands 1A</a>
+  <span class="label label-right">Hoofdstuk 10</span>
+</header>
+
+<div class="chapter-hero">
+  <div class="chapter-kicker">Nederlands &nbsp;·&nbsp; 1A &nbsp;·&nbsp; Eerste graad</div>
+  <h1>Hoofdstuk 10<br>Woorden, woorden, woorden</h1>
+  <p class="subtitle">Hoe vergroot je je woordenschat — en wat doe je met woorden die je niet kent?</p>
+</div>
+
+<div class="page-wrapper">
+
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Een woorddetective aan het werk &hellip;</span>
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+
+    <p>Je scrolt door een krantenartikel over de oceaan. Het gaat over dieren die in de diepzee leven. Boeiend. Maar dan stoot je op drie woorden die je niet kent: <em>bioluminescentie</em>, <em>abyssaal</em> en <em>symbiotisch</em>. Drie woorden, vlak na elkaar, en je begrijpt de zin niet meer.</p>
+
+    <p>Wat doe je? Je kunt het artikel sluiten en iets anders zoeken. Dat is de makkelijke keuze, maar je leert er niets van. Je kunt ook meteen naar een woordenboek grijpen — dat werkt, maar het onderbreekt je leesritme en je vergeet het woord minstens even snel weer als je het opzocht.</p>
+
+    <p>Of je kunt iets anders proberen: nadenken. De zin opnieuw lezen. Kijken naar de woorden eromheen. Wat gaat het artikel over? Wat weet je al van de oceaan? Klinkt een van die woorden ergens naar? Die aanpak vraagt meer moeite, maar hij maakt je sterker. Wie leert te raden uit de context, hoeft niet meer te stoppen bij elk onbekend woord.</p>
+
+    <p>De leerling die altijd het woordenboek pakt, wordt afhankelijk van het woordenboek. De leerling die leert gokken uit de context, groeit uit tot een <strong style="color: var(--gold);">woorddetective</strong> — iemand die sporen leest en conclusies trekt. Dit hoofdstuk gaat over die vaardigheid: woorden begrijpen, woorden herkennen, woorden gebruiken. Want woorden zijn de bouwstenen van alles wat je leest, schrijft, zegt en hoort.</p>
+
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+  </section>
+
+  <!-- SECTIE 1 -->
+  <section class="section-block" id="s1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Je woordenschat vergroten</h2>
+    </div>
+    <div class="prose-text">
+      <p>Stel je woordenschat voor als een gereedschapskist. Hoe meer gereedschap erin zit, hoe meer je kunt maken. Met een hamer alleen kom je ver, maar wie ook een zaag, een vijl en een boor heeft, kan veel meer bouwen. Met woorden is het net zo: hoe groter je woordenschat, hoe beter je kunt lezen, schrijven en spreken.</p>
+
+      <p>Woordenschat heeft invloed op bijna elk schoolvak. In wiskunde moet je begrijpen wat "bereken de oppervlakte" of "bepaal het verschil" betekent. In geschiedenis moet je snappen wat een "verdrag" of een "bezetting" is. In wetenschappen kom je woorden zoals "osmose" of "condensatie" tegen. Wie een grote woordenschat heeft, heeft een voorsprong — niet alleen bij Nederlands, maar overal.</p>
+
+      <p>Hoe groeit je woordenschat? Allereerst door <strong>veel en breed te lezen</strong>. Wie romans, kranten, strips, websites en gedichten leest, komt telkens nieuwe woorden tegen. Hoe meer je leest, hoe meer woorden je aufvangt. Maar lezen alleen is niet genoeg: je moet ook <strong>aandacht schenken</strong> aan nieuwe woorden. Dat betekent niet bij elk woord stilstaan, maar wel af en toe een nieuw woord even bekijken en proberen te begrijpen.</p>
+
+      <p>De derde stap is de krachtigste: een nieuw woord <strong>actief gebruiken</strong>. Woorden die je alleen leest, vergeet je snel. Woorden die je gebruikt — in een zin, in een gesprek, in een opstel — blijven hangen. Probeer een nieuw woord minstens drie keer te gebruiken voor je het boek dichtdoet.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Woordenschat</span>
+        <p class="begrip-def">Je woordenschat is het geheel van alle woorden die je kent en begrijpt. We maken een onderscheid tussen je <em>passieve woordenschat</em> (woorden die je herkent als je ze leest of hoort) en je <em>actieve woordenschat</em> (woorden die je zelf gebruikt bij spreken en schrijven). Je passieve woordenschat is altijd groter dan je actieve.</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>Een handige truc: als je een nieuw woord tegenkomt en je de betekenis raadt of opzoekt, schrijf dan meteen een eigen zin met dat woord. Het hoeft niet lang of mooi te zijn — één zin is genoeg. Zo activeer je het woord onmiddellijk en vergroot je de kans dat je het onthoudt.</p>
+
+      <p>Frequente woorden — woorden die heel veel voorkomen, zoals "gevolg", "kenmerk", "omgeving" of "verschil" — zijn bijzonder belangrijk om goed te kennen. Wie die woorden kent, begrijpt bijna elke tekst beter. Minder frequente woorden, zoals "bioluminescentie" of "archipel", zijn ook waardevol, maar ze komen in het dagelijkse leven minder voor.</p>
+    </div>
+
+    <div class="highlighted-para">
+      <strong>Tip:</strong> Maak een persoonlijk woordenschatschrift. Elke week schrijf je vijf nieuwe woorden op met hun betekenis en een zelfgemaakte zin. Na een jaar heb je meer dan 250 nieuwe woorden geleerd — en je onthoudt ze, want je hebt ze zelf opgeschreven.
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">Wat is het laatste woord dat je hebt opgezocht of geleerd? Gebruik het nu meteen in een zin. Merk je dat het je iets kost om dat te doen? Wat zegt dat over het verschil tussen passieve en actieve woordenschat?</p>
+    </div>
+  </section>
+
+  <!-- SECTIE 2 -->
+  <section class="section-block" id="s2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Woorden raden uit de context</h2>
+    </div>
+    <div class="prose-text">
+      <p>Je hoeft niet elk onbekend woord meteen op te zoeken. Vaak kun je de betekenis zelf achterhalen — als je weet waar je op moet letten. Er zijn drie handige strategieën die een goede woorddetective gebruikt.</p>
+
+      <p><strong>Strategie 1: gebruik de omliggende zinnen.</strong> De zinnen voor en na een onbekend woord geven vaak aanwijzingen. Als er staat: "De vleermuis is een nachtdier; hij is <em>nocturnaal</em> van aard", dan begrijp je uit de context al dat <em>nocturnaal</em> iets te maken heeft met 's nachts actief zijn.</p>
+
+      <p><strong>Strategie 2: gebruik je voorkennis over het onderwerp.</strong> Als je al iets weet over het onderwerp — de oceaan, dieren, geschiedenis — dan kun je een beter gefundeerde gok wagen. Wie weet dat "bio" iets met leven te maken heeft en "luminescentie" klinkt als "licht" (denk aan "lumineus"), kan al vrij goed raden wat <em>bioluminescentie</em> betekent.</p>
+
+      <p><strong>Strategie 3: kijk naar de woordvorm.</strong> Uit welke delen bestaat het woord? Is er een voor- of achtervoegsel dat je herkent? Lijkt het op een woord in een andere taal die je kent — Frans, Engels, Latijn? Die verbanden zijn vaak geen toeval: Nederlandse woorden zijn vol echo's van andere talen.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">🔍</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Context</span>
+        <p class="begrip-def">De context is alles wat rondom een woord staat: de andere woorden in de zin, de zinnen ervoor en erna, het onderwerp van de tekst, en de situatie waarin de tekst geschreven is. Door de context te lezen, kun je de betekenis van onbekende woorden achterhalen zonder een woordenboek te gebruiken.</p>
+      </div>
+    </div>
+
+    <div class="voorbeeldtekst">
+      <span class="vt-label">Voorbeeldtekst 1 · Informatieve tekst</span>
+      <p class="vt-title">Licht in de duisternis</p>
+      <p class="vt-meta">Een tekst over bioluminescente dieren in de diepzee</p>
+      <div class="vt-body">
+        <p>Ver onder het wateroppervlak, waar geen zonlicht meer doordringt, leven wezens die hun eigen licht maken. Dit verschijnsel heet <u>bioluminescentie</u>: het vermogen van levende organismen om licht te produceren door chemische reacties in hun lichaam. In de donkere diepzee is dit geen luxe, maar een overlevingsstrategie.</p>
+        <p>Veel diepzeevissen leven in het <u>abyssale</u> gebied, een zone dieper dan vier kilometer. Daar is de druk enorm, het water ijskoud en het voedsel schaars. Toch gedijen sommige soorten uitstekend in die omstandigheden. Ze hebben zich door miljoenen jaren van evolutie aangepast aan het extreme milieu.</p>
+        <p>Opvallend is de relatie tussen de lantaarnvis en een specifieke soort bacteriën. De vis biedt de bacteriën een warme, voedselrijke omgeving in zijn lichtorgaan. De bacteriën geven daarvoor licht terug. Zo'n <u>symbiotische</u> relatie — waarbij twee soorten samen beter gedijen dan elk afzonderlijk — is in de natuur heel gewoon, maar in de diepzee is ze bijzonder goed zichtbaar.</p>
+        <p>Wetenschappers bestuderen deze lichtgevende wezens intensief. Niet alleen omdat ze fascinerend zijn, maar ook omdat de chemische processen achter bioluminescentie nuttige toepassingen kunnen hebben in de geneeskunde en de biotechnologie.</p>
+      </div>
+      <p class="vt-source">Fictieve informatieve tekst over bioluminescente diepzeewezens, geschreven voor educatieve doeleinden.</p>
+    </div>
+
+    <div class="prose-text">
+      <p>Laten we de drie onderstreepte woorden eens onderzoeken als een echte woorddetective.</p>
+
+      <p><strong>Bioluminescentie:</strong> De tekst legt het woord meteen uit in de zin erna: "het vermogen van levende organismen om licht te produceren". Maar zelfs zonder die uitleg: "bio" ken je misschien uit biologie (= levende wezens) en "luminescentie" klinkt naar "licht" (het Engelse woord <em>luminous</em> betekent lichtgevend). Conclusie: bioluminescentie = het licht maken door levende wezens.</p>
+
+      <p><strong>Abyssaal:</strong> De tekst zegt dat het "een zone dieper dan vier kilometer" is. Het woord klinkt misschien bekend als je "afgrond" kent, of het Engelse <em>abyss</em>. Abyssaal = van de diepste oceaanzone, een duizelingwekkende diepte.</p>
+
+      <p><strong>Symbiotisch:</strong> De tekst geeft zelf een definitie tussen gedachtestreepjes: "waarbij twee soorten samen beter gedijen dan elk afzonderlijk". Dat is al het volledige antwoord. Je hoeft het woord niet op te zoeken — de auteur heeft het al uitgelegd.</p>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">Welke van de drie strategieën gebruikte je het meest bij de bovenstaande woorden? Zijn er woorden waarbij je toch een woordenboek zou willen gebruiken, ook al kun je ze raden? Wanneer is het woordenboek toch nuttig?</p>
+    </div>
+  </section>
+
+  <!-- SECTIE 3 -->
+  <section class="section-block" id="s3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Samenstellingen en afleidingen</h2>
+    </div>
+    <div class="prose-text">
+      <p>Een van de krachtigste hulpmiddelen voor een woorddetective is het <strong>ontleden van woorden</strong>. Het Nederlands is namelijk een taal die graag woorden samenvoegt en uitbreidt. Als je begrijpt hoe woorden gebouwd zijn, kun je de betekenis van honderden nieuwe woorden raden — zelfs woorden die je nog nooit gezien hebt.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">🧩</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Samenstelling</span>
+        <p class="begrip-def">Een <em>samenstelling</em> is een woord dat ontstaat door twee of meer bestaande woorden samen te voegen. Het eerste deel preciseert of beperkt het tweede. Voorbeelden: <strong>fiets</strong> + <strong>pad</strong> = <em>fietspad</em> (een pad voor fietsen), <strong>water</strong> + <strong>val</strong> = <em>waterval</em>, <strong>tafel</strong> + <strong>kleed</strong> = <em>tafelkleed</em>.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">🔧</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Afleiding</span>
+        <p class="begrip-def">Een <em>afleiding</em> is een woord dat gevormd wordt door een stam uit te breiden met een <strong>voorvoegsel</strong> (voor de stam) of een <strong>achtervoegsel</strong> (na de stam). Voorvoegsels: <em>be-</em>, <em>ver-</em>, <em>ont-</em>, <em>her-</em>, <em>on-</em>. Achtervoegsels: <em>-heid</em>, <em>-lijk</em>, <em>-ing</em>, <em>-er</em>, <em>-baar</em>, <em>-loos</em>. Voorbeeld: <em>werk</em> → <em>be</em>werk<em>ing</em>.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">🔤</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Verkleinwoord</span>
+        <p class="begrip-def">Een <em>verkleinwoord</em> is een afleiding die aangeeft dat iets klein is, of die een vriendelijke of lieve toon geeft. Verkleinwoorden eindigen op <em>-je</em>, <em>-tje</em> of <em>-pje</em>. Voorbeelden: <em>huis</em> → <em>huisje</em>, <em>boom</em> → <em>boompje</em>, <em>raam</em> → <em>raampje</em>. Verkleinwoorden zijn altijd <em>het</em>-woorden.</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>Hieronder zie je acht samengestelde of afgeleide woorden. Probeer elk woord te splitsen in zijn onderdelen en raad dan de betekenis op basis van die onderdelen. Zoek daarna eventueel op of je goed zat.</p>
+    </div>
+
+    <div class="exercise-card" style="border-left-color: var(--darkblue); margin: 1.5rem 0;">
+      <p class="ex-title">Oefenpraktijk &mdash; Woorden ontleden</p>
+      <p class="ex-name">Splits het woord en raad de betekenis</p>
+      <ol>
+        <li><strong>vliegtuigmaatschappij</strong> — welke drie delen zie je? Wat betekenen ze samen?</li>
+        <li><strong>onbetrouwbaarheid</strong> — voorvoegsel + stam + achtervoegsel: welke?</li>
+        <li><strong>waterdichtheid</strong> — stam + achtervoegsel: wat betekent dit precies?</li>
+        <li><strong>hergebruiken</strong> — voorvoegsel + stam: wat verandert het voorvoegsel aan de betekenis?</li>
+        <li><strong>verkeersdrempel</strong> — samenstelling: wat is een drempel, en wat voor soort?</li>
+        <li><strong>onuitputtelijk</strong> — ontleed alle lagen; voorvoegsel + stam + achtervoegsel</li>
+        <li><strong>straatmuzikant</strong> — twee delen: wat doet zo iemand, en waar?</li>
+        <li><strong>begrijpelijkheid</strong> — stam + twee achtervoegsels: welke zijn dat?</li>
+      </ol>
+      <p class="ex-tip">💡 Let op: <em>ver-</em> als voorvoegsel verandert vaak de richting of intensiteit van een werkwoord. Vergelijk: rijden / verrijden / wegrijden — elk geeft een andere nuance.</p>
+    </div>
+
+    <div class="illustratie">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Schema van een woordboom: in het midden staat de stam "werk". Linksboven: "be-" + "werk" = "bewerken". Linksonder: "ver-" + "werk" + "-ing" = "verwerking". Rechts: "werk" + "-er" = "werker", en "werk" + "bank" = "werkbank". De pijlen tonen hoe voor- en achtervoegsels, maar ook samenstellingen, telkens nieuwe woorden maken uit dezelfde stam.</p>
+    </div>
+  </section>
+
+  <!-- SECTIE 4 -->
+  <section class="section-block" id="s4">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Synoniemen en homoniemen</h2>
+    </div>
+    <div class="prose-text">
+      <p>Niet alle woorden staan alleen in de wereld. Sommige woorden hebben buren: woorden die bijna hetzelfde betekenen, of juist hetzelfde klinken maar iets heel anders betekenen. Wie die verbanden kent, gebruikt taal preciezer en rijker.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">↔️</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Synoniem</span>
+        <p class="begrip-def">Een <em>synoniem</em> is een woord met een gelijke of sterk gelijkende betekenis als een ander woord. Voorbeelden: <em>blij</em> en <em>vrolijk</em>, <em>snel</em> en <em>vlug</em>, <em>zeggen</em> en <em>beweren</em>. Let op: synoniemen zijn zelden volledig uitwisselbaar. Er is altijd een klein verschil in toon, register of nuance.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">🔀</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Homoniem</span>
+        <p class="begrip-def">Een <em>homoniem</em> is een woord dat hetzelfde klinkt of gespeld wordt als een ander woord, maar een andere betekenis heeft. Voorbeeld: <em>bank</em> kan een financiële instelling zijn ("geld op de bank zetten") of een zitmeubilair ("op de bank zitten"). De context bepaalt altijd welke betekenis bedoeld wordt.</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>Waarom zijn synoniemen zo belangrijk voor schrijvers? Ten eerste vermijd je herhaling. Als je in één alinea vijf keer het woord "groot" gebruikt, klinkt dat eentonig. Door synoniemen zoals "enorm", "uitgestrekt", "omvangrijk" of "kolossaal" te gebruiken, wordt je tekst afwisselender. Ten tweede kun je met synoniemen <strong>nuance aanbrengen</strong>. Iemand omschrijven als "dapper" klinkt anders dan "roekeloos", ook al overlappen de betekenissen. Die keuze zegt iets over jouw standpunt als schrijver.</p>
+
+      <p>Homoniemen zijn dan weer een bron van grappige misverstanden — en van briljante woordgrappen. "Ik heb er geen been in" betekent niet dat iemand een been mist, maar dat hij ergens geen moeite mee heeft. Dat is een voorbeeld van figuurlijk taalgebruik, maar de basis is een homoniem: "been" als lichaamsdeel versus "been" in de uitdrukking.</p>
+    </div>
+
+    <div class="exercise-card" style="border-left-color: var(--gold); margin: 1.5rem 0;">
+      <p class="ex-title">Mini-oefening &mdash; Synoniemen zoeken</p>
+      <p class="ex-name">Vind drie synoniemen voor elk woord</p>
+      <ol>
+        <li><strong>blij</strong> — zoek drie synoniemen die elk een iets andere toon hebben</li>
+        <li><strong>groot</strong> — zoek synoniemen voor grootte van mensen, gebouwen en gevoelens</li>
+        <li><strong>snel</strong> — welk synoniem past bij een auto, welk bij een atleet, welk bij een beslissing?</li>
+        <li><strong>zeggen</strong> — er zijn tientallen synoniemen: fluisteren, roepen, beweren, verklaren… schrijf er vijf op</li>
+        <li><strong>mooi</strong> — bedenk synoniemen voor een mooi gezicht, een mooi gedicht en een mooie dag</li>
+      </ol>
+      <p class="ex-tip">💡 Merk je dat "prachtig" en "schitterend" net iets anders klinken dan "knap" of "lief"? Dat verschil in toon heet het <em>register</em> van een woord.</p>
+    </div>
+
+    <div class="voorbeeldtekst">
+      <span class="vt-label">Voorbeeldtekst 2 · Literair fragment</span>
+      <p class="vt-title">De wedstrijd</p>
+      <p class="vt-meta">Fragment uit een verhaal over een atletiekwedstrijd — let op het gebruik van synoniemen</p>
+      <div class="vt-body">
+        <p>Ze stond aan de startlijn. Haar hart bonkte, klopte, raasde in haar borst. Naast haar stonden de anderen: stil, gespannen, roerloos. Iedereen wachtte. Niemand bewoog, niemand ademde, niemand sprak.</p>
+        <p>Het startschot knalde. Ze schoot weg, stormde vooruit, vloog over het gravel. De tribune riep, juichte, brulde. Ze hoorde het nauwelijks. Ze rende, snelde, vocht zich een weg door de bocht. Haar benen brandden. Haar longen snikten. Maar ze stopte niet, aarzelde niet, week niet.</p>
+        <p>Ze passeerde de finish. Daarna: stilte. Vervolgens: een gejuich dat opsteg als een golf, als een storm, als iets wat ze nooit meer zou vergeten.</p>
+      </div>
+      <p class="vt-source">Fictief literair fragment, geschreven voor dit hoofdstuk ter illustratie van synoniemgebruik.</p>
+    </div>
+
+    <div class="prose-text">
+      <p>In dit fragment gebruikt de auteur opzettelijk reeksen van synoniemen: "bonkte, klopte, raasde" — "stil, gespannen, roerloos" — "riep, juichte, brulde". Dat geeft de tekst een ritme en een intensiteit die je met één enkel woord nooit bereikt. Het is een stijlkeuze die de leeservaring versterkt.</p>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">Bedenk twee zinnen met het woord "bank" die elk een andere betekenis van dat woord tonen. Hoe weet de lezer uit de context welke betekenis bedoeld is? Welke andere homoniemen ken je in het Nederlands?</p>
+    </div>
+  </section>
+
+  <!-- SECTIE 5 -->
+  <section class="section-block" id="s5">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Letterlijk en figuurlijk taalgebruik</h2>
+    </div>
+    <div class="prose-text">
+      <p>Taal beschrijft de wereld — maar niet altijd rechtstreeks. Soms zeggen mensen iets anders dan ze letterlijk bedoelen. "Hij heeft vlinders in zijn buik" gaat niet over echte vlinders. "Ze had haar hoofd niet bij de les" betekent niet dat haar hoofd ergens anders lag. Die uitdrukkingen werken anders dan gewone zinnen, en ze begrijpen is een kunst op zich.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📏</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Letterlijk</span>
+        <p class="begrip-def"><em>Letterlijk taalgebruik</em> is taal waarbij de woorden precies betekenen wat ze zeggen. "De kat zit op de mat" is letterlijk: er is echt een kat, er is echt een mat. Bij letterlijk taalgebruik is er geen verborgen of overdrachtelijke betekenis.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">🎭</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Figuurlijk</span>
+        <p class="begrip-def"><em>Figuurlijk taalgebruik</em> (ook wel <em>overdrachtelijk</em> taalgebruik) is taal waarbij de woorden een andere, diepere of symbolische betekenis hebben dan de letterlijke. "Hij heeft vlinders in zijn buik" betekent figuurlijk: hij is verliefd of zenuwachtig. De vlinders staan voor een gevoel, niet voor echte dieren.</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>In het Nederlands zijn er tientallen veelgebruikte figuurlijke uitdrukkingen. Hieronder vind je een selectie met uitleg.</p>
+
+      <ul style="list-style: none; padding: 0; margin: 1.2rem 0;">
+        <li style="padding: 0.7rem 0; border-bottom: 1px solid rgba(200,146,58,0.15); font-size: 0.97rem; color: var(--text-mid);">
+          <strong>"De kat uit de boom kijken"</strong> — letterlijk: een kat observeren in een boom. Figuurlijk: afwachten wat anderen doen voordat je zelf een beslissing neemt.
+        </li>
+        <li style="padding: 0.7rem 0; border-bottom: 1px solid rgba(200,146,58,0.15); font-size: 0.97rem; color: var(--text-mid);">
+          <strong>"Iemand in de maling nemen"</strong> — letterlijk zou het om echte maling gaan (malen van graan). Figuurlijk: iemand voor de gek houden, beetpakken.
+        </li>
+        <li style="padding: 0.7rem 0; border-bottom: 1px solid rgba(200,146,58,0.15); font-size: 0.97rem; color: var(--text-mid);">
+          <strong>"Door de mand vallen"</strong> — letterlijk: uit een mand vallen. Figuurlijk: betrapt worden, je ware bedoelingen of fouten worden duidelijk.
+        </li>
+        <li style="padding: 0.7rem 0; border-bottom: 1px solid rgba(200,146,58,0.15); font-size: 0.97rem; color: var(--text-mid);">
+          <strong>"Het loodje leggen"</strong> — letterlijk: een stukje lood neerleggen. Figuurlijk: sterven (sterk informeel) of een wedstrijd of strijd verliezen.
+        </li>
+        <li style="padding: 0.7rem 0; border-bottom: 1px solid rgba(200,146,58,0.15); font-size: 0.97rem; color: var(--text-mid);">
+          <strong>"Met de neus in de boter vallen"</strong> — letterlijk: je gezicht in boter steken. Figuurlijk: precies op het juiste moment ergens aankomen.
+        </li>
+        <li style="padding: 0.7rem 0; font-size: 0.97rem; color: var(--text-mid);">
+          <strong>"Een doorn in het oog zijn"</strong> — letterlijk: een stekel die in je oog prikt. Figuurlijk: iets of iemand die je voortdurend irriteert of hindert.
+        </li>
+      </ul>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">Bedenk een situatie waarbij iemand een figuurlijke uitdrukking letterlijk begrijpt. Wat voor misverstanden ontstaan er dan? Ken je grappige voorbeelden hiervan uit films, grappen of je eigen leven?</p>
+    </div>
+  </section>
+
+  <!-- SECTIE 6 -->
+  <section class="section-block" id="s6">
+    <div class="section-heading">
+      <span class="section-num">6</span>
+      <h2 class="section-title">Beeldspraak en vergelijking</h2>
+    </div>
+    <div class="prose-text">
+      <p>Dichters en schrijvers gebruiken taal op een manier die verder gaat dan alleen informatie doorgeven. Ze willen dat je iets <em>voelt</em>. Ze willen dat je een beeld ziet in je hoofd. Daarvoor gebruiken ze beeldspraak: ze beschrijven abstracte of moeilijk te omschrijven dingen door ze te vergelijken met iets concreets en vertrouwds.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">🖌️</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Beeldspraak</span>
+        <p class="begrip-def"><em>Beeldspraak</em> is een stijlfiguur waarbij je iets beschrijft door het te vergelijken met een ander ding of door er een beeld bij op te roepen. Beeldspraak maakt abstracte gevoelens of ideeën concreet en levendig. Het is een overkoepelende term voor vergelijkingen, metaforen en andere stijlfiguren.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">🦌</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Vergelijking</span>
+        <p class="begrip-def">Een <em>vergelijking</em> (of <em>simile</em>) is een stijlfiguur waarbij iets vergeleken wordt met iets anders, met behulp van de woorden <em>als</em>, <em>zoals</em>, <em>lijkt op</em> of <em>net als</em>. Voorbeeld: "Zij rende <strong>als</strong> een gazelle." Het verschil met de werkelijkheid blijft duidelijk: zij is geen gazelle, ze lijkt er alleen op.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">🦋</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Metafoor</span>
+        <p class="begrip-def">Een <em>metafoor</em> is een stijlfiguur waarbij iets niet vergeleken <em>wordt met</em> iets anders, maar er rechtstreeks mee <em>gelijkgesteld wordt</em> — zonder vergelijkingswoorden. Voorbeeld: "Zij <strong>is</strong> een gazelle." Dat is een sterkere, directere beeldspraak dan een vergelijking. De lezer weet dat het niet letterlijk bedoeld is, maar het oproepende effect is krachtiger.</p>
+      </div>
+    </div>
+
+    <div class="voorbeeldtekst">
+      <span class="vt-label">Voorbeeldtekst 3 · Gedichtfragment</span>
+      <p class="vt-title">De zee in november</p>
+      <p class="vt-meta">Een origineel gedicht rijk aan beeldspraak en vergelijking</p>
+      <div class="vt-body">
+        <p style="font-family: 'Playfair Display', serif; font-style: italic; line-height: 2.1; color: var(--darkblue);">
+          De zee is een slapende reus in november,<br>
+          zijn adem: een zucht die het strand overspoelt.<br>
+          De golven zijn vingers die tasten en trekkelen,<br>
+          als handen die zoeken wat niemand meer voelt.<br>
+          <br>
+          De meeuwen zijn schreeuwen die waaien door grijsheid,<br>
+          het water een spiegel van lood en verdriet.<br>
+          De horizon trekt als een draad die je volgt —<br>
+          en nooit weet je zeker waar hij eindigt of vliet.
+        </p>
+      </div>
+      <p class="vt-source">Origineel gedicht geschreven voor dit hoofdstuk ter illustratie van beeldspraak en vergelijking.</p>
+    </div>
+
+    <div class="prose-text">
+      <p>Dit gedicht is vol beeldspraak. Hier zijn drie voorbeelden om te ontdekken:</p>
+
+      <p><strong>1. "De zee is een slapende reus"</strong> — dit is een <em>metafoor</em>. De zee wordt niet vergeleken met een reus, maar rechtstreeks een reus <em>genoemd</em>. Het woord "is" maakt het verschil met een vergelijking. Welk beeld roept dat op? Een reusachtige, rustige, maar potentieel gevaarlijke kracht.</p>
+
+      <p><strong>2. "De golven zijn vingers die tasten en trekkelen"</strong> — ook een <em>metafoor</em>, gecombineerd met een bijna menselijke eigenschap (vingers die tasten). Dit heet ook wel <em>personificatie</em>: je geeft iets niet-levends menselijke eigenschappen. De golven zijn niet echt levend, maar ze worden beschreven alsof ze zoekend, tastend zijn.</p>
+
+      <p><strong>3. "als handen die zoeken wat niemand meer voelt"</strong> — dit is een <em>vergelijking</em>, herkenbaar aan het woord "als". De golven lijken op handen. De vergelijking geeft een gevoel van verlies en vergeefse hoop. Niet "de golven zijn handen", maar "als handen" — iets zachter, iets meer afstand.</p>
+    </div>
+
+    <div class="exercise-card" style="border-left-color: var(--terracotta); margin: 1.5rem 0;">
+      <p class="ex-title">Mini-oefening &mdash; Beeldspraak herkennen</p>
+      <p class="ex-name">Zoek drie beeldspraken in het gedicht</p>
+      <p>Lees "De zee in november" nog eens aandachtig. Beantwoord dan voor elk van de drie onderstaande regels:</p>
+      <ol>
+        <li><em>"zijn adem: een zucht die het strand overspoelt"</em> — metafoor of vergelijking? Wat wordt er vergeleken? Welk gevoel roept het op?</li>
+        <li><em>"het water een spiegel van lood en verdriet"</em> — waarom is "spiegel" een metafoor? Wat staat "lood" hier voor?</li>
+        <li><em>"De horizon trekt als een draad die je volgt"</em> — herken je het vergelijkingswoord? Wat wordt er vergeleken? Welk gevoel geeft die vergelijking?</li>
+      </ol>
+      <p class="ex-tip">💡 Beeldspraak heeft altijd twee kanten: wat er letterlijk staat (de horizon, een draad) en wat het oproept (verlangen, onzekerheid, richting). De kracht zit in dat spanningsveld.</p>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">Bedenk zelf een metafoor voor een gevoel dat je moeilijk in gewone woorden kunt uitdrukken — boosheid, eenzaamheid, opwinding of verdriet. Wat maakt jouw metafoor sterk? Wat maakt een beeldspraak geslaagd of mislukt?</p>
+    </div>
+  </section>
+
+  <!-- OEFENINGEN -->
+  <section class="exercises-section" id="oefeningen">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Woorden ontleden — van lang naar begrijpelijk</p>
+      <p>Hieronder staan acht samengestelde of afgeleide woorden. Splits elk woord in zijn onderdelen (stam, voorvoegsel, achtervoegsel, of samengestelde delen). Schrijf daarna in één zin uit wat het woord betekent, op basis van de onderdelen die je herkent.</p>
+      <ol>
+        <li><strong>fietshelmdragersvereniging</strong></li>
+        <li><strong>onoverkomelijkheid</strong></li>
+        <li><strong>luchtverontreiniging</strong></li>
+        <li><strong>bewaakster</strong></li>
+        <li><strong>schoonmaakmiddel</strong></li>
+        <li><strong>onverschilligheid</strong></li>
+        <li><strong>straatverlichting</strong></li>
+        <li><strong>herbestemming</strong></li>
+      </ol>
+      <p class="ex-tip">💡 Begin bij de stam: welk basiswoord herken je? Daarna kijk je naar wat ervoor en erachter staat. Bij samenstellingen: welke twee of drie woorden zijn samengevoegd?</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Letterlijk of figuurlijk? — Zes zinnen ontcijferd</p>
+      <p>Hieronder staan zes zinnen met een figuurlijke uitdrukking. Schrijf voor elke zin: (a) wat de uitdrukking letterlijk zou betekenen en (b) wat ze figuurlijk betekent. Gebruik de context van de zin om de figuurlijke betekenis te bepalen.</p>
+      <ol>
+        <li>"Na de toets liet Emma de moed in haar schoenen zakken."</li>
+        <li>"Mijn vader zei dat hij twee linkerhandenhad toen hij voor het eerst kookte."</li>
+        <li>"De nieuwe leraar gooit hoge ogen bij de directeur."</li>
+        <li>"We moeten het ijzer smeden terwijl het heet is — de voetbalclub zoekt nog vrijwilligers."</li>
+        <li>"Tijdens het debat beet Lena van zich af."</li>
+        <li>"Zijn plannen bleken een zeepbel: prachtig van buiten, maar leeg vanbinnen."</li>
+      </ol>
+      <p class="ex-tip">💡 Bij de letterlijke betekenis stel je je voor dat de woorden precies zijn wat ze zeggen. Bij de figuurlijke betekenis kijk je naar de situatie in de zin: wat probeert de spreker eigenlijk te zeggen?</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Schrijven met beeldspraak — Jouw plek in woorden</p>
+      <p>Kies een van de drie onderwerpen hieronder en schrijf er vijf beschrijvende zinnen over. Gebruik in je tekst <strong>minstens drie vergelijkingen</strong> (met "als" of "zoals") en <strong>minstens twee metaforen</strong>. Onderstreep elke vergelijking en metafoor die je gebruikt.</p>
+      <ul>
+        <li>Je school (gebouw, sfeer, geur, geluid)</li>
+        <li>Je slaapkamer (kleuren, voorwerpen, gevoel)</li>
+        <li>Je favoriete plek (buiten, in de natuur, in de stad, thuis)</li>
+      </ul>
+      <p>Probeer daarna één zin te herschrijven: verander een vergelijking in een metafoor, of omgekeerd. Wat verandert er aan het effect?</p>
+      <p class="ex-tip">💡 Vermijd clichés als "zo snel als een pijl" of "zo blauw als de lucht". Bedenk iets eigens. De sterkste beeldspraak is de beeldspraak die niemand anders bedacht heeft.</p>
+    </div>
+  </section>
+
+  <!-- SAMENVATTING -->
+  <section class="summary-section" id="samenvatting">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>Woordenschat</strong> bestaat uit passieve woorden (die je herkent) en actieve woorden (die je zelf gebruikt). Je vergroot je woordenschat door breed te lezen, aandacht te besteden aan nieuwe woorden en ze actief te gebruiken in zinnen.</li>
+      <li>Bij onbekende woorden gebruik je drie strategieën om de betekenis te raden: de <strong>omliggende zinnen</strong> lezen, je <strong>voorkennis</strong> over het onderwerp inzetten, en de <strong>woordvorm</strong> analyseren (voorvoegsels, achtervoegsels, verwante talen).</li>
+      <li><strong>Samenstellingen</strong> ontstaan door twee woorden samen te voegen (fietspad). <strong>Afleidingen</strong> ontstaan door een stam uit te breiden met een voorvoegsel (be-, ver-, ont-) of achtervoegsel (-heid, -lijk, -ing). <strong>Verkleinwoorden</strong> eindigen op -je, -tje of -pje en zijn altijd <em>het</em>-woorden.</li>
+      <li><strong>Synoniemen</strong> zijn woorden met een gelijke of sterk gelijkende betekenis. Ze zijn zelden volledig uitwisselbaar: er is altijd een verschil in toon of nuance. Ze helpen je herhaling te vermijden en precisie aan te brengen in je schrijven.</li>
+      <li><strong>Homoniemen</strong> zijn woorden die hetzelfde klinken of geschreven worden maar een andere betekenis hebben. De context bepaalt welke betekenis bedoeld wordt.</li>
+      <li><strong>Letterlijk taalgebruik</strong> zegt precies wat het zegt. <strong>Figuurlijk taalgebruik</strong> draagt een andere, diepere of symbolische betekenis. Veelgebruikte figuurlijke uitdrukkingen (idioom) herken je door ze te leren en de context goed te lezen.</li>
+      <li><strong>Beeldspraak</strong> maakt teksten levendig door abstracte dingen te vergelijken met iets concreets. Een <strong>vergelijking</strong> gebruikt "als" of "zoals" (zij rende als een gazelle); een <strong>metafoor</strong> stelt rechtstreeks gelijk (zij is een gazelle). Goede beeldspraak is origineel, concreet en roept een gevoel op.</li>
+    </ul>
+  </section>
+
+</div><!-- /page-wrapper -->
+
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Terug naar boven">↑</button>
+<script>
+  const btn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => btn.classList.toggle('visible', window.scrollY > 400));
+</script>
+<script src="nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hannibal Barca | Historische Personen | Geschiedenis 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+    text-decoration: none;
+  }
+
+  .site-header .label:hover { opacity: 1; text-decoration: underline; }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+    filter: sepia(0.3);
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     ILLUSTRATIE PLACEHOLDERS
+  ============================================================ */
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+    cursor: default;
+    transition: background var(--transition);
+  }
+
+  .illustratie:hover { background: #EDE7D8; }
+
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong {
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition), opacity var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover {
+    background: var(--darkblue-light);
+    transform: translateY(-3px);
+  }
+
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     UTILITY / MISC
+  ============================================================ */
+  .prose-text { max-width: 100%; }
+
+  .highlighted-para {
+    background: rgba(212,160,23,0.08);
+    border-left: 3px solid var(--gold);
+    padding: 0.8rem 1.1rem;
+    border-radius: 0 4px 4px 0;
+    margin: 1.2rem 0;
+    font-size: 0.97rem;
+    color: var(--text-mid);
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     PERSOONS-SPECIFIEKE COMPONENTEN
+  ============================================================ */
+
+  /* Portret placeholder */
+  .portrait-frame {
+    float: right;
+    width: 200px;
+    height: 260px;
+    background: var(--sand);
+    border: 2px solid var(--oker);
+    border-radius: var(--border-radius);
+    margin: 0 0 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+    box-shadow: var(--shadow-sm);
+    flex-shrink: 0;
+  }
+
+  .portrait-frame .portrait-icon {
+    font-size: 3.5rem;
+    opacity: 0.4;
+    margin-bottom: 0.6rem;
+    display: block;
+  }
+
+  .portrait-frame .portrait-caption {
+    font-size: 0.75rem;
+    font-style: italic;
+    color: var(--text-light);
+    line-height: 1.4;
+  }
+
+  /* Profiel-feiten kader */
+  .profile-facts {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1.4rem 1.5rem;
+    margin: 2rem 0;
+    overflow: hidden;
+  }
+
+  .profile-facts .pf-heading {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--terracotta);
+    margin-bottom: 1rem;
+  }
+
+  .profile-facts table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .profile-facts td {
+    padding: 0.35rem 0;
+    font-size: 0.96rem;
+    line-height: 1.55;
+    vertical-align: top;
+    border-bottom: 1px solid rgba(193,68,14,0.08);
+  }
+
+  .profile-facts td:last-child { border-bottom: none; }
+
+  .profile-facts .pf-label {
+    font-weight: 700;
+    color: var(--terracotta);
+    white-space: nowrap;
+    padding-right: 1rem;
+    width: 1%;
+  }
+
+  .profile-facts .pf-value {
+    color: var(--text-mid);
+  }
+
+  /* Sleutelmomenten tijdlijn */
+  .key-moments {
+    margin: 2rem 0;
+    position: relative;
+    padding-left: 2rem;
+  }
+
+  .key-moments::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: linear-gradient(180deg, var(--terracotta), var(--gold));
+    border-radius: 1px;
+  }
+
+  .key-moment {
+    position: relative;
+    margin-bottom: 1.2rem;
+    padding-left: 0.5rem;
+  }
+
+  .key-moment:last-child { margin-bottom: 0; }
+
+  .key-moment::before {
+    content: '';
+    position: absolute;
+    left: -1.75rem;
+    top: 0.5rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--terracotta);
+    border: 2px solid var(--creme);
+    box-shadow: 0 0 0 2px var(--terracotta);
+  }
+
+  .key-moment .km-date {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--terracotta);
+    margin-bottom: 0.15rem;
+  }
+
+  .key-moment .km-text {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Wist je dat kaartjes */
+  .did-you-know {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.2rem;
+    margin: 2rem 0;
+  }
+
+  .dyk-card {
+    background: linear-gradient(145deg, #FDF8EC, #F5EDD0);
+    border: 1.5px solid rgba(212,160,23,0.45);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.4rem;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+  }
+
+  .dyk-card::before {
+    content: '?';
+    position: absolute;
+    top: -0.7rem;
+    left: 1rem;
+    background: var(--gold);
+    color: var(--darkblue);
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(212,160,23,0.4);
+  }
+
+  .dyk-card p {
+    font-size: 0.95rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* Leerboek-verbinding kader */
+  .book-connection {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    border-radius: var(--border-radius);
+    padding: 1.6rem 1.8rem;
+    margin: 2rem 0;
+    color: var(--creme);
+    box-shadow: var(--shadow-md);
+  }
+
+  .book-connection .bc-heading {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    margin-bottom: 0.7rem;
+    opacity: 0.9;
+  }
+
+  .book-connection .bc-chapter {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #FFFDF8;
+    margin-bottom: 0.6rem;
+  }
+
+  .book-connection .bc-text {
+    font-size: 0.96rem;
+    color: rgba(250,246,239,0.8);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* Float clearfix */
+  .clearfix::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+
+  @media (max-width: 500px) {
+    .portrait-frame {
+      float: none;
+      margin: 0 auto 1.5rem;
+      width: 160px;
+      height: 210px;
+    }
+    .did-you-know {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <a class="label" href="index.html">&#8592; Historische personen</a>
+  <span class="label label-right">Hannibal Barca</span>
+</header>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Carthago / Itali&#235; &nbsp;&middot;&nbsp; 247&ndash;183 v.Chr.</div>
+  <h1>Hannibal Barca</h1>
+  <p class="subtitle">De generaal die met olifanten de Alpen overstak &mdash; en toch de oorlog verloor</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- PROFIEL -->
+  <section class="section-block" id="profiel">
+
+    <div class="clearfix">
+      <!-- Portret placeholder -->
+      <div class="portrait-frame" role="img" aria-label="Portretplaats Hannibal Barca">
+        <span class="portrait-icon">&#9651;</span>
+        <p class="portrait-caption">Portret<br>Hannibal Barca<br><em>illustratie volgt</em></p>
+      </div>
+
+      <!-- Profiel-feiten -->
+      <div class="profile-facts">
+        <div class="pf-heading">Profiel</div>
+        <table>
+          <tr>
+            <td class="pf-label">Leefde</td>
+            <td class="pf-value">ca. 247&ndash;183 v.Chr.</td>
+          </tr>
+          <tr>
+            <td class="pf-label">Periode</td>
+            <td class="pf-value">Klassieke Oudheid / Punische oorlogen</td>
+          </tr>
+          <tr>
+            <td class="pf-label">Regio</td>
+            <td class="pf-value">Carthago (huidig Tunesi&#235;), Spanje, Itali&#235;</td>
+          </tr>
+          <tr>
+            <td class="pf-label">Bekend om</td>
+            <td class="pf-value">Oversteek van de Alpen, Slag bij Cannae, Tweede Punische Oorlog</td>
+          </tr>
+          <tr>
+            <td class="pf-label">Relevante hoofdstukken</td>
+            <td class="pf-value">H16 &mdash; De Romeinse republiek</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- BIOGRAFIE -->
+  <section class="section-block" id="biografie">
+    <div class="section-heading">
+      <h2 class="section-title">Biografie</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Niet ver van de kust van het huidige Tunesi&#235;, op de plek waar nu de stad Tunis staat, lag ooit een van de machtigste steden van de antieke wereld: <strong>Carthago</strong>. Het was een handelsimperium dat de westelijke Middellandse Zee beheerste met zijn schepen en zijn zilver. En het was de geboortestad van Hannibal Barca, in het jaar 247 voor Christus.</p>
+
+      <p>Zijn vader, <strong>Hamilcar Barca</strong>, was de eerste grote Carthaagse generaal die de Carthagers een nieuw toekomstperspectief gaf na de vernedering van de Eerste Punische Oorlog (264&ndash;241 v.Chr.), waarbij Rome hen Sicili&#235; had afgenomen. Hamilcar weigerde te berusten. Hij veroverde grote delen van het Iberisch schiereiland (het huidige Spanje en Portugal) voor Carthago, en bouwde er een nieuwe machtsbasis op, ver van de Romeinse invloed. Maar voor hij vertrok naar Spanje, nam hij zijn kleine zoon mee naar het altaar van de goden. Volgens het verhaal &mdash; misschien historisch, misschien een legende, maar in elk geval veelzeggend &mdash; vroeg de jonge Hannibal zijn vader of hij mee mocht. Hamilcar keek hem aan en zei: &#8220;Alleen als je zweert voor de goden dat je Rome nooit als vriend zult beschouwen.&#8221; De kleine Hannibal zwoer het. En hij hield woord zijn hele leven lang.</p>
+
+      <p>Hannibal groeide op in de Carthaagse legerbasissen in Spanje, omgeven door soldaten, strategie en campagnes. Hij leerde het vak van de grond op. Toen hij de leiding over het leger overnam, was hij amper zesentwintig jaar oud. En meteen zette hij de volgende stap in een plan dat al jarenlang in zijn hoofd had gerijpt: hij zou Rome aanvallen. Maar niet van de zeekant, zoals men verwachtte. Hij zou Rome <strong>via de achterdeur</strong> aanvallen.</p>
+
+      <p>In 218 v.Chr. zet hij zijn leger in beweging vanuit Spanje: tienduizenden soldaten, cavaleristen, en &mdash; het meest legendarische detail van de hele campagne &mdash; <strong>37 oorlogsolifanten</strong>. Ze trekken door het huidige Frankri&#233;k (toen Galli&#235;), bereiken de voet van de Alpen in de herfst, en beginnen aan de moordende overtocht over de besneeuwde bergpassen. Het is een van de meest adembenemende ondernemingen uit de militaire geschiedenis. De koude is genadeloos, de bergpaden smal en gevaarlijk, vijandige Gallische stammen vallen de stoet aan. De helft van zijn troepen overleeft de overtocht niet. Maar Hannibal, negenentwintig jaar oud, komt aan de Italiaanse zijde aan. Met wat er over is van zijn leger.</p>
+
+      <p>Wat volgt, is een reeks veldslagen die militaire historici nog altijd bestuderen als meesterwerken van tactiek. Bij de <strong>Trebia</strong> in 218 v.Chr. lokt hij het Romeinse leger in een hinderlaag en vernietigt het. Bij het <strong>Trasimeense meer</strong> in 217 v.Chr. verstopt hij zijn hele leger in de mist langs de oever en omsingelt een Romeins legioen van zo&#8217;n 15.000 man: ze worden allen gedood of gevangengenomen. Rome is geschokt. Maar het ergste moet nog komen.</p>
+
+      <p>In 216 v.Chr., op de vlakte bij <strong>Cannae</strong> in het zuiden van Itali&#235;, verzamelt Rome een leger van zo&#8217;n 80.000 soldaten &mdash; het grootste leger dat Rome ooit in het veld had gebracht. Ze willen Hannibal eens en voor altijd vernietigen. Hannibal heeft amper de helft zoveel manschappen. En toch ontwikkelt hij een tactiek die zijn naam voor eeuwig in de geschiedenisboeken zal schrijven: hij laat zijn centrum terugtrekken alsof het vlucht, trekt het Romeinse leger naar binnen, en sluit dan met zijn twee vleugels de omsingeling. Binnen enkele uren zijn zo&#8217;n 50.000 tot 70.000 Romeinse soldaten dood. Het was de bloedigste dag in de Romeinse geschiedenis ooit.</p>
+
+      <p>En nu stelt zich de vraag die historici al meer dan tweeduizend jaar bezighoudt: waarom trok Hannibal n&#225; Cannae niet rechtstreeks op naar Rome? De stad lag open. Het Romeinse hart had net een verpletterende klap gekregen. Zijn generaal Maharbal zou gezegd hebben: &#8220;Je weet hoe je moet winnen, Hannibal, maar je weet niet hoe je van de overwinning moet gebruikmaken.&#8221; Waarom bleef hij talmen? Was het gebrek aan belegerings-materiaal? De hoop dat Rome&#8217;s bondgenoten nu zouden overlopen? Politieke druk vanuit Carthago dat hem geen versterkingen stuurde? We weten het niet zeker. Maar het is de beslissing die hem de oorlog zou kosten.</p>
+
+      <p>Want Rome gaf niet op. Ze wilden niet meer met Hannibal in open veld strijden. Ze lieten hem door Itali&#235; marcheren, vielen zijn bevoorradingslijnen aan, en stuurden ondertussen een andere generaal naar Spanje en daarna naar Afrika zelf: de briljante <strong>Scipio Africanus</strong>. Carthago riep Hannibal terug. In 202 v.Chr. ontmoetten de twee generaals elkaar op de vlakte van <strong>Zama</strong>, in het huidige Tunesi&#235;. Voor het eerst in zijn leven verloor Hannibal een veldslag. Carthago capituleerde.</p>
+
+      <p>Hannibal vluchtte, werd politiek actief in Carthago en later balling in het oosten. Overal waar hij kwam, gaf hij het Romeinse rijk hoofdpijn &mdash; hij adviseerde andere vorsten hoe ze Rome konden bevechten. Toen Rome zijn uitlevering eiste, koos hij zelf het einde. In 183 v.Chr., in Bithyni&#235; (het huidige Turkije), slikte hij vergif. Hij had gezworen nooit een vriend van Rome te zijn. Hij hield zijn eed tot het laatste.</p>
+    </div>
+  </section>
+
+  <!-- SLEUTELMOMENTEN -->
+  <section class="section-alt" id="sleutelmomenten">
+    <div class="section-heading">
+      <h2 class="section-title">Sleutelmomenten</h2>
+    </div>
+
+    <div class="key-moments">
+      <div class="key-moment">
+        <div class="km-date">ca. 247 v.Chr.</div>
+        <p class="km-text">Geboren in Carthago (huidig Tunesi&#235;) als zoon van generaal Hamilcar Barca.</p>
+      </div>
+      <div class="key-moment">
+        <div class="km-date">ca. 237 v.Chr.</div>
+        <p class="km-text">Gaat als kind mee met zijn vader naar Spanje; zweert eeuwige vijandschap aan Rome.</p>
+      </div>
+      <div class="key-moment">
+        <div class="km-date">218 v.Chr.</div>
+        <p class="km-text">Begint de beroemde overtocht van de Alpen met 37 oorlogsolifanten; slag bij de Trebia &mdash; eerste grote overwinning op Rome.</p>
+      </div>
+      <div class="key-moment">
+        <div class="km-date">217 v.Chr.</div>
+        <p class="km-text">Slag bij het Trasimeense meer: een volledig Romeins leger van 15.000 man vernietigd in een perfecte hinderlaag.</p>
+      </div>
+      <div class="key-moment">
+        <div class="km-date">216 v.Chr.</div>
+        <p class="km-text">Slag bij Cannae: 50.000&ndash;70.000 Romeinen gedood in &#233;&#233;n dag. De meest verpletterende militaire nederlaag in de Romeinse geschiedenis.</p>
+      </div>
+      <div class="key-moment">
+        <div class="km-date">202 v.Chr.</div>
+        <p class="km-text">Slag bij Zama, verloren tegen Scipio Africanus. Carthago capituleert; einde van de Tweede Punische Oorlog.</p>
+      </div>
+      <div class="key-moment">
+        <div class="km-date">183 v.Chr.</div>
+        <p class="km-text">Pleegt zelfmoord in Bithyni&#235; (huidig Turkije) om uitlevering aan Rome te vermijden.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WIST JE DAT -->
+  <section class="section-block" id="weetjes">
+    <div class="section-heading">
+      <h2 class="section-title">Wist je dat&hellip;</h2>
+    </div>
+
+    <div class="did-you-know">
+      <div class="dyk-card">
+        <p>Hannibal was slechts <strong>negenentwintig jaar oud</strong> bij de beroemde oversteek van de Alpen &mdash; jonger dan de meeste leraren op jouw school.</p>
+      </div>
+      <div class="dyk-card">
+        <p>Bij Cannae verloor Rome in &#233;&#233;n dag meer soldaten dan de VS in de <strong>hele Vietnamoorlog</strong>. Het was de meest verwoestende militaire nederlaag in de Romeinse geschiedenis.</p>
+      </div>
+      <div class="dyk-card">
+        <p>Scipio Africanus &mdash; de Romein die Hannibal versloeg &mdash; ontmoette hem later persoonlijk. Gevraagd wie de grootste veldheer aller tijden was, zei Hannibal: &#8220;Alexander. En daarna Pyrrhus. En daarna&hellip; ikzelf.&#8221; Scipio vroeg: &#8220;En als je m&#237;j had verslagen?&#8221; Hannibal antwoordde zonder aarzelen: &#8220;Dan had ik mezelf op de eerste plaats gezet.&#8221;</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEERBOEK-VERBINDING -->
+  <section class="section-block" id="leerboek">
+    <div class="section-heading">
+      <h2 class="section-title">Verbinding met het leerboek</h2>
+    </div>
+
+    <div class="book-connection">
+      <div class="bc-heading">Relevant hoofdstuk</div>
+      <div class="bc-chapter">H16 &mdash; De Romeinse republiek</div>
+      <p class="bc-text">In dit hoofdstuk bestudeer je de Punische oorlogen in hun volledige context: de situering van Carthago als Romeinse rivaal, de oorzaken van de conflicten, de militaire campagnes en de gevolgen voor de Mediterrane wereld. Hannibal Barca speelt daarin de centrale rol als symbool van Romes grootste bedreiging. Je leert ook hoe Rome ondanks de verpletterende nederlagen bij Cannae en elders uiteindelijk de langste adem had &mdash; en hoe dat de verovering van het gehele Italiaanse schiereiland en daarna de bredere Mediterrane wereld mogelijk maakte.</p>
+    </div>
+  </section>
+
+</div><!-- end page-wrapper -->
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) {
+        btn.classList.add('visible');
+      } else {
+        btn.classList.remove('visible');
+      }
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

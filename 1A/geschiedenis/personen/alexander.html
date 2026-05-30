@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alexander de Grote | Historische Personen | Geschiedenis 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+    text-decoration: none;
+  }
+
+  .site-header .label:hover { opacity: 1; text-decoration: underline; }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+    filter: sepia(0.3);
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     ILLUSTRATIE PLACEHOLDERS
+  ============================================================ */
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+    cursor: default;
+    transition: background var(--transition);
+  }
+
+  .illustratie:hover { background: #EDE7D8; }
+
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong {
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition), opacity var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover {
+    background: var(--darkblue-light);
+    transform: translateY(-3px);
+  }
+
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     UTILITY / MISC
+  ============================================================ */
+  .prose-text { max-width: 100%; }
+
+  .highlighted-para {
+    background: rgba(212,160,23,0.08);
+    border-left: 3px solid var(--gold);
+    padding: 0.8rem 1.1rem;
+    border-radius: 0 4px 4px 0;
+    margin: 1.2rem 0;
+    font-size: 0.97rem;
+    color: var(--text-mid);
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     PERSOONS-SPECIFIEKE COMPONENTEN
+  ============================================================ */
+
+  /* Portret placeholder */
+  .portrait-frame {
+    float: right;
+    width: 200px;
+    height: 260px;
+    background: var(--sand);
+    border: 2px solid var(--oker);
+    border-radius: var(--border-radius);
+    margin: 0 0 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+    box-shadow: var(--shadow-sm);
+    flex-shrink: 0;
+  }
+
+  .portrait-frame .portrait-icon {
+    font-size: 3.5rem;
+    opacity: 0.4;
+    margin-bottom: 0.6rem;
+    display: block;
+  }
+
+  .portrait-frame .portrait-caption {
+    font-size: 0.75rem;
+    font-style: italic;
+    color: var(--text-light);
+    line-height: 1.4;
+  }
+
+  /* Profiel-feiten kader */
+  .profile-facts {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1.4rem 1.5rem;
+    margin: 2rem 0;
+    overflow: hidden;
+  }
+
+  .profile-facts .pf-heading {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--terracotta);
+    margin-bottom: 1rem;
+  }
+
+  .profile-facts table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .profile-facts td {
+    padding: 0.35rem 0;
+    font-size: 0.96rem;
+    line-height: 1.55;
+    vertical-align: top;
+    border-bottom: 1px solid rgba(193,68,14,0.08);
+  }
+
+  .profile-facts td:last-child { border-bottom: none; }
+
+  .profile-facts .pf-label {
+    font-weight: 700;
+    color: var(--terracotta);
+    white-space: nowrap;
+    padding-right: 1rem;
+    width: 1%;
+  }
+
+  .profile-facts .pf-value {
+    color: var(--text-mid);
+  }
+
+  /* Sleutelmomenten tijdlijn */
+  .key-moments {
+    margin: 2rem 0;
+    position: relative;
+    padding-left: 2rem;
+  }
+
+  .key-moments::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: linear-gradient(180deg, var(--terracotta), var(--gold));
+    border-radius: 1px;
+  }
+
+  .key-moment {
+    position: relative;
+    margin-bottom: 1.2rem;
+    padding-left: 0.5rem;
+  }
+
+  .key-moment:last-child { margin-bottom: 0; }
+
+  .key-moment::before {
+    content: '';
+    position: absolute;
+    left: -1.75rem;
+    top: 0.5rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--terracotta);
+    border: 2px solid var(--creme);
+    box-shadow: 0 0 0 2px var(--terracotta);
+  }
+
+  .key-moment .km-date {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--terracotta);
+    margin-bottom: 0.15rem;
+  }
+
+  .key-moment .km-text {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Wist je dat kaartjes */
+  .did-you-know {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.2rem;
+    margin: 2rem 0;
+  }
+
+  .dyk-card {
+    background: linear-gradient(145deg, #FDF8EC, #F5EDD0);
+    border: 1.5px solid rgba(212,160,23,0.45);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.4rem;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+  }
+
+  .dyk-card::before {
+    content: '?';
+    position: absolute;
+    top: -0.7rem;
+    left: 1rem;
+    background: var(--gold);
+    color: var(--darkblue);
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(212,160,23,0.4);
+  }
+
+  .dyk-card p {
+    font-size: 0.95rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* Leerboek-verbinding kader */
+  .book-connection {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    border-radius: var(--border-radius);
+    padding: 1.6rem 1.8rem;
+    margin: 2rem 0;
+    color: var(--creme);
+    box-shadow: var(--shadow-md);
+  }
+
+  .book-connection .bc-heading {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    margin-bottom: 0.7rem;
+    opacity: 0.9;
+  }
+
+  .book-connection .bc-chapter {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #FFFDF8;
+    margin-bottom: 0.6rem;
+  }
+
+  .book-connection .bc-text {
+    font-size: 0.96rem;
+    color: rgba(250,246,239,0.8);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* Float clearfix */
+  .clearfix::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+
+  @media (max-width: 500px) {
+    .portrait-frame {
+      float: none;
+      margin: 0 auto 1.5rem;
+      width: 160px;
+      height: 210px;
+    }
+    .did-you-know {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <a class="label" href="index.html">&#8592; Historische personen</a>
+  <span class="label label-right">Alexander de Grote</span>
+</header>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Macedo&#769;nie&#776; / Perzisch Rijk &nbsp;&middot;&nbsp; 356&ndash;323 v.Chr.</div>
+  <h1>Alexander de Grote</h1>
+  <p class="subtitle">De veroveraar die op zijn 32e het grootste rijk ooit had opgebouwd &mdash; en stierf voordat hij wist wat ermee te doen</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- PROFIEL -->
+  <section class="section-block" id="profiel">
+
+    <div class="clearfix">
+      <!-- Portret placeholder -->
+      <div class="portrait-frame" role="img" aria-label="Portretplaats Alexander de Grote">
+        <span class="portrait-icon">&#9651;</span>
+        <p class="portrait-caption">Portret<br>Alexander de Grote<br><em>illustratie volgt</em></p>
+      </div>
+
+      <!-- Profiel-feiten -->
+      <div class="profile-facts">
+        <div class="pf-heading">Profiel</div>
+        <table>
+          <tr>
+            <td class="pf-label">Leefde</td>
+            <td class="pf-value">356&ndash;323 v.Chr.</td>
+          </tr>
+          <tr>
+            <td class="pf-label">Periode</td>
+            <td class="pf-value">Laat-klassieke oudheid / hellenisme</td>
+          </tr>
+          <tr>
+            <td class="pf-label">Regio</td>
+            <td class="pf-value">Macedo&#769;nie&#776;, Egypte, Perzisch Rijk, India</td>
+          </tr>
+          <tr>
+            <td class="pf-label">Bekend om</td>
+            <td class="pf-value">Verovering van het Perzisch Rijk, verspreiding van de Griekse cultuur, stichting van Alexandri&#235;</td>
+          </tr>
+          <tr>
+            <td class="pf-label">Relevante hoofdstukken</td>
+            <td class="pf-value">H14 &mdash; Alexander de Grote en de hellenistische wereld</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- BIOGRAFIE -->
+  <section class="section-block" id="biografie">
+    <div class="section-heading">
+      <h2 class="section-title">Biografie</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Het begint allemaal in Pella, een stad in het noorden van Griekenland die de meeste mensen vandaag niet meer kunnen plaatsen op een kaart. Daar, in het jaar 356 voor Christus, wordt Alexander geboren als zoon van koning Filippus II van Macedo&#769;nie&#776;. Zijn vader is geen gewone koning. Filippus heeft van Macedo&#769;nie&#776; &mdash; lang beschouwd als een achtergebleven provincie aan de rand van de beschaafde Griekse wereld &mdash; een militaire grootmacht gemaakt. Hij hervormt het leger van de grond op: nieuwe formaties, langere speren, gecombineerde aanvallen van infanterie en cavalerie. Het Macedo&#769;nische leger is, tegen de tijd dat Alexander opgroeit, het meest effici&#235;nte gevechtsmachine in de wereld.</p>
+
+      <p>Maar Filippus wil voor zijn zoon meer dan een goede militaire opleiding. Hij haalt de beroemdste denker van zijn tijd naar het paleis: <strong>Aristoteles</strong>, leerling van Plato en &#233;&#233;n van de grootste filosofen die ooit geleefd hebben. Drie jaar lang geeft Aristoteles les aan de jonge Alexander: filosofie, literatuur, geneeskunde, wetenschappen. Hij annoteert een kopie van de <em>Ilias</em> &mdash; het grote Griekse heldenepos over de Trojaanse Oorlog &mdash; speciaal voor zijn leerling. Alexander zal dat boek zijn hele leven bij zich dragen.</p>
+
+      <p>Op zijn zestiende staat Alexander al aan het hoofd van een leger. Terwijl zijn vader op veldtocht is in het zuiden, breekt in het noorden een opstand uit. Alexander trekt er eigenhandig op af en bedwingt de rebellen. Het is zijn eerste militaire succes &mdash; en hij is nog maar een tiener. Wanneer Filippus in 336 v.Chr. wordt vermoord bij een banket in Pella, is Alexander twintig jaar oud. Hij bestijgt onmiddellijk de troon. Potenti&#235;le rivalen worden uitgeschakeld. Omliggende volken die bij de dood van Filippus hopen dat Macedo&#769;nie&#776; zal verzwakken, leren snel anders. Alexander is geen kopie van zijn vader; hij is sneller, brutaler, en gedrevener door een bijna mythische drang naar roem.</p>
+
+      <p>In 334 v.Chr. steekt hij de Hellespont over, de nauwe zeestraat die Europa van Azi&#235; scheidt, en begint zijn verovering van het reusachtige Perzische Rijk. Wat volgt, is een veldtocht van dertien jaar die de wereld permanent verandert. In Klein-Azi&#235; verslaat hij het Perzische leger bij de <strong>Slag bij de Granikos</strong> (334 v.Chr.). Bij de stad Gordium staat een beroemde wagen waarvan de disselboom vastzit met een knoop die niemand ooit heeft weten los te maken: wie de knoop openlegt, zo luidt de profetie, zal heerser worden van Azi&#235;. Alexander hakt de knoop simpelweg door met zijn zwaard. Of hij dat werkelijk deed, of de knoop anders loste &mdash; de bronnen zijn het niet eens &mdash; maakt eigenlijk niet uit. Het verhaal van de <strong>Gordiaanse knoop</strong> zegt iets essentieels over hem: hij weigerde te aanvaarden dat iets onoplosbaar was.</p>
+
+      <p>In 332 v.Chr. trekt hij Egypte binnen. De Egyptenaren, die onder het Perzische juk gebukt gaan, ontvangen hem als een bevrijder. In de Nijldelta sticht hij een nieuwe stad: <strong>Alexandri&#235;</strong>. Het zal zijn duurzaamste erfenis worden. Daarna trekt hij verder naar het oosten. In 330 v.Chr. valt de Perzische hoofdstad <strong>Persepolis</strong>, het hart van het grootste rijk dat de wereld tot dan toe had gekend, in zijn handen en gaat deels in vlammen op &mdash; een daad waarover historici nog altijd discussi&#235;ren: was het een weloverwogen strategische boodschap, of dronken rovershonger?</p>
+
+      <p>Naarmate zijn rijk groeit, verandert ook zijn beleid. Alexander beseft dat je een immens multietnisch rijk niet kunt besturen als een veroverd vijandgebied. Hij trouwt zelf met <strong>Roxana</strong>, een Bactrische prinses. Hij huwt zijn officieren uit aan Perzische vrouwen. Hij neemt Perzische edelen op in zijn bestuur en zijn leger. Hij draagt zelf soms Perzische kleding. Zijn Macedo&#769;nische generaals zijn er niet blij mee &mdash; zij voelen zich het overwinnende volk, geen gelijken. Spanningen in zijn kamp nemen toe.</p>
+
+      <p>In 326 v.Chr. bereiken ze India. Na een bloedige slag bij de rivier de Hydaspes staat er niets meer tussen Alexander en de verdere verovering van het Indische subcontinent. Maar hier, voor het eerst in zijn leven, wordt hij gestopt. Niet door een vijand. Door zijn eigen soldaten. Uitgeput na acht jaar veldtocht, duizenden kilometers van huis, weigeren ze verder te trekken. Alexander is woedend, maar hij moet zich schikken.</p>
+
+      <p>In 323 v.Chr. verblijft hij in Babylon, plannen makend voor nieuwe campagnes &mdash; naar Arabi&#235;, misschien naar het westen. Dan valt hij ziek. Tien dagen later is hij dood. Hij is tweeendertig jaar oud. Wat hem precies doodde, weten we niet zeker. Een koorts, mogelijk tyfus? Overmatig drankgebruik? Vergif, toegediend door &#233;&#233;n van zijn vijanden? Wetenschappers debatteren er nog steeds over. Zijn leger valt uiteen. Zijn generaals verdelen het rijk onder elkaar. De wereld die hij had opgebouwd, houdt hij niet bijeen &mdash; maar de <strong>hellenistische beschaving</strong> die hij had ingezaaid, bloeit nog eeuwen na zijn dood.</p>
+
+      <p>De Griekse taal verspreidt zich als lingua franca over het gehele Midden-Oosten. De Alexandrijnse bibliotheek, gesticht na zijn dood in de stad die zijn naam draagt, wordt het grootste kenniscentrum van de antieke wereld. De wisselwerking tussen Griekse, Egyptische en Perzische cultuur &mdash; wat historici het <strong>hellenisme</strong> noemen &mdash; brengt nieuwe kunst, wetenschap en filosofie voort. Tot ver in de Middeleeuwen spreken geleerden van Egypte tot Mesopotami&#235; Grieks als wetenschappelijke taal. Het zijn de zaden die een tweeendertigjarige slapende veroveraar in Babylon achterliet.</p>
+    </div>
+  </section>
+
+  <!-- SLEUTELMOMENTEN -->
+  <section class="section-alt" id="sleutelmomenten">
+    <div class="section-heading">
+      <h2 class="section-title">Sleutelmomenten</h2>
+    </div>
+
+    <div class="key-moments">
+      <div class="key-moment">
+        <div class="km-date">356 v.Chr.</div>
+        <p class="km-text">Geboren in Pella (Macedo&#769;nie&#776;) als zoon van koning Filippus II.</p>
+      </div>
+      <div class="key-moment">
+        <div class="km-date">343 v.Chr.</div>
+        <p class="km-text">Aristoteles wordt zijn priveleraar; drie jaar lang onderwijs in filosofie, literatuur en wetenschappen.</p>
+      </div>
+      <div class="key-moment">
+        <div class="km-date">336 v.Chr.</div>
+        <p class="km-text">Vader Filippus vermoord; Alexander bestijgt de troon op twintigjarige leeftijd.</p>
+      </div>
+      <div class="key-moment">
+        <div class="km-date">334 v.Chr.</div>
+        <p class="km-text">Steekt de Hellespont over en begint de verovering van het Perzische Rijk.</p>
+      </div>
+      <div class="key-moment">
+        <div class="km-date">332 v.Chr.</div>
+        <p class="km-text">Verovert Egypte en sticht de stad Alexandri&#235; aan de Nijldelta.</p>
+      </div>
+      <div class="key-moment">
+        <div class="km-date">331 v.Chr.</div>
+        <p class="km-text"><strong>Slag bij Gaugamela</strong>: beslissende overwinning op de Perzische koning Darius III. Het Perzische Rijk valt definitief; kort daarna wordt Persepolis ingenomen en verwoest.</p>
+      </div>
+      <div class="key-moment">
+        <div class="km-date">323 v.Chr.</div>
+        <p class="km-text">Overlijdt in Babylon aan koorts, tweeendertig jaar oud. Het grootste rijk dat &#233;&#233;n man ooit had opgebouwd, valt uiteen.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WIST JE DAT -->
+  <section class="section-block" id="weetjes">
+    <div class="section-heading">
+      <h2 class="section-title">Wist je dat&hellip;</h2>
+    </div>
+
+    <div class="did-you-know">
+      <div class="dyk-card">
+        <p>Alexander sliep altijd met twee dingen onder zijn kussen: een dolk en een gecorrigeerde kopie van de <em>Ilias</em>, die Aristoteles persoonlijk voor hem had geannoteerd.</p>
+      </div>
+      <div class="dyk-card">
+        <p>Hij stichtte meer dan 20 steden met de naam &#8220;Alexandri&#235;&#8221;. Alleen de Egyptische groeide uit tot een wereldstad &mdash; en bestaat nog steeds.</p>
+      </div>
+      <div class="dyk-card">
+        <p>In India verloren zijn troepen hun bereidheid verder te trekken. Niet zijn vijanden, maar zijn eigen soldaten stopten Alexander de Grote.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEERBOEK-VERBINDING -->
+  <section class="section-block" id="leerboek">
+    <div class="section-heading">
+      <h2 class="section-title">Verbinding met het leerboek</h2>
+    </div>
+
+    <div class="book-connection">
+      <div class="bc-heading">Relevant hoofdstuk</div>
+      <div class="bc-chapter">H14 &mdash; Alexander de Grote en de hellenistische wereld</div>
+      <p class="bc-text">In dit hoofdstuk kom je Alexander de Grote tegen in de context van de Macedonische hegemonie over Griekenland, zijn militaire veroveringen, en de hellenistische beschaving die hij nagelaten heeft. Je bestudeert ook de Diadochen &mdash; de generaals die na zijn dood zijn rijk onder elkaar verdeelden &mdash; en de verspreiding van de Griekse cultuur en taal doorheen het Midden-Oosten tot ver in de Middeleeuwen.</p>
+    </div>
+  </section>
+
+</div><!-- end page-wrapper -->
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) {
+        btn.classList.add('visible');
+      } else {
+        btn.classList.remove('visible');
+      }
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

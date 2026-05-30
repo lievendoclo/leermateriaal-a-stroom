@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H8 — Veiligheid, meetinstrumenten en grootheden | Techniek 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --gold: #D4A017;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    /* Extended tokens used internally */
+    --terracotta-light: #D4561E;
+    --gold-light: #E8B82A;
+    --darkblue-light: #243B63;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     CLOSING QUOTE
+  ============================================================ */
+  .closing-quote {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0D1E38 100%);
+    border-radius: var(--border-radius);
+    padding: 3rem 3rem 2.5rem;
+    margin: 3.5rem 0 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.5rem; left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .closing-quote .cq-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--gold);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 1.2rem;
+  }
+
+  .closing-quote .cq-attribution {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(212,160,23,0.6);
+  }
+
+  .closing-quote .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .closing-quote .ornament-line::before,
+  .closing-quote .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.4), transparent);
+  }
+
+  .closing-quote .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.7;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .closing-quote { padding: 2rem 1.2rem 1.8rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     WISKUNDE-SPECIFIC COMPONENTS
+  ============================================================ */
+
+  /* ── REKENVOORBEELD ─────────────────────────────────── */
+  .rekenvoorbeeld {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--oker);
+    border-radius: var(--border-radius);
+    padding: 1.8rem 2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .rekenvoorbeeld .rv-label {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--oker); display: block; margin-bottom: 0.35rem;
+  }
+  .rekenvoorbeeld .rv-vraag {
+    font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700;
+    color: var(--darkblue); margin-bottom: 1rem; line-height: 1.4;
+  }
+  .rv-stappen { list-style: none; padding: 0; counter-reset: stap-teller; margin-bottom: 1rem; }
+  .rv-stappen li {
+    counter-increment: stap-teller;
+    padding: 0.6rem 0.8rem 0.6rem 3.2rem;
+    position: relative;
+    background: var(--creme);
+    border-radius: 4px;
+    margin-bottom: 0.4rem;
+    font-size: 0.97rem;
+  }
+  .rv-stappen li::before {
+    content: counter(stap-teller);
+    position: absolute; left: 0.6rem; top: 50%; transform: translateY(-50%);
+    background: var(--darkblue); color: white;
+    width: 1.7rem; height: 1.7rem; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; font-weight: 700;
+  }
+  .rv-antwoord {
+    background: var(--darkblue); color: var(--gold);
+    padding: 0.75rem 1.1rem; border-radius: 4px;
+    font-weight: 700; font-size: 1rem;
+  }
+  .rv-antwoord math { color: var(--gold); }
+
+  /* ── STELLING ───────────────────────────────────────── */
+  .stelling {
+    background: #EEF3FF;
+    border-left: 4px solid var(--darkblue);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1.2rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .stelling .st-label {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--darkblue); opacity: 0.7;
+    display: block; margin-bottom: 0.35rem;
+  }
+  .stelling .st-body { font-size: 0.97rem; color: var(--text-dark); }
+
+  /* ── FORMULE ────────────────────────────────────────── */
+  .formule {
+    background: var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 1.4rem 1.8rem;
+    text-align: center;
+    margin: 1.8rem 0;
+  }
+  .formule math { color: white; font-size: 1.2rem; }
+  .formule .formule-naam {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--gold); opacity: 0.8;
+    display: block; margin-bottom: 0.5rem;
+  }
+
+  /* ── SVG CONTAINER ──────────────────────────────────── */
+  .svg-container {
+    margin: 1.8rem 0;
+    padding: 1.5rem;
+    background: white;
+    border: 1px solid var(--sand);
+    border-radius: var(--border-radius);
+    overflow-x: auto;
+    text-align: center;
+  }
+  .svg-container .svg-caption {
+    font-size: 0.85rem; color: var(--text-light); font-style: italic;
+    display: block; margin-top: 0.75rem;
+  }
+
+  /* ── DOMEIN GRID ────────────────────────────────────── */
+  .domein-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+    margin: 1.8rem 0;
+  }
+  .domein-card {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 3px solid var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 1.2rem 1.3rem;
+    box-shadow: var(--shadow-sm);
+  }
+  .domein-card .dc-naam {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+  .domein-card .dc-hoofdstukken {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    font-style: italic;
+  }
+  .domein-card .dc-beschrijving {
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    margin-top: 0.5rem;
+    line-height: 1.55;
+  }
+
+  /* ── SYMBOLTABEL ────────────────────────────────────── */
+  .symbool-tabel {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    margin: 1.2rem 0;
+  }
+  .symbool-tabel th {
+    background: var(--darkblue);
+    color: white;
+    padding: 0.5rem 1rem;
+    text-align: left;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    font-size: 0.83rem;
+  }
+  .symbool-tabel td {
+    padding: 0.45rem 1rem;
+    border-bottom: 1px solid var(--sand);
+    color: var(--text-mid);
+  }
+  .symbool-tabel tr:last-child td { border-bottom: none; }
+  .symbool-tabel tr:nth-child(even) td { background: var(--sand-light); }
+  .symbool-tabel .sym { font-size: 1.1rem; font-weight: 700; color: var(--darkblue); }
+
+  /* ── WERKWIJZE LIST ─────────────────────────────────── */
+  .werkwijze-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.2rem 0;
+  }
+  .werkwijze-list li {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 0.8rem 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 0.5rem;
+    background: var(--sand-light);
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.55;
+  }
+  .werkwijze-list li .wl-kleur {
+    flex-shrink: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-top: 0.42rem;
+  }
+  .werkwijze-list li strong { color: var(--darkblue); }
+
+  /* ============================================================
+     TECHNIEK — EXTRA COMPONENTS
+  ============================================================ */
+  .begrip-kader { background: #fff8f5; border-left: 4px solid var(--terracotta); border-radius: 0 6px 6px 0; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+  .begrip-kader strong { color: var(--terracotta); display: block; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem; }
+  .schema-kader { background: var(--sand-light, #F2EAD8); border: 1px solid var(--sand); border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; }
+  .schema-kader h4 { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 0.75rem; color: var(--darkblue); }
+  .data-tabel { width: 100%; border-collapse: collapse; margin: 1.25rem 0; font-size: 0.92rem; }
+  .data-tabel th { background: var(--darkblue); color: var(--gold); font-family: 'Source Sans 3', sans-serif; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.75rem 1rem; text-align: left; }
+  .data-tabel td { padding: 0.65rem 1rem; border-bottom: 1px solid var(--sand); vertical-align: top; }
+  .data-tabel tr:nth-child(even) td { background: var(--sand-light, #F2EAD8); }
+  .waarschuwing-kader { background: #fff3cd; border: 1px solid #ffc107; border-radius: 8px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+  .waarschuwing-kader::before { content: '⚠️ Veiligheid'; display: block; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #856404; margin-bottom: 0.5rem; }
+  .formule-blok { background: var(--darkblue); color: white; border-radius: 8px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; font-family: 'Playfair Display', serif; font-size: 1.1rem; text-align: center; }
+  .formule-blok span { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <span class="label">Techniek</span>
+  <span class="label label-right">H8 &middot; Veiligheid &amp; Grootheden</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Hoofdstuk 8 &nbsp;&middot;&nbsp; Technische systemen (82,5%)</div>
+  <h1>Veiligheid, meetinstrumenten en grootheden</h1>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- SECTION 1 — Veilig werken in de techniekles -->
+  <section class="section-block" id="s1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Veilig werken in de techniekles</h2>
+    </div>
+
+    <p>Veiligheid is cruciaal bij het werken met materialen, stoffen, organismen en technische systemen. Wie de regels kent en toepast, werkt niet alleen veiliger voor zichzelf, maar ook voor zijn klasgenoten.</p>
+
+    <h3 class="sub-heading">Algemene veiligheidsregels</h3>
+
+    <div class="waarschuwing-kader">
+      <ul style="padding-left: 1.3rem; margin: 0;">
+        <li style="margin-bottom: 0.45rem;">Gemorste producten onmiddellijk opkuisen</li>
+        <li style="margin-bottom: 0.45rem;">Nooit met natte handen elektrische toestellen bedienen</li>
+        <li style="margin-bottom: 0.45rem;">Meetinstrumenten uitschakelen wanneer je niet meet</li>
+        <li style="margin-bottom: 0.45rem;">Meetbereik en nauwkeurigheid van meetinstrumenten respecteren</li>
+        <li style="margin-bottom: 0.45rem;">Altijd gereedschapsinstructies volgen</li>
+        <li>Veiligheidsinstructiekaarten (VIK) lezen v&oacute;&oacute;r je begint</li>
+      </ul>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128196;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">VIK &mdash; Veiligheidsinstructiekaart</span>
+        <p class="begrip-def">Een VIK is een kaart die per toestel of stof de gevaren en veiligheidsmaatregelen beschrijft. Je leest de VIK altijd vóór je met een nieuw gereedschap of een nieuwe stof aan de slag gaat.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Veiligheidspictogrammen herkennen</h3>
+
+    <p>Bij stoffen, machines en gereedschappen staan pictogrammen die het gevaar aangeven. Uit een pictogram leid je af:</p>
+    <ul style="padding-left: 1.4rem; margin: 0.5rem 0 1.2rem;">
+      <li style="margin-bottom: 0.45rem;">Welk veiligheidspictogram aanwezig is</li>
+      <li style="margin-bottom: 0.45rem;">Waarom de stof of het gereedschap gevaarlijk is</li>
+      <li>Hoe je met de stof of het afval kunt omgaan</li>
+    </ul>
+
+    <h3 class="sub-heading">PBM &mdash; Persoonlijke Beschermingsmiddelen</h3>
+
+    <p>Je kiest de juiste PBM in functie van de situatie. Elk PBM beschermt een ander lichaamsdeel of beschermt je tegen een ander type gevaar.</p>
+
+    <div class="schema-kader">
+      <h4>Overzicht PBM</h4>
+      <table class="data-tabel">
+        <thead>
+          <tr>
+            <th>PBM</th>
+            <th>Wanneer gebruiken?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>&#128065; Gehoorbescherming</td>
+            <td>Bij decoupeerzaag, slijpmachine en andere luid gereedschap</td>
+          </tr>
+          <tr>
+            <td>&#128095; Veiligheidsschoenen</td>
+            <td>Bij het werken met zware materialen die kunnen vallen</td>
+          </tr>
+          <tr>
+            <td>&#128567; Mondmasker / stofmasker</td>
+            <td>Bij verf, vernis, stof en andere chemische dampen</td>
+          </tr>
+          <tr>
+            <td>&#129405; Veiligheidsbril</td>
+            <td>Bij boren, slijpen en werken met chemische stoffen</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub-heading">Onderhoud van gereedschappen</h3>
+
+    <ul style="padding-left: 1.4rem; margin: 0.5rem 0 1.2rem;">
+      <li style="margin-bottom: 0.45rem;">Controleer gereedschap v&oacute;&oacute;r gebruik: beschadigd gereedschap mag <strong>niet</strong> gebruikt worden</li>
+      <li style="margin-bottom: 0.45rem;">Bewaar gereedschappen netjes na gebruik</li>
+      <li>Reinig gereedschappen na gebruik</li>
+    </ul>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Je staat op het punt te schilderen. Welke PBM leg je klaar? En stel dat je daarna met de decoupeerzaag werkt &mdash; verandert er iets aan je uitrusting? Motiveer je keuze.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 2 — Meetinstrumenten en hulpmiddelen -->
+  <section class="section-block" id="s2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Meetinstrumenten en hulpmiddelen</h2>
+    </div>
+
+    <p>Meten is een fundamentele vaardigheid in techniek. Je kiest het juiste meetinstrument op basis van:</p>
+    <ul style="padding-left: 1.4rem; margin: 0.5rem 0 1.2rem;">
+      <li style="margin-bottom: 0.45rem;">De te meten grootheid (wat wil je meten?)</li>
+      <li style="margin-bottom: 0.45rem;">De nauwkeurigheid die je nodig hebt</li>
+      <li>Het meetbereik van het instrument</li>
+    </ul>
+
+    <h3 class="sub-heading">Overzicht meetinstrumenten</h3>
+
+    <table class="data-tabel">
+      <thead>
+        <tr>
+          <th>Instrument</th>
+          <th>Meet</th>
+          <th>Eenheid</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Maatbeker</strong></td>
+          <td>Volume vloeistof</td>
+          <td>ml, L</td>
+        </tr>
+        <tr>
+          <td><strong>Maatcilinder</strong></td>
+          <td>Volume vloeistof (nauwkeuriger)</td>
+          <td>ml, L</td>
+        </tr>
+        <tr>
+          <td><strong>Thermometer</strong></td>
+          <td>Temperatuur</td>
+          <td>&deg;C</td>
+        </tr>
+        <tr>
+          <td><strong>Weegschaal</strong></td>
+          <td>Massa</td>
+          <td>g, kg</td>
+        </tr>
+        <tr>
+          <td><strong>Meetlat / liniaal</strong></td>
+          <td>Lengte</td>
+          <td>mm, cm, m</td>
+        </tr>
+        <tr>
+          <td><strong>Schuifmaat</strong></td>
+          <td>Lengte (nauwkeurig, tot 0,1&nbsp;mm)</td>
+          <td>mm</td>
+        </tr>
+        <tr>
+          <td><strong>Multimeter (amp&egrave;remeter)</strong></td>
+          <td>Elektrische stroomsterkte</td>
+          <td>A, mA</td>
+        </tr>
+        <tr>
+          <td><strong>Multimeter (voltmeter)</strong></td>
+          <td>Elektrische spanning</td>
+          <td>V, mV</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub-heading">Hulpmiddelen</h3>
+
+    <div class="begrip-kader">
+      <strong>Stappenplan</strong>
+      Een stappenplan structureert de aanpak van een technisch probleem. Je werkt stap voor stap en mist zo geen enkele fase in het proces.
+    </div>
+
+    <div class="begrip-kader">
+      <strong>IPO-model</strong>
+      Het IPO-model staat voor <em>Input &ndash; Process &ndash; Output</em>. Het beschrijft hoe een informatieverwerkend systeem informatie ontvangt, verwerkt en afgeeft.
+    </div>
+
+    <h3 class="sub-heading">Hoe lees je een meetinstrument correct af?</h3>
+
+    <div class="stelling">
+      <span class="st-label">Techniek</span>
+      <p class="st-body">Kijk <strong>loodrecht</strong> op de schaal om een parallaxfout te vermijden. Let op de eenheid en de schaalverdeling. Gebruik altijd het juiste bereik: een te groot bereik geeft een onnauwkeurige aflezing.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Twee leerlingen meten dezelfde vloeistof: de ene gebruikt een maatbeker, de andere een maatcilinder. Wie meet nauwkeuriger? Wanneer is het &oacute;k om de maatbeker te gebruiken?</p>
+    </div>
+  </section>
+
+  <!-- SECTION 3 — Grootheden en eenheden -->
+  <section class="section-block" id="s3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Grootheden en eenheden</h2>
+    </div>
+
+    <p>Een <strong>grootheid</strong> is een meetbare eigenschap van een object of systeem. De <strong>eenheid</strong> geeft aan hoe we die eigenschap meten. Zonder eenheid zegt een getal niets: &ldquo;5&rdquo; is zinloos, maar &ldquo;5 kg&rdquo; is duidelijk.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128207;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">SI-stelsel</span>
+        <p class="begrip-def">Het Internationaal Stelsel van Eenheden (SI) is het wereldwijd afgesproken systeem van maateenheden. Het zorgt ervoor dat wetenschappers en technici overal ter wereld dezelfde taal spreken.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Basisgrootheden</h3>
+
+    <table class="data-tabel">
+      <thead>
+        <tr>
+          <th>Grootheid</th>
+          <th>Symbool</th>
+          <th>SI-eenheid</th>
+          <th>Symbool eenheid</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Tijd</td>
+          <td><em>t</em></td>
+          <td>seconde</td>
+          <td>s</td>
+        </tr>
+        <tr>
+          <td>Lengte</td>
+          <td><em>l</em></td>
+          <td>meter</td>
+          <td>m</td>
+        </tr>
+        <tr>
+          <td>Massa</td>
+          <td><em>m</em></td>
+          <td>kilogram</td>
+          <td>kg</td>
+        </tr>
+        <tr>
+          <td>Temperatuur</td>
+          <td><em>T</em></td>
+          <td>kelvin / graden Celsius</td>
+          <td>K / &deg;C</td>
+        </tr>
+        <tr>
+          <td>Stroomsterkte</td>
+          <td><em>I</em></td>
+          <td>amp&egrave;re</td>
+          <td>A</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub-heading">Afgeleide grootheden</h3>
+
+    <p>Afgeleide grootheden worden berekend uit de basisgrootheden. Ze hebben eigen symbolen en eenheden.</p>
+
+    <table class="data-tabel">
+      <thead>
+        <tr>
+          <th>Grootheid</th>
+          <th>Symbool</th>
+          <th>Eenheid</th>
+          <th>Symbool</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Omtrek</td>
+          <td><em>O</em></td>
+          <td>meter</td>
+          <td>m</td>
+        </tr>
+        <tr>
+          <td>Oppervlakte</td>
+          <td><em>A</em></td>
+          <td>vierkante meter</td>
+          <td>m&sup2;</td>
+        </tr>
+        <tr>
+          <td>Inhoud / Volume</td>
+          <td><em>V</em></td>
+          <td>kubieke meter / liter</td>
+          <td>m&sup3; / L</td>
+        </tr>
+        <tr>
+          <td>Spanning</td>
+          <td><em>U</em></td>
+          <td>volt</td>
+          <td>V</td>
+        </tr>
+        <tr>
+          <td>Elektrisch vermogen</td>
+          <td><em>P</em></td>
+          <td>watt</td>
+          <td>W</td>
+        </tr>
+        <tr>
+          <td>Weerstand</td>
+          <td><em>R</em></td>
+          <td>ohm</td>
+          <td>&Omega;</td>
+        </tr>
+        <tr>
+          <td>Kracht</td>
+          <td><em>F</em></td>
+          <td>newton</td>
+          <td>N</td>
+        </tr>
+        <tr>
+          <td>Energie</td>
+          <td><em>E</em></td>
+          <td>joule</td>
+          <td>J</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub-heading">Voorvoegsels</h3>
+
+    <p>Voorvoegsels worden voor de eenheid geplaatst om grote of kleine getallen compacter te schrijven.</p>
+
+    <table class="data-tabel">
+      <thead>
+        <tr>
+          <th>Voorvoegsel</th>
+          <th>Symbool</th>
+          <th>Factor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>kilo</td>
+          <td>k</td>
+          <td>&times; 1000</td>
+        </tr>
+        <tr>
+          <td>hecto</td>
+          <td>h</td>
+          <td>&times; 100</td>
+        </tr>
+        <tr>
+          <td>deca</td>
+          <td>da</td>
+          <td>&times; 10</td>
+        </tr>
+        <tr>
+          <td><em>(eenheid)</em></td>
+          <td>&mdash;</td>
+          <td>&times; 1</td>
+        </tr>
+        <tr>
+          <td>deci</td>
+          <td>d</td>
+          <td>&divide; 10</td>
+        </tr>
+        <tr>
+          <td>centi</td>
+          <td>c</td>
+          <td>&divide; 100</td>
+        </tr>
+        <tr>
+          <td>milli</td>
+          <td>m</td>
+          <td>&divide; 1000</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="begrip-kader">
+      <strong>Voorbeelden</strong>
+      1 km = 1000 m &nbsp;&bull;&nbsp; 1 mm = 0,001 m &nbsp;&bull;&nbsp; 1 m&sup3; = 1000 L
+    </div>
+
+    <h3 class="sub-heading">Formules voor omtrek, oppervlakte en volume</h3>
+
+    <div class="formule-blok">
+      <div style="margin-bottom: 1rem;">
+        <span style="display: block; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--oker); margin-bottom: 0.6rem; font-family: 'Source Sans 3', sans-serif;">Omtrek</span>
+        Vierkant: <span>P = 4 &times; z</span>
+        &nbsp;&nbsp;&bull;&nbsp;&nbsp;
+        Rechthoek: <span>P = 2 &times; (b + h)</span>
+        &nbsp;&nbsp;&bull;&nbsp;&nbsp;
+        Cirkel: <span>P = 2 &times; &pi; &times; r</span>
+      </div>
+      <div style="border-top: 1px solid rgba(212,160,23,0.25); padding-top: 1rem; margin-bottom: 1rem;">
+        <span style="display: block; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--oker); margin-bottom: 0.6rem; font-family: 'Source Sans 3', sans-serif;">Oppervlakte</span>
+        Vierkant: <span>A = z&sup2;</span>
+        &nbsp;&nbsp;&bull;&nbsp;&nbsp;
+        Rechthoek: <span>A = b &times; h</span>
+        &nbsp;&nbsp;&bull;&nbsp;&nbsp;
+        Cirkel: <span>A = &pi; &times; r&sup2;</span>
+      </div>
+      <div style="border-top: 1px solid rgba(212,160,23,0.25); padding-top: 1rem;">
+        <span style="display: block; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--oker); margin-bottom: 0.6rem; font-family: 'Source Sans 3', sans-serif;">Volume</span>
+        Kubus: <span>V = z&sup3;</span>
+        &nbsp;&nbsp;&bull;&nbsp;&nbsp;
+        Balk: <span>V = l &times; b &times; h</span>
+        &nbsp;&nbsp;&bull;&nbsp;&nbsp;
+        Bol: <span>V = (4/3) &times; &pi; &times; r&sup3;</span>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Eenheden omzetten</h3>
+
+    <div class="schema-kader">
+      <h4>Veelgebruikte omzettingen</h4>
+      <ul style="padding-left: 1.4rem; margin: 0;">
+        <li style="margin-bottom: 0.45rem;">km &rarr; m: &times; 1000</li>
+        <li style="margin-bottom: 0.45rem;">m&sup2; &rarr; cm&sup2;: &times; 10.000</li>
+        <li style="margin-bottom: 0.45rem;">m&sup3; &rarr; L: &times; 1000</li>
+        <li>L &rarr; ml: &times; 1000</li>
+      </ul>
+    </div>
+
+    <!-- CLOSING QUOTE -->
+    <div class="closing-quote" role="note" aria-label="Slotcitaat">
+      <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+      <p class="cq-text">Meten is weten &mdash; maar pas als je het juiste instrument gebruikt en de eenheid niet vergeet.</p>
+      <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+      <span class="cq-attribution">Techniek 1A &nbsp;&middot;&nbsp; Eerste Graad A-stroom</span>
+    </div>
+
+  </section>
+
+</div><!-- end page-wrapper -->
+
+<!-- EXERCISES -->
+<section class="exercises-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Het juiste meetinstrument kiezen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);">Welk meetinstrument gebruik je voor elk van de volgende metingen? Noem ook de eenheid.</p>
+      <ol>
+        <li>De massa van een houten blok meten</li>
+        <li>De lengte van een bout nauwkeurig meten (tot op 0,1&nbsp;mm)</li>
+        <li>De spanning over een batterij meten</li>
+      </ol>
+      <p class="ex-tip">Tip: raadpleeg de tabel van meetinstrumenten.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Eenheden omzetten</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);">Reken om en schrijf het antwoord met de juiste eenheid:</p>
+      <ol>
+        <li>3,5 km naar m</li>
+        <li>250 ml naar L</li>
+        <li>0,5 m&sup2; naar cm&sup2;</li>
+      </ol>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Omtrek en oppervlakte van een rechthoek</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);">Een rechthoek heeft een breedte van 8 cm en een hoogte van 5 cm.</p>
+      <ol>
+        <li>Bereken de omtrek. Geef de formule, de berekening en het antwoord met eenheid.</li>
+        <li>Bereken de oppervlakte. Geef de formule, de berekening en het antwoord met eenheid.</li>
+      </ol>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 4</p>
+      <p class="ex-name">Volume van een cilinder</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);">Een cilinder heeft een straal van 4 cm en een hoogte van 10 cm. Gebruik de formule V = &pi; &times; r&sup2; &times; h.</p>
+      <ol>
+        <li>Schrijf de formule op.</li>
+        <li>Vervang de symbolen door de gegeven waarden.</li>
+        <li>Bereken het volume. Gebruik &pi; &asymp; 3,14.</li>
+        <li>Geef het antwoord met de juiste eenheid.</li>
+      </ol>
+      <p class="ex-tip">Tip: let op het verschil tussen r (straal) en d (diameter).</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 5</p>
+      <p class="ex-name">PBM kiezen bij verven</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);">Je werkt met verf in de techniekles.</p>
+      <ol>
+        <li>Welke PBM gebruik je? Noem er minstens twee.</li>
+        <li>Motiveer voor elk gekozen PBM waarom het nodig is bij deze activiteit.</li>
+        <li>Welke veiligheidspictogrammen verwacht je op de verfbus te zien? Beschrijf of teken ze.</li>
+      </ol>
+    </div>
+
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="summary-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>Veiligheid:</strong> VIK lezen v&oacute;&oacute;r je begint, de juiste PBM dragen, gereedschappen controleren en onderhouden.</li>
+      <li><strong>PBM:</strong> gehoorbescherming (zaag/slijpmachine), veiligheidsschoenen (zware materialen), mondmasker (verf/vernis/stof), veiligheidsbril (boren/slijpen/chemie).</li>
+      <li><strong>Meetinstrumenten:</strong> maatbeker en maatcilinder (volume), thermometer (temperatuur), weegschaal (massa), meetlat/liniaal (lengte), schuifmaat (lengte tot 0,1&nbsp;mm), multimeter (spanning en stroom).</li>
+      <li><strong>Correct aflezen:</strong> loodrecht op de schaal kijken, juiste bereik kiezen, eenheid noteren.</li>
+      <li><strong>Basisgrootheden:</strong> t (s), l (m), m (kg), T (K/&deg;C), I (A).</li>
+      <li><strong>Afgeleide grootheden:</strong> U (V), P (W), R (&Omega;), F (N), E (J), A (m&sup2;), V (m&sup3;).</li>
+      <li><strong>Voorvoegsels:</strong> kilo (&times;1000), milli (&divide;1000), centi (&divide;100).</li>
+      <li><strong>Formules:</strong> omtrek, oppervlakte en volume van vierkant, rechthoek, cirkel, kubus en balk.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoofdstuk 9 — De krachten van de aarde | Aardrijkskunde 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     ILLUSTRATIE PLACEHOLDERS
+  ============================================================ */
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+    cursor: default;
+    transition: background var(--transition);
+  }
+
+  .illustratie:hover { background: #EDE7D8; }
+
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     BRONMATERIAAL — geographic source / map / data block
+     Key component for Aardrijkskunde: use for map descriptions,
+     climate tables, satellite image descriptions, GPS data, etc.
+  ============================================================ */
+  .bronmateriaal {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 2rem 2.2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .bronmateriaal .bron-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--darkblue);
+    opacity: 0.6;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  .bronmateriaal .bron-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  .bronmateriaal .bron-meta {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    font-style: italic;
+    margin-bottom: 0.9rem;
+    display: block;
+  }
+
+  .bronmateriaal .bron-body { margin-bottom: 0.8rem; }
+
+  .bronmateriaal .bron-body p {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-bottom: 0.6em;
+  }
+
+  .bronmateriaal .bron-body p:last-child { margin-bottom: 0; }
+
+  .bronmateriaal .bron-body table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+  }
+
+  .bronmateriaal .bron-body th {
+    background: var(--darkblue);
+    color: white;
+    padding: 0.4rem 0.75rem;
+    text-align: left;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    font-size: 0.83rem;
+  }
+
+  .bronmateriaal .bron-body td {
+    padding: 0.35rem 0.75rem;
+    border-bottom: 1px solid var(--sand);
+    color: var(--text-mid);
+    font-size: 0.93rem;
+  }
+
+  .bronmateriaal .bron-body tr:last-child td { border-bottom: none; }
+
+  .bronmateriaal .bron-body tr:nth-child(even) td {
+    background: var(--sand-light);
+  }
+
+  .bronmateriaal .bron-vraag {
+    background: rgba(26,43,74,0.06);
+    border-left: 3px solid var(--darkblue);
+    border-radius: 0 4px 4px 0;
+    padding: 0.7rem 1rem;
+    font-size: 0.93rem;
+    color: var(--text-mid);
+    font-style: italic;
+    margin-top: 1rem;
+  }
+
+  .bronmateriaal .bron-vraag::before {
+    content: '🔍 ';
+    font-style: normal;
+  }
+
+  .bronmateriaal .bron-source {
+    font-size: 0.78rem;
+    color: var(--text-light);
+    border-top: 1px solid var(--sand);
+    padding-top: 0.6rem;
+    font-style: italic;
+    margin-top: 0.8rem;
+    display: block;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     CLOSING QUOTE
+  ============================================================ */
+  .closing-quote {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0D1E38 100%);
+    border-radius: var(--border-radius);
+    padding: 3rem 3rem 2.5rem;
+    margin: 3.5rem 0 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.5rem; left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .closing-quote .cq-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--gold);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 1.2rem;
+  }
+
+  .closing-quote .cq-attribution {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(212,160,23,0.6);
+  }
+
+  .closing-quote .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .closing-quote .ornament-line::before,
+  .closing-quote .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.4), transparent);
+  }
+
+  .closing-quote .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.7;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .closing-quote { padding: 2rem 1.2rem 1.8rem; }
+    .bronmateriaal { padding: 1.4rem 1.2rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <a class="label" href="index.html">Aardrijkskunde 1A</a>
+  <span class="label label-right">Hoofdstuk 9</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Aardrijkskunde &nbsp;&middot;&nbsp; 1A &nbsp;&middot;&nbsp; Domein 4</div>
+  <h1>Hoofdstuk 9<br>De krachten van de aarde</h1>
+  <p class="subtitle">Vulkanen, aardbevingen en erosie: de bouwers van ons landschap</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- PROLOGUE -->
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">26 december 2004 &mdash; De oceaan slaat toe</span>
+
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+
+    <p>Het is vroeg in de ochtend als de zeebodem 30 kilometer ten zuiden van Sumatra plotseling verschuift. Een tektonische plaat schuift met een ruk onder een andere. In een paar minuten beweegt een stuk aardkorst ter grootte van Californi&euml; enkele meters omhoog. De schok meet 9,1 op de schaal van Richter &mdash; de zwaarste aardbeving die de aarde in meer dan veertig jaar had meegemaakt.</p>
+
+    <p>Boven de epicentrum rijst een golf op. Niet &eacute;&eacute;n golf, maar een reeks van vloedgolven &mdash; een <strong style="color: var(--gold);">tsunami</strong> &mdash; die met de snelheid van een vliegtuig door de Indische Oceaan raast. Twee uur later slaan de golven, soms tien meter hoog, neer op de kusten van Indonesi&euml;, Sri Lanka, India en Thailand. Hele dorpen worden in minuten weggevaagd. Kusten die duizenden jaren onveranderd lagen, zijn door de golven volledig hervormd.</p>
+
+    <p>Meer dan 230.000 mensen komen om het leven. Het is een van de dodelijkste natuurrampen ooit geregistreerd. En het begon allemaal diep in de aarde, met de beweging van platen die al miljoenen jaren in beweging zijn.</p>
+
+    <p><em>In dit hoofdstuk leer je welke krachten het landschap vormen &mdash; zowel van binnenuit als van buitenaf &mdash; en hoe die krachten zichtbaar zijn in het landschap om ons heen.</em></p>
+
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 1: INWENDIGE KRACHTEN
+  ============================================================ -->
+  <section class="section-block" id="sectie1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Inwendige krachten &mdash; van binnenuit</h2>
+    </div>
+
+    <p>De aarde is geen koude, dode rots. Diep van binnen gloeit ze. De enorme hitte in het binnenste van de aarde drijft processen aan die het oppervlak van onze planeet voortdurend veranderen. Die processen noemen we <strong>inwendige krachten</strong>: krachten die van binnenuit komen.</p>
+
+    <h3 class="sub-heading">De structuur van de aarde</h3>
+
+    <p>De aarde bestaat uit drie grote lagen. Het is alsof je een enorme ui doorknipt: elke laag heeft een andere samenstelling en andere eigenschappen.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#127760;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Aardkorst</span>
+        <p class="begrip-def">De buitenste, dunne laag van de aarde. De aardkorst is gemiddeld 30 tot 70 kilometer dik onder de continenten, en slechts 5 tot 10 kilometer dik onder de oceanen. Vergeleken met de rest van de aarde is de aardkorst dunner dan de schil van een appel.</p>
+      </div>
+    </div>
+
+    <p>Onder de aardkorst ligt de <strong>mantel</strong>: een dikke laag van heet, semi-vloeibaar gesteente. De mantel strekt zich uit tot op een diepte van ongeveer 2.900 kilometer. Helemaal in het midden bevindt zich de <strong>kern</strong>: een bol van ijzer en nikkel, deels vloeibaar (buitenkern) en deels vast (binnenkern). De temperatuur in de kern loopt op tot meer dan 5.000 graden Celsius &mdash; even heet als het oppervlak van de zon.</p>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: dwarsdoorsnede van de aarde">
+      <span class="ill-icon">&#127760;</span>
+      <p class="ill-caption">Dwarsdoorsnede van de aarde met kern, mantel en aardkorst. Van buiten naar binnen: aardkorst (lichtgrijs, dun), mantel (oranje-rood, dik), buitenkern (vloeibaar, donkerrood) en binnenkern (vast, geel-wit). De kleuren geven de temperatuurtoename aan naarmate men dieper gaat.</p>
+    </div>
+
+    <h3 class="sub-heading">Tektonische platen: de aardkorst in beweging</h3>
+
+    <p>De aardkorst is niet &eacute;&eacute;n aaneengesloten geheel. Ze is gebroken in een twintigtal grote en kleine stukken, die we <strong>tektonische platen</strong> noemen. Die platen drijven langzaam op de half-vloeibare mantel &mdash; zoals ijsschotsen op water, maar dan extreem langzaam: gemiddeld slechts een paar centimeter per jaar.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#127965;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Tektonische plaat</span>
+        <p class="begrip-def">Een groot, star stuk van de aardkorst en het bovenste deel van de mantel. De aardkorst bestaat uit een twintigtal tektonische platen die langzaam over de aardmantel bewegen. De beweging wordt veroorzaakt door convectiestromen in de mantel.</p>
+      </div>
+    </div>
+
+    <p>Dit verschijnsel heet <strong>continentale drift</strong>. Wetenschapper Alfred Wegener stelde dit idee al in 1912 voor, maar pas in de jaren 1960 vond men het bewijs: de oceaanbodem spreidt zich uit vanuit midoceanische ruggen, en dat duwt de platen langzaam uiteen. Zo heeft Afrika ooit &eacute;&eacute;n landmassa gevormd met Zuid-Amerika &mdash; een feit dat je nog kunt zien aan de vorm van hun kustlijnen.</p>
+
+    <h3 class="sub-heading">Waar platen elkaar ontmoeten: drie soorten grenzen</h3>
+
+    <p>De meest dramatische processen op aarde spelen zich af op de grenzen tussen tektonische platen. Er zijn drie soorten platengrenzen, elk met eigen kenmerken en gevolgen voor het landschap.</p>
+
+    <p><strong>1. Convergente grens (botsende platen):</strong> Twee platen bewegen naar elkaar toe. Als twee continentale platen botsen, kreukelt de aardkorst omhoog en vormt ze bergketens. Zo zijn de Alpen en de Himalaya ontstaan. Als een oceanische plaat een continentale plaat raakt, duikt de zwaardere oceanische plaat eronder (subductie), waardoor vulkanen en diepe zeegroeven ontstaan (bv. de Andes).</p>
+
+    <p><strong>2. Divergente grens (uit elkaar wijkende platen):</strong> Twee platen bewegen van elkaar weg. Daartussen scheurt de aardkorst open, waardoor lava omhoog kan stromen en nieuwe oceaanbodem of riftvallei&euml;n worden gevormd. De Midden-Atlantische Rug is een klassiek voorbeeld: IJsland staat letterlijk boven deze naad en groeit elk jaar een beetje.</p>
+
+    <p><strong>3. Transformgrens (schuivende platen):</strong> Twee platen schuiven horizontaal langs elkaar. De aardkorst breekt niet open, maar de spanning die opgebouwd wordt langs de breuklijnen leidt tot krachtige aardbevingen. De San-Andreas-breuk in Californi&euml; is het bekendste voorbeeld.</p>
+
+    <h3 class="sub-heading">Vulkanen: vuur uit de aarde</h3>
+
+    <p>Op plaatsen waar de aardkorst dun is of waar platen uit elkaar wijken, kan heet gesteente uit de mantel omhoogkomen. Dat gloeiend vloeibaar gesteente noemen we <strong>magma</strong>. Wanneer magma door een opening aan het oppervlak uitbarst, heet het <strong>lava</strong>. Het verschijnsel zelf heet een vulkaanuitbarsting.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128293;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Vulkaan</span>
+        <p class="begrip-def">Een opening in de aardkorst waardoor magma, gas en as naar buiten kunnen treden. Vulkanen ontstaan op plaatranden (convergent of divergent) of boven zogenaamde hotspots: plaatsen in de mantel waar een bijzonder hete pluim omhoogstijgt. Na herhaalde uitbarstingen stapelt gestold lava zich op en vormt een kegelvormige berg.</p>
+      </div>
+    </div>
+
+    <p>Er zijn twee hoofdtypen vulkanen:</p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1rem;">
+      <li style="margin-bottom:0.55rem"><strong>Schildvulkaan</strong> (bv. Mauna Loa op Hawaii): dunvloeibare lava stroomt rustig uit en vormt een brede, vlakke koepel. Uitbarstingen zijn minder explosief maar langdurig. Hawaii ligt boven een hotspot midden in een plaat.</li>
+      <li style="margin-bottom:0.55rem"><strong>Stratovulkaan of samengestelde vulkaan</strong> (bv. de Vesuvius in Itali&euml;, de Merapi op Java): dikke, stroperige lava die de krater afsluit. De druk van gassen bouwt op totdat de vulkaan explosief uitbarst. Dikke as- en pyroclastische stromen verwoesten alles in de omgeving. Dit zijn de gevaarlijkste vulkanen voor omwonenden.</li>
+    </ul>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128167;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Magma</span>
+        <p class="begrip-def">Gloeiend vloeibaar gesteente dat zich in de aardmantel of in magmakamers onder de aardkorst bevindt. Wanneer magma via een vulkaan aan het oppervlak komt, heet het lava. Magma heeft een temperatuur van 700 tot 1.300 graden Celsius.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Aardbevingen: trillende grond</h3>
+
+    <p>Wanneer twee tektonische platen langs elkaar schuiven of tegen elkaar botsen, bouwt zich spanning op in de aardkorst. Soms breekt die spanning plotseling los: de aardkorst schuift of breekt, en die schok verspreidt zich als trillingen door de grond in alle richtingen. Dat is een <strong>aardbeving</strong>.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128200;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Aardbeving</span>
+        <p class="begrip-def">Een plotselinge trilling van de aardkorst die ontstaat wanneer opgebouwde spanning langs een breukzone vrijkomt. Het punt in de aardkorst waar de breuk plaatsvindt heet het hypocentrum. Het punt recht boven het hypocentrum op het aardoppervlak heet het epicentrum. Daar is de aardbeving het sterkst voelbaar.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128202;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Richterschaal</span>
+        <p class="begrip-def">Een logaritmische meetschaal voor de kracht van aardbevingen, ontwikkeld door Charles Richter in 1935. Elke stap op de schaal betekent een tienvoudige toename van de amplitude van de grondtrilling. Een aardbeving van magnitude 6 is dus tien keer krachtiger dan een van magnitude 5. Aardbevingen boven 7 kunnen enorme verwoesting aanrichten; boven 8 zijn ze zeldzaam maar catastrofaal.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Gevolgen voor het landschap</h3>
+
+    <p>Inwendige krachten laten duidelijke sporen na in het landschap:</p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1rem;">
+      <li style="margin-bottom:0.55rem"><strong>Bergketens</strong>: de Himalaya (Indi&euml;-Euraziatische plaat), de Alpen (Afrikaanse-Euraziatische plaat) en de Andes (subductie van de Nazca-plaat) zijn alle drie het gevolg van plaatverschuivingen.</li>
+      <li style="margin-bottom:0.55rem"><strong>Vulkanische eilanden</strong>: Hawaii is gevormd boven een hotspot. IJsland ligt boven de Midden-Atlantische Rug en wordt elk jaar groter door nieuw uitgestolde lava.</li>
+      <li style="margin-bottom:0.55rem"><strong>Riftvallei&euml;n</strong>: de Grote Afrikaanse Slenk (Oost-Afrika) is een dal dat ontstaat doordat twee platen uit elkaar bewegen en de korst inzakt.</li>
+      <li style="margin-bottom:0.55rem"><strong>Tsunami&rsquo;s</strong>: zoals bij de Sumatra-aardbeving van 2004 kunnen zeebodembewegingen reusachtige golven veroorzaken die kusten volledig veranderen.</li>
+    </ul>
+  </section>
+
+  <!-- ============================================================
+       BRONMATERIAAL 1: Aardbevingszones en vulkanen
+  ============================================================ -->
+  <div class="bronmateriaal">
+    <span class="bron-label">Bronmateriaal 1 &mdash; Kaartbeschrijving</span>
+    <span class="bron-title">Wereldkaart van aardbevingszones en vulkanen</span>
+    <span class="bron-meta">Thematische kaart &nbsp;&middot;&nbsp; gebaseerd op gegevens van USGS (United States Geological Survey) &nbsp;&middot;&nbsp; 2023</span>
+    <div class="bron-body">
+      <p>Op deze wereldkaart zijn de belangrijkste zones weergegeven waar aardbevingen en vulkanen voorkomen. Twee zaken vallen onmiddellijk op: de concentraties liggen niet willekeurig verspreid over de aarde, maar volgen nauwkeurig de grenzen van de tektonische platen.</p>
+      <p>De meest opvallende zone is de zogenaamde <strong>Ring of Fire</strong>: een brede gordel van aardbevingen en vulkanen die de Stille Oceaan omringen. Van Nieuw-Zeeland via de Filipijnen, Japan, de Aleoeten, de westkust van Noord-Amerika tot aan de westkust van Zuid-Amerika (Andes) loopt deze ring. Hier liggen meer dan 75% van alle actieve vulkanen ter wereld en vinden meer dan 90% van alle aardbevingen plaats.</p>
+      <p>Dwars door de Atlantische Oceaan loopt de <strong>Midden-Atlantische Rug</strong>: een onderwatergebergte dat het gevolg is van een divergente platengrens. IJsland, dat midden op deze rug ligt, is zichtbaar als een eiland met actieve vulkanen en geisers.</p>
+      <p>Ten slotte toont de kaart het <strong>Alpijns-Himalaya gordel</strong>: een zone van aardbevingen en gebergtevorming die loopt van de Pyrenee&euml;n via de Alpen, Turkije, de Kaukasus, Iran en Afghanistan tot de Himalaya en het Tibetaans Plateau. Deze zone markeert de botsing van de Afrikaanse en Indische plaat met de Euraziatische plaat.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Zone</th>
+            <th>Ligging</th>
+            <th>Voorbeelden</th>
+            <th>Oorzaak</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ring of Fire</td>
+            <td>Rand van de Stille Oceaan</td>
+            <td>Japan, Indonesi&euml;, Filipijnen, Chili, Californi&euml;</td>
+            <td>Convergente en transformgrenzen tussen Pacifische, Nazca en andere platen</td>
+          </tr>
+          <tr>
+            <td>Midden-Atlantische Rug</td>
+            <td>Midden van de Atlantische Oceaan</td>
+            <td>IJsland, Azoren, Ascension-eiland</td>
+            <td>Divergente grens: Noord-Amerikaanse en Euraziatische plaat wijken uiteen</td>
+          </tr>
+          <tr>
+            <td>Alpijns-Himalaya gordel</td>
+            <td>Europa &mdash; Azi&euml;</td>
+            <td>Alpen, Turkije, Himalaya, Hindukush</td>
+            <td>Botsing van Afrikaanse/Indische plaat met Euraziatische plaat (convergent)</td>
+          </tr>
+          <tr>
+            <td>Grote Afrikaanse Slenk</td>
+            <td>Oost-Afrika</td>
+            <td>Ethiopi&euml;, Kenia, Tanzania, Mozambique</td>
+            <td>Divergente grens: Afrikaanse plaat scheurt langzaam uiteen</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="bron-vraag">Waarom liggen de meeste vulkanen en aardbevingszones op dezelfde plaatsen? Gebruik de informatie uit de tabel en de kaartbeschrijving om je antwoord te onderbouwen.</p>
+    <span class="bron-source">Bron: gebaseerd op USGS Earthquake Hazards Program en Smithsonian Global Volcanism Program, 2023</span>
+  </div>
+
+  <!-- ============================================================
+       SECTIE 2: UITWENDIGE KRACHTEN
+  ============================================================ -->
+  <section class="section-block" id="sectie2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Uitwendige krachten &mdash; van buitenaf</h2>
+    </div>
+
+    <p>Naast de krachten van binnenuit zijn er ook krachten die het landschap van buitenaf aantasten. Die worden aangedreven door de zon, de atmosfeer, water, ijs en wind. We noemen ze <strong>uitwendige krachten</strong>. Ze werken langzamer dan vulkanen of aardbevingen, maar zijn minstens even belangrijk voor het uiteindelijke uitzicht van een landschap.</p>
+
+    <p>Er zijn drie grote uitwendige processen: <strong>verwering</strong>, <strong>erosie</strong> en <strong>afzetting</strong>. Ze werken altijd in die volgorde: eerst breekt gesteente af, dan wordt het verplaatst, dan wordt het ergens anders neergelegd.</p>
+
+    <h3 class="sub-heading">Verwering: gesteente breekt af op zijn plaats</h3>
+
+    <p>Verwering is het proces waarbij gesteente op zijn eigen plek wordt afgebroken, zonder dat het materiaal verplaatst wordt. Er zijn twee soorten verwering.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#129683;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Verwering</span>
+        <p class="begrip-def">Het proces waarbij gesteente ter plaatse (op zijn eigen locatie) wordt afgebroken door fysische of chemische processen. Bij verwering wordt het gesteente kleiner of verandert de chemische samenstelling, maar het materiaal blijft waar het is. Pas bij erosie wordt het materiaal meegenomen.</p>
+      </div>
+    </div>
+
+    <p><strong>Mechanische verwering</strong> breekt gesteente fysisch uiteen zonder de chemische samenstelling te veranderen. Het bekendste voorbeeld is vorstverwering: water dringt door in scheuren van gesteente. Als het vriest, zet het water uit met een enorme kracht &mdash; tot 2.000 kilogram per vierkante centimeter. Na tientallen vorstcycli splijt het gesteente in steeds kleinere stukken. Dit zie je goed in gebergten en in de Ardennen: de verwilderde rotsblokken (helling- en talusafzettingen) langs hellingen zijn het gevolg van duizenden jaren vorstverwering.</p>
+
+    <p><strong>Chemische verwering</strong> verandert de chemische samenstelling van het gesteente. Regenwater neemt koolzuurgas (CO&#8322;) op uit de atmosfeer en vormt zo een zwak zuur: koolzuur. Dat zuur lost calciumcarbonaat op &mdash; de stof waaruit kalksteen is opgebouwd. Resultaat: kalksteen lost langzaam op. Dit creëert indrukwekkende karstlandschappen met holen, poelen en grotten (bv. de grotten van Han-sur-Lesse in de Ardennen).</p>
+
+    <h3 class="sub-heading">Erosie: materiaal wordt verplaatst</h3>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#127895;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Erosie</span>
+        <p class="begrip-def">Het proces waarbij verweerd of los materiaal wordt losgemaakt en verplaatst door een transportmiddel zoals water, wind of ijs. Erosie is de tweede stap in het drieluik verwering &mdash; erosie &mdash; afzetting. Erosie slijt het landschap langzaam weg en vormt valleien, ravijnen en kliffen.</p>
+      </div>
+    </div>
+
+    <p><strong>Winderosie</strong> is krachtig in droge gebieden zonder plantengroei. Zandstoringen in de Sahara verplaatsen tonnen zand en schuren rotsen glad en ronden. Zand dat wordt meegedragen door de wind schaaft gesteente tot bizarre vormen &mdash; zo zijn de paddenstoelrotsen in de Jordaanse woestijn ontstaan. Wind vormt ook duinen door zand op te stapelen.</p>
+
+    <p><strong>Watererosie</strong> is de krachtigste uitwendige kracht op aarde. Regenwater stroomt van hellingen, sleurt aarde mee en voedt rivieren. Rivieren snijden over miljoenen jaren valleien dieper en dieper in het landschap &mdash; zo heeft de Colorado-rivier de Grand Canyon uitgehakt, bijna 2 kilometer diep. Snelstromende rivieren in gebergten vormen V-vormige valleien; kalme rivieren in vlaktes meanderen en verbreden hun vallei.</p>
+
+    <p><strong>IJserosie</strong> werkt via gletsjers: massa's ijs die onder hun eigen gewicht langzaam bewegen. Gletsjers plukken letterlijk stukken gesteente los en slepen ze mee. Ze slijpen de rotsbodem glad en hollen valleien uit tot een karakteristieke U-vorm (glaciale trog). Na het smelten van gletsjers blijven typische landschapselementen over: fjorden in Noorwegen, alpiene meren in Zwitserland, ronde heuvels van moraine-materiaal in Vlaanderen.</p>
+
+    <h3 class="sub-heading">Afzetting: materiaal wordt neergelegd</h3>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#127956;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Afzetting (sedimentatie)</span>
+        <p class="begrip-def">Het proces waarbij getransporteerd materiaal (sediment) wordt neergelegd wanneer de energie van het transportmiddel afneemt. Water dat vertraagt, laat zand en slib vallen; wind die gaat liggen, stapelt zand op. Afzettingsgebieden zijn doorgaans vruchtbaar en vlak (bv. rivierdeltas en alluviale vlaktes).</p>
+      </div>
+    </div>
+
+    <p><strong>Rivierdelta&rsquo;s</strong> zijn spectaculaire voorbeelden van afzetting. Waar een rivier de zee bereikt, verliest het water zijn snelheid, waardoor sediment bezonkt. Zo bouwt de rivier een driehoekige delta op. De Nijldelta in Egypte is duizenden jaren lang opgebouwd uit sediment dat de Nijl meebracht vanuit Centraal-Afrika. Die sedimentrijke grond maakte de Nijldelta tot een van de vruchtbaarste gebieden ter wereld.</p>
+
+    <p><strong>Alluviale vlaktes</strong> ontstaan wanneer een rivier bij overstromingen buiten zijn oevers treedt en slib afzet op de oevers. Die slibaanvoer maakt de grond bijzonder vruchtbaar &mdash; het is de reden waarom de eerste beschavingen ontstonden langs rivieren als de Nijl, de Tigris en de Eufraat, de Ganges en de Gele Rivier.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#127807;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Alluviale vlakte</span>
+        <p class="begrip-def">Een vlak landschap gevormd door sediment dat een rivier heeft afgezet, vooral tijdens overstromingen. Alluviale vlaktes zijn typisch vruchtbaar en worden veel gebruikt voor landbouw. Voorbeelden zijn de Rijnvlakte, de Po-vlakte in Noord-Itali&euml; en de vlaktes langs de Maas in Belgi&euml;.</p>
+      </div>
+    </div>
+
+    <p><strong>Zanddunnen</strong> zijn het resultaat van windafzetting. Wind draagt zand mee totdat het ergens wordt tegengehouden (door een obstakel of doordat de wind afzwakt) en het zand neergelegd wordt. In de loop van de tijd groeit dat uit tot een duin. De duinen langs de Belgische kust zijn zo gevormd: wind blies zand van het strand landinwaarts, dat zand stapelde op en groeide uit tot de duinengordel die nu tussen de kust en de polders ligt.</p>
+  </section>
+
+  <!-- ============================================================
+       BRONMATERIAAL 2: Van verwering tot afzetting
+  ============================================================ -->
+  <div class="bronmateriaal">
+    <span class="bron-label">Bronmateriaal 2 &mdash; Schema</span>
+    <span class="bron-title">Van verwering tot afzetting: de keten in een rivier</span>
+    <span class="bron-meta">Schematisch overzicht &nbsp;&middot;&nbsp; uitwendige processen &nbsp;&middot;&nbsp; aardrijkskunde 1A</span>
+    <div class="bron-body">
+      <p>Het schema hieronder toont de opeenvolgende stappen in het uitwendige landschapsvormende proces. In de meeste gevallen doorloopt een stuk gesteente of aarddeeltje deze vier stappen voordat het uiteindelijk ergens rustig wordt neergelegd. Soms duurt &eacute;&eacute;n stap slechts een ogenblik (bij een aardverschuiving na hevige regen), soms duurt het miljoenen jaren (bij de vorming van een delta).</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Stap</th>
+            <th>Proces</th>
+            <th>Wat gebeurt er?</th>
+            <th>Voorbeeld</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1</strong></td>
+            <td>Verwering</td>
+            <td>Gesteente breekt ter plaatse af door vorst, regen, zuur of temperatuurwisselingen. Het materiaal ligt nog op zijn plek, maar is losser geworden en in kleinere stukken uiteengevallen.</td>
+            <td>Vorstverwering in een kalksteenwand in de Ardennen: ijskristallen doen de rots splijten in scherpe blokken.</td>
+          </tr>
+          <tr>
+            <td><strong>2</strong></td>
+            <td>Erosie</td>
+            <td>Regenwater, wind of ijs neemt het losgeraakte materiaal mee. Het losgeraakte gesteente wordt door een transportmiddel losgepikt en weggevoerd van de oorspronkelijke plek.</td>
+            <td>Regenwater stroomt van een helling in de Ardennen en sleurt grond en kleine steentjes mee naar beneden, richting beekje.</td>
+          </tr>
+          <tr>
+            <td><strong>3</strong></td>
+            <td>Transport</td>
+            <td>Het materiaal wordt over soms grote afstanden verplaatst door de rivier, de wind of het ijs. Tijdens het transport slijt het materiaal verder af en wordt het fijner (van blokken naar keien, grind, zand, slib).</td>
+            <td>De beek voert het materiaal af naar de Ourthe en de Maas. Het materiaal wordt hoe verder stroomafwaarts, hoe fijner.</td>
+          </tr>
+          <tr>
+            <td><strong>4</strong></td>
+            <td>Afzetting (sedimentatie)</td>
+            <td>Wanneer de energie van het transportmiddel afneemt (rivier vertraagt, wind gaat liggen, gletsjer smelt), wordt het materiaal neergelegd. Grof materiaal (grind) bezinkt als eerste, fijn slib pas op het einde.</td>
+            <td>Aan de monding van de Maas in de Noordzee, of op de oevers bij overstromingen: vruchtbaar slib afzetten op de alluviale vlakte.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="bron-vraag">Wat is het verschil tussen verwering en erosie? En wat is afzetting? Beschrijf elk van de drie processen in &eacute;&eacute;n eigen zin en geef aan in welke volgorde ze optreden.</p>
+    <span class="bron-source">Bron: eigen schema op basis van vakfiche Aardrijkskunde 1A, domein 4 &mdash; uitwendige krachten</span>
+  </div>
+
+  <!-- ============================================================
+       SECTIE 3: KORTE EN LANGE TERMIJN
+  ============================================================ -->
+  <section class="section-block" id="sectie3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Op korte en lange termijn</h2>
+    </div>
+
+    <p>Een van de meest verrassende inzichten in de aardrijkskunde is het verschil in tempo waarmee de aarde verandert. Sommige processen zijn in minuten afgelopen; andere duren tientallen miljoenen jaren. Beide zijn even reëel, maar we nemen ze op heel verschillende manieren waar.</p>
+
+    <h3 class="sub-heading">Veranderingen op korte termijn</h3>
+
+    <p>Een <strong>tsunami</strong> kan een kustlijn in letterlijk minuten volledig hertekenen. De golven van de Sumatra-tsunami van 2004 verplaatsten tonnen zand, vernietigden stranden, en sloegen gaten in riffen en kusten die herstellen pas na jaren of decennia.</p>
+
+    <p>Een <strong>overstromende rivier</strong> kan in één nacht een laag vruchtbaar slib neerleggen op de oevers. Boeren langs de Nijl waren duizenden jaren afhankelijk van die jaarlijkse overstromingen, die telkens nieuwe vruchtbare grond aanvoerden.</p>
+
+    <p>Een <strong>vulkaanuitbarsting</strong> kan in uren een berg deels verwoesten (bv. de uitbarsting van Mount St. Helens in 1980 blies de helft van de berg weg) of juist nieuw land opbouwen: bij de uitbarsting van Surtsey (IJsland) in 1963 verscheen er in enkele maanden een nieuw eiland uit de zee.</p>
+
+    <h3 class="sub-heading">Veranderingen op lange termijn</h3>
+
+    <p>Bergketens als de Himalaya zijn het resultaat van een botsing tussen de Indische en de Euraziatische plaat die al meer dan <strong>50 miljoen jaar</strong> geleden begon. Die botsing duurt voort: de Himalaya groeit nog altijd, al is dat slechts een paar millimeter per jaar. Op de schaal van een mensenleven valt het nauwelijks op; op de schaal van miljoenen jaren verandert het het aanzicht van continenten.</p>
+
+    <p>De <strong>Grand Canyon</strong> in Arizona (VS) is gevormd door de Colorado-rivier die de afgelopen 6 miljoen jaar door een vlak plateau heeft gesneden. Het resultaat is een ravijn van bijna 2 kilometer diep. Zes miljoen jaar is voor geologen &lsquo;recent&rsquo;: de aarde is 4,6 miljard jaar oud.</p>
+
+    <p>Ter vergelijking: een mensenleven van 80 jaar is op de geologische tijdschaal als het knipperen van een oog. De processen die het landschap vormden lang voor mensen op aarde waren, gaan gewoon door &mdash; we kijken er alleen vanuit een heel korte tijdspanne naar.</p>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">De Belgische kust verdwijnt langzaam door erosie. Golfslag en stormvloeden vreten elk jaar centimeters van de duinen en het strand weg. Waarom is dit een probleem voor de korte termijn &eacute;n de lange termijn? Denk aan de gevolgen voor mensen die nu aan de kust wonen én voor de Belgische kust over honderd of duizend jaar. Welke maatregelen zijn nu al nodig?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 4: GEVOLGEN VOOR HET LANDSCHAP
+  ============================================================ -->
+  <section class="section-block" id="sectie4">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Gevolgen voor het landschap &mdash; voorbeelden</h2>
+    </div>
+
+    <p>Nu we de processen kennen, kunnen we ze herkennen in concrete landschappen. De wereld zit vol met voorbeelden van hoe inwendige en uitwendige krachten samen het landschap hebben gevormd.</p>
+
+    <h3 class="sub-heading">Vulkanische eilanden: Hawaii en IJsland</h3>
+
+    <p><strong>Hawaii</strong> ligt midden in de Stille Oceaan, ver van elke platenmgrens. Toch is het een van de meest vulkanisch actieve plekken ter wereld. De verklaring: een <em>hotspot</em>, een vaste plek in de mantel waar een bijzonder hete plume omhoogstijgt. De Pacifische plaat beweegt langzaam over die hotspot, waardoor er steeds een nieuw eiland gevormd wordt. Zo is de eilandenketting van Hawaii van oost naar west: de jongste eilanden (Hawaii, actief) in het zuidoosten, de oudste (atollen, al geërodeerd) in het noordwesten.</p>
+
+    <p><strong>IJsland</strong> is anders: het ligt precies boven de Midden-Atlantische Rug, waar de Noord-Amerikaanse en de Euraziatische plaat uiteen bewegen. Lava stroomt continu op om de spleet op te vullen, waardoor IJsland letterlijk aan het groeien is. Met 130 vulkanen is het een van de meest vulkanisch actieve gebieden op aarde.</p>
+
+    <h3 class="sub-heading">Bergketens: van botsende platen tot wolkenkrabbers van steen</h3>
+
+    <p>De <strong>Himalaya</strong> begon te groeien toen de Indische plaat, die 50 miljoen jaar geleden nog een eilandcontinent was, botste met Azië. De enorme druk kreukelde de aardkorst op tot de hoogste bergketen op aarde. Mount Everest (8.848 m) is het hoogste punt.</p>
+
+    <p>De <strong>Alpen</strong> zijn het gevolg van de botsing tussen de Afrikaanse plaat en de Euraziatische plaat, begonnen zo&rsquo;n 30 miljoen jaar geleden. De Alpen zijn veel ouder dan de Himalaya en daardoor meer ge&euml;rodeerd: de toppen zijn afgeronder, de valleien dieper uitgehakt door gletsjers.</p>
+
+    <p>De <strong>Andes</strong> in Zuid-Amerika zijn het gevolg van subductie: de Nazca-plaat duikt onder de Zuid-Amerikaanse plaat. Die subductie produceert ook de actieve vulkanen (Cotopaxi, Chimborazo) langs de Andes.</p>
+
+    <h3 class="sub-heading">Valleien: de hand van het water</h3>
+
+    <p>De <strong>Rijnvallei</strong> door Duitsland is deels gevormd door tektonische activiteit (een slenk die inzakte) en deels door erosie van de rivier de Rijn. De steile wijnbouwhellingen zijn het gevolg van de tectonische verheffing gecombineerd met riviererosie.</p>
+
+    <p>De <strong>Ardennen</strong> zijn een oud gebergte, gevormd bij de Hercynische gebergtevorming zo&rsquo;n 300 miljoen jaar geleden. Sindsdien zijn ze sterk ge&euml;rodeerd: de toppen zijn versleten tot de zachte, afgeronde heuvels die we vandaag zien. Rivieren als de Ourthe, de Amblève en de Semois hebben diepe, bochtige valleien in het harde gesteente ingesneden door watererosie.</p>
+
+    <h3 class="sub-heading">Duinen en polders: de Belgische kust</h3>
+
+    <p>De <strong>duinen</strong> langs de Belgische kust zijn een mooi voorbeeld van windafzetting: zand dat door de westenwinden van het strand werd geblazen en opgestapeld werd tot duinenrijen. De duinen beschermen het achterland tegen de zee &mdash; ze zijn een natuurlijke zeewering.</p>
+
+    <p>De <strong>polders</strong>, het vlakke land achter de duinen en dijken, zijn het resultaat van de samenwerking tussen natuur en mens. Vroeger was dit gebied een getijdengebied dat regelmatig overstroomde. Mensen legden dijken aan en pompten het water weg (eerst met windmolens, later met stoomgemalen). Zo is het huidige landschap van de Vlaamse polders gevormd: een van de vlakste en laagst gelegen landschappen in Europa, gedeeltelijk onder de zeespiegel.</p>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Welke krachten hebben het Ardeense landschap gevormd? Noem minstens twee uitwendige krachten en leg uit welke sporen die krachten hebben nagelaten in het landschap. Denk aan de vorm van de valleien, de heuvels, de grotten en de rivierpatronen.</p>
+    </div>
+  </section>
+
+</div><!-- end page-wrapper -->
+
+<!-- ============================================================
+     EXERCISES
+============================================================ -->
+<section class="exercises-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <!-- OEFENING 1 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Inwendige of uitwendige kracht?</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.8rem;">Klasseer elk van de volgende landschapsverschijnselen als veroorzaakt door een <strong>inwendige kracht</strong> (I) of een <strong>uitwendige kracht</strong> (U). Schrijf ook telkens welk specifiek proces verantwoordelijk is (bv. tektoniek, vulkanisme, erosie, verwering, afzetting).</p>
+      <ol>
+        <li>De Grand Canyon in Arizona, uitgehakt door de Colorado-rivier.</li>
+        <li>De Himalaya, de hoogste bergketen ter wereld.</li>
+        <li>De duinen aan de Belgische kust.</li>
+        <li>Het eiland Hawaii, gevormd door uitgestroomde lava.</li>
+        <li>De grotten van Han-sur-Lesse in de Ardennen, uitgeloogd door zuur grondwater.</li>
+        <li>De fjorden in Noorwegen, uitgeslepen door gletsjers.</li>
+        <li>De vruchtbare Nijldelta in Egypte.</li>
+        <li>Een aardbevingszone zoals die rond de San-Andreas-breuk in Californi&euml;.</li>
+      </ol>
+      <p class="ex-tip">Tip: inwendige krachten komen van binnenuit de aarde (warmte, platenbeweging); uitwendige krachten worden aangedreven door de zon, lucht, water of ijs.</p>
+    </div>
+
+    <!-- OEFENING 2 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Bronmateriaal 2 analyseren: de keten in de Ardennen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.8rem;">Gebruik het schema uit Bronmateriaal 2 (de vier stappen: verwering &rarr; erosie &rarr; transport &rarr; afzetting) om het volgende scenario te beschrijven.</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.8rem;font-style:italic;">Scenario: Op een kalkstenen helling in de Ardennen (Provincie Namen) vriest en dooit het elke winter tientallen keren. Regenwater stroomt van de helling, voedt de Ourthe en die rivier mondt uiteindelijk uit in de Maas.</p>
+      <ol>
+        <li>Beschrijf stap 1 (verwering): welk soort verwering treedt hier op, en wat is het resultaat?</li>
+        <li>Beschrijf stap 2 (erosie): wie of wat neemt het verweerde materiaal mee?</li>
+        <li>Beschrijf stap 3 (transport): hoe wordt het materiaal verplaatst en wat gebeurt er met het materiaal tijdens het transport?</li>
+        <li>Beschrijf stap 4 (afzetting): waar en wanneer wordt het materiaal neergelegd? Welk landschapstype kan daar ontstaan?</li>
+      </ol>
+      <p class="ex-tip">Tip: kijk goed naar de voorbeeldrij in Bronmateriaal 2 voor de Ardense situatie &mdash; die geeft je al een deel van de antwoorden.</p>
+    </div>
+
+    <!-- OEFENING 3 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Krantenartikel: aardbeving in Turkije (2023)</p>
+
+      <div style="background:#F7F2E8;border-left:3px solid var(--oker);padding:1rem 1.2rem;margin:0.5rem 0 1rem;border-radius:0 4px 4px 0;font-size:0.92rem;color:var(--text-mid);line-height:1.7;">
+        <p style="font-weight:700;margin-bottom:0.4rem;font-family:'Playfair Display',serif;font-size:1rem;">Dodelijke aardbeving verwoest Zuid-Turkije en Noord-Syri&euml;</p>
+        <p>Op 6 februari 2023 werd Turkije getroffen door een van de zwaarste aardbevingen in zijn recente geschiedenis. De eerste schok bereikte een magnitude van 7,8 op de schaal van Richter en had zijn epicentrum bij de stad Gaziantep in Zuidoost-Turkije. Slechts negen uur later volgde een tweede zware schok van magnitude 7,7.</p>
+        <p>Het rampgebied strekte zich uit over een lengte van bijna 500 kilometer. Tienduizenden gebouwen stortten in. Meer dan 50.000 mensen kwamen om het leven in Turkije en het buurland Syri&euml;; naar schatting 1,5 miljoen mensen raakten dakloos. Het is de dodelijkste aardbeving in Turkije in meer dan 80 jaar.</p>
+        <p>De oorzaak ligt in de ligging van Turkije op de grens van drie tektonische platen: de Euraziatische, de Arabische en de Anatolische plaat. De Arabische plaat duwt vanuit het zuiden tegen Turkije aan, waardoor de Anatolische plaat westwaarts wordt geperst. Langs de Oost-Anatolische breuk, vlak bij het epicentrum, zijn al eeuwen zware aardbevingen geregistreerd.</p>
+        <p><em>Bron: gebaseerd op berichten van Reuters, BBC News en AFAD (Turkse Rampenbeheerinstantie), februari 2023.</em></p>
+      </div>
+
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Beantwoord de volgende vragen op basis van het artikel:</p>
+      <ol>
+        <li>Welke drie tektonische platen zijn betrokken bij de aardbevingszone in Turkije? Welke beweegt in welke richting?</li>
+        <li>Aan welk soort plaatgrens ligt de Oost-Anatolische breuk? Leg uit waarom dit soort grens leidt tot aardbevingen.</li>
+        <li>De tweede aardbeving had een magnitude van 7,7. De eerste had een magnitude van 7,8. Hoeveel keer krachtiger was de eerste aardbeving dan de tweede? (Herinner je de definitie van de Richterschaal.)</li>
+        <li>Noem twee manieren waarop de aardbeving het landschap of de menselijke omgeving veranderd heeft, op basis van de informatie in het artikel.</li>
+      </ol>
+      <p class="ex-tip">Tip: voor vraag 3 moet je nadenken over wat &lsquo;logaritmisch&rsquo; betekent voor de Richterschaal.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SUMMARY
+============================================================ -->
+<section class="summary-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>Inwendige krachten</strong> komen van binnenuit de aarde: de aardwarmte drijft de beweging van tektonische platen aan, wat leidt tot vulkanen, aardbevingen en gebergtevorming.</li>
+      <li>De aarde bestaat uit drie lagen: <strong>aardkorst</strong> (buitenste, dunne schil), <strong>mantel</strong> (heet, semi-vloeibaar) en <strong>kern</strong> (ijzer en nikkel, tot 5.000 &deg;C). De aardkorst is opgebroken in tektonische platen.</li>
+      <li>Op de grenzen tussen tektonische platen ontstaan drie soorten landschappen: bij <strong>convergente grenzen</strong> bergketens en vulkanen, bij <strong>divergente grenzen</strong> riftvallei&euml;n en midoceanische ruggen, bij <strong>transformgrenzen</strong> aardbevingenszones.</li>
+      <li><strong>Vulkanen</strong> ontstaan op plaatranden of boven hotspots. Schildvulkanen (Hawaii) hebben dunvloeibare lava en barsten rustig uit; stratovulkanen (Vesuvius) hebben dikke lava en barsten explosief uit.</li>
+      <li><strong>Uitwendige krachten</strong> werken van buitenaf: ze worden aangedreven door de zon, water, wind en ijs. De drie processen zijn <strong>verwering</strong> (afbraak ter plaatse), <strong>erosie</strong> (transport) en <strong>afzetting</strong> (neerlegging).</li>
+      <li>Vorstverwering en chemische verwering (koolzuur lost kalksteen op) zijn twee belangrijke verweringsprocessen. Erosie door rivieren, wind en ijs slijt valleien, kloven en kliffen. Afzetting vormt delta&rsquo;s, alluviale vlaktes en duinen.</li>
+      <li>Sommige processen zijn <strong>snel</strong> (tsunami, vulkaanuitbarsting), andere zijn <strong>traag</strong> (Himalaya groeide 50 miljoen jaar; Grand Canyon werd 6 miljoen jaar uitgehakt). Beide veranderen het landschap fundamenteel.</li>
+      <li>Het Belgische landschap draagt sporen van beide soorten krachten: de Ardense valleien zijn uitgehakt door watererosie, de kusttduinen zijn gevormd door windafzetting, en de polders zijn mede door menselijk ingrijpen ontstaan op eerder door de zee gevormde vlaktes.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

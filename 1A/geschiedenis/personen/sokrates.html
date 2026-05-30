@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sokrates — Historische personen | Geschiedenis 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+    text-decoration: none;
+  }
+
+  .site-header .label:hover { opacity: 1; text-decoration: underline; }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE / OPENING STORY
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament {
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--gold);
+    opacity: 0.7;
+    margin: 1.5rem 0;
+    letter-spacing: 0.4em;
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-dialogue {
+    font-style: italic;
+    color: #FFFDF8;
+    padding-left: 1.4rem;
+    border-left: 3px solid rgba(212,160,23,0.4);
+    margin: 1rem 0;
+  }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+    filter: sepia(0.3);
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     ILLUSTRATIE PLACEHOLDERS
+  ============================================================ */
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+    cursor: default;
+    transition: background var(--transition);
+  }
+
+  .illustratie:hover { background: #EDE7D8; }
+
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     INTERACTIVE TIMELINE — 7 PERIODS
+  ============================================================ */
+  .timeline-7 {
+    margin: 2rem 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .timeline-7-inner {
+    display: flex;
+    min-width: 680px;
+    height: 110px;
+    border-radius: var(--border-radius);
+    overflow: visible;
+    position: relative;
+  }
+
+  .tl-period {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 0 0.5rem;
+    cursor: pointer;
+    transition: filter var(--transition), transform var(--transition);
+    min-width: 0;
+  }
+
+  .tl-period:hover { filter: brightness(1.08); transform: translateY(-3px); z-index: 2; }
+
+  .tl-period .tl-bar {
+    position: absolute;
+    bottom: 0;
+    left: 1px;
+    right: 1px;
+    border-radius: 4px 4px 0 0;
+    transition: height var(--transition);
+  }
+
+  /* Featured periods (1–3) are taller */
+  .tl-period.featured .tl-bar { box-shadow: 0 0 0 2px rgba(255,255,255,0.6), 0 4px 14px rgba(0,0,0,0.25); }
+
+  .tl-period .tl-label {
+    position: absolute;
+    top: -2.4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 0.7rem;
+    font-weight: 700;
+    font-family: 'Source Sans 3', sans-serif;
+    text-align: center;
+    color: var(--darkblue);
+    pointer-events: none;
+  }
+
+  .tl-period.featured .tl-label { color: var(--terracotta); font-size: 0.75rem; }
+
+  .tl-period .tl-span {
+    position: absolute;
+    bottom: -1.7rem;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 0.63rem;
+    color: var(--text-light);
+    font-family: 'Source Sans 3', sans-serif;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  /* Tooltip */
+  .tl-period .tl-tooltip {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 2.8rem);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--darkblue);
+    color: var(--creme);
+    font-size: 0.8rem;
+    font-family: 'Source Sans 3', sans-serif;
+    padding: 0.55rem 0.85rem;
+    border-radius: 5px;
+    white-space: nowrap;
+    z-index: 20;
+    pointer-events: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+
+  .tl-period .tl-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: var(--darkblue);
+  }
+
+  .tl-period:hover .tl-tooltip { display: block; }
+
+  .timeline-7-labels {
+    margin-top: 2.4rem;
+    font-size: 0.78rem;
+    color: var(--text-light);
+    text-align: center;
+    font-style: italic;
+  }
+
+  /* Period colors */
+  .tl-p1 { background: #5B3D2E; }
+  .tl-p2 { background: #8B5A2B; }
+  .tl-p3 { background: var(--terracotta); }
+  .tl-p4 { background: #6B7F5E; }
+  .tl-p5 { background: #4A7A8A; }
+  .tl-p6 { background: #2A5C7A; }
+  .tl-p7 { background: var(--darkblue); }
+
+  /* Responsive timeline */
+  @media (max-width: 680px) {
+    .timeline-7-inner {
+      flex-direction: column;
+      height: auto;
+      min-width: 0;
+    }
+    .tl-period {
+      height: 52px;
+      flex-direction: row;
+      align-items: center;
+      padding: 0 1rem;
+      margin-bottom: 4px;
+      border-radius: 4px;
+    }
+    .tl-period .tl-bar {
+      position: absolute;
+      top: 0; bottom: 0; left: 0; right: 0;
+      border-radius: 4px;
+    }
+    .tl-period .tl-label {
+      position: relative;
+      top: auto; left: auto; transform: none;
+      z-index: 1;
+      color: #fff;
+      font-size: 0.82rem;
+      margin-right: auto;
+    }
+    .tl-period .tl-span {
+      position: relative;
+      bottom: auto; left: auto; transform: none;
+      z-index: 1;
+      color: rgba(255,255,255,0.75);
+      font-size: 0.7rem;
+    }
+    .tl-period .tl-tooltip { display: none !important; }
+    .tl-period.featured .tl-label { font-size: 0.85rem; }
+  }
+
+  /* ============================================================
+     v.Chr. / n.Chr. TIMELINE
+  ============================================================ */
+  .vchr-timeline {
+    margin: 2rem 0 3rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .vchr-inner {
+    min-width: 580px;
+    padding: 2.5rem 1rem 2rem;
+    position: relative;
+  }
+
+  /* The horizontal bar */
+  .vchr-bar {
+    position: relative;
+    height: 6px;
+    background: linear-gradient(90deg, #3A1A0A, var(--terracotta), #FAF6EF, var(--darkblue), #091529);
+    border-radius: 3px;
+    margin: 0 20px;
+  }
+
+  /* Zero point */
+  .vchr-zero {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 16px;
+    height: 16px;
+    background: var(--gold);
+    border: 3px solid var(--creme);
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px var(--gold), 0 0 10px rgba(212,160,23,0.6);
+    z-index: 2;
+  }
+
+  .vchr-zero-label {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -1.5rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--gold);
+    font-family: 'Source Sans 3', sans-serif;
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  /* Section labels */
+  .vchr-section-label {
+    position: absolute;
+    top: -2rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-family: 'Source Sans 3', sans-serif;
+  }
+
+  .vchr-section-label.left {
+    left: 0;
+    color: var(--terracotta);
+  }
+
+  .vchr-section-label.right {
+    right: 0;
+    color: var(--darkblue);
+  }
+
+  /* Tick marks */
+  .vchr-tick {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+  }
+
+  .vchr-tick .tick-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    border: 2px solid;
+    background: var(--creme);
+    margin-top: -1px;
+  }
+
+  .vchr-tick.vchr-left .tick-dot { border-color: var(--terracotta); }
+  .vchr-tick.vchr-right .tick-dot { border-color: var(--darkblue); }
+
+  .vchr-tick .tick-label {
+    position: absolute;
+    bottom: 1.1rem;
+    white-space: nowrap;
+    font-size: 0.68rem;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    text-align: center;
+    transform: translateX(-50%);
+    left: 50%;
+  }
+
+  .vchr-tick.vchr-left .tick-label { color: var(--terracotta); }
+  .vchr-tick.vchr-right .tick-label { color: var(--darkblue); }
+
+  .vchr-tick .tick-sublabel {
+    position: absolute;
+    top: 1.3rem;
+    white-space: nowrap;
+    font-size: 0.6rem;
+    font-family: 'Source Sans 3', sans-serif;
+    color: var(--text-light);
+    font-style: italic;
+    transform: translateX(-50%);
+    left: 50%;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong {
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition), opacity var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover {
+    background: var(--darkblue-light);
+    transform: translateY(-3px);
+  }
+
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     UTILITY / MISC
+  ============================================================ */
+  .prose-text { max-width: 100%; }
+
+  .highlighted-para {
+    background: rgba(212,160,23,0.08);
+    border-left: 3px solid var(--gold);
+    padding: 0.8rem 1.1rem;
+    border-radius: 0 4px 4px 0;
+    margin: 1.2rem 0;
+    font-size: 0.97rem;
+    color: var(--text-mid);
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     PERSOONS-SPECIFIEKE COMPONENTEN
+  ============================================================ */
+
+  /* Portret placeholder */
+  .portrait-frame {
+    width: 200px;
+    height: 260px;
+    background: var(--sand);
+    border: 2px solid var(--oker);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-style: italic;
+    color: var(--text-light);
+    font-size: .85rem;
+    text-align: center;
+    padding: 1rem;
+    float: right;
+    margin: 0 0 1.5rem 2rem;
+  }
+
+  @media(max-width:600px) {
+    .portrait-frame {
+      float: none;
+      margin: 0 auto 1.5rem;
+    }
+  }
+
+  /* Profiel-feiten kader (terracotta-stijl) */
+  .profiel-kader {
+    background: #FDF3E7;
+    border: 1.5px solid rgba(193,68,14,0.25);
+    border-left: 5px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1.5rem 1.6rem;
+    margin: 2.5rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .profiel-kader .profiel-titel {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--terracotta);
+    margin-bottom: 1rem;
+  }
+
+  .profiel-kader table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .profiel-kader table tr {
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  .profiel-kader table tr:last-child {
+    border-bottom: none;
+  }
+
+  .profiel-kader table td {
+    padding: 0.45rem 0.3rem;
+    font-size: 0.95rem;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+
+  .profiel-kader table td:first-child {
+    font-weight: 700;
+    color: var(--text-mid);
+    white-space: nowrap;
+    padding-right: 1.2rem;
+    width: 35%;
+  }
+
+  .profiel-kader table td:last-child {
+    color: var(--text-dark);
+  }
+
+  /* Sleutelmomenten tijdlijn */
+  .sleutelmomenten {
+    margin: 2rem 0;
+    position: relative;
+    padding-left: 2rem;
+  }
+
+  .sleutelmomenten::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: linear-gradient(180deg, var(--terracotta), var(--gold), var(--oker));
+  }
+
+  .sleutelmoment {
+    position: relative;
+    margin-bottom: 1.4rem;
+    padding-left: 0.5rem;
+  }
+
+  .sleutelmoment::before {
+    content: '';
+    position: absolute;
+    left: -1.6rem;
+    top: 0.55rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--creme);
+    box-shadow: 0 0 0 2px var(--oker);
+  }
+
+  .sleutelmoment .sm-datum {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+
+  .sleutelmoment .sm-tekst {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.6;
+  }
+
+  /* Wist je dat? kaartjes */
+  .wistjedat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.2rem;
+    margin: 1.8rem 0;
+  }
+
+  .wjd-kaart {
+    background: linear-gradient(145deg, #FBF0D0, #FFF8E8);
+    border: 1.5px solid rgba(212,160,23,0.45);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.4rem;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .wjd-kaart::before {
+    content: '?';
+    position: absolute;
+    top: -0.5rem;
+    right: 0.8rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: rgba(212,160,23,0.12);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .wjd-kaart .wjd-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 0.55rem;
+  }
+
+  .wjd-kaart p {
+    font-size: 0.94rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* Leerboek-verbinding kader */
+  .leerboek-kader {
+    background: #FDF3E7;
+    border: 1.5px solid rgba(193,68,14,0.2);
+    border-top: 4px solid var(--terracotta);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin: 2.5rem 0;
+  }
+
+  .leerboek-kader .lk-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--terracotta);
+    margin-bottom: 0.8rem;
+    display: block;
+  }
+
+  .leerboek-kader .lk-hoofdstuk {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.5rem;
+  }
+
+  .leerboek-kader p {
+    font-size: 0.94rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+  }
+
+  /* Sectie-heading voor persoonspagina */
+  .persoon-section-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.3rem, 2.5vw, 1.65rem);
+    font-weight: 700;
+    color: var(--darkblue);
+    margin: 3rem 0 1.2rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid rgba(193,68,14,0.18);
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <a class="label" href="index.html">&#8592; Historische personen</a>
+  <span class="label label-right">Sokrates</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Athene &nbsp;&middot;&nbsp; 470–399 v.Chr.</div>
+  <h1>Sokrates</h1>
+  <p class="subtitle">De filosoof die niets schreef, alles in vraag stelde — en daarvoor met de dood werd gestraft</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- PROFIEL-FEITEN -->
+  <div class="profiel-kader">
+    <div class="profiel-titel">Profiel</div>
+    <table>
+      <tr>
+        <td>Leefde</td>
+        <td>ca. 470–399 v.Chr.</td>
+      </tr>
+      <tr>
+        <td>Periode</td>
+        <td>Klassieke Oudheid, Griekenland</td>
+      </tr>
+      <tr>
+        <td>Regio</td>
+        <td>Athene (Griekenland)</td>
+      </tr>
+      <tr>
+        <td>Bekend om</td>
+        <td>Socratische methode, filosofie als levenswijze, terechtstelling door de stad Athene</td>
+      </tr>
+      <tr>
+        <td>Relevante hoofdstukken</td>
+        <td>H13 &mdash; De Griekse stadstaten</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- BIOGRAFIE -->
+  <h2 class="persoon-section-heading">Biografie</h2>
+
+  <div class="prose-text">
+    <div class="portrait-frame">Portret Sokrates<br><br>Marmeren buste<br>ca. 4de eeuw v.Chr.<br>(kopie, Louvre)</div>
+
+    <p>Er zijn maar weinig mensen in de geschiedenis die zo weinig nalieten en toch zo'n diepe indruk maakten op de wereld. <strong>Sokrates</strong> schreef geen enkel woord op. Hij stichtte geen school, regeerde geen stad, leidde geen leger. Hij liep blootsvoets door de straten van Athene, droeg altijd hetzelfde eenvoudige gewaad en sprak met iedereen die hij tegenkwam. En toch beschouwen filosofen tot op vandaag hem als een van de grootste denkers die ooit heeft geleefd.</p>
+
+    <p>Sokrates werd rond 470 v.Chr. geboren in Athene als zoon van een steenhouwer en een vroedvrouw. Als jongeman leerde hij vermoedelijk het vak van zijn vader — er bestaan verhalen over beelden die hij gehouwen zou hebben op de weg naar de Akropolis — maar al vroeg trok de filosofie hem meer aan dan het vakmanschap. Rijkdom interesseerde hem niet. Een comfortabel leven evenmin. Wat hem dreef, was iets anders: de waarheid, de rechtvaardigheid, de vraag wat het betekent om goed te leven.</p>
+
+    <p>Zijn methode om die vragen te onderzoeken was radicaal eenvoudig en tegelijkertijd vernietigend voor wie zichzelf als wijs beschouwde. Sokrates stelde vragen. Niet om antwoorden te geven, maar om zijn gesprekspartner ertoe te brengen zijn eigen onwetendheid te ontdekken. Die aanpak heet de <strong>socratische methode</strong> of <strong>maieutiek</strong> — van het Griekse woord voor verloskunde, want Sokrates zei zelf dat hij ideeën hielp "baren" bij anderen, net zoals zijn moeder baby's ter wereld hielp brengen. Hij begon een gesprek met ogenschijnlijk simpele vragen: <em>Wat is moed? Wat is rechtvaardigheid? Wat is vroomheid?</em> En stap voor stap liet hij zijn gesprekspartner inzien dat zijn aanvankelijke antwoorden ontoereikend waren.</p>
+
+    <p>Zijn beroemdste uitspraak vat dit mooi samen: <em>"Ik weet dat ik niets weet."</em> Daarmee bedoelde hij niet dat hij dom was, maar dat echte wijsheid begint bij het inzien van de grenzen van je eigen kennis. De meeste mensen, zo stelde hij vast, dachten dat ze wijs waren — maar konden dat niet waarmaken zodra hij doorvroeg.</p>
+
+    <p>Sokrates was een <strong>opvallende figuur</strong> in de Atheense samenleving. Hij liep blootsvoets, ook in de winter. Hij at weinig. Hij droeg altijd hetzelfde kledingstuk, ongeacht het seizoen. Hij had geen betaald werk. Zijn vrouw Xanthippe en hun kinderen moesten rondkomen terwijl hij op het stadsplein filosofeerde met wie maar wilde luisteren. Rijke jongemannen volgden hem met enthousiasme. Gevestigde politici, generaals en ambachtslieden vonden zijn vragen vervelend en zijn aanwezigheid storend. Sokrates was een provocateur — niet door luid te zijn of gewelddadig, maar door simpelweg door te blijven vragen.</p>
+
+    <p>Tussendoor was hij ook soldaat. Tijdens de <strong>Peloponnesische Oorlog</strong> (431–404 v.Chr.) diende Sokrates als <strong>hopliet</strong> — een zwaargewapende infanterist. Bij het beleg van Potidaea (432 v.Chr.) en later bij de slag bij Delion (424 v.Chr.) toonde hij buitengewone moed: hij bleef kalmte bewaren en weigerde te vluchten toen het slecht ging. Die combinatie — filosoof én soldaat, denker én moedig man — maakte hem in de ogen van zijn tijdgenoten nog opmerkelijker.</p>
+
+    <p>In 399 v.Chr. werd Sokrates aangeklaagd voor twee misdaden: <strong>goddeloosheid</strong> (het niet-erkennen van de goden van de stad en het invoeren van nieuwe, vreemde godheid) en het <strong>corrumperen van de jeugd</strong>. Of die aanklacht oprecht was, is historisch omstreden. Athene had net een verwoestende oorlog verloren tegen Sparta. Een oligarchische coup had de stad in het bloed gebad; de democratie was hersteld maar broos. Sokrates had nauwe banden met mannen die bij die coup betrokken waren geweest, waaronder de beruchte Alkibiades en Kritias. Voor sommige Atheners was hij politiek gevaarlijk geworden.</p>
+
+    <p>Het <strong>proces</strong> verliep verrassend. Sokrates verdedigde zichzelf met scherpzinnigheid en ironie. Hij bood geen berouw aan, vroeg geen genade en weigerde zijn gedrag te wijzigen. De rechtbank van vijfhonderd juryleden veroordeelde hem met een kleine meerderheid. Sokrates mocht zelf een alternatieve straf voorstellen — hij stelde voor dat Athene hem zou belonen in plaats van straffen. De rechtbank was woedend. De doodstraf werd uitgesproken.</p>
+
+    <p>Zijn vrienden regelden een vluchtmogelijkheid. Sokrates weigerde. Vluchten zou betekenen dat hij de wetten van Athene, de stad die hem had grootgebracht, aan zijn laars lapte. Dat kon niet. In het gezelschap van zijn vrienden, rustig en helder van geest, dronk hij de gifbeker met scheerling leeg. Hij stierf zoals hij had geleefd: kalm, vragend, onverschrokken.</p>
+
+    <p>En toch leeft hij voort. Zijn leerling <strong>Plato</strong> schreef de beroemde Dialogen, waarin Sokrates de hoofdrol speelt. Via Plato leerde de latere wereld zijn methode, zijn vragen en zijn ideeën kennen. Of Plato's Sokrates dezelfde man is als de historische Sokrates, is een vraag die niemand definitief kan beantwoorden. Maar de paradox blijft fascinant: de man die niets opschreef, is een van de best gedocumenteerde denkers uit de Oudheid.</p>
+
+    <p>En zijn dood roept nog altijd een pijnlijke vraag op: een democratie veroordeelde haar scherpste criticus. Was dat rechtvaardig? En wat zegt dat over de grenzen van de democratie?</p>
+  </div>
+
+  <!-- SLEUTELMOMENTEN -->
+  <h2 class="persoon-section-heading">Sleutelmomenten</h2>
+
+  <div class="sleutelmomenten">
+    <div class="sleutelmoment">
+      <span class="sm-datum">ca. 470 v.Chr.</span>
+      <span class="sm-tekst">Geboorte in Athene, als zoon van een steenhouwer en een vroedvrouw.</span>
+    </div>
+    <div class="sleutelmoment">
+      <span class="sm-datum">431–404 v.Chr.</span>
+      <span class="sm-tekst">Sokrates dient als hopliet in de Peloponnesische Oorlog en toont opvallende moed bij Potidaea en Delion.</span>
+    </div>
+    <div class="sleutelmoment">
+      <span class="sm-datum">ca. 420 v.Chr.</span>
+      <span class="sm-tekst">Sokrates begint zijn filosofisch "stadsplein-werk": dagelijks gesprekken voeren op de agora met burgers, ambachtslieden en politici.</span>
+    </div>
+    <div class="sleutelmoment">
+      <span class="sm-datum">399 v.Chr.</span>
+      <span class="sm-tekst">Aangeklaagd wegens goddeloosheid en corrumperen van de jeugd; door vijfhonderd juryleden ter dood veroordeeld; drinkt kalm de gifbeker.</span>
+    </div>
+    <div class="sleutelmoment">
+      <span class="sm-datum">399 v.Chr. en later</span>
+      <span class="sm-tekst">Zijn leerling Plato schrijft de Dialogen &mdash; Sokrates leeft voort als de centrale figuur van de westerse filosofie, ook al schreef hij zelf nooit &eacute;&eacute;n woord op.</span>
+    </div>
+  </div>
+
+  <!-- WIST JE DAT? -->
+  <h2 class="persoon-section-heading">Wist je dat?</h2>
+
+  <div class="wistjedat-grid">
+    <div class="wjd-kaart">
+      <span class="wjd-label">Wist je dat?</span>
+      <p>Het orakel van Delphi verklaarde Sokrates tot de wijste man ter wereld. Sokrates was stomverbaasd en besloot iedereen in Athene te bevragen om het te weerleggen &mdash; politici, ambachtslieden, dichters. Na al die gesprekken moest hij toegeven: hij faalde. Niemand was wijzer dan hij, want niemand wist hoe weinig hij eigenlijk wist.</p>
+    </div>
+    <div class="wjd-kaart">
+      <span class="wjd-label">Wist je dat?</span>
+      <p>Zijn vrouw <strong>Xanthippe</strong> staat in de traditie bekend als een feeks die hem het leven zuur maakte. Maar historici denken dat dit onrechtvaardig is: zij voedde drie kinderen op terwijl haar man blootsvoets op straat filosofeerde zonder enig inkomen. Misschien had ze het recht om gefrustreerd te zijn.</p>
+    </div>
+    <div class="wjd-kaart">
+      <span class="wjd-label">Wist je dat?</span>
+      <p>De gifbeker was gemaakt van scheerling (<em>Conium maculatum</em>). In 2011 beschreven wetenschappers nauwkeurig hoe het gif werkt: het veroorzaakt een opgaande verlamming &mdash; van de benen naar de romp naar de borst. Het bewustzijn blijft tot het einde intact. Sokrates kon tot het laatste moment denken en praten.</p>
+    </div>
+  </div>
+
+  <!-- LEERBOEK-VERBINDING -->
+  <div class="leerboek-kader">
+    <span class="lk-label">Leerboek-verbinding</span>
+    <div class="lk-hoofdstuk">H13 &mdash; De Griekse stadstaten: polis en democratie</div>
+    <p>Sokrates staat centraal bij de behandeling van de Griekse filosofie (Sokrates, Plato, Aristoteles) en illustreert de grenzen van de Atheense democratie: een systeem dat vrije gedachte en openbaar debat koesterde, maar uiteindelijk haar scherpste criticus ter dood veroordeelde. Het proces van Sokrates is ook een toegangspoort tot vragen over rechtvaardigheid, vrijheid van meningsuiting en de relatie tussen individu en staat.</p>
+  </div>
+
+</div><!-- end page-wrapper -->
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) {
+        btn.classList.add('visible');
+      } else {
+        btn.classList.remove('visible');
+      }
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

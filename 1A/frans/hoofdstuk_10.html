@@ -1,0 +1,1753 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H10 — À l'école | Frans 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     ILLUSTRATIE PLACEHOLDERS
+  ============================================================ */
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+    cursor: default;
+    transition: background var(--transition);
+  }
+
+  .illustratie:hover { background: #EDE7D8; }
+
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '\2713';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     CLOSING QUOTE
+  ============================================================ */
+  .closing-quote {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0D1E38 100%);
+    border-radius: var(--border-radius);
+    padding: 3rem 3rem 2.5rem;
+    margin: 3.5rem 0 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.5rem; left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .closing-quote .cq-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--gold);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 1.2rem;
+  }
+
+  .closing-quote .cq-attribution {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(212,160,23,0.6);
+  }
+
+  .closing-quote .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .closing-quote .ornament-line::before,
+  .closing-quote .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.4), transparent);
+  }
+
+  .closing-quote .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.7;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .closing-quote { padding: 2rem 1.2rem 1.8rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     FRANS-SPECIFIC COMPONENTS
+  ============================================================ */
+
+  /* Tekst Fragment — reading passage with comprehension questions */
+  .tekst-fragment {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 2rem 2.2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .tekst-fragment .tf-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--darkblue);
+    opacity: 0.6;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  .tekst-fragment .tf-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    display: block;
+    margin-bottom: 0.9rem;
+  }
+
+  .tekst-fragment .tf-body {
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.85;
+    border-left: 3px solid rgba(26,43,74,0.12);
+    padding-left: 1.2rem;
+    margin-bottom: 1.2rem;
+    font-style: italic;
+  }
+
+  .tekst-fragment .tf-body p { margin-bottom: 0.75em; }
+  .tekst-fragment .tf-body p:last-child { margin-bottom: 0; }
+
+  .tekst-fragment .tf-culturele-noot {
+    background: rgba(26,43,74,0.05);
+    border-radius: 4px;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .tekst-fragment .tf-culturele-noot strong {
+    color: var(--darkblue);
+  }
+
+  .tekst-fragment .tf-vragen {
+    border-top: 1px solid var(--sand);
+    padding-top: 1rem;
+    margin-top: 1rem;
+  }
+
+  .tekst-fragment .tf-vragen-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.6rem;
+  }
+
+  .tekst-fragment .tf-vragen ol {
+    padding-left: 1.3rem;
+    margin: 0;
+  }
+
+  .tekst-fragment .tf-vragen li {
+    font-size: 0.95rem;
+    color: var(--text-mid);
+    margin-bottom: 0.4rem;
+    line-height: 1.6;
+  }
+
+  /* Gesprek — dialogue / conversation block */
+  .gesprek {
+    background: #F0F4FA;
+    border: 1px solid rgba(26,43,74,0.15);
+    border-radius: var(--border-radius);
+    padding: 1.8rem 2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .gesprek .gesp-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--darkblue);
+    opacity: 0.55;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  .gesprek .gesp-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    display: block;
+    margin-bottom: 1.2rem;
+  }
+
+  .gesprek .gesp-lijn {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 0.85rem;
+    align-items: flex-start;
+  }
+
+  .gesprek .gesp-lijn:last-child { margin-bottom: 0; }
+
+  .gesprek .gesp-naam {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    min-width: 90px;
+    padding-top: 0.15rem;
+    flex-shrink: 0;
+  }
+
+  .gesprek .gesp-naam.naam-b { color: var(--terracotta); }
+
+  .gesprek .gesp-tekst {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+  }
+
+  .gesprek .gesp-vertaling {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    font-style: italic;
+    margin-top: 0.15rem;
+    display: block;
+  }
+
+  .gesprek .gesp-divider {
+    border: none;
+    border-top: 1px solid rgba(26,43,74,0.1);
+    margin: 1.2rem 0;
+  }
+
+  .gesprek .gesp-tip {
+    font-size: 0.88rem;
+    color: var(--text-light);
+    font-style: italic;
+    background: rgba(26,43,74,0.04);
+    padding: 0.6rem 0.9rem;
+    border-radius: 4px;
+    margin-top: 1rem;
+  }
+
+  /* Grammatica Kader — grammar explanation box */
+  .grammatica-kader {
+    background: #EEF2F8;
+    border: 1.5px solid rgba(26,43,74,0.2);
+    border-top: 4px solid var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 1.8rem 2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .grammatica-kader .gram-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--darkblue);
+    opacity: 0.55;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .grammatica-kader .gram-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    display: block;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  .grammatica-kader .gram-regel {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+    margin-bottom: 0.8em;
+  }
+
+  .grammatica-kader .gram-regel:last-child { margin-bottom: 0; }
+
+  .grammatica-kader table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+    margin: 1rem 0;
+  }
+
+  .grammatica-kader table th {
+    background: var(--darkblue);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    text-align: left;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    font-size: 0.82rem;
+  }
+
+  .grammatica-kader table td {
+    padding: 0.4rem 0.8rem;
+    border-bottom: 1px solid rgba(26,43,74,0.1);
+    color: var(--text-mid);
+  }
+
+  .grammatica-kader table tr:last-child td { border-bottom: none; }
+
+  .grammatica-kader table tr:nth-child(even) td {
+    background: rgba(26,43,74,0.04);
+  }
+
+  .grammatica-kader .gram-voorbeeld {
+    background: rgba(26,43,74,0.06);
+    border-left: 3px solid var(--darkblue);
+    border-radius: 0 4px 4px 0;
+    padding: 0.6rem 1rem;
+    margin: 0.8rem 0;
+    font-size: 0.95rem;
+    color: var(--text-mid);
+  }
+
+  .grammatica-kader .gram-voorbeeld .fr {
+    font-style: italic;
+    color: var(--darkblue);
+    font-weight: 600;
+  }
+
+  .grammatica-kader .gram-voorbeeld .nl {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-top: 0.1rem;
+    display: block;
+  }
+
+  .grammatica-kader .gram-let-op {
+    background: #FBF0D0;
+    border: 1px solid rgba(212,160,23,0.4);
+    border-radius: 4px;
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    margin-top: 1rem;
+  }
+
+  .grammatica-kader .gram-let-op strong { color: var(--terracotta); }
+
+  /* Woordenschat Kader — vocabulary list box */
+  .woordenschat-kader {
+    background: #FDF8F2;
+    border: 1px solid rgba(200,146,58,0.25);
+    border-left: 4px solid var(--oker);
+    border-radius: var(--border-radius);
+    padding: 1.6rem 1.8rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .woordenschat-kader .ws-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--oker);
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .woordenschat-kader .ws-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    display: block;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .woordenschat-kader .ws-nota {
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--text-light);
+    margin-bottom: 0.9rem;
+    display: block;
+  }
+
+  .woordenschat-kader .ws-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 0.35rem 1.4rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .woordenschat-kader .ws-grid li {
+    font-size: 0.95rem;
+    color: var(--text-mid);
+    padding: 0.25rem 0;
+    border-bottom: 1px solid rgba(200,146,58,0.1);
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .woordenschat-kader .ws-grid li .fr {
+    font-style: italic;
+    color: var(--darkblue);
+    font-weight: 600;
+    min-width: 0;
+    flex-shrink: 0;
+  }
+
+  .woordenschat-kader .ws-grid li .nl {
+    color: var(--text-light);
+    font-size: 0.88rem;
+  }
+
+  .woordenschat-kader .ws-subgroep {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--oker);
+    margin: 1rem 0 0.4rem;
+    display: block;
+  }
+
+  .woordenschat-kader .ws-nota-onderaan {
+    font-size: 0.84rem;
+    font-style: italic;
+    color: var(--text-light);
+    margin-top: 0.9rem;
+    padding-top: 0.6rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    display: block;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <span class="label">Frans 1A</span>
+  <span class="label label-right">H10 &mdash; &Agrave; l&rsquo;&eacute;cole</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Frans &nbsp;&middot;&nbsp; 1A &nbsp;&middot;&nbsp; Eerste graad</div>
+  <h1>Hoofdstuk 10<br>&Agrave; l&rsquo;&eacute;cole</h1>
+  <p class="subtitle">Vakken, lesroosters, instructies en de gebiedende wijs</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- PROLOGUE -->
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Situation de d&eacute;part &hellip;</span>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p>Het is maandagochtend. Je schuift je agenda open en bekijkt je lesrooster. Eerste uur: Frans. Daarna wiskunde, dan lichamelijke opvoeding. Je leraar Frans, monsieur Dupont, betreedt de klas: &ldquo;<strong>Ouvrez votre livre &agrave; la page quarante ! Silence, s&rsquo;il vous pla&icirc;t !</strong>&rdquo; Iedereen gehoorzaamt meteen. Maar hoe bouwt die zin eigenlijk? Waarom zegt hij <em>ouvrez</em> en niet <em>vous ouvrez</em>?</p>
+    <p>In dit hoofdstuk verken je de schoolwereld in het Frans: vakken, materialen, mensen, en de <em>imp&eacute;ratif</em> &mdash; de gebiedende wijs die leraren elke dag gebruiken.</p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+  </section>
+
+  <!-- SECTION 1: Les matières scolaires -->
+  <section class="section-block" id="matieres">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Les mati&egrave;res scolaires</h2>
+    </div>
+
+    <p>In het Frans zijn alle schoolvakken <strong>vrouwelijk</strong> (<em>f&eacute;minin</em>). Dat merk je aan het lidwoord: <em>la</em> of <em>l&rsquo;</em> (voor klinker/h). Bij de meervoudsvorm krijg je <em>les</em>.</p>
+
+    <div class="woordenschat-kader">
+      <span class="ws-label">Woordenschat</span>
+      <span class="ws-title">Les mati&egrave;res scolaires &mdash; De schoolvakken</span>
+      <span class="ws-nota">Alle vakken zijn vrouwelijk (f&eacute;minin) in het Frans.</span>
+
+      <span class="ws-subgroep">Talen &amp; humane wetenschappen</span>
+      <ul class="ws-grid">
+        <li><span class="fr">le fran&ccedil;ais</span><span class="nl">Frans</span></li>
+        <li><span class="fr">l&rsquo;anglais (m.)</span><span class="nl">Engels</span></li>
+        <li><span class="fr">le n&eacute;erlandais</span><span class="nl">Nederlands</span></li>
+        <li><span class="fr">l&rsquo;allemand (m.)</span><span class="nl">Duits</span></li>
+        <li><span class="fr">les langues &eacute;trang&egrave;res (f.pl.)</span><span class="nl">vreemde talen</span></li>
+        <li><span class="fr">l&rsquo;histoire (f.)</span><span class="nl">geschiedenis</span></li>
+        <li><span class="fr">la g&eacute;ographie</span><span class="nl">aardrijkskunde</span></li>
+        <li><span class="fr">la religion / la morale</span><span class="nl">godsdienst / zedenleer</span></li>
+      </ul>
+
+      <span class="ws-subgroep">Exacte wetenschappen &amp; techniek</span>
+      <ul class="ws-grid">
+        <li><span class="fr">les math&eacute;matiques (f.pl.)</span><span class="nl">wiskunde</span></li>
+        <li><span class="fr">les sciences (f.pl.)</span><span class="nl">wetenschappen</span></li>
+        <li><span class="fr">l&rsquo;informatique (f.)</span><span class="nl">informatica</span></li>
+        <li><span class="fr">la technologie</span><span class="nl">technologie</span></li>
+      </ul>
+
+      <span class="ws-subgroep">Kunst &amp; lichamelijke opvoeding</span>
+      <ul class="ws-grid">
+        <li><span class="fr">l&rsquo;&eacute;ducation physique (f.)</span><span class="nl">lichamelijke opvoeding</span></li>
+        <li><span class="fr">la musique</span><span class="nl">muziek</span></li>
+        <li><span class="fr">les arts plastiques (m.pl.)</span><span class="nl">beeldende kunsten</span></li>
+      </ul>
+
+      <span class="ws-nota-onderaan">Let op: <em>les math&eacute;matiques</em> en <em>les sciences</em> worden bijna altijd in het meervoud gebruikt. In spreektaal zegt men ook: <em>les maths</em>.</span>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128218;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Grammatica</span>
+        <span class="begrip-name">Vrouwelijk lidwoord bij vakken</span>
+        <p class="begrip-def">Bijna alle schoolvakken zijn vrouwelijk in het Frans en gebruiken <em>la</em> of <em>l&rsquo;</em>. Uitzonderingen: <em>le fran&ccedil;ais, l&rsquo;anglais, le n&eacute;erlandais, l&rsquo;allemand</em> (talen op <em>-ais/-and</em> zijn mannelijk) en <em>les arts plastiques</em> (mannelijk meervoud).</p>
+      </div>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; R&eacute;fl&eacute;chis !</div>
+      <p class="dv-text">Welke vakken heb jij op je lesrooster? Schrijf ze op in het Frans. Gebruik het juiste lidwoord (<em>le / la / l&rsquo; / les</em>). Vergelijk daarna met een klasgenoot.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 2: La vie scolaire -->
+  <section class="section-block" id="vie-scolaire">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">La vie scolaire</h2>
+    </div>
+
+    <p>Op school ontmoet je veel mensen en gebruik je veel voorwerpen. Hier zijn de meest gebruikte woorden voor de schoolomgeving.</p>
+
+    <div class="woordenschat-kader">
+      <span class="ws-label">Woordenschat</span>
+      <span class="ws-title">La vie scolaire &mdash; Het schoolleven</span>
+
+      <span class="ws-subgroep">Mensen</span>
+      <ul class="ws-grid">
+        <li><span class="fr">le professeur / la professeure</span><span class="nl">de leraar / lerares</span></li>
+        <li><span class="fr">le / la directeur/directrice</span><span class="nl">de directeur/directrice</span></li>
+        <li><span class="fr">l&rsquo;&eacute;l&egrave;ve (m./f.)</span><span class="nl">de leerling</span></li>
+        <li><span class="fr">le / la coprof</span><span class="nl">de co-leraar (inform.)</span></li>
+      </ul>
+
+      <span class="ws-subgroep">Lokalen &amp; ruimtes</span>
+      <ul class="ws-grid">
+        <li><span class="fr">la classe</span><span class="nl">de klas (groep leerlingen)</span></li>
+        <li><span class="fr">la salle de classe</span><span class="nl">het klaslokaal</span></li>
+        <li><span class="fr">le couloir</span><span class="nl">de gang</span></li>
+        <li><span class="fr">la cantine</span><span class="nl">de eetzaal / refter</span></li>
+        <li><span class="fr">la salle des profs</span><span class="nl">de leraarskamer</span></li>
+      </ul>
+
+      <span class="ws-subgroep">In de klas</span>
+      <ul class="ws-grid">
+        <li><span class="fr">le tableau</span><span class="nl">het bord</span></li>
+        <li><span class="fr">le cahier</span><span class="nl">het schrift</span></li>
+        <li><span class="fr">le livre</span><span class="nl">het boek</span></li>
+        <li><span class="fr">l&rsquo;agenda (m.)</span><span class="nl">de agenda</span></li>
+        <li><span class="fr">la calculatrice</span><span class="nl">de rekenmachine</span></li>
+        <li><span class="fr">le cartable</span><span class="nl">de schooltas</span></li>
+        <li><span class="fr">le stylo</span><span class="nl">de pen (balpen)</span></li>
+        <li><span class="fr">la r&egrave;gle</span><span class="nl">de liniaal</span></li>
+      </ul>
+
+      <span class="ws-subgroep">Lessen &amp; evaluaties</span>
+      <ul class="ws-grid">
+        <li><span class="fr">le cours</span><span class="nl">de les / het vak</span></li>
+        <li><span class="fr">la le&ccedil;on</span><span class="nl">de les (leerstof)</span></li>
+        <li><span class="fr">les devoirs (m.pl.)</span><span class="nl">het huiswerk</span></li>
+        <li><span class="fr">l&rsquo;interro (f.)</span><span class="nl">de toets (omgangst.)</span></li>
+        <li><span class="fr">l&rsquo;examen (m.)</span><span class="nl">het examen</span></li>
+        <li><span class="fr">une bonne note</span><span class="nl">een goed cijfer</span></li>
+        <li><span class="fr">une mauvaise note</span><span class="nl">een slecht cijfer</span></li>
+        <li><span class="fr">la r&eacute;cr&eacute;ation</span><span class="nl">de speeltijd / pauze</span></li>
+      </ul>
+
+      <span class="ws-nota-onderaan"><em>Le cours</em> en <em>la le&ccedil;on</em> betekenen allebei &ldquo;les&rdquo;, maar <em>le cours</em> verwijst meer naar het vak of de sessie, terwijl <em>la le&ccedil;on</em> verwijst naar de leerstof of een les uit een boek.</span>
+    </div>
+  </section>
+
+  <!-- SECTION 3: L'emploi du temps -->
+  <section class="section-block" id="emploi-du-temps">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">L&rsquo;emploi du temps</h2>
+    </div>
+
+    <p>Het lesrooster heet <em>l&rsquo;emploi du temps</em>. In de volgende dialoog vragen twee leerlingen elkaar naar hun vakken, uren en leraren.</p>
+
+    <div class="gesprek">
+      <span class="gesp-label">Dialogue</span>
+      <span class="gesp-title">Qu&rsquo;est-ce que tu as comme cours&nbsp;? &mdash; Welke lessen heb jij&nbsp;?</span>
+
+      <div class="gesp-lijn">
+        <span class="gesp-naam">Lucas&nbsp;:</span>
+        <div>
+          <span class="gesp-tekst">H&eacute;, Chlo&eacute; ! Tu as quoi comme cours le lundi matin&nbsp;?</span>
+          <span class="gesp-vertaling">Hé, Chloé! Welke lessen heb je maandagochtend?</span>
+        </div>
+      </div>
+      <div class="gesp-lijn">
+        <span class="gesp-naam naam-b">Chlo&eacute;&nbsp;:</span>
+        <div>
+          <span class="gesp-tekst">Le lundi, j&rsquo;ai d&rsquo;abord le fran&ccedil;ais &agrave; huit heures, et ensuite les maths de neuf heures &agrave; dix heures.</span>
+          <span class="gesp-vertaling">Op maandag heb ik eerst Frans om acht uur, en daarna wiskunde van negen tot tien uur.</span>
+        </div>
+      </div>
+      <div class="gesp-lijn">
+        <span class="gesp-naam">Lucas&nbsp;:</span>
+        <div>
+          <span class="gesp-tekst">Et qui est-ce qui donne le cours de fran&ccedil;ais&nbsp;?</span>
+          <span class="gesp-vertaling">En wie geeft de les Frans?</span>
+        </div>
+      </div>
+      <div class="gesp-lijn">
+        <span class="gesp-naam naam-b">Chlo&eacute;&nbsp;:</span>
+        <div>
+          <span class="gesp-tekst">C&rsquo;est monsieur Dupont. Il est super sympa. Et toi, tu as quel cours le mardi apr&egrave;s-midi&nbsp;?</span>
+          <span class="gesp-vertaling">Dat is meneer Dupont. Hij is super aardig. En jij, welke les heb jij dinsdagmiddag?</span>
+        </div>
+      </div>
+      <div class="gesp-lijn">
+        <span class="gesp-naam">Lucas&nbsp;:</span>
+        <div>
+          <span class="gesp-tekst">Le mardi, j&rsquo;ai l&rsquo;&eacute;ducation physique &agrave; treize heures trente, et apr&egrave;s j&rsquo;ai les sciences avec madame Lambert.</span>
+          <span class="gesp-vertaling">Op dinsdag heb ik lichamelijke opvoeding om half twee, en daarna heb ik wetenschappen bij mevrouw Lambert.</span>
+        </div>
+      </div>
+      <div class="gesp-lijn">
+        <span class="gesp-naam naam-b">Chlo&eacute;&nbsp;:</span>
+        <div>
+          <span class="gesp-tekst">Ah, j&rsquo;adore les sciences ! Ma mati&egrave;re pr&eacute;f&eacute;r&eacute;e, c&rsquo;est la biologie. Et toi, tu pr&eacute;f&egrave;res quel cours&nbsp;?</span>
+          <span class="gesp-vertaling">Ah, ik ben dol op wetenschappen! Mijn lievelingsvak is biologie. En jij, welke les vind jij het leukst?</span>
+        </div>
+      </div>
+      <div class="gesp-lijn">
+        <span class="gesp-naam">Lucas&nbsp;:</span>
+        <div>
+          <span class="gesp-tekst">Moi, je pr&eacute;f&egrave;re les arts plastiques. On n&rsquo;a pas de devoirs et le prof est cool !</span>
+          <span class="gesp-vertaling">Ik vind beeldende kunsten het leukst. We hebben geen huiswerk en de leraar is cool!</span>
+        </div>
+      </div>
+
+      <hr class="gesp-divider">
+      <p class="gesp-tip">Tip: Oefen dit gesprek met een partner. Gebruik je eigen lesrooster en verander de namen van de vakken en leraren.</p>
+    </div>
+
+    <h3 class="sub-heading">Utile pour parler de l&rsquo;emploi du temps</h3>
+
+    <div class="woordenschat-kader">
+      <span class="ws-label">Uitdrukkingen</span>
+      <span class="ws-title">Les jours et les heures &mdash; Dagen en tijden</span>
+
+      <span class="ws-subgroep">Dagen van de week</span>
+      <ul class="ws-grid">
+        <li><span class="fr">le lundi</span><span class="nl">op maandag (wekelijks)</span></li>
+        <li><span class="fr">le mardi</span><span class="nl">op dinsdag</span></li>
+        <li><span class="fr">le mercredi</span><span class="nl">op woensdag</span></li>
+        <li><span class="fr">le jeudi</span><span class="nl">op donderdag</span></li>
+        <li><span class="fr">le vendredi</span><span class="nl">op vrijdag</span></li>
+        <li><span class="fr">le matin</span><span class="nl">&rsquo;s ochtends</span></li>
+        <li><span class="fr">l&rsquo;apr&egrave;s-midi</span><span class="nl">&rsquo;s middags</span></li>
+        <li><span class="fr">le soir</span><span class="nl">&rsquo;s avonds</span></li>
+      </ul>
+
+      <span class="ws-subgroep">Handige zinnen</span>
+      <ul class="ws-grid">
+        <li><span class="fr">J&rsquo;ai cours de &hellip;</span><span class="nl">Ik heb les &hellip;</span></li>
+        <li><span class="fr">&agrave; quelle heure&nbsp;?</span><span class="nl">om welk uur?</span></li>
+        <li><span class="fr">de &hellip; &agrave; &hellip;</span><span class="nl">van &hellip; tot &hellip;</span></li>
+        <li><span class="fr">ensuite / puis</span><span class="nl">daarna / dan</span></li>
+        <li><span class="fr">avant / apr&egrave;s</span><span class="nl">voor / na</span></li>
+        <li><span class="fr">Qui donne le cours&nbsp;?</span><span class="nl">Wie geeft de les?</span></li>
+        <li><span class="fr">C&rsquo;est monsieur/madame &hellip;</span><span class="nl">Dat is meneer/mevrouw &hellip;</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SECTION 4: L'impératif -->
+  <section class="section-block" id="imperatif">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">L&rsquo;imp&eacute;ratif</h2>
+    </div>
+
+    <p>De <em>imp&eacute;ratif</em> (gebiedende wijs) gebruik je om iemand een opdracht te geven, aan te moedigen of te verbieden. Hij heeft maar <strong>drie vormen</strong>: <em>tu</em>, <em>nous</em> en <em>vous</em> &mdash; en je laat het onderwerp weg.</p>
+
+    <div class="grammatica-kader">
+      <span class="gram-label">Grammatica</span>
+      <span class="gram-title">L&rsquo;imp&eacute;ratif &mdash; Vorming van de gebiedende wijs</span>
+
+      <p class="gram-regel"><strong>Regelmatige -ER werkwoorden</strong> (zoals <em>parler</em>): neem de <em>pr&eacute;sent</em>-vormen voor <em>tu / nous / vous</em>, laat het onderwerp weg, en schrap bij de <em>tu</em>-vorm de eindige <em>-s</em>.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Persoon</th>
+            <th>Pr&eacute;sent</th>
+            <th>Imp&eacute;ratif</th>
+            <th>Vertaling</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><em>tu</em></td>
+            <td>tu parles</td>
+            <td><strong>Parle !</strong></td>
+            <td>Spreek&nbsp;! / Praat&nbsp;!</td>
+          </tr>
+          <tr>
+            <td><em>nous</em></td>
+            <td>nous parlons</td>
+            <td><strong>Parlons !</strong></td>
+            <td>Laten we praten&nbsp;!</td>
+          </tr>
+          <tr>
+            <td><em>vous</em></td>
+            <td>vous parlez</td>
+            <td><strong>Parlez !</strong></td>
+            <td>Spreek(t)&nbsp;! (meerdere personen of beleefd)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="gram-regel"><strong>Regelmatige -IR en -RE werkwoorden</strong>: laat gewoon het onderwerp weg, de -s bij <em>tu</em> blijft staan.</p>
+
+      <div class="gram-voorbeeld">
+        <span class="fr">Finis tes devoirs ! &mdash; Finissons ! &mdash; Finissez !</span>
+        <span class="nl">Maak je huiswerk af! &mdash; Laten we afmaken! &mdash; Maak af!</span>
+      </div>
+
+      <p class="gram-regel"><strong>Onregelmatige werkwoorden</strong> hebben aparte stammen voor de imp&eacute;ratif:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Werkwoord</th>
+            <th>tu</th>
+            <th>nous</th>
+            <th>vous</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>&ecirc;tre</td>
+            <td><strong>sois</strong></td>
+            <td><strong>soyons</strong></td>
+            <td><strong>soyez</strong></td>
+          </tr>
+          <tr>
+            <td>avoir</td>
+            <td><strong>aie</strong></td>
+            <td><strong>ayons</strong></td>
+            <td><strong>ayez</strong></td>
+          </tr>
+          <tr>
+            <td>aller</td>
+            <td><strong>va</strong></td>
+            <td><strong>allons</strong></td>
+            <td><strong>allez</strong></td>
+          </tr>
+          <tr>
+            <td>faire</td>
+            <td><strong>fais</strong></td>
+            <td><strong>faisons</strong></td>
+            <td><strong>faites</strong></td>
+          </tr>
+          <tr>
+            <td>savoir</td>
+            <td><strong>sache</strong></td>
+            <td><strong>sachons</strong></td>
+            <td><strong>sachez</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="gram-regel"><strong>Reflexieve werkwoorden</strong> (werkwoorden met <em>se</em>): het wederkerend voornaamwoord komt <em>na</em> het werkwoord, verbonden met een koppelteken. <em>Te</em> wordt <em>toi</em> na het werkwoord.</p>
+
+      <div class="gram-voorbeeld">
+        <span class="fr">L&egrave;ve-toi ! &mdash; Levons-nous ! &mdash; Levez-vous !</span>
+        <span class="nl">Sta op! (jij) &mdash; Laten we opstaan! &mdash; Sta(at) op!</span>
+      </div>
+      <div class="gram-voorbeeld">
+        <span class="fr">Assieds-toi ! &mdash; Asseyez-vous !</span>
+        <span class="nl">Ga zitten! (jij) &mdash; Ga(at) zitten!</span>
+      </div>
+
+      <p class="gram-regel"><strong>Ontkenning</strong> bij de imp&eacute;ratif: zet <em>ne &hellip; pas</em> om het werkwoord. Bij reflexieve werkwoorden gaat het voornaamwoord terug voor het werkwoord.</p>
+
+      <div class="gram-voorbeeld">
+        <span class="fr">Ne parle pas ! &mdash; Ne parlez pas !</span>
+        <span class="nl">Praat niet! &mdash; Praat niet! (u/jullie)</span>
+      </div>
+      <div class="gram-voorbeeld">
+        <span class="fr">Ne te l&egrave;ve pas ! &mdash; Ne vous levez pas !</span>
+        <span class="nl">Sta niet op! &mdash; Sta(at) niet op!</span>
+      </div>
+
+      <div class="gram-let-op">
+        <strong>Let op!</strong> De <em>-s</em> van de <em>tu</em>-vorm bij -ER werkwoorden verdwijnt normaal (<em>Parle !</em>), maar keert terug wanneer er een klinker volgt (bij <em>y</em> of <em>en</em>): <em>Parles-en ! Vas-y !</em> Dit zorgt voor vlottere uitspraak.
+      </div>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; R&eacute;fl&eacute;chis !</div>
+      <p class="dv-text">Stel je voor: je bent leraar voor een dag. Schrijf vier instructies die je zou geven aan je klas. Gebruik de <em>vous</em>-vorm van de imp&eacute;ratif. Bijvoorbeeld: <em>Ouvrez votre cahier !</em></p>
+    </div>
+  </section>
+
+  <!-- SECTION 5: Les instructions de classe -->
+  <section class="section-block" id="instructions">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Les instructions de classe</h2>
+    </div>
+
+    <p>De instructietaal van de leraar is de imp&eacute;ratif in actie. Hier zijn de meest voorkomende klasinstructies die je elke dag hoort in een Franstalige school.</p>
+
+    <div class="woordenschat-kader">
+      <span class="ws-label">Woordenschat &mdash; Instructietaal</span>
+      <span class="ws-title">Les instructions de classe &mdash; Klasinstructies</span>
+      <span class="ws-nota">Alle instructies staan in de <em>vous</em>-vorm (voor de klas). In een informele context kan de <em>tu</em>-vorm gebruikt worden.</span>
+
+      <span class="ws-subgroep">Met het boek en schrift</span>
+      <ul class="ws-grid">
+        <li><span class="fr">Ouvrez le livre.</span><span class="nl">Open het boek.</span></li>
+        <li><span class="fr">Fermez le livre.</span><span class="nl">Sluit het boek.</span></li>
+        <li><span class="fr">Lisez le texte.</span><span class="nl">Lees de tekst.</span></li>
+        <li><span class="fr">R&eacute;pondez aux questions.</span><span class="nl">Beantwoord de vragen.</span></li>
+        <li><span class="fr">Faites l&rsquo;exercice.</span><span class="nl">Maak de oefening.</span></li>
+        <li><span class="fr">Recopiez dans le cahier.</span><span class="nl">Kopieer in het schrift.</span></li>
+        <li><span class="fr">Soulignez les mots.</span><span class="nl">Onderstreep de woorden.</span></li>
+      </ul>
+
+      <span class="ws-subgroep">Luisteren en spreken</span>
+      <ul class="ws-grid">
+        <li><span class="fr">&Eacute;coutez.</span><span class="nl">Luister.</span></li>
+        <li><span class="fr">R&eacute;p&eacute;tez.</span><span class="nl">Herhaal.</span></li>
+        <li><span class="fr">Posez des questions.</span><span class="nl">Stel vragen.</span></li>
+        <li><span class="fr">Levez la main.</span><span class="nl">Steek je hand op.</span></li>
+        <li><span class="fr">Taisez-vous !</span><span class="nl">Wees stil! / Hou je mond!</span></li>
+        <li><span class="fr">Parlez plus fort.</span><span class="nl">Spreek luider.</span></li>
+        <li><span class="fr">R&eacute;p&eacute;tez, s&rsquo;il vous pla&icirc;t.</span><span class="nl">Herhaal alstublieft.</span></li>
+      </ul>
+
+      <span class="ws-subgroep">Organisatie</span>
+      <ul class="ws-grid">
+        <li><span class="fr">Travaillez en groupe.</span><span class="nl">Werk in groep.</span></li>
+        <li><span class="fr">Travaillez &agrave; deux.</span><span class="nl">Werk samen (in duo).</span></li>
+        <li><span class="fr">Venez au tableau.</span><span class="nl">Kom naar het bord.</span></li>
+        <li><span class="fr">Asseyez-vous.</span><span class="nl">Ga zitten.</span></li>
+        <li><span class="fr">Levez-vous.</span><span class="nl">Sta op.</span></li>
+        <li><span class="fr">Sortez une feuille.</span><span class="nl">Haal een blad te voorschijn.</span></li>
+      </ul>
+
+      <span class="ws-nota-onderaan"><em>Taisez-vous !</em> is een reflexief werkwoord (<em>se taire</em> &mdash; zwijgen). De imp&eacute;ratif-vorm is onregelmatig: <em>tais-toi / taisons-nous / taisez-vous</em>.</span>
+    </div>
+  </section>
+
+  <!-- SECTION 6: Exprimer son opinion -->
+  <section class="section-block" id="opinion">
+    <div class="section-heading">
+      <span class="section-num">6</span>
+      <h2 class="section-title">Exprimer son opinion sur l&rsquo;&eacute;cole</h2>
+    </div>
+
+    <p>Hoe vertel je in het Frans wat je van school en vakken vindt? Hieronder vind je de meest gebruikte uitdrukkingen om je mening te geven.</p>
+
+    <div class="woordenschat-kader">
+      <span class="ws-label">Uitdrukkingen</span>
+      <span class="ws-title">Donner son avis &mdash; Je mening geven over school</span>
+
+      <span class="ws-subgroep">Je mening uitdrukken</span>
+      <ul class="ws-grid">
+        <li><span class="fr">J&rsquo;aime bien &hellip;</span><span class="nl">Ik vind &hellip; leuk.</span></li>
+        <li><span class="fr">Je n&rsquo;aime pas trop &hellip;</span><span class="nl">Ik vind &hellip; niet zo leuk.</span></li>
+        <li><span class="fr">J&rsquo;adore &hellip;</span><span class="nl">Ik ben gek op &hellip;</span></li>
+        <li><span class="fr">Je d&eacute;teste &hellip;</span><span class="nl">Ik haat &hellip;</span></li>
+        <li><span class="fr">Ma mati&egrave;re pr&eacute;f&eacute;r&eacute;e, c&rsquo;est &hellip;</span><span class="nl">Mijn lievelingsvak is &hellip;</span></li>
+        <li><span class="fr">Mon cours pr&eacute;f&eacute;r&eacute;, c&rsquo;est &hellip;</span><span class="nl">Mijn favoriete les is &hellip;</span></li>
+      </ul>
+
+      <span class="ws-subgroep">De moeilijkheidsgraad beschrijven</span>
+      <ul class="ws-grid">
+        <li><span class="fr">Je trouve &ccedil;a difficile.</span><span class="nl">Ik vind dat moeilijk.</span></li>
+        <li><span class="fr">Je trouve &ccedil;a facile.</span><span class="nl">Ik vind dat gemakkelijk.</span></li>
+        <li><span class="fr">Je trouve &ccedil;a int&eacute;ressant.</span><span class="nl">Ik vind dat interessant.</span></li>
+        <li><span class="fr">Je trouve &ccedil;a ennuyeux.</span><span class="nl">Ik vind dat saai.</span></li>
+        <li><span class="fr">Je trouve &ccedil;a passionnant.</span><span class="nl">Ik vind dat boeiend.</span></li>
+        <li><span class="fr">C&rsquo;est trop difficile pour moi.</span><span class="nl">Dat is te moeilijk voor mij.</span></li>
+      </ul>
+
+      <span class="ws-subgroep">Sterkte en zwakte aangeven</span>
+      <ul class="ws-grid">
+        <li><span class="fr">Je suis fort(e) en &hellip;</span><span class="nl">Ik ben goed in &hellip;</span></li>
+        <li><span class="fr">Je suis nul(le) en &hellip;</span><span class="nl">Ik ben slecht in &hellip; (inform.)</span></li>
+        <li><span class="fr">J&rsquo;ai des difficult&eacute;s en &hellip;</span><span class="nl">Ik heb moeite met &hellip;</span></li>
+        <li><span class="fr">Je r&eacute;ussis bien en &hellip;</span><span class="nl">Ik doe het goed in &hellip;</span></li>
+        <li><span class="fr">J&rsquo;ai de bonnes notes en &hellip;</span><span class="nl">Ik heb goede punten voor &hellip;</span></li>
+        <li><span class="fr">J&rsquo;ai du mal &agrave; &hellip; (+ infinitif)</span><span class="nl">Ik heb moeite om te &hellip;</span></li>
+      </ul>
+
+      <span class="ws-nota-onderaan">Let op het geslacht bij <em>fort/forte</em> en <em>nul/nulle</em>: meisjes gebruiken de vrouwelijke vorm (<em>forte, nulle</em>).</span>
+    </div>
+
+    <div class="gesprek">
+      <span class="gesp-label">Mini-dialogue</span>
+      <span class="gesp-title">Tu aimes quelle mati&egrave;re&nbsp;? &mdash; Welk vak vind jij leuk&nbsp;?</span>
+
+      <div class="gesp-lijn">
+        <span class="gesp-naam">Professeur&nbsp;:</span>
+        <div>
+          <span class="gesp-tekst">Emma, tu aimes quelles mati&egrave;res cette ann&eacute;e&nbsp;?</span>
+          <span class="gesp-vertaling">Emma, welke vakken vind jij leuk dit jaar?</span>
+        </div>
+      </div>
+      <div class="gesp-lijn">
+        <span class="gesp-naam naam-b">Emma&nbsp;:</span>
+        <div>
+          <span class="gesp-tekst">Ma mati&egrave;re pr&eacute;f&eacute;r&eacute;e, c&rsquo;est la musique. Je trouve &ccedil;a passionnant. Mais j&rsquo;ai des difficult&eacute;s en maths &mdash; je trouve &ccedil;a tr&egrave;s difficile.</span>
+          <span class="gesp-vertaling">Mijn lievelingsvak is muziek. Ik vind dat erg boeiend. Maar ik heb moeite met wiskunde &mdash; ik vind dat heel moeilijk.</span>
+        </div>
+      </div>
+      <div class="gesp-lijn">
+        <span class="gesp-naam">Professeur&nbsp;:</span>
+        <div>
+          <span class="gesp-tekst">Et le fran&ccedil;ais, tu aimes&nbsp;?</span>
+          <span class="gesp-vertaling">En Frans, vind je dat leuk?</span>
+        </div>
+      </div>
+      <div class="gesp-lijn">
+        <span class="gesp-naam naam-b">Emma&nbsp;:</span>
+        <div>
+          <span class="gesp-tekst">Oui, j&rsquo;aime bien ! Je suis forte en fran&ccedil;ais. J&rsquo;adore lire et j&rsquo;ai toujours de bonnes notes.</span>
+          <span class="gesp-vertaling">Ja, ik vind het leuk! Ik ben goed in Frans. Ik ben dol op lezen en ik heb altijd goede punten.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: Tekst -->
+  <section class="section-block" id="tekst">
+    <div class="section-heading">
+      <span class="section-num">7</span>
+      <h2 class="section-title">Tekst: Mon &eacute;cole &agrave; Bruxelles</h2>
+    </div>
+
+    <p>Lees de volgende tekst van een Brusselse leerling. Let op het gebruik van schoolvocabulaire en de beschrijving van de Belgische schoolomgeving.</p>
+
+    <div class="tekst-fragment">
+      <span class="tf-label">Tekst &mdash; Lecture</span>
+      <span class="tf-title">Mon &eacute;cole &agrave; Bruxelles</span>
+      <div class="tf-body">
+        <p>Je m&rsquo;appelle Mathieu et j&rsquo;ai treize ans. Je suis &eacute;l&egrave;ve &agrave; l&rsquo;Ath&eacute;n&eacute;e Royal de Bruxelles, une &eacute;cole secondaire dans le centre-ville. Notre &eacute;cole est grande : il y a plus de huit cents &eacute;l&egrave;ves et cinquante professeurs.</p>
+        <p>Ma journ&eacute;e commence &agrave; huit heures et quart. D&rsquo;abord, je mets mon cartable sur mon bureau dans la salle de classe. Mon premier cours du lundi, c&rsquo;est le n&eacute;erlandais avec madame Peeters. Elle est stricte mais juste &mdash; elle dit toujours : <em>&laquo;&nbsp;Ouvrez votre cahier et &eacute;coutez attentivement !&nbsp;&raquo;</em> Ensuite, j&rsquo;ai les sciences et les maths. Les maths, je trouve &ccedil;a difficile, mais j&rsquo;ai un bon prof qui explique bien.</p>
+        <p>La r&eacute;cr&eacute;ation est &agrave; dix heures moins le quart. On descend dans la cour et on mange un petit quelque chose. Certains &eacute;l&egrave;ves restent dans le couloir pour r&eacute;viser leurs le&ccedil;ons &mdash; surtout avant une interro !</p>
+        <p>L&rsquo;apr&egrave;s-midi, j&rsquo;ai souvent l&rsquo;&eacute;ducation physique et les arts plastiques. Ce sont mes mati&egrave;res pr&eacute;f&eacute;r&eacute;es. &Agrave; midi, je mange &agrave; la cantine avec mes amis. Les repas ne sont pas toujours d&eacute;licieux, mais c&rsquo;est pratique.</p>
+        <p>Les cours se terminent &agrave; seize heures. Ensuite, je rentre chez moi et je fais mes devoirs avant le d&icirc;ner. J&rsquo;aime mon &eacute;cole parce que les profs sont sympa et j&rsquo;ai de bons amis ici.</p>
+      </div>
+
+      <div class="tf-culturele-noot">
+        <strong>Culturele noot &mdash; Het Belgische onderwijssysteem:</strong><br>
+        In Belgi&euml; bestaan twee grote netten van middelbare scholen: het <strong>officieel net</strong> (GO&nbsp;&mdash;&nbsp;Gemeenschapsonderwijs) en het <strong>vrij net</strong> (met name katholieke scholen en andere particuliere scholen, gesubsidieerd door de overheid). Een <strong>ath&eacute;n&eacute;e royal</strong> is een school van het GO in de Franstalige Gemeenschap. In het Vlaamse net spreekt men van een <strong>atheneum</strong>. Een <strong>coll&egrave;ge</strong> is een school van het vrij net. De Franstalige secundaire school duurt zes jaar en wordt afgesloten met het <strong>CESS</strong> (Certificat d&rsquo;Enseignement Secondaire Sup&eacute;rieur), het Franstalige equivalent van het Vlaamse getuigschrift van het secundair onderwijs.
+      </div>
+
+      <div class="tf-vragen">
+        <span class="tf-vragen-label">Vragen bij de tekst</span>
+        <ol>
+          <li>Hoe heet de school van Mathieu en in welke stad ligt ze?</li>
+          <li>Om welk uur begint zijn schooldag?</li>
+          <li>Welk vak heeft hij het eerste uur op maandag en wie geeft dat vak?</li>
+          <li>Welk vak vindt Mathieu moeilijk? Welke vakken zijn zijn favorieten?</li>
+          <li>Wat doet Mathieu tijdens de pauze? Wat doen sommige leerlingen in de gang?</li>
+          <li>Hoe laat is school gedaan? Wat doet Mathieu daarna?</li>
+          <li>Wat is een <em>ath&eacute;n&eacute;e royal</em>? Zoek de informatie in de culturele noot.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: France vs Belgique -->
+  <section class="section-block" id="comparaison">
+    <div class="section-heading">
+      <span class="section-num">8</span>
+      <h2 class="section-title">L&rsquo;&eacute;cole en France vs en Belgique</h2>
+    </div>
+
+    <p>Het Franse en Belgische schoolsysteem lijken op elkaar, maar er zijn belangrijke verschillen. Hieronder een beknopte vergelijking.</p>
+
+    <div class="woordenschat-kader">
+      <span class="ws-label">Culturele vergelijking</span>
+      <span class="ws-title">France vs Belgique &mdash; Twee schoolsystemen</span>
+
+      <span class="ws-subgroep">Benaming van de scholen</span>
+      <ul class="ws-grid">
+        <li><span class="fr">le lyc&eacute;e (France)</span><span class="nl">middelbare school (bovenbouw)</span></li>
+        <li><span class="fr">l&rsquo;ath&eacute;n&eacute;e / le coll&egrave;ge (Belgique)</span><span class="nl">middelbare school (Belgi&euml;)</span></li>
+        <li><span class="fr">le coll&egrave;ge (France)</span><span class="nl">onderbouw (11-15 j., Frankrijk)</span></li>
+        <li><span class="fr">l&rsquo;&eacute;cole primaire</span><span class="nl">lagere school (beide landen)</span></li>
+      </ul>
+
+      <span class="ws-subgroep">Afsluitende diploma&rsquo;s</span>
+      <ul class="ws-grid">
+        <li><span class="fr">le bac (baccalaur&eacute;at) &mdash; France</span><span class="nl">diploma na 12 jaar school</span></li>
+        <li><span class="fr">le CESS &mdash; Belgique (francophone)</span><span class="nl">diploma secundair onderwijs (B)</span></li>
+        <li><span class="fr">le CEB, CE1D, CE2D &hellip;</span><span class="nl">tussentijdse getuigschriften (B)</span></li>
+      </ul>
+
+      <span class="ws-subgroep">Schooluren &amp; gewoontes</span>
+      <ul class="ws-grid">
+        <li><span class="fr">la pause d&eacute;jeuner</span><span class="nl">middagpauze (1,5 &agrave; 2u in F)</span></li>
+        <li><span class="fr">manger &agrave; la cantine</span><span class="nl">in de refter eten</span></li>
+        <li><span class="fr">rentrer chez soi le midi</span><span class="nl">naar huis gaan &rsquo;s middags</span></li>
+        <li><span class="fr">le mercredi apr&egrave;s-midi libre</span><span class="nl">woensdagnamiddag vrij (F)</span></li>
+        <li><span class="fr">pas de cours le samedi</span><span class="nl">geen les op zaterdag (B &amp; F)</span></li>
+      </ul>
+
+      <span class="ws-nota-onderaan">In Frankrijk is de <strong>carte scolaire</strong> (schoolindeling per regio) een politiek gevoelig thema. In Belgi&euml; zijn scholen vrij te kiezen, wat leidt tot een grote diversiteit aan schoolprofielen in steden als Brussel en Li&egrave;ge.</span>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#127963;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Cultuur</span>
+        <span class="begrip-name">Le bac &mdash; un rite de passage</span>
+        <p class="begrip-def">Het <em>baccalaur&eacute;at</em> in Frankrijk is meer dan een diploma: het is een sociaal ritueel. Elke zomer in juni-juli legt heel Frankrijk de adem in bij de resultaten. Slagen voor het bac is een mijlpaal die recht geeft op universitaire toegang. In Belgi&euml; heeft elk onderwijsnet zijn eigen toelatingsprocedures, maar het CESS vervult een vergelijkbare rol.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING QUOTE -->
+  <div class="closing-quote" role="note" aria-label="Slotcitaat">
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p class="cq-text">L&rsquo;&eacute;cole, c&rsquo;est l&rsquo;endroit o&ugrave; l&rsquo;on apprend &agrave; apprendre.</p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <span class="cq-attribution">Frans 1A &nbsp;&middot;&nbsp; H10 &mdash; &Agrave; l&rsquo;&eacute;cole</span>
+  </div>
+
+</div><!-- end page-wrapper -->
+
+<!-- EXERCISES -->
+<section class="exercises-section" id="oefeningen">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <!-- Oefening 1 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">L&rsquo;imp&eacute;ratif &mdash; Zet om naar de gebiedende wijs</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Geef de drie imp&eacute;ratif-vormen (<em>tu / nous / vous</em>) van de volgende werkwoorden.</p>
+      <ol>
+        <li><em>ouvrir</em> (openen)</li>
+        <li><em>&eacute;couter</em> (luisteren)</li>
+        <li><em>finir</em> (afmaken)</li>
+        <li><em>faire</em> (doen)</li>
+        <li><em>se lever</em> (opstaan)</li>
+        <li><em>&ecirc;tre</em> (zijn) &mdash; sage(s) (braaf)</li>
+      </ol>
+      <p class="ex-tip">Tip: Vergeet niet dat -ER werkwoorden de <em>-s</em> bij de <em>tu</em>-vorm verliezen, en dat reflexieve werkwoorden het voornaamwoord na het werkwoord plaatsen.</p>
+    </div>
+
+    <!-- Oefening 2 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Vocabulaire &mdash; Koppel het Frans aan het Nederlands</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Koppel elk Frans woord aan de juiste Nederlandse betekenis.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.4rem 2rem;">
+        <div>
+          <ol style="font-size:0.93rem;color:var(--text-mid);">
+            <li><em>le cartable</em></li>
+            <li><em>l&rsquo;interro</em></li>
+            <li><em>la cantine</em></li>
+            <li><em>le tableau</em></li>
+            <li><em>les devoirs</em></li>
+            <li><em>la r&eacute;cr&eacute;ation</em></li>
+            <li><em>le cahier</em></li>
+            <li><em>le couloir</em></li>
+          </ol>
+        </div>
+        <div>
+          <ul style="list-style:none;padding:0;font-size:0.93rem;color:var(--text-mid);">
+            <li>a. de gang</li>
+            <li>b. het schrift</li>
+            <li>c. de pauze / speeltijd</li>
+            <li>d. het bord</li>
+            <li>e. de eetzaal / refter</li>
+            <li>f. de schooltas</li>
+            <li>g. het huiswerk</li>
+            <li>h. de toets (omgangst.)</li>
+          </ul>
+        </div>
+      </div>
+      <p class="ex-tip">Controleer je antwoorden met de woordenlijst in sectie 2 van dit hoofdstuk.</p>
+    </div>
+
+    <!-- Oefening 3 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">L&rsquo;emploi du temps &mdash; Begrijpsoefening</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Lees het lesrooster van Julie hieronder en beantwoord de vragen in het Frans.</p>
+      <div style="background:var(--sand-light);border-radius:4px;padding:1rem 1.2rem;margin:0.7rem 0;font-size:0.9rem;color:var(--text-mid);">
+        <strong>Lesrooster Julie &mdash; Lundi</strong><br>
+        8h00 &ndash; 9h00 : le fran&ccedil;ais (M. Dupont)<br>
+        9h00 &ndash; 10h00 : les math&eacute;matiques (Mme Bernard)<br>
+        10h00 &ndash; 10h15 : r&eacute;cr&eacute;ation<br>
+        10h15 &ndash; 11h15 : l&rsquo;histoire (M. Renard)<br>
+        11h15 &ndash; 12h15 : les sciences (Mme Laurent)<br>
+        12h15 &ndash; 13h30 : pause d&eacute;jeuner (cantine)<br>
+        13h30 &ndash; 14h30 : la g&eacute;ographie (M. Renard)<br>
+        14h30 &ndash; 15h30 : l&rsquo;&eacute;ducation physique (M. Thomas)
+      </div>
+      <ol>
+        <li>Julie a cours de fran&ccedil;ais &agrave; quelle heure&nbsp;?</li>
+        <li>Qui donne le cours de math&eacute;matiques&nbsp;?</li>
+        <li>Combien de cours a-t-elle le lundi&nbsp;? (Hoeveel lessen heeft ze op maandag?)</li>
+        <li>O&ugrave; mange-t-elle &agrave; midi&nbsp;? (&laquo;&nbsp;Elle mange &agrave; &hellip;&nbsp;&raquo;)</li>
+        <li>Quel professeur donne &agrave; la fois l&rsquo;histoire et la g&eacute;ographie&nbsp;? (Welke leraar geeft zowel geschiedenis als aardrijkskunde?)</li>
+      </ol>
+    </div>
+
+    <!-- Oefening 4 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 4</p>
+      <p class="ex-name">Mon opinion &mdash; Zinnen afmaken</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Maak de zinnen af op basis van jouw eigen mening. Gebruik de uitdrukkingen uit sectie 6.</p>
+      <ol>
+        <li>Ma mati&egrave;re pr&eacute;f&eacute;r&eacute;e, c&rsquo;est &hellip; parce que &hellip;</li>
+        <li>Je trouve les maths &hellip; parce que &hellip;</li>
+        <li>Je suis fort(e) en &hellip; mais j&rsquo;ai des difficult&eacute;s en &hellip;</li>
+        <li>Je n&rsquo;aime pas trop &hellip; parce que je trouve &ccedil;a &hellip;</li>
+        <li>Cette ann&eacute;e, j&rsquo;ai de bonnes notes en &hellip; mais &hellip;</li>
+      </ol>
+      <p class="ex-tip">Schrijf volledige zinnen en wissel daarna uit met een klasgenoot. Vraag door: <em>Pourquoi ? Tu pr&eacute;f&egrave;res quel prof ?</em></p>
+    </div>
+
+    <!-- Oefening 5 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 5</p>
+      <p class="ex-name">Instructions de classe &mdash; Herkenningsoefening</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Wat bedoelt de leraar met elke instructie? Kies de juiste omschrijving.</p>
+      <ol>
+        <li><em>Taisez-vous !</em><br>
+          a. Open je boek. &nbsp; b. Wees stil. &nbsp; c. Doe de oefening.
+        </li>
+        <li><em>Venez au tableau.</em><br>
+          a. Ga zitten. &nbsp; b. Kom naar het bord. &nbsp; c. Lees de tekst.
+        </li>
+        <li><em>Travaillez en groupe.</em><br>
+          a. Werk alleen. &nbsp; b. Luister. &nbsp; c. Werk in groep.
+        </li>
+        <li><em>Levez la main.</em><br>
+          a. Sta op. &nbsp; b. Steek je hand op. &nbsp; c. Sluit het boek.
+        </li>
+        <li><em>R&eacute;pondez aux questions.</em><br>
+          a. Stel vragen. &nbsp; b. Beantwoord de vragen. &nbsp; c. Herhaal de vragen.
+        </li>
+        <li><em>Ne parlez pas !</em><br>
+          a. Praat louder. &nbsp; b. Praat niet. &nbsp; c. Herhaal alstublieft.
+        </li>
+      </ol>
+      <p class="ex-tip">Tip: Let op het verschil tussen <em>poser des questions</em> (vragen stellen) en <em>r&eacute;pondre aux questions</em> (vragen beantwoorden).</p>
+    </div>
+
+    <!-- Oefening 6 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 6</p>
+      <p class="ex-name">Ma journ&eacute;e scolaire &mdash; Schrijfoefening</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Schrijf een tekst van 8&ndash;10 zinnen over jouw schooldag. Gebruik de tekst van Mathieu (sectie 7) als model. Vermeld:</p>
+      <ul>
+        <li>hoe jouw school heet en waar ze ligt</li>
+        <li>hoe laat jouw schooldag begint en eindigt</li>
+        <li>welke vakken je hebt en wie de leraren zijn</li>
+        <li>wat je doet tijdens de pauze en tijdens de middag</li>
+        <li>welk vak je het leukst/moeilijkst vindt en waarom</li>
+      </ul>
+      <p class="ex-tip">Gebruik de imp&eacute;ratif minstens &eacute;&eacute;n keer: schrijf een zin die jouw leraar regelmatig zegt (bv. <em>Mon prof de sciences dit toujours : &laquo;&nbsp;Faites attention !&nbsp;&raquo;</em>).</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="summary-section" id="samenvatting">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting &mdash; R&eacute;sum&eacute;</h2>
+    <ul>
+      <li><strong>Les mati&egrave;res scolaires</strong> zijn bijna altijd vrouwelijk in het Frans. Uitzonderingen zijn talen als <em>le fran&ccedil;ais, l&rsquo;anglais</em> (mannelijk) en <em>les arts plastiques</em> (mannelijk meervoud).</li>
+      <li>De woordenschat van <strong>la vie scolaire</strong> omvat personen (<em>le professeur, l&rsquo;&eacute;l&egrave;ve</em>), lokalen (<em>la salle de classe, la cantine</em>), schoolmateriaal (<em>le cahier, le cartable</em>) en evaluaties (<em>l&rsquo;interro, l&rsquo;examen</em>).</li>
+      <li>Om over <strong>l&rsquo;emploi du temps</strong> te praten gebruik je <em>J&rsquo;ai cours de &hellip; &agrave; &hellip; heures</em>, <em>de &hellip; &agrave; &hellip;</em> en <em>Qui donne le cours ?</em></li>
+      <li><strong>L&rsquo;imp&eacute;ratif</strong> heeft drie vormen: <em>tu, nous, vous</em>. Bij -ER werkwoorden valt de <em>-s</em> weg bij de <em>tu</em>-vorm. Onregelmatige vormen: <em>&ecirc;tre</em> (sois/soyons/soyez), <em>avoir</em> (aie/ayons/ayez), <em>aller</em> (va/allons/allez), <em>faire</em> (fais/faisons/faites).</li>
+      <li>Bij <strong>reflexieve werkwoorden</strong> in de imp&eacute;ratif staat het voornaamwoord <em>na</em> het werkwoord: <em>l&egrave;ve-toi, levez-vous</em>. In de ontkenning gaat het terug voor het werkwoord: <em>ne te l&egrave;ve pas</em>.</li>
+      <li><strong>Les instructions de classe</strong> zijn veelgebruikte imp&eacute;ratif-vormen: <em>Ouvrez le livre, &Eacute;coutez, Taisez-vous, Levez la main &hellip;</em></li>
+      <li>Om je <strong>mening over school</strong> te geven gebruik je: <em>J&rsquo;aime bien / Je trouve &ccedil;a difficile / Je suis fort(e) en / J&rsquo;ai des difficult&eacute;s en &hellip;</em></li>
+      <li>In <strong>Belgi&euml;</strong> (Franstalig) heten middelbare scholen <em>ath&eacute;n&eacute;e royal</em> of <em>coll&egrave;ge</em>; het diploma is het <strong>CESS</strong>. In <strong>Frankrijk</strong> heet de bovenbouw <em>lyc&eacute;e</em> en het diploma het <strong>bac</strong>.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

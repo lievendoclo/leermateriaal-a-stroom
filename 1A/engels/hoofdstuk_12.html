@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H12 — Writing, Speaking and Interaction | Engels 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --gold: #D4A017;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    /* Extended tokens used internally */
+    --terracotta-light: #D4561E;
+    --gold-light: #E8B82A;
+    --darkblue-light: #243B63;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--darkblue), var(--darkblue-light), var(--darkblue), var(--darkblue));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     CLOSING QUOTE
+  ============================================================ */
+  .closing-quote {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0D1E38 100%);
+    border-radius: var(--border-radius);
+    padding: 3rem 3rem 2.5rem;
+    margin: 3.5rem 0 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.5rem; left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .closing-quote .cq-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--gold);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 1.2rem;
+  }
+
+  .closing-quote .cq-attribution {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(212,160,23,0.6);
+  }
+
+  .closing-quote .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .closing-quote .ornament-line::before,
+  .closing-quote .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.4), transparent);
+  }
+
+  .closing-quote .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.7;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .closing-quote { padding: 2rem 1.2rem 1.8rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     WISKUNDE-SPECIFIC COMPONENTS
+  ============================================================ */
+
+  /* ── REKENVOORBEELD ─────────────────────────────────── */
+  .rekenvoorbeeld {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--oker);
+    border-radius: var(--border-radius);
+    padding: 1.8rem 2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .rekenvoorbeeld .rv-label {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--oker); display: block; margin-bottom: 0.35rem;
+  }
+  .rekenvoorbeeld .rv-vraag {
+    font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700;
+    color: var(--darkblue); margin-bottom: 1rem; line-height: 1.4;
+  }
+  .rv-stappen { list-style: none; padding: 0; counter-reset: stap-teller; margin-bottom: 1rem; }
+  .rv-stappen li {
+    counter-increment: stap-teller;
+    padding: 0.6rem 0.8rem 0.6rem 3.2rem;
+    position: relative;
+    background: var(--creme);
+    border-radius: 4px;
+    margin-bottom: 0.4rem;
+    font-size: 0.97rem;
+  }
+  .rv-stappen li::before {
+    content: counter(stap-teller);
+    position: absolute; left: 0.6rem; top: 50%; transform: translateY(-50%);
+    background: var(--darkblue); color: white;
+    width: 1.7rem; height: 1.7rem; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; font-weight: 700;
+  }
+  .rv-antwoord {
+    background: var(--darkblue); color: var(--gold);
+    padding: 0.75rem 1.1rem; border-radius: 4px;
+    font-weight: 700; font-size: 1rem;
+  }
+  .rv-antwoord math { color: var(--gold); }
+
+  /* ── STELLING ───────────────────────────────────────── */
+  .stelling {
+    background: #EEF3FF;
+    border-left: 4px solid var(--darkblue);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1.2rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .stelling .st-label {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--darkblue); opacity: 0.7;
+    display: block; margin-bottom: 0.35rem;
+  }
+  .stelling .st-body { font-size: 0.97rem; color: var(--text-dark); }
+
+  /* ── FORMULE ────────────────────────────────────────── */
+  .formule {
+    background: var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 1.4rem 1.8rem;
+    text-align: center;
+    margin: 1.8rem 0;
+  }
+  .formule math { color: white; font-size: 1.2rem; }
+  .formule .formule-naam {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--gold); opacity: 0.8;
+    display: block; margin-bottom: 0.5rem;
+  }
+
+  /* ── SVG CONTAINER ──────────────────────────────────── */
+  .svg-container {
+    margin: 1.8rem 0;
+    padding: 1.5rem;
+    background: white;
+    border: 1px solid var(--sand);
+    border-radius: var(--border-radius);
+    overflow-x: auto;
+    text-align: center;
+  }
+  .svg-container .svg-caption {
+    font-size: 0.85rem; color: var(--text-light); font-style: italic;
+    display: block; margin-top: 0.75rem;
+  }
+
+  /* ── DOMEIN GRID ────────────────────────────────────── */
+  .domein-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+    margin: 1.8rem 0;
+  }
+  .domein-card {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 3px solid var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 1.2rem 1.3rem;
+    box-shadow: var(--shadow-sm);
+  }
+  .domein-card .dc-naam {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+  .domein-card .dc-hoofdstukken {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    font-style: italic;
+  }
+  .domein-card .dc-beschrijving {
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    margin-top: 0.5rem;
+    line-height: 1.55;
+  }
+
+  /* ── SYMBOLTABEL ────────────────────────────────────── */
+  .symbool-tabel {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    margin: 1.2rem 0;
+  }
+  .symbool-tabel th {
+    background: var(--darkblue);
+    color: white;
+    padding: 0.5rem 1rem;
+    text-align: left;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    font-size: 0.83rem;
+  }
+  .symbool-tabel td {
+    padding: 0.45rem 1rem;
+    border-bottom: 1px solid var(--sand);
+    color: var(--text-mid);
+  }
+  .symbool-tabel tr:last-child td { border-bottom: none; }
+  .symbool-tabel tr:nth-child(even) td { background: var(--sand-light); }
+  .symbool-tabel .sym { font-size: 1.1rem; font-weight: 700; color: var(--darkblue); }
+
+  /* ── WERKWIJZE LIST ─────────────────────────────────── */
+  .werkwijze-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.2rem 0;
+  }
+  .werkwijze-list li {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 0.8rem 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 0.5rem;
+    background: var(--sand-light);
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.55;
+  }
+  .werkwijze-list li .wl-kleur {
+    flex-shrink: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-top: 0.42rem;
+  }
+  .werkwijze-list li strong { color: var(--darkblue); }
+
+  /* ============================================================
+     ENGELS-SPECIFIC COMPONENTS
+  ============================================================ */
+  .vocab-kader { background:linear-gradient(135deg,rgba(212,160,23,.08),rgba(200,146,58,.08)); border:1px solid rgba(212,160,23,.35); border-left:4px solid var(--gold); border-radius:var(--border-radius); padding:1.25rem 1.5rem; margin:1.5rem 0; }
+  .vocab-kader h4 { color:var(--gold); font-family:'Playfair Display',serif; font-size:1rem; margin-bottom:.75rem; }
+  .vocab-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:.4rem .75rem; }
+  .vocab-item { display:flex; gap:.5rem; padding:.3rem 0; border-bottom:1px solid rgba(212,160,23,.15); font-size:.95rem; }
+  .vocab-en { font-weight:700; color:var(--text-dark); min-width:120px; }
+  .vocab-nl { color:var(--text-light); font-style:italic; }
+  .grammar-kader { background:linear-gradient(135deg,rgba(26,43,74,.06),rgba(26,43,74,.02)); border:1px solid rgba(26,43,74,.2); border-left:4px solid var(--darkblue); border-radius:var(--border-radius); padding:1.25rem 1.5rem; margin:1.5rem 0; }
+  .grammar-kader h4 { color:var(--darkblue); font-family:'Playfair Display',serif; font-size:1rem; margin-bottom:.75rem; }
+  .grammar-tabel { width:100%; border-collapse:collapse; margin:.75rem 0; font-size:.93rem; }
+  .grammar-tabel th { background:var(--darkblue); color:var(--gold); padding:.5rem .9rem; text-align:left; font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; }
+  .grammar-tabel td { padding:.5rem .9rem; border-bottom:1px solid var(--sand); }
+  .grammar-tabel tr:nth-child(even) td { background:rgba(232,220,200,.25); }
+  .example-kader { background:var(--sand-light); border-left:3px solid var(--oker); border-radius:0 var(--border-radius) var(--border-radius) 0; padding:.9rem 1.2rem; margin:.75rem 0; }
+  .example-en { font-weight:600; font-style:italic; color:var(--text-dark); display:block; }
+  .example-nl { color:var(--text-light); font-size:.9rem; display:block; margin-top:.1rem; }
+  .tip-kader { background:linear-gradient(135deg,rgba(193,68,14,.08),rgba(193,68,14,.04)); border:1px solid rgba(193,68,14,.25); border-left:4px solid var(--terracotta); border-radius:var(--border-radius); padding:1.25rem 1.5rem; margin:1.5rem 0; }
+  .tip-kader::before { content:'Tip'; display:block; font-size:.75rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--terracotta); margin-bottom:.5rem; }
+  .schrijfmodel { background:white; border:1px solid var(--sand); border-top:3px solid var(--gold); border-radius:var(--border-radius); padding:1.5rem 1.75rem; margin:1.5rem 0; font-family:'Source Sans 3',sans-serif; }
+  .schrijfmodel .model-label { font-size:.75rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); margin-bottom:.75rem; display:block; }
+  .vereiste-rij { display:flex; gap:1rem; padding:.65rem 0; border-bottom:1px solid var(--sand); align-items:flex-start; }
+  .vereiste-rij:last-child { border-bottom:none; }
+  .vereiste-label { font-weight:700; color:var(--darkblue); min-width:180px; font-size:.93rem; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <span class="label">Engels</span>
+  <span class="label label-right">H12 &middot; Eerste Graad A-stroom</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Eenheid 12 &nbsp;&middot;&nbsp; Schrijven, Spreken &amp; Interactie</div>
+  <h1>Writing, Speaking and Interaction</h1>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- SECTION 1 — Schrijfvaardigheid: Tekststructuur -->
+  <section class="section-block" id="s1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Schrijfvaardigheid: Tekststructuur</h2>
+    </div>
+
+    <p>Schrijven (8%) en schriftelijke interactie (8%) zijn samen goed voor <strong>16% van het examen</strong>. De focus ligt op heldere communicatie, correcte structuur en een passend register. Het gaat er niet om dat je perfecte Engelse zinnen schrijft, maar dat jouw boodschap <em>duidelijk overkomt</em>.</p>
+
+    <p>Elke goede tekst heeft drie herkenbare delen:</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9998;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Tekststructuur</span>
+        <span class="begrip-name">Inleiding (Introduction)</span>
+        <p class="begrip-def">Introduce the topic and your purpose. Capture the reader&rsquo;s attention. Often 1 paragraph.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9998;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Tekststructuur</span>
+        <span class="begrip-name">Midden (Body)</span>
+        <p class="begrip-def">Develop your message with details, arguments, examples. Usually 2&ndash;3 paragraphs.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9998;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Tekststructuur</span>
+        <span class="begrip-name">Slot (Conclusion)</span>
+        <p class="begrip-def">Summary, final opinion, call to action. Often 1 paragraph.</p>
+      </div>
+    </div>
+
+    <div class="vocab-kader">
+      <h4>Connecting Words for Writing</h4>
+      <p style="font-size:.85rem;color:var(--text-light);margin-bottom:.9rem;">Gebruik gevarieerde verbindingswoorden om je tekst coherent en levendig te maken.</p>
+      <div class="vocab-grid">
+        <div>
+          <p style="font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-light);margin-bottom:.3rem;">Adding information</p>
+          <div class="vocab-item"><span class="vocab-en">and</span><span class="vocab-nl">en</span></div>
+          <div class="vocab-item"><span class="vocab-en">also</span><span class="vocab-nl">ook</span></div>
+          <div class="vocab-item"><span class="vocab-en">in addition</span><span class="vocab-nl">bovendien</span></div>
+          <div class="vocab-item"><span class="vocab-en">furthermore</span><span class="vocab-nl">verder</span></div>
+          <div class="vocab-item"><span class="vocab-en">moreover</span><span class="vocab-nl">daarnaast</span></div>
+        </div>
+        <div>
+          <p style="font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-light);margin-bottom:.3rem;">Contrasting</p>
+          <div class="vocab-item"><span class="vocab-en">but</span><span class="vocab-nl">maar</span></div>
+          <div class="vocab-item"><span class="vocab-en">however</span><span class="vocab-nl">echter</span></div>
+          <div class="vocab-item"><span class="vocab-en">on the other hand</span><span class="vocab-nl">aan de andere kant</span></div>
+          <div class="vocab-item"><span class="vocab-en">although</span><span class="vocab-nl">hoewel</span></div>
+          <div class="vocab-item"><span class="vocab-en">even though</span><span class="vocab-nl">ook al</span></div>
+          <div class="vocab-item"><span class="vocab-en">despite</span><span class="vocab-nl">ondanks</span></div>
+        </div>
+        <div>
+          <p style="font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-light);margin-bottom:.3rem;">Cause &amp; effect</p>
+          <div class="vocab-item"><span class="vocab-en">because</span><span class="vocab-nl">omdat</span></div>
+          <div class="vocab-item"><span class="vocab-en">so</span><span class="vocab-nl">dus</span></div>
+          <div class="vocab-item"><span class="vocab-en">therefore</span><span class="vocab-nl">daarom</span></div>
+          <div class="vocab-item"><span class="vocab-en">as a result</span><span class="vocab-nl">als gevolg</span></div>
+          <div class="vocab-item"><span class="vocab-en">that is why</span><span class="vocab-nl">dat is waarom</span></div>
+        </div>
+        <div>
+          <p style="font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-light);margin-bottom:.3rem;">Sequence</p>
+          <div class="vocab-item"><span class="vocab-en">first</span><span class="vocab-nl">eerst</span></div>
+          <div class="vocab-item"><span class="vocab-en">then</span><span class="vocab-nl">dan</span></div>
+          <div class="vocab-item"><span class="vocab-en">next</span><span class="vocab-nl">vervolgens</span></div>
+          <div class="vocab-item"><span class="vocab-en">after that</span><span class="vocab-nl">daarna</span></div>
+          <div class="vocab-item"><span class="vocab-en">finally</span><span class="vocab-nl">ten slotte</span></div>
+          <div class="vocab-item"><span class="vocab-en">in the end</span><span class="vocab-nl">uiteindelijk</span></div>
+        </div>
+        <div>
+          <p style="font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-light);margin-bottom:.3rem;">Example</p>
+          <div class="vocab-item"><span class="vocab-en">for example</span><span class="vocab-nl">bijvoorbeeld</span></div>
+          <div class="vocab-item"><span class="vocab-en">for instance</span><span class="vocab-nl">bij wijze van voorbeeld</span></div>
+          <div class="vocab-item"><span class="vocab-en">such as</span><span class="vocab-nl">zoals</span></div>
+        </div>
+        <div>
+          <p style="font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-light);margin-bottom:.3rem;">Summarising</p>
+          <div class="vocab-item"><span class="vocab-en">in conclusion</span><span class="vocab-nl">ter conclusie</span></div>
+          <div class="vocab-item"><span class="vocab-en">to sum up</span><span class="vocab-nl">om samen te vatten</span></div>
+          <div class="vocab-item"><span class="vocab-en">in short</span><span class="vocab-nl">kortom</span></div>
+          <div class="vocab-item"><span class="vocab-en">overall</span><span class="vocab-nl">over het algemeen</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip-kader">
+      Vermijd &lsquo;and then&hellip; and then&hellip; and then&hellip;&rsquo; &mdash; gebruik gevarieerde verbindingswoorden om je tekst levendiger te maken.
+    </div>
+  </section>
+
+  <!-- SECTION 2 — Schrijftypes -->
+  <section class="section-block" id="s2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Schrijftypes</h2>
+    </div>
+
+    <p>Er zijn verschillende soorten teksten die je in het Engels moet kunnen schrijven. Elk type heeft zijn eigen structuur, register en kenmerken.</p>
+
+    <!-- 1. Informele e-mail / brief -->
+    <h3 class="sub-heading">1. Informele e-mail / brief</h3>
+
+    <div class="schrijfmodel">
+      <span class="model-label">Voorbeeld &mdash; Informele e-mail</span>
+      <pre style="font-family:'Source Sans 3',sans-serif;font-size:.92rem;line-height:1.7;color:var(--text-mid);white-space:pre-wrap;">Subject: Holiday plans!
+
+Hi Emma,
+
+How are you? I&rsquo;m writing to tell you about our holiday plans.
+
+This summer, my family and I are going to visit Barcelona. We&rsquo;re travelling by train on 15 July. We&rsquo;ll stay for a week in a small apartment near the beach.
+
+I&rsquo;m really excited because I&rsquo;ve always wanted to see the Sagrada Fam&iacute;lia! Would you like to come with us?
+
+Write back soon!
+Tom</pre>
+    </div>
+
+    <p><strong>Format checklist informele e-mail:</strong></p>
+    <ul style="padding-left:1.4rem;margin:.5rem 0 1.2rem;">
+      <li style="margin-bottom:.4rem">Subject line (informele e-mail)</li>
+      <li style="margin-bottom:.4rem">Greeting: <em>Hi / Dear + naam</em></li>
+      <li style="margin-bottom:.4rem">Opening: <em>How are you? / I&rsquo;m writing to&hellip;</em></li>
+      <li style="margin-bottom:.4rem">Body: boodschap in paragrafen</li>
+      <li style="margin-bottom:.4rem">Closing: <em>Write back soon! / Best wishes / Kind regards</em></li>
+      <li style="margin-bottom:.4rem">Handtekening</li>
+    </ul>
+
+    <!-- 2. Formele e-mail -->
+    <h3 class="sub-heading">2. Formele e-mail</h3>
+
+    <div class="schrijfmodel">
+      <span class="model-label">Structuur &mdash; Formele e-mail</span>
+      <div style="font-size:.92rem;line-height:1.8;color:var(--text-mid);">
+        <p><strong>Greeting:</strong> Dear Sir/Madam, &nbsp;/&nbsp; Dear Mr./Ms. [achternaam],</p>
+        <p><strong>Opening:</strong> I am writing to enquire about&hellip; &nbsp;/&nbsp; I am writing with regard to&hellip;</p>
+        <p><strong>Body:</strong> Duidelijke, formele paragrafen. Geen afkortingen, geen informeel taalgebruik.</p>
+        <p><strong>Closing:</strong> I look forward to hearing from you. &nbsp;/&nbsp; Thank you for your time.</p>
+        <p><strong>Sign-off:</strong> Yours faithfully (als je &lsquo;Dear Sir/Madam&rsquo; gebruikt) &nbsp;/&nbsp; Yours sincerely (als je de naam kent)</p>
+      </div>
+    </div>
+
+    <!-- 3. Blogpost / reisverslag -->
+    <h3 class="sub-heading">3. Blogpost / reisverslag</h3>
+
+    <p>Een blogpost of reisverslag vertel je in een persoonlijke, levendige stijl. Je gebruikt de <strong>chronologische volgorde</strong> (eerst &rarr; dan &rarr; daarna &rarr; ten slotte). Denk terug aan H8&ndash;H9 waar je reizen en vrije tijd besprak &mdash; die woordenschat is perfect voor dit schrijftype.</p>
+
+    <div class="schrijfmodel">
+      <span class="model-label">Structuur &mdash; Blogpost / reisverslag</span>
+      <div style="font-size:.92rem;line-height:1.8;color:var(--text-mid);">
+        <p><strong>Titel:</strong> Pakkende, beschrijvende titel</p>
+        <p><strong>Intro:</strong> Waar, wanneer, met wie? Maak de lezer nieuwsgierig.</p>
+        <p><strong>Evenementen:</strong> Beschrijf in volgorde wat er gebeurde. Gebruik connecting words voor sequence.</p>
+        <p><strong>Conclusie:</strong> Hoe was het? Wat was het hoogtepunt? Zou je het aanraden?</p>
+      </div>
+    </div>
+
+    <!-- 4. Opinieparagraaf -->
+    <h3 class="sub-heading">4. Opinieparagraaf</h3>
+
+    <p>Een opinieparagraaf geeft duidelijk jouw mening met onderbouwing. Dit sluit aan bij de discussievaardigheden uit H10.</p>
+
+    <div class="schrijfmodel">
+      <span class="model-label">Structuur &mdash; Opinieparagraaf</span>
+      <div style="font-size:.92rem;line-height:1.8;color:var(--text-mid);">
+        <p><strong>Topic sentence:</strong> Jouw mening duidelijk verwoord (<em>I think that&hellip; / In my opinion&hellip;</em>)</p>
+        <p><strong>Argument 1:</strong> Eerste reden + voorbeeld (<em>First of all&hellip; because&hellip;</em>)</p>
+        <p><strong>Argument 2:</strong> Tweede reden (<em>Furthermore&hellip; / In addition&hellip;</em>)</p>
+        <p><strong>Tegenargument (optioneel):</strong> (<em>However, some people think&hellip; but I believe&hellip;</em>)</p>
+        <p><strong>Conclusie:</strong> Herhaal je standpunt (<em>In conclusion&hellip; / To sum up&hellip;</em>)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3 — Vereisten voor schrijven -->
+  <section class="section-block" id="s3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Vereisten voor schrijven</h2>
+    </div>
+
+    <p>Het examen beoordeelt je schrijftekst op zeven criteria (vakfiche p.8). Hier is een overzicht van wat er van je verwacht wordt:</p>
+
+    <div class="grammar-kader">
+      <h4>Waaraan moet je tekst voldoen?</h4>
+
+      <div class="vereiste-rij">
+        <span class="vereiste-label">Taakvoltooiing</span>
+        <span>het doel wordt bereikt; je boodschap komt over; de inhoud is helder en ter zake</span>
+      </div>
+      <div class="vereiste-rij">
+        <span class="vereiste-label">Woordenschat</span>
+        <span>frequente woorden, woordcombinaties en vaste uitdrukkingen correct gebruiken</span>
+      </div>
+      <div class="vereiste-rij">
+        <span class="vereiste-label">Grammatica en zinsbouw</span>
+        <span>eenvoudige correcte zinnen; fouten verstoren de communicatie niet</span>
+      </div>
+      <div class="vereiste-rij">
+        <span class="vereiste-label">Tekststructuur en samenhang</span>
+        <span>inleiding, midden, slot; signaalwoorden; duidelijk herkenbare structuur</span>
+      </div>
+      <div class="vereiste-rij">
+        <span class="vereiste-label">Register en beleefdheidsconventies</span>
+        <span>neutraal of informeel register; gepaste beleefdheidsconventies</span>
+      </div>
+      <div class="vereiste-rij">
+        <span class="vereiste-label">Tekstopbouw en lay-out</span>
+        <span>duidelijk herkenbare opbouw; gepaste lay-out</span>
+      </div>
+      <div class="vereiste-rij">
+        <span class="vereiste-label">Spelling en leestekengebruik</span>
+        <span>redelijk correct met behulp van spellingcontrole</span>
+      </div>
+    </div>
+
+    <div class="tip-kader">
+      Fouten zijn oké zolang je boodschap duidelijk overkomt. Het examen beoordeelt communicatieve successen, niet perfecte grammatica.
+    </div>
+  </section>
+
+  <!-- SECTION 4 — Spreekvaardigheid -->
+  <section class="section-block" id="s4">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Spreekvaardigheid</h2>
+    </div>
+
+    <h3 class="sub-heading">Spreekopdracht (thuis)</h3>
+
+    <p>Voor de spreekopdracht neem je <strong>thuis een monoloog op</strong> en dien je die in v&oacute;&oacute;r het examen. Je krijgt daarvoor een schrijfkader, sleutelwoorden of een model als houvast. Het gaat erom dat je je gedachten gestructureerd en begrijpelijk in het Engels kunt brengen.</p>
+
+    <p><strong>Wat maakt een goede monoloog?</strong></p>
+    <ol style="padding-left:1.4rem;margin:.5rem 0 1.2rem;">
+      <li style="margin-bottom:.45rem">Duidelijke structuur (inleiding, midden, slot)</li>
+      <li style="margin-bottom:.45rem">Heldere uitspraak (niet snel, niet te traag)</li>
+      <li style="margin-bottom:.45rem">Gevarieerde taal (niet steeds dezelfde zinnen)</li>
+      <li style="margin-bottom:.45rem">Mening geven met argumenten</li>
+      <li style="margin-bottom:.45rem">Correcte uitspraak van sleutelwoorden</li>
+    </ol>
+
+    <div class="vocab-kader">
+      <h4>Useful phrases for speaking</h4>
+      <div class="vocab-grid">
+        <div>
+          <p style="font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-light);margin-bottom:.3rem;">To start</p>
+          <div class="vocab-item"><span class="vocab-en">I&rsquo;m going to talk about&hellip;</span></div>
+          <div class="vocab-item"><span class="vocab-en">Today I want to tell you about&hellip;</span></div>
+          <div class="vocab-item"><span class="vocab-en">Let me introduce my topic&hellip;</span></div>
+        </div>
+        <div>
+          <p style="font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-light);margin-bottom:.3rem;">To give opinion</p>
+          <div class="vocab-item"><span class="vocab-en">I think that&hellip;</span></div>
+          <div class="vocab-item"><span class="vocab-en">In my opinion&hellip;</span></div>
+          <div class="vocab-item"><span class="vocab-en">I strongly believe that&hellip;</span></div>
+        </div>
+        <div>
+          <p style="font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-light);margin-bottom:.3rem;">To give an example</p>
+          <div class="vocab-item"><span class="vocab-en">For example&hellip;</span></div>
+          <div class="vocab-item"><span class="vocab-en">For instance&hellip;</span></div>
+          <div class="vocab-item"><span class="vocab-en">Such as&hellip;</span></div>
+        </div>
+        <div>
+          <p style="font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-light);margin-bottom:.3rem;">To contrast</p>
+          <div class="vocab-item"><span class="vocab-en">However&hellip;</span></div>
+          <div class="vocab-item"><span class="vocab-en">On the other hand&hellip;</span></div>
+          <div class="vocab-item"><span class="vocab-en">Although&hellip;</span></div>
+        </div>
+        <div>
+          <p style="font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-light);margin-bottom:.3rem;">To conclude</p>
+          <div class="vocab-item"><span class="vocab-en">In conclusion&hellip;</span></div>
+          <div class="vocab-item"><span class="vocab-en">To sum up&hellip;</span></div>
+          <div class="vocab-item"><span class="vocab-en">Finally, I would like to say&hellip;</span></div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Mondelinge interactie (gesprek)</h3>
+
+    <p>Het mondeling gesprek duurt <strong>10 minuten</strong> met de examinator. Je krijgt <strong>15 minuten voorbereidingstijd</strong> voor 2 taken. Het gaat erom dat je een gesprek kunt beginnen, gaande houden en op een nette manier afsluiten.</p>
+
+    <div class="vocab-kader">
+      <h4>Conversation strategies</h4>
+      <div class="vocab-grid">
+        <div>
+          <p style="font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-light);margin-bottom:.3rem;">Starting a conversation</p>
+          <div class="vocab-item"><span class="vocab-en">Shall we start?</span></div>
+          <div class="vocab-item"><span class="vocab-en">Could I ask you something?</span></div>
+          <div class="vocab-item"><span class="vocab-en">Let&rsquo;s begin!</span></div>
+        </div>
+        <div>
+          <p style="font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-light);margin-bottom:.3rem;">Asking for clarification</p>
+          <div class="vocab-item"><span class="vocab-en">Could you repeat that please?</span></div>
+          <div class="vocab-item"><span class="vocab-en">Sorry, I didn&rsquo;t understand.</span></div>
+          <div class="vocab-item"><span class="vocab-en">What do you mean by&hellip;?</span></div>
+        </div>
+        <div>
+          <p style="font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-light);margin-bottom:.3rem;">Keeping it going</p>
+          <div class="vocab-item"><span class="vocab-en">That&rsquo;s interesting! What about you?</span></div>
+          <div class="vocab-item"><span class="vocab-en">I agree, and also&hellip;</span></div>
+          <div class="vocab-item"><span class="vocab-en">Can you tell me more about&hellip;?</span></div>
+        </div>
+        <div>
+          <p style="font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-light);margin-bottom:.3rem;">Buying time</p>
+          <div class="vocab-item"><span class="vocab-en">Well&hellip;</span></div>
+          <div class="vocab-item"><span class="vocab-en">Let me think&hellip;</span></div>
+          <div class="vocab-item"><span class="vocab-en">That&rsquo;s a good question&hellip;</span></div>
+        </div>
+        <div>
+          <p style="font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-light);margin-bottom:.3rem;">Ending politely</p>
+          <div class="vocab-item"><span class="vocab-en">Thank you for this conversation.</span></div>
+          <div class="vocab-item"><span class="vocab-en">It was nice talking to you.</span></div>
+        </div>
+        <div>
+          <p style="font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-light);margin-bottom:.3rem;">If you&rsquo;re stuck</p>
+          <div class="vocab-item"><span class="vocab-en">I&rsquo;m not sure of the word in English, but it means&hellip;</span></div>
+          <div class="vocab-item"><span class="vocab-en">Sorry, I forgot the word &mdash; I think it&rsquo;s called&hellip;</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip-kader">
+      Als je een woord niet weet, probeer het dan te omschrijven! &ldquo;I don&rsquo;t know the word in English, but it&rsquo;s a thing you use to cut bread&rdquo; is perfecte A2-communicatie.
+    </div>
+  </section>
+
+  <!-- SECTION 5 — Vereisten voor spreken en interactie -->
+  <section class="section-block" id="s5">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Vereisten voor spreken en interactie</h2>
+    </div>
+
+    <p>Net zoals bij schrijven beoordeelt het examen jouw mondelinge prestatie op meerdere criteria. Hier is een volledig overzicht:</p>
+
+    <div class="grammar-kader">
+      <h4>Waaraan moet je mondelinge opdracht voldoen?</h4>
+
+      <div class="vereiste-rij">
+        <span class="vereiste-label">Taakvoltooiing</span>
+        <span>doel bereikt; boodschap overkomt; volledig en uitgewerkt</span>
+      </div>
+      <div class="vereiste-rij">
+        <span class="vereiste-label">Woordenschat</span>
+        <span>frequente woorden correct gebruikt</span>
+      </div>
+      <div class="vereiste-rij">
+        <span class="vereiste-label">Grammatica</span>
+        <span>eenvoudige correcte zinnen; fouten storen de communicatie niet</span>
+      </div>
+      <div class="vereiste-rij">
+        <span class="vereiste-label">Tekststructuur</span>
+        <span>eenvoudige structuur met signaalwoorden</span>
+      </div>
+      <div class="vereiste-rij">
+        <span class="vereiste-label">Register</span>
+        <span>gepast (neutraal of informeel)</span>
+      </div>
+      <div class="vereiste-rij">
+        <span class="vereiste-label">Lichaamstaal</span>
+        <span>gepaste lichaamstaal (oogcontact, houding)</span>
+      </div>
+      <div class="vereiste-rij">
+        <span class="vereiste-label">Spreektempo en vlotheid</span>
+        <span>onderbrekingen en herformuleringen zijn aanvaardbaar</span>
+      </div>
+      <div class="vereiste-rij">
+        <span class="vereiste-label">Uitspraak en intonatie</span>
+        <span>voldoende helder, belemmert begrip niet</span>
+      </div>
+    </div>
+  </section>
+
+</div><!-- end page-wrapper -->
+
+<!-- EXERCISES -->
+<section class="exercises-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">E-mail schrijven</p>
+      <p style="font-size:.96rem;color:var(--text-mid);margin-bottom:.6rem;">Schrijf een informele e-mail aan een Engelse penvriend(in) (80&ndash;100 woorden). Vertel over je school, hobby&rsquo;s en toekomstplannen.</p>
+      <ul>
+        <li>Gebruik de correcte structuur: subject, aanhef, opening, body, afsluiting, handtekening</li>
+        <li>Gebruik minstens 3 verschillende connecting words</li>
+        <li>Zorg voor een informeel maar gepast register</li>
+      </ul>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Verbindingswoorden oefening</p>
+      <p style="font-size:.96rem;color:var(--text-mid);margin-bottom:.6rem;">Herschrijf dit stuk tekst met betere connecting words:</p>
+      <div class="example-kader">
+        <span class="example-en">&ldquo;I like football. I play every week. I am good at it. I want to be a professional player. I don&rsquo;t know if it will happen.&rdquo;</span>
+      </div>
+      <p style="font-size:.96rem;color:var(--text-mid);margin-top:.6rem;">Gebruik woorden uit de lijst: <em>also, because, however, therefore, in addition, in conclusion</em>.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Opinieparagraaf</p>
+      <p style="font-size:.96rem;color:var(--text-mid);margin-bottom:.6rem;">Schrijf een paragraaf (60&ndash;80 woorden) over: <strong>&ldquo;Should students have homework?&rdquo;</strong></p>
+      <ul>
+        <li>Gebruik: <em>I think, because, however, in conclusion</em></li>
+        <li>Volg de structuur: topic sentence &rarr; argument 1 &rarr; argument 2 &rarr; conclusie</li>
+        <li>Geef minstens twee redenen voor of tegen</li>
+      </ul>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 4</p>
+      <p class="ex-name">Spreekkaartje</p>
+      <p style="font-size:.96rem;color:var(--text-mid);margin-bottom:.6rem;">Schrijf een mindmap voor een 2-minuten monoloog over <strong>&ldquo;My ideal future job&rdquo;</strong>.</p>
+      <ul>
+        <li><strong>Structuur:</strong> intro &rarr; wat is het? &rarr; waarom? &rarr; wat heb je nodig? &rarr; conclusie</li>
+        <li>Noteer per onderdeel 3&ndash;5 sleutelwoorden (geen volledige zinnen)</li>
+        <li>Gebruik je mindmap als houvast bij het oefenen &mdash; lees hem niet voor!</li>
+      </ul>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 5</p>
+      <p class="ex-name">Gespreksoefening</p>
+      <p style="font-size:.96rem;color:var(--text-mid);margin-bottom:.6rem;">Voer een gesprek van 3&ndash;4 minuten met een klasgenoot over een van deze onderwerpen:</p>
+      <ul>
+        <li>Jouw vrije tijd</li>
+        <li>Jouw familie</li>
+        <li>Jouw toekomstplannen</li>
+      </ul>
+      <p class="ex-tip">Gebruik minstens 3 conversation strategies (bijv. om herhaling vragen, het gesprek gaande houden, time-buying expressions).</p>
+    </div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="summary-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>Schrijftekst:</strong> inleiding (topic) &rarr; midden (details/argumenten) &rarr; slot (conclusie)</li>
+      <li><strong>Verbindingswoorden variëren:</strong> also, however, because, therefore, for example, in conclusion</li>
+      <li><strong>Vereisten schrijven:</strong> taakvoltooiing, woordenschat, grammatica, structuur, register</li>
+      <li><strong>Spreekopdracht thuis:</strong> monoloog met structuur, mening + argumenten, heldere uitspraak</li>
+      <li><strong>Mondeling gesprek:</strong> beginnen/gaande houden/be&euml;indigen; om herhaling vragen mag!</li>
+      <li><strong>Als je een woord niet kent:</strong> omschrijf het &mdash; dat toont communicatieve vaardigheid!</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

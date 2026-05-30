@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoofdstuk 3 — Coördinaten en situeren | Aardrijkskunde 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     ILLUSTRATIE PLACEHOLDERS
+  ============================================================ */
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+    cursor: default;
+    transition: background var(--transition);
+  }
+
+  .illustratie:hover { background: #EDE7D8; }
+
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     BRONMATERIAAL — geographic source / map / data block
+     Key component for Aardrijkskunde: use for map descriptions,
+     climate tables, satellite image descriptions, GPS data, etc.
+  ============================================================ */
+  .bronmateriaal {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 2rem 2.2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .bronmateriaal .bron-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--darkblue);
+    opacity: 0.6;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  .bronmateriaal .bron-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  .bronmateriaal .bron-meta {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    font-style: italic;
+    margin-bottom: 0.9rem;
+    display: block;
+  }
+
+  .bronmateriaal .bron-body { margin-bottom: 0.8rem; }
+
+  .bronmateriaal .bron-body p {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-bottom: 0.6em;
+  }
+
+  .bronmateriaal .bron-body p:last-child { margin-bottom: 0; }
+
+  .bronmateriaal .bron-body table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+  }
+
+  .bronmateriaal .bron-body th {
+    background: var(--darkblue);
+    color: white;
+    padding: 0.4rem 0.75rem;
+    text-align: left;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    font-size: 0.83rem;
+  }
+
+  .bronmateriaal .bron-body td {
+    padding: 0.35rem 0.75rem;
+    border-bottom: 1px solid var(--sand);
+    color: var(--text-mid);
+    font-size: 0.93rem;
+  }
+
+  .bronmateriaal .bron-body tr:last-child td { border-bottom: none; }
+
+  .bronmateriaal .bron-body tr:nth-child(even) td {
+    background: var(--sand-light);
+  }
+
+  .bronmateriaal .bron-vraag {
+    background: rgba(26,43,74,0.06);
+    border-left: 3px solid var(--darkblue);
+    border-radius: 0 4px 4px 0;
+    padding: 0.7rem 1rem;
+    font-size: 0.93rem;
+    color: var(--text-mid);
+    font-style: italic;
+    margin-top: 1rem;
+  }
+
+  .bronmateriaal .bron-vraag::before {
+    content: '🔍 ';
+    font-style: normal;
+  }
+
+  .bronmateriaal .bron-source {
+    font-size: 0.78rem;
+    color: var(--text-light);
+    border-top: 1px solid var(--sand);
+    padding-top: 0.6rem;
+    font-style: italic;
+    margin-top: 0.8rem;
+    display: block;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     CLOSING QUOTE
+  ============================================================ */
+  .closing-quote {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0D1E38 100%);
+    border-radius: var(--border-radius);
+    padding: 3rem 3rem 2.5rem;
+    margin: 3.5rem 0 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.5rem; left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .closing-quote .cq-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--gold);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 1.2rem;
+  }
+
+  .closing-quote .cq-attribution {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(212,160,23,0.6);
+  }
+
+  .closing-quote .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .closing-quote .ornament-line::before,
+  .closing-quote .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.4), transparent);
+  }
+
+  .closing-quote .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.7;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .closing-quote { padding: 2rem 1.2rem 1.8rem; }
+    .bronmateriaal { padding: 1.4rem 1.2rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <a class="label" href="index.html">Aardrijkskunde 1A</a>
+  <span class="label label-right">Hoofdstuk 3</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Aardrijkskunde &nbsp;&middot;&nbsp; 1A &nbsp;&middot;&nbsp; Domein 1</div>
+  <h1>Hoofdstuk 3<br>Co&ouml;rdinaten en situeren</h1>
+  <p class="subtitle">Elke plek op aarde heeft een uniek adres</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- PROLOGUE -->
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Stel je voor &hellip;</span>
+
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+
+    <p>Het is diep in de nacht. Ergens midden op de Atlantische Oceaan hangt een dichte mist over het water. Een vrachtschip vaart langzaam, de boeg snijdt door een stille, grijze zee. De radar piept regelmatig. De kapitein staat op de brug en kijkt naar het GPS-scherm. Er verschijnen twee getallen: <strong style="color: var(--gold);">43°N / 28°W</strong>.</p>
+
+    <p>Ze weet precies waar ze zijn. Niet &ldquo;ergens in de oceaan&rdquo;, niet &ldquo;een eindje ten westen van Portugal&rdquo;, maar op de exact&eacute; plek op aarde die door die twee getallen wordt aangeduid. In een straal van een kilometer, op een oceaan die duizenden kilometers breed is.</p>
+
+    <p>Maar wat betekenen die getallen eigenlijk? Wat is een 43 gevolgd door een N? Wat is een 28 gevolgd door een W? Hoe kan een getal een plek op een enorme, ronde planeet aanduiden?</p>
+
+    <p><strong style="color: var(--gold);">Dat leer je in dit hoofdstuk. Want co&ouml;rdinaten zijn het adres van elke plek op aarde &mdash; en als je ze kunt lezen, kun je nooit echt verdwalen.</strong></p>
+
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+  </section>
+
+  <!-- SECTION 1 -->
+  <section class="section-block" id="sectie-1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Het co&ouml;rdinatenstelsel van de aarde</h2>
+    </div>
+
+    <p>De aarde is een enorme bol. Om een plek op die bol te kunnen aanduiden, hebben geografen een slim systeem bedacht: ze verdelen de aardbol met denkbeeldige lijnen. Die lijnen bestaan niet echt &mdash; je ziet ze niet in de natuur &mdash; maar ze zijn op elke globe en elke wereldkaart afgebeeld. Samen vormen ze het <strong>geografisch co&ouml;rdinatenstelsel</strong>.</p>
+
+    <p>Er zijn twee soorten lijnen: <strong>breedtegraden</strong> (horizontaal, van oost naar west) en <strong>lengtegraden</strong> (verticaal, van pool naar pool). Samen vormen ze een raster, zoals een schaakbord dat over de globe is gelegd. Elke snijpunt van een breedtegraad en een lengtegraad is een uniek punt op aarde.</p>
+
+    <h3 class="sub-heading">Breedtegraden (parallellen)</h3>
+
+    <p>Breedtegraden zijn denkbeeldige cirkels die <em>parallel</em> aan de evenaar lopen. Daarom heten ze ook wel <strong>parallellen</strong>. Ze lopen van oost naar west om de gehele aardbol heen. De evenaar is de langste breedtegraad: hij ligt precies in het midden van de aarde, op gelijke afstand van de Noord- en Zuidpool.</p>
+
+    <p>Breedtegraden worden gemeten in graden (<strong>&deg;</strong>) vanaf de evenaar. De evenaar zelf is <strong>0&deg;</strong>. Van de evenaar naar de Noordpool loopt de meting van 0&deg; tot 90&deg; <strong>noorderbreedte (NB)</strong>. Van de evenaar naar de Zuidpool loopt ze van 0&deg; tot 90&deg; <strong>zuiderbreedte (ZB)</strong>. De Noordpool is dus 90&deg;NB, de Zuidpool is 90&deg;ZB.</p>
+
+    <p>Hoe verder je van de evenaar, hoe kleiner de breedtecirkel wordt. Bij de Polen krimpen ze tot een punt.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#127758;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Breedtegraad (parallel)</span>
+        <p class="begrip-def">Een denkbeeldige cirkel op de aardbol, parallel aan de evenaar. Breedtegraden worden gemeten in graden vanaf de evenaar (0&deg;) tot aan de Polen (90&deg;NB of 90&deg;ZB). Ze geven aan hoe ver een plek ten noorden of ten zuiden van de evenaar ligt.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#127758;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Evenaar</span>
+        <p class="begrip-def">De breedtegraad van 0&deg;. De evenaar is de langste denkbeeldige cirkel op aarde en verdeelt de aardbol in een noordelijk en een zuidelijk halfrond. De evenaar loopt door onder meer Kenia, Indonesi&euml; en Ecuador.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Lengtegraden (meridianen)</h3>
+
+    <p>Lengtegraden zijn denkbeeldige halve cirkels die van de Noordpool naar de Zuidpool lopen. Ze snijden de breedtegraden overal loodrecht. Elke lengtegraad verbindt beide Polen met elkaar. Omdat ze van pool naar pool lopen, worden ze ook wel <strong>meridianen</strong> genoemd &mdash; van het Latijnse woord voor &ldquo;middagzon&rdquo;, want op alle punten van dezelfde meridiaan is het gelijktijdig middag.</p>
+
+    <p>Lengtegraden worden gemeten in graden (&deg;) vanaf de <strong>nulmeridiaan</strong>. De nulmeridiaan loopt door de wijk Greenwich in Londen (Groot-Brittanni&euml;) en is vastgelegd als referentiepunt door internationale afspraak in 1884. Vanaf de nulmeridiaan (0&deg;) loopt de meting naar het oosten van 0&deg; tot 180&deg; <strong>oosterlengte (OL)</strong>, en naar het westen van 0&deg; tot 180&deg; <strong>westerlengte (WL)</strong>. De lijn van 180&deg; ligt in de Stille Oceaan en heet de <strong>datumlijn</strong>.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#127758;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Lengtegraad (meridiaan)</span>
+        <p class="begrip-def">Een denkbeeldige halve cirkel op de aardbol die van de Noordpool naar de Zuidpool loopt. Lengtegraden worden gemeten in graden vanaf de nulmeridiaan (0&deg;) tot 180&deg; oosterlengte (OL) of westerlengte (WL). Ze geven aan hoe ver een plek ten oosten of ten westen van de nulmeridiaan ligt.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#127982;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Nulmeridiaan (Greenwich-meridiaan)</span>
+        <p class="begrip-def">De lengtegraad van 0&deg;. De nulmeridiaan loopt door de wijk Greenwich in Londen en is het internationale vertrekpunt voor het meten van ooster- en westerlengte. Hij verdeelt de aardbol in een oostelijk en een westelijk halfrond.</p>
+      </div>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Stel je voor dat je de breedtegraden en lengtegraden van de aardbol als draden zou afwinden. Wat zou het verschil zijn tussen de lengtes van die draden? Welke breedtegraad is de langste? Welke lengtegraad is de langste? En wat zegt dat over de vorm van de aarde?</p>
+    </div>
+
+  </section>
+
+  <!-- SECTION 2 -->
+  <section class="section-block" id="sectie-2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Bijzondere lijnen op de aardbol</h2>
+    </div>
+
+    <p>Niet alle breedtegraden zijn even belangrijk. Een aantal lijnen heeft een speciale betekenis, omdat ze samenhangen met de stand van de zon of met astronomische fenomenen. Je vindt ze terug op elke globe en wereldkaart.</p>
+
+    <h3 class="sub-heading">De evenaar &mdash; 0&deg;</h3>
+    <p>De evenaar verdeelt de aardbol in twee helften: het <strong>noordelijk halfrond</strong> (alles boven de evenaar) en het <strong>zuidelijk halfrond</strong> (alles onder de evenaar). Op de evenaar is de zon het hele jaar door bijna recht boven het hoofd zichtbaar: de daglengte is er altijd ongeveer twaalf uur, dag en nacht zijn er gelijk.</p>
+
+    <h3 class="sub-heading">De keerkringen &mdash; 23,5&deg;NB en 23,5&deg;ZB</h3>
+    <p>De aardas staat niet rechtop, maar is licht gekanteld &mdash; precies 23,5&deg; ten opzichte van een loodrechte lijn. Daardoor staat de zon, afhankelijk van het seizoen, soms recht boven het noorden van de evenaar en soms recht boven het zuiden.</p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1rem;">
+      <li style="margin-bottom:0.5rem"><strong>Kreeftskeerkring (23,5&deg;NB):</strong> op de dag van de zomerzonnewende (21 juni) staat de zon precies recht boven de Kreeftskeerkring. Dit is het noordelijkste punt waar de zon ooit loodrecht op de aarde schijnt. Noord van deze lijn staat de zon nooit recht boven het hoofd.</li>
+      <li style="margin-bottom:0.5rem"><strong>Steenbokskeerkring (23,5&deg;ZB):</strong> op de dag van de winterzonnewende op het noordelijk halfrond (21 december) staat de zon recht boven de Steenbokskeerkring. Dit is het zuidelijkste punt waar de zon loodrecht valt.</li>
+    </ul>
+    <p>De zone tussen beide keerkringen heet de <strong>tropen</strong>. Hier is het het hele jaar warm en staat de zon altijd hoog aan de hemel.</p>
+
+    <h3 class="sub-heading">De poolcirkels &mdash; 66,5&deg;NB en 66,5&deg;ZB</h3>
+    <p>De poolcirkels liggen op 66,5&deg; ten noorden en ten zuiden van de evenaar. Binnen de poolcirkels &mdash; dat wil zeggen, dichter bij de Polen &mdash; zijn er dagen in de zomer waarop de zon 24 uur lang niet ondergaat (<strong>middernachtzon</strong>) en dagen in de winter waarop de zon 24 uur lang niet opkomt (<strong>poolnacht</strong>). Hoe dichter bij de pool, hoe meer zulke dagen per jaar.</p>
+
+    <h3 class="sub-heading">De datumlijn &mdash; 180&deg;</h3>
+    <p>De datumlijn loopt over de lengtegraad van 180&deg;, precies aan de andere kant van de aardbol t.o.v. de nulmeridiaan. Wie deze lijn van west naar oost oversteekt, gaat &eacute;&eacute;n dag <em>terug</em> in de kalender; wie van oost naar west oversteekt, gaat &eacute;&eacute;n dag vooruit. De datumlijn loopt door de Stille Oceaan en wijkt op sommige plaatsen af van de 180e meridiaan om eilandgroepen aan dezelfde kant van de datumlijn te houden.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9728;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Keerkringen, poolcirkels en datumlijn</span>
+        <p class="begrip-def"><strong>Keerkringen:</strong> de Kreeftskeerkring (23,5&deg;NB) en de Steenbokskeerkring (23,5&deg;ZB) zijn de breedtegraden waarop de zon ooit loodrecht staat. <strong>Poolcirkels:</strong> de Noordpoolcirkel (66,5&deg;NB) en de Zuidpoolcirkel (66,5&deg;ZB) begrenzen de zones waar middernachtzon en poolnacht voorkomen. <strong>Datumlijn:</strong> de 180e meridiaan, waar de kalenderdatum verandert bij het oversteken.</p>
+      </div>
+    </div>
+
+    <!-- ILLUSTRATIE -->
+    <div class="illustratie" role="img" aria-label="Illustratie: schematische bol met bijzondere lijnen">
+      <span class="ill-icon">&#127758;</span>
+      <p class="ill-caption">Illustratie (te plaatsen): schematische bol met evenaar (blauw, vet), Kreeftskeerkring en Steenbokskeerkring (oranje, gestreept), Noordpoolcirkel en Zuidpoolcirkel (blauw, gestreept), en nulmeridiaan (rood, vet) aangeduid met bijbehorende gradenaanduidingen.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Belgi&euml; ligt op ongeveer 51&deg;NB. Dat is ruim boven de Kreeftskeerkring (23,5&deg;NB) maar ver onder de Noordpoolcirkel (66,5&deg;NB). Wat betekent dit voor de zon in Belgi&euml;? Staat de zon hier ooit recht boven ons hoofd? En hebben we ooit middernachtzon? Verklaar je antwoord.</p>
+    </div>
+
+  </section>
+
+  <!-- BRONMATERIAAL 1 -->
+  <div class="bronmateriaal" id="bronmateriaal-1">
+    <span class="bron-label">Bronmateriaal 1 &mdash; Kaartbeschrijving</span>
+    <span class="bron-title">Wereldkaart met co&ouml;rdinatennet</span>
+    <span class="bron-meta">Mercator-projectie &nbsp;&middot;&nbsp; Schaal 1:100.000.000 &nbsp;&middot;&nbsp; Geografisch co&ouml;rdinatenstelsel WGS84</span>
+    <div class="bron-body">
+      <p>Op deze wereldkaart is het co&ouml;rdinatennet zichtbaar getekend. De <strong>evenaar</strong> is weergegeven als een dikke blauwe lijn die de kaart horizontaal in twee&euml;n verdeelt. De <strong>nulmeridiaan</strong> loopt verticaal van boven naar beneden als een dikke rode lijn, en snijdt de evenaar in het midden van de Atlantische Oceaan. De <strong>Kreeftskeerkring</strong> en de <strong>Steenbokskeerkring</strong> zijn aangeduid als oranje gestreepte lijnen ten noorden en ten zuiden van de evenaar. De <strong>Noordpoolcirkel</strong> en <strong>Zuidpoolcirkel</strong> zijn weergegeven als blauwe gestreepte lijnen aan de boven- en onderkant van de kaart.</p>
+      <p>Op de kaart zijn de zeven continenten en de vijf oceanen gelabeld. In de tabel hieronder staan de globale co&ouml;rdinaten van het centrum van elk continent en oceaan.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Continent / Oceaan</th>
+            <th>Globale ligging (centrum)</th>
+            <th>Halfrond</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Europa</td>
+            <td>ca. 50&deg;NB / 15&deg;OL</td>
+            <td>Noord &amp; Oost</td>
+          </tr>
+          <tr>
+            <td>Azi&euml;</td>
+            <td>ca. 40&deg;NB / 90&deg;OL</td>
+            <td>Noord &amp; Oost</td>
+          </tr>
+          <tr>
+            <td>Afrika</td>
+            <td>ca. 10&deg;NB / 20&deg;OL</td>
+            <td>Noord &amp; Oost</td>
+          </tr>
+          <tr>
+            <td>Noord-Amerika</td>
+            <td>ca. 45&deg;NB / 100&deg;WL</td>
+            <td>Noord &amp; West</td>
+          </tr>
+          <tr>
+            <td>Zuid-Amerika</td>
+            <td>ca. 15&deg;ZB / 55&deg;WL</td>
+            <td>Zuid &amp; West</td>
+          </tr>
+          <tr>
+            <td>Australi&euml;/Oceani&euml;</td>
+            <td>ca. 25&deg;ZB / 135&deg;OL</td>
+            <td>Zuid &amp; Oost</td>
+          </tr>
+          <tr>
+            <td>Antarctica</td>
+            <td>ca. 90&deg;ZB / 0&deg;</td>
+            <td>Zuid</td>
+          </tr>
+          <tr>
+            <td>Stille Oceaan</td>
+            <td>ca. 0&deg; / 170&deg;WL</td>
+            <td>Oost &amp; West</td>
+          </tr>
+          <tr>
+            <td>Atlantische Oceaan</td>
+            <td>ca. 0&deg; / 25&deg;WL</td>
+            <td>Noord &amp; Zuid, West</td>
+          </tr>
+          <tr>
+            <td>Indische Oceaan</td>
+            <td>ca. 20&deg;ZB / 80&deg;OL</td>
+            <td>Zuid &amp; Oost</td>
+          </tr>
+          <tr>
+            <td>Noordelijke IJszee</td>
+            <td>ca. 85&deg;NB / 0&deg;</td>
+            <td>Noord</td>
+          </tr>
+          <tr>
+            <td>Zuidelijke Oceaan</td>
+            <td>ca. 60&deg;ZB / 0&deg;</td>
+            <td>Zuid</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="bron-vraag">Op welke breedtegraad ligt Belgi&euml; bij benadering? En op welke lengtegraad? Gebruik de tabel en je kennis van de kaart. (Antwoord: ca. 50&ndash;51&deg;NB, 3&ndash;6&deg;OL)</p>
+    <span class="bron-source">Bron: gebaseerd op World Geographic Reference System (GEOREF) en NGI-wereldkaart, 2023</span>
+  </div>
+
+  <!-- SECTION 3 -->
+  <section class="section-block" id="sectie-3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Co&ouml;rdinaten lezen en schrijven</h2>
+    </div>
+
+    <p>Nu je weet wat breedtegraden en lengtegraden zijn, kun je leren hoe je ze leest en schrijft. Een co&ouml;rdinaat bestaat altijd uit <strong>twee getallen</strong>: eerst de breedtegraad (NB of ZB), dan de lengtegraad (OL of WL). Samen geven ze de exacte positie van een plek op aarde aan.</p>
+
+    <h3 class="sub-heading">Schrijfwijze</h3>
+    <p>De standaard schrijfwijze is als volgt:</p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.1em;">
+      <li style="margin-bottom:0.4rem">Schrijf eerst de breedtegraad, dan de lengtegraad.</li>
+      <li style="margin-bottom:0.4rem">Voeg na het getal de richting toe: NB (noorderbreedte), ZB (zuiderbreedte), OL (oosterlengte) of WL (westerlengte).</li>
+      <li style="margin-bottom:0.4rem">Gebruik het graadje-teken &deg; achter het getal.</li>
+      <li style="margin-bottom:0.4rem">Scheid breedtegraad en lengtegraad met een schuine streep of een komma.</li>
+    </ul>
+    <p>Voor dit vak werken we met een <strong>nauwkeurigheid van 1&deg;</strong>: we ronden af op het dichtstbijzijnde hele getal. Dat is voldoende voor het lokaliseren van steden en continenten op wereldschaal.</p>
+
+    <h3 class="sub-heading">Voorbeelden van co&ouml;rdinaten</h3>
+
+    <p>Hieronder staan enkele bekende steden met hun co&ouml;rdinaten op 1&deg; nauwkeurig:</p>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.1em;">
+      <li style="margin-bottom:0.5rem"><strong>Brussel (Belgi&euml;):</strong> 51&deg;NB / 4&deg;OL &mdash; op de Kreeftskeerkring vlak boven de 50e breedtegraad, iets oostelijk van de nulmeridiaan.</li>
+      <li style="margin-bottom:0.5rem"><strong>Parijs (Frankrijk):</strong> 49&deg;NB / 2&deg;OL &mdash; iets zuidelijker dan Brussel, dicht bij de nulmeridiaan.</li>
+      <li style="margin-bottom:0.5rem"><strong>Rome (Itali&euml;):</strong> 42&deg;NB / 12&deg;OL &mdash; aanzienlijk zuidelijker dan Belgi&euml;, en verder naar het oosten.</li>
+      <li style="margin-bottom:0.5rem"><strong>Cairo (Egypte):</strong> 30&deg;NB / 31&deg;OL &mdash; in Noord-Afrika, dicht bij de Kreeftskeerkring.</li>
+      <li style="margin-bottom:0.5rem"><strong>New York (VS):</strong> 41&deg;NB / 74&deg;WL &mdash; op vergelijkbare breedtegraad als Rome, maar ver ten westen van de nulmeridiaan.</li>
+    </ul>
+
+    <p>Let op: het kruispunt van de Kreeftskeerkring met de nulmeridiaan heeft als co&ouml;rdinaat <strong>23,5&deg;NB / 0&deg;</strong>. Dat punt ligt midden in de Sahara, in Mali.</p>
+
+    <h3 class="sub-heading">Absolute en relatieve situering</h3>
+
+    <p>Er zijn twee manieren om de ligging van een plek te beschrijven:</p>
+
+    <p><strong>Absolute situering</strong> is de precieze ligging in het co&ouml;rdinatenstelsel: je geeft de breedtegraad en de lengtegraad. Dit is het geografische adres van een plek. Voorbeeld: Brussel ligt op 51&deg;NB / 4&deg;OL.</p>
+
+    <p><strong>Relatieve situering</strong> is de ligging ten opzichte van andere bekende plaatsen of elementen: je beschrijft een plek in relatie tot iets anders. Voorbeeld: Brussel ligt ten noorden van Parijs, ten zuiden van Amsterdam en ten westen van K&ouml;ln.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128205;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Absolute en relatieve situering</span>
+        <p class="begrip-def"><strong>Absolute situering:</strong> de exacte ligging van een plek op aarde uitgedrukt in co&ouml;rdinaten (breedte- en lengtegraad). <strong>Relatieve situering:</strong> de ligging van een plek beschreven in verhouding tot andere plaatsen, oceanen, gebergten of windrichtingen. Beide methoden zijn nuttig: absolute situering is nauwkeurig en universeel; relatieve situering is makkelijker te begrijpen.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- SECTION 4 -->
+  <section class="section-block" id="sectie-4">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Continenten en oce&aring;nen lokaliseren</h2>
+    </div>
+
+    <p>Om te kunnen situeren, moet je de grote onderdelen van de aardbol kennen: de zeven continenten en de vijf oce&aring;nen. Een <strong>continent</strong> is een grote, aaneengesloten landmassa. Een <strong>oce&aring;an</strong> is een enorme massa zout water die continenten van elkaar scheidt.</p>
+
+    <h3 class="sub-heading">De zeven continenten</h3>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2em;">
+      <li style="margin-bottom:0.6rem"><strong>Europa:</strong> klein continent in het westen van Eurazi&euml;. Ligt grotendeels op het noordelijk halfrond. Ten westen: Atlantische Oceaan; ten noorden: Noordelijke IJszee; ten zuiden: Middellandse Zee; ten oosten: grenst aan Azi&euml; (Oeralgeberg en Kaspische Zee).</li>
+      <li style="margin-bottom:0.6rem"><strong>Azi&euml;:</strong> het grootste continent. Strekt zich uit van ca. 10&deg;ZB tot 80&deg;NB en van 25&deg;OL tot 180&deg;OL. Grenst in het westen aan Europa en Afrika, in het oosten aan de Stille Oceaan, in het zuiden aan de Indische Oceaan.</li>
+      <li style="margin-bottom:0.6rem"><strong>Afrika:</strong> het op &eacute;&eacute;n na grootste continent. Ligt zowel op het noordelijk als op het zuidelijk halfrond; de evenaar snijdt er dwars doorheen. Omgeven door de Atlantische Oceaan (west), de Indische Oceaan (oost) en de Middellandse Zee (noord).</li>
+      <li style="margin-bottom:0.6rem"><strong>Noord-Amerika:</strong> het derde grootste continent. Ligt op het noordelijk halfrond, westelijk van de nulmeridiaan. Grenst in het westen aan de Stille Oceaan, in het oosten aan de Atlantische Oceaan, in het noorden aan de Noordelijke IJszee.</li>
+      <li style="margin-bottom:0.6rem"><strong>Zuid-Amerika:</strong> ten zuiden van Noord-Amerika, gescheiden door het Panamakanaal. Ligt grotendeels op het zuidelijk halfrond, westelijk van de nulmeridiaan. Grenst in het westen aan de Stille Oceaan en in het oosten aan de Atlantische Oceaan.</li>
+      <li style="margin-bottom:0.6rem"><strong>Australi&euml; / Oceani&euml;:</strong> het kleinste continent (Australi&euml; zelf) met omliggende eilandgroepen. Ligt op het zuidelijk halfrond, oostelijk van de nulmeridiaan. Grenst in het westen aan de Indische Oceaan en in het oosten aan de Stille Oceaan.</li>
+      <li style="margin-bottom:0.6rem"><strong>Antarctica:</strong> het zuidelijkste continent, gelegen rondom de Zuidpool. Vrijwel volledig bedekt door een ijskap. Omgeven door de Zuidelijke Oceaan.</li>
+    </ul>
+
+    <h3 class="sub-heading">De vijf oce&aring;nen</h3>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2em;">
+      <li style="margin-bottom:0.5rem"><strong>Stille Oceaan (Pacifische Oceaan):</strong> de grootste en diepste oceaan. Ligt tussen de westkust van Amerika en de oostkust van Azi&euml;/Australi&euml;.</li>
+      <li style="margin-bottom:0.5rem"><strong>Atlantische Oceaan:</strong> de tweede grootste oceaan. Scheidt Amerika van Europa en Afrika. De nulmeridiaan loopt er deels doorheen.</li>
+      <li style="margin-bottom:0.5rem"><strong>Indische Oceaan:</strong> de derde grootste oceaan. Ligt ten zuiden van Azi&euml;, ten oosten van Afrika en ten westen van Australi&euml;.</li>
+      <li style="margin-bottom:0.5rem"><strong>Noordelijke IJszee (Arctische Oceaan):</strong> de kleinste oceaan. Ligt rondom de Noordpool, omgeven door Europa, Azi&euml; en Noord-Amerika.</li>
+      <li style="margin-bottom:0.5rem"><strong>Zuidelijke Oceaan (Antarctische Oceaan):</strong> omringt Antarctica en ligt ten zuiden van de andere oce&aring;nen.</li>
+    </ul>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#127758;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Continent, oce&aring;an en halfrond</span>
+        <p class="begrip-def"><strong>Continent:</strong> een grote, aaneengesloten landmassa. Er zijn zeven continenten: Europa, Azi&euml;, Afrika, Noord-Amerika, Zuid-Amerika, Australi&euml;/Oceani&euml; en Antarctica. <strong>Oce&aring;an:</strong> een enorme massa zout water. Er zijn vijf oce&aring;nen: Stille, Atlantische, Indische, Noordelijke IJszee en Zuidelijke Oceaan. <strong>Halfrond:</strong> de helft van de aardbol, gescheiden door de evenaar (noordelijk/zuidelijk) of door de nulmeridiaan en datumlijn (oostelijk/westelijk).</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- BRONMATERIAAL 2 -->
+  <div class="bronmateriaal" id="bronmateriaal-2">
+    <span class="bron-label">Bronmateriaal 2 &mdash; Co&ouml;rdinatenopgaven</span>
+    <span class="bron-title">Acht locaties op de wereldkaart</span>
+    <span class="bron-meta">Geografische co&ouml;rdinaten op 1&deg; nauwkeurig &nbsp;&middot;&nbsp; WGS84-referentiesysteem</span>
+    <div class="bron-body">
+      <p>In de tabel hieronder staan acht locaties met hun co&ouml;rdinaten. Gebruik de wereldkaart uit bronmateriaal 1 en je kennis van de continenten en oce&aring;nen om de vragen te beantwoorden.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Co&ouml;rdinaten</th>
+            <th>Land / Oceaan / Regio</th>
+            <th>Continent</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>0&deg;N / 0&deg;O</td>
+            <td>Atlantische Oceaan, Golf van Guinea (kust van Afrika)</td>
+            <td>Grens Afrika / Oceaan</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>51&deg;N / 4&deg;O</td>
+            <td>Belgi&euml; (omgeving Brussel/Antwerpen)</td>
+            <td>Europa</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>40&deg;N / 74&deg;W</td>
+            <td>New York, Verenigde Staten</td>
+            <td>Noord-Amerika</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>35&deg;S / 149&deg;O</td>
+            <td>Canberra, Australi&euml;</td>
+            <td>Australi&euml;/Oceani&euml;</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>90&deg;N / 0&deg;</td>
+            <td>Noordpool</td>
+            <td>Noordelijke IJszee (arctisch)</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>23&deg;S / 43&deg;W</td>
+            <td>Rio de Janeiro, Brazili&euml;</td>
+            <td>Zuid-Amerika</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>1&deg;N / 37&deg;O</td>
+            <td>Nairobi, Kenia</td>
+            <td>Afrika</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>35&deg;N / 139&deg;O</td>
+            <td>Tokio, Japan</td>
+            <td>Azi&euml;</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="bron-vraag">Welk continent ligt voor het grootste deel op het zuidelijk halfrond? Noem minstens twee continenten of landen waarvan het centrum ten zuiden van de evenaar ligt. En op welk halfrond ligt Belgi&euml;?</p>
+    <span class="bron-source">Bron: eigen samenstelling op basis van World Geographic Reference System (GEOREF) en Plantyn Atlas 2022</span>
+  </div>
+
+  <!-- SECTION 5 -->
+  <section class="section-block" id="sectie-5">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Relatief situeren</h2>
+    </div>
+
+    <p>Je hebt al gezien dat je een plek <em>absoluut</em> kunt situeren met co&ouml;rdinaten. Maar vaak is <strong>relatieve situering</strong> makkelijker te begrijpen en communiceren. In het dagelijks leven zeggen mensen niet &ldquo;ik woon op 51&deg;NB / 4&deg;OL&rdquo; &mdash; ze zeggen &ldquo;ik woon ten noorden van Brussel, vlak bij de N1.&rdquo;</p>
+
+    <p>Relatieve situering gebruikt <strong>referentiepunten</strong>: dingen die je al kent, en die je als anker gebruikt om een nieuwe plek te beschrijven. Die referentiepunten kunnen windrichtingen zijn, maar ook nabijgelegen steden, oceanen, rivieren, gebergten of landsgrenzen.</p>
+
+    <h3 class="sub-heading">Windrichtingen als referentie</h3>
+
+    <p>De meest gebruikte manier van relatief situeren werkt met de vier windrichtingen: <strong>noord (N), oost (O), zuid (Z) en west (W)</strong>, en de tussenrichtingen noordoost, zuidoost, enz. Je beschrijft de positie van A ten opzichte van B:</p>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.1em;">
+      <li style="margin-bottom:0.4rem">Parijs ligt <strong>ten zuiden</strong> van Londen.</li>
+      <li style="margin-bottom:0.4rem">Spanje ligt <strong>ten zuidwesten</strong> van Belgi&euml;.</li>
+      <li style="margin-bottom:0.4rem">Japan ligt <strong>ten oosten</strong> van China.</li>
+    </ul>
+
+    <h3 class="sub-heading">Topografische referentiepunten</h3>
+
+    <p>Naast windrichtingen kun je ook natuurlijke of geografische elementen gebruiken als referentiepunt:</p>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.1em;">
+      <li style="margin-bottom:0.4rem"><strong>Oceanen en zeeën:</strong> &ldquo;Belgi&euml; grenst in het westen aan de Noordzee.&rdquo;</li>
+      <li style="margin-bottom:0.4rem"><strong>Rivieren:</strong> &ldquo;Luik ligt aan de Maas.&rdquo;</li>
+      <li style="margin-bottom:0.4rem"><strong>Gebergten:</strong> &ldquo;Zwitserland ligt ten noorden van de Alpen.&rdquo;</li>
+      <li style="margin-bottom:0.4rem"><strong>Landen of regio&rsquo;s:</strong> &ldquo;Belgi&euml; ligt tussen Frankrijk, Nederland, Duitsland en Luxemburg.&rdquo;</li>
+    </ul>
+
+    <h3 class="sub-heading">Belgi&euml; relatief gesitueerd</h3>
+
+    <p>Laten we Belgi&euml; als voorbeeld nemen:</p>
+
+    <p><strong>Absoluut:</strong> Belgi&euml; ligt op ca. 49,5&ndash;51,5&deg;NB en 2,5&ndash;6,5&deg;OL.</p>
+
+    <p><strong>Relatief ten opzichte van buurlanden:</strong> Belgi&euml; grenst in het zuiden aan Frankrijk, in het noorden aan Nederland, in het oosten aan Duitsland en Luxemburg. In het noordwesten grenst Belgi&euml; aan de Noordzee.</p>
+
+    <p><strong>Relatief ten opzichte van Europa:</strong> Belgi&euml; ligt in het <strong>noordwesten</strong> van Europa, ten noorden van het Massif Central (Frankrijk), ten westen van de Rijnvallei. Het land ligt dicht bij de Atlantische Oceaan en is een van de dichtstbevolkte regio&rsquo;s van Europa.</p>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Beschrijf de ligging van Belgi&euml; op drie verschillende manieren: (1) absoluut, met co&ouml;rdinaten, (2) relatief ten opzichte van Frankrijk, en (3) relatief ten opzichte van Europa als geheel. Probeer voor elk een volledige zin te schrijven. Welke manier vindt jij het duidelijkst voor iemand die Belgi&euml; niet kent?</p>
+    </div>
+
+  </section>
+
+  <!-- CLOSING QUOTE -->
+  <div class="closing-quote" role="note" aria-label="Slotcitaat">
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p class="cq-text">Twee getallen. Twee graden. En jij weet exact waar je op aarde staat &mdash; op &eacute;&eacute;n punt van een bol met een omtrek van 40.000 kilometer.</p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <span class="cq-attribution">Aardrijkskunde 1A &nbsp;&middot;&nbsp; Domein 1 &nbsp;&middot;&nbsp; Co&ouml;rdinaten en situeren</span>
+  </div>
+
+</div><!-- end page-wrapper -->
+
+<!-- EXERCISES -->
+<section class="exercises-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <!-- Oefening 1 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Locaties herkennen aan co&ouml;rdinaten</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Hieronder staan vijf co&ouml;rdinaten. Zoek op de wereldkaart op welk land, continent of oceaan bij elke co&ouml;rdinaat hoort. Noteer ook op welk halfrond (noord/zuid en oost/west) het punt ligt.</p>
+      <ol>
+        <li><strong>64&deg;N / 26&deg;O</strong> &mdash; Op welk land of regio duidt dit? (Tip: kijk naar Europa, ver naar het noorden.)</li>
+        <li><strong>0&deg; / 110&deg;O</strong> &mdash; Welke oceaan of land ligt hier? Bevindt dit punt zich op het noordelijk of zuidelijk halfrond?</li>
+        <li><strong>55&deg;N / 37&deg;O</strong> &mdash; In welk land ligt dit punt? Op welk continent?</li>
+        <li><strong>34&deg;S / 18&deg;O</strong> &mdash; Op welk continent en in welk land ligt dit punt? (Tip: denk aan de zuidpunt van Afrika.)</li>
+        <li><strong>23,5&deg;N / 90&deg;O</strong> &mdash; Op welke bijzondere lijn ligt dit punt precies? In welk land of regio?</li>
+      </ol>
+      <p class="ex-tip">Tip: gebruik de wereldkaart uit bronmateriaal 1 en de tabel van continenten en oce&aring;nen in sectie 4.</p>
+    </div>
+
+    <!-- Oefening 2 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Co&ouml;rdinaten van bekende steden</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Schrijf de co&ouml;rdinaten op van de vijf steden hieronder, op 1&deg; nauwkeurig. Gebruik de atlas of de informatie uit dit hoofdstuk. Schrijf ook op in welk land en op welk continent elke stad ligt.</p>
+      <ol>
+        <li><strong>Brussel</strong> &mdash; co&ouml;rdinaten: _____ NB / _____ OL &nbsp;|&nbsp; land: _____ &nbsp;|&nbsp; continent: _____</li>
+        <li><strong>Londen</strong> &mdash; co&ouml;rdinaten: _____ NB / _____ WL of OL? &nbsp;|&nbsp; land: _____ &nbsp;|&nbsp; continent: _____</li>
+        <li><strong>Cairo</strong> &mdash; co&ouml;rdinaten: _____ NB / _____ OL &nbsp;|&nbsp; land: _____ &nbsp;|&nbsp; continent: _____</li>
+        <li><strong>Sydney</strong> &mdash; co&ouml;rdinaten: _____ ZB / _____ OL &nbsp;|&nbsp; land: _____ &nbsp;|&nbsp; continent: _____</li>
+        <li><strong>Rio de Janeiro</strong> &mdash; co&ouml;rdinaten: _____ ZB / _____ WL &nbsp;|&nbsp; land: _____ &nbsp;|&nbsp; continent: _____</li>
+      </ol>
+      <p class="ex-tip">Tip: Londen ligt dicht bij de nulmeridiaan. Sydney ligt op het zuidelijk halfrond. Vergelijk de breedtegraden: welke stad ligt het dichtst bij de evenaar?</p>
+    </div>
+
+    <!-- Oefening 3 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Belgi&euml; relatief situeren</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Beschrijf de ligging van Belgi&euml; ten opzichte van de onderstaande landen, zeeën en gebieden. Schrijf telkens een volledige zin. Gebruik de windrichtingen.</p>
+      <ol>
+        <li>Ten opzichte van <strong>Frankrijk:</strong> &ldquo;Belgi&euml; ligt &hellip;&rdquo;</li>
+        <li>Ten opzichte van <strong>Nederland:</strong> &ldquo;Belgi&euml; ligt &hellip;&rdquo;</li>
+        <li>Ten opzichte van <strong>Duitsland:</strong> &ldquo;Belgi&euml; ligt &hellip;&rdquo;</li>
+        <li>Ten opzichte van de <strong>Noordzee:</strong> &ldquo;Belgi&euml; grenst &hellip;&rdquo;</li>
+        <li>Ten opzichte van <strong>Europa als geheel:</strong> &ldquo;In Europa ligt Belgi&euml; &hellip;&rdquo;</li>
+      </ol>
+      <p class="ex-tip">Tip: gebruik een kompasroos als hulpmiddel. In welke richting moet je vanuit Parijs rijden om Brussel te bereiken? En vanuit Amsterdam?</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="summary-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li>De aardbol is verdeeld door twee soorten denkbeeldige lijnen: <strong>breedtegraden (parallellen)</strong>, die horizontaal van oost naar west lopen, en <strong>lengtegraden (meridianen)</strong>, die verticaal van pool naar pool lopen. Samen vormen ze het co&ouml;rdinatenstelsel.</li>
+      <li>Breedtegraden worden gemeten vanaf de <strong>evenaar (0&deg;)</strong> tot aan de Polen (90&deg;NB of 90&deg;ZB). Lengtegraden worden gemeten vanaf de <strong>nulmeridiaan (0&deg;, Greenwich)</strong> tot 180&deg;OL of 180&deg;WL.</li>
+      <li>Bijzondere lijnen zijn: de <strong>evenaar</strong> (scheiding noordelijk/zuidelijk halfrond), de <strong>Kreeftskeerkring</strong> (23,5&deg;NB) en <strong>Steenbokskeerkring</strong> (23,5&deg;ZB), de <strong>Noordpool- en Zuidpoolcirkel</strong> (66,5&deg;) en de <strong>datumlijn</strong> (180&deg;).</li>
+      <li>Een co&ouml;rdinaat schrijf je als <strong>breedtegraad / lengtegraad</strong>, op 1&deg; nauwkeurig. Brussel ligt op ca. 51&deg;NB / 4&deg;OL; Parijs op ca. 49&deg;NB / 2&deg;OL; Rome op ca. 42&deg;NB / 12&deg;OL.</li>
+      <li>Er zijn <strong>zeven continenten</strong> (Europa, Azi&euml;, Afrika, Noord-Amerika, Zuid-Amerika, Australi&euml;/Oceani&euml;, Antarctica) en <strong>vijf oce&aring;nen</strong> (Stille, Atlantische, Indische, Noordelijke IJszee, Zuidelijke Oceaan).</li>
+      <li><strong>Absolute situering</strong> = een plek aanduiden met co&ouml;rdinaten. <strong>Relatieve situering</strong> = een plek beschrijven ten opzichte van andere plaatsen, zeeën, landen of windrichtingen.</li>
+      <li>Belgi&euml; ligt op het <strong>noordelijk en oostelijk halfrond</strong>, in het noordwesten van Europa, en grenst aan Frankrijk (zuiden), Nederland (noorden), Duitsland en Luxemburg (oosten) en de Noordzee (noordwesten).</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

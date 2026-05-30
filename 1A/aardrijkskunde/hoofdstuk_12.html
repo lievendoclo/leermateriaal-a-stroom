@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoofdstuk 12 — Mensen veranderen het landschap | Aardrijkskunde 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     ILLUSTRATIE PLACEHOLDERS
+  ============================================================ */
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+    cursor: default;
+    transition: background var(--transition);
+  }
+
+  .illustratie:hover { background: #EDE7D8; }
+
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     BRONMATERIAAL — geographic source / map / data block
+     Key component for Aardrijkskunde: use for map descriptions,
+     climate tables, satellite image descriptions, GPS data, etc.
+  ============================================================ */
+  .bronmateriaal {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 2rem 2.2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .bronmateriaal .bron-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--darkblue);
+    opacity: 0.6;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  .bronmateriaal .bron-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  .bronmateriaal .bron-meta {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    font-style: italic;
+    margin-bottom: 0.9rem;
+    display: block;
+  }
+
+  .bronmateriaal .bron-body { margin-bottom: 0.8rem; }
+
+  .bronmateriaal .bron-body p {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-bottom: 0.6em;
+  }
+
+  .bronmateriaal .bron-body p:last-child { margin-bottom: 0; }
+
+  .bronmateriaal .bron-body table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+  }
+
+  .bronmateriaal .bron-body th {
+    background: var(--darkblue);
+    color: white;
+    padding: 0.4rem 0.75rem;
+    text-align: left;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    font-size: 0.83rem;
+  }
+
+  .bronmateriaal .bron-body td {
+    padding: 0.35rem 0.75rem;
+    border-bottom: 1px solid var(--sand);
+    color: var(--text-mid);
+    font-size: 0.93rem;
+  }
+
+  .bronmateriaal .bron-body tr:last-child td { border-bottom: none; }
+
+  .bronmateriaal .bron-body tr:nth-child(even) td {
+    background: var(--sand-light);
+  }
+
+  .bronmateriaal .bron-vraag {
+    background: rgba(26,43,74,0.06);
+    border-left: 3px solid var(--darkblue);
+    border-radius: 0 4px 4px 0;
+    padding: 0.7rem 1rem;
+    font-size: 0.93rem;
+    color: var(--text-mid);
+    font-style: italic;
+    margin-top: 1rem;
+  }
+
+  .bronmateriaal .bron-vraag::before {
+    content: '🔍 ';
+    font-style: normal;
+  }
+
+  .bronmateriaal .bron-source {
+    font-size: 0.78rem;
+    color: var(--text-light);
+    border-top: 1px solid var(--sand);
+    padding-top: 0.6rem;
+    font-style: italic;
+    margin-top: 0.8rem;
+    display: block;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     CLOSING QUOTE
+  ============================================================ */
+  .closing-quote {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0D1E38 100%);
+    border-radius: var(--border-radius);
+    padding: 3rem 3rem 2.5rem;
+    margin: 3.5rem 0 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.5rem; left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .closing-quote .cq-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--gold);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 1.2rem;
+  }
+
+  .closing-quote .cq-attribution {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(212,160,23,0.6);
+  }
+
+  .closing-quote .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .closing-quote .ornament-line::before,
+  .closing-quote .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.4), transparent);
+  }
+
+  .closing-quote .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.7;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .closing-quote { padding: 2rem 1.2rem 1.8rem; }
+    .bronmateriaal { padding: 1.4rem 1.2rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     INGREPEN CATEGORY GRID
+  ============================================================ */
+  .ingrepen-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .ingreep-card {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 3px solid var(--oker);
+    border-radius: var(--border-radius);
+    padding: 1.1rem 1.2rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .ingreep-card .ic-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 0.4rem;
+  }
+
+  .ingreep-card .ic-examples {
+    font-size: 0.88rem;
+    color: var(--text-light);
+    font-style: italic;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     5P TABLE
+  ============================================================ */
+  .vijfp-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.2rem 0;
+    font-size: 0.93rem;
+  }
+
+  .vijfp-table th {
+    background: var(--darkblue);
+    color: white;
+    padding: 0.5rem 0.8rem;
+    text-align: left;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+  }
+
+  .vijfp-table td {
+    padding: 0.5rem 0.8rem;
+    border-bottom: 1px solid var(--sand);
+    vertical-align: top;
+    color: var(--text-mid);
+    line-height: 1.6;
+  }
+
+  .vijfp-table tr:nth-child(even) td { background: var(--sand-light); }
+  .vijfp-table tr:last-child td { border-bottom: none; }
+
+  .vijfp-table .p-label {
+    font-weight: 700;
+    color: var(--terracotta);
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <a class="label" href="index.html">Aardrijkskunde 1A</a>
+  <span class="label label-right">Hoofdstuk 12</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Aardrijkskunde &nbsp;&middot;&nbsp; 1A &nbsp;&middot;&nbsp; Domein 4</div>
+  <h1>Hoofdstuk 12<br>Mensen veranderen het landschap</h1>
+  <p class="subtitle">Hoe laat 7,5 miljard mensen hun stempel op de aarde achter?</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- PROLOGUE -->
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Proloog &hellip;</span>
+
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+
+    <p>In 1970 toonden de eerste satellietbeelden van de Amazone een vrijwel ononderbroken groene oceaan van regenwoud &mdash; een aaneengesloten gordel van miljoenen vierkante kilometer dicht bladerdak, doorsneden door slingerende rivieren. Meer dan 17% van dat woud is sindsdien verdwenen. Gekapt, verbrand, omgezet in sojavelden en ranchland. Elke dag opnieuw worden stukken bos ter grootte van duizenden voetbalvelden omgehakt.</p>
+
+    <p>Dichter bij huis is het verhaal even ingrijpend. In Belgi&euml; is sinds 1945 meer dan de helft van alle houtkanten en kleine bosjes verdwenen. Weiden werden vergroot, sloten gedempt, wegen aangelegd. Het landschap van je grootouders ziet er fundamenteel anders uit dan het landschap dat jij vandaag kent.</p>
+
+    <p><strong style="color: var(--gold);">Mensen veranderen het landschap &mdash; soms bewust en gepland, soms als bijwerking van economische activiteit, en soms pas achteraf beseffend wat ze vernietigd hebben.</strong> Dit hoofdstuk onderzoekt hoe, waarom en met welke gevolgen.</p>
+
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+  </section>
+
+  <!-- SECTION 1: Overzicht menselijke ingrepen -->
+  <section class="section-block" id="sectie-1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Menselijke ingrepen in het landschap &mdash; een overzicht</h2>
+    </div>
+
+    <p>Overal op aarde zien we sporen van menselijke activiteit in het landschap. Van een eenvoudige boerenweg tot een gigantisch stuwmeer, van een glastuinbouwzone in het Westland tot een Chinees megastadion &mdash; al deze elementen zijn <strong>menselijke ingrepen</strong>: bewuste aanpassingen van de natuurlijke omgeving om aan menselijke behoeften te voldoen. De vakfiche voor 1A onderscheidt zes grote categorie&euml;n.</p>
+
+    <div class="ingrepen-grid">
+      <div class="ingreep-card">
+        <p class="ic-title">Energie-infrastructuur</p>
+        <p class="ic-examples">Windturbines, zonneparken, hoogspanningsleidingen, stuwdammen, kerncentrale, biomassacentrale</p>
+      </div>
+      <div class="ingreep-card">
+        <p class="ic-title">Transport-infrastructuur</p>
+        <p class="ic-examples">Autosnelwegen, spoorwegen, luchthavens, zeehavens, kanalen, bruggen, tunnels</p>
+      </div>
+      <div class="ingreep-card">
+        <p class="ic-title">Bebouwing / woongebied</p>
+        <p class="ic-examples">Woonwijken, winkelcentra, kantoorparken, lintbebouwing, stadsuitbreidingen</p>
+      </div>
+      <div class="ingreep-card">
+        <p class="ic-title">Landbouw</p>
+        <p class="ic-examples">Schaalvergroting van percelen, drainage, irrigatie, serres, monocultuur, omploegen van natuurgebieden</p>
+      </div>
+      <div class="ingreep-card">
+        <p class="ic-title">Industrie</p>
+        <p class="ic-examples">Fabrieken, steengroeven, chemische bedrijven, distributiecentra, mijnbouw, offshore-platforms</p>
+      </div>
+      <div class="ingreep-card">
+        <p class="ic-title">Toeristisch-recreatieve voorzieningen</p>
+        <p class="ic-examples">Campings, skihellingen, badsteden, pretparken, golfterreinen, jachthavens</p>
+      </div>
+    </div>
+
+    <p>Al deze ingrepen laten blijvende sporen na in het landschap. Ze veranderen niet alleen het <em>uitzicht</em> van een gebied, maar ook de <em>functie</em> ervan: landbouwgrond wordt industrieterrein, bos wordt woonwijk, moerasgebied wordt polder. Eens die omzetting gemaakt is, is het zeer moeilijk &mdash; en vaak onmogelijk &mdash; om terug te keren naar de oorspronkelijke toestand.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128296;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Menselijke ingreep</span>
+        <p class="begrip-def">Een bewuste aanpassing van het natuurlijk landschap door mensen om tegemoet te komen aan economische, sociale of andere behoeften. Voorbeelden zijn de aanleg van een weg, de bouw van een fabriek of het droogleggen van een moeras.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#127968;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Infrastructuur</span>
+        <p class="begrip-def">Het geheel van basisvoorzieningen dat een samenleving nodig heeft om te functioneren: wegen, spoorwegen, elektriciteitsnet, waterleiding, telecommunicatienetwerk, havens en luchthavens. Infrastructuur vormt het skelet waarop economische activiteit is gebouwd.</p>
+      </div>
+    </div>
+
+    <p>Het is belangrijk te beseffen dat niet alle menselijke ingrepen negatief zijn. Een goed ontworpen dijkensysteem beschermt duizenden mensen tegen overstromingen. Een windmolenpark levert schone energie. De vraag is altijd: <em>wie wint, wie verliest, en op welke termijn?</em> Dat is precies de vraag die we in dit hoofdstuk stellen via het 5P-model.</p>
+  </section>
+
+  <!-- SECTION 2: Ontbossing -->
+  <section class="section-block" id="sectie-2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Ontbossing</h2>
+    </div>
+
+    <p>Van alle menselijke ingrepen in het landschap is <strong>ontbossing</strong> wellicht de meest zichtbare en ingrijpende op mondiale schaal. Bossen bedekken ongeveer 31% van het aardoppervlak &mdash; maar die oppervlakte krimpt elk jaar.</p>
+
+    <h3 class="sub-heading">Definitie en omvang</h3>
+    <p>Ontbossing is de permanente verwijdering van bos om het land voor een andere bestemming te gebruiken: landbouw, veeteelt, mijnbouw, infrastructuur of stedenbouw. Let op het verschil met <em>ontbossing</em> en <em>bosdegradatie</em>: bij ontbossing verdwijnt het bos volledig; bij degradatie blijft er bos staan, maar het is aangetast en minder gezond.</p>
+
+    <p>De cijfers zijn duizelingwekkend: wereldwijd worden jaarlijks ongeveer <strong>15 miljard bomen gekapt</strong>. Dat is meer dan twee bomen per seconde, dag en nacht, het hele jaar door. Per jaar gaat er netto circa <strong>10 miljoen hectare bos</strong> verloren &mdash; een oppervlakte groter dan Zuid-Korea.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#127795;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Ontbossing</span>
+        <p class="begrip-def">Het permanent verwijderen van bos om het land voor andere doeleinden te gebruiken, zoals landbouw, veeteelt, mijnbouw of bebouwing. Ontbossing is onomkeerbaar zolang de bodem niet hersteld wordt en herstel van het oorspronkelijke ecosysteem duurt eeuwen.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Oorzaken van ontbossing</h3>
+    <p>Ontbossing heeft meerdere oorzaken die vaak in combinatie optreden:</p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1rem;">
+      <li style="margin-bottom:0.5rem"><strong>Commerci&euml;le landbouw:</strong> het kappen van bos voor sojateelt (veevoeder voor Europa en China) en palmolieplantages (in Indonesi&euml; en Maleisi&euml;) is de grootste oorzaak wereldwijd. Soja en palmolie zitten verborgen in honderden producten die wij dagelijks gebruiken.</li>
+      <li style="margin-bottom:0.5rem"><strong>Veeteelt:</strong> in Zuid-Amerika wordt bos gekapt om weiland te cre&euml;ren voor de vleesveehouderij. De Braziliaanse veehouderij exporteert vlees naar de hele wereld.</li>
+      <li style="margin-bottom:0.5rem"><strong>Houtkap:</strong> zowel voor de bouw als voor de papier- en meubelindustrie worden waardevolle tropische houtsoorten gekapt. Niet alle houtkap is illegaal, maar veel is het wel.</li>
+      <li style="margin-bottom:0.5rem"><strong>Infrastructuur:</strong> wegen die diep het woud ingaan openen het gebied voor verdere ontginning. Eens er een weg is, volgen boeren, houthakkers en mijnbouwers.</li>
+      <li style="margin-bottom:0.5rem"><strong>Mijnbouw:</strong> goud, ijzererts, bauxiet en andere mineralen worden gedolven in tropische woudgebieden, wat leidt tot ontbossing en vervuiling van rivieren.</li>
+    </ul>
+
+    <h3 class="sub-heading">Gevolgen van ontbossing</h3>
+    <p>De gevolgen van ontbossing zijn verstrekkend en raken meerdere aspecten van het aardse systeem:</p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1rem;">
+      <li style="margin-bottom:0.5rem"><strong>Verlies aan biodiversiteit:</strong> tropische wouden herbergen meer dan de helft van alle diersoorten op aarde. Wanneer hun leefgebied verdwijnt, volgt uitsterven. Naar schatting verdwijnen er door ontbossing elke dag meerdere soorten voor eeuwig.</li>
+      <li style="margin-bottom:0.5rem"><strong>CO<sub>2</sub>-uitstoot:</strong> bomen zijn gigantische koolstofopslagplaatsen. Wanneer een boom gekapt of verbrand wordt, komt alle opgeslagen CO<sub>2</sub> vrij. De Amazone stoot inmiddels meer CO<sub>2</sub> uit dan ze opneemt.</li>
+      <li style="margin-bottom:0.5rem"><strong>Bodemerosie:</strong> zonder de wortels van bomen en de bescherming van het bladerdak spoelt de bodem weg bij elke regenbui. Landbouwgrond raakt uitgeput na enkele jaren.</li>
+      <li style="margin-bottom:0.5rem"><strong>Verstoring van de watercyclus:</strong> bossen zuigen regenwater op en geven het geleidelijk af aan rivieren. Zonder bos komen overstromingen vaker voor, en ook droogtes, omdat de bodem het water niet langer vasthoudt.</li>
+    </ul>
+
+    <h3 class="sub-heading">Ontbossing wereldwijd: drie hotspots</h3>
+    <p><strong>Amazone (Brazili&euml;, Peru, Colombia &hellip;):</strong> het grootste tropische woud ter wereld. Meer dan 17% is al ontbost sinds 1970. Het woud geeft zo veel vocht af dat het zijn eigen regenval cre&euml;ert via &lsquo;vliegende rivieren&rsquo;. Als de ontbossing doorgaat, dreigt een kantelpunt waarbij het woud zichzelf niet langer kan instandhouden.</p>
+    <p><strong>Congobékken (Democratische Republiek Congo &hellip;):</strong> het op &eacute;&eacute;n na grootste tropische regenwoud ter wereld staat onder druk door armoede, houtskoolproductie en mijnbouw. De ontbossingssnelheid is lager dan in Brazili&euml;, maar neemt toe.</p>
+    <p><strong>Indonesi&euml; en Maleisi&euml;:</strong> voor palmolieplantages en papiercellulose zijn enorme oppervlakten oerwoud gekapt, inclusief het leefgebied van de orang-oetan. Veen dat tienduizenden jaren koolstof heeft opgeslagen, wordt drooggelegd en verbrandt spontaan.</p>
+    <p><strong>Belgi&euml; en Europa:</strong> in West-Europa is historische ontbossing al eeuwen geleden plaatsgevonden. Vandaag zijn er actieve <em>herbebossings</em>- en <em>rewilding</em>-projecten gaande, onder andere in de Ardennen en in de Kempen. Rewilding betekent dat natuur de kans krijgt zichzelf te herstellen zonder menselijke sturing.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#127758;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Biodiversiteit</span>
+        <p class="begrip-def">De verscheidenheid aan levende organismen op aarde: het aantal soorten planten, dieren, schimmels en micro-organismen, maar ook de genetische variatie binnen soorten en de verscheidenheid aan ecosystemen. Een hoge biodiversiteit maakt ecosystemen veerkrachtiger.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9968;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Ontginning van hulpbronnen</span>
+        <p class="begrip-def">Het exploiteren van de rijkdommen die de natuur biedt: hout, mineralen, vissen, landbouwgrond, water. Ontginning is de motor van veel ontbossing en andere landschapsveranderingen. Ze kan duurzaam of niet-duurzaam zijn, afhankelijk van hoe snel de hulpbron wordt opgebruikt versus aangevuld.</p>
+      </div>
+    </div>
+
+    <!-- BRONMATERIAAL 1 -->
+    <div class="bronmateriaal" id="bronmateriaal-1">
+      <span class="bron-label">Bronmateriaal 1 &mdash; Satellietbeeldvergelijking &amp; Statistieken</span>
+      <span class="bron-title">Ontbossing in de Amazone: Para-staat, 1985 vs. 2020</span>
+      <span class="bron-meta">Gebaseerd op INPE-satellietdata (Braziliaans Nationaal Instituut voor Ruimteonderzoek) &nbsp;&middot;&nbsp; NASA Landsat</span>
+      <div class="bron-body">
+        <p><strong>Beschrijving satellietbeeld 1985 &mdash; Para-staat, Brazili&euml;:</strong> Het beeld toont een bijna ononderbroken donkergroen dek van tropisch regenwoud. Enkel de grote rivieren &mdash; als zilverkleurige slingers &mdash; doorbreken het bladerdak. Menselijke activiteit is nauwelijks zichtbaar vanuit de lucht. Enkele kleine nederzettingen aan de oevers van rivieren zijn te onderscheiden.</p>
+        <p><strong>Beschrijving satellietbeeld 2020 &mdash; hetzelfde gebied:</strong> Het beeld is sterk veranderd. Een netwerk van rechte, geometrische wegen snijdt door wat resterende bosblokken zijn. Grote rechthoekige vlakken in bruine en lichtgroene tinten tonen kaalgekapte en recent bewerkte percelen. De typische &lsquo;visgraatstructuur&rsquo; van ontbossing is zichtbaar: een centrale weg met zijwegen die als graten in beide richtingen uitwaaieren. In sommige zones is het bos teruggebracht tot verspreide eilandjes te midden van weiland en akkers.</p>
+        <p><strong>Ontbossing per decennium &mdash; Braziliaanse Amazone:</strong></p>
+        <table>
+          <thead>
+            <tr>
+              <th>Periode</th>
+              <th>Ontbossing (km&sup2;/jaar)</th>
+              <th>Opmerking</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1980&ndash;1990</td>
+              <td>15.000</td>
+              <td>Eerste grote golf door overheidskolonisatieprojecten</td>
+            </tr>
+            <tr>
+              <td>1990&ndash;2000</td>
+              <td>17.000</td>
+              <td>Piek: sojahandel en rundvleesexport groeien sterk</td>
+            </tr>
+            <tr>
+              <td>2000&ndash;2010</td>
+              <td>14.000</td>
+              <td>Lichte daling na nieuwe milieuwetgeving (Bossencode 2006)</td>
+            </tr>
+            <tr>
+              <td>2010&ndash;2018</td>
+              <td>7.000</td>
+              <td>Sterkste daling: handhaving verbeterd, satellietsurveillance</td>
+            </tr>
+            <tr>
+              <td>2019&ndash;2022</td>
+              <td>11.000</td>
+              <td>Sterke toename onder president Bolsonaro (milieubescherming verzwakt)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="bron-vraag">In welke periode was de ontbossing het grootst? En wanneer nam ze het sterkst af? Zoek een mogelijke verklaring voor zowel de toename als de daling. Leg ook uit welk verband er bestaat tussen politieke beslissingen en de ontbossingssnelheid.</p>
+      <span class="bron-source">Bronnen: INPE (Prodes-systeem), FAO Global Forest Resources Assessment 2020, MapBiomas Amaz&ocirc;nia</span>
+    </div>
+
+  </section>
+
+  <!-- SECTION 3: Schaalvergroting en verharding -->
+  <section class="section-block" id="sectie-3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Schaalvergroting van landbouwpercelen en verharding</h2>
+    </div>
+
+    <h3 class="sub-heading">Schaalvergroting: van kleine boerderij naar agribusiness</h3>
+    <p>Tot in de jaren vijftig van de twintigste eeuw was het Europese platteland een fijnmazig landschap: kleine akkers omzoomd door houtkanten en heggen, afgewisseld met weiden, kleine bosjes, poeltjes en knotwilgenrijen langs sloten. Dat landschap was niet alleen schilderachtig &mdash; het was ook ecologisch rijk. De houtkanten dienden als windscherm, als leefgebied voor vogels, insecten en kleine zoogdieren, en als verbindingsroute voor dieren die zich tussen bosgebieden wilden verplaatsen.</p>
+
+    <p>De <strong>schaalvergroting</strong> die na de Tweede Wereldoorlog op gang kwam, maakte korte metten met dat landschap. Landbouwmachines werden groter, goedkoper en effici&euml;nter &mdash; maar om er optimaal gebruik van te maken, moesten de percelen ook groter worden. Houtkanten werden uitgetrokken, sloten gedempt, kleine bosjes gekapt. In de Vlaamse Ardennen, de Kempen en de Westhoek verdween in enkele decennia wat eeuwen lang was opgebouwd.</p>
+
+    <p>De gevolgen voor de natuur zijn zwaar: het aantal akkervogelsoorten (zoals de veldleeuwerik, de patrijs en de grauwe gors) is in Belgi&euml; met meer dan 60% gedaald in de afgelopen 40 jaar. Zonder houtkanten heeft regenwater geen barriere meer: het stroomt sneller af naar rivieren, wat het overstromingsrisico verhoogt. In droge periodes is er minder water dat langzaam in de bodem doordringt.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128650;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Schaalvergroting</span>
+        <p class="begrip-def">Het samenvoegen van kleine landbouwpercelen tot grote akkers om mechanisatie effici&euml;nter te maken. Schaalvergroting gaat vaak gepaard met het verwijderen van houtkanten, het dempen van sloten en het verdwijnen van kleine landschapselementen. Het is een van de hoofdoorzaken van het verlies aan plattelandsnatuur in West-Europa.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#127807;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Houtkant</span>
+        <p class="begrip-def">Een lijnvormig element in het agrarisch landschap bestaande uit struiken, kleine bomen en kruiden langs de rand van akkers, weiden of wegen. Houtkanten functioneren als windscherm, leefgebied voor planten en dieren, corridor tussen natuurgebieden, en zijn van groot belang voor de waterhuishouding en de bestuiving van gewassen.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Verharding: van veld naar parking</h3>
+    <p>Nauw verwant met schaalvergroting is <strong>verharding</strong>: het bedekken van de bodem met een waterdicht materiaal zoals asfalt, beton of klinkers, zodat regenwater er niet meer door kan. Verharding treedt op bij de aanleg van wegen, parking, gebouwen, industrieterreinen en opslagplaatsen.</p>
+
+    <p>Belgi&euml; is &eacute;&eacute;n van de meest dichtbebouwde en verharde landen van Europa. Ongeveer <strong>14% van de Belgische oppervlakte</strong> is kunstmatig afgedekt &mdash; dat is meer dan een op de zeven hectare. Ter vergelijking: het Europese gemiddelde ligt rond 4%. Vlaanderen scoort nog hoger: meer dan 20% van het Vlaamse grondgebied is verhard of bebouwd.</p>
+
+    <p>De gevolgen zijn voelbaar bij hevige regenval. Regenwater dat vroeger in weiden en akkers kon wegsijpelen, stroomt nu snel via riolen en rivieren af. Bij extreme neerslag raken die riolen en rivieren overbelast. De overstromingen van juli 2021 in de Vesder- en Li&egrave;gevallei, maar ook in Luik en Rochefort, waren mede een gevolg van verharding van het stroomgebied.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#127961;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Verharding</span>
+        <p class="begrip-def">Het bedekken van de bodem met ondoordringbare materialen zoals asfalt, beton of klinkers, waardoor regenwater niet meer in de grond kan sijpelen. Verharding verhoogt het overstromingsrisico, vermindert de aanvulling van grondwater en versnelt de afvoer van regenwater naar beken en rivieren.</p>
+      </div>
+    </div>
+
+    <p>Vlaanderen voert inmiddels actief beleid om bijkomende verharding te beperken. De doelstelling van &lsquo;bouwshift&rsquo; houdt in dat tegen 2040 de netto-toename van verharding naar nul gaat, en dat er zelfs ontharding plaatsvindt: parking wordt park, asfalt wordt gras. Gemeenten worden aangemoedigd om parkings te vergroenen en opvangbekkens voor regenwater aan te leggen.</p>
+  </section>
+
+  <!-- SECTION 4: Verstedelijking -->
+  <section class="section-block" id="sectie-4">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Verstedelijking</h2>
+    </div>
+
+    <p>Een van de meest spectaculaire landschapsveranderingen van de twintigste en eenentwintigste eeuw is de <strong>verstedelijking</strong>: de groei van steden ten koste van het platteland. In 1950 woonde slechts 30% van de wereldbevolking in een stad. Vandaag is dat al meer dan <strong>55%</strong>. Tegen 2050 wordt verwacht dat bijna <strong>68%</strong> van de mensen in een stedelijke omgeving woont.</p>
+
+    <h3 class="sub-heading">Urban sprawl en lintbebouwing in Belgi&euml;</h3>
+    <p>Steden groeien niet alleen in de hoogte &mdash; ze groeien ook in de breedte. Dat fenomeen noemen we <strong>urban sprawl</strong> of stedelijke uitdijing: steden breiden geleidelijk uit in de omliggende landbouwgebieden. Woonwijken, bedrijventerreinen, winkelcentra en roads worden aangelegd op wat vroeger akkers of weiden waren.</p>
+
+    <p>Belgi&euml; heeft een eigen variant van urban sprawl ontwikkeld: de <strong>lintbebouwing</strong>. Langs bijna elke gewestweg in Vlaanderen en Walloni&euml; staan huizen aan elkaar geregen, als kralen aan een lint. Dat is het gevolg van een jarenlang soepel bouwbeleid: wie langs een weg woonde, mocht bouwen. Het resultaat is een diffuus bebouwd landschap zonder duidelijke grens tussen stad en platteland. Nergens in Europa zijn zoveel mensen zo verspreid over het platteland als in Belgi&euml;.</p>
+
+    <p>Lintbebouwing heeft grote nadelen: bewoners zijn aangewezen op de auto voor vrijwel elke verplaatsing, want openbaar vervoer is enkel rendabel als er voldoende mensen dicht bij een halte wonen. Het leidt ook tot meer verharding, meer energieverbruik per persoon, en het verdwijnen van landbouwgrond.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#127970;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Verstedelijking</span>
+        <p class="begrip-def">Het proces waarbij een steeds groter deel van de bevolking in steden gaat wonen, en steden in oppervlakte en bevolkingsgrootte toenemen. Verstedelijking gaat gepaard met groei van bebouwde zones, verdwijnen van landbouwgrond, toenemende verharding en verhoogde druk op infrastructuur en openbare diensten.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#127963;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Lintbebouwing</span>
+        <p class="begrip-def">Een Belgisch en Noord-Europees stedenbouwkundig fenomeen waarbij woningen aaneengesloten langs wegen worden gebouwd, wat leidt tot een diffuus bebouwd landschap zonder duidelijke grens tussen stad en platteland. Lintbebouwing maakt effici&euml;nt openbaar vervoer en energiezuinige ruimtelijke ordening moeilijk.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Stadslandbouw: voedsel terug in de stad</h3>
+    <p>Als reactie op de verstedelijking en de bezorgdheid over voedselsystemen groeit een positieve tegenstroom: <strong>stadslandbouw</strong>. In en rond steden worden braakliggende terreinen, daken, gevels en schooltuinen ingezet voor voedselproductie. In Brussel zijn er meer dan 200 officieel erkende stadstuinen. Op de daken van kantoorgebouwen en supermarkten worden groentekassen aangelegd. In onderdoorgangen en verlaten industriegebouwen groeien paddestoelen en kruiden.</p>
+
+    <p>Stadslandbouw heeft voordelen buiten de pure voedselproductie: het vermindert de hitte-eilandeffect in steden (planten koelen de stad af), versterkt sociale banden in wijken, geeft kinderen een band met voedsel en natuur, en verkleint de ecologische voetafdruk van voedsel door de transportafstand te verminderen.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#127823;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Stadslandbouw</span>
+        <p class="begrip-def">De productie van voedsel (groenten, fruit, kruiden, honing) binnen of aan de rand van stedelijke gebieden, op braakliggende terreinen, daken, gevels of in gemeenschapstuinen. Stadslandbouw verkleint de afstand tussen producent en consument, versterkt biodiversiteit in de stad en draagt bij aan sociale cohesie.</p>
+      </div>
+    </div>
+
+    <!-- BRONMATERIAAL 2 -->
+    <div class="bronmateriaal" id="bronmateriaal-2">
+      <span class="bron-label">Bronmateriaal 2 &mdash; Kaart- en luchtfotovergelijking</span>
+      <span class="bron-title">Voor en na: de Zaventem-regio (1960 &ndash; 2020)</span>
+      <span class="bron-meta">Gebaseerd op topografische kaarten NGI (1960) en Geopunt luchtfoto's &amp; PICC-kaartlagen (2020) &nbsp;&middot;&nbsp; Vlaams Gewest</span>
+      <div class="bron-body">
+        <p><strong>Beschrijving kaartfragment 1960:</strong> Het gebied rond Zaventem toont een overwegend agrarisch landschap. Kleine, onregelmatig gevormde akkers en weiden domineren het beeld. Er zijn slechts twee verharde wegen van betekenis: de baan Brussel-Leuven en een lokale dorpsweg. In het noordoosten is een aaneengesloten boszone zichtbaar (resten van het Zonienwoud). De dorpskernen van Zaventem, Sterrebeek en Nossegem zijn kleine, compacte gehelen met een kerk als centraal punt. Er is geen spoor van een luchthaven.</p>
+        <p><strong>Beschrijving luchtfoto 2020:</strong> Het zelfde gebied is nauwelijks herkenbaar. De nationale luchthaven van Brussel-Zaventem beslaat een enorm oppervlak met twee startbanen, taxibanen, een luchthaventerminal, parkings en vrachtgebouwen. Een kluwen van snelwegen &mdash; de E40, de R0 (ring Brussel), en meerdere op- en afritten &mdash; doorkruist het gebied. Distributiecentra en logistieke gebouwen (voor DHL, Amazon, Kuehne+Nagel) clusteren langs de snelwegassen. Nieuwe woonwijken hebben de oorspronkelijke dorpen verbonden tot een aaneengesloten stedelijk gebied. Slechts kleine fragmenten van de oorspronkelijke akkers zijn zichtbaar in de hoeken van het gebied.</p>
+        <p><strong>Vergelijkingstabel: landgebruik Zaventem-regio (bij benadering)</strong></p>
+        <table>
+          <thead>
+            <tr>
+              <th>Landgebruikscategorie</th>
+              <th>Situatie 1960 (% oppervlakte)</th>
+              <th>Situatie 2020 (% oppervlakte)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Bebouwde oppervlakte (wonen + industrie)</td>
+              <td>12%</td>
+              <td>51%</td>
+            </tr>
+            <tr>
+              <td>Landbouwgrond</td>
+              <td>72%</td>
+              <td>21%</td>
+            </tr>
+            <tr>
+              <td>Groen en natuur (bos, park, grasland)</td>
+              <td>16%</td>
+              <td>9%</td>
+            </tr>
+            <tr>
+              <td>Infrastructuur (wegen, luchthaven)</td>
+              <td>&lt;1%</td>
+              <td>19%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="bron-vraag">Welke menselijke ingrepen zijn verantwoordelijk voor de drastische veranderingen in de Zaventem-regio tussen 1960 en 2020? Noem minstens drie categorie&euml;n en geef voor elk een concreet voorbeeld. Koppel elke ingreep aan de juiste categorie uit sectie 1 (energie, transport, bebouwing, landbouw, industrie of toerisme).</p>
+      <span class="bron-source">Bronnen: NGI topografische kaarten 1:25.000, Geopunt.be (AGIV), Brussel Airport Company jaarverslagen</span>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Kies een menselijke ingreep in jouw eigen buurt: een nieuwe weg, een bouwproject, een uitbreiding van een industriegebied of het verdwijnen van een groen terrein. Beschrijf de verandering zo concreet mogelijk: wat was er vroeger, wat is er nu? Bespreek daarna de gevolgen voor minstens twee P&rsquo;s van het 5P-model. Zou jij deze ingreep goedkeuren als je de beslissing mocht nemen?</p>
+    </div>
+
+  </section>
+
+  <!-- SECTION 5: Gevolgen voor de 5 P's -->
+  <section class="section-block" id="sectie-5">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Gevolgen voor de 5 P&rsquo;s</h2>
+    </div>
+
+    <p>In domein 3 heb je het 5P-model leren kennen als een manier om duurzaamheid te beoordelen: <strong>Planet, People, Prosperity, Peace</strong> en <strong>Partnership</strong>. In dit hoofdstuk passen we dat model toe op menselijke ingrepen in het landschap. Voor elk van de vijf P&rsquo;s bekijken we welke gevolgen de ingrepen hebben.</p>
+
+    <table class="vijfp-table">
+      <thead>
+        <tr>
+          <th>P</th>
+          <th>Betekenis</th>
+          <th>Gevolgen van menselijke ingrepen</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="p-label">Planet</td>
+          <td>De toestand van de aarde als ecosysteem</td>
+          <td>Verlies aan biodiversiteit door habitatvernietiging; stijging van CO<sub>2</sub> door ontbossing; bodemdegradatie door monocultuur en erosie; vervuiling van rivieren en grondwater door landbouw en industrie; verstoorde watercyclus door verharding en ontbossing</td>
+        </tr>
+        <tr>
+          <td class="p-label">People</td>
+          <td>Het welzijn en de rechten van mensen</td>
+          <td>Verdrijving van inheemse gemeenschappen door stuwdammen (bv. Drie Klovendam in China: 1,3 miljoen mensen ontheemd) en mijnbouwprojecten; gezondheidsproblemen door luchtvervuiling nabij industriezones; verlies van traditionele leefwijzen door ontbossing; overstromingsslachtoffers door verharding stroomgebieden</td>
+        </tr>
+        <tr>
+          <td class="p-label">Prosperity</td>
+          <td>Economisch welzijn en eerlijke verdeling</td>
+          <td>Op korte termijn economische groei (jobs, export, energie); op lange termijn kosten van overstromingsschade, droogte, gezondheidszorg. In Belgi&euml; bedroegen de overstromingsschades van juli 2021 meer dan 2 miljard euro &mdash; medebepaald door verharding van stroomgebieden</td>
+        </tr>
+        <tr>
+          <td class="p-label">Peace</td>
+          <td>Vrede, veiligheid en conflictpreventie</td>
+          <td>Concurrentie over schaarse hulpbronnen (water, landbouwgrond) leidt tot conflicten; waterstress door droogleggen van rivieren upstream (bv. Nijl-conflict Ethiopi&euml;-Egypte); klimaatvluchtelingen door droogte en overstromingen veroorzaakt door landgebruiksveranderingen; grondstofoorlogen in Congo over mineralen gewonnen door ontbossing</td>
+        </tr>
+        <tr>
+          <td class="p-label">Partnership</td>
+          <td>Samenwerking tussen landen en organisaties</td>
+          <td>Ontbossing, klimaatverandering en biodiversiteitsverlies zijn mondiale problemen die internationale samenwerking vereisen: Klimaatakkoord van Parijs (2015), het Verdrag inzake biologische diversiteit (CBD), het REDD+-programma van de VN (geld voor ontwikkelingslanden om ontbossing te stoppen), EU-biodiversiteitsstrategie 2030</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Het is belangrijk te beseffen dat de gevolgen van &eacute;&eacute;n ingreep meerdere P&rsquo;s tegelijk kunnen raken, en dat de effecten op de korte en lange termijn sterk kunnen verschillen. Een stuwdam geeft op korte termijn energie (Prosperity) en bescherming tegen overstromingen (People), maar heeft op lange termijn effecten op het ecosysteem (Planet), ontheemd gemeenschappen (People) en kan internationale conflicten veroorzaken over gedeelde rivieren (Peace).</p>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Een projectontwikkelaar wil een industrieel park bouwen op de laatste grote groene zone nabij jouw school. Het park zou 500 jobs brengen en de gemeente belastinginkomsten opleveren. Maak een lijstje van de voor- en nadelen voor elk van de 5 P&rsquo;s. Welke P weegt het zwaarst? Wie heeft er de meeste stem in deze beslissing? En wie heeft de minste stem?</p>
+    </div>
+  </section>
+
+  <!-- SECTION 6: Voorbeelden in België -->
+  <section class="section-block" id="sectie-6">
+    <div class="section-heading">
+      <span class="section-num">6</span>
+      <h2 class="section-title">Voorbeelden in Belgi&euml;</h2>
+    </div>
+
+    <p>Belgi&euml; is een klein land, maar het biedt een rijke waaier aan voorbeelden van menselijke ingrepen &mdash; van industrieel erfgoed tot het modernste offshore-windpark. Hieronder verkennen we vijf concrete gevallen.</p>
+
+    <h3 class="sub-heading">De E313 autosnelweg door de Kempen</h3>
+    <p>De E313, die Antwerpen verbindt met Hasselt en verder richting Duitsland, snijdt dwars door de Kempen. Aangelegd in de jaren zestig en zeventig, doorsnijdt ze heidegebieden, dennenbossen en landbouwpercelen. De snelweg heeft aan beide kanten zijn sporen nagelaten: aan de ene kant economische ontwikkeling voor de Limburgse regio (de sluiting van de mijnen compenseren), aan de andere kant geluidsoverlast, luchtvervuiling en barrierewerkingen voor dieren. Faunapassages &mdash; onderdoorgangen en ecoducten &mdash; zijn sindsdien aangelegd om dieren toe te laten de snelweg over te steken, maar hun effectiviteit is beperkt.</p>
+
+    <h3 class="sub-heading">Waterbeheer in de polders</h3>
+    <p>De Belgische polders &mdash; in de kustzone van West-Vlaanderen en Zeeuws-Vlaanderen &mdash; zijn voor een groot deel kunstmatig drooggelegd land. Eeuwenlang werden sloten gegraven, dijken aangelegd en windmolens gebruikt om water weg te pompen. Het huidige landschap is volledig door de mens gemaakt. Dat systeem staat nu onder druk: de zeespiegel stijgt, stormen worden heviger en de zoute druk neemt toe. Projecten als &lsquo;Ruimte voor Water&rsquo; onderzoeken hoe sommige polders gecontroleerd kunnen terugkeren naar hun vroegere staat als zilt getijdengebied &mdash; een ingrijpende, maar duurzame keuze.</p>
+
+    <h3 class="sub-heading">Windmolenparken op de Noordzee</h3>
+    <p>Belgi&euml; heeft een cluster offshore-windparken gebouwd op de Belgische Noordzee: de Thorntonbank, de Bligh Bank en andere zones samen vormen het grootste geconcentreerde offshore-windmolenpark ter wereld per oppervlakte. Ze produceren elektriciteit voor meer dan twee miljoen gezinnen en zijn een essentieel onderdeel van de Belgische energietransitie. Toch zijn ze ook een menselijke ingreep: de fundering van elke windturbine verandert de zeebodem, kabels liggen over de zeebodem, en vogels en vleermuizen kunnen sterven door botsing met de wieken. Onderzoek toont echter ook dat de palen als kunstmatige riffen werken en de visstand kunnen verhogen.</p>
+
+    <h3 class="sub-heading">Herbestemming: de Fordfabriek in Genk</h3>
+    <p>In oktober 2014 sloot de Ford-assemblagefabriek in Genk definitief. Meer dan 4.000 directe jobs verdwenen. De fabriek liet een gigantisch industrieterrein achter: tientallen hectares gebouwen, parkings en infrastructuur midden in de stad. Het terrein wordt nu geleidelijk omgevormd tot &lsquo;Genk Green Valley&rsquo;: een innovatiepark gericht op nieuwe technologie&euml;n, met ook ruimte voor groen, sport en cultuur. Het is een voorbeeld van &lsquo;brownfield-herontwikkeling&rsquo;: in plaats van nieuw open land te bebouwen, wordt vervuild industrieel terrein gereinigd en herbestemd. Zo vermijdt men bijkomende verharding.</p>
+
+    <h3 class="sub-heading">Rewilding in de Ardennen</h3>
+    <p>In de Ardennen, met name in de omgeving van de Hoge Venen en de Semoisvallei, worden rewilding-projecten opgezet: rivieren worden teruggegeven aan hun natuurlijk meanderende loop (die vroeger rechtgetrokken waren), populieren worden vervangen door inheems gemengd bos, en kuddes wilde paarden en runderen worden ingezet om open heide- en graslandschappen te beheren zonder menselijk ingrijpen. Dit is een menselijke ingreep met als doel de natuur meer ruimte te geven &mdash; een boeiende paradox.</p>
+
+    <div class="illustratie" role="img" aria-label="Tijdlijn van menselijke ingrepen in het Belgisch landschap van 1900 tot nu">
+      <span class="ill-icon">&#128198;</span>
+      <p class="ill-caption"><strong>[Illustratie: te plaatsen door de uitgever]</strong><br>Tijdlijn van menselijke ingrepen in het Belgisch landschap van 1900 tot nu. Toont de chronologie van: industrialisering en mijnbouw (1900&ndash;1960), schaalvergroting in de landbouw (1950&ndash;1980), aanleg autosnelwegennet (1960&ndash;1990), lintbebouwing en suburbanisatie (1970&ndash;2000), windenergieprojecten (2000&ndash;heden), bouwshift en rewilding (2015&ndash;heden). Schaal: tijdas horizontaal; type ingreep in kleurgecodeerde banden.</p>
+    </div>
+
+  </section>
+
+</div><!-- end page-wrapper -->
+
+<!-- ============================================================
+     EXERCISES
+============================================================ -->
+<section class="exercises-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <!-- Exercise 1 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Classificeer de menselijke ingrepen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.7rem;">Onderstaande tien landschapsveranderingen zijn elk een voorbeeld van &eacute;&eacute;n van de zes categorie&euml;n menselijke ingrepen uit sectie 1. Koppel elke verandering aan de juiste categorie: <em>energie-infrastructuur, transport-infrastructuur, bebouwing/woongebied, landbouw, industrie</em> of <em>toeristisch-recreatieve voorzieningen</em>.</p>
+      <ol>
+        <li>Er wordt een nieuwe woonverkaveling aangelegd op een voormalige weide aan de rand van een dorp.</li>
+        <li>Een bergriviertje wordt afgedamd om elektriciteit op te wekken; een groot stuwmeer ontstaat.</li>
+        <li>Langs een kustlijn worden nieuwe hotelgebouwen en een jachthaven gebouwd voor toeristen.</li>
+        <li>Tientallen hectares heide worden omgezet in aardbeiplantages met serres.</li>
+        <li>Er wordt een nieuwe containerhaven aangelegd in het mondingsgebied van een rivier.</li>
+        <li>Een verlaten mijnsite wordt omgevormd tot een cementfabriek.</li>
+        <li>Op een heuvelrug worden 15 windturbines geplaatst, zichtbaar over een straal van 20 km.</li>
+        <li>Een smal boerenpad wordt uitgebreid tot een vierbaansgewestweg met fietspad.</li>
+        <li>Honderden hectares bos worden gekapt om een skigebied met meerdere pistes aan te leggen.</li>
+        <li>Een distributiebedrijf bouwt een magazijn van 5 hectare op landbouwgrond langs de snelweg.</li>
+      </ol>
+      <p class="ex-tip">Tip: sommige voorbeelden kunnen in meerdere categorie&euml;n passen &mdash; kies de meest treffende en verantwoord je keuze in &eacute;&eacute;n zin.</p>
+    </div>
+
+    <!-- Exercise 2 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Analyse van bronmateriaal 1 &mdash; Ontbossing in de Amazone</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.7rem;">Raadpleeg bronmateriaal 1 (sectie 2) voor het beantwoorden van de volgende vragen.</p>
+      <ol>
+        <li>In welk decennium was de jaarlijkse ontbossingssnelheid het hoogst? Hoeveel km&sup2; werd er in dat decennium in totaal ontbost (bij benadering)?</li>
+        <li>Vergelijk de periode 2010&ndash;2018 met de periode 2019&ndash;2022. Wat veranderde er in de ontbossingssnelheid? Welke politieke factor speelde daarin een rol? Zoek uit wie Jair Bolsonaro is en welk beleid hij voerde ten aanzien van de Amazone.</li>
+        <li>Beschrijf de typische &lsquo;visgraatstructuur&rsquo; van ontbossing die zichtbaar is op satellietbeelden. Leg uit hoe een centrale toegangsweg de motor is van verdere ontbossing rondom.</li>
+        <li>Leg uit welk verband er bestaat tussen de ontbossing van de Amazone en producten die in Europese supermarkten worden verkocht. Noem minstens twee concrete producten en leg de keten uit.</li>
+      </ol>
+      <p class="ex-tip">Tip: voor vraag 4 kun je op de verpakking van een chocoladereep of een pot pindakaas kijken naar de ingredi&euml;ntenlijst.</p>
+    </div>
+
+    <!-- Exercise 3 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Gevalsstudie: uitbreiding van de haven van Rotterdam</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.7rem;">Lees de volgende beschrijving van een havens-uitbreidingsproject en analyseer de gevolgen voor elk van de 5 P&rsquo;s.</p>
+
+      <div style="background:var(--sand-light);border-left:3px solid var(--oker);padding:0.9rem 1.1rem;margin:0.6rem 0 1rem;border-radius:0 4px 4px 0;font-size:0.94rem;color:var(--text-mid);line-height:1.7;">
+        <strong>Maasvlakte 2 &mdash; Rotterdam (Nederland)</strong><br>
+        In 2008 begon de aanleg van Maasvlakte 2: een kunstmatig eiland van 2.000 hectare in de Noordzee, gewonnen door het storten van zand op de zeebodem. Het eiland is volledig gewijd aan containeroverslag en distributie. Meer dan 65 miljoen ton zand werd gewonnen uit de Noordzee en opgespoten. Op het eiland verrijzen nu enorme automatische kranen, containerterminalen en opslaghallen. De haven verwacht dat Maasvlakte 2 de capaciteit van de haven met 45% vergroot en tienduizenden extra jobs cre&euml;ert in de gehele logistieke keten. Tegelijk verdween een stuk van de Noordzeebodem als leefgebied voor bodemdieren. Het project kostte 3 miljard euro en is mede gefinancierd door de Nederlandse staat. Er werden compenserende natuurgebieden aangelegd aan de kust van Voorne.
+      </div>
+
+      <ol>
+        <li><strong>Planet:</strong> Welke gevolgen heeft de aanleg van Maasvlakte 2 voor het ecosysteem van de Noordzee? Noem minstens twee concrete effecten.</li>
+        <li><strong>People:</strong> Welke mensen profiteren van dit project? Welke mensen of gemeenschappen kunnen er nadeel van ondervinden?</li>
+        <li><strong>Prosperity:</strong> Wat zijn de economische voordelen van dit project? Welke kosten zijn er ook verbonden aan het project?</li>
+        <li><strong>Peace:</strong> Havens zijn strategisch belangrijk voor de aanvoer van grondstoffen en goederen. Op welke manier kan de uitbreiding van Rotterdam een rol spelen in internationale machtsverhoudingen? (Denk aan: wie controleert de goederenstroom naar Europa?)</li>
+        <li><strong>Partnership:</strong> Een project als Maasvlakte 2 heeft grensoverschrijdende effecten (zandwinning in de Noordzee betreft ook Belgische en Britse wateren). Welke vorm van internationale samenwerking is hier nodig?</li>
+      </ol>
+      <p class="ex-tip">Tip: gebruik het 5P-model als een gestructureerde checklist. Schrijf voor elke P minstens twee zinnen.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SUMMARY
+============================================================ -->
+<section class="summary-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>Mensen veranderen het landschap</strong> via zes grote categorie&euml;n ingrepen: energie-infrastructuur, transport-infrastructuur, bebouwing, landbouw, industrie en toeristische-recreatieve voorzieningen. Eens gemaakt, zijn die veranderingen moeilijk of onmogelijk ongedaan te maken.</li>
+      <li><strong>Ontbossing</strong> is de permanente verwijdering van bos voor ander landgebruik. Wereldwijd gaan jaarlijks 10 miljoen hectare bos verloren. De Amazone heeft al meer dan 17% van zijn oppervlakte verloren; de ontbossingssnelheid wordt sterk be&iuml;nvloed door politieke beslissingen.</li>
+      <li><strong>Schaalvergroting in de landbouw</strong> heeft in West-Europa geleid tot het verdwijnen van houtkanten, sloten en kleine bosjes. Dit heeft ernstige gevolgen voor de biodiversiteit (daling van akkervogelsoorten met 60%) en voor de waterhuishouding (snellere afvoer, meer kans op overstromingen).</li>
+      <li><strong>Verharding</strong> treft Belgi&euml; harder dan de meeste andere Europese landen: ruim 14% van de Belgische bodem is kunstmatig afgedekt. Dit vergroot het overstromingsrisico bij hevige regen, omdat het water niet in de bodem kan sijpelen.</li>
+      <li><strong>Verstedelijking</strong> doet de stedelijke bevolking wereldwijd groeien: van 30% in 1950 naar verwacht 68% in 2050. De Belgische lintbebouwing is een specifieke vorm van urban sprawl die landbouwgrond doet verdwijnen en openbaar vervoer bemoeilijkt.</li>
+      <li><strong>Stadslandbouw</strong> is een positieve tegenstroom: voedselproductie keert terug naar de stad via stadstuinen, daktuinen en binnenstedelijke groenprojecten, met voordelen voor biodiversiteit, sociale cohesie en het stadsklimaat.</li>
+      <li><strong>De gevolgen van menselijke ingrepen</strong> raken alle vijf P&rsquo;s: Planet (biodiversiteitsverlies, CO<sub>2</sub>-uitstoot), People (ontheemding, gezondheid), Prosperity (economische baten versus langetermijnkosten), Peace (conflicten over schaarse hulpbronnen) en Partnership (internationale akkoorden zijn noodzakelijk).</li>
+      <li><strong>Belgi&euml; als laboratorium:</strong> de E313 door de Kempen, de polderdrainagesystemen, de offshore-windparken, de herbestemming van de Fordsite in Genk en rewilding-projecten in de Ardennen tonen dat &eacute;&eacute;n klein land een grote verscheidenheid aan menselijke ingrepen &mdash; en reacties daarop &mdash; in zich draagt.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

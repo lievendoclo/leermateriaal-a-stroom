@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H4 — Ik leef in een democratische rechtsstaat | Samenleving &amp; Economie 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --gold: #D4A017;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    /* Extended tokens used internally */
+    --terracotta-light: #D4561E;
+    --gold-light: #E8B82A;
+    --darkblue-light: #243B63;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     CLOSING QUOTE
+  ============================================================ */
+  .closing-quote {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0D1E38 100%);
+    border-radius: var(--border-radius);
+    padding: 3rem 3rem 2.5rem;
+    margin: 3.5rem 0 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.5rem; left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .closing-quote .cq-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--gold);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 1.2rem;
+  }
+
+  .closing-quote .cq-attribution {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(212,160,23,0.6);
+  }
+
+  .closing-quote .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .closing-quote .ornament-line::before,
+  .closing-quote .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.4), transparent);
+  }
+
+  .closing-quote .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.7;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .closing-quote { padding: 2rem 1.2rem 1.8rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     WISKUNDE-SPECIFIC COMPONENTS
+  ============================================================ */
+
+  /* ── REKENVOORBEELD ─────────────────────────────────── */
+  .rekenvoorbeeld {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--oker);
+    border-radius: var(--border-radius);
+    padding: 1.8rem 2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .rekenvoorbeeld .rv-label {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--oker); display: block; margin-bottom: 0.35rem;
+  }
+  .rekenvoorbeeld .rv-vraag {
+    font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700;
+    color: var(--darkblue); margin-bottom: 1rem; line-height: 1.4;
+  }
+  .rv-stappen { list-style: none; padding: 0; counter-reset: stap-teller; margin-bottom: 1rem; }
+  .rv-stappen li {
+    counter-increment: stap-teller;
+    padding: 0.6rem 0.8rem 0.6rem 3.2rem;
+    position: relative;
+    background: var(--creme);
+    border-radius: 4px;
+    margin-bottom: 0.4rem;
+    font-size: 0.97rem;
+  }
+  .rv-stappen li::before {
+    content: counter(stap-teller);
+    position: absolute; left: 0.6rem; top: 50%; transform: translateY(-50%);
+    background: var(--darkblue); color: white;
+    width: 1.7rem; height: 1.7rem; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; font-weight: 700;
+  }
+  .rv-antwoord {
+    background: var(--darkblue); color: var(--gold);
+    padding: 0.75rem 1.1rem; border-radius: 4px;
+    font-weight: 700; font-size: 1rem;
+  }
+  .rv-antwoord math { color: var(--gold); }
+
+  /* ── STELLING ───────────────────────────────────────── */
+  .stelling {
+    background: #EEF3FF;
+    border-left: 4px solid var(--darkblue);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1.2rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .stelling .st-label {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--darkblue); opacity: 0.7;
+    display: block; margin-bottom: 0.35rem;
+  }
+  .stelling .st-body { font-size: 0.97rem; color: var(--text-dark); }
+
+  /* ── FORMULE ────────────────────────────────────────── */
+  .formule {
+    background: var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 1.4rem 1.8rem;
+    text-align: center;
+    margin: 1.8rem 0;
+  }
+  .formule math { color: white; font-size: 1.2rem; }
+  .formule .formule-naam {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--gold); opacity: 0.8;
+    display: block; margin-bottom: 0.5rem;
+  }
+
+  /* ── SVG CONTAINER ──────────────────────────────────── */
+  .svg-container {
+    margin: 1.8rem 0;
+    padding: 1.5rem;
+    background: white;
+    border: 1px solid var(--sand);
+    border-radius: var(--border-radius);
+    overflow-x: auto;
+    text-align: center;
+  }
+  .svg-container .svg-caption {
+    font-size: 0.85rem; color: var(--text-light); font-style: italic;
+    display: block; margin-top: 0.75rem;
+  }
+
+  /* ── DOMEIN GRID ────────────────────────────────────── */
+  .domein-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+    margin: 1.8rem 0;
+  }
+  .domein-card {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 3px solid var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 1.2rem 1.3rem;
+    box-shadow: var(--shadow-sm);
+  }
+  .domein-card .dc-naam {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+  .domein-card .dc-hoofdstukken {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    font-style: italic;
+  }
+  .domein-card .dc-beschrijving {
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    margin-top: 0.5rem;
+    line-height: 1.55;
+  }
+
+  /* ── SYMBOLTABEL ────────────────────────────────────── */
+  .symbool-tabel {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    margin: 1.2rem 0;
+  }
+  .symbool-tabel th {
+    background: var(--darkblue);
+    color: white;
+    padding: 0.5rem 1rem;
+    text-align: left;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    font-size: 0.83rem;
+  }
+  .symbool-tabel td {
+    padding: 0.45rem 1rem;
+    border-bottom: 1px solid var(--sand);
+    color: var(--text-mid);
+  }
+  .symbool-tabel tr:last-child td { border-bottom: none; }
+  .symbool-tabel tr:nth-child(even) td { background: var(--sand-light); }
+  .symbool-tabel .sym { font-size: 1.1rem; font-weight: 700; color: var(--darkblue); }
+
+  /* ── WERKWIJZE LIST ─────────────────────────────────── */
+  .werkwijze-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.2rem 0;
+  }
+  .werkwijze-list li {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 0.8rem 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 0.5rem;
+    background: var(--sand-light);
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.55;
+  }
+  .werkwijze-list li .wl-kleur {
+    flex-shrink: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-top: 0.42rem;
+  }
+  .werkwijze-list li strong { color: var(--darkblue); }
+
+  /* ============================================================
+     SAMENLEVING & ECONOMIE — EXTRA COMPONENTS
+  ============================================================ */
+  .begrip-kader { background: #fff8f5; border-left: 4px solid var(--terracotta); border-radius: 0 6px 6px 0; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+  .begrip-kader strong { color: var(--terracotta); display: block; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem; }
+  .schema-kader { background: var(--sand-light, #F2EAD8); border: 1px solid var(--sand); border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; }
+  .schema-kader h4 { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 0.75rem; color: var(--darkblue); }
+  .niveau-kader { border-radius: 8px; padding: 1.25rem 1.5rem; margin: 0.75rem 0; border-left: 5px solid; }
+  .niveau-kader.gemeente { border-color: var(--terracotta); background: rgba(193,68,14,0.06); }
+  .niveau-kader.provincie { border-color: var(--oker); background: rgba(200,146,58,0.06); }
+  .niveau-kader.gemeenschap { border-color: var(--gold); background: rgba(212,160,23,0.06); }
+  .niveau-kader.federaal { border-color: var(--darkblue); background: rgba(26,43,74,0.06); }
+  .niveau-kader h4 { font-family: 'Playfair Display', serif; font-size: 1rem; margin-bottom: 0.5rem; }
+  .niveau-kader .niveau-tag { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem; display: block; }
+  .principes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 0.75rem; margin: 1.25rem 0; }
+  .principe-item { background: white; border: 1px solid var(--sand); border-radius: 6px; padding: 1rem; }
+  .principe-item strong { display: block; color: var(--darkblue); font-size: 0.9rem; margin-bottom: 0.25rem; }
+  .principe-item span { font-size: 0.85rem; color: var(--text-light); }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <span class="label">Samenleving &amp; Economie</span>
+  <span class="label label-right">H4 &middot; Democratie</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Hoofdstuk 4 &nbsp;&middot;&nbsp; 15% van het examen</div>
+  <h1>Ik leef in een democratische rechtsstaat</h1>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- SECTION 1 — Wat is een democratie? -->
+  <section class="section-block" id="s1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Wat is een democratie?</h2>
+    </div>
+
+    <p>Een democratie is een staatsvorm waarbij de bevolking zelf meebeslist over het bestuur. In een democratie hebben burgers rechten &eacute;n plichten. Belgi&euml; is een <strong>parlementaire democratie</strong> &eacute;n een <strong>rechtsstaat</strong>.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9878;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Rechtsstaat</span>
+        <p class="begrip-def">Een staat waarin wetten en rechten voor iedereen gelden, ook voor de overheid. Geen enkele persoon of instelling staat boven de wet.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9878;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Democratie</span>
+        <p class="begrip-def">Een staatsvorm waarbij het volk &mdash; direct of via vertegenwoordigers &mdash; meebeslist over het bestuur van het land.</p>
+      </div>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Welke rechten heb jij als 12-jarige burger in Belgi&euml;? En welke plichten? Bespreek met een klasgenoot.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 2 — De 7 principes van democratie -->
+  <section class="section-block" id="s2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">De 7 principes van democratie</h2>
+    </div>
+
+    <p>Een ware democratie steunt op zeven fundamentele principes. Samen vormen ze de basis van een vrije en rechtvaardige samenleving.</p>
+
+    <div class="principes-grid">
+      <div class="principe-item">
+        <strong>1. Stemrecht</strong>
+        <span>Alle burgers (18+) mogen stemmen bij verkiezingen.</span>
+      </div>
+      <div class="principe-item">
+        <strong>2. Vrije verkiezingen</strong>
+        <span>Burgers kiezen vrij en zonder dwang hun vertegenwoordigers.</span>
+      </div>
+      <div class="principe-item">
+        <strong>3. Scheiding der machten</strong>
+        <span>Wetgevende, uitvoerende en rechterlijke macht zijn van elkaar gescheiden.</span>
+      </div>
+      <div class="principe-item">
+        <strong>4. Individuele vrijheid</strong>
+        <span>Burgers hebben grondrechten en vrijheden die door de staat worden beschermd.</span>
+      </div>
+      <div class="principe-item">
+        <strong>5. Grondwet</strong>
+        <span>Een grondwet beschermt de basisrechten van burgers en legt de spelregels vast.</span>
+      </div>
+      <div class="principe-item">
+        <strong>6. Vrije meningsuiting &amp; persvrijheid</strong>
+        <span>Iedereen mag zijn mening zeggen; de pers is vrij en onafhankelijk.</span>
+      </div>
+      <div class="principe-item">
+        <strong>7. Gelijkheid</strong>
+        <span>Iedereen is gelijk voor de wet, ongeacht afkomst, geslacht of geloof.</span>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Democratie vs. dictatuur</h3>
+
+    <p>Niet alle landen zijn democratisch. In een <strong>autoritair regime</strong> of <strong>dictatuur</strong> bepaalt &eacute;&eacute;n persoon of een kleine groep alles. Er zijn geen vrije verkiezingen, geen persvrijheid en de rechterlijke macht is niet onafhankelijk. Burgers hebben weinig of geen inspraak.</p>
+
+    <div class="schema-kader">
+      <h4>Vergelijking: Democratie vs. Dictatuur</h4>
+      <table style="width:100%;border-collapse:collapse;font-size:0.93rem;">
+        <thead>
+          <tr>
+            <th style="background:var(--darkblue);color:white;padding:0.5rem 1rem;text-align:left;font-weight:600;">Kenmerk</th>
+            <th style="background:var(--darkblue);color:var(--gold);padding:0.5rem 1rem;text-align:left;font-weight:600;">Democratie</th>
+            <th style="background:var(--darkblue);color:#e88;padding:0.5rem 1rem;text-align:left;font-weight:600;">Dictatuur</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding:0.45rem 1rem;border-bottom:1px solid var(--sand);color:var(--text-mid);">Verkiezingen</td>
+            <td style="padding:0.45rem 1rem;border-bottom:1px solid var(--sand);color:var(--text-mid);">Vrij en eerlijk</td>
+            <td style="padding:0.45rem 1rem;border-bottom:1px solid var(--sand);color:var(--text-mid);">Niet of nep</td>
+          </tr>
+          <tr style="background:rgba(232,220,200,0.3);">
+            <td style="padding:0.45rem 1rem;border-bottom:1px solid var(--sand);color:var(--text-mid);">Persvrijheid</td>
+            <td style="padding:0.45rem 1rem;border-bottom:1px solid var(--sand);color:var(--text-mid);">Gegarandeerd</td>
+            <td style="padding:0.45rem 1rem;border-bottom:1px solid var(--sand);color:var(--text-mid);">Gecensureerd</td>
+          </tr>
+          <tr>
+            <td style="padding:0.45rem 1rem;border-bottom:1px solid var(--sand);color:var(--text-mid);">Rechterlijke macht</td>
+            <td style="padding:0.45rem 1rem;border-bottom:1px solid var(--sand);color:var(--text-mid);">Onafhankelijk</td>
+            <td style="padding:0.45rem 1rem;border-bottom:1px solid var(--sand);color:var(--text-mid);">Gecontroleerd</td>
+          </tr>
+          <tr style="background:rgba(232,220,200,0.3);">
+            <td style="padding:0.45rem 1rem;color:var(--text-mid);">Inspraak burger</td>
+            <td style="padding:0.45rem 1rem;color:var(--text-mid);">Centraal</td>
+            <td style="padding:0.45rem 1rem;color:var(--text-mid);">Beperkt of afwezig</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Welk principe van democratie vind jij het belangrijkste? Waarom? Zou een land nog een echte democratie zijn als &eacute;&eacute;n van die principes ontbreekt?</p>
+    </div>
+  </section>
+
+  <!-- SECTION 3 — De scheiding der machten -->
+  <section class="section-block" id="s3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">De scheiding der machten</h2>
+    </div>
+
+    <p>In Belgi&euml; &mdash; en in elke democratie &mdash; zijn er drie machten die elk een andere rol vervullen. Zij controleren elkaar zodat geen enkele macht te groot wordt. Dit noemt men de <strong>trias politica</strong>.</p>
+
+    <div class="schema-kader">
+      <h4>De drie machten in Belgi&euml;</h4>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:0.75rem;margin-top:0.5rem;">
+        <div style="background:white;border:1px solid var(--sand);border-top:4px solid var(--terracotta);border-radius:6px;padding:1.1rem 1.2rem;">
+          <span style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--terracotta);display:block;margin-bottom:0.4rem;">Wetgevende macht</span>
+          <strong style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--darkblue);display:block;margin-bottom:0.35rem;">Het Parlement</strong>
+          <p style="font-size:0.88rem;color:var(--text-mid);margin:0;line-height:1.6;">Stelt wetten op en controleert de regering. Bestaat uit volksvertegenwoordigers die rechtstreeks verkozen worden door de burgers.</p>
+        </div>
+        <div style="background:white;border:1px solid var(--sand);border-top:4px solid var(--oker);border-radius:6px;padding:1.1rem 1.2rem;">
+          <span style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--oker);display:block;margin-bottom:0.4rem;">Uitvoerende macht</span>
+          <strong style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--darkblue);display:block;margin-bottom:0.35rem;">De Regering</strong>
+          <p style="font-size:0.88rem;color:var(--text-mid);margin:0;line-height:1.6;">Voert de wetten uit en bestuurt het land. Bestaat uit de minister-president (premier) en ministers die elk een domein beheren.</p>
+        </div>
+        <div style="background:white;border:1px solid var(--sand);border-top:4px solid var(--darkblue);border-radius:6px;padding:1.1rem 1.2rem;">
+          <span style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--darkblue);display:block;margin-bottom:0.4rem;">Rechterlijke macht</span>
+          <strong style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--darkblue);display:block;margin-bottom:0.35rem;">De Rechtbanken</strong>
+          <p style="font-size:0.88rem;color:var(--text-mid);margin:0;line-height:1.6;">Beoordeelt conflicten en misdrijven. Rechters zijn onafhankelijk en passen de wet toe zonder invloed van de politiek.</p>
+        </div>
+      </div>
+    </div>
+
+    <p>Deze drie machten <strong>controleren elkaar</strong>: het parlement controleert de regering, de rechtbanken oordelen of wetten de grondwet respecteren, en de regering kan wetten voorstellen maar niet zelf goedkeuren. Zo kan geen enkele macht alles alleen beslissen.</p>
+
+    <div class="stelling">
+      <span class="st-label">Belangrijk principe</span>
+      <p class="st-body">De scheiding der machten werd voor het eerst grondig beschreven door de Franse filosoof <strong>Montesquieu</strong> (1748). Hij stelde dat vrijheid alleen mogelijk is als de drie machten gescheiden zijn en elkaar in evenwicht houden.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 4 — De bestuursniveaus van België -->
+  <section class="section-block" id="s4">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">De bestuursniveaus van Belgi&euml;</h2>
+    </div>
+
+    <p>Belgi&euml; heeft <strong>4 bestuursniveaus</strong>, van dichtstbij de burger tot het hoogste nationale niveau. Elk niveau heeft zijn eigen bevoegdheden en bestuursinstellingen.</p>
+
+    <div class="niveau-kader gemeente">
+      <span class="niveau-tag" style="color:var(--terracotta);">Niveau 1 &mdash; Laagste niveau</span>
+      <h4>Gemeente / Stad</h4>
+      <p style="font-size:0.93rem;color:var(--text-mid);margin-bottom:0.6rem;line-height:1.65;">Het dichtst bij de burger. Verantwoordelijk voor dagelijkse zaken: straten en riolen, lokale politie, basisscholen, OCMW (Openbaar Centrum voor Maatschappelijk Welzijn), bibliotheek, sportinfrastructuur.</p>
+      <p style="font-size:0.88rem;color:var(--text-mid);margin:0;"><strong>Bestuur:</strong> <em>College van burgemeester en schepenen</em> (uitvoerend) + <em>Gemeenteraad</em> (wetgevend)</p>
+    </div>
+
+    <div class="niveau-kader provincie">
+      <span class="niveau-tag" style="color:var(--oker);">Niveau 2 &mdash; Tussenniveau</span>
+      <h4>Provincie</h4>
+      <p style="font-size:0.93rem;color:var(--text-mid);margin-bottom:0.6rem;line-height:1.65;">Co&ouml;rdineert de gemeenten. Verantwoordelijk voor: toerisme, provinciale wegen, provinciale scholen en instellingen, milieu op provinciaal niveau. Belgi&euml; heeft 5 Vlaamse, 5 Waalse en de provincie Waals-Brabant.</p>
+      <p style="font-size:0.88rem;color:var(--text-mid);margin:0;"><strong>Bestuur:</strong> <em>Gedeputeerden + gouverneur</em> (uitvoerend) + <em>Provincieraad</em> (wetgevend)</p>
+    </div>
+
+    <div class="niveau-kader gemeenschap">
+      <span class="niveau-tag" style="color:var(--gold);">Niveau 3 &mdash; Belgisch federalisme</span>
+      <h4>Gemeenschappen en Gewesten</h4>
+      <p style="font-size:0.93rem;color:var(--text-mid);margin-bottom:0.9rem;line-height:1.65;">Belgi&euml; is een <strong>federale staat</strong> met een unieke structuur: het heeft zowel gemeenschappen als gewesten naast elkaar. Dit maakt Belgi&euml; uniek in de wereld.</p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;">
+        <div style="background:white;border:1px solid rgba(212,160,23,0.3);border-radius:6px;padding:0.9rem 1rem;">
+          <strong style="font-family:'Playfair Display',serif;font-size:0.95rem;color:var(--darkblue);display:block;margin-bottom:0.4rem;">Gewesten</strong>
+          <p style="font-size:0.83rem;color:var(--text-mid);margin-bottom:0.5rem;line-height:1.55;"><em>Grondgebiedgebonden</em> &mdash; bevoegdheden op basis van grondgebied: economie, milieu, mobiliteit, ruimtelijke ordening, wonen.</p>
+          <ul style="padding-left:1.1rem;font-size:0.83rem;color:var(--text-mid);">
+            <li>Vlaams Gewest</li>
+            <li>Waals Gewest</li>
+            <li>Brussels Hoofdstedelijk Gewest</li>
+          </ul>
+        </div>
+        <div style="background:white;border:1px solid rgba(212,160,23,0.3);border-radius:6px;padding:0.9rem 1rem;">
+          <strong style="font-family:'Playfair Display',serif;font-size:0.95rem;color:var(--darkblue);display:block;margin-bottom:0.4rem;">Gemeenschappen</strong>
+          <p style="font-size:0.83rem;color:var(--text-mid);margin-bottom:0.5rem;line-height:1.55;"><em>Persoonsgebonden</em> &mdash; bevoegdheden op basis van taal en cultuur: onderwijs, cultuur, media, welzijn, jeugd.</p>
+          <ul style="padding-left:1.1rem;font-size:0.83rem;color:var(--text-mid);">
+            <li>Vlaamse Gemeenschap</li>
+            <li>Franse Gemeenschap (F&eacute;d&eacute;ration Wallonie-Bruxelles)</li>
+            <li>Duitstalige Gemeenschap</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="begrip-kader" style="margin-top:0.9rem;">
+        <strong>Vlaams bijzonder geval</strong>
+        In Vlaanderen zijn het Vlaamse Gewest en de Vlaamse Gemeenschap samengevoegd tot &eacute;&eacute;n bestuursniveau: de <strong>Vlaamse overheid</strong>, met de Vlaamse Regering en het Vlaams Parlement.
+      </div>
+    </div>
+
+    <div class="niveau-kader federaal">
+      <span class="niveau-tag" style="color:var(--darkblue);">Niveau 4 &mdash; Hoogste niveau</span>
+      <h4>Federale overheid</h4>
+      <p style="font-size:0.93rem;color:var(--text-mid);margin-bottom:0.6rem;line-height:1.65;">Beheert nationale zaken die alle Belgen aangaan: defensie (leger), sociale zekerheid (pensioenen, werkloosheid), justitie, federale politie, buitenlandse zaken, spoorwegen.</p>
+      <p style="font-size:0.88rem;color:var(--text-mid);margin:0;"><strong>Bestuur:</strong> <em>Federale Regering + eerste minister</em> (uitvoerend) + <em>Federaal Parlement: Kamer van Volksvertegenwoordigers + Senaat</em> (wetgevend)</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Waarom heeft Belgi&euml; zowel gewesten als gemeenschappen? Welk probleem wilde men hiermee oplossen? Denk aan de taalverschillen en de economische verschillen in ons land.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 5 — Rechten en plichten -->
+  <section class="section-block" id="s5">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Rechten en plichten van de burger</h2>
+    </div>
+
+    <p>Als burger in een democratische rechtsstaat heb je zowel <strong>rechten</strong> als <strong>plichten</strong>. Rechten beschermen jou; plichten zorgen ervoor dat de samenleving goed kan functioneren.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0;">
+      <div style="background:#f0f7f0;border:1px solid rgba(60,140,60,0.25);border-left:4px solid #3c8c3c;border-radius:6px;padding:1.2rem 1.4rem;">
+        <strong style="font-family:'Playfair Display',serif;font-size:1rem;color:#2a6a2a;display:block;margin-bottom:0.7rem;">Rechten (grondrechten)</strong>
+        <ul style="padding-left:1.2rem;font-size:0.92rem;color:var(--text-mid);line-height:1.75;">
+          <li>Vrije meningsuiting</li>
+          <li>Recht op onderwijs</li>
+          <li>Recht op gezondheidszorg</li>
+          <li>Recht op een eerlijk proces</li>
+          <li>Vrijheid van godsdienst</li>
+          <li>Recht op privacy</li>
+          <li>Vrijheid van vereniging</li>
+        </ul>
+      </div>
+      <div style="background:#fff5f0;border:1px solid rgba(193,68,14,0.2);border-left:4px solid var(--terracotta);border-radius:6px;padding:1.2rem 1.4rem;">
+        <strong style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--terracotta);display:block;margin-bottom:0.7rem;">Plichten</strong>
+        <ul style="padding-left:1.2rem;font-size:0.92rem;color:var(--text-mid);line-height:1.75;">
+          <li>Belastingen betalen</li>
+          <li>Wetten naleven</li>
+          <li><strong>Stemmen</strong> (Belgi&euml; = stemplicht!)</li>
+          <li>Schoolplicht tot 18 jaar</li>
+          <li>Meewerken aan de jury</li>
+          <li>Anderen respecteren</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Inspraak en participatie</h3>
+
+    <p>Burgers in een democratie kunnen actief meewerken aan het beleid, niet alleen via verkiezingen. Er zijn verschillende manieren om je stem te laten horen:</p>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.5rem"><strong>Verkiezingen:</strong> elke 4 of 5 jaar vertegenwoordigers kiezen op alle niveaus.</li>
+      <li style="margin-bottom:0.5rem"><strong>Petities:</strong> een handtekeningenlijst indienen om iets te vragen of te protesteren.</li>
+      <li style="margin-bottom:0.5rem"><strong>Openbare consultaties:</strong> de overheid vraagt de mening van burgers over nieuwe plannen.</li>
+      <li style="margin-bottom:0.5rem"><strong>Lokale inspraakprocedures:</strong> bij bouwprojecten of bestemmingsplannen kunnen buurtbewoners bezwaar indienen.</li>
+      <li style="margin-bottom:0.5rem"><strong>Politieke partijen en vakbonden:</strong> lid worden en actief deelnemen aan het politieke leven.</li>
+    </ul>
+
+    <div class="stelling">
+      <span class="st-label">Stemplicht in Belgi&euml;</span>
+      <p class="st-body">Belgi&euml; is een van de weinige landen ter wereld met een <strong>stemplicht</strong>: elke Belg van 18 jaar en ouder is verplicht te gaan stemmen. Wie niet stemt zonder geldige reden kan een boete krijgen. Het idee achter de stemplicht is dat democratie het best werkt als zoveel mogelijk burgers deelnemen.</p>
+    </div>
+
+    <!-- CLOSING QUOTE -->
+    <div class="closing-quote" role="note" aria-label="Slotcitaat">
+      <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+      <p class="cq-text">De democratie is het slechtste regeringssysteem, op alle andere na die al eens zijn uitgeprobeerd.</p>
+      <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+      <span class="cq-attribution">Winston Churchill &nbsp;&middot;&nbsp; 1947</span>
+    </div>
+
+  </section>
+
+</div><!-- end page-wrapper -->
+
+<!-- EXERCISES -->
+<section class="exercises-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">De drie machten</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);">Noem de 3 machten in een democratie. Wat doet elk van hen? Geef voor elke macht een concreet Belgisch voorbeeld van een instelling die ertoe behoort.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Bestuursniveaus</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);">Welk bestuursniveau is verantwoordelijk voor elk van de volgende zaken?</p>
+      <ol>
+        <li>De lokale sporthal in jouw gemeente</li>
+        <li>Je schoolcurriculum (welke vakken je volgt)</li>
+        <li>De nationale spoorwegen (NMBS)</li>
+        <li>De snelweg in jouw provincie</li>
+        <li>De Vlaamse openbare omroep (VRT)</li>
+      </ol>
+      <p class="ex-tip">Tip: denk na of het een nationale, regionale, gemeenschaps- of lokale zaak is.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Scheiding der machten</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);">Waarom is de scheiding der machten zo belangrijk? Wat kan er misgaan als &eacute;&eacute;n macht alles controleert? Geef een historisch of huidig voorbeeld van een land waar dit mis is gegaan.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 4</p>
+      <p class="ex-name">Gewesten en gemeenschappen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);">Wat is het verschil tussen een gewest en een gemeenschap in Belgi&euml;?</p>
+      <ol>
+        <li>Leg het verschil uit in eigen woorden.</li>
+        <li>Geef twee concrete bevoegdheden van een gewest.</li>
+        <li>Geef twee concrete bevoegdheden van een gemeenschap.</li>
+        <li>Waarom zijn het Vlaamse Gewest en de Vlaamse Gemeenschap samengevoegd? Wat is het voordeel hiervan?</li>
+      </ol>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 5</p>
+      <p class="ex-name">Rechten en plichten</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);">Als Belgisch burger heb je zowel rechten als plichten.</p>
+      <ol>
+        <li>Noem 3 grondrechten die jij als Belgisch burger hebt.</li>
+        <li>Noem 2 burgerplichten.</li>
+        <li>Waarom heeft Belgi&euml; een stemplicht? Ben jij het eens met dit systeem? Verdedig je standpunt.</li>
+      </ol>
+      <p class="ex-tip">Tip: gebruik de begrippen &ldquo;democratie&rdquo; en &ldquo;participatie&rdquo; in je antwoord op vraag 3.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="summary-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>Democratie</strong> steunt op 7 principes: stemrecht, vrije verkiezingen, scheiding der machten, individuele vrijheid, grondwet, persvrijheid en gelijkheid voor de wet.</li>
+      <li><strong>Rechtsstaat:</strong> wetten gelden voor iedereen, ook voor de overheid &mdash; niemand staat boven de wet.</li>
+      <li><strong>Scheiding der machten (trias politica):</strong> wetgevende macht (parlement), uitvoerende macht (regering), rechterlijke macht (rechtbanken) &mdash; zij controleren elkaar.</li>
+      <li><strong>Bestuursniveaus in Belgi&euml;:</strong> gemeente &rarr; provincie &rarr; gemeenschappen &amp; gewesten &rarr; federale overheid.</li>
+      <li><strong>Gewesten</strong> = grondgebiedgebonden (economie, milieu, mobiliteit); <strong>Gemeenschappen</strong> = persoonsgebonden (onderwijs, cultuur, welzijn).</li>
+      <li>In Vlaanderen zijn gewest en gemeenschap samengevoegd tot de <strong>Vlaamse overheid</strong>.</li>
+      <li>Als burger heb je <strong>rechten</strong> (vrije meningsuiting, recht op onderwijs&hellip;) en <strong>plichten</strong> (belastingen, stemplicht, schoolplicht&hellip;).</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">Naar boven &#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

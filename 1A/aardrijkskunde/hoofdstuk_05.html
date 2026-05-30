@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoofdstuk 5 — Menselijke landschapselementen | Aardrijkskunde 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     ILLUSTRATIE PLACEHOLDERS
+  ============================================================ */
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+    cursor: default;
+    transition: background var(--transition);
+  }
+
+  .illustratie:hover { background: #EDE7D8; }
+
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     BRONMATERIAAL — geographic source / map / data block
+     Key component for Aardrijkskunde: use for map descriptions,
+     climate tables, satellite image descriptions, GPS data, etc.
+  ============================================================ */
+  .bronmateriaal {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 2rem 2.2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .bronmateriaal .bron-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--darkblue);
+    opacity: 0.6;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  .bronmateriaal .bron-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  .bronmateriaal .bron-meta {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    font-style: italic;
+    margin-bottom: 0.9rem;
+    display: block;
+  }
+
+  .bronmateriaal .bron-body { margin-bottom: 0.8rem; }
+
+  .bronmateriaal .bron-body p {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-bottom: 0.6em;
+  }
+
+  .bronmateriaal .bron-body p:last-child { margin-bottom: 0; }
+
+  .bronmateriaal .bron-body table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+  }
+
+  .bronmateriaal .bron-body th {
+    background: var(--darkblue);
+    color: white;
+    padding: 0.4rem 0.75rem;
+    text-align: left;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    font-size: 0.83rem;
+  }
+
+  .bronmateriaal .bron-body td {
+    padding: 0.35rem 0.75rem;
+    border-bottom: 1px solid var(--sand);
+    color: var(--text-mid);
+    font-size: 0.93rem;
+  }
+
+  .bronmateriaal .bron-body tr:last-child td { border-bottom: none; }
+
+  .bronmateriaal .bron-body tr:nth-child(even) td {
+    background: var(--sand-light);
+  }
+
+  .bronmateriaal .bron-vraag {
+    background: rgba(26,43,74,0.06);
+    border-left: 3px solid var(--darkblue);
+    border-radius: 0 4px 4px 0;
+    padding: 0.7rem 1rem;
+    font-size: 0.93rem;
+    color: var(--text-mid);
+    font-style: italic;
+    margin-top: 1rem;
+  }
+
+  .bronmateriaal .bron-vraag::before {
+    content: '🔍 ';
+    font-style: normal;
+  }
+
+  .bronmateriaal .bron-source {
+    font-size: 0.78rem;
+    color: var(--text-light);
+    border-top: 1px solid var(--sand);
+    padding-top: 0.6rem;
+    font-style: italic;
+    margin-top: 0.8rem;
+    display: block;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     CLOSING QUOTE
+  ============================================================ */
+  .closing-quote {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0D1E38 100%);
+    border-radius: var(--border-radius);
+    padding: 3rem 3rem 2.5rem;
+    margin: 3.5rem 0 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.5rem; left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .closing-quote .cq-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--gold);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 1.2rem;
+  }
+
+  .closing-quote .cq-attribution {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(212,160,23,0.6);
+  }
+
+  .closing-quote .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .closing-quote .ornament-line::before,
+  .closing-quote .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.4), transparent);
+  }
+
+  .closing-quote .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.7;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .closing-quote { padding: 2rem 1.2rem 1.8rem; }
+    .bronmateriaal { padding: 1.4rem 1.2rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <a class="label" href="index.html">Aardrijkskunde 1A</a>
+  <span class="label label-right">Hoofdstuk 5</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Aardrijkskunde &nbsp;&middot;&nbsp; 1A &nbsp;&middot;&nbsp; Domein 2</div>
+  <h1>Hoofdstuk 5<br>Menselijke landschapselementen</h1>
+  <p class="subtitle">Hoe laat de mens zijn sporen na in het landschap?</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- PROLOGUE -->
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Stel je voor &hellip;</span>
+
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+
+    <p>Je zit aan het raam van een vliegtuig dat op 10 000 meter hoogte over Belgi&euml; vliegt. Het is een heldere dag in september. Beneden je strekt zich een lappendeken uit die je de adem beneemt.</p>
+
+    <p>Grote rechthoekige vlakken in oranje, geel en lichtbruin &mdash; dat zijn de graanakkers en suikerbietvelden van Brabant en Haspengouw, net na de oogst. Donkergroene weiden vol kleine witte vlekjes: schapen en koeien in de Ardennen. Dan plots: een grijze warboel van daken, torens en wegen &mdash; de rand van Luik. Een breed zilvergrijs lint slingert door het landschap, begeleind door vier rijstroken die fonkelen in het ochtendlicht: de E40, een van de drukste autosnelwegen van Europa. Aan de kust zie je het patroon van serres, reusachtige glasplaten die als spiegels de zon weerkaatsen. In de haven van Antwerpen liggen silo&rsquo;s, kranen en opgeslagen containers in rijen zo ver het oog reikt.</p>
+
+    <p>Niets van wat je ziet, is door de natuur alleen gemaakt. De velden, de fabrieken, de wegen, de wijken, de serres, de havens &mdash; dit alles is het werk van mensen. <strong style="color: var(--gold);">Dit zijn de menselijke landschapselementen, en ze vertellen het verhaal van hoe de mens de aarde heeft getekend.</strong></p>
+
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+  </section>
+
+  <!-- INTRO TEKST -->
+  <p>In de vorige hoofdstukken leerde je de <em>fysische</em> landschapselementen kennen: het reli&euml;f, de bodem, het klimaat, de vegetatie en het water. Die zijn gevormd door de natuur, dikwijls over duizenden jaren. In dit hoofdstuk bekijk je de tweede grote groep: de <strong>menselijke landschapselementen</strong>. Dit zijn alle sporen die de mens in het landschap achterlaat: van een enkel boerderijtje tot een hele industriestad, van een fietspad tot een autosnelweg, van een kleine moestuin tot een uitgestrekt poldergebied.</p>
+
+  <p>Belgi&euml; is een van de dichtst bevolkte landen van Europa. Dat merk je overal: amper een vierkante kilometer in ons land is volledig ongerept. Zelfs in de Ardennen, waar de bossen het dichtst zijn, vind je kapvlakten, wandelpaden en vakantiehuisjes. De menselijke druk op het landschap is enorm &mdash; en die druk laat sporen na die je kunt herkennen, beschrijven en verklaren.</p>
+
+  <div class="denkvraag" role="note">
+    <div class="dv-header">&#128161; Denkvraag</div>
+    <p class="dv-text">Kijk eens rond buiten je raam of denk aan de omgeving van je school. Welke menselijke landschapselementen zie je? Probeer er minstens vijf te benoemen voordat je verder leest.</p>
+  </div>
+
+  <!-- SECTION 1: Landbouw -->
+  <section class="section-block" id="landbouw">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Landbouw &mdash; de meest zichtbare menselijke laag</h2>
+    </div>
+
+    <p>Als je een satellietfoto van Belgi&euml; bekijkt, dan valt &eacute;&eacute;n ding meteen op: het overgrote deel van ons land is bedekt met landbouwgrond. Akkers, weiden, boomgaarden en serres &mdash; samen vormen ze verreweg het grootste menselijke landschapselement. In Vlaanderen is ruim 45% van de oppervlakte landbouwgebied; in Walloni&euml; is dat zelfs meer dan 50%.</p>
+
+    <p>Maar <em>landbouw</em> is niet &eacute;&eacute;n ding. Er zijn verschillende soorten, en elke soort tekent het landschap op een heel andere manier. Je kunt vier grote typen onderscheiden.</p>
+
+    <h3 class="sub-heading">Akkerbouw</h3>
+    <p>Bij <strong>akkerbouw</strong> worden gewassen geteeld op akkers: planten die elk jaar worden gezaaid, gekweekt en geoogst. De typische gewassen in Belgi&euml; zijn tarwe en gerst (voor brood en bier), aardappelen en suikerbieten. Je herkent akkerbouwgebied aan de grote, geometrische veldpatronen: in de zomer staan de graanvelden goudgeel, in het najaar zijn de akkers omgeploegde bruine stroken. De sterkste akkerbouwregio&rsquo;s van Belgi&euml; zijn <strong>Brabant</strong> (zowel Vlaams als Waals) en <strong>Haspengouw</strong> in de provincie Li&egrave;ge, waar de vruchtbare leembodem ideaal is voor deze teelten.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#127807;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Akkerbouw</span>
+        <p class="begrip-def">Een vorm van landbouw waarbij gewassen zoals graan, aardappelen en suikerbieten op akkers worden verbouwd. Het landschapsbeeld wordt gekenmerkt door grote, open velden die van kleur wisselen met de seizoenen.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Veeteelt</h3>
+    <p>Bij <strong>veeteelt</strong> worden dieren gehouden voor vlees, melk, eieren of wol. De dieren grazen op weilanden of worden in stallen gevoerd. Het landschapsbeeld is heel anders dan bij akkerbouw: je ziet groene grasvlakten met grazende koeien of schapen, omgeven door heggen of prikkeldraadafrastering. In Belgi&euml; is veeteelt het sterkst aanwezig in de <strong>Ardennen</strong>, waar de bodem minder vruchtbaar is voor akkerbouw maar waar het gras goed groeit dankzij de hogere neerslag. Ook het Hageland en de Kempen kennen veel veeteelt.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128004;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Veeteelt</span>
+        <p class="begrip-def">Een vorm van landbouw waarbij dieren (koeien, varkens, kippen, schapen) worden gehouden voor hun producten: vlees, melk, eieren of wol. Het landschap wordt gekenmerkt door groene weilanden en boerderijen met stallen.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Gemengde landbouw</h3>
+    <p>In de praktijk combineren veel boeren akkerbouw en veeteelt op hetzelfde bedrijf. Dat heet <strong>gemengde landbouw</strong>. De boer verbouwt gewassen &eacute;n houdt dieren. Zo kan hij de gewasresten als veevoer gebruiken en de mest van de dieren als natuurlijke meststof voor de akkers. Dit type landbouw was vroeger dominant in heel Belgi&euml;; vandaag is het minder frequent omdat veel boeren zich specialiseren. Je treft het nog aan in de overgangsgebieden tussen de akkerbouwstreek en de veeteeltstreek, zoals in het zuiden van de Kempen.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#127823;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Gemengde landbouw</span>
+        <p class="begrip-def">Een landbouwvorm waarbij op hetzelfde bedrijf zowel gewassen worden verbouwd (akkerbouw) als dieren worden gehouden (veeteelt). Beide activiteiten vullen elkaar aan: gewassen dienen als veevoer, dierenmest als akkermeststof.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Tuinbouw en serre-teelt</h3>
+    <p>De vierde grote vorm is de <strong>tuinbouw</strong>: de teelt van groenten, fruit en sierplanten. Bij tuinbouw gaat het vaak om kleinere, intensief bewerkte percelen. Een bijzondere vorm is de <strong>serre-teelt</strong>: planten worden gekweekt in grote glazen kassen, zodat het klimaat volledig gecontroleerd kan worden ongeacht het weer buiten. Het belangrijkste serre-gebied van Belgi&euml; ligt rond <strong>Roeselare</strong> in West-Vlaanderen, waar tomaten, paprika&rsquo;s en komkommers worden geteeld. Vanuit de lucht zijn de serres onmiddellijk herkenbaar als glimmende rechthoekige vlakken.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#127809;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Tuinbouw</span>
+        <p class="begrip-def">De teelt van groenten, fruit, bloemen en sierplanten, vaak op kleine intensief bewerkte percelen. Serre-teelt is een specifieke vorm waarbij planten in glazen kassen worden verbouwd onder een gecontroleerd klimaat.</p>
+      </div>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Waarom zou akkerbouw meer voorkomen op de vruchtbare leembodems van Brabant en Haspengouw, terwijl veeteelt dominanter is in de Ardennen? Welk verband is er tussen de bodem, het reli&euml;f en het type landbouw? Bespreek met een klasgenoot.</p>
+    </div>
+  </section>
+
+  <!-- BRONMATERIAAL 1 -->
+  <div class="bronmateriaal" id="bron1">
+    <span class="bron-label">Bronmateriaal 1 &mdash; Luchtfoto-beschrijving</span>
+    <span class="bron-title">Satellietbeeldbeschrijving: Vlaamse Polders (West-Vlaanderen)</span>
+    <span class="bron-meta">Satellietbeeld gebaseerd op Sentinel-2 opname &nbsp;&middot;&nbsp; Zomer 2023 &nbsp;&middot;&nbsp; Schaal ca. 1:25.000</span>
+    <div class="bron-body">
+      <p>Op dit satellietbeeld is een uitgestrekt polderlandschap in West-Vlaanderen zichtbaar, ten noorden van Diksmuide, dicht bij de Belgische kust. Het beeld toont een typisch vlak, laaggelegen landschap dat eeuwenlang door mensen is ingepolderd en drooggelegd.</p>
+      <p><strong>Veldpatroon.</strong> De meest opvallende eigenschap zijn de geometrische, rechthoekige percelen die het beeld domineren. Ze zijn streng geometrisch van vorm &mdash; recht afgesneden hoeken, rechte randen &mdash; wat erop wijst dat dit landschap door mensen is ingedeeld en niet organisch gegroeid is. De percelen zijn ingekleurd in verschillende tinten: geel-oranje percelen (geoogste graanakkers), lichtgroen (weilanden met gras) en donkerder groen (gewassen die nog op het veld staan, zoals aardappelen of bieten).</p>
+      <p><strong>Waterlopen.</strong> Tussen de percelen lopen smalle, rechte blauwe lijnen: dit zijn <em>sloten</em> (ook wel <em>greppels</em> of <em>drainagekanalen</em> genoemd). Ze zijn aangelegd om het overtollige water uit de lage poldergronden af te voeren naar grotere kanalen. De sloten lopen strikt parallel of loodrecht op elkaar, wat het geometrische karakter van het landschap versterkt. Er zijn geen meanderinen of bochten: alles is recht en kunstmatig.</p>
+      <p><strong>Bebouwing.</strong> Verspreid over het beeld zijn enkele <em>hoeves</em> (boerderijen) te zien: compacte clusters van rode of grijze daken, omgeven door een smal grasrand of bomenrij. Ze staan ver uit elkaar, want in de polders is er geen dorpskern die de boerderijen samenbrengt. In de rechteronderhoek is een kleine kern zichtbaar met een kerkspits die duidelijk boven de omgeving uitsteekt. De kern is omgeven door een paar straten en bijgebouwen, maar heeft geen uitgebreid bebouwd weefsel.</p>
+      <p><strong>Reli&euml;f en vegetatie.</strong> Het terrein is volkomen vlak: er zijn geen hoogtelijnen of schaduwpatronen die op hoogteverschil wijzen. Er zijn vrijwel geen bossen of struwelen. De enige bomen die zichtbaar zijn, staan langs de perceelsranden als windschermen (elzen en populieren) of rondom de hoeves.</p>
+    </div>
+    <p class="bron-vraag">Welk type landbouw domineert in de Vlaamse Polders op basis van de luchtfoto? Welke aanwijzingen in de luchtfoto helpen je dit bepalen? Noem minstens drie concrete visuele kenmerken die je antwoord onderbouwen.</p>
+    <span class="bron-source">Bron: beschrijving op basis van Sentinel-2 satellietbeelden via Copernicus Open Access Hub; perceelsgegevens op basis van Landbouwgebruikspercelen 2023, Departement Landbouw en Visserij, Vlaamse Overheid.</span>
+  </div>
+
+  <!-- SECTION 2: Industrie -->
+  <section class="section-block" id="industrie">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Industrie</h2>
+    </div>
+
+    <p>Naast de landbouw vormt de <strong>industrie</strong> een tweede grote menselijke laag in het landschap. Industrie omvat alle bedrijven die grondstoffen omzetten in producten: van staal smelten tot brood bakken, van auto&rsquo;s assembleren tot medicijnen produceren. Industriegebieden zijn duidelijk herkenbaar in het landschap: grote gebouwen, loodsen, schoorstenen, opslagtanks en een uitgebreid wegennet eromheen.</p>
+
+    <h3 class="sub-heading">Waar vestigt industrie zich?</h3>
+    <p>Industriebedrijven kiezen hun locatie niet willekeurig. Er zijn drie klassieke vestigingsfactoren:</p>
+    <ul style="padding-left:1.4rem; margin: 0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.5rem"><strong>Nabijheid van grondstoffen.</strong> Historisch vestigden bedrijven zich dicht bij de grondstof die ze nodig hadden. Staalfabrieken kwamen dicht bij ijzerertsmijnen of kolenbekkens; suikerfabrieken kwamen in de suikerbietstreek.</li>
+      <li style="margin-bottom:0.5rem"><strong>Transportinfrastructuur.</strong> Industrie heeft grote hoeveelheden goederen nodig en moet producten wegsturen. Nabijheid van kanalen, spoorwegen, havens of autosnelwegen is dan ook een sleutelfactor. De havens van Antwerpen en Gent zijn omringd door enorme industriezones precies om deze reden.</li>
+      <li style="margin-bottom:0.5rem"><strong>Nabijheid van steden.</strong> Steden leveren arbeidskrachten en zijn een afzetmarkt voor producten. De meeste Belgische industriezones liggen dan ook in of rond stedelijke gebieden.</li>
+    </ul>
+
+    <h3 class="sub-heading">Types industrie</h3>
+    <p>Men onderscheidt drie brede categorie&euml;n:</p>
+    <p><strong>Zware industrie</strong> produceert grote hoeveelheden basismateriaal: staal, chemische producten, cement en non-ferrometalen. Deze industrie heeft een enorme impact op het landschap: enorme gebouwen, hoge schoorstenen, uitgebreide spoorwegstations voor goederentransport en buffergebieden. In Belgi&euml; is de chemische industrie rond Antwerpen (de &lsquo;chemische cluster&rsquo; langs de Schelde) een voorbeeld van actieve zware industrie.</p>
+    <p><strong>Lichte industrie</strong> maakt afgewerkte of halffabricaten: elektronica, textiel, meubels, voertuigen. De gebouwen zijn minder imposant dan bij zware industrie, maar de zones kunnen groot zijn. Veel bedrijventerreinen langs Belgische autosnelwegen huisvesten lichte industrie en logistiek.</p>
+    <p><strong>Voedingsindustrie</strong> verwerkt landbouwproducten: zuivelfabrieken, slachthuizen, brouwerijen, suikerfabrieken. In Belgi&euml;, met zijn sterke landbouwsector, is de voedingsindustrie bijzonder sterk. Ze sluit vaak nauw aan bij de landbouwregio&rsquo;s.</p>
+
+    <h3 class="sub-heading">De industriele geschiedenis van Belgi&euml;</h3>
+    <p>Belgi&euml; was &eacute;&eacute;n van de eerste landen ter wereld die industrialiseerden, na Groot-Brittanni&euml;. Dat begon in de vroege 19e eeuw, aangedreven door twee grondstoffen: <strong>steenkool</strong> en <strong>ijzererts</strong>.</p>
+    <p>De grote steenkoolbekkens lagen in twee zones: het <strong>Borinage</strong> en de <strong>Centre</strong> in Henegouwen (Walloni&euml;), en de <strong>Kempen</strong> in Limburg en Antwerpen. Rond deze mijnen groeide een hele industri&euml;le wereld: staalfabrieken, glasbedrijven, cementfabrieken. De staalstad bij uitstek was <strong>Li&egrave;ge</strong>, waar de Maas en de Ourthe samenkomen en ijzererts gemakkelijk aangeleverd kon worden.</p>
+    <p>In de tweede helft van de 20e eeuw werden de meeste mijnen gesloten omdat de kolenlagen uitgeput raakten of te duur werden. De laatste Belgische mijn, in Beringen (Kempen), sloot in 1989. Dit liet diepe littekens in het landschap: terrillen (steenbergen), verlaten fabrieksgebouwen en sociale depressie. Vandaag worden sommige van deze sites herbestemd als erfgoedsite of recreatiegebied.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#127981;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Industrie</span>
+        <p class="begrip-def">Alle economische activiteit waarbij grondstoffen of halffabricaten worden omgezet in eindproducten in fabrieken en bedrijven. Industrie laat duidelijke sporen in het landschap na: grote gebouwen, schoorstenen, opslagtanks en bedrijventerreinen.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128205;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Industriezone</span>
+        <p class="begrip-def">Een afgebakend gebied dat door de overheid is bestemd voor industriele activiteit. Industriezones worden aangelegd langs hoofdwegen, kanalen of havens en zijn herkenbaar aan hun ordelijk stratenpatroon, grote loodsen en beperkte bewoning.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRONMATERIAAL 2 -->
+  <div class="bronmateriaal" id="bron2">
+    <span class="bron-label">Bronmateriaal 2 &mdash; Vergelijkingstabel</span>
+    <span class="bron-title">De vier landbouwtypen in Belgi&euml; vergeleken</span>
+    <span class="bron-meta">Samengesteld op basis van data van het Departement Landbouw en Visserij (Vlaanderen) en het Waals Gewest &nbsp;&middot;&nbsp; referentiejaar 2022</span>
+    <div class="bron-body">
+      <table>
+        <thead>
+          <tr>
+            <th>Kenmerk</th>
+            <th>Akkerbouw</th>
+            <th>Veeteelt</th>
+            <th>Gemengde landbouw</th>
+            <th>Tuinbouw / serre-teelt</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Hoofdproduct</strong></td>
+            <td>Tarwe, aardappelen, suikerbieten, gerst</td>
+            <td>Melk, vlees, eieren, wol</td>
+            <td>Combinatie: gewassen &eacute;n dierlijke producten</td>
+            <td>Groenten, fruit, bloemen, potplanten</td>
+          </tr>
+          <tr>
+            <td><strong>Typisch gebied in Belgi&euml;</strong></td>
+            <td>Brabant, Haspengouw (Li&egrave;ge), Polders</td>
+            <td>Ardennen, Hageland, Kempen</td>
+            <td>Zuidelijke Kempen, Condroz</td>
+            <td>Roeselare (serres), Mechelen (groenten), Limburg (fruit)</td>
+          </tr>
+          <tr>
+            <td><strong>Bodemvereisten</strong></td>
+            <td>Vruchtbare leembodem, vlak terrein</td>
+            <td>Grasland, minder vruchtbare of nattere grond</td>
+            <td>Gemiddeld vruchtbaar, wisselende omstandigheden</td>
+            <td>Geen of weinig bodemvereisten bij serre; voor tuinbouw: lichte, goed doorlatende bodem</td>
+          </tr>
+          <tr>
+            <td><strong>Arbeidsintensiteit</strong></td>
+            <td>Laag (sterk gemechaniseerd)</td>
+            <td>Matig (dagelijkse verzorging dieren)</td>
+            <td>Matig tot hoog</td>
+            <td>Hoog (veel handwerk, oogst, sortering)</td>
+          </tr>
+          <tr>
+            <td><strong>Typisch landschapsbeeld</strong></td>
+            <td>Grote open velden, seizoensgebonden kleur, weinig bomen</td>
+            <td>Groene weilanden, heggen, boerderijen met stallen</td>
+            <td>Afwisseling van akkers en weilanden, meer verspreide bebouwing</td>
+            <td>Glimmende glazen serres (vanuit lucht); of kleine intensieve percelen</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="bron-vraag">In welke provincie vind je de meeste serres? Leg uit waarom het klimaat en de ligging daar geschikt zijn voor serre-teelt. Gebruik de tabel &eacute;n je eigen kennis van de Belgische geografie.</p>
+    <span class="bron-source">Bron: gebaseerd op Landbouwtelling 2022, Departement Landbouw en Visserij; statistieken Service public de Wallonie &mdash; Agriculture; eigen bewerking.</span>
+  </div>
+
+  <!-- SECTION 3: Lineaire infrastructuur -->
+  <section class="section-block" id="infrastructuur">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Lineaire infrastructuur</h2>
+    </div>
+
+    <p>Een derde groep menselijke landschapselementen zijn de <strong>lijnen</strong> die het land doorkruisen: wegen, spoorwegen, kanalen, elektriciteitslijnen en pijpleidingen. Samen noemen we die <strong>lineaire infrastructuur</strong> &mdash; infrastructuur die zich als een lijn door het landschap beweegt.</p>
+
+    <h3 class="sub-heading">Transportwegen</h3>
+    <p>Belgi&euml; heeft een van de <strong>dichtstste wegennetwerken</strong> ter wereld. Dat is geen toeval: ons land ligt in het hart van Noordwest-Europa, op het kruispunt van belangrijke handelswegen tussen Groot-Brittanni&euml;, Duitsland, Frankrijk en Nederland. De voornaamste types zijn:</p>
+    <ul style="padding-left:1.4rem; margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.5rem"><strong>Autosnelwegen (E-wegen en A-wegen)</strong>: brede meerbaansweg met viaducten, op- en afritten en gescheiden rijrichtingen. Op topografische kaarten staan ze in rood. Belgi&euml; heeft ca. 1 800 km autosnelweg. Ze doorsnijden bossen, overbruggen rivieren en doorkruisen heuvelruggen via tunnels of insnijdingen.</li>
+      <li style="margin-bottom:0.5rem"><strong>Gewestwegen</strong>: de secundaire verbindingswegen (N-nummers), typisch in oranje op de kaart, die steden en dorpen met elkaar verbinden.</li>
+      <li style="margin-bottom:0.5rem"><strong>Lokale wegen</strong>: de kleine dorpsstraten en verbindingswegen die op de kaart in geel of wit staan.</li>
+      <li style="margin-bottom:0.5rem"><strong>Spoorwegen</strong>: herkenbaar op de kaart als zwarte lijnen met dwarsstreepjes. Het Belgische spoorwegnet dateert grotendeels uit de 19e eeuw; het is zeer dicht en verbindt nagenoeg elk middelgroot dorp met het nationaal net.</li>
+      <li style="margin-bottom:0.5rem"><strong>Kanalen</strong>: gegraven waterwegen voor de scheepvaart. Bekende Belgische kanalen zijn het Albertkanaal (Antwerpen&ndash;Li&egrave;ge), het kanaal Brussel&ndash;Charleroi en het kanaal Gent&ndash;Terneuzen. Kanalen zijn herkenbaar als rechte blauwe strepen in het landschap, omgeven door taluds en soms laadkaaien.</li>
+    </ul>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128739;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Lineaire infrastructuur</span>
+        <p class="begrip-def">Alle infrastructuur die zich als een lijn door het landschap beweegt: wegen, spoorwegen, kanalen, elektriciteitslijnen en pijpleidingen. Lineaire infrastructuur verbindt plaatsen met elkaar maar doorsnijdt ook natuurgebieden en landbouwgrond.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128655;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Kanaal</span>
+        <p class="begrip-def">Een door mensen gegraven waterweg, bedoeld voor de scheepvaart of de afwatering van land. Kanalen zijn recht van vorm, hebben een constante breedte en zijn omgeven door kunstmatige oevers (dijken of kaaien). Ze zijn herkenbaar als rechte blauwe lijnen in het landschap.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Nutslijnen</h3>
+    <p>Naast transportwegen zijn er ook netwerken die energie en water transporteren. <strong>Elektriciteitsmasten</strong> (hoogspanningslijnen) zijn imposante staalstructuren die met draden door het landschap lopen; ze zijn goed zichtbaar vanuit de lucht als stippellijnen met vaste tussenafstand. <strong>Gasleidingen</strong> en <strong>waterleidingen</strong> liggen ondergronds en zijn op het landschap zelf nauwelijks zichtbaar, maar hun tracé is soms te raden aan een smalle strook anders gekleurde vegetatie boven de leiding.</p>
+
+    <h3 class="sub-heading">Impact op het landschap</h3>
+    <p>Lineaire infrastructuur heeft een enorme impact op het landschap. Autosnelwegen versnijden bossen en velden in stukken, wat nadelig is voor dieren die niet meer van het ene naar het andere stuk bos kunnen. Bruggen overspannen rivieren en veranderen het aanzicht van rivierdalen. In de Ardennen werden tunnels gegraven door heuvels om scherpe bochten te vermijden. Langs kanalen onstonden typische kaaien met laden loodsen en opslagruimten.</p>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Een nieuwe autosnelweg wordt gepland door een bosgebied. Welke gevolgen heeft dat voor (a) de natuur, (b) de landbouwers in de omgeving, en (c) de inwoners van de dichtstbijgelegen stad? Bedenk argumenten voor &eacute;n tegen de aanleg van de weg.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 4: Woongebied en bebouwing -->
+  <section class="section-block" id="woongebied">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Woongebied en bebouwing</h2>
+    </div>
+
+    <p>Een vierde categorie menselijke landschapselementen is de <strong>bebouwing</strong>: alle gebouwen waar mensen in wonen, werken of activiteiten uitoefenen. In Belgi&euml; is bebouwing een erg zichtbaar en ook erg omvangrijk onderdeel van het landschap. Ons land heeft naar Europese normen een <strong>extreem hoog percentage verhard en bebouwd oppervlak</strong>: met meer dan 10% van de totale oppervlakte bebouwd of verhard, behoort Belgi&euml; tot de koplopers in Europa.</p>
+
+    <h3 class="sub-heading">Types bebouwing</h3>
+    <p>In het Belgische landschap tref je vele vormen van bebouwing aan:</p>
+    <ul style="padding-left:1.4rem; margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.5rem"><strong>Rijhuizen</strong>: aaneengesloten huizen, elk met een eigen voorgevel, typisch in stadscentra en stedelijke wijken. Ze vormen een aaneengesloten front aan de straatkant.</li>
+      <li style="margin-bottom:0.5rem"><strong>Vrijstaande huizen en villa&rsquo;s</strong>: woningen die aan alle kanten vrij staan, omgeven door een tuin. Typisch in de buitenwijken en het buitengebied.</li>
+      <li style="margin-bottom:0.5rem"><strong>Appartementsgebouwen</strong>: meergezinswoningen die in de hoogte groeien. Sterk aanwezig in stadscentra en aan de Belgische kust.</li>
+      <li style="margin-bottom:0.5rem"><strong>Boerderijen en hoeves</strong>: traditionele landbouwwoningen met bijgebouwen voor dieren en machines. Soms gegroepeerd in een dorp, soms gesoleerd in het open landschap.</li>
+    </ul>
+
+    <h3 class="sub-heading">Verspreiding van bebouwing</h3>
+    <p>De manier waarop bebouwing is verspreid in het landschap varieert sterk:</p>
+    <p>In <strong>stedelijk gebied</strong> is de bebouwing geconcentreerd en dicht: rijhuizen en appartementenblokken, weinig groen ertussen, een complex stratenpatroon. Grote steden als Brussel, Antwerpen, Gent, Li&egrave;ge en Charleroi zijn vanuit de lucht duidelijk herkenbaar als aaneengesloten grijze vlekken.</p>
+    <p>In <strong>landelijk gebied</strong> is de bebouwing losser en meer verspreid. Dorpen zijn kleine kernen met een kerkplein, omgeven door de open ruimte van akkers en weilanden.</p>
+    <p>Een typisch Belgisch fenomeen is de <strong>lintbebouwing</strong>: rijen woningen die zich langs wegen uitstrekken, ver buiten de dorpskernen. Dit patroon is in Belgi&euml; bijzonder sterk ontwikkeld, meer dan in de meeste andere Europese landen. Vanuit de lucht zie je het als een wirwar van lintjes die dorpen en steden met elkaar verbinden langs elke weg. Dit is het gevolg van een historisch soepel bouwbeleid en de Belgische voorkeur voor de eigen woning met tuin.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#127968;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Lintbebouwing</span>
+        <p class="begrip-def">Een bebouwingspatroon waarbij huizen en gebouwen zich aaneensluitend langs wegen uitstrekken, ver buiten de dorps- of stadskern. Lintbebouwing is typisch voor Belgi&euml; en maakt het moeilijk om een scherpe grens te trekken tussen stad en platteland.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#127749;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Stedelijk en landelijk woongebied</span>
+        <p class="begrip-def"><em>Stedelijk woongebied</em>: dicht bebouwde zone met aaneengesloten huizen, veel verharding, complexe infrastructuur en weinig open ruimte. <em>Landelijk woongebied</em>: losser bebouwde zone met verspreide huizen, veel open ruimte (akkers, weilanden) en een kleinschaliger wegennet.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: Ontginning en recreatie -->
+  <section class="section-block" id="ontginning">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Ontginning en recreatie</h2>
+    </div>
+
+    <p>Een vijfde en laatste grote groep menselijke landschapselementen zijn de sporen van <strong>ontginning</strong> en <strong>recreatie</strong>. Beide activiteiten vormen het landschap ingrijpend om, al op een heel verschillende manier.</p>
+
+    <h3 class="sub-heading">Ontginning van grondstoffen</h3>
+    <p><strong>Ontginning</strong> is het uit de aarde halen van bruikbare grondstoffen. In Belgi&euml; zijn historisch verschillende grondstoffen ontgonnen:</p>
+    <ul style="padding-left:1.4rem; margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.5rem"><strong>Steenkool</strong> in de Borinage (Henegouwen) en de Kempen. De mijnbouw liet <em>terrillen</em> (steenbergen van mijnafval) achter die nu kenmerkend zijn voor het landschap van die regio&rsquo;s. Ook de mijngebouwen (&lsquo;charbonnages&rsquo;) zijn deels bewaard als industri&euml;el erfgoed.</li>
+      <li style="margin-bottom:0.5rem"><strong>Leisteen en blauwe hardsteen</strong> in de Ardennen (Martelange, Philippeville). Groeven (dagbouwputten) zijn vanuit de lucht goed zichtbaar als grote, rechthoekige gaten in het landschap.</li>
+      <li style="margin-bottom:0.5rem"><strong>Grind en zand</strong> langs riviervalleien. Bij de winning ontstaan grote watervlaktes (plassen) die later worden herbestemd als vissersgebied of recreatiegebied.</li>
+      <li style="margin-bottom:0.5rem"><strong>Hout</strong>: de bosontginning (kap van bomen) laat open vlakten achter die zichtbaar zijn als lichte plekken in donkere bossen.</li>
+    </ul>
+
+    <p>De gevolgen van ontginning voor het landschap zijn enorm: het reli&euml;f verandert, de waterhuishouding wordt verstoord en de biodiversiteit lijdt. Na de ontginning rijst de vraag: wat doen we met die verlaten sites?</p>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Wat gebeurt er met een landschap nadat een steenkoolmijn gesloten wordt? Denk na over: de terrillen, de mijngebouwen, de bodem, het grondwater, de lokale bewoners. Zijn er mogelijkheden voor herbestemming? Kijk eventueel op naar het voorbeeld van de mijnsite van Beringen-Mijn of de Bois du Cazier in Marcinelle.</p>
+    </div>
+
+    <h3 class="sub-heading">Recreatie en toerisme</h3>
+    <p>Ook <strong>recreatie</strong> laat diepe sporen na in het landschap. Mensen verlaten de stad om te rusten, te sporten of te genieten van de natuur &mdash; maar die activiteiten eisen wel infrastructuur:</p>
+    <ul style="padding-left:1.4rem; margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.5rem"><strong>Campings en vakantiedorpen</strong>: de Ardennen en de Belgische kust zijn bezaaid met campings, bungalowparken en vakantiehuisjes. Ze zijn vanuit de lucht zichtbaar als ordelijke rijen kleine vierkantjes in bosrijke of kustgebieden.</li>
+      <li style="margin-bottom:0.5rem"><strong>Skipistemogelijkheden</strong>: in de Hoge Venen (rond Botrange) zijn beperkte voorzieningen voor langlaufski en sneeuwwandelen; de helling is te weinig uitgesproken voor grote skiresorts.</li>
+      <li style="margin-bottom:0.5rem"><strong>Stranden en kustzee</strong>: de ganse Belgische kust (67 km) is bebouwd met een aaneengesloten front van appartementsblokken, de <em>betonnen kustvlakte</em>, een van de meest bebouwde kuststreken van Europa.</li>
+      <li style="margin-bottom:0.5rem"><strong>Fiets- en wandelpaden</strong>: in heel Belgi&euml; zijn fietsroutes en wandelnetwerken aangelegd, soms langs oude spoorwegen (<em>RAVeL</em>-netwerk), soms door bossen en heide.</li>
+    </ul>
+  </section>
+
+  <!-- ILLUSTRATIE -->
+  <div class="illustratie" role="img" aria-label="Illustratie: overzichtsschema menselijke landschapselementen">
+    <span class="ill-icon">&#128444;</span>
+    <p class="ill-caption"><strong>Overzichtsschema: de zeven menselijke landschapselementen en hun kenmerken.</strong> Dit schema toont de vijf besproken categorie&euml;n (landbouw, industrie, lineaire infrastructuur, woongebied en ontginning/recreatie) met per categorie de subtypes, de typische verschijningsvorm in het Belgische landschap, en de regio&rsquo;s waar ze het sterkst aanwezig zijn. [Illustratie in te vullen door de uitgever &mdash; aanbeveling: schematisch overzicht in de kleurstijl van het boek, A4-liggend formaat]</p>
+  </div>
+
+  <!-- SLOTPARAGRAAF -->
+  <p>Menselijke landschapselementen zijn geen los zand. Ze be&iuml;nvloeden elkaar voortdurend: een nieuwe autosnelweg trekt industrie aan, industrie trekt werknemers aan, werknemers zoeken een woning, woningen vormen een wijk &mdash; en zo groeit de bebouwde laag steeds verder. Tegelijk heeft dit een keerzijde: meer bebouwing betekent minder landbouwgrond, minder natuur, meer hittestress in steden en meer overstromingsrisico. Het begrijpen van deze wisselwerkingen &mdash; en het zoeken naar duurzame oplossingen &mdash; is &eacute;&eacute;n van de grote uitdagingen van onze tijd.</p>
+
+  <div class="closing-quote" role="note" aria-label="Slotgedachte">
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p class="cq-text">Elk stuk grond in Belgi&euml; draagt de handtekening van de mens. De kunst van de aardrijkskunde is leren lezen wat er staat.</p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <span class="cq-attribution">Aardrijkskunde 1A &nbsp;&middot;&nbsp; Domein 2 &mdash; Landschappen</span>
+  </div>
+
+</div><!-- end page-wrapper -->
+
+<!-- ============================================================
+     EXERCISES
+============================================================ -->
+<section class="exercises-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Menselijke landschapselementen herkennen vanuit de lucht</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.8rem;">Hieronder staan zes beschrijvingen van wat je vanuit een vliegtuig zou zien. Benoem bij elke beschrijving het menselijke landschapselement.</p>
+      <ol>
+        <li>Je ziet een lang, strak patroon van glanzende rechthoeken die de zon weerkaatsen, gegroepeerd in een rij aan de rand van een kleine stad vlak bij Roeselare.</li>
+        <li>Je ziet een brede grijze lijn met vier rijstroken, afgesneden van de omliggende velden door witte vangrails. Op regelmatige afstanden zijn afritten zichtbaar die naar kleine cirkelvormige kruispunten leiden.</li>
+        <li>Je ziet een aaneengesloten cluster van grote loodsen met platte daken, omgeven door een dicht net van kleine wegen en parkeerplaatsen, vlak naast een kanaal met kaaien.</li>
+        <li>Je ziet rijen kleine daken die zich kilometers lang uitstrekken langs een gewestweg, vertrekkend vanuit een dorpskern. Er is nauwelijks open ruimte tussen de huizen.</li>
+        <li>Je ziet een groot grijs-groen kuilvormig gat in het landschap, omgeven door rotsblokken en grijs stof. Aan de rand staan enkele grote machines. Een weg slingert in spiralen omhoog langs de wanden van het gat.</li>
+        <li>Je ziet een reeks ordentelijke bruine vlakken afgewisseld met goudgele stroken, netjes gescheiden door smalle groene hegjes. Een boerderij staat solitair midden in het beeld.</li>
+      </ol>
+      <p class="ex-tip">Tip: gebruik de vijf landschapscategorie&euml;n uit dit hoofdstuk als leidraad: landbouw, industrie, lineaire infrastructuur, woongebied en ontginning/recreatie.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Bronmateriaal 2 analyseren &mdash; de vergelijkingstabel landbouwtypen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.8rem;">Bestudeer de vergelijkingstabel in Bronmateriaal 2 en beantwoord de volgende vragen.</p>
+      <ol>
+        <li>Welke twee landbouwtypen hebben de minste arbeidsintensiteit gemeen? Wat verklaart dit? (Denk aan mechanisatie.)</li>
+        <li>Welk landbouwtype stel je voor in de Ardennen, waar de bodem minder vruchtbaar is, het terrein heuvelachtig is en de neerslag hoog? Motiveer je antwoord met minstens twee argumenten uit de tabel.</li>
+        <li>Serre-teelt heeft &lsquo;geen of weinig bodemvereisten&rsquo;. Leg uit waarom dat zo is. Welk voordeel geeft dit de teler?</li>
+        <li>Als een landbouwer in Haspengouw zijn bedrijf wil uitbreiden, zou hij dan eerder kiezen voor akkerbouw of veeteelt? Gebruik de tabel om je keuze te beargumenteren.</li>
+      </ol>
+      <p class="ex-tip">Tip: kijk niet alleen naar &eacute;&eacute;n kolom, maar combineer meerdere rijen in je antwoord.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Menselijke landschapselementen in jouw eigen gemeente</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.8rem;">Ga naar www.geopunt.be of gebruik Google Maps/Google Earth en zoek je eigen gemeente of woonplaats op. Neem een satellietweergave en analyseer het landschap. Beantwoord dan de volgende vragen.</p>
+      <ol>
+        <li>Welk type landbouw is dominant in de omgeving van jouw gemeente? Hoe herken je dat op het satellietbeeld?</li>
+        <li>Zijn er industriezones of bedrijventerreinen zichtbaar? Waar liggen ze ten opzichte van woongebieden en hoofdwegen?</li>
+        <li>Zie je voorbeelden van lintbebouwing? Beschrijf langs welke weg(en) die voorkomt.</li>
+        <li>Zijn er sporen van ontginning of recreatie zichtbaar in de omgeving? (Denk aan groeven, sportterreinen, campings, bosgebieden met kapvlakten.)</li>
+        <li>Schrijf in &eacute;&eacute;n paragraaf (5&ndash;7 zinnen) een beschrijving van het menselijke landschap van jouw gemeente, zoals je dat zou doen in een aardrijkskundig rapport.</li>
+      </ol>
+      <p class="ex-tip">Tip: schakel op Geopunt de laag &lsquo;Orthofoto meest recent&rsquo; in voor een scherp satellietbeeld van Vlaanderen. Voor Walloni&euml;: gebruik WalOnMap (geoportail.wallonie.be).</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SUMMARY
+============================================================ -->
+<section class="summary-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>Menselijke landschapselementen</strong> zijn alle sporen die de mens in het landschap achterlaat: landbouw, industrie, infrastructuur, bebouwing en ontginning/recreatie. Belgi&euml; is zo dicht bevolkt dat bijna elke vierkante kilometer menselijke invloed toont.</li>
+      <li><strong>Landbouw</strong> is de meest uitgestrekte menselijke laag: akkerbouw (Brabant, Haspengouw), veeteelt (Ardennen), gemengde landbouw en tuinbouw/serre-teelt (Roeselare) hebben elk een eigen landschapsbeeld. Ze hangt nauw samen met de bodemkwaliteit en het reli&euml;f van een regio.</li>
+      <li><strong>Industrie</strong> vestigt zich nabij grondstoffen, transportroutes en steden. Belgi&euml; industri&euml;aliseerde vroeg (19e eeuw), met staalcentra in Li&egrave;ge en steenkoolgebieden in de Kempen en de Borinage. Veel sites zijn nu gesloten of herbestemd.</li>
+      <li><strong>Lineaire infrastructuur</strong> &mdash; autosnelwegen, spoorwegen, kanalen en nutslijnen &mdash; doorkruist het hele land en heeft een van de dichtstste netwerken van Europa. Ze verbindt maar versnijdt ook natuur en landbouwgrond.</li>
+      <li><strong>Bebouwing</strong> varieert van geconcentreerde stedelijke wijken tot verspreide landelijke hoeves. Het typisch Belgische fenomeen van de <strong>lintbebouwing</strong> maakt de grens tussen stad en platteland vaag en heeft geleid tot een hoog percentage verhard oppervlak.</li>
+      <li><strong>Ontginning</strong> van grondstoffen (steenkool, leisteen, grind, hout) laat blijvende sporen na: terrillen, groeven en plassen. Na ontginning kan een site worden herbestemd als natuur-, erfgoed- of recreatiegebied.</li>
+      <li>Alle menselijke landschapselementen <strong>be&iuml;nvloeden elkaar</strong>: infrastructuur trekt industrie aan, industrie trekt bewoning aan, bewoning vergt meer wegen enzovoort. Het begrijpen van deze keten &mdash; en de gevolgen ervan voor natuur en duurzaamheid &mdash; is de kern van dit hoofdstuk.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

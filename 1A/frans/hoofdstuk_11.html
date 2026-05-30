@@ -1,0 +1,1620 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H11 — En ville | Frans 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     ILLUSTRATIE PLACEHOLDERS
+  ============================================================ */
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+    cursor: default;
+    transition: background var(--transition);
+  }
+
+  .illustratie:hover { background: #EDE7D8; }
+
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     CLOSING QUOTE
+  ============================================================ */
+  .closing-quote {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0D1E38 100%);
+    border-radius: var(--border-radius);
+    padding: 3rem 3rem 2.5rem;
+    margin: 3.5rem 0 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.5rem; left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .closing-quote .cq-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--gold);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 1.2rem;
+  }
+
+  .closing-quote .cq-attribution {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(212,160,23,0.6);
+  }
+
+  .closing-quote .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .closing-quote .ornament-line::before,
+  .closing-quote .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.4), transparent);
+  }
+
+  .closing-quote .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.7;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .closing-quote { padding: 2rem 1.2rem 1.8rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     FRANS-SPECIFIC COMPONENTS
+  ============================================================ */
+
+  /* Tekst-fragment — reading text block */
+  .tekst-fragment {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 2rem 2.2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .tekst-fragment .tf-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--darkblue);
+    opacity: 0.6;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  .tekst-fragment .tf-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    display: block;
+    margin-bottom: 1.1rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--sand);
+  }
+
+  .tekst-fragment .tf-body p {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.8;
+    margin-bottom: 0.75em;
+  }
+
+  .tekst-fragment .tf-body p:last-child { margin-bottom: 0; }
+
+  .tekst-fragment .tf-vragen {
+    background: rgba(26,43,74,0.05);
+    border-left: 3px solid var(--darkblue);
+    border-radius: 0 4px 4px 0;
+    padding: 0.9rem 1.1rem;
+    margin-top: 1.2rem;
+  }
+
+  .tekst-fragment .tf-vragen .tvq-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--darkblue);
+    opacity: 0.65;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .tekst-fragment .tf-vragen ol {
+    padding-left: 1.3rem;
+    margin: 0;
+  }
+
+  .tekst-fragment .tf-vragen ol li {
+    font-size: 0.93rem;
+    color: var(--text-mid);
+    font-style: italic;
+    margin-bottom: 0.4rem;
+    line-height: 1.65;
+  }
+
+  /* Gesprek — dialogue block */
+  .gesprek {
+    background: #F4F9F4;
+    border: 1px solid rgba(60,120,60,0.2);
+    border-left: 4px solid #5A9A5A;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1.5rem 1.6rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .gesprek .gesprek-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #3E7A3E;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .gesprek .gesprek-header::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(90,154,90,0.25);
+  }
+
+  .gesprek .repliek {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 0.8rem;
+    align-items: flex-start;
+  }
+
+  .gesprek .repliek:last-of-type { margin-bottom: 0; }
+
+  .gesprek .repliek .spreker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #3E7A3E;
+    min-width: 90px;
+    padding-top: 0.12rem;
+    flex-shrink: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .gesprek .repliek .tekst {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  .gesprek .repliek .tekst em {
+    color: var(--text-light);
+    font-size: 0.88rem;
+  }
+
+  .gesprek .gesprek-note {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(90,154,90,0.2);
+    padding-top: 0.7rem;
+  }
+
+  /* Grammatica-kader — grammar box */
+  .grammatica-kader {
+    background: #EEF3FB;
+    border: 1px solid rgba(26,43,74,0.18);
+    border-top: 4px solid var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 1.6rem 1.8rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .grammatica-kader .gk-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--darkblue);
+    opacity: 0.65;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .grammatica-kader .gk-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    display: block;
+    margin-bottom: 1.1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  .grammatica-kader .gk-body { color: var(--text-mid); }
+
+  .grammatica-kader .gk-body p {
+    font-size: 0.96rem;
+    line-height: 1.75;
+    margin-bottom: 0.75em;
+  }
+
+  .grammatica-kader .gk-body p:last-child { margin-bottom: 0; }
+
+  .grammatica-kader .gk-body ul,
+  .grammatica-kader .gk-body ol {
+    padding-left: 1.3rem;
+    margin-bottom: 0.75em;
+  }
+
+  .grammatica-kader .gk-body li {
+    font-size: 0.96rem;
+    line-height: 1.7;
+    margin-bottom: 0.3rem;
+  }
+
+  .grammatica-kader .gk-body table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+    margin: 0.6rem 0;
+  }
+
+  .grammatica-kader .gk-body th {
+    background: var(--darkblue);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    text-align: left;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    font-size: 0.82rem;
+  }
+
+  .grammatica-kader .gk-body td {
+    padding: 0.35rem 0.8rem;
+    border-bottom: 1px solid rgba(26,43,74,0.1);
+    color: var(--text-mid);
+  }
+
+  .grammatica-kader .gk-body tr:last-child td { border-bottom: none; }
+  .grammatica-kader .gk-body tr:nth-child(even) td { background: rgba(26,43,74,0.04); }
+
+  .grammatica-kader .gk-formule {
+    background: rgba(26,43,74,0.07);
+    border-left: 3px solid var(--darkblue);
+    border-radius: 0 4px 4px 0;
+    padding: 0.65rem 1rem;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 0.8rem 0;
+  }
+
+  .grammatica-kader .gk-letop {
+    background: #FDF3E7;
+    border-left: 3px solid var(--terracotta);
+    border-radius: 0 4px 4px 0;
+    padding: 0.6rem 1rem;
+    font-size: 0.88rem;
+    color: var(--text-mid);
+    margin-top: 0.8rem;
+    font-style: italic;
+  }
+
+  .grammatica-kader .gk-letop::before {
+    content: 'Let op: ';
+    font-style: normal;
+    font-weight: 700;
+    color: var(--terracotta);
+  }
+
+  /* Woordenschat-kader — vocabulary box */
+  .woordenschat-kader {
+    background: #FEFAF2;
+    border: 1px solid rgba(200,146,58,0.3);
+    border-top: 4px solid var(--oker);
+    border-radius: var(--border-radius);
+    padding: 1.6rem 1.8rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .woordenschat-kader .wk-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--oker);
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .woordenschat-kader .wk-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    display: block;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .woordenschat-kader .wk-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 0.45rem 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .woordenschat-kader .wk-item {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    font-size: 0.94rem;
+    line-height: 1.55;
+  }
+
+  .woordenschat-kader .wk-fr {
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .woordenschat-kader .wk-nl {
+    color: var(--text-light);
+    font-size: 0.88rem;
+  }
+
+  .woordenschat-kader .wk-note {
+    margin-top: 1rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.18);
+    padding-top: 0.6rem;
+  }
+
+  .woordenschat-kader .wk-sub {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--oker);
+    margin: 1rem 0 0.4rem;
+    display: block;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <span class="label">Frans 1A</span>
+  <span class="label label-right">H11 &mdash; En ville</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Frans 1A &nbsp;&middot;&nbsp; Hoofdstuk 11 &nbsp;&middot;&nbsp; Eerste graad</div>
+  <h1>En ville</h1>
+  <p class="subtitle">Winkels, vervoer, de weg vragen en vertellen over wat je gedaan hebt</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- PROLOGUE -->
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Mise en sc&egrave;ne &hellip;</span>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p>Je bent zaterdag in het centrum van Brussel. Je moet een cadeau kopen, geld afhalen en daarna naar het station om terug naar huis te gaan. Maar je bent de weg kwijt. Een voorbijganger spreekt je aan &mdash; en plots moet je alles wat je geleerd hebt in het echt toepassen.</p>
+    <p>In dit hoofdstuk leer je de stad verkennen in het Frans: winkels en diensten benoemen, het juiste vervoer kiezen, de weg vragen én geven, en &mdash; heel belangrijk &mdash; vertellen wat je al gedaan hebt met de <em>pass&eacute; compos&eacute;</em>.</p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 1 — Les commerces et les services
+  ============================================================ -->
+  <section class="section-block" id="commerces">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Les commerces et les services</h2>
+    </div>
+
+    <p>Een stad bestaat uit heel wat verschillende winkels en diensten. Ken je de Franse namen? Leer ze met het lidwoord &mdash; dat helpt ook bij de uitspraak.</p>
+
+    <div class="woordenschat-kader">
+      <span class="wk-label">Woordenschat</span>
+      <span class="wk-title">Les commerces et les services &mdash; Winkels en diensten</span>
+      <div class="wk-grid">
+        <div class="wk-item"><span class="wk-fr">la boulangerie</span><span class="wk-nl">de bakkerij</span></div>
+        <div class="wk-item"><span class="wk-fr">la boucherie</span><span class="wk-nl">de slagerij</span></div>
+        <div class="wk-item"><span class="wk-fr">la pharmacie</span><span class="wk-nl">de apotheek</span></div>
+        <div class="wk-item"><span class="wk-fr">le supermarch&eacute;</span><span class="wk-nl">de supermarkt</span></div>
+        <div class="wk-item"><span class="wk-fr">la librairie</span><span class="wk-nl">de boekwinkel</span></div>
+        <div class="wk-item"><span class="wk-fr">la biblioth&egrave;que</span><span class="wk-nl">de bibliotheek</span></div>
+        <div class="wk-item"><span class="wk-fr">la poste</span><span class="wk-nl">het postkantoor</span></div>
+        <div class="wk-item"><span class="wk-fr">la banque</span><span class="wk-nl">de bank</span></div>
+        <div class="wk-item"><span class="wk-fr">l&rsquo;h&ocirc;pital (m.)</span><span class="wk-nl">het ziekenhuis</span></div>
+        <div class="wk-item"><span class="wk-fr">la gare</span><span class="wk-nl">het station</span></div>
+        <div class="wk-item"><span class="wk-fr">l&rsquo;arr&ecirc;t de bus (m.)</span><span class="wk-nl">de bushalte</span></div>
+        <div class="wk-item"><span class="wk-fr">le cin&eacute;ma</span><span class="wk-nl">de bioscoop</span></div>
+        <div class="wk-item"><span class="wk-fr">le mus&eacute;e</span><span class="wk-nl">het museum</span></div>
+        <div class="wk-item"><span class="wk-fr">le parc</span><span class="wk-nl">het park</span></div>
+        <div class="wk-item"><span class="wk-fr">la mairie</span><span class="wk-nl">het gemeentehuis</span></div>
+        <div class="wk-item"><span class="wk-fr">l&rsquo;office de tourisme (m.)</span><span class="wk-nl">het toeristenkantoor</span></div>
+        <div class="wk-item"><span class="wk-fr">la station-service</span><span class="wk-nl">het tankstation</span></div>
+        <div class="wk-item"><span class="wk-fr">le restaurant</span><span class="wk-nl">het restaurant</span></div>
+      </div>
+      <p class="wk-note">Let op: <strong>la librairie</strong> is een boekwinkel, niet een bibliotheek! Een bibliotheek is <strong>la biblioth&egrave;que</strong>. Dit zijn zogenaamde <em>faux amis</em> (valse vrienden).</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128218;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Faux ami</span>
+        <span class="begrip-name">Valse vriend</span>
+        <p class="begrip-def">Een woord dat sterk lijkt op een Nederlands of Engels woord maar een andere betekenis heeft. <em>La librairie</em> lijkt op &ldquo;library&rdquo; maar is een boekwinkel. <em>La biblioth&egrave;que</em> is de echte bibliotheek.</p>
+      </div>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; R&eacute;fl&eacute;chis</div>
+      <p class="dv-text">Welke winkels en diensten uit de lijst hierboven zijn er in jouw gemeente of buurt? Schrijf vijf zinnen in het Frans: <em>Dans ma ville, il y a&hellip;</em> / <em>Dans ma ville, il n&rsquo;y a pas de&hellip;</em></p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 2 — Les transports
+  ============================================================ -->
+  <section class="section-block" id="transports">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Les transports</h2>
+    </div>
+
+    <p>Om je in de stad te verplaatsen heb je vervoermiddelen nodig. In het Frans gebruik je verschillende voorzetsels naargelang het vervoermiddel.</p>
+
+    <div class="woordenschat-kader">
+      <span class="wk-label">Woordenschat</span>
+      <span class="wk-title">Les moyens de transport &mdash; Vervoermiddelen</span>
+      <div class="wk-grid">
+        <div class="wk-item"><span class="wk-fr">le bus</span><span class="wk-nl">de bus</span></div>
+        <div class="wk-item"><span class="wk-fr">le tram</span><span class="wk-nl">de tram</span></div>
+        <div class="wk-item"><span class="wk-fr">le m&eacute;tro</span><span class="wk-nl">de metro</span></div>
+        <div class="wk-item"><span class="wk-fr">le train</span><span class="wk-nl">de trein</span></div>
+        <div class="wk-item"><span class="wk-fr">le v&eacute;lo</span><span class="wk-nl">de fiets</span></div>
+        <div class="wk-item"><span class="wk-fr">la voiture</span><span class="wk-nl">de auto</span></div>
+        <div class="wk-item"><span class="wk-fr">l&rsquo;avion (m.)</span><span class="wk-nl">het vliegtuig</span></div>
+        <div class="wk-item"><span class="wk-fr">le taxi</span><span class="wk-nl">de taxi</span></div>
+        <div class="wk-item"><span class="wk-fr">la moto</span><span class="wk-nl">de motor</span></div>
+        <div class="wk-item"><span class="wk-fr">&agrave; pied</span><span class="wk-nl">te voet</span></div>
+      </div>
+
+      <span class="wk-sub">Voorzetsels: <em>prendre</em> en <em>aller en / &agrave;</em></span>
+      <div class="wk-grid">
+        <div class="wk-item"><span class="wk-fr">prendre le bus</span><span class="wk-nl">de bus nemen</span></div>
+        <div class="wk-item"><span class="wk-fr">prendre le train</span><span class="wk-nl">de trein nemen</span></div>
+        <div class="wk-item"><span class="wk-fr">aller en voiture</span><span class="wk-nl">met de auto gaan</span></div>
+        <div class="wk-item"><span class="wk-fr">aller en avion</span><span class="wk-nl">met het vliegtuig gaan</span></div>
+        <div class="wk-item"><span class="wk-fr">aller &agrave; v&eacute;lo</span><span class="wk-nl">met de fiets gaan</span></div>
+        <div class="wk-item"><span class="wk-fr">aller &agrave; pied</span><span class="wk-nl">te voet gaan</span></div>
+        <div class="wk-item"><span class="wk-fr">aller en m&eacute;tro</span><span class="wk-nl">met de metro gaan</span></div>
+        <div class="wk-item"><span class="wk-fr">aller en tram</span><span class="wk-nl">met de tram gaan</span></div>
+      </div>
+
+      <span class="wk-sub">Tickets en abonnementen</span>
+      <div class="wk-grid">
+        <div class="wk-item"><span class="wk-fr">un ticket</span><span class="wk-nl">een (los) ticket</span></div>
+        <div class="wk-item"><span class="wk-fr">un abonnement</span><span class="wk-nl">een abonnement</span></div>
+        <div class="wk-item"><span class="wk-fr">valider son titre de transport</span><span class="wk-nl">je vervoersbewijs valideren</span></div>
+      </div>
+      <p class="wk-note"><strong>Regel:</strong> gebruik <em>en</em> voor voertuigen waar je <em>in</em> stapt (voiture, avion, train&hellip;) en <em>&agrave;</em> voor voertuigen waar je <em>op</em> stapt of zit (&agrave; v&eacute;lo, &agrave; moto, &agrave; pied).</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; R&eacute;fl&eacute;chis</div>
+      <p class="dv-text">Comment est-ce que tu vas &agrave; l&rsquo;&eacute;cole ? Schrijf een zin in het Frans met het juiste voorzetsel. Vergelijk met een klasgenoot: nemen jullie hetzelfde vervoermiddel?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 3 — Demander son chemin
+  ============================================================ -->
+  <section class="section-block" id="chemin">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Demander son chemin</h2>
+    </div>
+
+    <p>De weg vragen en uitleg geven is een essenti&euml;le vaardigheid. Je hebt twee rollen: de <em>personne perdue</em> (de verdwaalde) en de <em>personne qui explique</em> (de uitlegger). Leer beide sets zinnen.</p>
+
+    <div class="grammatica-kader">
+      <span class="gk-label">Grammatica &amp; Taalkader</span>
+      <span class="gk-title">Demander et indiquer le chemin</span>
+      <div class="gk-body">
+        <p><strong>De weg vragen:</strong></p>
+        <ul>
+          <li><em>Excusez-moi, o&ugrave; est la gare, s&rsquo;il vous pla&icirc;t ?</em> &mdash; Neem me niet kwalijk, waar is het station?</li>
+          <li><em>Pour aller &agrave; la boulangerie ?</em> &mdash; Hoe kom ik bij de bakkerij?</li>
+          <li><em>C&rsquo;est loin d&rsquo;ici ?</em> &mdash; Is het ver van hier?</li>
+          <li><em>Je cherche la banque.</em> &mdash; Ik zoek de bank.</li>
+        </ul>
+        <p><strong>De weg uitleggen:</strong></p>
+        <ul>
+          <li><em>Tournez &agrave; gauche.</em> &mdash; Sla links af.</li>
+          <li><em>Tournez &agrave; droite.</em> &mdash; Sla rechts af.</li>
+          <li><em>Continuez tout droit.</em> &mdash; Ga rechtdoor.</li>
+          <li><em>Traversez la rue.</em> &mdash; Steek de straat over.</li>
+          <li><em>Traversez le carrefour.</em> &mdash; Steek het kruispunt over.</li>
+          <li><em>Prenez la premi&egrave;re rue &agrave; gauche.</em> &mdash; Neem de eerste straat links.</li>
+          <li><em>Prenez la deuxi&egrave;me rue &agrave; droite.</em> &mdash; Neem de tweede straat rechts.</li>
+        </ul>
+        <p><strong>Situeren (ligging aanduiden):</strong></p>
+        <ul>
+          <li><em>C&rsquo;est en face de la pharmacie.</em> &mdash; Het is tegenover de apotheek.</li>
+          <li><em>C&rsquo;est &agrave; c&ocirc;t&eacute; du supermarch&eacute;.</em> &mdash; Het is naast de supermarkt.</li>
+          <li><em>C&rsquo;est pr&egrave;s de la gare.</em> &mdash; Het is dicht bij het station.</li>
+          <li><em>C&rsquo;est au bout de la rue.</em> &mdash; Het is aan het einde van de straat.</li>
+          <li><em>C&rsquo;est entre la banque et le cin&eacute;ma.</em> &mdash; Het is tussen de bank en de bioscoop.</li>
+        </ul>
+        <div class="gk-formule">Stap 1: Excusez-moi &nbsp;+&nbsp; Stap 2: o&ugrave; est / pour aller &agrave;&hellip; ? &nbsp;+&nbsp; Stap 3: s&rsquo;il vous pla&icirc;t</div>
+        <div class="gk-letop">gebruik <em>du</em> (= de + le) en <em>de la</em> correct na voorzetsels: <em>&agrave; c&ocirc;t&eacute; du caf&eacute;</em> maar <em>&agrave; c&ocirc;t&eacute; de la boulangerie</em>.</div>
+      </div>
+    </div>
+
+    <p>Lees het volgende gesprekje. Een toerist is in Brussel en vraagt de weg aan een voorbijganger.</p>
+
+    <div class="gesprek">
+      <div class="gesprek-header">Dialogue &mdash; Dans les rues de Bruxelles</div>
+
+      <div class="repliek">
+        <span class="spreker">Toerist</span>
+        <span class="tekst">Excusez-moi, madame. Je cherche la Grand-Place. C&rsquo;est loin d&rsquo;ici ?</span>
+      </div>
+      <div class="repliek">
+        <span class="spreker">Passante</span>
+        <span class="tekst">Non, ce n&rsquo;est pas loin du tout ! Continuez tout droit dans cette rue, puis tournez &agrave; gauche au carrefour.</span>
+      </div>
+      <div class="repliek">
+        <span class="spreker">Toerist</span>
+        <span class="tekst">Je tourne &agrave; gauche au carrefour. D&rsquo;accord. Et ensuite ?</span>
+      </div>
+      <div class="repliek">
+        <span class="spreker">Passante</span>
+        <span class="tekst">Ensuite, prenez la deuxi&egrave;me rue &agrave; droite. La Grand-Place est au bout de cette rue, en face du mus&eacute;e de la ville.</span>
+      </div>
+      <div class="repliek">
+        <span class="spreker">Toerist</span>
+        <span class="tekst">Merci beaucoup, madame. C&rsquo;est tr&egrave;s gentil.</span>
+      </div>
+      <div class="repliek">
+        <span class="spreker">Passante</span>
+        <span class="tekst">De rien ! Bonne visite !</span>
+      </div>
+      <p class="gesprek-note">Let op: de passante zegt <em>de rien</em> (= geen dank). Een alternatief is <em>avec plaisir</em> of informeel <em>pas de probl&egrave;me</em>.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 4 — Les questions
+  ============================================================ -->
+  <section class="section-block" id="questions">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Les questions avec <em>est-ce que</em> et l&rsquo;inversion</h2>
+    </div>
+
+    <p>In het Frans kun je een vraag op drie manieren stellen. De keuze hangt af van de context: spreektaal of schrijftaal, informeel of formeel.</p>
+
+    <div class="grammatica-kader">
+      <span class="gk-label">Grammatica</span>
+      <span class="gk-title">Drie manieren om een vraag te stellen</span>
+      <div class="gk-body">
+        <table>
+          <thead>
+            <tr>
+              <th>Methode</th>
+              <th>Voorbeeld</th>
+              <th>Register</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Intonatie</strong> (stem omhoog)</td>
+              <td><em>La gare est loin ?</em></td>
+              <td>Informeel / spreektaal</td>
+            </tr>
+            <tr>
+              <td><strong>Est-ce que</strong> + zin</td>
+              <td><em>Est-ce que la gare est loin ?</em></td>
+              <td>Neutraal / standaard</td>
+            </tr>
+            <tr>
+              <td><strong>Inversie</strong> (ww. v&oacute;&oacute;r onderwerp)</td>
+              <td><em>La gare est-elle loin ?</em></td>
+              <td>Formeel / schrijftaal</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p style="margin-top:1rem;"><strong>Vragen met vraagwoorden:</strong></p>
+        <ul>
+          <li><em>O&ugrave; est-ce que tu habites ?</em> &mdash; Waar woon jij?</li>
+          <li><em>O&ugrave; habites-tu ?</em> &mdash; Waar woon jij? (formeel)</li>
+          <li><em>Comment est-ce qu&rsquo;on va &agrave; la gare ?</em> &mdash; Hoe gaan we naar het station?</li>
+          <li><em>Pourquoi est-ce que vous prenez le taxi ?</em> &mdash; Waarom nemen jullie de taxi?</li>
+          <li><em>Quand est-ce que le train part ?</em> &mdash; Wanneer vertrekt de trein?</li>
+        </ul>
+
+        <div class="gk-formule">Est-ce que + subject + werkwoord + rest van de zin ?</div>
+        <div class="gk-letop">v&oacute;&oacute;r een klinker wordt <em>est-ce que</em> &rarr; <em>est-ce qu&rsquo;</em>: <em>Est-ce qu&rsquo;il y a un bus ?</em></div>
+      </div>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Oefenmoment</div>
+      <p class="dv-text">Zet deze vragen om naar de <em>est-ce que</em>-vorm: 1) <em>Tu vas en ville ?</em> &nbsp; 2) <em>Il prend le tram ?</em> &nbsp; 3) <em>Vous habitez loin ?</em>. Controleer daarna met een medeleerling.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 5 — Le passé composé
+  ============================================================ -->
+  <section class="section-block" id="passe-compose">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Le pass&eacute; compos&eacute; &mdash; inleiding</h2>
+    </div>
+
+    <p>De <em>pass&eacute; compos&eacute;</em> is de belangrijkste verleden tijd in de spreektaal. Je gebruikt hem om te vertellen wat je gedaan hebt: wat er gisteren, vorige week of eerder is gebeurd.</p>
+
+    <div class="grammatica-kader">
+      <span class="gk-label">Grammatica</span>
+      <span class="gk-title">Vorming van de pass&eacute; compos&eacute; met <em>avoir</em></span>
+      <div class="gk-body">
+        <p>De pass&eacute; compos&eacute; bestaat uit twee delen:</p>
+        <div class="gk-formule">sujet &nbsp;+&nbsp; avoir (vervoegd) &nbsp;+&nbsp; participe pass&eacute;</div>
+
+        <p><strong>Hulpwerkwoord <em>avoir</em> (vervoegd):</strong></p>
+        <table>
+          <thead>
+            <tr><th>Persoon</th><th>avoir</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>je</td><td>j&rsquo;ai</td></tr>
+            <tr><td>tu</td><td>tu as</td></tr>
+            <tr><td>il / elle / on</td><td>il / elle / on a</td></tr>
+            <tr><td>nous</td><td>nous avons</td></tr>
+            <tr><td>vous</td><td>vous avez</td></tr>
+            <tr><td>ils / elles</td><td>ils / elles ont</td></tr>
+          </tbody>
+        </table>
+
+        <p style="margin-top:1rem;"><strong>Regelmatige -ER werkwoorden &rarr; participe pass&eacute; op <em>-&eacute;</em>:</strong></p>
+        <table>
+          <thead>
+            <tr><th>Infinitief</th><th>Participe pass&eacute;</th><th>Voorbeeld</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>parler</td><td>parl&eacute;</td><td><em>J&rsquo;ai parl&eacute; avec le directeur.</em></td></tr>
+            <tr><td>manger</td><td>mang&eacute;</td><td><em>Nous avons mang&eacute; une pizza.</em></td></tr>
+            <tr><td>acheter</td><td>achet&eacute;</td><td><em>Tu as achet&eacute; du pain.</em></td></tr>
+            <tr><td>regarder</td><td>regard&eacute;</td><td><em>Il a regard&eacute; le film.</em></td></tr>
+            <tr><td>travailler</td><td>travaill&eacute;</td><td><em>Vous avez travaill&eacute; dur.</em></td></tr>
+          </tbody>
+        </table>
+
+        <p style="margin-top:1rem;"><strong>Onregelmatige participes (veelgebruikt &mdash; uit het hoofd leren!):</strong></p>
+        <table>
+          <thead>
+            <tr><th>Infinitief</th><th>Participe pass&eacute;</th><th>Voorbeeld</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>faire</td><td>fait</td><td><em>J&rsquo;ai fait les courses.</em></td></tr>
+            <tr><td>prendre</td><td>pris</td><td><em>Elle a pris le bus.</em></td></tr>
+            <tr><td>voir</td><td>vu</td><td><em>Nous avons vu le mus&eacute;e.</em></td></tr>
+            <tr><td>boire</td><td>bu</td><td><em>Il a bu un caf&eacute;.</em></td></tr>
+            <tr><td>lire</td><td>lu</td><td><em>Tu as lu le menu.</em></td></tr>
+            <tr><td>avoir</td><td>eu</td><td><em>J&rsquo;ai eu un probl&egrave;me.</em></td></tr>
+          </tbody>
+        </table>
+
+        <p style="margin-top:1rem;"><strong>Ontkenning van de pass&eacute; compos&eacute;:</strong></p>
+        <div class="gk-formule">sujet &nbsp;+&nbsp; ne &nbsp;+&nbsp; avoir &nbsp;+&nbsp; pas &nbsp;+&nbsp; participe pass&eacute;</div>
+        <ul>
+          <li><em>Je n&rsquo;ai pas mang&eacute;.</em> &mdash; Ik heb niet gegeten.</li>
+          <li><em>Il n&rsquo;a pas pris le train.</em> &mdash; Hij heeft de trein niet genomen.</li>
+          <li><em>Nous n&rsquo;avons pas vu le film.</em> &mdash; We hebben de film niet gezien.</li>
+        </ul>
+
+        <div class="gk-letop">de <em>ne&hellip;pas</em> omarmt het hulpwerkwoord <em>avoir</em>, niet het participe. Het participe staat altijd &agrave;ch&egrave;re het <em>pas</em>.</div>
+      </div>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Oefenmoment</div>
+      <p class="dv-text">Vertaal deze zinnen naar de pass&eacute; compos&eacute;: 1) Ik koop brood. 2) Zij neemt de metro. 3) Wij zien de Grand-Place. 4) Je doet de inkopen. Schrijf ook de ontkennende vorm van elke zin.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 6 — Mes courses en ville (gesprek)
+  ============================================================ -->
+  <section class="section-block" id="courses">
+    <div class="section-heading">
+      <span class="section-num">6</span>
+      <h2 class="section-title">Mes courses en ville</h2>
+    </div>
+
+    <p>Lees hoe Lucie haar inkopen in de stad beschrijft aan haar vriendin. Ze gebruikt de pass&eacute; compos&eacute; om te vertellen wat ze gedaan heeft.</p>
+
+    <div class="gesprek">
+      <div class="gesprek-header">Dialogue &mdash; Le samedi en ville</div>
+
+      <div class="repliek">
+        <span class="spreker">Amina</span>
+        <span class="tekst">Alors Lucie, tu as pass&eacute; une bonne journ&eacute;e en ville ?</span>
+      </div>
+      <div class="repliek">
+        <span class="spreker">Lucie</span>
+        <span class="tekst">Oui, super ! J&rsquo;ai pris le bus jusqu&rsquo;au centre-ville. <em>(Ik heb de bus genomen naar het centrum.)</em></span>
+      </div>
+      <div class="repliek">
+        <span class="spreker">Amina</span>
+        <span class="tekst">Et qu&rsquo;est-ce que tu as fait l&agrave;-bas ?</span>
+      </div>
+      <div class="repliek">
+        <span class="spreker">Lucie</span>
+        <span class="tekst">D&rsquo;abord j&rsquo;ai achet&eacute; du pain &agrave; la boulangerie. Ensuite j&rsquo;ai cherch&eacute; un cadeau pour maman &agrave; la librairie. J&rsquo;ai trouv&eacute; un beau livre sur Bruxelles !</span>
+      </div>
+      <div class="repliek">
+        <span class="spreker">Amina</span>
+        <span class="tekst">Tu as vu quelque chose d&rsquo;int&eacute;ressant en ville ?</span>
+      </div>
+      <div class="repliek">
+        <span class="spreker">Lucie</span>
+        <span class="tekst">Oui ! J&rsquo;ai vu l&rsquo;Atomium depuis le tram &mdash; c&rsquo;&eacute;tait magnifique. Et j&rsquo;ai bu un chocolat chaud pr&egrave;s de la Grand-Place. Parfait pour une journ&eacute;e froide !</span>
+      </div>
+      <div class="repliek">
+        <span class="spreker">Amina</span>
+        <span class="tekst">Super ! Tu n&rsquo;as pas visit&eacute; le mus&eacute;e ?</span>
+      </div>
+      <div class="repliek">
+        <span class="spreker">Lucie</span>
+        <span class="tekst">Non, je n&rsquo;ai pas eu le temps. Mais j&rsquo;ai fait beaucoup de choses quand m&ecirc;me !</span>
+      </div>
+      <p class="gesprek-note">Sleutelstructuren: <em>j&rsquo;ai pris</em> / <em>j&rsquo;ai achet&eacute;</em> / <em>j&rsquo;ai vu</em> / <em>j&rsquo;ai bu</em> / <em>je n&rsquo;ai pas eu</em> &mdash; allemaal pass&eacute; compos&eacute; met avoir.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 7 — Tekst: Bruxelles
+  ============================================================ -->
+  <section class="section-block" id="bruxelles">
+    <div class="section-heading">
+      <span class="section-num">7</span>
+      <h2 class="section-title">Bruxelles, capitale de la Belgique</h2>
+    </div>
+
+    <p>Lees de informatieve tekst over Brussel. Beantwoord daarna de begripsvragen.</p>
+
+    <div class="tekst-fragment">
+      <span class="tf-label">Tekst &mdash; Lecture</span>
+      <span class="tf-title">Bruxelles, capitale de la Belgique</span>
+      <div class="tf-body">
+        <p>Bruxelles est la capitale de la Belgique et le si&egrave;ge de nombreuses institutions europ&eacute;ennes. C&rsquo;est une ville cosmopolite o&ugrave; vivent des gens de plus de 180 nationalit&eacute;s diff&eacute;rentes. La ville est officiellement bilingue : on y parle le fran&ccedil;ais et le n&eacute;erlandais, mais on entend &eacute;galement l&rsquo;anglais, l&rsquo;arabe, le turc et bien d&rsquo;autres langues dans les rues.</p>
+        <p>Le coeur historique de Bruxelles, c&rsquo;est la <strong>Grand-Place</strong>. Cette place magnifique est entour&eacute;e de guildes m&eacute;di&eacute;vales aux fa&ccedil;ades dor&eacute;es. Le c&eacute;l&egrave;bre &eacute;crivain Victor Hugo l&rsquo;a appel&eacute;e &laquo; la plus belle place du monde &raquo;. Non loin de l&agrave; se trouve le <strong>Manneken Pis</strong>, une petite statue en bronze qui est devenue le symbole humoristique de la ville.</p>
+        <p>&Agrave; la p&eacute;riph&eacute;rie nord de la ville se dresse l&rsquo;<strong>Atomium</strong>, une structure m&eacute;tallique en forme de mol&eacute;cule de fer, construite pour l&rsquo;Exposition universelle de 1958. Aujourd&rsquo;hui c&rsquo;est un mus&eacute;e et un symbole de l&rsquo;optimisme scientifique de l&rsquo;apr&egrave;s-guerre. La vue depuis le sommet sur toute la ville est exceptionnelle.</p>
+        <p>Le <strong>quartier europ&eacute;en</strong>, situ&eacute; &agrave; l&rsquo;est du centre historique, abrite le Parlement europ&eacute;en, la Commission europ&eacute;enne et le Conseil de l&rsquo;Union europ&eacute;enne. Chaque jour, des milliers de fonctionnaires et de diplomates s&rsquo;y rendent en bus, en m&eacute;tro ou &agrave; v&eacute;lo. Bruxelles est donc vraiment une ville internationale, un carrefour entre les cultures et les langues de l&rsquo;Europe.</p>
+      </div>
+      <div class="tf-vragen">
+        <span class="tvq-label">Begripsvragen</span>
+        <ol>
+          <li>Welke twee talen zijn officieel in Brussel? Noem ook twee andere talen die er gesproken worden.</li>
+          <li>Wie noemde de Grand-Place &ldquo;la plus belle place du monde&rdquo; en wat voor soort gebouwen omringen die plaats?</li>
+          <li>Wanneer werd de Atomium gebouwd en waarvoor diende het oorspronkelijk?</li>
+          <li>Welke drie Europese instellingen zijn gevestigd in het Europese kwartier?</li>
+          <li>Zoek in de tekst drie zinnen die de pass&eacute; compos&eacute; gebruiken. Schrijf ze op en onderstreep het hulpwerkwoord en het participe.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 8 — Les achats: prix, monnaie, réclamations
+  ============================================================ -->
+  <section class="section-block" id="achats">
+    <div class="section-heading">
+      <span class="section-num">8</span>
+      <h2 class="section-title">Les achats : prix, monnaie, r&eacute;clamations</h2>
+    </div>
+
+    <p>Winkelen verloopt niet altijd probleemloos. Leer de zinnen om te betalen, te informeren naar de prijs en een klacht in te dienen.</p>
+
+    <div class="woordenschat-kader">
+      <span class="wk-label">Taalkader</span>
+      <span class="wk-title">In de winkel &mdash; Les interactions commerciales</span>
+
+      <span class="wk-sub">De prijs vragen</span>
+      <div class="wk-grid">
+        <div class="wk-item"><span class="wk-fr">C&rsquo;est combien ?</span><span class="wk-nl">Hoeveel kost het?</span></div>
+        <div class="wk-item"><span class="wk-fr">Combien co&ucirc;te ce livre ?</span><span class="wk-nl">Wat kost dit boek?</span></div>
+        <div class="wk-item"><span class="wk-fr">C&rsquo;est quel prix ?</span><span class="wk-nl">Wat is de prijs?</span></div>
+        <div class="wk-item"><span class="wk-fr">&Ccedil;a co&ucirc;te&hellip; euros.</span><span class="wk-nl">Dat kost &hellip; euro.</span></div>
+      </div>
+
+      <span class="wk-sub">Betalen</span>
+      <div class="wk-grid">
+        <div class="wk-item"><span class="wk-fr">Vous acceptez la carte ?</span><span class="wk-nl">Accepteert u een kaart?</span></div>
+        <div class="wk-item"><span class="wk-fr">Je paie en esp&egrave;ces.</span><span class="wk-nl">Ik betaal cash.</span></div>
+        <div class="wk-item"><span class="wk-fr">Je paie par carte.</span><span class="wk-nl">Ik betaal met kaart.</span></div>
+        <div class="wk-item"><span class="wk-fr">Avez-vous la monnaie ?</span><span class="wk-nl">Heeft u wisselgeld?</span></div>
+        <div class="wk-item"><span class="wk-fr">L&rsquo;addition, s&rsquo;il vous pla&icirc;t.</span><span class="wk-nl">De rekening, alstublieft.</span></div>
+        <div class="wk-item"><span class="wk-fr">Gardez la monnaie.</span><span class="wk-nl">Houd het wisselgeld maar.</span></div>
+      </div>
+
+      <span class="wk-sub">Klachten en retouren</span>
+      <div class="wk-grid">
+        <div class="wk-item"><span class="wk-fr">Je voudrais un remboursement.</span><span class="wk-nl">Ik wil graag terugbetaald worden.</span></div>
+        <div class="wk-item"><span class="wk-fr">Ce n&rsquo;est pas ce que j&rsquo;ai command&eacute;.</span><span class="wk-nl">Dit is niet wat ik besteld heb.</span></div>
+        <div class="wk-item"><span class="wk-fr">Ce produit est endommag&eacute;.</span><span class="wk-nl">Dit product is beschadigd.</span></div>
+        <div class="wk-item"><span class="wk-fr">Je voudrais l&rsquo;&eacute;changer.</span><span class="wk-nl">Ik wil het ruilen.</span></div>
+        <div class="wk-item"><span class="wk-fr">Est-ce que je peux avoir un re&ccedil;u ?</span><span class="wk-nl">Kan ik een bon krijgen?</span></div>
+      </div>
+
+      <p class="wk-note">Merk op: <em>Ce n&rsquo;est pas ce que j&rsquo;ai command&eacute;</em> bevat een pass&eacute; compos&eacute;! Vertaling letterlijk: &ldquo;Dit is niet dat wat ik heb besteld.&rdquo;</p>
+    </div>
+
+    <div class="gesprek">
+      <div class="gesprek-header">Mini-dialogue &mdash; &Agrave; la boulangerie</div>
+      <div class="repliek">
+        <span class="spreker">Client</span>
+        <span class="tekst">Bonjour, je voudrais deux croissants et une baguette, s&rsquo;il vous pla&icirc;t.</span>
+      </div>
+      <div class="repliek">
+        <span class="spreker">Boulangi&egrave;re</span>
+        <span class="tekst">Voil&agrave; ! &Ccedil;a fait trois euros cinquante.</span>
+      </div>
+      <div class="repliek">
+        <span class="spreker">Client</span>
+        <span class="tekst">Vous acceptez la carte ?</span>
+      </div>
+      <div class="repliek">
+        <span class="spreker">Boulangi&egrave;re</span>
+        <span class="tekst">Oui, bien s&ucirc;r. Tapez votre code, s&rsquo;il vous pla&icirc;t.</span>
+      </div>
+      <div class="repliek">
+        <span class="spreker">Client</span>
+        <span class="tekst">Merci. Bonne journ&eacute;e !</span>
+      </div>
+      <div class="repliek">
+        <span class="spreker">Boulangi&egrave;re</span>
+        <span class="tekst">Bonne journ&eacute;e &agrave; vous aussi !</span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- CLOSING QUOTE -->
+  <div class="closing-quote" role="note" aria-label="Slotcitaat">
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p class="cq-text">Une langue, c&rsquo;est une fen&ecirc;tre ouverte sur le monde. Parler fran&ccedil;ais, c&rsquo;est d&eacute;couvrir des villes, des cultures, des gens.</p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <span class="cq-attribution">Frans 1A &nbsp;&middot;&nbsp; Eerste Graad A-stroom</span>
+  </div>
+
+</div><!-- end page-wrapper -->
+
+<!-- ============================================================
+     EXERCISES
+============================================================ -->
+<section class="exercises-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <!-- Oefening 1 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Le pass&eacute; compos&eacute; &mdash; vorming</p>
+      <p style="font-size:.96rem;color:var(--text-mid);margin-bottom:.5rem;">Zet de volgende zinnen in de pass&eacute; compos&eacute;. Let op de onregelmatige participes!</p>
+      <ol>
+        <li>Je <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> (prendre) le bus jusqu&rsquo;&agrave; la gare.</li>
+        <li>Nous <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> (acheter) du fromage &agrave; la supermarch&eacute;.</li>
+        <li>Elle <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> (voir) l&rsquo;Atomium pour la premi&egrave;re fois.</li>
+        <li>Vous <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> (faire) les courses en ville.</li>
+        <li>Ils <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> (boire) un caf&eacute; pr&egrave;s de la Grand-Place.</li>
+        <li>Tu <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> (parler) avec le touriste.</li>
+      </ol>
+      <p class="ex-tip">Tip: controleer tabel 5 voor de onregelmatige participes (fait, pris, vu, bu).</p>
+    </div>
+
+    <!-- Oefening 2 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Dialogue &mdash; de weg vragen en geven</p>
+      <p style="font-size:.96rem;color:var(--text-mid);margin-bottom:.5rem;">Schrijf een kort dialoogje (6 tot 8 beurten) tussen een toerist en een voorbijganger. De toerist zoekt de dichtstbijzijnde apotheek. Gebruik minstens:</p>
+      <ul>
+        <li>een beleefde openingszin met <em>Excusez-moi</em></li>
+        <li>twee richtingsinstructies (tournez / continuez / prenez&hellip;)</li>
+        <li>&eacute;&eacute;n liggingsuitdrukking (<em>en face de / &agrave; c&ocirc;t&eacute; de / pr&egrave;s de</em>)</li>
+        <li>een bedankformule en een antwoord</li>
+      </ul>
+      <p class="ex-tip">Tip: oefen het dialoogje ook hardop met een klasgenoot.</p>
+    </div>
+
+    <!-- Oefening 3 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Vervoersvoorzetsels &mdash; <em>en</em> of <em>&agrave;</em> ?</p>
+      <p style="font-size:.96rem;color:var(--text-mid);margin-bottom:.5rem;">Vul het juiste voorzetsel in: <em>en</em> of <em>&agrave;</em>.</p>
+      <ol>
+        <li>Je vais &agrave; l&rsquo;&eacute;cole <u>&nbsp;&nbsp;&nbsp;</u> v&eacute;lo.</li>
+        <li>Mes parents vont au travail <u>&nbsp;&nbsp;&nbsp;</u> voiture.</li>
+        <li>Nous prenons le m&eacute;tro : on y va <u>&nbsp;&nbsp;&nbsp;</u> m&eacute;tro.</li>
+        <li>Elle pr&eacute;f&egrave;re aller au march&eacute; <u>&nbsp;&nbsp;&nbsp;</u> pied.</li>
+        <li>Ils sont all&eacute;s en vacances <u>&nbsp;&nbsp;&nbsp;</u> avion.</li>
+        <li>Tu vas au cin&eacute;ma <u>&nbsp;&nbsp;&nbsp;</u> tram ou <u>&nbsp;&nbsp;&nbsp;</u> bus ?</li>
+      </ol>
+    </div>
+
+    <!-- Oefening 4 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 4</p>
+      <p class="ex-name">Begrip &mdash; Bruxelles, capitale de la Belgique</p>
+      <p style="font-size:.96rem;color:var(--text-mid);margin-bottom:.5rem;">Beantwoord de volgende vragen op basis van de tekst in sectie 7. Schrijf volledige zinnen in het Frans waar mogelijk.</p>
+      <ol>
+        <li>Hoeveel nationaliteiten telt Brussel volgens de tekst?</li>
+        <li>Wat noemde Victor Hugo de Grand-Place?</li>
+        <li>Wat stelt de Manneken Pis voor en waarom is hij belangrijk voor Brussel?</li>
+        <li>Wanneer werd de Atomium gebouwd? Zoek ook op: wat stelt de structuur voor?</li>
+        <li>Waarom wordt Brussel een &ldquo;carrefour entre les cultures&rdquo; genoemd?</li>
+      </ol>
+      <p class="ex-tip">Tip: de tekst bevat alle antwoorden. Onderstreep de relevante passages eerst.</p>
+    </div>
+
+    <!-- Oefening 5 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 5</p>
+      <p class="ex-name">Koppel de winkel aan het product</p>
+      <p style="font-size:.96rem;color:var(--text-mid);margin-bottom:.5rem;">Koppel elke winkel (kolom A) aan het product of de dienst die erbij hoort (kolom B).</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:.5rem 0;">
+        <div>
+          <p style="font-weight:700;font-size:.9rem;margin-bottom:.4rem;color:var(--darkblue);">Kolom A &mdash; Le commerce</p>
+          <ol style="font-size:.93rem;color:var(--text-mid);">
+            <li>la boulangerie</li>
+            <li>la pharmacie</li>
+            <li>la librairie</li>
+            <li>la boucherie</li>
+            <li>la banque</li>
+            <li>la gare</li>
+            <li>le cin&eacute;ma</li>
+            <li>la poste</li>
+          </ol>
+        </div>
+        <div>
+          <p style="font-weight:700;font-size:.9rem;margin-bottom:.4rem;color:var(--darkblue);">Kolom B &mdash; Le produit / service</p>
+          <ol type="a" style="font-size:.93rem;color:var(--text-mid);">
+            <li>un billet de train</li>
+            <li>de la viande</li>
+            <li>de l&rsquo;aspirine</li>
+            <li>un roman policier</li>
+            <li>un compte bancaire</li>
+            <li>un film d&rsquo;action</li>
+            <li>une baguette</li>
+            <li>un colis &agrave; envoyer</li>
+          </ol>
+        </div>
+      </div>
+      <p class="ex-tip">Tip: elke letter is de correcte match van &eacute;&eacute;n cijfer.</p>
+    </div>
+
+    <!-- Oefening 6 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 6</p>
+      <p class="ex-name">Schrijfopdracht &mdash; Ma journ&eacute;e en ville</p>
+      <p style="font-size:.96rem;color:var(--text-mid);margin-bottom:.5rem;">Schrijf een tekst van 80 tot 100 woorden over een uitstap naar de stad. Gebruik:</p>
+      <ul>
+        <li>minimaal <strong>4 pass&eacute; compos&eacute;-zinnen</strong> (waarvan 1 ontkennend)</li>
+        <li>minimaal <strong>3 winkels of diensten</strong> uit de woordenschat</li>
+        <li>minimaal <strong>1 vervoermiddel</strong> met het juiste voorzetsel</li>
+        <li>tijdsaanduidingen: <em>d&rsquo;abord, ensuite, puis, apr&egrave;s, enfin</em></li>
+      </ul>
+      <p style="font-size:.93rem;color:var(--text-mid);margin-top:.5rem;"><em>Exemple de d&eacute;but :</em> &laquo; Samedi matin, j&rsquo;ai pris le tram pour aller en ville. D&rsquo;abord j&rsquo;ai&hellip; &raquo;</p>
+      <p class="ex-tip">Tip: gebruik het gesprek in sectie 6 als model. Maak je tekst echter origineel!</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SUMMARY
+============================================================ -->
+<section class="summary-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting &mdash; Wat heb je geleerd?</h2>
+    <ul>
+      <li><strong>Les commerces et les services :</strong> je kent 18 winkels en diensten met het juiste lidwoord, inclusief de valse vriend <em>la librairie</em> (boekwinkel) vs. <em>la biblioth&egrave;que</em> (bibliotheek).</li>
+      <li><strong>Les transports :</strong> je gebruikt <em>prendre le/la</em> voor voertuigen en <em>aller en</em> (bus, voiture, avion&hellip;) vs. <em>aller &agrave;</em> (v&eacute;lo, pied, moto) correct.</li>
+      <li><strong>Demander son chemin :</strong> je kunt de weg vragen met <em>Excusez-moi, o&ugrave; est&hellip; ?</em> en de weg uitleggen met <em>tournez, continuez, prenez, traversez</em> en liggingswoorden als <em>en face de, &agrave; c&ocirc;t&eacute; de, pr&egrave;s de</em>.</li>
+      <li><strong>Les questions :</strong> je stelt vragen via intonatie (informeel), <em>est-ce que</em> (standaard) en inversie (formeel).</li>
+      <li><strong>Le pass&eacute; compos&eacute; :</strong> je vormt de pass&eacute; compos&eacute; met <em>avoir</em> + participe pass&eacute;; regelmatige -ER werkwoorden krijgen <em>-&eacute;</em>; je kent de onregelmatige participes <em>fait, pris, vu, bu, lu, eu</em>; de ontkenning werkt met <em>n&rsquo;&hellip; pas</em> rond het hulpwerkwoord.</li>
+      <li><strong>Les achats :</strong> je voert een winkelgesprek: prijs vragen, betaalwijze bespreken, klacht formuleren.</li>
+      <li><strong>Bruxelles :</strong> je weet dat Brussel tweetalig is, Europese hoofdstad en thuisbasis van de Grand-Place, de Manneken Pis, de Atomium en het Europees kwartier.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

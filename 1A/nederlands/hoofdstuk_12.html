@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoofdstuk 12 — De bouwstenen van taal | Nederlands 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.25; }
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+    text-decoration: none;
+  }
+  .site-header .label-right { text-align: right; }
+
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image: radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+  .chapter-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+  .prologue .ornament-line .ornament-sym { color: var(--gold); font-size: 1.1rem; opacity: 0.8; }
+  .prologue p { font-style: italic; font-size: 1.05rem; line-height: 1.85; color: rgba(250,246,239,0.9); }
+  .prologue p + p { margin-top: 0.9em; }
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+  .begrip .begrip-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .begrip .begrip-body { flex: 1; }
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+  .begrip .begrip-def { font-size: 0.97rem; color: var(--text-mid); line-height: 1.65; margin: 0; }
+
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .denkvraag .dv-text { font-style: italic; font-size: 1rem; color: var(--text-mid); line-height: 1.7; }
+
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+  }
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ── VOORBEELDTEKST ── */
+  .voorbeeldtekst {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 2rem 2.2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .voorbeeldtekst .vt-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--darkblue);
+    opacity: 0.6;
+    margin-bottom: 0.4rem;
+    display: block;
+  }
+  .voorbeeldtekst .vt-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 0.3rem;
+  }
+  .voorbeeldtekst .vt-meta {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    margin-bottom: 1.2rem;
+    font-style: italic;
+  }
+  .voorbeeldtekst .vt-body p {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-bottom: 0.9em;
+  }
+  .voorbeeldtekst .vt-body p:last-child { margin-bottom: 0; }
+  .voorbeeldtekst .vt-source {
+    margin-top: 1rem;
+    font-size: 0.78rem;
+    color: var(--text-light);
+    border-top: 1px solid var(--sand);
+    padding-top: 0.6rem;
+    font-style: italic;
+  }
+
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+  .exercise-card ol, .exercise-card ul { padding-left: 1.4rem; margin-top: 0.5rem; }
+  .exercise-card li { margin-bottom: 0.45rem; font-size: 0.96rem; color: var(--text-mid); }
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+  .summary-section ul { list-style: none; padding: 0; }
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0; top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem; right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px; height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  .prose-text { max-width: 100%; }
+  .highlighted-para {
+    background: rgba(212,160,23,0.08);
+    border-left: 3px solid var(--gold);
+    padding: 0.8rem 1.1rem;
+    border-radius: 0 4px 4px 0;
+    margin: 1.2rem 0;
+    font-size: 0.97rem;
+    color: var(--text-mid);
+  }
+
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section, .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .voorbeeldtekst { padding: 1.4rem 1.2rem; }
+  }
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* Extra stijlen specifiek voor dit hoofdstuk */
+  .woordsoort-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.94rem;
+    margin: 0.5rem 0 0;
+  }
+  .woordsoort-table th {
+    background: var(--darkblue);
+    color: var(--gold);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.55rem 0.9rem;
+    text-align: left;
+  }
+  .woordsoort-table td {
+    padding: 0.55rem 0.9rem;
+    border-bottom: 1px solid var(--sand);
+    color: var(--text-mid);
+    vertical-align: top;
+  }
+  .woordsoort-table tr:last-child td { border-bottom: none; }
+  .woordsoort-table tr:nth-child(even) td { background: rgba(232,220,200,0.25); }
+  .woordsoort-table td:first-child {
+    font-weight: 700;
+    color: var(--terracotta);
+    white-space: nowrap;
+  }
+  .woordsoort-table td:nth-child(2) {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    white-space: nowrap;
+  }
+
+  .mini-oef {
+    background: rgba(26,43,74,0.04);
+    border: 1px solid rgba(26,43,74,0.12);
+    border-radius: var(--border-radius);
+    padding: 1.2rem 1.4rem;
+    margin: 1.6rem 0;
+  }
+  .mini-oef .mo-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--darkblue);
+    opacity: 0.7;
+    margin-bottom: 0.7rem;
+  }
+  .mini-oef ol { padding-left: 1.4rem; margin: 0; }
+  .mini-oef ol li { margin-bottom: 0.5rem; font-size: 0.96rem; color: var(--text-mid); line-height: 1.65; }
+
+  .analyse-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+    margin: 1rem 0;
+  }
+  .analyse-table th {
+    background: var(--darkblue);
+    color: var(--gold);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.73rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    padding: 0.5rem 0.8rem;
+    text-align: left;
+  }
+  .analyse-table td {
+    padding: 0.5rem 0.8rem;
+    border-bottom: 1px solid var(--sand);
+    color: var(--text-mid);
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .analyse-table tr:last-child td { border-bottom: none; }
+  .analyse-table tr:nth-child(even) td { background: rgba(232,220,200,0.25); }
+  .analyse-table td:first-child { font-weight: 700; color: var(--terracotta); }
+  .analyse-table td:nth-child(2) { font-weight: 600; color: var(--darkblue); }
+  .analyse-table td:nth-child(3) { font-size: 0.88rem; color: var(--text-light); }
+
+  u { text-decoration-color: var(--terracotta); text-underline-offset: 3px; }
+</style>
+</head>
+<body>
+
+<header class="site-header" id="top">
+  <a class="label" href="index.html">Nederlands 1A</a>
+  <span class="label label-right">Hoofdstuk 12</span>
+</header>
+
+<div class="chapter-hero">
+  <div class="chapter-kicker">Nederlands &nbsp;·&nbsp; 1A &nbsp;·&nbsp; Eerste graad</div>
+  <h1>Hoofdstuk 12<br>De bouwstenen van taal</h1>
+  <p class="subtitle">Zelfstandige naamwoorden, werkwoorden, voornaamwoorden en meer — elke soort heeft een taak</p>
+</div>
+
+<div class="page-wrapper">
+
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Stel je voor &hellip;</span>
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+
+    <p>Stel je voor: je staat op een grote bouwwerf, maar niemand kent de namen van de materialen. Iemand roept: "Geef me dat ding!" — bedoelt hij nu een baksteen, een dakpan, een balk of een raam? Je kunt raden, maar de kans op verwarring is groot. De architect tekent plannen vol symbolen die niemand begrijpt. De metselaars, de timmerlieden en de loodgieters praten langs elkaar heen. Het gebouw wordt óf nooit afgewerkt, óf het ziet er heel anders uit dan bedoeld.</p>
+
+    <p>Taal werkt precies zo. Je kunt praten en schrijven zonder te weten wat een werkwoord of een zelfstandig naamwoord is — net zoals je kunt bouwen zonder de namen van je materialen te kennen. Maar zodra je die namen wél kent, verandert er iets. Je kunt plotseling precies aanwijzen wat er mis is in een zin. Je begrijpt waarom spellingregels werken zoals ze werken. Je kunt met je leraar, je ouders, of een redacteur praten over een tekst en exact zeggen wat er beter kan.</p>
+
+    <p>Woordsoorten zijn de namen die we geven aan de bouwstenen van taal. Er zijn er tien in het Nederlands. Elk heeft een eigen taak, een eigen plek in de zin, en eigen eigenschappen. Dit hoofdstuk geeft je een volledige gereedschapskist: na deze les ken je alle tien en weet je wat ze doen. Dat is de basis voor alles wat daarna komt — zinsdelen, werkwoordspelling, en het schrijven van sterke teksten.</p>
+
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+  </section>
+
+  <section class="section-block" id="s1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Waarom woordsoorten?</h2>
+    </div>
+    <div class="prose-text">
+      <p>Misschien vraag je je af: wat heb ik aan al die namen? Woordsoorten kennen heeft drie grote voordelen die je dit jaar meteen merkt.</p>
+
+      <p><strong>Ten eerste: spelling.</strong> In hoofdstuk 11 leerde je over werkwoordspelling. De regels voor <em>ik loop / hij loopt</em> of <em>gelopen / geloopt</em> kun je alleen correct toepassen als je weet welk woord een werkwoord is en welk niet. "Hij werkt" schrijf je met een -t omdat "hij" de derde persoon enkelvoud is — maar dat weet je pas als je de persoonsvorm herkent.</p>
+
+      <p><strong>Ten tweede: zinsbouw.</strong> In hoofdstuk 13 ga je zinsdelen analyseren: onderwerp, gezegde, lijdend voorwerp. Die zinsdelen bestaan uit woordsoorten. Het onderwerp is altijd een zelfstandig naamwoord of voornaamwoord. Het gezegde bevat altijd een werkwoord. Wie woordsoorten kent, snapt zinsdelen twee keer zo snel.</p>
+
+      <p><strong>Ten derde: taalgevoel.</strong> Als je weet dat "snel" zowel bijvoeglijk naamwoord (<em>een snelle fiets</em>) als bijwoord (<em>hij rijdt snel</em>) kan zijn, begin je bewuster te schrijven. Je kiest niet zomaar een woord — je kiest het juiste woord voor de juiste plek.</p>
+
+      <p>In het Nederlands onderscheiden we tien woordsoorten. Hieronder zie je een overzicht.</p>
+    </div>
+
+    <div class="illustratie">
+      <span class="ill-icon">🗂️</span>
+      <p class="ill-caption">Overzichtstabel: de tien woordsoorten van het Nederlands, elk met afkorting en één kernzin.</p>
+      <table class="woordsoort-table" style="margin-top:1.2rem; text-align:left;">
+        <thead>
+          <tr>
+            <th>Woordsoort</th>
+            <th>Afkorting</th>
+            <th>Wat doet het?</th>
+            <th>Voorbeeld</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Zelfstandig naamwoord</td>
+            <td>znw</td>
+            <td>Benoemt een persoon, dier, ding of idee</td>
+            <td><em>hond, school, vrijheid</em></td>
+          </tr>
+          <tr>
+            <td>Bijvoeglijk naamwoord</td>
+            <td>bnw</td>
+            <td>Beschrijft of bepaalt een zelfstandig naamwoord</td>
+            <td><em>grote, blauwe, mooi</em></td>
+          </tr>
+          <tr>
+            <td>Werkwoord</td>
+            <td>ww</td>
+            <td>Drukt een handeling, toestand of proces uit</td>
+            <td><em>lopen, zijn, worden</em></td>
+          </tr>
+          <tr>
+            <td>Voornaamwoord</td>
+            <td>vnw</td>
+            <td>Vervangt of begeleidt een zelfstandig naamwoord</td>
+            <td><em>ik, mijn, dit, wie</em></td>
+          </tr>
+          <tr>
+            <td>Lidwoord</td>
+            <td>lw</td>
+            <td>Gaat voor een zelfstandig naamwoord; bepaald of onbepaald</td>
+            <td><em>de, het, een</em></td>
+          </tr>
+          <tr>
+            <td>Voegwoord</td>
+            <td>vw</td>
+            <td>Verbindt zinnen of zinsdelen</td>
+            <td><em>en, maar, omdat</em></td>
+          </tr>
+          <tr>
+            <td>Voorzetsel</td>
+            <td>vz</td>
+            <td>Geeft een relatie aan tussen woorden (plaats, tijd, richting…)</td>
+            <td><em>in, op, voor, met</em></td>
+          </tr>
+          <tr>
+            <td>Telwoord</td>
+            <td>tw</td>
+            <td>Geeft een hoeveelheid of volgorde aan</td>
+            <td><em>drie, eerste, beide</em></td>
+          </tr>
+          <tr>
+            <td>Bijwoord</td>
+            <td>bw</td>
+            <td>Bepaalt een werkwoord, bijvoeglijk naamwoord of ander bijwoord</td>
+            <td><em>snel, gisteren, hier</em></td>
+          </tr>
+          <tr>
+            <td>Tussenwerpsel</td>
+            <td>tw</td>
+            <td>Drukt een gevoel of reactie uit; staat buiten de zinsstructuur</td>
+            <td><em>Au! Hé! Oei!</em></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="highlighted-para">
+      <strong>Let op:</strong> zowel <em>telwoord</em> als <em>tussenwerpsel</em> krijgen de afkorting <strong>tw</strong>. In context is het altijd duidelijk om welke het gaat.
+    </div>
+  </section>
+
+  <section class="section-block" id="s2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Zelfstandig naamwoord</h2>
+    </div>
+    <div class="prose-text">
+      <p>Een <strong>zelfstandig naamwoord</strong> (znw) is een woord dat een persoon, dier, ding, stof, plaats of abstract begrip benoemt. Het is de "ding-categorie" van de taal — alles wat je kunt aanwijzen of benoemen, ook al kun je het niet vasthouden.</p>
+
+      <p>Je herkent een zelfstandig naamwoord aan twee kenmerken. <strong>Eerst:</strong> je kunt er een lidwoord voor zetten (<em>de</em>, <em>het</em> of <em>een</em>). Twijfel je of een woord een znw is? Probeer er "de" of "het" voor te zetten. Lukt dat zonder dat het raar klinkt? Dan is het waarschijnlijk een znw. <strong>Daarna:</strong> de meeste zelfstandige naamwoorden kun je ook meervoud maken: <em>hond → honden</em>, <em>idee → ideeën</em>, <em>boek → boeken</em>.</p>
+
+      <p>We onderscheiden drie soorten zelfstandige naamwoorden:</p>
+      <ul style="padding-left:1.4rem; margin-bottom:1.1em;">
+        <li style="margin-bottom:0.5rem;"><strong>Concreet:</strong> je kunt het met je zintuigen waarnemen — <em>tafel, regen, hond, geluid</em>.</li>
+        <li style="margin-bottom:0.5rem;"><strong>Abstract:</strong> je kunt het niet zien of aanraken — <em>vrijheid, vriendschap, angst, tijd</em>.</li>
+        <li style="margin-bottom:0.5rem;"><strong>Collectief:</strong> benoemt een groep als één geheel — <em>kudde, publiek, volk, team</em>.</li>
+      </ul>
+      <p>Zelfstandige naamwoorden schrijf je met een kleine letter, tenzij het een eigennaam is (een naam van een persoon, land, stad…): <em>Emma, België, Brussel, de Rijn</em>.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Zelfstandig naamwoord (znw)</span>
+        <p class="begrip-def">Een zelfstandig naamwoord benoemt een persoon, dier, ding, stof, plaats of abstract begrip. Je herkent het doordat je er een lidwoord (de / het / een) voor kunt zetten en het meestal een meervoud heeft. Voorbeelden: <em>stad, leraar, geluk, kudde</em>.</p>
+      </div>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">Zijn "lopen", "het lopen" en "een wandeling" allemaal zelfstandige naamwoorden? Probeer elk van deze drie woorden de test: "zet er een lidwoord voor." Wat stel je vast? Wat zegt dat over de relatie tussen woordsoorten en context?</p>
+    </div>
+  </section>
+
+  <section class="section-block" id="s3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Bijvoeglijk naamwoord</h2>
+    </div>
+    <div class="prose-text">
+      <p>Een <strong>bijvoeglijk naamwoord</strong> (bnw) beschrijft of bepaalt een zelfstandig naamwoord. Het geeft een eigenschap, kleur, afmeting of kwaliteit aan. Denk aan woorden als <em>groot, klein, blauw, oud, zacht, enthousiast</em>.</p>
+
+      <p>Een bijvoeglijk naamwoord kan op twee manieren in een zin staan:</p>
+      <ul style="padding-left:1.4rem; margin-bottom:1.1em;">
+        <li style="margin-bottom:0.5rem;"><strong>Attributief</strong> — direct voor het zelfstandig naamwoord: <em>de <u>grote</u> hond</em>, <em>een <u>blauwe</u> fiets</em>. In deze positie krijgt het bnw vaak een buigings-e.</li>
+        <li style="margin-bottom:0.5rem;"><strong>Predicatief</strong> — na een koppelwerkwoord zoals <em>zijn, worden, lijken, blijken</em>: <em>De hond is <u>groot</u></em>, <em>De fiets wordt <u>blauw</u></em>. Hier staat het bnw zonder buigings-e.</li>
+      </ul>
+
+      <p>Bijvoeglijke naamwoorden hebben ook <strong>trappen van vergelijking</strong>. Er zijn er drie:</p>
+      <ul style="padding-left:1.4rem; margin-bottom:1.1em;">
+        <li style="margin-bottom:0.5rem;"><strong>Stellende trap (positief):</strong> <em>mooi</em> — de gewone vorm.</li>
+        <li style="margin-bottom:0.5rem;"><strong>Vergrotende trap (comparatief):</strong> <em>mooier</em> — gevormd met <em>-er</em>.</li>
+        <li style="margin-bottom:0.5rem;"><strong>Overtreffende trap (superlatief):</strong> <em>mooist</em> — gevormd met <em>-st</em>.</li>
+      </ul>
+      <p>Enkele voorbeelden: <em>snel → sneller → snelst</em> &nbsp;|&nbsp; <em>duur → duurder → duurst</em> &nbsp;|&nbsp; <em>goed → beter → best</em> (onregelmatig).</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Bijvoeglijk naamwoord (bnw)</span>
+        <p class="begrip-def">Een bijvoeglijk naamwoord beschrijft een zelfstandig naamwoord. Het staat <em>attributief</em> (direct voor het znw: <em>een mooie dag</em>) of <em>predicatief</em> (na een koppelwerkwoord: <em>de dag is mooi</em>). Het heeft trappen van vergelijking: stellend, vergrotend en overtreffend.</p>
+      </div>
+    </div>
+
+    <div class="mini-oef">
+      <div class="mo-header">Mini-oefening — Herken het bijvoeglijk naamwoord</div>
+      <p style="font-size:0.95rem; color:var(--text-mid); margin-bottom:0.7rem;">Onderstreep het bijvoeglijk naamwoord in elke zin. Zeg ook of het attributief of predicatief staat.</p>
+      <ol>
+        <li>De oude bibliotheek staat midden in het dorp.</li>
+        <li>Na de wedstrijd was iedereen uitgeput.</li>
+        <li>Ze droeg een felrode jas.</li>
+        <li>Het water voelde ijskoud aan.</li>
+        <li>Hij is de snelste loper van de klas.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section-block" id="s4">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Werkwoord</h2>
+    </div>
+    <div class="prose-text">
+      <p>Het <strong>werkwoord</strong> (ww) is het hart van elke zin. Zonder werkwoord heb je geen volledige zin. Een werkwoord drukt een handeling (<em>lopen, schrijven, eten</em>), een toestand (<em>slapen, liggen, bestaan</em>) of een proces (<em>groeien, veranderen, worden</em>) uit.</p>
+
+      <p>Een werkwoord heeft een <strong>infinitief</strong>: de basisvorm die je in het woordenboek vindt, altijd eindigend op <em>-en</em> (soms <em>-n</em>): <em>lopen, zijn, hebben, zien</em>. De infinitief zegt ons nog niets over wie de handeling uitvoert of wanneer het gebeurt.</p>
+
+      <p>De <strong>persoonsvorm</strong> is de vorm die verandert naargelang de persoon en de tijd: <em>ik loop, jij loopt, hij liep, wij hebben gelopen</em>. In een zin is de persoonsvorm het werkwoord dat "meebuigt" met het onderwerp. Je herkent het door de persoon en het tijdstip te veranderen: <em>"ik loop" → "hij loopt"</em> — het woord dat verandert is de persoonsvorm.</p>
+
+      <p>Een bijzondere groep zijn de <strong>koppelwerkwoorden</strong>: werkwoorden die een eigenschap of toestand koppelen aan het onderwerp. De bekendste zijn <em>zijn, worden, blijven, lijken, blijken, heten, schijnen</em>. Na een koppelwerkwoord staat altijd een bijvoeglijk naamwoord of een zelfstandig naamwoord dat iets zegt over het onderwerp:</p>
+      <ul style="padding-left:1.4rem; margin-bottom:1.1em;">
+        <li style="margin-bottom:0.4rem;"><em>De soep <strong>is</strong> lekker.</em> (koppelwerkwoord + bnw)</li>
+        <li style="margin-bottom:0.4rem;"><em>Hij <strong>wordt</strong> leraar.</em> (koppelwerkwoord + znw)</li>
+        <li style="margin-bottom:0.4rem;"><em>Dat <strong>lijkt</strong> moeilijk.</em> (koppelwerkwoord + bnw)</li>
+      </ul>
+      <p>Andere werkwoorden drukken een echte actie of toestand uit en kunnen een lijdend voorwerp bij zich hebben: <em>Ze <strong>leest</strong> een boek. Hij <strong>gooit</strong> de bal.</em></p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Werkwoord (ww)</span>
+        <p class="begrip-def">Een werkwoord drukt een handeling, toestand of proces uit. Het is de kern van elke zin. Elke zin heeft minstens één werkwoord. Koppelwerkwoorden (<em>zijn, worden, lijken</em>) verbinden het onderwerp met een eigenschap.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Persoonsvorm</span>
+        <p class="begrip-def">De persoonsvorm is de werkwoordsvorm die verandert naargelang de persoon (ik, jij, hij…) en de tijd (tegenwoordig, verleden). In <em>"Zij speelt piano"</em> is <em>speelt</em> de persoonsvorm.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Infinitief</span>
+        <p class="begrip-def">De infinitief is de basisvorm van het werkwoord, zoals je die in het woordenboek vindt: <em>lopen, zijn, schrijven, eten</em>. De infinitief eindigt op <em>-en</em> (of soms <em>-n</em>) en is niet verbogen naar persoon of tijd.</p>
+      </div>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">In de zin <em>"Het lijkt alsof het gaat regenen"</em> staan twee werkwoorden. Welke is de persoonsvorm? Welke is de infinitief? En welke is een koppelwerkwoord? Hoe weet je dat?</p>
+    </div>
+  </section>
+
+  <section class="section-block" id="s5">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Voornaamwoorden: zes soorten</h2>
+    </div>
+    <div class="prose-text">
+      <p>Een <strong>voornaamwoord</strong> (vnw) vervangt een zelfstandig naamwoord of begeleidt het. Voornaamwoorden zorgen ervoor dat je niet steeds hetzelfde woord hoeft te herhalen. Er zijn zes soorten.</p>
+
+      <h3 style="font-size:1.1rem; color:var(--darkblue); margin:1.3rem 0 0.5rem;">Persoonlijk voornaamwoord</h3>
+      <p>Het persoonlijk voornaamwoord vervangt een persoon of zaak. Er zijn twee reeksen: de <em>onderwerpsvormen</em> (staan als onderwerp in de zin) en de <em>voorwerpsvormen</em> (staan als voorwerp).</p>
+      <ul style="padding-left:1.4rem; margin-bottom:1.1em;">
+        <li style="margin-bottom:0.35rem;"><strong>Onderwerpsvorm:</strong> <em>ik, jij (je), hij, zij (ze), het, wij (we), jullie, zij (ze)</em></li>
+        <li style="margin-bottom:0.35rem;"><strong>Voorwerpsvorm:</strong> <em>mij (me), jou (je), hem, haar, het, ons, jullie, hen / hun</em></li>
+      </ul>
+      <p>Voorbeelden: <em><u>Ik</u> zie <u>haar</u>.</em> &nbsp;|&nbsp; <em><u>Zij</u> belt <u>ons</u>.</em> &nbsp;|&nbsp; <em>Geef <u>hem</u> de bal.</em></p>
+
+      <h3 style="font-size:1.1rem; color:var(--darkblue); margin:1.3rem 0 0.5rem;">Bezittelijk voornaamwoord</h3>
+      <p>Het bezittelijk voornaamwoord geeft aan van wie iets is: <em>mijn, jouw (je), zijn, haar, ons / onze, jullie, hun</em>. Het staat altijd bij een zelfstandig naamwoord: <em><u>mijn</u> fiets, <u>haar</u> tas, <u>ons</u> huis</em>.</p>
+
+      <h3 style="font-size:1.1rem; color:var(--darkblue); margin:1.3rem 0 0.5rem;">Aanwijzend voornaamwoord</h3>
+      <p>Het aanwijzend voornaamwoord wijst iets aan: <em>dit, dat, deze, die</em>. <em>Dit</em> en <em>deze</em> verwijzen naar iets dichtbij of naar iets met lidwoord <em>het</em>; <em>dat</em> en <em>die</em> verwijzen naar iets verder weg of naar iets met lidwoord <em>de</em>: <em><u>Dit</u> boek is nieuw.</em> &nbsp;|&nbsp; <em><u>Die</u> schoenen zijn oud.</em></p>
+
+      <h3 style="font-size:1.1rem; color:var(--darkblue); margin:1.3rem 0 0.5rem;">Vragend voornaamwoord</h3>
+      <p>Het vragend voornaamwoord staat in een vraagzin en vraagt naar een persoon of zaak: <em>wie, wat, welke, welk</em>. <em>Wie</em> vraagt naar personen, <em>wat</em> naar zaken of ideeën, <em>welke / welk</em> naar een keuze uit een groep: <em><u>Wie</u> heeft dat gedaan?</em> &nbsp;|&nbsp; <em><u>Welk</u> boek kies jij?</em></p>
+
+      <h3 style="font-size:1.1rem; color:var(--darkblue); margin:1.3rem 0 0.5rem;">Zelfstandig en bijvoeglijk gebruik</h3>
+      <p>Voornaamwoorden kunnen ook worden ingedeeld op basis van hun functie in de zin. Een voornaamwoord dat <em>als zelfstandig naamwoord</em> functioneert — dus helemaal alleen staat — noemen we <strong>zelfstandig gebruikt</strong>: <em><u>Dat</u> is fijn.</em> &nbsp;|&nbsp; <em><u>Wie</u> is daar?</em> Een voornaamwoord dat bij een zelfstandig naamwoord staat en het begeleidt, is <strong>bijvoeglijk gebruikt</strong>: <em><u>Mijn</u> fiets is weg.</em> &nbsp;|&nbsp; <em><u>Deze</u> opdracht is moeilijk.</em></p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Voornaamwoord (vnw) — zes soorten</span>
+        <p class="begrip-def">
+          Een voornaamwoord vervangt of begeleidt een zelfstandig naamwoord. Er zijn zes soorten:<br>
+          <strong>Persoonlijk:</strong> <em>ik, jij, hij, zij, wij…</em> / <em>mij, jou, hem, haar…</em><br>
+          <strong>Bezittelijk:</strong> <em>mijn, jouw, zijn, haar, ons, hun…</em><br>
+          <strong>Aanwijzend:</strong> <em>dit, dat, deze, die</em><br>
+          <strong>Vragend:</strong> <em>wie, wat, welke, welk</em><br>
+          <strong>Zelfstandig gebruikt:</strong> staat alleen, vervangt een znw volledig<br>
+          <strong>Bijvoeglijk gebruikt:</strong> staat bij een znw en begeleidt het
+        </p>
+      </div>
+    </div>
+
+    <div class="mini-oef">
+      <div class="mo-header">Mini-oefening — Voornaamwoorden herkennen en benoemen</div>
+      <p style="font-size:0.95rem; color:var(--text-mid); margin-bottom:0.7rem;">Onderstreep elk voornaamwoord. Schrijf daarna tussen haakjes welk soort het is.</p>
+      <ol>
+        <li>Ik heb haar gisteren gezien bij de supermarkt.</li>
+        <li>Welk nummer heb jij gekozen?</li>
+        <li>Dit is het mooiste cadeau dat ik ooit heb gekregen.</li>
+        <li>Onze leraar gaf ons een extra dag.</li>
+        <li>Wie heeft mijn pen meegenomen?</li>
+        <li>Die rode trui is van hem.</li>
+        <li>Jullie mogen zelf kiezen wat je wilt eten.</li>
+        <li>Dat snap ik niet, kun jij het uitleggen?</li>
+      </ol>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">In de zin <em>"Dat is mijn boek"</em> staan twee voornaamwoorden. Welke zijn het? Van welk soort is elk? En hoe verschilt hun functie in de zin?</p>
+    </div>
+  </section>
+
+  <section class="section-block" id="s6">
+    <div class="section-heading">
+      <span class="section-num">6</span>
+      <h2 class="section-title">Lidwoord, voegwoord, voorzetsel</h2>
+    </div>
+    <div class="prose-text">
+      <h3 style="font-size:1.1rem; color:var(--darkblue); margin:0 0 0.6rem;">Lidwoord</h3>
+      <p>Een <strong>lidwoord</strong> (lw) staat altijd voor een zelfstandig naamwoord en geeft aan of we het over een bekend of onbekend ding hebben. Er zijn twee soorten:</p>
+      <ul style="padding-left:1.4rem; margin-bottom:1.1em;">
+        <li style="margin-bottom:0.4rem;"><strong>Bepaald lidwoord:</strong> <em>de</em> (voor de-woorden) en <em>het</em> (voor het-woorden). Je gebruikt het als je het al over iets bekends hebt: <em>De kat zit op de mat</em> (we weten welke kat).</li>
+        <li style="margin-bottom:0.4rem;"><strong>Onbepaald lidwoord:</strong> <em>een</em>. Je gebruikt het als je iets voor het eerst noemt of als het niet specifiek is: <em>Ik zag een kat</em> (we weten niet welke).</li>
+      </ul>
+      <p>Of een woord <em>de</em> of <em>het</em> krijgt, is niet altijd logisch. Een paar vuistregels: verkleinwoorden krijgen altijd <em>het</em> (<em>het boekje, het huisje</em>); meervouden krijgen altijd <em>de</em> (<em>de boeken, de huizen</em>); namen van personen en dieren zijn meestal <em>de</em>-woorden. Voor de rest moet je het woord gewoon kennen of in een woordenboek opzoeken.</p>
+
+      <h3 style="font-size:1.1rem; color:var(--darkblue); margin:1.4rem 0 0.6rem;">Voegwoord</h3>
+      <p>Een <strong>voegwoord</strong> (vw) verbindt woorden, zinsdelen of zinnen. Er zijn twee soorten:</p>
+      <ul style="padding-left:1.4rem; margin-bottom:1.1em;">
+        <li style="margin-bottom:0.5rem;"><strong>Nevenschikkend voegwoord:</strong> verbindt twee gelijkwaardige delen. Beide delen kunnen elk apart een zin vormen. De bekendste zijn: <em>en, maar, want, of, dus, toch, want, noch</em>. Voorbeeld: <em>Ik wil gaan, <u>maar</u> het regent.</em></li>
+        <li style="margin-bottom:0.5rem;"><strong>Onderschikkend voegwoord:</strong> leidt een bijzin in die afhankelijk is van de hoofdzin. De bekendste zijn: <em>omdat, dat, als, toen, hoewel, terwijl, zodat, indien, wanneer, nadat, tenzij</em>. Voorbeeld: <em>Ik blijf thuis <u>omdat</u> het regent.</em> De bijzin "omdat het regent" is geen zelfstandige zin.</li>
+      </ul>
+      <p>Let op het verschil tussen <em>want</em> (nevenschikkend, persoonsvorm staat op de tweede plaats) en <em>omdat</em> (onderschikkend, persoonsvorm staat achteraan):</p>
+      <ul style="padding-left:1.4rem; margin-bottom:1.1em;">
+        <li style="margin-bottom:0.35rem;"><em>Ik blijf thuis, <strong>want</strong> het <strong>regent</strong>.</em> (persoonsvorm op tweede plaats)</li>
+        <li style="margin-bottom:0.35rem;"><em>Ik blijf thuis <strong>omdat</strong> het <strong>regent</strong>.</em> (persoonsvorm achteraan — hetzelfde betekenis, maar andere zinsstructuur)</li>
+      </ul>
+
+      <h3 style="font-size:1.1rem; color:var(--darkblue); margin:1.4rem 0 0.6rem;">Voorzetsel</h3>
+      <p>Een <strong>voorzetsel</strong> (vz) geeft een relatie aan tussen woorden: een relatie van plaats, tijd, richting, oorzaak of andere verbanden. Het staat altijd voor een zelfstandig naamwoord of voornaamwoord — vandaar de naam "voor-zetsel". Veelgebruikte voorzetsels: <em>in, op, aan, bij, voor, na, met, van, door, over, naar, tegen, onder, tussen, langs, om, tot</em>.</p>
+      <p>Voorbeelden: <em>Het boek ligt <u>op</u> de tafel.</em> (plaats) &nbsp;|&nbsp; <em>We vertrekken <u>na</u> de les.</em> (tijd) &nbsp;|&nbsp; <em>Ze fietst <u>naar</u> school.</em> (richting) &nbsp;|&nbsp; <em>Een taart <u>van</u> appels.</em> (verhouding)</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Lidwoord (lw)</span>
+        <p class="begrip-def">Lidwoorden staan voor zelfstandige naamwoorden. <strong>Bepaald</strong>: <em>de</em> of <em>het</em> (verwijst naar iets bekends). <strong>Onbepaald</strong>: <em>een</em> (verwijst naar iets wat nog niet eerder werd genoemd of niet specifiek is).</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Voegwoord (vw)</span>
+        <p class="begrip-def">Een voegwoord verbindt zinnen of zinsdelen. <strong>Nevenschikkend</strong> (<em>en, maar, want, of, dus</em>): verbindt gelijkwaardige delen. <strong>Onderschikkend</strong> (<em>omdat, dat, als, toen, hoewel</em>): leidt een bijzin in die afhankelijk is van de hoofdzin.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Voorzetsel (vz)</span>
+        <p class="begrip-def">Een voorzetsel geeft een relatie aan (plaats, tijd, richting…) en staat altijd voor een zelfstandig naamwoord of voornaamwoord. Voorbeelden: <em>in, op, aan, bij, voor, na, met, van, door, over, naar, tussen</em>.</p>
+      </div>
+    </div>
+
+    <div class="illustratie">
+      <span class="ill-icon">🔗</span>
+      <p class="ill-caption">Diagram: twee zinnen verbonden door een nevenschikkend voegwoord (beide pijlen even zwaar) versus twee zinnen waarvan één als bijzin afhangt van de andere via een onderschikkend voegwoord (hoofdzin groter, bijzin kleiner). Voorzetsel apart getoond als brug tussen twee zelfstandige naamwoorden met een relatie-label (in, op, naar…).</p>
+    </div>
+  </section>
+
+  <section class="section-block" id="s7">
+    <div class="section-heading">
+      <span class="section-num">7</span>
+      <h2 class="section-title">Telwoord, bijwoord, tussenwerpsel</h2>
+    </div>
+    <div class="prose-text">
+      <h3 style="font-size:1.1rem; color:var(--darkblue); margin:0 0 0.6rem;">Telwoord</h3>
+      <p>Een <strong>telwoord</strong> (tw) geeft een hoeveelheid of een volgorde aan. Er zijn twee soorten:</p>
+      <ul style="padding-left:1.4rem; margin-bottom:1.1em;">
+        <li style="margin-bottom:0.45rem;"><strong>Hoofdtelwoord:</strong> geeft een exacte hoeveelheid aan — <em>één, twee, drie, vier, tien, honderd, duizend</em>. Voorbeeld: <em>Ik heb <u>drie</u> boeken gelezen.</em></li>
+        <li style="margin-bottom:0.45rem;"><strong>Rangtelwoord:</strong> geeft een volgorde aan — <em>eerste, tweede, derde, vierde, tiende</em>. Voorbeeld: <em>Ze werd <u>tweede</u> in de wedstrijd.</em></li>
+      </ul>
+      <p>Naast deze twee zijn er ook onbepaalde telwoorden die een vage hoeveelheid aanduiden: <em>veel, weinig, enkele, alle, beide, genoeg</em>. Deze staan ook geregeld als bijvoeglijk naamwoord geclassificeerd — in twijfelgevallen kijk je naar de functie in de zin.</p>
+
+      <h3 style="font-size:1.1rem; color:var(--darkblue); margin:1.4rem 0 0.6rem;">Bijwoord</h3>
+      <p>Een <strong>bijwoord</strong> (bw) bepaalt een werkwoord, een bijvoeglijk naamwoord of een ander bijwoord. Het geeft extra informatie over <em>hoe, wanneer, waar</em> of <em>in welke mate</em> iets gebeurt. Bijwoorden veranderen niet van vorm — dat is meteen een belangrijk kenmerk.</p>
+      <p>Er zijn verschillende subgroepen:</p>
+      <ul style="padding-left:1.4rem; margin-bottom:1.1em;">
+        <li style="margin-bottom:0.4rem;"><strong>Tijd:</strong> <em>gisteren, morgen, nu, toen, altijd, nooit, vaak, soms, al</em></li>
+        <li style="margin-bottom:0.4rem;"><strong>Plaats:</strong> <em>hier, daar, ergens, nergens, overal, boven, beneden, buiten</em></li>
+        <li style="margin-bottom:0.4rem;"><strong>Wijze (manier):</strong> <em>snel, zorgvuldig, graag, samen, stilletjes</em></li>
+        <li style="margin-bottom:0.4rem;"><strong>Graad of mate:</strong> <em>heel, erg, echt, bijna, tamelijk, nogal, nauwelijks</em></li>
+      </ul>
+      <p>Voorbeelden: <em>Hij loopt <u>snel</u>.</em> (bepaalt het werkwoord) &nbsp;|&nbsp; <em>Ze is <u>heel</u> blij.</em> (bepaalt het bnw) &nbsp;|&nbsp; <em>Dat gaat <u>bijna</u> nooit</em> fout.</em> (bepaalt een ander bijwoord)</p>
+      <p>Let op: een bijwoord lijkt soms op een bijvoeglijk naamwoord. Het verschil: een bnw heeft een zelfstandig naamwoord bij zich (<em>een <u>snelle</u> fiets</em>), een bw staat alleen bij het werkwoord (<em>hij fietst <u>snel</u></em>).</p>
+
+      <h3 style="font-size:1.1rem; color:var(--darkblue); margin:1.4rem 0 0.6rem;">Tussenwerpsel</h3>
+      <p>Een <strong>tussenwerpsel</strong> (tw) drukt een gevoel of spontane reactie uit. Het staat grammaticaal buiten de zin — het hoort bij geen enkel zinsdeel en kun je weglaten zonder dat de zin kapotgaat. Tussenwerpsels zijn expressief en worden vrijwel altijd uitgesproken met nadruk.</p>
+      <p>Voorbeelden: <em><u>Au!</u> Dat doet pijn.</em> &nbsp;|&nbsp; <em><u>Hé!</u> Dat is mijn fiets!</em> &nbsp;|&nbsp; <em><u>Oei</u>, dat ziet er niet goed uit.</em> &nbsp;|&nbsp; <em><u>Pfff</u>, wat een lange dag.</em> &nbsp;|&nbsp; <em><u>Jammer</u>, we hebben verloren.</em></p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Telwoord (tw)</span>
+        <p class="begrip-def">Een telwoord geeft een hoeveelheid of volgorde aan. <strong>Hoofdtelwoord</strong>: exacte hoeveelheid (<em>twee, honderd</em>). <strong>Rangtelwoord</strong>: volgorde (<em>tweede, honderdste</em>).</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Bijwoord (bw)</span>
+        <p class="begrip-def">Een bijwoord bepaalt een werkwoord, bijvoeglijk naamwoord of ander bijwoord. Het geeft informatie over tijd (<em>gisteren</em>), plaats (<em>hier</em>), wijze (<em>zorgvuldig</em>) of graad (<em>heel, bijna</em>). Bijwoorden veranderen niet van vorm.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Tussenwerpsel (tw)</span>
+        <p class="begrip-def">Een tussenwerpsel drukt een gevoel of spontane reactie uit en staat grammaticaal buiten de zin. Het is niet verbonden met een zinsdeel en kan worden weggelaten. Voorbeelden: <em>Au! Hé! Oei! Pfff! Wauw!</em></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-block" id="s8">
+    <div class="section-heading">
+      <span class="section-num">8</span>
+      <h2 class="section-title">Woordsoorten in een echte tekst</h2>
+    </div>
+    <div class="prose-text">
+      <p>Theorie leer je het beste door ze toe te passen op echte zinnen. Lees de volgende tekst. De onderstreepte woorden worden daarna stuk voor stuk geanalyseerd.</p>
+    </div>
+
+    <div class="voorbeeldtekst">
+      <span class="vt-label">Voorbeeldtekst · Beschrijvende tekst</span>
+      <p class="vt-title">De schoolreis naar Gent</p>
+      <p class="vt-meta">Een beschrijvende alinea — fictief, voor oefendoeleinden</p>
+      <div class="vt-body">
+        <p><u>De</u> bus vertrok precies om <u>acht</u> uur vanuit <u>de</u> schoolpoort. <u>Wij</u> hadden allemaal een rugzak bij <u>ons</u>, gevuld met boterhammen, een flesje water en — natuurlijk — <u>onze</u> gsm. Juf Elien zat vooraan en controleerde de lijst. <u>Naast</u> mij zat Ravi, die <u>voortdurend</u> door het raampje keek alsof hij nog nooit snelweg had gezien. "<u>Wauw</u>," fluisterde hij, "<u>dat</u> is <u>een</u> grote brug!" De <u>eerste</u> stop was het Gravensteen — <u>een</u> middeleeuws kasteel midden in de stad. Iedereen stapte <u>snel</u> uit <u>omdat</u> de gids al stond te wachten. Het kasteel was indrukwekkend: dikke stenen muren, smalle trappen <u>en</u> donkere kamers. <u>Ik</u> moest telkens bukken bij <u>de</u> lage doorgangen. "Au!" riep Noor, toen ze <u>haar</u> hoofd stootte. We lachten allemaal, ook zij.</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>Hieronder vind je een analyse van 15 onderstreepte woorden uit de tekst.</p>
+    </div>
+
+    <table class="analyse-table">
+      <thead>
+        <tr>
+          <th>Woord</th>
+          <th>Woordsoort</th>
+          <th>Redenering</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>De (eerste zin)</td>
+          <td>Lidwoord (bepaald)</td>
+          <td>Staat voor het znw "bus"; bepaald omdat we weten over welke bus het gaat.</td>
+        </tr>
+        <tr>
+          <td>acht</td>
+          <td>Telwoord (hoofdtelwoord)</td>
+          <td>Geeft een exacte hoeveelheid (een tijdstip) aan: acht uur.</td>
+        </tr>
+        <tr>
+          <td>de (schoolpoort)</td>
+          <td>Lidwoord (bepaald)</td>
+          <td>Staat voor het znw "schoolpoort"; verwijst naar een bekende, specifieke poort.</td>
+        </tr>
+        <tr>
+          <td>Wij</td>
+          <td>Voornaamwoord (persoonlijk, onderwerpsvorm)</td>
+          <td>Vervangt de groep leerlingen; staat als onderwerp van de zin.</td>
+        </tr>
+        <tr>
+          <td>ons (bij ons)</td>
+          <td>Voornaamwoord (persoonlijk, voorwerpsvorm)</td>
+          <td>Staat na het voorzetsel "bij"; voorwerpsvorm van "wij".</td>
+        </tr>
+        <tr>
+          <td>onze</td>
+          <td>Voornaamwoord (bezittelijk, bijvoeglijk gebruikt)</td>
+          <td>Staat bij het znw "gsm"; geeft aan van wie de gsm is.</td>
+        </tr>
+        <tr>
+          <td>Naast</td>
+          <td>Voorzetsel</td>
+          <td>Geeft een plaatsrelatie aan tussen "mij" en "Ravi"; staat voor het vnw "mij".</td>
+        </tr>
+        <tr>
+          <td>voortdurend</td>
+          <td>Bijwoord (wijze / tijd)</td>
+          <td>Bepaalt het werkwoord "keek"; geeft aan hoe lang of hoe vaak hij keek.</td>
+        </tr>
+        <tr>
+          <td>Wauw</td>
+          <td>Tussenwerpsel</td>
+          <td>Drukt bewondering uit; staat grammaticaal buiten de zin die volgt.</td>
+        </tr>
+        <tr>
+          <td>dat</td>
+          <td>Voornaamwoord (aanwijzend, zelfstandig gebruikt)</td>
+          <td>Staat als onderwerp van "is een grote brug"; wijst aan zonder znw bij zich.</td>
+        </tr>
+        <tr>
+          <td>een (grote brug)</td>
+          <td>Lidwoord (onbepaald)</td>
+          <td>Staat voor het znw "brug"; onbepaald omdat het om een brug in het algemeen gaat.</td>
+        </tr>
+        <tr>
+          <td>eerste</td>
+          <td>Telwoord (rangtelwoord)</td>
+          <td>Geeft een volgorde aan: de eerste stop in de rij.</td>
+        </tr>
+        <tr>
+          <td>snel</td>
+          <td>Bijwoord (wijze)</td>
+          <td>Bepaalt het werkwoord "stapte uit"; geeft aan hoe ze uitstapten. Geen znw bij dit woord, dus geen bnw.</td>
+        </tr>
+        <tr>
+          <td>omdat</td>
+          <td>Voegwoord (onderschikkend)</td>
+          <td>Leidt een bijzin in ("de gids al stond te wachten"); die bijzin is afhankelijk van de hoofdzin.</td>
+        </tr>
+        <tr>
+          <td>en</td>
+          <td>Voegwoord (nevenschikkend)</td>
+          <td>Verbindt "smalle trappen" en "donkere kamers"; beide delen zijn gelijkwaardig.</td>
+        </tr>
+        <tr>
+          <td>Ik</td>
+          <td>Voornaamwoord (persoonlijk, onderwerpsvorm)</td>
+          <td>Staat als onderwerp; verwijst naar de verteller van het verhaal.</td>
+        </tr>
+        <tr>
+          <td>de (lage doorgangen)</td>
+          <td>Lidwoord (bepaald)</td>
+          <td>Staat voor het znw "doorgangen"; bepaald omdat het om specifieke doorgangen in het kasteel gaat.</td>
+        </tr>
+        <tr>
+          <td>haar</td>
+          <td>Voornaamwoord (bezittelijk, bijvoeglijk gebruikt)</td>
+          <td>Staat bij het znw "hoofd"; geeft aan van wie het hoofd is — van Noor.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="exercises-section" id="oefeningen">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Woordsoorten benoemen</p>
+      <p>Hieronder staan 20 woorden. Schrijf achter elk woord welke woordsoort het is. Gebruik de afkortingen znw, bnw, ww, vnw, lw, vw, vz, tw (telwoord), bw of tw (tussenwerpsel). Als een woord meerdere woordsoorten kan zijn, kies dan de meest voor de hand liggende.</p>
+      <ol>
+        <li>fietsen</li>
+        <li>prachtig</li>
+        <li>derde</li>
+        <li>hoewel</li>
+        <li>onder</li>
+        <li>haar (zij heeft haar fiets)</li>
+        <li>het</li>
+        <li>gisteren</li>
+        <li>jij</li>
+        <li>vriendschap</li>
+        <li>vijf</li>
+        <li>tussen</li>
+        <li>toch</li>
+        <li>Auw!</li>
+        <li>worden</li>
+        <li>welke</li>
+        <li>een (één)</li>
+        <li>snel (hij fietst snel)</li>
+        <li>maar</li>
+        <li>warm</li>
+      </ol>
+      <p class="ex-tip">Tip: twijfel je tussen bnw en bw? Kijk of er een zelfstandig naamwoord bij het woord staat. Zo ja, dan is het een bnw. Staat het woord alleen bij een werkwoord, dan is het een bw.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Voornaamwoorden en voegwoorden in zinnen</p>
+      <p>Lees de acht zinnen hieronder. Onderstreep elk voornaamwoord met één streep en elk voegwoord met twee strepen. Schrijf daarna bij elk onderstreept woord welk soort het is (bv. vnw persoonlijk, vnw bezittelijk, vw nevenschikkend, vw onderschikkend…).</p>
+      <ol>
+        <li>Hij pakte zijn jas en liep naar buiten.</li>
+        <li>Ik weet niet of jij dat al hebt gelezen.</li>
+        <li>Welk boek heeft zij gekozen, want ik zag haar twijfelen.</li>
+        <li>We bleven binnen omdat het regende, maar iedereen was teleurgesteld.</li>
+        <li>Dit is onze school, die al meer dan honderd jaar bestaat.</li>
+        <li>Hen ken ik niet, hoewel zij wel in mijn straat wonen.</li>
+        <li>Wie heeft jullie dat verteld?</li>
+        <li>Ze liep door de gang terwijl ze haar boeken vasthield.</li>
+      </ol>
+      <p class="ex-tip">Tip: voegwoorden staan altijd tussen twee zinnen of zinsdelen. Voornaamwoorden staan op de plek van een zelfstandig naamwoord of direct bij een znw.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Schrijven en analyseren: je schooltas of slaapkamer</p>
+      <p>Schrijf een beschrijvende alinea van 5 tot 8 zinnen over je schooltas of je slaapkamer. Beschrijf wat erin zit (of wat je ziet), hoe het eruitziet, hoe het voelt of ruikt. Gebruik een gevarieerd woordenschat en schrijf echte, volledige zinnen.</p>
+      <p>Daarna:</p>
+      <ol>
+        <li>Onderstreep minstens <strong>10 woorden</strong> in je alinea.</li>
+        <li>Zet naast elk onderstreept woord welke woordsoort het is.</li>
+        <li>Zorg dat je minstens vijf verschillende woordsoorten vertegenwoordigt in je selectie.</li>
+      </ol>
+      <p class="ex-tip">Tip: probeer bewust een tussenwerpsel of een bijwoord van tijd te gebruiken — dat maakt je beschrijving levendiger.</p>
+    </div>
+  </section>
+
+  <section class="summary-section" id="samenvatting">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li>Het Nederlands telt <strong>tien woordsoorten</strong>: zelfstandig naamwoord, bijvoeglijk naamwoord, werkwoord, voornaamwoord, lidwoord, voegwoord, voorzetsel, telwoord, bijwoord en tussenwerpsel. Elke soort heeft een eigen taak in de zin.</li>
+      <li>Een <strong>zelfstandig naamwoord</strong> (znw) benoemt een persoon, dier, ding of idee. Je herkent het doordat je er een lidwoord voor kunt zetten en het meestal een meervoud heeft.</li>
+      <li>Een <strong>bijvoeglijk naamwoord</strong> (bnw) beschrijft een znw. Het staat attributief (voor het znw) of predicatief (na een koppelwerkwoord) en heeft trappen van vergelijking: stellend, vergrotend (<em>-er</em>) en overtreffend (<em>-st</em>).</li>
+      <li>Het <strong>werkwoord</strong> (ww) is het hart van de zin. De <em>persoonsvorm</em> buigt mee met persoon en tijd; de <em>infinitief</em> is de basisvorm. <em>Koppelwerkwoorden</em> (zijn, worden, lijken…) verbinden het onderwerp met een eigenschap.</li>
+      <li>Er zijn <strong>zes soorten voornaamwoorden</strong>: persoonlijk, bezittelijk, aanwijzend, vragend, zelfstandig gebruikt en bijvoeglijk gebruikt. Ze vervangen of begeleiden een zelfstandig naamwoord.</li>
+      <li>Het <strong>lidwoord</strong> (<em>de, het, een</em>) is bepaald of onbepaald. <strong>Voegwoorden</strong> verbinden zinnen: nevenschikkend (<em>en, maar, want</em>) of onderschikkend (<em>omdat, dat, hoewel</em>). <strong>Voorzetsels</strong> geven een relatie aan van plaats, tijd of richting.</li>
+      <li>Het <strong>telwoord</strong> geeft een hoeveelheid (hoofdtelwoord) of volgorde (rangtelwoord) aan. Het <strong>bijwoord</strong> bepaalt een werkwoord, bnw of ander bijwoord en verandert nooit van vorm. Het <strong>tussenwerpsel</strong> drukt een gevoel uit en staat buiten de grammaticale zinsstructuur.</li>
+      <li>Woordsoorten kennen is de basis voor <strong>werkwoordspelling</strong> (herken de persoonsvorm), <strong>zinsdelen</strong> (herken onderwerp en gezegde) en <strong>bewust schrijven</strong> (kies het juiste woord voor de juiste functie).</li>
+    </ul>
+  </section>
+
+</div>
+
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Terug naar boven">&#8593;</button>
+<script>
+  const btn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => btn.classList.toggle('visible', window.scrollY > 400));
+</script>
+<script src="nav.js"></script>
+</body>
+</html>

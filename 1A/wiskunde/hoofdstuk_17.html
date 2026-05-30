@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H17 — Verzamelingen en wiskundig redeneren | Wiskunde 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     ILLUSTRATIE PLACEHOLDERS
+  ============================================================ */
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+    cursor: default;
+    transition: background var(--transition);
+  }
+
+  .illustratie:hover { background: #EDE7D8; }
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     WISKUNDE-SPECIFIC COMPONENTS
+  ============================================================ */
+  .rekenvoorbeeld { background:white; border:1px solid var(--sand); border-top:4px solid var(--oker); border-radius:var(--border-radius); padding:1.8rem 2rem; margin:2rem 0; box-shadow:var(--shadow-sm); }
+  .rekenvoorbeeld .rv-label { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--oker); display:block; margin-bottom:0.35rem; }
+  .rekenvoorbeeld .rv-vraag { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:700; color:var(--darkblue); margin-bottom:1rem; line-height:1.4; }
+  .rv-stappen { list-style:none; padding:0; counter-reset:stap-teller; margin-bottom:1rem; }
+  .rv-stappen li { counter-increment:stap-teller; padding:0.6rem 0.8rem 0.6rem 3.2rem; position:relative; background:var(--creme); border-radius:4px; margin-bottom:0.4rem; font-size:0.97rem; }
+  .rv-stappen li::before { content:counter(stap-teller); position:absolute; left:0.6rem; top:50%; transform:translateY(-50%); background:var(--darkblue); color:white; width:1.7rem; height:1.7rem; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:700; }
+  .rv-antwoord { background:var(--darkblue); color:var(--gold); padding:0.75rem 1.1rem; border-radius:4px; font-weight:700; font-size:1rem; }
+  .stelling { background:#EEF3FF; border-left:4px solid var(--darkblue); border-radius:0 var(--border-radius) var(--border-radius) 0; padding:1.2rem 1.5rem; margin:1.5rem 0; }
+  .stelling .st-label { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--darkblue); opacity:0.7; display:block; margin-bottom:0.35rem; }
+  .stelling .st-body { font-size:0.97rem; color:var(--text-dark); }
+  .formule { background:var(--darkblue); border-radius:var(--border-radius); padding:1.4rem 1.8rem; text-align:center; margin:1.8rem 0; }
+  .formule math { color:white; font-size:1.2rem; }
+  .formule .formule-naam { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--gold); opacity:0.8; display:block; margin-bottom:0.5rem; }
+  .svg-container { margin:1.8rem 0; padding:1.5rem; background:white; border:1px solid var(--sand); border-radius:var(--border-radius); overflow-x:auto; text-align:center; }
+  .svg-container .svg-caption { font-size:0.85rem; color:var(--text-light); font-style:italic; display:block; margin-top:0.75rem; }
+
+  /* chapter-intro helper */
+  .chapter-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--oker);
+    margin: 3rem 0 0.5rem;
+  }
+  .chapter-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+  .chapter-intro {
+    font-size: 1.08rem;
+    color: var(--text-mid);
+    line-height: 1.8;
+    max-width: 720px;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  /* Venn grid for four small diagrams */
+  .venn-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.8rem 0;
+  }
+  .venn-grid .venn-cell {
+    background: white;
+    border: 1px solid var(--sand);
+    border-radius: var(--border-radius);
+    padding: 1rem 0.5rem 0.6rem;
+    text-align: center;
+  }
+  .venn-grid .venn-cell .vc-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    font-family: 'Source Sans 3', sans-serif;
+    display: block;
+    margin-top: 0.4rem;
+  }
+  @media (max-width: 520px) {
+    .venn-grid { grid-template-columns: 1fr; }
+  }
+
+  /* logic table */
+  .logica-tabel {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.4rem 0;
+    font-size: 0.95rem;
+  }
+  .logica-tabel th {
+    background: var(--darkblue);
+    color: var(--gold);
+    padding: 0.55rem 1rem;
+    text-align: left;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 700;
+  }
+  .logica-tabel td {
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+    color: var(--text-mid);
+  }
+  .logica-tabel tr:nth-child(even) td { background: var(--sand-light); }
+  .logica-tabel td:first-child { font-style: italic; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <span class="label">Wiskunde 1A</span>
+  <span class="label label-right">H17 &mdash; Verzamelingen en wiskundig redeneren</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Wiskunde &nbsp;&middot;&nbsp; 1A &nbsp;&middot;&nbsp; Eerste graad</div>
+  <h1>Verzamelingen en<br>wiskundig redeneren</h1>
+  <p class="subtitle">De taal en de logica van de wiskunde &mdash; het fundament van het wiskundig denken</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- CHAPTER INTRO -->
+  <div class="chapter-label">Hoofdstuk 17</div>
+  <h1 class="chapter-title">Verzamelingen en wiskundig redeneren</h1>
+  <p class="chapter-intro">Verzamelingenleer is de taal waarin de moderne wiskunde geschreven is. Tegelijk leert wiskundig redeneren ons hoe we bewijs van bewering onderscheiden, hoe we logisch argumenteren en hoe we valkuilen in redeneringen herkennen. Dit hoofdstuk rondt het jaar wiskunde af met de fundamenten van het wiskundig denken.</p>
+
+  <!-- ============================================================
+       SECTIE 1: VERZAMELINGEN EN NOTATIE
+  ============================================================ -->
+  <section class="section-block" id="verzamelingen-notatie">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Verzamelingen en notatie</h2>
+    </div>
+
+    <p>In de wiskunde hebben we een precieze manier nodig om over groepen van objecten te praten. Die precisie biedt de <strong>verzamelingenleer</strong>. Je hebt al eerder met verzamelingen gewerkt &mdash; de getallenverzamelingen &#8469;, &#8484;, &#8474; en &#8477; uit hoofdstuk 1 zijn precies dat: verzamelingen van getallen. In dit hoofdstuk leren we de algemene taal van verzamelingen.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">{}</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Definitie</span>
+        <span class="begrip-name">Verzameling</span>
+        <p class="begrip-def">Een <strong>verzameling</strong> is een welbepaalde collectie van objecten, de <strong>elementen</strong> van de verzameling. &ldquo;Welbepaald&rdquo; betekent dat het voor elk object duidelijk is of het al dan niet tot de verzameling behoort.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Notaties voor verzamelingen</h3>
+
+    <p>Er zijn twee gebruikelijke manieren om een verzameling te omschrijven:</p>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.4rem;">
+      <li style="margin-bottom:0.6rem"><strong>Opsomming</strong>: je schrijft alle elementen op tussen accolades, gescheiden door komma&rsquo;s. Bijvoorbeeld: A = {1, 2, 3} of B = {rood, blauw, groen}.</li>
+      <li style="margin-bottom:0.6rem"><strong>Eigenschap</strong>: je beschrijft de gemeenschappelijke eigenschap van alle elementen. De notatie is {<em>x</em> | <em>eigenschap van x</em>}, te lezen als &ldquo;de verzameling van alle x waarvoor geldt dat &hellip;&rdquo;. Bijvoorbeeld: {<em>x</em> | <em>x</em> is even} = de verzameling van alle even getallen.</li>
+      <li><strong>Lege verzameling</strong>: de verzameling zonder elementen wordt aangeduid met &#8709; of met {}. Bijvoorbeeld: {<em>x</em> | <em>x</em> is een priemgetal en <em>x</em> is even en <em>x</em> &gt; 3} = &#8709;.</li>
+    </ul>
+
+    <h3 class="sub-heading">Lidmaatschap en deelverzamelingen</h3>
+
+    <p>De basisrelaties tussen elementen en verzamelingen:</p>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.4rem;">
+      <li style="margin-bottom:0.5rem"><strong>&#8712;</strong> &nbsp; &ldquo;is een element van&rdquo;: &nbsp; 3 &#8712; {1, 2, 3}</li>
+      <li style="margin-bottom:0.5rem"><strong>&#8713;</strong> &nbsp; &ldquo;is geen element van&rdquo;: &nbsp; 5 &#8713; {1, 2, 3}</li>
+      <li style="margin-bottom:0.5rem"><strong>&#8838;</strong> &nbsp; &ldquo;is een deelverzameling van&rdquo;: A &#8838; B als elk element van A ook in B zit (gelijkheid is toegelaten)</li>
+      <li style="margin-bottom:0.5rem"><strong>&#8834;</strong> &nbsp; &ldquo;is een echte deelverzameling van&rdquo;: A &#8834; B als A &#8838; B en A &ne; B</li>
+      <li><strong>&#8840;</strong> &nbsp; &ldquo;is geen deelverzameling van&rdquo;: er bestaat minstens &eacute;&eacute;n element in A dat niet in B zit</li>
+    </ul>
+
+    <p>Twee verzamelingen zijn <strong>gelijk</strong> als en slechts als ze dezelfde elementen bevatten: A = B &#8660; (A &#8838; B en B &#8838; A). Dit is een fundament van de wiskundige definitie van gelijkheid.</p>
+
+    <div class="stelling">
+      <span class="st-label">Stelling</span>
+      <p class="st-body">
+        De lege verzameling is een deelverzameling van elke verzameling:<br><br>
+        &#8709; &#8838; A &nbsp; voor elke verzameling A.<br><br>
+        <em>Redenering:</em> om te bewijzen dat &#8709; geen deelverzameling van A is, zou je een element moeten vinden dat in &#8709; zit maar niet in A. Maar &#8709; heeft geen elementen &mdash; dus zo&rsquo;n element bestaat niet. Daarom is &#8709; &#8838; A altijd waar.
+      </p>
+    </div>
+
+    <!-- SVG VENN DIAGRAM: U met A en B overlappend -->
+    <div class="svg-container">
+      <svg viewBox="0 0 500 230" width="100%" style="max-width:500px" role="img" aria-labelledby="venn-h17-title">
+        <title id="venn-h17-title">Venn-diagram met universele verzameling U als rechthoek, en twee overlappende cirkels A en B met elementen verdeeld over de drie gebieden en het complement</title>
+        <!-- Universele verzameling U -->
+        <rect x="8" y="8" width="484" height="214" rx="8" fill="#FAF6EF" stroke="#1A2B4A" stroke-width="2"/>
+        <text x="479" y="28" font-family="'Playfair Display',serif" font-size="16" font-weight="700" fill="#1A2B4A" text-anchor="end">U</text>
+        <!-- Overlap region (rendered first so circles can overdraw) -->
+        <!-- Cirkel A -->
+        <ellipse cx="195" cy="115" rx="140" ry="88" fill="rgba(212,160,23,0.2)" stroke="#D4A017" stroke-width="2"/>
+        <!-- Cirkel B -->
+        <ellipse cx="305" cy="115" rx="140" ry="88" fill="rgba(193,68,14,0.2)" stroke="#C1440E" stroke-width="2"/>
+        <!-- Overlap gearceerd (geen apart pad nodig; visueel gegeven door stapeling) -->
+        <!-- Overlap highlight -->
+        <ellipse cx="195" cy="115" rx="140" ry="88" fill="none" stroke="#D4A017" stroke-width="2"/>
+        <ellipse cx="305" cy="115" rx="140" ry="88" fill="none" stroke="#C1440E" stroke-width="2"/>
+        <!-- Labels cirkels -->
+        <text x="130" y="82" font-family="'Playfair Display',serif" font-size="22" font-weight="700" fill="#B08010">A</text>
+        <text x="362" y="82" font-family="'Playfair Display',serif" font-size="22" font-weight="700" fill="#C1440E">B</text>
+        <!-- Elementen alleen in A -->
+        <text x="128" y="118" font-family="'Source Sans 3',sans-serif" font-size="14" fill="#1A2B4A" text-anchor="middle">1</text>
+        <text x="150" y="143" font-family="'Source Sans 3',sans-serif" font-size="14" fill="#1A2B4A" text-anchor="middle">3</text>
+        <!-- Elementen in overlap -->
+        <text x="248" y="105" font-family="'Source Sans 3',sans-serif" font-size="14" fill="#1A2B4A" font-weight="700" text-anchor="middle">2</text>
+        <text x="248" y="130" font-family="'Source Sans 3',sans-serif" font-size="14" fill="#1A2B4A" font-weight="700" text-anchor="middle">4</text>
+        <!-- Elementen alleen in B -->
+        <text x="358" y="118" font-family="'Source Sans 3',sans-serif" font-size="14" fill="#1A2B4A" text-anchor="middle">6</text>
+        <text x="370" y="143" font-family="'Source Sans 3',sans-serif" font-size="14" fill="#1A2B4A" text-anchor="middle">8</text>
+        <!-- Element in complement (buiten A en B) -->
+        <text x="38" y="130" font-family="'Source Sans 3',sans-serif" font-size="14" fill="#6B5F4A" text-anchor="middle">5</text>
+        <text x="38" y="155" font-family="'Source Sans 3',sans-serif" font-size="14" fill="#6B5F4A" text-anchor="middle">7</text>
+        <!-- Complement label -->
+        <text x="38" y="108" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#6B5F4A" text-anchor="middle" font-style="italic">(A&#8746;B)&#7580;</text>
+      </svg>
+      <span class="svg-caption">Venn-diagram: universele verzameling U (rechthoek), verzameling A (goud) en B (terracotta) overlappen. Elementen 2 en 4 behoren tot A &#8745; B; elementen 1 en 3 tot A\B; elementen 6 en 8 tot B\A; elementen 5 en 7 tot het complement (A&#8746;B)&#7580;.</span>
+    </div>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Gegeven A = {1, 2, 3, 4, 5} en B = {2, 4, 6, 8}. Welke elementen horen bij A &#8745; B? A &#8746; B? A \ B?</p>
+      <ul class="rv-stappen">
+        <li><strong>Doorsnede A &#8745; B</strong>: zoek de elementen die in zowel A als B voorkomen. A = {1, 2, 3, 4, 5} en B = {2, 4, 6, 8}. Beide verzamelingen bevatten 2 en 4.</li>
+        <li><strong>Unie A &#8746; B</strong>: neem alle elementen van A samen met alle elementen van B, zonder herhalingen. Schrijf alle elementen op: 1, 2, 3, 4, 5 (uit A) en 6, 8 (uit B, want 2 en 4 zijn al vermeld).</li>
+        <li><strong>Verschil A \ B</strong>: elementen die in A zitten maar niet in B. Verwijder uit A alles wat ook in B zit (= 2 en 4). Wat overblijft: 1, 3, 5.</li>
+      </ul>
+      <p class="rv-antwoord">A &#8745; B = {2, 4} &nbsp;|&nbsp; A &#8746; B = {1, 2, 3, 4, 5, 6, 8} &nbsp;|&nbsp; A \ B = {1, 3, 5}</p>
+    </div>
+
+  </section>
+
+  <!-- ============================================================
+       SECTIE 2: BEWERKINGEN MET VERZAMELINGEN
+  ============================================================ -->
+  <section class="section-block" id="bewerkingen">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Bewerkingen met verzamelingen</h2>
+    </div>
+
+    <p>Net zoals we met getallen kunnen rekenen (optellen, aftrekken, &hellip;), kunnen we ook met verzamelingen &ldquo;rekenen&rdquo;. De vier basisoperaties zijn de <strong>doorsnede</strong>, de <strong>unie</strong>, het <strong>verschil</strong> en het <strong>complement</strong>.</p>
+
+    <h3 class="sub-heading">Doorsnede</h3>
+
+    <div class="formule">
+      <span class="formule-naam">Definitie &mdash; Doorsnede</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <mi>A</mi><mo>&#8745;</mo><mi>B</mi>
+          <mo>=</mo>
+          <mo>{</mo>
+          <mi>x</mi>
+          <mo>|</mo>
+          <mi>x</mi><mo>&#8712;</mo><mi>A</mi>
+          <mo>&nbsp;</mo><mtext>en</mtext><mo>&nbsp;</mo>
+          <mi>x</mi><mo>&#8712;</mo><mi>B</mi>
+          <mo>}</mo>
+        </mrow>
+      </math>
+    </div>
+
+    <p>De doorsnede A &#8745; B bevat enkel de elementen die <em>tegelijk</em> in A en in B zitten. Als A &#8745; B = &#8709;, zeggen we dat A en B <strong>disjunct</strong> zijn: ze hebben geen enkel element gemeenschappelijk.</p>
+
+    <h3 class="sub-heading">Unie</h3>
+
+    <div class="formule">
+      <span class="formule-naam">Definitie &mdash; Unie</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <mi>A</mi><mo>&#8746;</mo><mi>B</mi>
+          <mo>=</mo>
+          <mo>{</mo>
+          <mi>x</mi>
+          <mo>|</mo>
+          <mi>x</mi><mo>&#8712;</mo><mi>A</mi>
+          <mo>&nbsp;</mo><mtext>of</mtext><mo>&nbsp;</mo>
+          <mi>x</mi><mo>&#8712;</mo><mi>B</mi>
+          <mo>}</mo>
+        </mrow>
+      </math>
+    </div>
+
+    <p>In de wiskunde betekent &ldquo;of&rdquo; altijd <em>minstens &eacute;&eacute;n van beide</em> (inclusief &ldquo;en&rdquo;). Een element mag dus in A, in B of in beiden zitten om tot A &#8746; B te behoren.</p>
+
+    <h3 class="sub-heading">Verschil</h3>
+
+    <div class="formule">
+      <span class="formule-naam">Definitie &mdash; Verschil</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <mi>A</mi><mo>\</mo><mi>B</mi>
+          <mo>=</mo>
+          <mo>{</mo>
+          <mi>x</mi>
+          <mo>|</mo>
+          <mi>x</mi><mo>&#8712;</mo><mi>A</mi>
+          <mo>&nbsp;</mo><mtext>en</mtext><mo>&nbsp;</mo>
+          <mi>x</mi><mo>&#8713;</mo><mi>B</mi>
+          <mo>}</mo>
+        </mrow>
+      </math>
+    </div>
+
+    <p>Het verschil A \ B (ook geschreven als A &minus; B) bevat alle elementen van A die <em>niet</em> in B voorkomen. Let op: A \ B en B \ A zijn in het algemeen niet gelijk.</p>
+
+    <h3 class="sub-heading">Complement</h3>
+
+    <div class="formule">
+      <span class="formule-naam">Definitie &mdash; Complement</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <msup><mi>A</mi><mi>c</mi></msup>
+          <mo>=</mo>
+          <mo>{</mo>
+          <mi>x</mi>
+          <mo>&#8712;</mo>
+          <mi>U</mi>
+          <mo>|</mo>
+          <mi>x</mi><mo>&#8713;</mo><mi>A</mi>
+          <mo>}</mo>
+        </mrow>
+      </math>
+    </div>
+
+    <p>Het complement A&#7580; (of A&prime; of &not;A) bevat alle elementen van de <strong>universele verzameling U</strong> die <em>niet</em> in A zitten. Het begrip complement heeft enkel zin als we weten welke universele verzameling we gebruiken.</p>
+
+    <!-- Vier kleine Venn-diagrammen -->
+    <div class="venn-grid">
+      <!-- A ∩ B -->
+      <div class="venn-cell">
+        <svg viewBox="0 0 220 130" width="100%" style="max-width:220px" role="img" aria-labelledby="vd-intersect-title">
+          <title id="vd-intersect-title">Venn-diagram A doorsnede B, overlap gearceerd in goud</title>
+          <rect x="2" y="2" width="216" height="126" rx="5" fill="#FAF6EF" stroke="#C8923A" stroke-width="1"/>
+          <ellipse cx="88" cy="65" rx="68" ry="50" fill="rgba(212,160,23,0.1)" stroke="#D4A017" stroke-width="1.5"/>
+          <ellipse cx="132" cy="65" rx="68" ry="50" fill="rgba(212,160,23,0.1)" stroke="#C1440E" stroke-width="1.5"/>
+          <!-- Overlap highlighted -->
+          <clipPath id="clipA1"><ellipse cx="88" cy="65" rx="68" ry="50"/></clipPath>
+          <ellipse cx="132" cy="65" rx="68" ry="50" fill="#D4A017" fill-opacity="0.55" clip-path="url(#clipA1)"/>
+          <text x="67" y="46" font-family="'Playfair Display',serif" font-size="14" font-weight="700" fill="#B08010">A</text>
+          <text x="148" y="46" font-family="'Playfair Display',serif" font-size="14" font-weight="700" fill="#C1440E">B</text>
+        </svg>
+        <span class="vc-label">A &#8745; B</span>
+      </div>
+      <!-- A ∪ B -->
+      <div class="venn-cell">
+        <svg viewBox="0 0 220 130" width="100%" style="max-width:220px" role="img" aria-labelledby="vd-union-title">
+          <title id="vd-union-title">Venn-diagram A unie B, beide cirkels gearceerd in goud</title>
+          <rect x="2" y="2" width="216" height="126" rx="5" fill="#FAF6EF" stroke="#C8923A" stroke-width="1"/>
+          <ellipse cx="88" cy="65" rx="68" ry="50" fill="#D4A017" fill-opacity="0.5" stroke="#D4A017" stroke-width="1.5"/>
+          <ellipse cx="132" cy="65" rx="68" ry="50" fill="#D4A017" fill-opacity="0.5" stroke="#D4A017" stroke-width="1.5"/>
+          <text x="67" y="46" font-family="'Playfair Display',serif" font-size="14" font-weight="700" fill="#B08010">A</text>
+          <text x="148" y="46" font-family="'Playfair Display',serif" font-size="14" font-weight="700" fill="#8A3010">B</text>
+        </svg>
+        <span class="vc-label">A &#8746; B</span>
+      </div>
+      <!-- A \ B -->
+      <div class="venn-cell">
+        <svg viewBox="0 0 220 130" width="100%" style="max-width:220px" role="img" aria-labelledby="vd-diff-title">
+          <title id="vd-diff-title">Venn-diagram A min B, enkel het gedeelte van A buiten B is gearceerd in goud</title>
+          <rect x="2" y="2" width="216" height="126" rx="5" fill="#FAF6EF" stroke="#C8923A" stroke-width="1"/>
+          <ellipse cx="88" cy="65" rx="68" ry="50" fill="#D4A017" fill-opacity="0.5" stroke="#D4A017" stroke-width="1.5"/>
+          <ellipse cx="132" cy="65" rx="68" ry="50" fill="#FAF6EF" fill-opacity="0.95" stroke="#C1440E" stroke-width="1.5"/>
+          <!-- Remove overlap from A by covering with B fill -->
+          <clipPath id="clipB2"><ellipse cx="132" cy="65" rx="68" ry="50"/></clipPath>
+          <ellipse cx="88" cy="65" rx="68" ry="50" fill="#FAF6EF" clip-path="url(#clipB2)" fill-opacity="0.95"/>
+          <ellipse cx="132" cy="65" rx="68" ry="50" fill="none" stroke="#C1440E" stroke-width="1.5"/>
+          <text x="50" y="46" font-family="'Playfair Display',serif" font-size="14" font-weight="700" fill="#B08010">A</text>
+          <text x="150" y="46" font-family="'Playfair Display',serif" font-size="14" font-weight="700" fill="#C1440E">B</text>
+        </svg>
+        <span class="vc-label">A \ B</span>
+      </div>
+      <!-- Aᶜ -->
+      <div class="venn-cell">
+        <svg viewBox="0 0 220 130" width="100%" style="max-width:220px" role="img" aria-labelledby="vd-comp-title">
+          <title id="vd-comp-title">Venn-diagram complement van A, alles buiten A is gearceerd in goud</title>
+          <rect x="2" y="2" width="216" height="126" rx="5" fill="#D4A017" fill-opacity="0.45" stroke="#C8923A" stroke-width="1"/>
+          <ellipse cx="110" cy="65" rx="72" ry="52" fill="#FAF6EF" fill-opacity="0.97" stroke="#D4A017" stroke-width="1.8"/>
+          <text x="178" y="28" font-family="'Playfair Display',serif" font-size="12" font-weight="700" fill="#7A5A00">U</text>
+          <text x="110" y="69" font-family="'Playfair Display',serif" font-size="14" font-weight="700" fill="#B08010" text-anchor="middle">A</text>
+        </svg>
+        <span class="vc-label">A&#7580; (complement van A)</span>
+      </div>
+    </div>
+    <p style="font-size:0.85rem;color:var(--text-light);font-style:italic;text-align:center;margin-top:-0.8rem;margin-bottom:1.5rem;">De goud gearceerde gebieden tonen telkens welke regio tot de resulterende verzameling behoort.</p>
+
+    <div class="stelling">
+      <span class="st-label">Stelling &mdash; De Morgan&rsquo;s wetten</span>
+      <p class="st-body">
+        Voor alle verzamelingen A en B (binnen een universele verzameling U) gelden de <strong>wetten van De Morgan</strong>:<br><br>
+        <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline">
+          <msup><mrow><mo>(</mo><mi>A</mi><mo>&#8746;</mo><mi>B</mi><mo>)</mo></mrow><mi>c</mi></msup>
+          <mo>=</mo>
+          <msup><mi>A</mi><mi>c</mi></msup><mo>&#8745;</mo><msup><mi>B</mi><mi>c</mi></msup>
+        </math>
+        &nbsp;&nbsp; en &nbsp;&nbsp;
+        <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline">
+          <msup><mrow><mo>(</mo><mi>A</mi><mo>&#8745;</mo><mi>B</mi><mo>)</mo></mrow><mi>c</mi></msup>
+          <mo>=</mo>
+          <msup><mi>A</mi><mi>c</mi></msup><mo>&#8746;</mo><msup><mi>B</mi><mi>c</mi></msup>
+        </math>
+        <br><br>
+        In woorden: het complement van een unie is de doorsnede van de complementen, en omgekeerd.
+      </p>
+    </div>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Gegeven U = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, A = {1, 2, 3, 6, 7}, B = {2, 4, 6, 8}. Bereken A &#8745; B, A &#8746; B, A \ B en A&#7580;.</p>
+      <ul class="rv-stappen">
+        <li><strong>A &#8745; B</strong>: elementen in zowel A als B. In A: {1,2,3,6,7}, in B: {2,4,6,8}. Gemeenschappelijk: 2 en 6.</li>
+        <li><strong>A &#8746; B</strong>: alle elementen van A of B samen. A &#8746; B = {1, 2, 3, 4, 6, 7, 8}.</li>
+        <li><strong>A \ B</strong>: in A maar niet in B. Verwijder 2 en 6 uit A: overblijft {1, 3, 7}.</li>
+        <li><strong>A&#7580;</strong>: in U maar niet in A. U = {1..10}, A = {1,2,3,6,7}. Niet in A: 4, 5, 8, 9, 10.</li>
+      </ul>
+      <p class="rv-antwoord">A &#8745; B = {2, 6} &nbsp;|&nbsp; A &#8746; B = {1, 2, 3, 4, 6, 7, 8} &nbsp;|&nbsp; A \ B = {1, 3, 7} &nbsp;|&nbsp; A&#7580; = {4, 5, 8, 9, 10}</p>
+    </div>
+
+  </section>
+
+  <!-- ============================================================
+       SECTIE 3: TELLEN MET VERZAMELINGEN
+  ============================================================ -->
+  <section class="section-block" id="tellen">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Tellen met verzamelingen</h2>
+    </div>
+
+    <p>Soms willen we niet de precieze samenstelling van een verzameling kennen, maar enkel <em>hoeveel</em> elementen erin zitten. Daarvoor gebruiken we de <strong>cardinaliteit</strong>.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">|A|</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Definitie</span>
+        <span class="begrip-name">Cardinaliteit</span>
+        <p class="begrip-def">De <strong>cardinaliteit</strong> van een verzameling A, genoteerd |A|, is het aantal elementen van A. Voorbeelden: |{a, b, c}| = 3; |&#8709;| = 0; |{1, 2, 3, 4, 5}| = 5.</p>
+      </div>
+    </div>
+
+    <p>Als A en B overlappende verzamelingen zijn, tellen we bij |A| + |B| de elementen in A &#8745; B twee keer. Om dit te corrigeren, trekken we |A &#8745; B| eenmaal af. Zo ontstaat de <strong>somregel</strong> (ook wel de <em>inclusie-exclusieformule</em>):</p>
+
+    <div class="formule">
+      <span class="formule-naam">Somregel &mdash; Inclusie-exclusie</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <mo>|</mo><mi>A</mi><mo>&#8746;</mo><mi>B</mi><mo>|</mo>
+          <mo>=</mo>
+          <mo>|</mo><mi>A</mi><mo>|</mo>
+          <mo>+</mo>
+          <mo>|</mo><mi>B</mi><mo>|</mo>
+          <mo>&#8722;</mo>
+          <mo>|</mo><mi>A</mi><mo>&#8745;</mo><mi>B</mi><mo>|</mo>
+        </mrow>
+      </math>
+    </div>
+
+    <p>Bijzonder geval: als A en B disjunct zijn (A &#8745; B = &#8709;), geldt |A &#8746; B| = |A| + |B|. Dit is de <strong>eenvoudige somregel</strong> die je al gebruikt hebt bij kansen en combinaties.</p>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld &mdash; Sporters in een klas</span>
+      <p class="rv-vraag">In een klas spelen 15 leerlingen voetbal en 12 leerlingen tennis. 5 leerlingen spelen beide sporten. Hoeveel leerlingen spelen minstens &eacute;&eacute;n van de twee sporten?</p>
+      <ul class="rv-stappen">
+        <li>Stel V = verzameling voetballers, T = verzameling tennissers. Gegeven: |V| = 15, |T| = 12, |V &#8745; T| = 5.</li>
+        <li>We zoeken |V &#8746; T| = het aantal leerlingen dat minstens &eacute;&eacute;n sport beoefent.</li>
+        <li>Pas de somregel toe: |V &#8746; T| = |V| + |T| &#8722; |V &#8745; T| = 15 + 12 &#8722; 5 = 22.</li>
+      </ul>
+      <p class="rv-antwoord">22 leerlingen spelen minstens &eacute;&eacute;n van de twee sporten.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">In dezelfde klas zijn er 30 leerlingen. Hoeveel leerlingen spelen noch voetbal noch tennis? Hoe gebruik je het complement om dit te berekenen?</p>
+    </div>
+
+  </section>
+
+  <!-- ============================================================
+       SECTIE 4: WISKUNDIG REDENEREN — STELLINGEN EN BEWIJZEN
+  ============================================================ -->
+  <section class="section-block" id="redeneren">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Wiskundig redeneren &mdash; stellingen en bewijzen</h2>
+    </div>
+
+    <p>Wiskunde is meer dan rekenen: het is een systeem van precieze uitspraken en geldige redeneringen. Drie soorten uitspraken spelen een centrale rol:</p>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.4rem;">
+      <li style="margin-bottom:0.6rem"><strong>Definitie</strong>: een afspraak over de betekenis van een begrip. Definities zijn niet waar of onwaar; ze zijn keuzes. Voorbeeld: &ldquo;Een even getal is een geheel getal deelbaar door 2.&rdquo;</li>
+      <li style="margin-bottom:0.6rem"><strong>Bewering</strong> (of conjunctuur): een uitspraak waarvan we nog niet weten of ze waar is. Voorbeeld: &ldquo;Elk priemgetal groter dan 2 is oneven.&rdquo;</li>
+      <li><strong>Stelling</strong>: een bewering die bewezen is &mdash; waarvan de waarheid logisch volgt uit definities en eerder bewezen stellingen.</li>
+    </ul>
+
+    <h3 class="sub-heading">Soorten bewijs</h3>
+
+    <p>Er zijn verschillende strategiee&euml;n om een stelling te bewijzen:</p>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.4rem;">
+      <li style="margin-bottom:0.6rem"><strong>Direct bewijs</strong>: je vertrekt van de gegeven aannames en leidt stap voor stap de conclusie af. Dit is de meest gebruikelijke bewijsvorm.</li>
+      <li style="margin-bottom:0.6rem"><strong>Bewijs door gevallen</strong>: je deelt alle mogelijkheden op in een eindig aantal gevallen en bewijst de stelling voor elk geval apart.</li>
+      <li><strong>Weerlegging door tegenvoorbeeld</strong>: om te bewijzen dat een <em>universele</em> bewering (&ldquo;voor alle x geldt &hellip;&rdquo;) <em>onwaar</em> is, volstaat &eacute;&eacute;n enkel tegenvoorbeeld. Je hoeft niet alle gevallen te controleren; je moet er slechts &eacute;&eacute;n vinden dat de bewering weerlegt.</li>
+    </ul>
+
+    <div class="stelling">
+      <span class="st-label">Belangrijk principe</span>
+      <p class="st-body">
+        Om een universele bewering (<em>&ldquo;voor alle x geldt P(x)&rdquo;</em>) te <strong>bewijzen</strong>, moet je redeneren over een willekeurig element x. Om ze te <strong>weerleggen</strong>, volstaat &eacute;&eacute;n concreet tegenvoorbeeld.
+      </p>
+    </div>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld &mdash; Direct bewijs</span>
+      <p class="rv-vraag">Bewijs of weerleg: &ldquo;Het product van twee oneven getallen is altijd oneven.&rdquo;</p>
+      <ul class="rv-stappen">
+        <li><strong>Stel de bewering precies op.</strong> Neem twee willekeurige oneven getallen. Elk oneven getal heeft de vorm 2k + 1 (met k een geheel getal). Noem ze 2k + 1 en 2m + 1 (met k, m &#8712; &#8484;).</li>
+        <li><strong>Bereken het product.</strong> (2k + 1)(2m + 1) = 4km + 2k + 2m + 1 = 2(2km + k + m) + 1.</li>
+        <li><strong>Controleer de vorm.</strong> De uitdrukking 2(2km + k + m) + 1 heeft de vorm 2n + 1 met n = 2km + k + m &#8712; &#8484;. Dat is precies de definitie van een oneven getal.</li>
+      </ul>
+      <p class="rv-antwoord">Bewezen &#10003;: het product van twee oneven getallen is altijd oneven, want (2k+1)(2m+1) = 2(2km+k+m)+1, wat de vorm van een oneven getal heeft.</p>
+    </div>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld &mdash; Weerlegging door tegenvoorbeeld</span>
+      <p class="rv-vraag">Weerleg de bewering: &ldquo;Het kwadraat van een getal is altijd groter dan het getal zelf.&rdquo;</p>
+      <ul class="rv-stappen">
+        <li><strong>Zoek een tegenvoorbeeld.</strong> Probeer x = 0,5 (een getal tussen 0 en 1).</li>
+        <li><strong>Bereken x&#178;.</strong> (0,5)&#178; = 0,25.</li>
+        <li><strong>Vergelijk.</strong> Is 0,25 &gt; 0,5? Nee: 0,25 &lt; 0,5. De bewering is dus onwaar voor x = 0,5.</li>
+      </ul>
+      <p class="rv-antwoord">Weerlegd &#10007;: tegenvoorbeeld x = 0,5 geeft x&#178; = 0,25 &lt; 0,5. De bewering is vals. (Ook x = 0 of x = &minus;1 zijn geldige tegenvoorbeelden.)</p>
+    </div>
+
+  </section>
+
+  <!-- ============================================================
+       SECTIE 5: LOGICA — ALS-DAN REDENERINGEN
+  ============================================================ -->
+  <section class="section-block" id="logica">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Logica &mdash; als-dan redeneringen</h2>
+    </div>
+
+    <p>Veel wiskundige stellingen hebben de vorm &ldquo;<em>Als P, dan Q</em>&rdquo;. Dit is een <strong>implicatie</strong> en wordt genoteerd als P &#8658; Q (te lezen: &ldquo;P impliceert Q&rdquo; of &ldquo;uit P volgt Q&rdquo;). P noemen we de <strong>premisse</strong> (of hypothese), Q de <strong>conclusie</strong>.</p>
+
+    <h3 class="sub-heading">Implicatie en verwante uitspraken</h3>
+
+    <p>Van elke implicatie P &#8658; Q kunnen we drie verwante uitspraken formuleren:</p>
+
+    <table class="logica-tabel">
+      <thead>
+        <tr>
+          <th>Naam</th>
+          <th>Formule</th>
+          <th>Voorbeeld</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Implicatie (origineel)</td>
+          <td>P &#8658; Q</td>
+          <td>Als het regent, wordt het gras nat.</td>
+        </tr>
+        <tr>
+          <td>Keerzin (converse)</td>
+          <td>Q &#8658; P</td>
+          <td>Als het gras nat is, regent het.</td>
+        </tr>
+        <tr>
+          <td>Omgekeerde (inverse)</td>
+          <td>&not;P &#8658; &not;Q</td>
+          <td>Als het niet regent, wordt het gras niet nat.</td>
+        </tr>
+        <tr>
+          <td>Contraposief</td>
+          <td>&not;Q &#8658; &not;P</td>
+          <td>Als het gras niet nat is, heeft het niet geregend.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="stelling">
+      <span class="st-label">Stelling &mdash; Equivalentie van contraposief</span>
+      <p class="st-body">
+        Een implicatie is logisch equivalent met zijn contraposief:<br><br>
+        <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline">
+          <mrow>
+            <mi>P</mi><mo>&#8658;</mo><mi>Q</mi>
+            <mo>&#8660;</mo>
+            <mo>&not;</mo><mi>Q</mi><mo>&#8658;</mo><mo>&not;</mo><mi>P</mi>
+          </mrow>
+        </math>
+        <br><br>
+        De keerzin (Q &#8658; P) en de omgekeerde (&not;P &#8658; &not;Q) zijn ook equivalent met elkaar, maar <em>niet</em> met de oorspronkelijke implicatie. Veel fouten in redeneringen ontstaan doordat men de keerzin verwart met de implicatie zelf.
+      </p>
+    </div>
+
+    <h3 class="sub-heading">Biconditional</h3>
+
+    <p>Wanneer zowel P &#8658; Q als Q &#8658; P gelden, spreken we van een <strong>biconditional</strong>: P &#8660; Q. Dit lezen we als &ldquo;P als en slechts als Q&rdquo; (afgekort: P a.s.a. Q of P iff Q). Beide richtingen moeten bewezen worden.</p>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld &mdash; Implicaties analyseren</span>
+      <p class="rv-vraag">Gegeven de uitspraak: &ldquo;Als het regent, wordt het gras nat.&rdquo; Formuleer de keerzin, de omgekeerde en de contraposief. Welke zijn (doorgaans) waar?</p>
+      <ul class="rv-stappen">
+        <li><strong>Stel P en Q vast.</strong> P = &ldquo;het regent&rdquo;, Q = &ldquo;het gras wordt nat&rdquo;.</li>
+        <li><strong>Keerzin</strong> (Q &#8658; P): &ldquo;Als het gras nat is, regent het.&rdquo; &rarr; <em>Niet noodzakelijk waar</em>: iemand kan het gras ook nat gespoten hebben met een tuinslang.</li>
+        <li><strong>Omgekeerde</strong> (&not;P &#8658; &not;Q): &ldquo;Als het niet regent, wordt het gras niet nat.&rdquo; &rarr; <em>Niet noodzakelijk waar</em>: om dezelfde reden als de keerzin.</li>
+        <li><strong>Contraposief</strong> (&not;Q &#8658; &not;P): &ldquo;Als het gras niet nat is, heeft het niet geregend.&rdquo; &rarr; <em>Logisch equivalent</em> met de originele implicatie: als we weten dat de regen het gras altijd nat maakt, dan impliceert droog gras geen regen.</li>
+      </ul>
+      <p class="rv-antwoord">De contraposief is altijd equivalent met de originele implicatie. De keerzin en de omgekeerde zijn equivalent met elkaar, maar niet noodzakelijk waar als de implicatie waar is.</p>
+    </div>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld &mdash; Biconditional</span>
+      <p class="rv-vraag">Schrijf de uitspraak &ldquo;Een getal is deelbaar door 4 als en slechts als zijn laatste twee cijfers een getal vormen dat deelbaar is door 4&rdquo; als een biconditional P &#8660; Q.</p>
+      <ul class="rv-stappen">
+        <li><strong>Identificeer P en Q.</strong> P = &ldquo;het getal is deelbaar door 4&rdquo;; Q = &ldquo;de laatste twee cijfers vormen een getal dat deelbaar is door 4&rdquo;.</li>
+        <li><strong>Schrijf als biconditional.</strong> P &#8660; Q: &ldquo;een getal is deelbaar door 4 als en slechts als zijn laatste twee cijfers deelbaar zijn door 4.&rdquo;</li>
+        <li><strong>Verifieer met een voorbeeld.</strong> 324: laatste twee cijfers = 24; 24 &#247; 4 = 6 &#10003;. Inderdaad: 324 &#247; 4 = 81 &#10003;. En 326: laatste twee cijfers = 26; 26 is niet deelbaar door 4 &#10007;. Inderdaad: 326 &#247; 4 = 81,5 &#10007;.</li>
+      </ul>
+      <p class="rv-antwoord">P &#8660; Q: &ldquo;n deelbaar door 4&rdquo; &#8660; &ldquo;de laatste twee cijfers van n vormen een veelvoud van 4.&rdquo; Beide richtingen gelden: P &#8658; Q en Q &#8658; P.</p>
+    </div>
+
+  </section>
+
+  <!-- ============================================================
+       SECTIE 6: WISKUNDIG DENKEN IN DE PRAKTIJK
+  ============================================================ -->
+  <section class="section-block" id="denken">
+    <div class="section-heading">
+      <span class="section-num">6</span>
+      <h2 class="section-title">Wiskundig denken in de praktijk</h2>
+    </div>
+
+    <p>Problemen oplossen is een vaardigheid die je kunt leren en oefenen. Wiskundigen gebruiken een aantal beproefde strategiee&euml;n wanneer ze vastlopen op een probleem. Hier zijn de vier krachtigste:</p>
+
+    <h3 class="sub-heading">Strategie 1: Vereenvoudig het probleem</h3>
+
+    <p>Als een probleem te complex lijkt, probeer dan eerst een eenvoudiger versie ervan op te lossen. Zoek patronen in de eenvoudige gevallen en veralgemeen dan.</p>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Voorbeeld &mdash; Vereenvoudigen</span>
+      <p class="rv-vraag">Hoeveel diagonalen heeft een veelhoek met n hoeken?</p>
+      <ul class="rv-stappen">
+        <li><strong>Begin klein.</strong> Driehoek (n=3): 0 diagonalen. Vierhoek (n=4): 2 diagonalen. Vijfhoek (n=5): 5 diagonalen. Zeshoek (n=6): 9 diagonalen.</li>
+        <li><strong>Zoek het patroon.</strong> De rij is 0, 2, 5, 9, &hellip; De verschillen zijn 2, 3, 4, &hellip; &mdash; telkens 1 meer. Dit suggereert een kwadratische formule.</li>
+        <li><strong>Veralgemeen.</strong> Vanuit elke hoekpunt kun je n&#8722;3 diagonalen trekken (naar alle hoekpunten behalve zichzelf en de twee buren). Totaal: n(n&#8722;3)/2. Controleer: voor n=5: 5&times;2/2 = 5 &#10003;.</li>
+      </ul>
+      <p class="rv-antwoord">Een n-hoek heeft n(n&#8722;3)/2 diagonalen.</p>
+    </div>
+
+    <h3 class="sub-heading">Strategie 2: Zoek een patroon</h3>
+
+    <p>Veel wiskundige waarheden verbergen zich in patronen. Door de eerste termen van een rij of reeks te berekenen, kun je vaak een algemene regel ontdekken.</p>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Voorbeeld &mdash; Patroon herkennen</span>
+      <p class="rv-vraag">Wat is de som 1 + 3 + 5 + 7 + &hellip; + (2n&#8722;1) (de som van de eerste n oneven getallen)?</p>
+      <ul class="rv-stappen">
+        <li>Bereken voor kleine n: n=1: som=1. n=2: som=4. n=3: som=9. n=4: som=16.</li>
+        <li>Herken het patroon: de sommen zijn 1, 4, 9, 16 &mdash; dit zijn de kwadraten 1&#178;, 2&#178;, 3&#178;, 4&#178;.</li>
+        <li>Conjectuur: de som van de eerste n oneven getallen = n&#178;. (Dit kan rigoureus bewezen worden via inductie, maar het herkennen van het patroon is de eerste stap.)</li>
+      </ul>
+      <p class="rv-antwoord">1 + 3 + 5 + &hellip; + (2n&#8722;1) = n&#178;.</p>
+    </div>
+
+    <h3 class="sub-heading">Strategie 3: Werk achterwaarts</h3>
+
+    <p>Bij veel problemen is de eindtoestand bekend, maar de weg ernaar toe niet. Dan is het soms eenvoudiger om van het einde te vertrekken en terug te werken naar het begin.</p>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Voorbeeld &mdash; Achterwaarts werken</span>
+      <p class="rv-vraag">Jana denkt aan een getal. Ze verdubbelt het, trekt er 5 van af, en het resultaat is 11. Welk getal dacht ze?</p>
+      <ul class="rv-stappen">
+        <li><strong>Vertrek van het einde.</strong> Het resultaat is 11.</li>
+        <li><strong>Vorige stap terugdraaien:</strong> er werd 5 afgetrokken, dus voeg 5 toe: 11 + 5 = 16.</li>
+        <li><strong>Eerste stap terugdraaien:</strong> er werd verdubbeld, dus halveer: 16 / 2 = 8.</li>
+      </ul>
+      <p class="rv-antwoord">Jana dacht aan het getal 8. Verificatie: 8 &times; 2 = 16, 16 &#8722; 5 = 11 &#10003;.</p>
+    </div>
+
+    <h3 class="sub-heading">Strategie 4: Maak een tekening</h3>
+
+    <p>Veel problemen worden helder zodra je ze visualiseert. Een schets, een grafiek, een Venn-diagram of een tabel kan verbanden zichtbaar maken die in de tekst verborgen blijven.</p>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Voorbeeld &mdash; Tekening maken</span>
+      <p class="rv-vraag">In een groep van 20 leerlingen doen 11 aan zwemmen, 9 aan wielrennen en 4 doen beide. Hoeveel doen geen van beide?</p>
+      <ul class="rv-stappen">
+        <li><strong>Teken een Venn-diagram.</strong> Twee overlappende cirkels in een rechthoek (U = 20 leerlingen). De overlap = 4.</li>
+        <li><strong>Vul in.</strong> Enkel zwemmen: 11 &#8722; 4 = 7. Enkel wielrennen: 9 &#8722; 4 = 5. Overlap: 4.</li>
+        <li><strong>Bereken het complement.</strong> Totaal in de cirkels: 7 + 4 + 5 = 16. Buiten de cirkels (geen van beide): 20 &#8722; 16 = 4.</li>
+      </ul>
+      <p class="rv-antwoord">4 leerlingen doen noch zwemmen noch wielrennen.</p>
+    </div>
+
+    <h3 class="sub-heading">Verband met de rest van het jaar</h3>
+
+    <p>Dit hoofdstuk sluit het jaar wiskunde af, maar de inhoud raakt aan <em>alles</em> wat je eerder leerde:</p>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.4rem;">
+      <li style="margin-bottom:0.5rem"><strong>Getallen en bewerkingen</strong> (H1&ndash;H4): de verzamelingen &#8469;, &#8484;, &#8474;, &#8477; zijn nu formeel gedefinieerde verzamelingen met lidmaatschapsrelaties.</li>
+      <li style="margin-bottom:0.5rem"><strong>Algebra en vergelijkingen</strong> (H5&ndash;H9): oplossingen van vergelijkingen zijn elementen van een oplossingsverzameling; implicatieketens beschrijven elke stap in een oplossingsproces.</li>
+      <li style="margin-bottom:0.5rem"><strong>Meetkunde</strong> (H10&ndash;H13): geometrische bewijzen gebruiken exact dezelfde structuur van premisse, redenering en conclusie als de logica in dit hoofdstuk.</li>
+      <li style="margin-bottom:0.5rem"><strong>Statistiek en kansen</strong> (H14&ndash;H15): gebeurtenissen zijn verzamelingen uitkomsten; de somregel voor kansen is de inclusie-exclusieformule voor cardinaliteiten.</li>
+      <li><strong>Functies</strong> (H16): een functie f: A &rarr; B is een speciale relatie tussen twee verzamelingen A (domein) en B (codomein).</li>
+    </ul>
+
+    <div class="prologue">
+      <span class="prologue-label">Slotbeschouwing</span>
+      <div class="ornament-line"><span class="ornament-sym">&#8734;</span></div>
+      <p>Wiskunde is tegelijk een <em>taal</em>, een <em>gereedschap</em> en een <em>manier van denken</em>. Als taal laat ze ons idee&euml;n met absolute precisie uitdrukken &mdash; zonder misverstand, zonder ambiguiteit. Als gereedschap helpt ze ons problemen op te lossen in alle wetenschappen, in de techniek, in de economie en in het dagelijks leven. En als manier van denken leert ze ons om te redeneren: te vragen wat gegeven is, wat bewezen moet worden, en hoe we de kloof ertussen kunnen overbruggen.</p>
+      <p>Je hebt dit jaar de eerste grote stap gezet. Getallen, bewerkingen, algebra, meetkunde, statistiek en functies: elk domein heeft zijn eigen taal, maar ze spreken allemaal dezelfde moedertaal &mdash; de wiskunde. Dat avontuur is nog maar net begonnen.</p>
+      <div class="ornament-line"><span class="ornament-sym">&#8901;</span></div>
+    </div>
+
+  </section>
+
+</div><!-- end page-wrapper -->
+
+<!-- ============================================================
+     OEFENINGEN
+============================================================ -->
+<section class="exercises-section" id="oefeningen">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <!-- Oefening 1 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Verzamelingsbewerkingen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Gegeven: U = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, A = {2, 4, 5, 7, 9}, B = {1, 3, 5, 7, 10}.</p>
+      <ol>
+        <li>Bepaal A &#8745; B.</li>
+        <li>Bepaal A &#8746; B.</li>
+        <li>Bepaal A \ B en B \ A. Zijn deze gelijk?</li>
+        <li>Bepaal A&#7580; en B&#7580;.</li>
+        <li>Controleer de eerste wet van De Morgan: (A &#8746; B)&#7580; = A&#7580; &#8745; B&#7580;.</li>
+      </ol>
+      <p class="ex-tip">Tip: werk systematisch &mdash; schrijf voor elke bewerking expliciet op welke elementen je controleert.</p>
+    </div>
+
+    <!-- Oefening 2 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Cardinaliteit en tellen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Gebruik de somregel |A &#8746; B| = |A| + |B| &#8722; |A &#8745; B|.</p>
+      <ol>
+        <li>In een klas van 28 leerlingen lezen 18 stripboeken en 14 romans. 6 leerlingen lezen beide. Hoeveel leerlingen lezen minstens &eacute;&eacute;n van de twee? Hoeveel lezen geen van beide?</li>
+        <li>In een groep zijn |A| = 20, |B| = 15 en |A &#8746; B| = 28. Bereken |A &#8745; B|.</li>
+        <li>Twee disjuncte verzamelingen A en B hebben |A| = 7 en |B| = 9. Bereken |A &#8746; B|. Waarom is hier geen aftrekterm nodig?</li>
+      </ol>
+    </div>
+
+    <!-- Oefening 3 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Een stelling bewijzen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Bewijs de volgende beweringen met een direct bewijs.</p>
+      <ol>
+        <li>De som van twee even getallen is altijd even. (Hint: schrijf even getallen als 2k en 2m.)</li>
+        <li>De som van een even en een oneven getal is altijd oneven.</li>
+        <li>Het kwadraat van een even getal is altijd deelbaar door 4.</li>
+      </ol>
+      <p class="ex-tip">Tip: gebruik altijd de algebrasche definitie (even = 2k, oneven = 2k+1) en bereken dan het resultaat stap voor stap.</p>
+    </div>
+
+    <!-- Oefening 4 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 4</p>
+      <p class="ex-name">Tegenvoorbeeld vinden</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Weerleg elk van de volgende beweringen door een tegenvoorbeeld te geven.</p>
+      <ol>
+        <li>&ldquo;Als n een priemgetal is, dan is n oneven.&rdquo;</li>
+        <li>&ldquo;Voor alle re&euml;le getallen x geldt: x&#178; &ge; x.&rdquo;</li>
+        <li>&ldquo;Als A &#8838; B en B &#8838; C, dan is A = C.&rdquo;</li>
+        <li>&ldquo;Het product van twee irrationale getallen is altijd irrationaal.&rdquo;</li>
+      </ol>
+      <p class="ex-tip">Tip: probeer kleine, concrete gevallen. Negatieve getallen, breuken en de getallen 0 en 1 zijn vaak goede kandidaten voor tegenvoorbeelden.</p>
+    </div>
+
+    <!-- Oefening 5 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 5</p>
+      <p class="ex-name">Logische implicaties</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Gegeven de implicatie: &ldquo;Als een veelhoek een vierkant is, dan is hij een rechthoek.&rdquo;</p>
+      <ol>
+        <li>Formuleer de keerzin. Is de keerzin waar? Verklaar.</li>
+        <li>Formuleer de omgekeerde. Is de omgekeerde waar?</li>
+        <li>Formuleer de contraposief. Moet deze waar zijn als de originele implicatie waar is?</li>
+        <li>Is de uitspraak een biconditional (P &#8660; Q)? Waarom wel of niet?</li>
+      </ol>
+    </div>
+
+    <!-- Oefening 6 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 6</p>
+      <p class="ex-name">Gecombineerd &mdash; verzamelingen en logica</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Een uitdagende oefening die meerdere concepten samenvoegt.</p>
+      <ol>
+        <li>Gegeven A = {x &#8712; &#8484; | x is deelbaar door 2} en B = {x &#8712; &#8484; | x is deelbaar door 3}. Beschrijf A &#8745; B met een eigenschap. (Hint: wat is het kleinste gemeen veelvoud van 2 en 3?)</li>
+        <li>Schrijf de uitspraak &ldquo;Een getal is deelbaar door 6 als en slechts als het deelbaar is door 2 en door 3&rdquo; als een biconditional. Bedenk een voorbeeld dat de &lsquo;als-en-slechts-als&rsquo;-structuur illustreert.</li>
+        <li>In een klas van 32 leerlingen: 20 hebben een fiets, 15 hebben een step, en 8 hebben beide. Stel P = &ldquo;een leerling heeft een fiets&rdquo; en Q = &ldquo;een leerling heeft een step.&rdquo; (a) Hoeveel leerlingen hebben minstens &eacute;&eacute;n van beide? (b) Hoeveel voldoen aan P en niet Q? (c) Is P &#8658; Q waar voor alle leerlingen? Geef een tegenvoorbeeld als dat niet zo is.</li>
+        <li><strong>Uitdaging:</strong> Bewijs of weerleg: &ldquo;Voor alle verzamelingen A en B geldt: A \ B = A &#8745; B&#7580;.&rdquo;</li>
+      </ol>
+      <p class="ex-tip">Tip voor vraag 4: probeer een willekeurig element x te nemen en te tonen dat het in het linkerlid zit als en slechts als het in het rechterlid zit.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SAMENVATTING (CAPSTONE)
+============================================================ -->
+<section class="summary-section" id="samenvatting">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting &mdash; Hoofdstuk 17 &amp; overzicht van het jaar</h2>
+    <ul>
+      <li><strong>Verzameling</strong>: een welbepaalde collectie van elementen; genoteerd met accolades of met een eigenschap {x | P(x)}. De lege verzameling &#8709; is een deelverzameling van elke verzameling.</li>
+      <li><strong>Bewerkingen</strong>: doorsnede A &#8745; B (gemeenschappelijke elementen), unie A &#8746; B (alle elementen), verschil A \ B (in A maar niet in B), complement A&#7580; (in U maar niet in A).</li>
+      <li><strong>De Morgan&rsquo;s wetten</strong>: (A &#8746; B)&#7580; = A&#7580; &#8745; B&#7580; en (A &#8745; B)&#7580; = A&#7580; &#8746; B&#7580; &mdash; complement van unie = doorsnede van complementen, en omgekeerd.</li>
+      <li><strong>Somregel (inclusie-exclusie)</strong>: |A &#8746; B| = |A| + |B| &#8722; |A &#8745; B| &mdash; corrigeert voor dubbel tellen van de doorsnede.</li>
+      <li><strong>Bewijs en stelling</strong>: een stelling is een bewering die logisch bewezen is; directe bewijzen, bewijzen door gevallen en contraposieve bewijzen zijn de voornaamste methoden.</li>
+      <li><strong>Tegenvoorbeeld</strong>: &eacute;&eacute;n concreet geval dat een universele bewering weerlegt is voldoende om die bewering vals te verklaren.</li>
+      <li><strong>Implicatie</strong> P &#8658; Q: &ldquo;als P dan Q&rdquo;. Equivalent met zijn contraposief (&not;Q &#8658; &not;P), maar niet met zijn keerzin (Q &#8658; P) of omgekeerde (&not;P &#8658; &not;Q).</li>
+      <li><strong>Biconditional</strong> P &#8660; Q: &ldquo;P als en slechts als Q&rdquo; &mdash; beide richtingen van de implicatie gelden tegelijk.</li>
+      <li><strong>Domein 1 &mdash; Getallen</strong> (H1&ndash;4): &#8469; &#8834; &#8484; &#8834; &#8474; &#8834; &#8477; zijn nu formeel begrepen als verzamelingen met een deelverzamelingsrelatie; bewerkingen zijn gedefinieerde operaties op die verzamelingen.</li>
+      <li><strong>Domein 2 &mdash; Algebra</strong> (H5&ndash;9): oplossingen van vergelijkingen vormen een oplossingsverzameling; elke algebraische stap is een implicatie in een redenering.</li>
+      <li><strong>Domein 3 &mdash; Meetkunde</strong> (H10&ndash;13): elk geometrisch bewijs heeft de structuur premisse &#8658; conclusie; congruentie en gelijkenis zijn equivalentierelaties op verzamelingen van figuren.</li>
+      <li><strong>Domein 4 &mdash; Statistiek en kansen</strong> (H14&ndash;15): gebeurtenissen zijn deelverzamelingen van de uitkomstenruimte; de somregel voor kansen P(A &#8746; B) = P(A) + P(B) &#8722; P(A &#8745; B) is de probabilistische versie van de inclusie-exclusieformule.</li>
+      <li><strong>Domein 5 &mdash; Functies</strong> (H16): een functie f: A &#8594; B is een speciale relatie tussen verzameling A (domein) en verzameling B (codomein) &mdash; verzamelingenleer is letterlijk de taal van functies.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

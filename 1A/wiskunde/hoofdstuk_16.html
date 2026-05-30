@@ -1,0 +1,1537 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H16 — Statistiek | Wiskunde 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     ILLUSTRATIE PLACEHOLDERS
+  ============================================================ */
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+    cursor: default;
+    transition: background var(--transition);
+  }
+
+  .illustratie:hover { background: #EDE7D8; }
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     WISKUNDE-SPECIFIC COMPONENTS
+  ============================================================ */
+  .rekenvoorbeeld { background:white; border:1px solid var(--sand); border-top:4px solid var(--oker); border-radius:var(--border-radius); padding:1.8rem 2rem; margin:2rem 0; box-shadow:var(--shadow-sm); }
+  .rekenvoorbeeld .rv-label { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--oker); display:block; margin-bottom:0.35rem; }
+  .rekenvoorbeeld .rv-vraag { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:700; color:var(--darkblue); margin-bottom:1rem; line-height:1.4; }
+  .rv-stappen { list-style:none; padding:0; counter-reset:stap-teller; margin-bottom:1rem; }
+  .rv-stappen li { counter-increment:stap-teller; padding:0.6rem 0.8rem 0.6rem 3.2rem; position:relative; background:var(--creme); border-radius:4px; margin-bottom:0.4rem; font-size:0.97rem; }
+  .rv-stappen li::before { content:counter(stap-teller); position:absolute; left:0.6rem; top:50%; transform:translateY(-50%); background:var(--darkblue); color:white; width:1.7rem; height:1.7rem; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:700; }
+  .rv-antwoord { background:var(--darkblue); color:var(--gold); padding:0.75rem 1.1rem; border-radius:4px; font-weight:700; font-size:1rem; }
+  .stelling { background:#EEF3FF; border-left:4px solid var(--darkblue); border-radius:0 var(--border-radius) var(--border-radius) 0; padding:1.2rem 1.5rem; margin:1.5rem 0; }
+  .stelling .st-label { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--darkblue); opacity:0.7; display:block; margin-bottom:0.35rem; }
+  .stelling .st-body { font-size:0.97rem; color:var(--text-dark); }
+  .formule { background:var(--darkblue); border-radius:var(--border-radius); padding:1.4rem 1.8rem; text-align:center; margin:1.8rem 0; }
+  .formule math { color:white; font-size:1.2rem; }
+  .formule .formule-naam { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--gold); opacity:0.8; display:block; margin-bottom:0.5rem; }
+  .svg-container { margin:1.8rem 0; padding:1.5rem; background:white; border:1px solid var(--sand); border-radius:var(--border-radius); overflow-x:auto; text-align:center; }
+  .svg-container .svg-caption { font-size:0.85rem; color:var(--text-light); font-style:italic; display:block; margin-top:0.75rem; }
+
+  /* chapter-intro helper */
+  .chapter-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--oker);
+    margin: 3rem 0 0.5rem;
+  }
+  .chapter-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+  .chapter-intro {
+    font-size: 1.08rem;
+    color: var(--text-mid);
+    line-height: 1.8;
+    max-width: 720px;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  /* ============================================================
+     STATISTIEK — FREQUENCY TABLE
+  ============================================================ */
+  .freq-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.6rem 0;
+    font-size: 0.95rem;
+  }
+  .freq-table th {
+    background: var(--darkblue);
+    color: var(--gold);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.7rem 1rem;
+    text-align: center;
+  }
+  .freq-table td {
+    padding: 0.6rem 1rem;
+    text-align: center;
+    border-bottom: 1px solid var(--sand);
+    color: var(--text-mid);
+  }
+  .freq-table tr:nth-child(even) td { background: var(--sand-light); }
+  .freq-table tr:last-child td { border-bottom: none; }
+  .freq-table .totaal td {
+    background: #FBF0D0;
+    font-weight: 700;
+    color: var(--darkblue);
+    border-top: 2px solid var(--oker);
+  }
+  .table-wrapper {
+    overflow-x: auto;
+    margin: 1.6rem 0;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* two-svg layout */
+  .svg-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.8rem 0;
+  }
+  .svg-pair .svg-container { margin: 0; }
+  @media (max-width: 600px) {
+    .svg-pair { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <span class="label">Wiskunde 1A</span>
+  <span class="label label-right">H16 &mdash; Statistiek</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Wiskunde &nbsp;&middot;&nbsp; 1A &nbsp;&middot;&nbsp; Eerste graad</div>
+  <h1>Statistiek</h1>
+  <p class="subtitle">Patronen vinden in data &mdash; van cijferlijsten tot grafieken en gemiddelden</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- CHAPTER INTRO -->
+  <div class="chapter-label">Hoofdstuk 16</div>
+  <h1 class="chapter-title">Statistiek</h1>
+  <p class="chapter-intro">Statistiek helpt ons om grote hoeveelheden gegevens begrijpelijk te maken. Van leerlingresultaten tot klimaatdata, van sportstatistieken tot verkiezingsresultaten &mdash; statistiek is het gereedschap om patronen te vinden en conclusies te trekken uit data.</p>
+
+  <!-- ============================================================
+       SECTIE 1: GEGEVENS VERZAMELEN EN ORDENEN
+  ============================================================ -->
+  <section class="section-block" id="gegevens">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Gegevens verzamelen en ordenen</h2>
+    </div>
+
+    <p>Voordat we iets kunnen berekenen of tekenen, moeten we begrijpen wat voor <strong>soort gegevens</strong> we hebben. Niet alle data is hetzelfde, en de keuze van analysemethode hangt af van het type gegevens.</p>
+
+    <h3 class="sub-heading">Populatie en steekproef</h3>
+
+    <p>Als je wilt weten hoe hoog het gemiddelde cijfer is van alle leerlingen in Belgi&euml;, dan is het onmogelijk om iedereen te ondervragen. Wiskundigen en statistici werken dan met een <strong>steekproef</strong>: een zorgvuldig gekozen deel van de volledige groep.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9678;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Populatie</span>
+        <p class="begrip-def">De <strong>populatie</strong> is de volledige groep waarover je uitspraken wilt doen. Bv. alle leerlingen van een school, alle stemgerechtigden in Belgi&euml;, of alle punten op een toets.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9679;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Steekproef</span>
+        <p class="begrip-def">Een <strong>steekproef</strong> is een deel van de populatie dat geselecteerd wordt voor onderzoek. Een goede steekproef is representatief: ze weerspiegelt de populatie zo nauwkeurig mogelijk. Bv. 30 willekeurig gekozen leerlingen uit alle 500 leerlingen van de school.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Kwalitatieve en kwantitatieve gegevens</h3>
+
+    <p>Gegevens kunnen in twee brede categorie&euml;n worden ingedeeld op basis van wat ze meten:</p>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.4rem;">
+      <li style="margin-bottom:0.6rem"><strong>Kwalitatieve gegevens</strong> beschrijven een eigenschap of categorie. Ze zijn niet meetbaar als getal. Voorbeelden: favoriete kleur, bloedgroep, studierichting, nationaliteit.</li>
+      <li><strong>Kwantitatieve gegevens</strong> zijn numeriek en meetbaar. Voorbeelden: leeftijd, lengte, temperatuur, toetsresultaat.</li>
+    </ul>
+
+    <h3 class="sub-heading">Discrete en continue gegevens</h3>
+
+    <p>Kwantitatieve gegevens worden verder opgedeeld op basis van de mogelijke waarden die ze kunnen aannemen:</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9632;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Discrete gegevens</span>
+        <p class="begrip-def"><strong>Discrete gegevens</strong> kunnen alleen bepaalde, afzonderlijke waarden aannemen &mdash; meestal gehele getallen. Er zijn geen tussenliggende waarden mogelijk. Voorbeelden: aantal leerlingen in een klas (12, 13, 14&hellip;), aantal doelpunten, score op 10 punten.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9472;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Continue gegevens</span>
+        <p class="begrip-def"><strong>Continue gegevens</strong> kunnen elke waarde aannemen binnen een bepaald bereik, inclusief alle decimale tussenwaarden. Voorbeelden: lengte (1,72 m of 1,724 m), temperatuur, tijdsduur, gewicht.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">De frequentietabel</h3>
+
+    <p>Een <strong>frequentietabel</strong> ordent gegevens door te tellen hoe vaak elke waarde voorkomt. Ze bevat drie soorten frequenties:</p>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.4rem;">
+      <li style="margin-bottom:0.6rem"><strong>Absolute frequentie</strong>: het werkelijk aantal keer dat een waarde voorkomt in de dataset.</li>
+      <li style="margin-bottom:0.6rem"><strong>Relatieve frequentie</strong>: de absolute frequentie gedeeld door het totaal aantal gegevens. Dit geeft een breuk of percentage. Alle relatieve frequenties samen zijn gelijk aan 1 (of 100%).</li>
+      <li><strong>Cumulatieve frequentie</strong>: de opgetelde absolute frequentie van alle waarden tot en met de huidige waarde. Ze loopt op van de laagste tot de hoogste waarde.</li>
+    </ul>
+
+    <p>Hieronder zie je een frequentietabel voor de toetsresultaten van 20 leerlingen op een schaal van 10:</p>
+
+    <div class="table-wrapper">
+      <table class="freq-table">
+        <thead>
+          <tr>
+            <th>Score (op 10)</th>
+            <th>Absolute freq.</th>
+            <th>Relatieve freq. (breuk)</th>
+            <th>Relatieve freq. (%)</th>
+            <th>Cumulatieve freq.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>6</td>
+            <td>5</td>
+            <td>5/20</td>
+            <td>25%</td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>6</td>
+            <td>6/20</td>
+            <td>30%</td>
+            <td>11</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>5</td>
+            <td>5/20</td>
+            <td>25%</td>
+            <td>16</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>3</td>
+            <td>3/20</td>
+            <td>15%</td>
+            <td>19</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>1</td>
+            <td>1/20</td>
+            <td>5%</td>
+            <td>20</td>
+          </tr>
+          <tr class="totaal">
+            <td><strong>Totaal</strong></td>
+            <td><strong>20</strong></td>
+            <td><strong>20/20</strong></td>
+            <td><strong>100%</strong></td>
+            <td>&mdash;</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Maak een frequentietabel voor de volgende dataset van 20 toetsscores:<br>
+      {6, 7, 8, 6, 9, 7, 7, 8, 6, 10, 7, 8, 9, 6, 7, 8, 9, 7, 6, 8}</p>
+      <ul class="rv-stappen">
+        <li>Sorteer de unieke waarden en tel hoe vaak elke score voorkomt:<br>
+          Score 6: tel 6, 6, 6, 6, 6 &rarr; 5 keer &nbsp;|&nbsp;
+          Score 7: tel 7, 7, 7, 7, 7, 7 &rarr; 6 keer &nbsp;|&nbsp;
+          Score 8: 5 keer &nbsp;|&nbsp;
+          Score 9: 3 keer &nbsp;|&nbsp;
+          Score 10: 1 keer
+        </li>
+        <li>Controleer: 5 + 6 + 5 + 3 + 1 = 20 &#10004; Het totaal klopt.</li>
+        <li>Bereken de relatieve frequenties door elke absolute frequentie te delen door 20:<br>
+          5/20 = 0,25 = 25% &nbsp;|&nbsp; 6/20 = 0,30 = 30% &nbsp;|&nbsp; 5/20 = 25% &nbsp;|&nbsp; 3/20 = 15% &nbsp;|&nbsp; 1/20 = 5%
+        </li>
+        <li>Bereken de cumulatieve frequenties door op te tellen:<br>
+          5 &rarr; 5+6=11 &rarr; 11+5=16 &rarr; 16+3=19 &rarr; 19+1=20
+        </li>
+      </ul>
+      <p class="rv-antwoord">De frequentietabel is de tabel hierboven. De cumulatieve frequentie bereikt 20 bij de laatste rij, wat bevestigt dat alle gegevens zijn meegeteld.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 2: GRAFIEKEN
+  ============================================================ -->
+  <section class="section-block" id="grafieken">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Grafieken</h2>
+    </div>
+
+    <p>Een goed gekozen grafiek maakt data meteen inzichtelijk. Verschillende soorten grafieken zijn geschikt voor verschillende soorten data. De keuze van de juiste grafiek is een belangrijk statistisch vaardigheid.</p>
+
+    <h3 class="sub-heading">Staafdiagram</h3>
+
+    <p>Een <strong>staafdiagram</strong> (ook: staafgrafiek of bardiagram) toont de frequentie of waarde van categorie&euml;n als rechthoekige staven. Het is geschikt voor <em>discrete of kwalitatieve gegevens</em>. De staven staan los van elkaar &mdash; er zit ruimte tussen de staven omdat de categorie&euml;n los van elkaar staan.</p>
+
+    <!-- SVG BAR CHART: test scores -->
+    <div class="svg-container">
+      <svg viewBox="0 0 560 320" width="100%" style="max-width:560px" role="img" aria-labelledby="bar-title">
+        <title id="bar-title">Staafdiagram van toetsscores voor 20 leerlingen</title>
+
+        <!-- achtergrond rasterlijnen -->
+        <line x1="70" y1="260" x2="520" y2="260" stroke="#E8DCC8" stroke-width="1"/>
+        <line x1="70" y1="215" x2="520" y2="215" stroke="#E8DCC8" stroke-width="1"/>
+        <line x1="70" y1="170" x2="520" y2="170" stroke="#E8DCC8" stroke-width="1"/>
+        <line x1="70" y1="125" x2="520" y2="125" stroke="#E8DCC8" stroke-width="1"/>
+        <line x1="70" y1="80"  x2="520" y2="80"  stroke="#E8DCC8" stroke-width="1"/>
+
+        <!-- y-as labels (0,1,2,3,4,5,6 — schaal: 260 - freq*45) -->
+        <g font-family="'Source Sans 3', sans-serif" font-size="12" fill="#6B5F4A" text-anchor="end">
+          <text x="62" y="264">0</text>
+          <text x="62" y="219">1</text>
+          <text x="62" y="174">2</text>
+          <text x="62" y="129">3</text>
+          <text x="62" y="84">4</text>
+          <text x="62" y="39">5</text>
+        </g>
+
+        <!-- assen -->
+        <line x1="70" y1="30" x2="70" y2="265" stroke="#1A2B4A" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="68" y1="260" x2="525" y2="260" stroke="#1A2B4A" stroke-width="2.5" stroke-linecap="round"/>
+
+        <!-- as-pijlen -->
+        <polygon points="70,28 65,38 75,38" fill="#1A2B4A"/>
+        <polygon points="527,260 517,255 517,265" fill="#1A2B4A"/>
+
+        <!-- Staven: breedte 60px, gap 30px, start x=90
+             Score 6: freq=5, hoogte=5*40=200, top=260-200=60 -> x=90
+             Score 7: freq=6, hoogte=240, top=20          -> x=190
+             Score 8: freq=5, hoogte=200, top=60          -> x=290
+             Score 9: freq=3, hoogte=120, top=140         -> x=390
+             Score 10: freq=1, hoogte=40, top=220         -> x=470 (smaller gap to fit)
+        -->
+        <!-- Score 6, freq=5 -->
+        <rect x="90"  y="60"  width="64" height="200" fill="#D4A017" rx="3"/>
+        <text x="122" y="52"  font-family="'Source Sans 3', sans-serif" font-size="13" font-weight="700" fill="#1A2B4A" text-anchor="middle">5</text>
+        <!-- Score 7, freq=6 -->
+        <rect x="180" y="20"  width="64" height="240" fill="#D4A017" rx="3"/>
+        <text x="212" y="13"  font-family="'Source Sans 3', sans-serif" font-size="13" font-weight="700" fill="#1A2B4A" text-anchor="middle">6</text>
+        <!-- Score 8, freq=5 -->
+        <rect x="270" y="60"  width="64" height="200" fill="#D4A017" rx="3"/>
+        <text x="302" y="52"  font-family="'Source Sans 3', sans-serif" font-size="13" font-weight="700" fill="#1A2B4A" text-anchor="middle">5</text>
+        <!-- Score 9, freq=3 -->
+        <rect x="360" y="140" width="64" height="120" fill="#D4A017" rx="3"/>
+        <text x="392" y="132" font-family="'Source Sans 3', sans-serif" font-size="13" font-weight="700" fill="#1A2B4A" text-anchor="middle">3</text>
+        <!-- Score 10, freq=1 -->
+        <rect x="450" y="220" width="54" height="40"  fill="#D4A017" rx="3"/>
+        <text x="477" y="212" font-family="'Source Sans 3', sans-serif" font-size="13" font-weight="700" fill="#1A2B4A" text-anchor="middle">1</text>
+
+        <!-- x-as labels -->
+        <g font-family="'Source Sans 3', sans-serif" font-size="13" fill="#1A2B4A" text-anchor="middle">
+          <text x="122" y="280">6</text>
+          <text x="212" y="280">7</text>
+          <text x="302" y="280">8</text>
+          <text x="392" y="280">9</text>
+          <text x="477" y="280">10</text>
+        </g>
+
+        <!-- assen-titels -->
+        <text x="295" y="305" font-family="'Source Sans 3', sans-serif" font-size="13" fill="#3D3425" text-anchor="middle" font-style="italic">Score op 10</text>
+        <text x="22" y="150" font-family="'Source Sans 3', sans-serif" font-size="12" fill="#3D3425" text-anchor="middle" font-style="italic" transform="rotate(-90,22,150)">Aantal leerlingen</text>
+
+        <!-- Grafieknaam -->
+        <text x="295" y="20" font-family="'Playfair Display', serif" font-size="14" font-weight="700" fill="#1A2B4A" text-anchor="middle" opacity="0.0"/>
+      </svg>
+      <span class="svg-caption">Staafdiagram van toetsscores (schaal 10) voor 20 leerlingen. Score 7 komt het meest voor (6 leerlingen), score 10 het minst (1 leerling).</span>
+    </div>
+
+    <h3 class="sub-heading">Histogram</h3>
+
+    <p>Een <strong>histogram</strong> lijkt op een staafdiagram, maar er zijn twee belangrijke verschillen: de staven staan <em>aaneen</em> (geen ruimte ertussen), en de gegevens zijn ingedeeld in <strong>klassen</strong> (intervallen). Een histogram is geschikt voor <em>continue gegevens</em>. De breedte van elke staaf stelt een klasse-interval voor, en de hoogte geeft de frequentie.</p>
+
+    <p>Voorbeeld: bij lengtes van 12-jarigen zou je klassen maken zoals [145 cm, 150 cm[, [150 cm, 155 cm[, enzovoort. De aanliggende staven geven aan dat de data continu is en er geen gaten bestaan tussen de klassen.</p>
+
+    <h3 class="sub-heading">Cirkeldiagram</h3>
+
+    <p>Een <strong>cirkeldiagram</strong> (taartdiagram of pie chart) toont hoe een geheel is verdeeld over categorie&euml;n. Elke sector heeft een hoek die evenredig is met de relatieve frequentie. Het is bijzonder geschikt om verhoudingen te tonen. De som van alle sectorhoeken is altijd 360&deg;.</p>
+
+    <p>De hoek van een sector bereken je zo: <em>hoek = relatieve frequentie &times; 360&deg;</em>.</p>
+
+    <!-- SVG PIE CHART -->
+    <div class="svg-container">
+      <svg viewBox="0 0 520 280" width="100%" style="max-width:520px" role="img" aria-labelledby="pie-title">
+        <title id="pie-title">Cirkeldiagram van favoriete vakken: Wiskunde 30%, Nederlands 25%, Geschiedenis 20%, Andere 25%</title>
+
+        <!--
+          Midpoint: cx=170, cy=140, r=110
+          Wiskunde    30%  = 108deg  start=0       end=108
+          Nederlands  25%  = 90deg   start=108     end=198
+          Geschiedenis 20% = 72deg   start=198     end=270
+          Andere      25%  = 90deg   start=270     end=360
+
+          Arc coords (r=110, cx=170, cy=140):
+          angle in radians = deg * pi/180
+          x = cx + r*cos(angle-90deg)  [starting from top]
+          y = cy + r*sin(angle-90deg)
+
+          Sector start points (degrees from top, clockwise):
+          0deg:   x=170+110*cos(-90deg)=170+0=170,     y=140+110*sin(-90deg)=140-110=30
+          108deg: x=170+110*cos(18deg)=170+104.6=170+110*0.951=274.6, y=140+110*sin(18deg)=140+33.99=174
+          198deg: x=170+110*cos(108deg)=170+110*(-0.309)=170-34=136,  y=140+110*sin(108deg)=140+104.6=244.6
+          270deg: x=170+110*cos(180deg)=170-110=60,    y=140+110*sin(180deg)=140+0=140
+          360deg: same as 0deg: (170,30)
+
+          let me compute carefully:
+          r=110, cx=170, cy=140
+          start-angle from 12 o'clock, clockwise
+
+          For angle A from 12 o'clock (clockwise):
+            x = cx + r*sin(A*pi/180)
+            y = cy - r*cos(A*pi/180)
+
+          A=0:    x=170+0=170,          y=140-110=30
+          A=108:  x=170+110*sin(108)=170+110*0.9511=170+104.6=274.6,  y=140-110*cos(108)=140-110*(-0.309)=140+34=174
+          A=198:  x=170+110*sin(198)=170+110*(-0.309)=170-34=136,     y=140-110*cos(198)=140-110*(-0.951)=140+104.6=244.6
+          A=270:  x=170+110*sin(270)=170+110*(-1)=170-110=60,         y=140-110*cos(270)=140-110*(0)=140
+          A=360:  x=170,                y=30  (same as 0)
+        -->
+
+        <!-- Sector 1: Wiskunde 30% (108deg) — goud #D4A017 -->
+        <path d="M170,140 L170,30 A110,110 0 0,1 274,174 Z"
+              fill="#D4A017" stroke="white" stroke-width="2"/>
+
+        <!-- Sector 2: Nederlands 25% (90deg, start 108) — donkerblauw #1A2B4A -->
+        <path d="M170,140 L274,174 A110,110 0 0,1 136,245 Z"
+              fill="#1A2B4A" stroke="white" stroke-width="2"/>
+
+        <!-- Sector 3: Geschiedenis 20% (72deg, start 198) — terracotta #C1440E -->
+        <path d="M170,140 L136,245 A110,110 0 0,1 60,140 Z"
+              fill="#C1440E" stroke="white" stroke-width="2"/>
+
+        <!-- Sector 4: Andere 25% (90deg, start 270) — oker #C8923A -->
+        <path d="M170,140 L60,140 A110,110 0 0,1 170,30 Z"
+              fill="#C8923A" stroke="white" stroke-width="2"/>
+
+        <!-- Legenda rechts -->
+        <g font-family="'Source Sans 3', sans-serif" font-size="13" fill="#1E1A14">
+          <!-- Wiskunde -->
+          <rect x="320" y="70"  width="18" height="18" fill="#D4A017" rx="3"/>
+          <text x="346" y="83">Wiskunde</text>
+          <text x="346" y="97" font-size="11" fill="#6B5F4A">30%</text>
+          <!-- Nederlands -->
+          <rect x="320" y="115" width="18" height="18" fill="#1A2B4A" rx="3"/>
+          <text x="346" y="128">Nederlands</text>
+          <text x="346" y="142" font-size="11" fill="#6B5F4A">25%</text>
+          <!-- Geschiedenis -->
+          <rect x="320" y="160" width="18" height="18" fill="#C1440E" rx="3"/>
+          <text x="346" y="173">Geschiedenis</text>
+          <text x="346" y="187" font-size="11" fill="#6B5F4A">20%</text>
+          <!-- Andere -->
+          <rect x="320" y="205" width="18" height="18" fill="#C8923A" rx="3"/>
+          <text x="346" y="218">Andere</text>
+          <text x="346" y="232" font-size="11" fill="#6B5F4A">25%</text>
+        </g>
+
+        <!-- Cirkel-titel -->
+        <text x="170" y="265" font-family="'Source Sans 3', sans-serif" font-size="12" fill="#3D3425" text-anchor="middle" font-style="italic">Favoriete vakken</text>
+      </svg>
+      <span class="svg-caption">Cirkeldiagram van favoriete vakken bij een klas leerlingen. Wiskunde is het populairst (30%). De vier sectoren samen beslaan 100% van de cirkel.</span>
+    </div>
+
+    <h3 class="sub-heading">Lijndiagram</h3>
+
+    <p>Een <strong>lijndiagram</strong> toont hoe een waarde verandert over de tijd (of een andere geordende variabele). De punten worden verbonden door rechte lijnen. Het is de meest geschikte grafiek om <em>trends</em> te zien, zoals de evolutie van temperatuur over het jaar, de stijging van een bevolking, of de verbetering van testresultaten over meerdere weken.</p>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Welk type grafiek kies je voor de volgende situaties?<br>
+      (a) De temperatuur in Brussel gedurende de 12 maanden van het jaar<br>
+      (b) De verdeling van bloedgroepen (A, B, AB, O) in een klas<br>
+      (c) Vergelijking van gemiddelde examencijfers over 5 klassen</p>
+      <ul class="rv-stappen">
+        <li><strong>(a) Temperatuur over het jaar:</strong> dit zijn continue gegevens die evolueren over een geordende tijdsas. Een <em>lijndiagram</em> is de beste keuze omdat het de trend (stijging in de zomer, daling in de winter) duidelijk zichtbaar maakt.</li>
+        <li><strong>(b) Bloedgroepen:</strong> bloedgroep is een kwalitatieve categorie (A, B, AB, O). De juiste keuze is een <em>staafdiagram</em> of een <em>cirkeldiagram</em>. Een cirkeldiagram werkt goed als je wilt tonen welk deel van de klas elke bloedgroep heeft; een staafdiagram werkt als je de aantallen wilt vergelijken.</li>
+        <li><strong>(c) Examencijfers per klas:</strong> je vergelijkt 5 afzonderlijke groepen (klassen). Een <em>staafdiagram</em> is ideaal: elke klas krijgt een staaf, en de hoogtes zijn makkelijk te vergelijken.</li>
+      </ul>
+      <p class="rv-antwoord">Antwoord: (a) lijndiagram &nbsp;|&nbsp; (b) staafdiagram of cirkeldiagram &nbsp;|&nbsp; (c) staafdiagram</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 3: CENTRUMMATEN
+  ============================================================ -->
+  <section class="section-block" id="centrummaten">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Centrummaten</h2>
+    </div>
+
+    <p><strong>Centrummaten</strong> zijn getallen die het &ldquo;centrum&rdquo; of de &ldquo;typische waarde&rdquo; van een dataset samenvatten. De drie meest gebruikte zijn het gemiddelde, de mediaan en de modus.</p>
+
+    <h3 class="sub-heading">Gemiddelde (rekenkundig gemiddelde)</h3>
+
+    <p>Het <strong>gemiddelde</strong> (of rekenkundig gemiddelde) is de som van alle waarden gedeeld door het aantal waarden. Het is de meest gebruikte centrummaat en geeft een goed beeld van het &ldquo;midden&rdquo; van de data.</p>
+
+    <div class="formule">
+      <span class="formule-naam">Formule &mdash; Rekenkundig gemiddelde</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <mover>
+            <mi>x</mi>
+            <mo>&#x00AF;</mo>
+          </mover>
+          <mo>=</mo>
+          <mfrac>
+            <mrow>
+              <mo>&#x3A3;</mo>
+              <msub><mi>x</mi><mi>i</mi></msub>
+            </mrow>
+            <mi>n</mi>
+          </mfrac>
+          <mo>=</mo>
+          <mfrac>
+            <mrow>
+              <msub><mi>x</mi><mn>1</mn></msub>
+              <mo>+</mo>
+              <msub><mi>x</mi><mn>2</mn></msub>
+              <mo>+</mo>
+              <mo>&#x2026;</mo>
+              <mo>+</mo>
+              <msub><mi>x</mi><mi>n</mi></msub>
+            </mrow>
+            <mi>n</mi>
+          </mfrac>
+        </mrow>
+      </math>
+    </div>
+
+    <p>waarbij <math xmlns="http://www.w3.org/1998/Math/MathML"><mover><mi>x</mi><mo>&#x00AF;</mo></mover></math> het gemiddelde is, <math xmlns="http://www.w3.org/1998/Math/MathML"><mo>&#x3A3;</mo><msub><mi>x</mi><mi>i</mi></msub></math> de som van alle waarden, en <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi></math> het aantal waarden.</p>
+
+    <h3 class="sub-heading">Mediaan</h3>
+
+    <p>De <strong>mediaan</strong> is de middelste waarde als de gegevens van klein naar groot zijn gesorteerd. De mediaan verdeelt de dataset in twee gelijke helften: 50% van de waarden ligt eronder en 50% erboven.</p>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.5rem"><strong>Oneven n:</strong> de mediaan is de middelste waarde &mdash; de waarde op positie <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow><mn>2</mn></mfrac></math>.</li>
+      <li><strong>Even n:</strong> de mediaan is het gemiddelde van de twee middelste waarden &mdash; op posities <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mi>n</mi><mn>2</mn></mfrac></math> en <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mi>n</mi><mn>2</mn></mfrac><mo>+</mo><mn>1</mn></math>.</li>
+    </ul>
+
+    <h3 class="sub-heading">Modus</h3>
+
+    <p>De <strong>modus</strong> is de waarde die het meest voorkomt in de dataset. Een dataset kan meer dan &eacute;&eacute;n modus hebben als meerdere waarden even vaak voorkomen. Als alle waarden even vaak voorkomen, is er geen modus.</p>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Bereken het gemiddelde, de mediaan en de modus van: {4, 7, 2, 9, 7, 5, 8, 7, 6}</p>
+      <ul class="rv-stappen">
+        <li>Sorteer de dataset van klein naar groot:<br>
+          <strong>2, 4, 5, 6, 7, 7, 7, 8, 9</strong> &nbsp;&mdash;&nbsp; n = 9 waarden</li>
+        <li>Bereken het <strong>gemiddelde</strong>:<br>
+          Som = 2 + 4 + 5 + 6 + 7 + 7 + 7 + 8 + 9 = 55<br>
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mover><mi>x</mi><mo>&#x00AF;</mo></mover><mo>=</mo><mfrac><mn>55</mn><mn>9</mn></mfrac><mo>&#x2248;</mo><mn>6,1</mn></math>
+        </li>
+        <li>Bepaal de <strong>mediaan</strong>:<br>
+          n = 9 (oneven), dus de mediaan staat op positie <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mrow><mn>9</mn><mo>+</mo><mn>1</mn></mrow><mn>2</mn></mfrac><mo>=</mo><mn>5</mn></math><br>
+          De 5e waarde in de gesorteerde rij is <strong>7</strong>.</li>
+        <li>Bepaal de <strong>modus</strong>:<br>
+          Waarde 7 komt 3 keer voor, alle andere waarden slechts 1 keer. De modus is <strong>7</strong>.</li>
+      </ul>
+      <p class="rv-antwoord">Gemiddelde &#x2248; 6,1 &nbsp;|&nbsp; Mediaan = 7 &nbsp;|&nbsp; Modus = 7</p>
+    </div>
+
+    <div class="stelling">
+      <span class="st-label">Eigenschap &mdash; Mediaan vs. gemiddelde bij uitschieters</span>
+      <p class="st-body">De <strong>mediaan is robuuster voor uitschieters</strong> dan het gemiddelde. Als er &eacute;&eacute;n extreem hoge of lage waarde in de dataset zit (een <em>uitschieter</em>), trekt dat het gemiddelde sterk mee omhoog of omlaag &mdash; maar de mediaan verandert nauwelijks. Voorbeeld: de gemiddelde lonen in een bedrijf worden sterk be&iuml;nvloed door het salaris van de topmanager, maar de mediaan niet. Daarom gebruiken economen bij inkomensverdeling vaak de mediaan in plaats van het gemiddelde.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 4: SPREIDINGSMATEN
+  ============================================================ -->
+  <section class="section-block" id="spreidingsmaten">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Spreidingsmaten</h2>
+    </div>
+
+    <p>Centrummaten vertellen iets over het midden van de data, maar ze zeggen niets over hoe <em>verspreid</em> de gegevens zijn. Twee datasets kunnen hetzelfde gemiddelde hebben maar zeer verschillend zijn in spreiding. <strong>Spreidingsmaten</strong> kwantificeren die variatie.</p>
+
+    <h3 class="sub-heading">Bereik</h3>
+
+    <p>Het <strong>bereik</strong> (of spreidingsbreedte) is het eenvoudigste spreidingsmaat: het verschil tussen de maximum- en minimumwaarde.</p>
+
+    <div class="formule">
+      <span class="formule-naam">Formule &mdash; Bereik</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <mtext>Bereik</mtext>
+          <mo>=</mo>
+          <msub><mi>x</mi><mtext>max</mtext></msub>
+          <mo>&#8722;</mo>
+          <msub><mi>x</mi><mtext>min</mtext></msub>
+        </mrow>
+      </math>
+    </div>
+
+    <p>Het bereik is eenvoudig te berekenen maar gevoelig voor uitschieters: &eacute;&eacute;n extreme waarde kan het bereik sterk be&iuml;nvloeden.</p>
+
+    <h3 class="sub-heading">Kwartielen en interkwartielafstand</h3>
+
+    <p>De <strong>kwartielen</strong> verdelen een gesorteerde dataset in vier gelijke kwarten:</p>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.4rem;">
+      <li style="margin-bottom:0.5rem"><strong>Q1 (eerste kwartiel)</strong>: de mediaan van de onderste helft van de data. 25% van de waarden is kleiner dan Q1.</li>
+      <li style="margin-bottom:0.5rem"><strong>Q2 (tweede kwartiel)</strong>: de mediaan van de volledige dataset. 50% van de waarden is kleiner dan Q2.</li>
+      <li style="margin-bottom:0.5rem"><strong>Q3 (derde kwartiel)</strong>: de mediaan van de bovenste helft van de data. 75% van de waarden is kleiner dan Q3.</li>
+      <li><strong>Interkwartielafstand (IQR)</strong>: IQR = Q3 &#8722; Q1. Dit is de breedte van het middelste 50% van de data en is robuust voor uitschieters.</li>
+    </ul>
+
+    <h3 class="sub-heading">Boxplot</h3>
+
+    <p>Een <strong>boxplot</strong> (doosdiagram) is een grafische samenvatting van de spreiding. De box loopt van Q1 tot Q3 (de middelste 50% van de data). Een lijn markeert Q2 (de mediaan). De &ldquo;snorharen&rdquo; (whiskers) lopen naar de minimum- en maximumwaarde.</p>
+
+    <!-- SVG BOXPLOT -->
+    <div class="svg-container">
+      <svg viewBox="0 0 580 160" width="100%" style="max-width:580px" role="img" aria-labelledby="box-title">
+        <title id="box-title">Boxplot van toetsscores dataset: min=6, Q1=6, Q2=7, Q3=8, max=10</title>
+
+        <!--
+          Dataset: {6,6,6,6,6,7,7,7,7,7,7,8,8,8,8,8,9,9,9,10}  n=20
+          Min=6, Max=10
+          Q1: mediaan van onderste 10 waarden (6,6,6,6,6,7,7,7,7,7)
+              = gemiddelde van 5e en 6e = (6+7)/2 = 6,5
+          Q2: mediaan van 20 waarden = gemiddelde van 10e en 11e = (7+7)/2 = 7
+          Q3: mediaan van bovenste 10 waarden (7,8,8,8,8,8,9,9,9,10)
+              = gemiddelde van 5e en 6e = (8+8)/2 = 8
+
+          Schaal: 6 tot 10, as van x=80 (min) tot x=480 (max), bereik=4, pixels/unit=100
+          6->x=80, 6.5->x=130, 7->x=180, 8->x=280, 10->x=480
+        -->
+
+        <!-- As -->
+        <line x1="60" y1="80" x2="510" y2="80" stroke="#1A2B4A" stroke-width="2" stroke-linecap="round"/>
+
+        <!-- schaal-ticks -->
+        <g font-family="'Source Sans 3', sans-serif" font-size="12" fill="#3D3425" text-anchor="middle">
+          <line x1="80"  y1="74" x2="80"  y2="86" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="80"  y="100">6</text>
+          <line x1="180" y1="74" x2="180" y2="86" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="180" y="100">7</text>
+          <line x1="280" y1="74" x2="280" y2="86" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="280" y="100">8</text>
+          <line x1="380" y1="74" x2="380" y2="86" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="380" y="100">9</text>
+          <line x1="480" y1="74" x2="480" y2="86" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="480" y="100">10</text>
+        </g>
+
+        <!-- Whisker links: min(6)=x80 to Q1(6.5)=x130 -->
+        <line x1="80"  y1="80" x2="130" y2="80" stroke="#1A2B4A" stroke-width="2.5" stroke-dasharray="none"/>
+        <!-- Whisker-endcap links -->
+        <line x1="80"  y1="60" x2="80"  y2="100" stroke="#1A2B4A" stroke-width="2.5"/>
+
+        <!-- Box: Q1(x=130) to Q3(x=280), y=50 to y=110 -->
+        <rect x="130" y="50" width="150" height="60" fill="#EEF3FF" stroke="#1A2B4A" stroke-width="2.5" rx="2"/>
+
+        <!-- Mediane lijn Q2 at x=180 -->
+        <line x1="180" y1="50" x2="180" y2="110" stroke="#D4A017" stroke-width="3.5"/>
+
+        <!-- Whisker rechts: Q3(x=280) to max(x=480) -->
+        <line x1="280" y1="80" x2="480" y2="80" stroke="#1A2B4A" stroke-width="2.5"/>
+        <!-- Whisker-endcap rechts -->
+        <line x1="480" y1="60" x2="480" y2="100" stroke="#1A2B4A" stroke-width="2.5"/>
+
+        <!-- Labels boven boxplot -->
+        <g font-family="'Source Sans 3', sans-serif" font-size="11" fill="#1A2B4A" text-anchor="middle">
+          <text x="80"  y="45">Min</text>
+          <text x="130" y="40">Q1</text>
+          <text x="180" y="40" fill="#C8923A" font-weight="700">Q2</text>
+          <text x="280" y="40">Q3</text>
+          <text x="480" y="45">Max</text>
+        </g>
+        <!-- Waarden onder labels -->
+        <g font-family="'Source Sans 3', sans-serif" font-size="11" fill="#6B5F4A" text-anchor="middle">
+          <text x="80"  y="120">6</text>
+          <text x="130" y="120">6,5</text>
+          <text x="180" y="120" fill="#C8923A" font-weight="700">7</text>
+          <text x="280" y="120">8</text>
+          <text x="480" y="120">10</text>
+        </g>
+
+        <!-- IQR pijl -->
+        <line x1="130" y1="145" x2="280" y2="145" stroke="#C8923A" stroke-width="1.5" marker-start="url(#arr)" marker-end="url(#arr)"/>
+        <text x="205" y="158" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#C8923A" text-anchor="middle">IQR = 1,5</text>
+        <line x1="130" y1="138" x2="130" y2="148" stroke="#C8923A" stroke-width="1.5"/>
+        <line x1="280" y1="138" x2="280" y2="148" stroke="#C8923A" stroke-width="1.5"/>
+      </svg>
+      <span class="svg-caption">Boxplot van de toetsscoredataset (n=20). De gouden lijn is de mediaan (Q2=7). De box beslaat het middelste 50% van de data (Q1=6,5 tot Q3=8). De whiskers reiken tot min=6 en max=10.</span>
+    </div>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Bereken Q1, Q2, Q3 en de IQR voor de dataset: {3, 5, 6, 7, 8, 9, 10, 12, 15}</p>
+      <ul class="rv-stappen">
+        <li>De dataset is al gesorteerd. n = 9 waarden.</li>
+        <li>Bepaal <strong>Q2</strong> (mediaan): positie = (9+1)/2 = 5e waarde = <strong>8</strong></li>
+        <li>Bepaal <strong>Q1</strong>: mediaan van de onderste helft = {3, 5, 6, 7} (de 4 waarden onder Q2).<br>
+          Bij 4 waarden: mediaan = gemiddelde van 2e en 3e waarde = (5+6)/2 = <strong>5,5</strong></li>
+        <li>Bepaal <strong>Q3</strong>: mediaan van de bovenste helft = {9, 10, 12, 15} (de 4 waarden boven Q2).<br>
+          Mediaan = gemiddelde van 2e en 3e waarde = (10+12)/2 = <strong>11</strong></li>
+        <li>Bereken de <strong>IQR</strong>: IQR = Q3 &#8722; Q1 = 11 &#8722; 5,5 = <strong>5,5</strong></li>
+      </ul>
+      <p class="rv-antwoord">Q1 = 5,5 &nbsp;|&nbsp; Q2 = 8 &nbsp;|&nbsp; Q3 = 11 &nbsp;|&nbsp; IQR = 5,5 &nbsp;|&nbsp; Bereik = 15 &#8722; 3 = 12</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 5: INTERPRETEREN EN KRITISCH DENKEN
+  ============================================================ -->
+  <section class="section-block" id="kritisch">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Interpreteren en kritisch denken</h2>
+    </div>
+
+    <p>Statistiek is een krachtig hulpmiddel, maar het kan ook misbruikt worden om de lezer te misleiden. Als statistisch denkende burger is het essentieel dat je grafieken en statistieken kritisch kunt beoordelen.</p>
+
+    <h3 class="sub-heading">Misleidende grafieken</h3>
+
+    <p>Een van de meest voorkomende manieren om gegevens te vertekenen is de <strong>afgeknipte y-as</strong>: de y-as begint niet bij 0 maar bij een hogere waarde. Kleine verschillen lijken daardoor enorm groot. Dit wordt vaak gebruikt in reclame, politiek en media om een indruk te wekken van grote veranderingen of grote verschillen, terwijl de echte variatie klein is.</p>
+
+    <p>Een andere veelgebruikte techniek is <strong>selectieve data</strong>: je toont alleen de datapunten die je conclusie ondersteunen, terwijl je de rest weglaat. Of je kiest een tijdsperiode die toevallig een gunstige trend toont.</p>
+
+    <!-- SVG: eerlijke vs. misleidende barChart -->
+    <div class="svg-pair">
+
+      <!-- Misleidende grafiek: y-as start bij 90 -->
+      <div class="svg-container">
+        <svg viewBox="0 0 240 220" width="100%" role="img" aria-labelledby="misleid-title">
+          <title id="misleid-title">Misleidende grafiek: y-as start bij 90%, kleine verschillen lijken groot</title>
+
+          <!-- rooster -->
+          <line x1="45" y1="40"  x2="220" y2="40"  stroke="#E8DCC8" stroke-width="1"/>
+          <line x1="45" y1="80"  x2="220" y2="80"  stroke="#E8DCC8" stroke-width="1"/>
+          <line x1="45" y1="120" x2="220" y2="120" stroke="#E8DCC8" stroke-width="1"/>
+          <line x1="45" y1="160" x2="220" y2="160" stroke="#E8DCC8" stroke-width="1"/>
+
+          <!-- y-as labels: 90, 93, 96, 99% (schaal: 160=90%, 120=93%, 80=96%, 40=99%; 40px/3%) -->
+          <g font-family="'Source Sans 3', sans-serif" font-size="10" fill="#6B5F4A" text-anchor="end">
+            <text x="40" y="164">90%</text>
+            <text x="40" y="124">93%</text>
+            <text x="40" y="84">96%</text>
+            <text x="40" y="44">99%</text>
+          </g>
+
+          <!-- assen -->
+          <line x1="45" y1="25"  x2="45"  y2="165" stroke="#1A2B4A" stroke-width="2" stroke-linecap="round"/>
+          <line x1="43" y1="160" x2="222" y2="160" stroke="#1A2B4A" stroke-width="2" stroke-linecap="round"/>
+
+          <!-- Staven: Merk A=94%, Merk B=97%, y voor 94%: hoogte=(94-90)/3*40=53, top=160-53=107
+               y voor 97%: hoogte=(97-90)/3*40=93, top=160-93=67 -->
+          <rect x="60"  y="107" width="50" height="53" fill="#C1440E" rx="2"/>
+          <rect x="140" y="67"  width="50" height="93" fill="#D4A017" rx="2"/>
+
+          <!-- labels boven staven -->
+          <text x="85"  y="100" font-family="'Source Sans 3', sans-serif" font-size="11" font-weight="700" fill="#1A2B4A" text-anchor="middle">94%</text>
+          <text x="165" y="60"  font-family="'Source Sans 3', sans-serif" font-size="11" font-weight="700" fill="#1A2B4A" text-anchor="middle">97%</text>
+
+          <!-- x-as labels -->
+          <text x="85"  y="178" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#1A2B4A" text-anchor="middle">Merk A</text>
+          <text x="165" y="178" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#1A2B4A" text-anchor="middle">Merk B</text>
+
+          <!-- Titel -->
+          <text x="120" y="17" font-family="'Source Sans 3', sans-serif" font-size="11" font-weight="700" fill="#C1440E" text-anchor="middle">MISLEIDEND (y-as vanaf 90%)</text>
+        </svg>
+        <span class="svg-caption">Misleidend: y-as start bij 90%. Het verschil tussen 94% en 97% lijkt enorm.</span>
+      </div>
+
+      <!-- Eerlijke grafiek: y-as start bij 0 -->
+      <div class="svg-container">
+        <svg viewBox="0 0 240 220" width="100%" role="img" aria-labelledby="eerlijk-title">
+          <title id="eerlijk-title">Eerlijke grafiek: y-as start bij 0%, klein reëel verschil zichtbaar</title>
+
+          <!-- rooster -->
+          <line x1="45" y1="40"  x2="220" y2="40"  stroke="#E8DCC8" stroke-width="1"/>
+          <line x1="45" y1="80"  x2="220" y2="80"  stroke="#E8DCC8" stroke-width="1"/>
+          <line x1="45" y1="120" x2="220" y2="120" stroke="#E8DCC8" stroke-width="1"/>
+          <line x1="45" y1="160" x2="220" y2="160" stroke="#E8DCC8" stroke-width="1"/>
+
+          <!-- y-as labels: 0, 25, 50, 75, 100% (schaal: 160=0%, 0=100%, 1.6px/%) -->
+          <g font-family="'Source Sans 3', sans-serif" font-size="10" fill="#6B5F4A" text-anchor="end">
+            <text x="40" y="164">0%</text>
+            <text x="40" y="124">25%</text>
+            <text x="40" y="84">50%</text>
+            <text x="40" y="44">75%</text>
+            <text x="40" y="10">100%</text>
+          </g>
+
+          <!-- assen -->
+          <line x1="45" y1="8"   x2="45"  y2="165" stroke="#1A2B4A" stroke-width="2" stroke-linecap="round"/>
+          <line x1="43" y1="160" x2="222" y2="160" stroke="#1A2B4A" stroke-width="2" stroke-linecap="round"/>
+
+          <!-- Staven: 94% -> hoogte=94*1.6=150.4px, top=160-150=10
+                      97% -> hoogte=97*1.6=155.2px, top=160-155=5 -->
+          <rect x="60"  y="10" width="50" height="150" fill="#C1440E" rx="2"/>
+          <rect x="140" y="5"  width="50" height="155" fill="#D4A017" rx="2"/>
+
+          <!-- labels -->
+          <text x="85"  y="7"  font-family="'Source Sans 3', sans-serif" font-size="11" font-weight="700" fill="#1A2B4A" text-anchor="middle">94%</text>
+          <text x="165" y="2"  font-family="'Source Sans 3', sans-serif" font-size="11" font-weight="700" fill="#1A2B4A" text-anchor="middle">97%</text>
+
+          <!-- x-as labels -->
+          <text x="85"  y="178" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#1A2B4A" text-anchor="middle">Merk A</text>
+          <text x="165" y="178" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#1A2B4A" text-anchor="middle">Merk B</text>
+
+          <!-- Titel -->
+          <text x="120" y="17" font-family="'Source Sans 3', sans-serif" font-size="11" font-weight="700" fill="#1A2B4A" text-anchor="middle" opacity="0"/>
+          <text x="120" y="200" font-family="'Source Sans 3', sans-serif" font-size="10" font-weight="700" fill="#1A2B4A" text-anchor="middle">EERLIJK (y-as vanaf 0%)</text>
+        </svg>
+        <span class="svg-caption">Eerlijk: y-as start bij 0%. Het kleine reële verschil van 3 procentpunt is duidelijk zichtbaar.</span>
+      </div>
+
+    </div><!-- end svg-pair -->
+
+    <h3 class="sub-heading">Correlatie versus causaliteit</h3>
+
+    <p>Een veelgemaakte fout in de interpretatie van statistieken is het verwarren van <strong>correlatie</strong> en <strong>causaliteit</strong>:</p>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.5rem"><strong>Correlatie</strong> betekent dat twee grootheden tegelijk veranderen &mdash; als de ene stijgt, stijgt of daalt de andere ook. Maar dat wil nog niet zeggen dat de ene de andere veroorzaakt.</li>
+      <li><strong>Causaliteit</strong> betekent dat de ene grootheid de andere effectief veroorzaakt. Dit is veel moeilijker aan te tonen dan correlatie.</li>
+    </ul>
+
+    <p>Voorbeeld: in landen waar meer ijs wordt verkocht, verdrinken ook meer mensen. Er is een correlatie. Maar ijs verkopen veroorzaakt geen verdrinking! De echte verklaring is een derde factor: warm weer doet zowel ijsverkoop als zwemactiviteiten (en daarmee verdrinkingsrisico) stijgen.</p>
+
+    <h3 class="sub-heading">Statistiek in de praktijk</h3>
+
+    <p>Statistieken zijn overal: in sportverslagen (gemiddeld aantal goals per wedstrijd), in media (goedkeuringscijfers van politici), in geneeskunde (effectiviteit van medicijnen), en in wetenschappelijk onderzoek. Het is essentieel om altijd de volgende vragen te stellen:</p>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.4rem">Hoe groot was de steekproef? Is die representatief?</li>
+      <li style="margin-bottom:0.4rem">Begint de y-as bij nul?</li>
+      <li style="margin-bottom:0.4rem">Zijn alle relevante gegevens getoond, of enkel de gunstige?</li>
+      <li>Is de conclusie een correlatie of een bewezen oorzakelijk verband?</li>
+    </ul>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Twee grafieken tonen het tevredenheidspercentage van klanten van een bedrijf over vier kwartalen: 91%, 92%, 93%, 94%.<br>
+      Grafiek A heeft een y-as die start bij 90%. Grafiek B heeft een y-as die start bij 0%.<br>
+      Welke grafiek is eerlijker? Wat suggereert grafiek A ten onrechte?</p>
+      <ul class="rv-stappen">
+        <li>In <strong>grafiek A</strong> (y-as van 90%) zijn de staven voor 91%, 92%, 93% en 94% respectievelijk 1, 2, 3 en 4 eenheden hoog. De staaf voor 94% is daarmee <em>vier keer zo hoog</em> als de staaf voor 91%, wat een enorme stijging suggereert.</li>
+        <li>In werkelijkheid is het verschil slechts 3 procentpunt op een schaal van 100%, dus een kleine verbetering.</li>
+        <li><strong>Grafiek B</strong> (y-as van 0%) laat zien dat alle staven bijna even hoog zijn en allemaal zeer dicht bij 100% liggen. Er is een lichte stijging, maar ze is klein en proportioneeel nauwkeurig weergegeven.</li>
+      </ul>
+      <p class="rv-antwoord">Grafiek B is eerlijker. Grafiek A overdrijft de stijging dramatisch door de y-as af te knippen bij 90% in plaats van bij 0%.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Je leest in een krant: &ldquo;Onderzoek toont aan dat leerlingen die elke dag ontbijten, betere cijfers halen.&rdquo; Is dit een bewijs van causaliteit of enkel een correlatie? Welke andere factoren zouden hier een rol kunnen spelen?</p>
+    </div>
+  </section>
+
+</div><!-- end page-wrapper -->
+
+<!-- ============================================================
+     OEFENINGEN
+============================================================ -->
+<section class="exercises-section" id="oefeningen">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <!-- Oefening 1 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Frequentietabel opstellen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">De volgende cijfers zijn de resultaten van 18 leerlingen op een toets (op 10):<br>
+      <strong>{5, 7, 8, 6, 7, 9, 7, 8, 6, 7, 8, 5, 9, 7, 6, 8, 7, 10}</strong></p>
+      <ol>
+        <li>Maak een frequentietabel met alle scores die voorkomen en hun absolute frequentie.</li>
+        <li>Voeg een kolom toe voor de relatieve frequentie (als percentage).</li>
+        <li>Voeg een kolom toe voor de cumulatieve frequentie.</li>
+        <li>Welke score heeft de hoogste relatieve frequentie? Hoeveel procent is dat?</li>
+        <li>Hoeveel procent van de leerlingen heeft een score van 7 of hoger?</li>
+      </ol>
+      <p class="ex-tip">Tip: sorteer de scores eerst van laag naar hoog voordat je begint te tellen.</p>
+    </div>
+
+    <!-- Oefening 2 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Het juiste grafiektype kiezen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Kies voor elk van de volgende situaties het meest geschikte grafiektype (staafdiagram, histogram, cirkeldiagram of lijndiagram). Verklaar je keuze.</p>
+      <ol>
+        <li>Het aantal bezoekers van een museum per maand, over een heel jaar.</li>
+        <li>De verdeling van favoriete muziekgenres bij 200 leerlingen (pop, rock, hiphop, klassiek, andere).</li>
+        <li>De lengte van 50 leerlingen van het eerste jaar (gemeten in cm).</li>
+        <li>De evolutie van de gemiddelde temperatuur in Belgi&euml; over de laatste 30 jaar.</li>
+        <li>Het marktaandeel van de vier grote supermarktketens in Belgi&euml; (in procent van de totale omzet).</li>
+      </ol>
+    </div>
+
+    <!-- Oefening 3 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Gemiddelde, mediaan en modus berekenen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Gegeven de volgende datasets:</p>
+      <ol>
+        <li><strong>Dataset A:</strong> {3, 5, 5, 6, 7, 8, 8, 8, 9, 11}<br>
+          Bereken het gemiddelde, de mediaan en de modus.</li>
+        <li><strong>Dataset B:</strong> {2, 4, 6, 8, 10, 12, 100}<br>
+          Bereken het gemiddelde en de mediaan. Welke maat geeft hier een beter beeld van het &ldquo;typische&rdquo; getal? Verklaar waarom.</li>
+        <li>Een klas van 10 leerlingen haalt de volgende punten: {6, 7, 7, 7, 8, 8, 8, 9, 9, 10}.<br>
+          Na een herziening wordt de laagste score verhoogd van 6 naar 9. Hoe verandert het gemiddelde? Hoe verandert de mediaan?</li>
+      </ol>
+      <p class="ex-tip">Tip: sorteer altijd eerst voor je de mediaan bepaalt.</p>
+    </div>
+
+    <!-- Oefening 4 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 4</p>
+      <p class="ex-name">Kwartielen en boxplot</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Gegeven de dataset: <strong>{2, 4, 5, 7, 8, 9, 11, 13, 14, 16}</strong></p>
+      <ol>
+        <li>Bereken Q1, Q2 en Q3.</li>
+        <li>Bereken de interkwartielafstand (IQR).</li>
+        <li>Bereken het bereik.</li>
+        <li>Beschrijf hoe de boxplot eruit zou zien: waar ligt de box, waar liggen de whiskers, en waar staat de mediaanlijn?</li>
+        <li>De waarde 16 is mogelijk een uitschieter. Hoe be&iuml;nvloedt die het gemiddelde versus de mediaan? Bereken beide met &eacute;n zonder de waarde 16.</li>
+      </ol>
+    </div>
+
+    <!-- Oefening 5 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 5</p>
+      <p class="ex-name">Een misleidende grafiek interpreteren</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Je ziet in een reclame twee staafgrafieken die de klanttevredenheid van twee bedrijven vergelijken:</p>
+      <ul>
+        <li>Bedrijf X: 88% tevreden klanten</li>
+        <li>Bedrijf Y: 92% tevreden klanten</li>
+      </ul>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">In de grafiek van de advertentie lijkt de staaf van Y bijna twee keer zo hoog als die van X.</p>
+      <ol>
+        <li>Waar begint de y-as waarschijnlijk? Leg uit hoe je dat kunt afleiden.</li>
+        <li>Bereken hoeveel procentpunt het echte verschil bedraagt.</li>
+        <li>Teken zelf de twee grafieken: &eacute;&eacute;n eerlijke versie (y-as bij 0%) en &eacute;&eacute;n misleidende versie (y-as afgeknepen). Gebruik ruitjespapier of schets.</li>
+        <li>Geef een situatie uit het dagelijks leven waar een misleidende grafiek schade kan aanrichten.</li>
+      </ol>
+      <p class="ex-tip">Tip: als de staaf van 92% twee keer zo hoog is als die van 88%, dan is de as zo afgeknepen dat het verschil van 4 procentpunt eruitziet als 50% van de totale stafhoogte.</p>
+    </div>
+
+    <!-- Oefening 6 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 6</p>
+      <p class="ex-name">Praktijkdataanalyse</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Hieronder staan de maandelijkse neerslag (in mm) in Brussel voor een bepaald jaar:</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;font-family:monospace;">
+        Jan: 72 &nbsp; Feb: 54 &nbsp; Mrt: 68 &nbsp; Apr: 51 &nbsp; Mei: 63 &nbsp; Jun: 76<br>
+        Jul: 82 &nbsp; Aug: 79 &nbsp; Sep: 65 &nbsp; Okt: 74 &nbsp; Nov: 88 &nbsp; Dec: 80
+      </p>
+      <ol>
+        <li>Bereken de gemiddelde maandelijkse neerslag voor dit jaar.</li>
+        <li>Bereken de mediaan. Sorteer daarvoor de 12 waarden.</li>
+        <li>Bereken het bereik. Welke maand was de natste, welke de droogste?</li>
+        <li>Bereken Q1, Q2 en Q3. Bepaal de IQR.</li>
+        <li>Welk type grafiek zou je kiezen om de neerslag per maand te visualiseren? Teken een ruwe schets of beschrijf de grafiek.</li>
+        <li>Stel dat een krant schrijft: &ldquo;Het regende dit jaar nooit minder dan 50 mm per maand, dus de droogte is voorbij.&rdquo; Bespreek deze uitspraak kritisch vanuit statistisch oogpunt.</li>
+      </ol>
+      <p class="ex-tip">Uitdaging: vergelijk je antwoorden met het langjarig gemiddelde voor Brussel van 74 mm/maand. In welke maanden was het droger of natter dan gemiddeld?</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SAMENVATTING
+============================================================ -->
+<section class="summary-section" id="samenvatting">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>Populatie</strong> is de volledige groep; een <strong>steekproef</strong> is een representatief deel ervan dat onderzocht wordt.</li>
+      <li><strong>Kwalitatieve gegevens</strong> beschrijven categorie&euml;n (bv. bloedgroep, kleur); <strong>kwantitatieve gegevens</strong> zijn numeriek en meetbaar.</li>
+      <li><strong>Discrete gegevens</strong> nemen afzonderlijke waarden aan (bv. aantal leerlingen); <strong>continue gegevens</strong> kunnen elke tussenliggende waarde aannemen (bv. lengte, temperatuur).</li>
+      <li>Een <strong>frequentietabel</strong> geeft voor elke waarde de absolute frequentie, de relatieve frequentie (breuk of %) en de cumulatieve frequentie. De relatieve frequenties tellen op tot 1 (100%).</li>
+      <li>Een <strong>staafdiagram</strong> is geschikt voor discrete of kwalitatieve data; een <strong>histogram</strong> voor continue data in klassen; een <strong>cirkeldiagram</strong> voor verhoudingen; een <strong>lijndiagram</strong> voor trends in de tijd.</li>
+      <li>Het <strong>gemiddelde</strong> <math xmlns="http://www.w3.org/1998/Math/MathML"><mover><mi>x</mi><mo>&#x00AF;</mo></mover><mo>=</mo><mfrac><mrow><mo>&#x3A3;</mo><msub><mi>x</mi><mi>i</mi></msub></mrow><mi>n</mi></mfrac></math> is gevoelig voor uitschieters.</li>
+      <li>De <strong>mediaan</strong> is de middelste waarde na sortering en is robuuster voor uitschieters dan het gemiddelde.</li>
+      <li>De <strong>modus</strong> is de meest voorkomende waarde en geeft de meest typische categorie aan.</li>
+      <li>Het <strong>bereik</strong> = max &#8722; min; de <strong>interkwartielafstand IQR</strong> = Q3 &#8722; Q1 beschrijft de spreiding van de middelste 50% van de data.</li>
+      <li>Een <strong>boxplot</strong> toont visueel min, Q1, Q2 (mediaan), Q3 en max in &eacute;&eacute;n figuur.</li>
+      <li>Een <strong>afgeknipte y-as</strong> kan kleine verschillen overdreven groot laten lijken; lees grafieken altijd kritisch.</li>
+      <li><strong>Correlatie</strong> betekent dat twee grootheden samenhangen; <strong>causaliteit</strong> betekent dat de ene de andere veroorzaakt &mdash; dit is veel moeilijker aan te tonen.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

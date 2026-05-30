@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoofdstuk 6 — Ruimtelijke patronen | Aardrijkskunde 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     ILLUSTRATIE PLACEHOLDERS
+  ============================================================ */
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+    cursor: default;
+    transition: background var(--transition);
+  }
+
+  .illustratie:hover { background: #EDE7D8; }
+
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     BRONMATERIAAL — geographic source / map / data block
+     Key component for Aardrijkskunde: use for map descriptions,
+     climate tables, satellite image descriptions, GPS data, etc.
+  ============================================================ */
+  .bronmateriaal {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 2rem 2.2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .bronmateriaal .bron-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--darkblue);
+    opacity: 0.6;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  .bronmateriaal .bron-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  .bronmateriaal .bron-meta {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    font-style: italic;
+    margin-bottom: 0.9rem;
+    display: block;
+  }
+
+  .bronmateriaal .bron-body { margin-bottom: 0.8rem; }
+
+  .bronmateriaal .bron-body p {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-bottom: 0.6em;
+  }
+
+  .bronmateriaal .bron-body p:last-child { margin-bottom: 0; }
+
+  .bronmateriaal .bron-body table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+  }
+
+  .bronmateriaal .bron-body th {
+    background: var(--darkblue);
+    color: white;
+    padding: 0.4rem 0.75rem;
+    text-align: left;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    font-size: 0.83rem;
+  }
+
+  .bronmateriaal .bron-body td {
+    padding: 0.35rem 0.75rem;
+    border-bottom: 1px solid var(--sand);
+    color: var(--text-mid);
+    font-size: 0.93rem;
+  }
+
+  .bronmateriaal .bron-body tr:last-child td { border-bottom: none; }
+
+  .bronmateriaal .bron-body tr:nth-child(even) td {
+    background: var(--sand-light);
+  }
+
+  .bronmateriaal .bron-vraag {
+    background: rgba(26,43,74,0.06);
+    border-left: 3px solid var(--darkblue);
+    border-radius: 0 4px 4px 0;
+    padding: 0.7rem 1rem;
+    font-size: 0.93rem;
+    color: var(--text-mid);
+    font-style: italic;
+    margin-top: 1rem;
+  }
+
+  .bronmateriaal .bron-vraag::before {
+    content: '🔍 ';
+    font-style: normal;
+  }
+
+  .bronmateriaal .bron-source {
+    font-size: 0.78rem;
+    color: var(--text-light);
+    border-top: 1px solid var(--sand);
+    padding-top: 0.6rem;
+    font-style: italic;
+    margin-top: 0.8rem;
+    display: block;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     CLOSING QUOTE
+  ============================================================ */
+  .closing-quote {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0D1E38 100%);
+    border-radius: var(--border-radius);
+    padding: 3rem 3rem 2.5rem;
+    margin: 3.5rem 0 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.5rem; left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .closing-quote .cq-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--gold);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 1.2rem;
+  }
+
+  .closing-quote .cq-attribution {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(212,160,23,0.6);
+  }
+
+  .closing-quote .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .closing-quote .ornament-line::before,
+  .closing-quote .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.4), transparent);
+  }
+
+  .closing-quote .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.7;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .closing-quote { padding: 2rem 1.2rem 1.8rem; }
+    .bronmateriaal { padding: 1.4rem 1.2rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <a class="label" href="index.html">Aardrijkskunde 1A</a>
+  <span class="label label-right">Hoofdstuk 6</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Aardrijkskunde &nbsp;&middot;&nbsp; 1A &nbsp;&middot;&nbsp; Domein 2</div>
+  <h1>Hoofdstuk 6<br>Ruimtelijke patronen</h1>
+  <p class="subtitle">Waarom ziet het ene gebied er zo anders uit dan het andere?</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- PROLOGUE -->
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Stel je voor &hellip;</span>
+
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+
+    <p>Je opent een wereldkaart met bevolkingsdichtheid. De kleuren springen meteen naar je toe: donkerrood in Oost-Azi&euml;, diepbruin langs de kusten van West-Europa en de oostkust van de Verenigde Staten. En dan &mdash; grote vlekken van bijna niets. Een bleekgeel uitgestrekt Siberi&euml;. Een zo goed als lege Sahara. Het hart van het Amazoneregenwoud. Antarctica, wit en stil.</p>
+
+    <p>Waarom wonen er meer dan vier miljard mensen in Azi&euml;, terwijl er nauwelijks mensen leven in de centrale Sahara of op het Antarctisch continent? Het antwoord ligt niet in toeval. Het ligt in het landschap zelf: in het reli&euml;f, het klimaat, de vegetatie, de beschikbaarheid van water en vruchtbare grond. Geografie verklaart die patronen.</p>
+
+    <p><strong style="color: var(--gold);">In dit hoofdstuk leer je die ruimtelijke patronen herkennen &mdash; van de reliëfzones van België tot de vegetatiegordels van de wereld.</strong></p>
+
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 1: RELIËFPATRONEN IN BELGIË
+  ============================================================ -->
+  <section class="section-block" id="sectie1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Reli&euml;fpatronen in Belgi&euml;</h2>
+    </div>
+
+    <p>Belgi&euml; is een klein land, maar het reli&euml;f is er verrassend gevarieerd. In het noorden ligt een vlakke kuststrook die nauwelijks boven de zeespiegel uitsteekt. In het zuiden rijzen de heuvels van de Ardennen op tot bijna 700 meter. Daartussen liggen plateaus, laagvlakten en depressies die elkaar opvolgen van noord naar zuid.</p>
+
+    <p>Geografen verdelen Belgi&euml; in <strong>dertien reliëfzones</strong>. Die zones zijn niet willekeurig: ze zijn het resultaat van miljoenen jaren aardse krachten &mdash; lagen sediment die opgestuwd of weggesleten werden. Door die zones te kennen, begrijp je meteen waarom bepaalde gewassen groeien in Haspengouw maar niet in de Kempen, of waarom de Ardennen zo anders aanvoelen dan de kust.</p>
+
+    <h3 class="sub-heading">Van de kust naar de Ardennen: van laag naar hoog</h3>
+
+    <p>De laagste zones liggen in het noorden en noordwesten van het land. Ze bestaan uit relatief jonge, door wind en water aangevoerde sedimenten. Hoe verder je naar het zuiden trekt, hoe ouder en harder het gesteente, en hoe hoger het terrein.</p>
+
+    <p>De <strong>Laagvlakte van de Kust</strong> strekt zich uit langs de Noordzee. Het land ligt er bijna overal onder de 5 meter hoogte &mdash; en sommige polders liggen zelfs onder het zeeniveau. Zonder dijken en pompsystemen zou een groot deel van deze zone regelmatig overstromen. Aangrenzend ligt de <strong>Vlaamse Laagvlakte</strong>, een zacht golvend zandlandschap dat kenmerkend is voor de provincies Oost- en West-Vlaanderen.</p>
+
+    <p>Verder naar het oosten, in de provincie Antwerpen en Limburg, vind je de <strong>Kempense Laagvlakte</strong>. Ook dit is een zandige zone, maar de bodem is er armer en droger dan in de Vlaamse Laagvlakte. Historisch lag de Kempen vol met heide en vennen &mdash; vandaag is er veel bos aangeplant of landbouw in gebruik genomen.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#127758;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Laagvlakte</span>
+        <p class="begrip-def">Een laagvlakte is een vlak, laaggelegen gebied, meestal onder 30 meter hoogte. Laagvlakten zijn dikwijls gevormd door afzetting van sediment (zand, klei) door rivieren, wind of de zee. Ze liggen vaak dicht bij de kust of langs grote rivieren.</p>
+      </div>
+    </div>
+
+    <p>In het midden van Belgi&euml; liggen de <strong>laagplateaus</strong>: hogere, vlakkere gebieden die liggen tussen de laagvlakten in het noorden en de hogere Ardennen in het zuiden. Het <strong>Brabants Laagplateau</strong>, het <strong>Henegouws Laagplateau</strong> en het <strong>Haspengouws Laagplateau</strong> zijn hier de bekendste voorbeelden. In Haspengouw is de bodem bijzonder vruchtbaar door een dik pak leem &mdash; dat maakt het tot een van de belangrijkste landbouwregio's van Belgi&euml;. Ook het <strong>Kempens Laagplateau</strong> in het oosten hoort bij deze groep.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9968;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Plateau en laagplateau</span>
+        <p class="begrip-def">Een <strong>plateau</strong> is een relatief vlak, hooggelegen gebied dat aan de randen sterk afbreekt naar lager terrein. Een <strong>laagplateau</strong> is een plateau dat slechts weinig boven de omgeving uitstijgt, typisch tussen 30 en 150 meter hoogte. In Belgi&euml; worden de middelste zones van het land laagplateaus genoemd.</p>
+      </div>
+    </div>
+
+    <p>Op de grens tussen het Midden-Belgi&euml; en de Ardennen liggen twee hogere zones: de <strong>Heuvelruggen van de Condroz</strong> en het <strong>Plateau van Herve</strong>. De Condroz is een afwisseling van kalkruggen en kleiige valleien tussen de Samber en de Maas. Het Plateau van Herve, ten westen van Li&egrave;ge, is een verregenend plateau dat bekend staat om zijn fruitteelt en Hervé-kaas.</p>
+
+    <p>Tussen de Condroz en de Ardennen in het zuiden bevindt zich de <strong>Fagne-Famennedepressie</strong> &mdash; een trog van zachter gesteente dat over de eeuwen sneller weg gesleten is dan de harde rotsen eromheen. Dit lager gelegen gebied, soms ook wel de &ldquo;vore hersdinale&rdquo; of Ardeense trog genoemd, loopt van zuidwest naar noordoost dwars door Walloni&euml;.</p>
+
+    <p>Dan komen we bij de hoogste zones van Belgi&euml;. Het <strong>Plateau van de Ardennen</strong> is een uitgestrekt hoogplateau van hard oud gesteente, opgeheven door geologische krachten. Het landschap is er ruig: diepe riviervalleien snijden door het plateau, met bossen op de hellingen. Nog iets hoger, in het uiterste oosten van de provincie Li&egrave;ge, liggen de <strong>Hoge Venen</strong> &mdash; een uitgestrekte veenvlakte op meer dan 600 meter hoogte. Het hoogste punt van Belgi&euml;, de <strong>Botrange</strong>, bereikt hier 694 meter. Ten zuidoosten, in de provincie Luxemburg, strekt het <strong>Lotharings Plateau</strong> zich uit aan de grens met Luxemburg en Frankrijk. Het is een relatief vlak plateau van kalkgesteente, iets lager dan de Ardennen.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128205;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Reli&euml;f</span>
+        <p class="begrip-def">Het reli&euml;f van een gebied beschrijft de vorm van het aardoppervlak: de hoogte, helling en onregelmatigheden van het terrein. Reliëf wordt bepaald door zowel de geologische opbouw (harde of zachte gesteenten) als door de werking van erosie door water, wind en ijs door de tijd heen.</p>
+      </div>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Kijk op een fysische kaart van Belgi&euml; in je atlas. Welke grote rivieren stromen door de reliëfzones van het zuiden naar het noorden? Wat zegt de richting van die rivieren over het reliëf van het land? En waarom zijn er in de Ardennen diepere valleien dan in de Kempen?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       BRONMATERIAAL 1: RELIËFZONES VAN BELGIË
+  ============================================================ -->
+  <div class="bronmateriaal" id="bron1">
+    <span class="bron-label">Bronmateriaal 1 &mdash; Tabel</span>
+    <span class="bron-title">Reli&euml;fzones van Belgi&euml;</span>
+    <span class="bron-meta">Overzicht van de 13 reliëfzones van noord naar zuid &nbsp;&middot;&nbsp; Gebaseerd op de Belgische geografische indeling (NGI / vakfiche Aardrijkskunde 1A)</span>
+    <div class="bron-body">
+      <p>Onderstaande tabel geeft een overzicht van de dertien reliëfzones van België, gerangschikt van de laagste (noorden) naar de hoogste (zuiden). Let op de hoogteverschillen en de opvallende kenmerken.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Reliëfzone</th>
+            <th>Hoogtebereik (m)</th>
+            <th>Regio / Provincie</th>
+            <th>Opvallend kenmerk</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Laagvlakte van de Kust</td>
+            <td>0 – 5 m</td>
+            <td>West-Vlaanderen (kuststrook)</td>
+            <td>Polders en duinen; dijken beschermen tegen overstromingen</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Vlaamse Laagvlakte</td>
+            <td>5 – 30 m</td>
+            <td>Oost- en West-Vlaanderen</td>
+            <td>Zandige bodem; intensieve landbouw en vele kanalen</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Kempense Laagvlakte</td>
+            <td>10 – 30 m</td>
+            <td>Antwerpen, Limburg (noord)</td>
+            <td>Armere zandbodems; historisch heide- en vennenlandschap</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Brabants Laagplateau</td>
+            <td>50 – 120 m</td>
+            <td>Vlaams-Brabant, Waals-Brabant</td>
+            <td>Leembodem; landbouwgebied rond Brussel</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Henegouws Laagplateau</td>
+            <td>50 – 130 m</td>
+            <td>Henegouwen</td>
+            <td>Kalkrijk; historisch steenkoolbekken in het zuiden</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>Haspengouws Laagplateau</td>
+            <td>60 – 150 m</td>
+            <td>Limburg (zuid), Luik (west)</td>
+            <td>Dikke leemlaag; vruchtbaarste landbouwgrond van België</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>Kempens Laagplateau</td>
+            <td>50 – 100 m</td>
+            <td>Limburg (oost), Antwerpen (oost)</td>
+            <td>Overgang tussen Kempen en Haspengouw; bocagelandschap</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>Heuvelruggen van de Condroz</td>
+            <td>150 – 300 m</td>
+            <td>Namen, Luik (west)</td>
+            <td>Afwisseling van kalkruggen en kleidalen tussen Samber en Maas</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>Plateau van Herve</td>
+            <td>200 – 300 m</td>
+            <td>Luik (oost)</td>
+            <td>Veel neerslag; fruitteelt, graasweides en Hervé-kaas</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>Fagne-Famennedepressie</td>
+            <td>150 – 250 m</td>
+            <td>Namen (zuid), Luxemburg (noord)</td>
+            <td>Lager gelegen trog van zacht gesteente tussen Condroz en Ardennen</td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td>Plateau van de Ardennen</td>
+            <td>300 – 550 m</td>
+            <td>Luxemburg, Namen (zuiden)</td>
+            <td>Diepe riviervalleien, donkere naaldbossen en toerisme</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>Plateau van de Hoge Venen</td>
+            <td>550 – 694 m</td>
+            <td>Luik (oosten)</td>
+            <td>Hoogste punt van België: Botrange (694 m); veenmoeras</td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td>Lotharings Plateau</td>
+            <td>200 – 400 m</td>
+            <td>Luxemburg (zuiden)</td>
+            <td>Kalksteen; aansluitend op het groothertogdom Luxemburg en Lotharingen</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="bron-vraag">Welke reliëfzone bevat het hoogste punt van België? Op welke hoogte ligt dat punt, en in welke provincie bevindt het zich?</p>
+    <span class="bron-source">Bron: bewerkt naar de geografische indelingen van het Nationaal Geografisch Instituut (NGI) en de vakfiche Aardrijkskunde 1A (eerste graad A-stroom)</span>
+  </div>
+
+  <!-- ILLUSTRATIE -->
+  <div class="illustratie" role="img" aria-label="Illustratie: kaart van de reliëfzones van België">
+    <span class="ill-icon">&#128506;</span>
+    <p class="ill-caption"><strong>Kaart van de reli&euml;fzones van Belgi&euml;</strong> met nummers en namen &mdash; van de kustpolders (1) in het noorden tot de Hoge Venen (12) en het Lotharings Plateau (13) in het zuiden en zuidoosten. Hoogteverschillen zijn aangeduid met kleurgradaties van lichtgeel (laag) naar donkerbruin (hoog). <em>[Illustratie in te voegen: NGI-kaart reliëfzones]</em></p>
+  </div>
+
+  <!-- ============================================================
+       SECTION 2: KLIMAATZONES IN DE WERELD
+  ============================================================ -->
+  <section class="section-block" id="sectie2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Klimaatzones in de wereld</h2>
+    </div>
+
+    <p>Net zoals het reli&euml;f patronen vormt, vertoont ook het klimaat duidelijke wereldwijde patronen. Die klimaatpatronen hangen nauw samen met de positie op aarde ten opzichte van de evenaar en de polen, de nabijheid van zee, en de hoogte boven zeeniveau.</p>
+
+    <p>Geografen onderscheiden vijf grote klimaattypes. Elk klimaattype kenmerkt zich door een specifieke combinatie van temperatuur en neerslag, en bepaalt mee welke planten er groeien, welke landbouw er mogelijk is, en hoeveel mensen er wonen.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#127756;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Klimaatzone</span>
+        <p class="begrip-def">Een klimaatzone is een groot gebied op aarde met een gelijkaardig klimaat: een vergelijkbare temperatuur, hoeveelheid neerslag en seizoensverdeling. De grenzen tussen klimaatzones zijn geleidelijk, geen scherpe lijnen. De meest gebruikte indeling is die van Köppen (warm, gematigd, koud, droog, nat).</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">De vijf klimaattypes</h3>
+
+    <p><strong>1. Warm klimaat (tropisch)</strong><br>
+    In de tropen, rondom de evenaar, is het het hele jaar door warm. Elke maand heeft een gemiddelde temperatuur van meer dan 18 &deg;C. Er is veel verdamping, wat leidt tot veel neerslag &mdash; dikwijls in de vorm van dagelijkse onweersbuien. Voorbeelden: het Amazonebekken in Brazili&euml;, het Congobekken in Centraal-Afrika, Zuidoost-Azi&euml;. In deze gebieden groeit het regenwoud door de constante warmte en vochtigheid.</p>
+
+    <p><strong>2. Gematigd klimaat</strong><br>
+    In de gematigde zone, tussen de tropen en de poolgebieden, zijn de temperaturen mild. Er zijn duidelijke seizoenen: een warme zomer en een koude winter, maar geen extreme temperaturen. De neerslag is verdeeld over het hele jaar. Belgi&euml; valt volledig in het gematigde klimaat, evenals het grootste deel van West- en Midden-Europa, de oostkust van de VS en Japan. Dit klimaat is gunstig voor land- en bosb ouw en voor dichte bewoning.</p>
+
+    <p><strong>3. Koud klimaat (polair en subarctisch)</strong><br>
+    In de koudste gebieden van de aarde, dicht bij de Noordpool en op Antarctica, zijn de winters extreem koud en de zomers kort en fris. In het subarctisch klimaat van Siberi&euml; en Noord-Canada kunnen de wintertemperaturen zakken tot onder &ndash;40 &deg;C. Op Antarctica is het het hele jaar door vriesend koud. Dit klimaat laat nauwelijks bewoning toe: er zijn te weinig middelen en het is te koud voor landbouw.</p>
+
+    <p><strong>4. Droog klimaat (woestijn en steppe)</strong><br>
+    In het droge klimaat valt er minder dan 250 mm neerslag per jaar. Dat is zo weinig dat de verdamping de neerslag ver overtreft. Woestijnen zijn het uiterste geval: de Sahara, de Arabische Woestijn, de Namib en de Atacama zijn voorbeelden. In steppegebieden is er iets meer neerslag (250&ndash;500 mm), maar nog altijd te weinig voor bos. In deze zones kan de temperatuur &rsquo;s nachts sterk dalen, en overdag tot 50 &deg;C oplopen.</p>
+
+    <p><strong>5. Nat klimaat (tropisch regenwoud en moesson)</strong><br>
+    In het natte klimaat valt er meer dan 2000 mm neerslag per jaar. Dit komt voor in de tropische regenwoudzones rond de evenaar en in de moessongebieden van Zuid- en Zuidoost-Azi&euml;. Tijdens het moessonseizoen valt er in Bangladesh of India soms in één maand meer regen dan in Belgi&euml; in een heel jaar. Dit levert problemen op: overstromingen zijn frequent, maar het maakt ook intensieve rijstteelt mogelijk.</p>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Zoek op een klimaatkaart in je atlas welk klimaattype er heerst in: (a) Australi&euml; in het binnenland, (b) het noorden van Noorwegen, (c) de Filipijnen, en (d) het zuiden van Spanje. Welk klimaattype heeft de kleinste bewoonbare zone, en welk klimaattype het grootst? Waardoor denk je dat dat komt?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 3: VEGETATIEZONES IN BELGIË EN EUROPA
+  ============================================================ -->
+  <section class="section-block" id="sectie3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Vegetatiezones in Belgi&euml; en Europa</h2>
+    </div>
+
+    <p>Klimaat bepaalt in grote mate welke planten ergens kunnen groeien. De combinatie van temperatuur, neerslag en seizoenspatroon bepaalt of een gebied bedekt wordt met bos, heide, grasland of moeras. Zo vormen de vegetatiezones van de wereld een direct spiegelbeeld van de klimaatzones.</p>
+
+    <p>In Belgi&euml; domineert het <strong>gematigde klimaat</strong>. Dat betekent dat de natuurlijke vegetatie grotendeels bestaat uit <strong>loofwoud</strong> &mdash; bossen van bomen die in de winter hun bladeren verliezen. Denk aan beuken, eiken, essen en linden. Zonder menselijk ingrijpen zou het merendeel van Belgi&euml; bedekt zijn met zulke bossen. Door eeuwenlange ontbossing voor landbouw en bewoning zijn ze echter sterk ingekrompen.</p>
+
+    <h3 class="sub-heading">Vegetatietypes in Belgi&euml;</h3>
+
+    <p><strong>Loofwoud (loofbos):</strong> De natuurlijke bosvorm van Belgi&euml;. Grote restanten zijn het Zoniënwoud ten zuiden van Brussel (één van de mooiste beuken-wouden van Europa), het Hallerbos in Vlaams-Brabant en de uitgestrekte Ardense bossen. In de Ardennen zijn echter ook grote percelen omgezet naar naaldbossen (sparren, dennen) voor de houtkap.</p>
+
+    <p><strong>Naaldbos:</strong> In Belgi&euml; zijn naaldbossen grotendeels aangeplant, niet van nature aanwezig. Ze groeien op armere zandbodems in de Kempen en op de hellingen van de Ardennen. In Europa zijn naaldbossen van nature dominant in Scandinavië en in Oost-Europa, waar de winters langer en kouder zijn dan in Belgi&euml;.</p>
+
+    <p><strong>Heide:</strong> Op de armste, droogste zandbodems &mdash; zoals in de Kempen en op sommige Ardense hoogvlakten &mdash; groeit heide: een laag struikgewas van voornamelijk struikheide en dopheide. Historisch was heide wijd verspreid in Belgi&euml;, maar door bemesting en ontginning is het vandaag zeldzaam geworden. Buiten Belgi&euml; vind je uitgestrekte heidegebieden in Schotland, Wales en de Zuid-Engelse heuvels.</p>
+
+    <p><strong>Moeras en veen:</strong> Langs rivieren, in kustpolders en op natte hoogvlakten vind je moeras- en veenvegetatie. De Hoge Venen in Oost-Belgi&euml; zijn het grootste veengebied van het land: een bijzonder ecosysteem van veenmos, wollegras en dwergstruiken op een waterlopend en zuurarm veen. Veengebieden slaan enorme hoeveelheden koolstof op en zijn dus ecologisch erg waardevol.</p>
+
+    <h3 class="sub-heading">Het verband tussen klimaat en vegetatie</h3>
+
+    <p>De koppeling tussen klimaattype en vegetatietype is direct: een gematigd klimaat leidt tot loofwoud. Een koud klimaat leidt tot taiga (naaldbos) of toendra. Een droog klimaat geeft steppe of woestijn. Een warm en nat klimaat geeft tropisch regenwoud. Dit verband zal je terugvinden in sectie 4 en in bronmateriaal 2.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#127807;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Vegetatiezone</span>
+        <p class="begrip-def">Een vegetatiezone is een groot gebied op aarde met een vergelijkbare plantengroei, bepaald door het klimaat. Vegetatiezones volgen grosso modo de klimaatzones: van tropisch regenwoud (warm en nat) over loofwoud (gematigd) en taiga (koud) tot toendra (polair). Menselijk ingrijpen zoals landbouw en ontbossing kan de oorspronkelijke vegetatie sterk aantasten.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       BRONMATERIAAL 2: VEGETATIEZONES VAN DE WERELD
+  ============================================================ -->
+  <div class="bronmateriaal" id="bron2">
+    <span class="bron-label">Bronmateriaal 2 &mdash; Schema / Tabel</span>
+    <span class="bron-title">Vegetatiezones van de wereld</span>
+    <span class="bron-meta">Overzicht van de zes belangrijkste vegetatiezones, van de noordpool naar de evenaar &nbsp;&middot;&nbsp; Gebaseerd op de Köppenverdeling en gangbare aardrijkskundeatlassen</span>
+    <div class="bron-body">
+      <p>De vegetatiezones van de wereld zijn geen willekeurige lappendekkens: ze volgen een duidelijk patroon van de pool naar de evenaar. Hoe verder je van de pool verwijderd bent (hogere breedte), hoe warmer het klimaat, en hoe dichter de vegetatie. Onderstaande tabel geeft een overzicht van de zes voornaamste zones, van hoge breedtegraden (dicht bij de Noordpool) naar lage breedtegraden (dicht bij de evenaar).</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Vegetatiezone</th>
+            <th>Typische regio's</th>
+            <th>Dominante vegetatie</th>
+            <th>Klimaattype</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Toendra</strong></td>
+            <td>Noord-Canada, Noord-Rusland, Alaska, IJsland</td>
+            <td>Mossen, korstmossen, lage struiken; geen bomen (permafrost)</td>
+            <td>Koud (polair)</td>
+          </tr>
+          <tr>
+            <td><strong>Taiga</strong> (boreaal naaldbos)</td>
+            <td>Siberi&euml;, Canada (centraal), Scandinavië</td>
+            <td>Sparren, dennen, lariks; eenvormig naaldbos over enorme oppervlakten</td>
+            <td>Koud (subarctisch)</td>
+          </tr>
+          <tr>
+            <td><strong>Loofwoud</strong></td>
+            <td>West-Europa (incl. Belgi&euml;), Oost-Noord-Amerika, Oost-Azië</td>
+            <td>Beuken, eiken, essen, linden; seizoensgebonden bladval</td>
+            <td>Gematigd</td>
+          </tr>
+          <tr>
+            <td><strong>Steppe</strong></td>
+            <td>Oekraïne, Kazachstan, Centraal-Azië, Great Plains (VS)</td>
+            <td>Grasland met weinig of geen bomen; dikwijls graanteelt</td>
+            <td>Droog (continentaal)</td>
+          </tr>
+          <tr>
+            <td><strong>Savanne</strong></td>
+            <td>Oost- en West-Afrika (Sudan, Nigeria), Braziliaanse Cerrado</td>
+            <td>Tropisch grasland met verspreide bomen (acacia, baobab)</td>
+            <td>Warm met droog seizoen</td>
+          </tr>
+          <tr>
+            <td><strong>Tropisch regenwoud</strong></td>
+            <td>Amazonebekken, Congobekken, Borneo, Nieuw-Guinea</td>
+            <td>Dicht, meerlaags tropisch woud met enorme soortenrijkdom</td>
+            <td>Warm en nat (tropisch)</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="margin-top:0.8rem; font-size:0.93rem; color:var(--text-mid);">Let op: de tabel volgt de volgorde van hoge breedtegraden (poolgebied) naar lage breedtegraden (evenaar). Op het zuidelijk halfrond bestaat een vergelijkbaar patroon, maar dat wordt door de oceanen sterk beïnvloed.</p>
+    </div>
+    <p class="bron-vraag">Welke vegetatiezone vind je op de hoogste breedte (dichtst bij de noordpool)? Noem ook één typisch diersoort die je in die zone zou kunnen tegenkomen.</p>
+    <span class="bron-source">Bron: bewerkt naar de Plantyn Atlas (2022) en de Köppenclassificatie van klimaat- en vegetatiezones; vakfiche Aardrijkskunde 1A</span>
+  </div>
+
+  <!-- ============================================================
+       SECTION 4: BEVOLKINGSSPREIDING IN DE WERELD
+  ============================================================ -->
+  <section class="section-block" id="sectie4">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Bevolkingsspreiding in de wereld</h2>
+    </div>
+
+    <p>De wereldbevolking is niet gelijk verdeeld over de aarde. Meer dan de helft van alle mensen woont in Azi&euml;, terwijl enorme gebieden zoals de Sahara, Siberi&euml;, het Amazoneregenwoud en Antarctica zo goed als onbewoond zijn. Die ongelijke spreiding is geen toeval: ze hangt rechtstreeks samen met het klimaat, het reli&euml;f en de beschikbaarheid van vruchtbare grond en zoet water.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128101;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Bevolkingsdichtheid</span>
+        <p class="begrip-def">De bevolkingsdichtheid geeft aan hoeveel inwoners er gemiddeld per vierkante kilometer wonen in een bepaald gebied. Ze wordt berekend als: <strong>bevolkingsdichtheid = aantal inwoners &divide; oppervlakte (km²)</strong>. België heeft een gemiddelde bevolkingsdichtheid van ongeveer 380 inwoners/km², wat erg hoog is in vergelijking met de wereld (gemiddeld ca. 60/km²).</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Dichtbevolkte gebieden</h3>
+
+    <p>De dichtstbevolkte streken ter wereld zijn:</p>
+    <ul style="padding-left:1.4rem; margin:0.5rem 0 1rem;">
+      <li style="margin-bottom:0.5rem"><strong>Oost- en Zuidoost-Azi&euml;:</strong> China en India zijn samen goed voor meer dan 2,8 miljard mensen. Het eiland Java in Indonesi&euml; heeft een bevolkingsdichtheid van meer dan 1100 inwoners/km² &mdash; een van de hoogste ter wereld. De rijke rijstteelt in de vulkanische bodems maakt dit mogelijk.</li>
+      <li style="margin-bottom:0.5rem"><strong>West-Europa:</strong> Belgi&euml;, Nederland, het Ruhrgebied in Duitsland en het Loiregebied in Frankrijk zijn erg dicht bevolkt. Dit komt door het gunstige gematigde klimaat, de vruchtbare bodems en eeuwenlange economische ontwikkeling.</li>
+      <li style="margin-bottom:0.5rem"><strong>Oostkust van de VS:</strong> De stedelijke gordel (megalopolis) van Boston via New York en Philadelphia tot Washington D.C. huisvest tientallen miljoenen mensen op een relatief kleine oppervlakte.</li>
+      <li style="margin-bottom:0.5rem"><strong>Nijldelta en vallei:</strong> In Egypte woont bijna de gehele bevolking in de smalle Nijlvallei en -delta: een strook vruchtbaar land in een zee van woestijn.</li>
+    </ul>
+
+    <h3 class="sub-heading">Dunbevolkte gebieden</h3>
+
+    <p>De dunst bevolkte gebieden ter wereld zijn allemaal te verklaren door ongunstige fysische factoren:</p>
+    <ul style="padding-left:1.4rem; margin:0.5rem 0 1rem;">
+      <li style="margin-bottom:0.5rem"><strong>Sahara en Arabische Woestijn:</strong> Extreme hitte overdag, te weinig neerslag, geen zoet water en nauwelijks landbouwmogelijkheden. Bevolkingsdichtheid: minder dan 1 inwoner/km².</li>
+      <li style="margin-bottom:0.5rem"><strong>Siberi&euml;:</strong> Extreme kou, een korte groeicyclus, en een permafrostbodem die landbouw onmogelijk maakt over grote zones.</li>
+      <li style="margin-bottom:0.5rem"><strong>Amazoneregenwoud:</strong> Hoewel het regenwoud levensvatbaar is voor inheemse bevolkingen, maakt het hete en natte klimaat, de afwezigheid van wegen en de arme tropische bodem grootschalige bewoning moeilijk.</li>
+      <li style="margin-bottom:0.5rem"><strong>Centraal-Australi&euml;:</strong> De droge, rotsachtige binnenlandse woestijn (het &lsquo;Outback&rsquo;) is te droog en te heet voor dichte bewoning.</li>
+      <li style="margin-bottom:0.5rem"><strong>Antarctica:</strong> Het koudste en droogste continent ter wereld heeft geen vaste bevolking. Alleen onderzoekers verblijven er tijdelijk.</li>
+    </ul>
+
+    <h3 class="sub-heading">Oorzaken van dichte en dunne bewoning</h3>
+
+    <p>De spreiding van de wereldbevolking laat zich samenvatten in twee lijsten van factoren:</p>
+
+    <p><strong>Factoren die dichte bewoning bevorderen:</strong> vruchtbare bodem (geschikt voor landbouw), gematigd of warm klimaat zonder extreme droogte of kou, toegang tot zoet water (rivieren, meren, grondwater), vlakke gebieden met goede transportmogelijkheden, en een historisch gegroeide economie met handel en industrie.</p>
+
+    <p><strong>Factoren die dunne bewoning veroorzaken:</strong> extreme hitte of kou, gebrek aan neerslag (woestijn) of overmaat aan neerslag en overstromingen, hoog bergachtig terrein (bovengrens bewoning rond 4000&ndash;5000 m), permafrost (bevroren bodem), en isolatie zonder toegang tot transport of handel.</p>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Welk verband zie je tussen de vegetatiezones en de klimaatzones? En tussen bevolkingsdichtheid en klimaat? Probeer voor elk verband een concreet voorbeeld te geven: noem een regio, het klimaattype, de vegetatiezone en de bevolkingsdichtheid. Wat valt je op als je die drie lagen naast elkaar legt op een kaart?</p>
+    </div>
+  </section>
+
+  <!-- CLOSING QUOTE -->
+  <div class="closing-quote" role="note" aria-label="Slotcitaat">
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p class="cq-text">De wereld is niet &eacute;&eacute;n en hetzelfde overal. Elk stukje aarde heeft zijn eigen verhaal, geschreven in reli&euml;f, klimaat en vegetatie.</p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <span class="cq-attribution">Aardrijkskunde 1A &nbsp;&middot;&nbsp; Domein 2 &nbsp;&middot;&nbsp; Hoofdstuk 6</span>
+  </div>
+
+</div><!-- end page-wrapper -->
+
+<!-- ============================================================
+     EXERCISES
+============================================================ -->
+<section class="exercises-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <!-- Oefening 1 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Belgische regio's koppelen aan reliëfzones</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Verbind elke regio of provincie hieronder met de juiste reliëfzone uit de tabel in Bronmateriaal 1. Schrijf de naam van de reliëfzone naast de regio.</p>
+      <ol>
+        <li>De Kempense droge zandbodems ten noorden van Hasselt &mdash; reliëfzone: <em>________</em></li>
+        <li>De vruchtbare leemdallen van Tienen en Sint-Truiden &mdash; reliëfzone: <em>________</em></li>
+        <li>Het veenlandschap op meer dan 600 meter hoogte in het oosten van Luik &mdash; reliëfzone: <em>________</em></li>
+        <li>De kustpolders vlak achter de duinen van De Panne &mdash; reliëfzone: <em>________</em></li>
+        <li>De afwisseling van kalkruggen en kleidalen ten noorden van de Maas in Namen &mdash; reliëfzone: <em>________</em></li>
+        <li>De naaldbossen op het uitgestrekte plateau van de provincies Namen en Luxemburg &mdash; reliëfzone: <em>________</em></li>
+        <li>Het kalkrijke plateau aan de grens met Luxemburg en Lotharingen in het zuiden &mdash; reliëfzone: <em>________</em></li>
+        <li>De golvende zandgronden van de regio Gent-Brugge &mdash; reliëfzone: <em>________</em></li>
+      </ol>
+      <p class="ex-tip">Tip: raadpleeg de tabel in Bronmateriaal 1 en bekijk de kaart van de reliëfzones van België in je atlas.</p>
+    </div>
+
+    <!-- Oefening 2 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Vegetatiezones en klimaattypes koppelen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Vul onderstaande tabel in door het juiste klimaattype in te vullen bij elke vegetatiezone. Gebruik de informatie uit sectie 2, sectie 3 en Bronmateriaal 2. Voeg ook een voorbeeld van een typische regio toe.</p>
+      <table style="width:100%;border-collapse:collapse;font-size:0.93rem;margin-top:0.5rem;">
+        <thead>
+          <tr style="background:var(--darkblue);color:white;">
+            <th style="padding:0.4rem 0.75rem;text-align:left;">Vegetatiezone</th>
+            <th style="padding:0.4rem 0.75rem;text-align:left;">Klimaattype</th>
+            <th style="padding:0.4rem 0.75rem;text-align:left;">Typische regio (voorbeeld)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td style="padding:0.35rem 0.75rem;border-bottom:1px solid var(--sand);">Toendra</td><td style="padding:0.35rem 0.75rem;border-bottom:1px solid var(--sand);"><em>________</em></td><td style="padding:0.35rem 0.75rem;border-bottom:1px solid var(--sand);"><em>________</em></td></tr>
+          <tr style="background:var(--sand-light);"><td style="padding:0.35rem 0.75rem;border-bottom:1px solid var(--sand);">Taiga</td><td style="padding:0.35rem 0.75rem;border-bottom:1px solid var(--sand);"><em>________</em></td><td style="padding:0.35rem 0.75rem;border-bottom:1px solid var(--sand);"><em>________</em></td></tr>
+          <tr><td style="padding:0.35rem 0.75rem;border-bottom:1px solid var(--sand);">Loofwoud</td><td style="padding:0.35rem 0.75rem;border-bottom:1px solid var(--sand);"><em>________</em></td><td style="padding:0.35rem 0.75rem;border-bottom:1px solid var(--sand);"><em>________</em></td></tr>
+          <tr style="background:var(--sand-light);"><td style="padding:0.35rem 0.75rem;border-bottom:1px solid var(--sand);">Steppe</td><td style="padding:0.35rem 0.75rem;border-bottom:1px solid var(--sand);"><em>________</em></td><td style="padding:0.35rem 0.75rem;border-bottom:1px solid var(--sand);"><em>________</em></td></tr>
+          <tr><td style="padding:0.35rem 0.75rem;border-bottom:1px solid var(--sand);">Savanne</td><td style="padding:0.35rem 0.75rem;border-bottom:1px solid var(--sand);"><em>________</em></td><td style="padding:0.35rem 0.75rem;border-bottom:1px solid var(--sand);"><em>________</em></td></tr>
+          <tr style="background:var(--sand-light);"><td style="padding:0.35rem 0.75rem;">Tropisch regenwoud</td><td style="padding:0.35rem 0.75rem;"><em>________</em></td><td style="padding:0.35rem 0.75rem;"><em>________</em></td></tr>
+        </tbody>
+      </table>
+      <p class="ex-tip">Tip: de tabel in Bronmateriaal 2 bevat alle informatie die je nodig hebt.</p>
+    </div>
+
+    <!-- Oefening 3 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Waarom is de Sahara zo dunbevolkt?</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Gebruik je kennis over de <strong>fysische landschapselementen</strong> (reliëf, klimaat, vegetatie, water) om de dunne bevolking van de Sahara te verklaren. Beantwoord de volgende deelvragen:</p>
+      <ol>
+        <li>Welk klimaattype heerst er in de Sahara? Wat zijn de kenmerken van dat klimaat (temperatuur, neerslag)?</li>
+        <li>Welke vegetatiezone hoort bij dat klimaattype? Beschrijf kort wat er groeit (of juist niet groeit).</li>
+        <li>Welk fysisch landschapselement maakt landbouw in de Sahara bijna onmogelijk? Geef twee redenen.</li>
+        <li>Schrijf een alinea van minimaal 4 zinnen waarin je uitlegt waarom de Sahara zo dunbevolkt is. Gebruik in je antwoord minstens de begrippen <em>bevolkingsdichtheid</em>, <em>klimaatzone</em> en <em>vegetatiezone</em>.</li>
+      </ol>
+      <p class="ex-tip">Tip: vergelijk de Sahara met een dicht bevolkt gebied zoals de Nijlvallei of de kust van West-Europa. Wat maakt het verschil?</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SUMMARY
+============================================================ -->
+<section class="summary-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>Ruimtelijke patronen</strong> in bevolkingsspreiding, vegetatie en klimaat zijn geen toeval: ze worden verklaard door de fysische omgeving &mdash; reliëf, klimaat, bodem en water.</li>
+      <li>Belgi&euml; telt <strong>13 reliëfzones</strong>, van de laagste kustpolders (0&ndash;5 m) in het noorden tot de Hoge Venen met de Botrange (694 m) in het oosten. Het zuidoosten omvat ook het Lotharings Plateau.</li>
+      <li>Geografen onderscheiden <strong>vijf klimaatzones</strong>: warm (tropisch), gematigd, koud (polair), droog en nat. Belgi&euml; valt volledig in het gematigde klimaat met milde temperaturen en verdeelde neerslag doorheen het jaar.</li>
+      <li>De <strong>vegetatiezone</strong> hangt nauw samen met het klimaat: gematigd klimaat &rarr; loofwoud; koud klimaat &rarr; taiga of toendra; droog klimaat &rarr; steppe of woestijn; warm en nat &rarr; tropisch regenwoud.</li>
+      <li>De <strong>bevolkingsdichtheid</strong> (inwoners per km²) is hoog in gebieden met een gunstig klimaat, vruchtbare bodem en toegang tot water (Oost-Azi&euml;, West-Europa), en laag in extreme gebieden (Sahara, Siberi&euml;, Antarctica).</li>
+      <li>De belangrijkste <strong>begrippen</strong> van dit hoofdstuk zijn: laagvlakte, plateau, laagplateau, klimaatzone, vegetatiezone en bevolkingsdichtheid.</li>
+      <li>Het verband tussen reli&euml;f, klimaat, vegetatie en bevolking vormt de kern van <strong>Domein 2</strong> van de vakfiche aardrijkskunde: landschappen beschrijven en ruimtelijke patronen herkennen.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

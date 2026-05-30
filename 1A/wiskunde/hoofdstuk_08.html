@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H8 — Vierhoeken en cirkels | Wiskunde 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     ILLUSTRATIE PLACEHOLDERS
+  ============================================================ */
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+    cursor: default;
+    transition: background var(--transition);
+  }
+
+  .illustratie:hover { background: #EDE7D8; }
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     WISKUNDE-SPECIFIC COMPONENTS
+  ============================================================ */
+  .rekenvoorbeeld { background:white; border:1px solid var(--sand); border-top:4px solid var(--oker); border-radius:var(--border-radius); padding:1.8rem 2rem; margin:2rem 0; box-shadow:var(--shadow-sm); }
+  .rekenvoorbeeld .rv-label { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--oker); display:block; margin-bottom:0.35rem; }
+  .rekenvoorbeeld .rv-vraag { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:700; color:var(--darkblue); margin-bottom:1rem; line-height:1.4; }
+  .rv-stappen { list-style:none; padding:0; counter-reset:stap-teller; margin-bottom:1rem; }
+  .rv-stappen li { counter-increment:stap-teller; padding:0.6rem 0.8rem 0.6rem 3.2rem; position:relative; background:var(--creme); border-radius:4px; margin-bottom:0.4rem; font-size:0.97rem; }
+  .rv-stappen li::before { content:counter(stap-teller); position:absolute; left:0.6rem; top:50%; transform:translateY(-50%); background:var(--darkblue); color:white; width:1.7rem; height:1.7rem; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:700; }
+  .rv-antwoord { background:var(--darkblue); color:var(--gold); padding:0.75rem 1.1rem; border-radius:4px; font-weight:700; font-size:1rem; }
+  .stelling { background:#EEF3FF; border-left:4px solid var(--darkblue); border-radius:0 var(--border-radius) var(--border-radius) 0; padding:1.2rem 1.5rem; margin:1.5rem 0; }
+  .stelling .st-label { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--darkblue); opacity:0.7; display:block; margin-bottom:0.35rem; }
+  .stelling .st-body { font-size:0.97rem; color:var(--text-dark); }
+  .formule { background:var(--darkblue); border-radius:var(--border-radius); padding:1.4rem 1.8rem; text-align:center; margin:1.8rem 0; }
+  .formule math { color:white; font-size:1.2rem; }
+  .formule .formule-naam { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--gold); opacity:0.8; display:block; margin-bottom:0.5rem; }
+  .svg-container { margin:1.8rem 0; padding:1.5rem; background:white; border:1px solid var(--sand); border-radius:var(--border-radius); overflow-x:auto; text-align:center; }
+  .svg-container .svg-caption { font-size:0.85rem; color:var(--text-light); font-style:italic; display:block; margin-top:0.75rem; }
+
+  /* chapter-intro helper */
+  .chapter-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--oker);
+    margin: 3rem 0 0.5rem;
+  }
+  .chapter-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+  .chapter-intro {
+    font-size: 1.08rem;
+    color: var(--text-mid);
+    line-height: 1.8;
+    max-width: 720px;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <span class="label">Wiskunde 1A</span>
+  <span class="label label-right">H8 &mdash; Vierhoeken en cirkels</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Wiskunde &nbsp;&middot;&nbsp; 1A &nbsp;&middot;&nbsp; Eerste graad</div>
+  <h1>Vierhoeken en cirkels</h1>
+  <p class="subtitle">Van het vierkant tot de vlieger &mdash; en de cirkel, de meest symmetrische figuur van allemaal</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- CHAPTER INTRO -->
+  <div class="chapter-label">Hoofdstuk 8</div>
+  <h1 class="chapter-title">Vierhoeken en cirkels</h1>
+  <p class="chapter-intro">Vier hoeken, vier zijden &mdash; maar welk een verscheidenheid! Van het vierkant tot de vlieger, van de ruit tot de trapezium. En dan de cirkel, de meest symmetrische vlakke figuur van allemaal. In dit hoofdstuk leer je de eigenschappen van alle belangrijke vierhoeken en van de cirkel kennen.</p>
+
+  <!-- ============================================================
+       SECTIE 1: VIERHOEKEN — OVERZICHT EN EIGENSCHAPPEN
+  ============================================================ -->
+  <section class="section-block" id="vierhoeken-overzicht">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Vierhoeken &mdash; overzicht en eigenschappen</h2>
+    </div>
+
+    <p>Een <strong>vierhoek</strong> is een vlakke figuur die begrensd wordt door precies <strong>4 rechte zijden</strong> en <strong>4 hoeken</strong>. De zijden verbinden de vier hoekpunten met elkaar. Alle figuren die je in dit hoofdstuk tegenkomt &mdash; parallelogrammen, rechthoeken, ruiten, vierkanten, trapeziums en vliegers &mdash; zijn vierhoeken.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9649;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Vierhoek</span>
+        <p class="begrip-def">Een vierhoek is een vlakke figuur met 4 zijden, 4 hoeken en 4 hoekpunten. De zijden mogen niet over elkaar kruisen (een gewone of <em>convexe</em> vierhoek). De som van alle binnenhoeken is altijd 360&deg;.</p>
+      </div>
+    </div>
+
+    <div class="stelling">
+      <span class="st-label">Stelling &mdash; Hoekensomstelling voor vierhoeken</span>
+      <p class="st-body">De som van de vier binnenhoeken van een willekeurige vierhoek is steeds <strong>360&deg;</strong>.<br><br>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline">
+        <mrow>
+          <msub><mi>&#945;</mi><mn>1</mn></msub>
+          <mo>+</mo>
+          <msub><mi>&#945;</mi><mn>2</mn></msub>
+          <mo>+</mo>
+          <msub><mi>&#945;</mi><mn>3</mn></msub>
+          <mo>+</mo>
+          <msub><mi>&#945;</mi><mn>4</mn></msub>
+          <mo>=</mo>
+          <mn>360</mn>
+          <mo>&#176;</mo>
+        </mrow>
+      </math><br><br>
+      <em>Bewijs (idee):</em> elke vierhoek kan verdeeld worden in twee driehoeken door een diagonaal te tekenen. De hoekensomstelling voor driehoeken geeft 2 &times; 180&deg; = 360&deg;.</p>
+    </div>
+
+    <h3 class="sub-heading">Hi&euml;rarchie van vierhoeken</h3>
+
+    <p>Niet alle vierhoeken zijn gelijk: sommige hebben extra eigenschappen. Zo heeft een <strong>parallelogram</strong> twee paar evenwijdige zijden, een <strong>rechthoek</strong> is een bijzonder parallelogram met rechte hoeken, en een <strong>vierkant</strong> combineert de eigenschappen van zowel de rechthoek als de ruit. De figuur hieronder toont hoe de verschillende vierhoeken zich tot elkaar verhouden.</p>
+
+    <!-- SVG: Hiërarchie van vierhoeken -->
+    <div class="svg-container">
+      <svg viewBox="0 0 700 380" width="100%" style="max-width:700px" role="img" aria-labelledby="hierarchie-title">
+        <title id="hierarchie-title">Hiërarchie van vierhoeken: vierhoek boven, dan trapezium, parallelogram, vlieger, dan rechthoek en ruit, dan vierkant</title>
+
+        <!-- Verbindingslijnen (goud) -->
+        <!-- Vierhoek → Trapezium -->
+        <line x1="350" y1="55" x2="170" y2="125" stroke="#D4A017" stroke-width="2"/>
+        <!-- Vierhoek → Parallelogram -->
+        <line x1="350" y1="55" x2="350" y2="125" stroke="#D4A017" stroke-width="2"/>
+        <!-- Vierhoek → Vlieger -->
+        <line x1="350" y1="55" x2="530" y2="125" stroke="#D4A017" stroke-width="2"/>
+        <!-- Parallelogram → Rechthoek -->
+        <line x1="310" y1="165" x2="235" y2="235" stroke="#D4A017" stroke-width="2"/>
+        <!-- Parallelogram → Ruit -->
+        <line x1="390" y1="165" x2="465" y2="235" stroke="#D4A017" stroke-width="2"/>
+        <!-- Rechthoek → Vierkant -->
+        <line x1="235" y1="275" x2="350" y2="325" stroke="#D4A017" stroke-width="2"/>
+        <!-- Ruit → Vierkant -->
+        <line x1="465" y1="275" x2="350" y2="325" stroke="#D4A017" stroke-width="2"/>
+
+        <!-- Boxes (donkerblauw) -->
+        <!-- Vierhoek (top) -->
+        <rect x="265" y="18" width="170" height="40" rx="6" fill="#1A2B4A"/>
+        <text x="350" y="44" font-family="'Source Sans 3', sans-serif" font-size="14" font-weight="700" fill="#FAF6EF" text-anchor="middle">Vierhoek</text>
+
+        <!-- Trapezium -->
+        <rect x="82" y="125" width="170" height="40" rx="6" fill="#1A2B4A"/>
+        <text x="167" y="151" font-family="'Source Sans 3', sans-serif" font-size="14" font-weight="700" fill="#FAF6EF" text-anchor="middle">Trapezium</text>
+
+        <!-- Parallelogram -->
+        <rect x="263" y="125" width="174" height="40" rx="6" fill="#1A2B4A"/>
+        <text x="350" y="151" font-family="'Source Sans 3', sans-serif" font-size="14" font-weight="700" fill="#FAF6EF" text-anchor="middle">Parallelogram</text>
+
+        <!-- Vlieger -->
+        <rect x="444" y="125" width="172" height="40" rx="6" fill="#1A2B4A"/>
+        <text x="530" y="151" font-family="'Source Sans 3', sans-serif" font-size="14" font-weight="700" fill="#FAF6EF" text-anchor="middle">Vlieger</text>
+
+        <!-- Rechthoek -->
+        <rect x="148" y="235" width="170" height="40" rx="6" fill="#243B63"/>
+        <text x="233" y="261" font-family="'Source Sans 3', sans-serif" font-size="14" font-weight="700" fill="#FAF6EF" text-anchor="middle">Rechthoek</text>
+
+        <!-- Ruit -->
+        <rect x="378" y="235" width="170" height="40" rx="6" fill="#243B63"/>
+        <text x="463" y="261" font-family="'Source Sans 3', sans-serif" font-size="14" font-weight="700" fill="#FAF6EF" text-anchor="middle">Ruit</text>
+
+        <!-- Vierkant -->
+        <rect x="265" y="325" width="170" height="40" rx="6" fill="#C1440E"/>
+        <text x="350" y="351" font-family="'Source Sans 3', sans-serif" font-size="14" font-weight="700" fill="#FAF6EF" text-anchor="middle">Vierkant</text>
+
+        <!-- Kleine toelichting labels -->
+        <text x="350" y="197" font-family="'Source Sans 3', sans-serif" font-size="10" fill="#C8923A" text-anchor="middle" font-style="italic">2 paar // zijden</text>
+        <text x="233" y="305" font-family="'Source Sans 3', sans-serif" font-size="10" fill="#C8923A" text-anchor="middle" font-style="italic">4 rechte hoeken</text>
+        <text x="463" y="305" font-family="'Source Sans 3', sans-serif" font-size="10" fill="#C8923A" text-anchor="middle" font-style="italic">4 gelijke zijden</text>
+        <text x="350" y="315" font-family="'Source Sans 3', sans-serif" font-size="10" fill="#C1440E" text-anchor="middle" font-style="italic">alles gecombineerd</text>
+      </svg>
+      <span class="svg-caption">Hi&euml;rarchie van vierhoeken. Naar beneden in de boom: meer bijzondere eigenschappen. Het vierkant staat onderaan en erft alle eigenschappen van de rechthoek &eacute;n de ruit.</span>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Bekijk de hi&euml;rarchie. Is elk vierkant ook een rechthoek? Is elke rechthoek ook een vierkant? Leg het verschil uit met een voorbeeld.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 2: PARALLELOGRAM, RECHTHOEK, RUIT EN VIERKANT
+  ============================================================ -->
+  <section class="section-block" id="bijzondere-vierhoeken">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Parallelogram, rechthoek, ruit en vierkant</h2>
+    </div>
+
+    <p>De vier belangrijkste <em>bijzondere</em> vierhoeken vormen een familie: elk is een speciaal geval van de vorige. We bespreken ze achtereenvolgens, telkens met hun definitie, eigenschappen en een illustratie.</p>
+
+    <!-- Parallelogram -->
+    <h3 class="sub-heading">Het parallelogram</h3>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9649;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Definitie</span>
+        <span class="begrip-name">Parallelogram</span>
+        <p class="begrip-def">Een parallelogram is een vierhoek waarbij de <strong>tegenovergestelde zijden evenwijdig</strong> zijn. Dat wil zeggen: de twee paar overstaande zijden lopen nooit naar elkaar toe of van elkaar weg.</p>
+      </div>
+    </div>
+
+    <p><strong>Eigenschappen van het parallelogram:</strong></p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.4rem"><strong>Zijden:</strong> tegenovergestelde zijden zijn evenwijdig (<em>AB &#8741; DC</em> en <em>AD &#8741; BC</em>) <em>en</em> gelijk van lengte.</li>
+      <li style="margin-bottom:0.4rem"><strong>Hoeken:</strong> tegenovergestelde hoeken zijn gelijk; aanliggende hoeken zijn samen 180&deg; (supplementair).</li>
+      <li><strong>Diagonalen:</strong> de twee diagonalen halveren elkaar (maar zijn in het algemeen niet gelijk van lengte).</li>
+    </ul>
+
+    <!-- Rechthoek -->
+    <h3 class="sub-heading">De rechthoek</h3>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9645;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Definitie</span>
+        <span class="begrip-name">Rechthoek</span>
+        <p class="begrip-def">Een rechthoek is een parallelogram waarbij alle vier de hoeken <strong>rechte hoeken</strong> zijn (elk 90&deg;). Omdat het een parallelogram is, gelden ook alle eigenschappen van het parallelogram.</p>
+      </div>
+    </div>
+
+    <p><strong>Extra eigenschappen van de rechthoek</strong> (bovenop die van het parallelogram):</p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.4rem">Alle vier de hoeken zijn 90&deg;.</li>
+      <li>De <strong>diagonalen zijn gelijk</strong> van lengte en halveren elkaar.</li>
+    </ul>
+
+    <!-- Ruit -->
+    <h3 class="sub-heading">De ruit</h3>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9670;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Definitie</span>
+        <span class="begrip-name">Ruit</span>
+        <p class="begrip-def">Een ruit is een parallelogram waarbij alle vier de zijden <strong>gelijk van lengte</strong> zijn. Een ruit heeft de vorm van een scheve ruit of diamant.</p>
+      </div>
+    </div>
+
+    <p><strong>Extra eigenschappen van de ruit</strong> (bovenop die van het parallelogram):</p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.4rem">Alle vier de zijden zijn gelijk.</li>
+      <li style="margin-bottom:0.4rem">De <strong>diagonalen staan loodrecht</strong> op elkaar.</li>
+      <li>Elke diagonaal <strong>halveert</strong> beide hoeken die hij verbindt (hoekbisectrice).</li>
+    </ul>
+
+    <!-- Vierkant -->
+    <h3 class="sub-heading">Het vierkant</h3>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9632;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Definitie</span>
+        <span class="begrip-name">Vierkant</span>
+        <p class="begrip-def">Een vierkant is tegelijk een rechthoek <em>en</em> een ruit: het heeft <strong>4 gelijke zijden</strong> en <strong>4 rechte hoeken</strong>. Het vierkant is de meest bijzondere vierhoek in de parallellogramfamilie.</p>
+      </div>
+    </div>
+
+    <p><strong>Alle eigenschappen van het vierkant:</strong></p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.4rem">4 gelijke zijden en 4 hoeken van elk 90&deg;.</li>
+      <li style="margin-bottom:0.4rem">Tegenovergestelde zijden zijn evenwijdig.</li>
+      <li style="margin-bottom:0.4rem">Diagonalen zijn gelijk van lengte, staan loodrecht op elkaar, halveren elkaar en halveren de hoeken.</li>
+      <li>Het vierkant heeft 4 symmetrie-assen (2 door de zijmiddens, 2 door de hoekpunten).</li>
+    </ul>
+
+    <!-- SVG: 2×2 grid met de vier figuren -->
+    <div class="svg-container">
+      <svg viewBox="0 0 640 520" width="100%" style="max-width:640px" role="img" aria-labelledby="vier-shapes-title">
+        <title id="vier-shapes-title">Vier bijzondere vierhoeken: parallelogram, rechthoek, ruit en vierkant met aanduidingen</title>
+
+        <!-- Achtergrondkaders -->
+        <rect x="10" y="10" width="300" height="235" rx="8" fill="#F5F0E8" stroke="#E8DCC8" stroke-width="1.5"/>
+        <rect x="330" y="10" width="300" height="235" rx="8" fill="#F5F0E8" stroke="#E8DCC8" stroke-width="1.5"/>
+        <rect x="10" y="265" width="300" height="245" rx="8" fill="#F5F0E8" stroke="#E8DCC8" stroke-width="1.5"/>
+        <rect x="330" y="265" width="300" height="245" rx="8" fill="#F5F0E8" stroke="#E8DCC8" stroke-width="1.5"/>
+
+        <!-- === PARALLELOGRAM (linksboven) === -->
+        <!-- punten: A(45,175) B(225,175) C(255,65) D(75,65) -->
+        <polygon points="45,175 225,175 255,65 75,65" fill="#EEF3FF" stroke="#1A2B4A" stroke-width="2.5"/>
+        <!-- Gelijke zijdenmarkeringen -->
+        <!-- AB en DC (horizontale zijden): enkele streep -->
+        <line x1="128" y1="175" x2="142" y2="175" stroke="#C1440E" stroke-width="2"/>
+        <line x1="131" y1="65" x2="145" y2="65" stroke="#C1440E" stroke-width="2"/>
+        <!-- AD en BC (schuine zijden): dubbele streep -->
+        <line x1="55" y1="124" x2="65" y2="116" stroke="#C1440E" stroke-width="2"/>
+        <line x1="60" y1="130" x2="70" y2="122" stroke="#C1440E" stroke-width="2"/>
+        <line x1="234" y1="124" x2="244" y2="116" stroke="#C1440E" stroke-width="2"/>
+        <line x1="239" y1="130" x2="249" y2="122" stroke="#C1440E" stroke-width="2"/>
+        <!-- Labels -->
+        <text x="160" y="200" font-family="'Source Sans 3', sans-serif" font-size="13" font-weight="700" fill="#1A2B4A" text-anchor="middle">Parallelogram</text>
+        <text x="35" y="180" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#1A2B4A">A</text>
+        <text x="226" y="180" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#1A2B4A">B</text>
+        <text x="258" y="60" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#1A2B4A">C</text>
+        <text x="64" y="60" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#1A2B4A">D</text>
+        <!-- Gelijke hoeken markering: boog bij A en C -->
+        <path d="M 62,175 A 18,18 0 0,1 58,157" fill="none" stroke="#D4A017" stroke-width="1.8"/>
+        <path d="M 240,65 A 18,18 0 0,1 236,83" fill="none" stroke="#D4A017" stroke-width="1.8"/>
+        <!-- Diagonalen -->
+        <line x1="45" y1="175" x2="255" y2="65" stroke="#C8923A" stroke-width="1" stroke-dasharray="5,3" opacity="0.5"/>
+        <line x1="225" y1="175" x2="75" y2="65" stroke="#C8923A" stroke-width="1" stroke-dasharray="5,3" opacity="0.5"/>
+
+        <!-- === RECHTHOEK (rechtsboven) === -->
+        <!-- punten: A(355,165) B(595,165) C(595,65) D(355,65) -->
+        <rect x="355" y="65" width="240" height="100" fill="#EEF3FF" stroke="#1A2B4A" stroke-width="2.5"/>
+        <!-- Rechtehoekmarkeringen -->
+        <rect x="355" y="155" width="12" height="12" fill="none" stroke="#C1440E" stroke-width="1.8"/>
+        <rect x="583" y="155" width="12" height="12" fill="none" stroke="#C1440E" stroke-width="1.8"/>
+        <rect x="583" y="65" width="12" height="12" fill="none" stroke="#C1440E" stroke-width="1.8"/>
+        <rect x="355" y="65" width="12" height="12" fill="none" stroke="#C1440E" stroke-width="1.8"/>
+        <!-- Gelijke zijdenmarkeringen -->
+        <line x1="468" y1="165" x2="482" y2="165" stroke="#C1440E" stroke-width="2"/>
+        <line x1="468" y1="65" x2="482" y2="65" stroke="#C1440E" stroke-width="2"/>
+        <line x1="355" y1="111" x2="355" y2="121" stroke="#C1440E" stroke-width="2"/>
+        <line x1="595" y1="111" x2="595" y2="121" stroke="#C1440E" stroke-width="2"/>
+        <!-- Diagonalen (gelijk van lengte) -->
+        <line x1="355" y1="165" x2="595" y2="65" stroke="#C8923A" stroke-width="1" stroke-dasharray="5,3" opacity="0.5"/>
+        <line x1="595" y1="165" x2="355" y2="65" stroke="#C8923A" stroke-width="1" stroke-dasharray="5,3" opacity="0.5"/>
+        <!-- Labels -->
+        <text x="475" y="200" font-family="'Source Sans 3', sans-serif" font-size="13" font-weight="700" fill="#1A2B4A" text-anchor="middle">Rechthoek</text>
+        <text x="345" y="172" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#1A2B4A">A</text>
+        <text x="598" y="172" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#1A2B4A">B</text>
+        <text x="598" y="62" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#1A2B4A">C</text>
+        <text x="345" y="62" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#1A2B4A">D</text>
+
+        <!-- === RUIT (linksonder) === -->
+        <!-- Middelpunt (160, 375), breedte 115, hoogte 85 -->
+        <!-- punten: top(160,290) rechts(275,375) onder(160,460) links(45,375) -->
+        <polygon points="160,293 273,375 160,457 47,375" fill="#EEF3FF" stroke="#1A2B4A" stroke-width="2.5"/>
+        <!-- Gelijke zijden: alle 4 -->
+        <line x1="110" y1="330" x2="118" y2="338" stroke="#C1440E" stroke-width="2"/>
+        <line x1="215" y1="330" x2="223" y2="338" stroke="#C1440E" stroke-width="2"/>
+        <line x1="215" y1="412" x2="223" y2="420" stroke="#C1440E" stroke-width="2"/>
+        <line x1="110" y1="412" x2="118" y2="420" stroke="#C1440E" stroke-width="2"/>
+        <!-- Diagonalen loodrecht -->
+        <line x1="160" y1="293" x2="160" y2="457" stroke="#C8923A" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.5"/>
+        <line x1="47" y1="375" x2="273" y2="375" stroke="#C8923A" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.5"/>
+        <!-- Rechthoekmarkering in middelpunt -->
+        <rect x="160" y="375" width="9" height="9" fill="none" stroke="#C1440E" stroke-width="1.5"/>
+        <text x="160" y="490" font-family="'Source Sans 3', sans-serif" font-size="13" font-weight="700" fill="#1A2B4A" text-anchor="middle">Ruit</text>
+
+        <!-- === VIERKANT (rechtsonder) === -->
+        <!-- punten: A(375,290) B(595,290) C(595,460) D(375,460) -->
+        <rect x="375" y="292" width="200" height="168" fill="#EEF3FF" stroke="#1A2B4A" stroke-width="2.5"/>
+        <!-- Rechtehoekmarkeringen -->
+        <rect x="375" y="292" width="12" height="12" fill="none" stroke="#C1440E" stroke-width="1.8"/>
+        <rect x="563" y="292" width="12" height="12" fill="none" stroke="#C1440E" stroke-width="1.8"/>
+        <rect x="563" y="448" width="12" height="12" fill="none" stroke="#C1440E" stroke-width="1.8"/>
+        <rect x="375" y="448" width="12" height="12" fill="none" stroke="#C1440E" stroke-width="1.8"/>
+        <!-- Gelijke zijden (enkelvoudige streep alle 4) -->
+        <line x1="468" y1="292" x2="482" y2="292" stroke="#C1440E" stroke-width="2"/>
+        <line x1="468" y1="460" x2="482" y2="460" stroke="#C1440E" stroke-width="2"/>
+        <line x1="375" y1="372" x2="375" y2="386" stroke="#C1440E" stroke-width="2"/>
+        <line x1="575" y1="372" x2="575" y2="386" stroke="#C1440E" stroke-width="2"/>
+        <!-- Diagonalen loodrecht en gelijk -->
+        <line x1="375" y1="292" x2="575" y2="460" stroke="#C8923A" stroke-width="1" stroke-dasharray="5,3" opacity="0.5"/>
+        <line x1="575" y1="292" x2="375" y2="460" stroke="#C8923A" stroke-width="1" stroke-dasharray="5,3" opacity="0.5"/>
+        <!-- Rechthoekmarkering kruispunt -->
+        <rect x="475" y="375" width="8" height="8" fill="none" stroke="#C1440E" stroke-width="1.5"/>
+        <text x="475" y="490" font-family="'Source Sans 3', sans-serif" font-size="13" font-weight="700" fill="#1A2B4A" text-anchor="middle">Vierkant</text>
+      </svg>
+      <span class="svg-caption">De vier bijzondere parallelogrammen. Rode rechthoekjes = rechte hoeken; rode streepjes = gelijke zijden; stippellijnen = diagonalen; gele boogjes = gelijke hoeken.</span>
+    </div>
+
+    <div class="stelling">
+      <span class="st-label">Samenvatting &mdash; eigenschap diagonalen</span>
+      <p class="st-body">
+        <strong>Parallelogram:</strong> diagonalen halveren elkaar.<br>
+        <strong>Rechthoek:</strong> diagonalen halveren elkaar &eacute;n zijn gelijk van lengte.<br>
+        <strong>Ruit:</strong> diagonalen halveren elkaar &eacute;n staan loodrecht op elkaar.<br>
+        <strong>Vierkant:</strong> diagonalen halveren elkaar, zijn gelijk van lengte &eacute;n staan loodrecht op elkaar.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 3: TRAPEZIUM EN VLIEGER
+  ============================================================ -->
+  <section class="section-block" id="trapezium-vlieger">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Trapezium en vlieger</h2>
+    </div>
+
+    <p>Naast de parallelogramfamilie zijn er nog twee belangrijke vierhoeken die je moet kennen: het <strong>trapezium</strong> en de <strong>vlieger</strong>. Beide zijn <em>geen</em> parallelogrammen, maar hebben wel hun eigen bijzondere eigenschappen.</p>
+
+    <!-- Trapezium -->
+    <h3 class="sub-heading">Het trapezium</h3>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9651;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Definitie</span>
+        <span class="begrip-name">Trapezium</span>
+        <p class="begrip-def">Een trapezium is een vierhoek met <strong>precies één paar evenwijdige zijden</strong>. Die twee evenwijdige zijden noemen we de <em>bases</em> van het trapezium. De andere twee zijden (de <em>poten</em>) zijn niet evenwijdig.</p>
+      </div>
+    </div>
+
+    <p>We onderscheiden twee soorten:</p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.5rem"><strong>Gewoon trapezium:</strong> de twee poten zijn ongelijk van lengte.</li>
+      <li><strong>Gelijkbenig trapezium:</strong> de twee poten zijn gelijk van lengte. Dit trapezium is symmetrisch.</li>
+    </ul>
+
+    <div class="stelling">
+      <span class="st-label">Stelling &mdash; Gelijkbenig trapezium</span>
+      <p class="st-body">In een <strong>gelijkbenig trapezium</strong> zijn de twee basishoeken (de hoeken bij dezelfde basis) <strong>gelijk</strong> aan elkaar.<br><br>
+      Met andere woorden: als <em>AB &#8741; DC</em> en <em>AD = BC</em>, dan is hoek A = hoek B en hoek D = hoek C.</p>
+    </div>
+
+    <!-- Vlieger -->
+    <h3 class="sub-heading">De vlieger (deltavorm)</h3>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9671;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Definitie</span>
+        <span class="begrip-name">Vlieger</span>
+        <p class="begrip-def">Een vlieger is een vierhoek met <strong>twee paar aangrenzende (naast elkaar liggende) zijden die gelijk zijn</strong>. De gelijke zijden grenzen aan dezelfde hoekpunten, in tegenstelling tot het parallelogram waar de gelijke zijden tegenover elkaar liggen.</p>
+      </div>
+    </div>
+
+    <div class="stelling">
+      <span class="st-label">Stelling &mdash; Diagonalen van de vlieger</span>
+      <p class="st-body">In een vlieger staan de twee diagonalen <strong>loodrecht</strong> op elkaar. Bovendien <strong>halveert</strong> de hoofddiagonaal (die de twee hoekpunten verbindt waar ongelijke zijden samenkomen) de andere diagonaal. De langste diagonaal is een symmetrie-as van de vlieger.</p>
+    </div>
+
+    <!-- SVG: Trapezium en vlieger -->
+    <div class="svg-container">
+      <svg viewBox="0 0 640 270" width="100%" style="max-width:640px" role="img" aria-labelledby="trap-vlieger-title">
+        <title id="trap-vlieger-title">Gelijkbenig trapezium links en vlieger rechts met gelabelde zijden en eigenschapmarkeringen</title>
+
+        <!-- Achtergrondkaders -->
+        <rect x="10" y="10" width="295" height="250" rx="8" fill="#F5F0E8" stroke="#E8DCC8" stroke-width="1.5"/>
+        <rect x="330" y="10" width="300" height="250" rx="8" fill="#F5F0E8" stroke="#E8DCC8" stroke-width="1.5"/>
+
+        <!-- === GELIJKBENIG TRAPEZIUM === -->
+        <!-- A(30,210) B(270,210) C(215,70) D(85,70) -->
+        <polygon points="30,210 270,210 215,70 85,70" fill="#EEF3FF" stroke="#1A2B4A" stroke-width="2.5"/>
+        <!-- Evenwijdig-aanduidingen (pijltjes) op basis AB en DC -->
+        <!-- AB -->
+        <line x1="143" y1="210" x2="157" y2="210" stroke="#D4A017" stroke-width="2"/>
+        <polygon points="157,210 151,206 151,214" fill="#D4A017"/>
+        <!-- DC -->
+        <line x1="143" y1="70" x2="157" y2="70" stroke="#D4A017" stroke-width="2"/>
+        <polygon points="157,70 151,66 151,74" fill="#D4A017"/>
+        <!-- Gelijke poten AD = BC: streepjes -->
+        <line x1="53" y1="143" x2="63" y2="137" stroke="#C1440E" stroke-width="2"/>
+        <line x1="248" y1="143" x2="258" y2="137" stroke="#C1440E" stroke-width="2"/>
+        <!-- Gelijke basishoeken -->
+        <path d="M 52,210 A 22,22 0 0,1 48,188" fill="none" stroke="#C8923A" stroke-width="1.8"/>
+        <path d="M 248,210 A 22,22 0 0,0 252,188" fill="none" stroke="#C8923A" stroke-width="1.8"/>
+        <!-- Labels hoekpunten -->
+        <text x="20" y="216" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#1A2B4A">A</text>
+        <text x="272" y="216" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#1A2B4A">B</text>
+        <text x="218" y="66" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#1A2B4A">C</text>
+        <text x="74" y="66" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#1A2B4A">D</text>
+        <!-- Titel -->
+        <text x="152" y="246" font-family="'Source Sans 3', sans-serif" font-size="13" font-weight="700" fill="#1A2B4A" text-anchor="middle">Gelijkbenig trapezium</text>
+        <!-- AB // DC label -->
+        <text x="152" y="228" font-family="'Source Sans 3', sans-serif" font-size="10" fill="#D4A017" text-anchor="middle" font-style="italic">AB &#8741; DC</text>
+
+        <!-- === VLIEGER === -->
+        <!-- A(480,40) B(610,155) C(480,240) D(350,155) -->
+        <polygon points="480,40 610,155 480,240 350,155" fill="#EEF3FF" stroke="#1A2B4A" stroke-width="2.5"/>
+        <!-- Gelijke aangrenzende zijden: AB=AD (lange zijden boven) en CB=CD (korte zijden onder) -->
+        <!-- AB en AD: enkele streep -->
+        <line x1="539" y1="94" x2="547" y2="102" stroke="#C1440E" stroke-width="2"/>
+        <line x1="412" y1="94" x2="420" y2="102" stroke="#C1440E" stroke-width="2"/>
+        <!-- CB en CD: dubbele streep -->
+        <line x1="549" y1="200" x2="557" y2="208" stroke="#C1440E" stroke-width="2"/>
+        <line x1="552" y1="194" x2="560" y2="202" stroke="#C1440E" stroke-width="2"/>
+        <line x1="404" y1="200" x2="412" y2="208" stroke="#C1440E" stroke-width="2"/>
+        <line x1="407" y1="194" x2="415" y2="202" stroke="#C1440E" stroke-width="2"/>
+        <!-- Diagonalen -->
+        <line x1="480" y1="40" x2="480" y2="240" stroke="#C8923A" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.6"/>
+        <line x1="350" y1="155" x2="610" y2="155" stroke="#C8923A" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.6"/>
+        <!-- Loodrecht-markering in middelpunt -->
+        <rect x="480" y="155" width="9" height="9" fill="none" stroke="#C1440E" stroke-width="1.5"/>
+        <!-- Halveringspunt markering -->
+        <circle cx="480" cy="155" r="4" fill="#D4A017"/>
+        <!-- Labels -->
+        <text x="480" y="36" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#1A2B4A" text-anchor="middle">A</text>
+        <text x="616" y="159" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#1A2B4A">B</text>
+        <text x="480" y="255" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#1A2B4A" text-anchor="middle">C</text>
+        <text x="336" y="159" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#1A2B4A">D</text>
+        <text x="480" y="246" font-family="'Source Sans 3', sans-serif" font-size="13" font-weight="700" fill="#1A2B4A" text-anchor="middle" dy="12">Vlieger</text>
+      </svg>
+      <span class="svg-caption">Links: gelijkbenig trapezium met evenwijdige bases (gele pijltjes) en gelijke poten (rode streepjes). De basishoeken zijn gelijk (oranje boogjes). Rechts: vlieger met twee paar gelijke aangrenzende zijden; de diagonalen staan loodrecht op elkaar en de goudgele stip toont het halveringspunt.</span>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Kan een trapezium ook een parallelogram zijn? Kan een vlieger ook een ruit zijn? Bespreek beide gevallen en geef aan wanneer dat wel of niet kan.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 4: DE CIRKEL
+  ============================================================ -->
+  <section class="section-block" id="cirkel">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">De cirkel</h2>
+    </div>
+
+    <p>De cirkel is de meest symmetrische vlakke figuur: hij ziet er vanuit elke richting hetzelfde uit. Een cirkel kan worden omschreven als de verzameling van alle punten die precies even ver van &eacute;&eacute;n vast punt liggen.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9711;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Definitie</span>
+        <span class="begrip-name">Cirkel</span>
+        <p class="begrip-def">Een cirkel is de verzameling van alle punten in een vlak die op een <strong>vaste afstand</strong> <em>r</em> liggen van een vast punt <em>M</em>, het <strong>middelpunt</strong>. De vaste afstand <em>r</em> heet de <strong>straal</strong> van de cirkel.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Begrippen bij de cirkel</h3>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.4rem;">
+      <li style="margin-bottom:0.5rem"><strong>Middelpunt M:</strong> het vaste centrale punt waarvan alle punten op de cirkel even ver verwijderd zijn.</li>
+      <li style="margin-bottom:0.5rem"><strong>Straal <em>r</em>:</strong> de afstand van het middelpunt tot een punt op de cirkel. Elk lijnstuk van M naar de cirkel is een straal.</li>
+      <li style="margin-bottom:0.5rem"><strong>Diameter <em>d</em>:</strong> een koorde door het middelpunt; de langste afstand binnen de cirkel. <em>d</em> = 2<em>r</em>.</li>
+      <li style="margin-bottom:0.5rem"><strong>Koorde:</strong> een lijnstuk dat twee punten op de cirkel verbindt (en niet noodzakelijk door M gaat).</li>
+      <li style="margin-bottom:0.5rem"><strong>Boog:</strong> een deel van de cirkelomtrek tussen twee punten.</li>
+      <li style="margin-bottom:0.5rem"><strong>Sector:</strong> het taartpuntvormige vlak ingesloten door twee stralen en de boog daartussen.</li>
+      <li><strong>Segment:</strong> het vlak ingesloten door een koorde en de boog die erbij hoort.</li>
+    </ul>
+
+    <!-- SVG: cirkel met alle begrippen -->
+    <div class="svg-container">
+      <svg viewBox="0 0 520 340" width="100%" style="max-width:520px" role="img" aria-labelledby="cirkel-title">
+        <title id="cirkel-title">Cirkel met middelpunt M, straal r, diameter d, koorde en een goudkleurige sector</title>
+
+        <!-- Sector (goud, achtergrond) -->
+        <path d="M 260,170 L 260,40 A 130,130 0 0,1 390,170 Z" fill="#D4A017" fill-opacity="0.25" stroke="#D4A017" stroke-width="1.5"/>
+        <!-- Sector label -->
+        <text x="318" y="108" font-family="'Source Sans 3', sans-serif" font-size="12" fill="#C8923A" font-weight="700">sector</text>
+
+        <!-- Cirkel -->
+        <circle cx="260" cy="170" r="130" fill="none" stroke="#1A2B4A" stroke-width="2.5"/>
+
+        <!-- Diameter (horizontaal door M) -->
+        <line x1="130" y1="170" x2="390" y2="170" stroke="#1A2B4A" stroke-width="2" stroke-dasharray="8,4"/>
+        <text x="257" y="196" font-family="'Source Sans 3', sans-serif" font-size="12" fill="#1A2B4A" font-style="italic" text-anchor="middle">d = 2r</text>
+
+        <!-- Straal r (naar boven) -->
+        <line x1="260" y1="170" x2="260" y2="40" stroke="#C1440E" stroke-width="2.5"/>
+        <text x="272" y="110" font-family="'Source Sans 3', sans-serif" font-size="13" fill="#C1440E" font-weight="700" font-style="italic">r</text>
+
+        <!-- Straal naar rechts (deel van diameter) -->
+        <line x1="260" y1="170" x2="390" y2="170" stroke="#C1440E" stroke-width="2.5"/>
+        <text x="328" y="163" font-family="'Source Sans 3', sans-serif" font-size="13" fill="#C1440E" font-weight="700" font-style="italic">r</text>
+
+        <!-- Koorde (diagonaal) -->
+        <!-- van (155, 255) naar (370, 95) -->
+        <line x1="155" y1="255" x2="370" y2="95" stroke="#243B63" stroke-width="2"/>
+        <text x="230" y="210" font-family="'Source Sans 3', sans-serif" font-size="12" fill="#243B63" font-weight="700" transform="rotate(-37,230,210)">koorde</text>
+
+        <!-- Boog-label -->
+        <text x="148" y="90" font-family="'Source Sans 3', sans-serif" font-size="12" fill="#1A2B4A">boog</text>
+        <path d="M 170,95 Q 155,60 185,48" fill="none" stroke="#1A2B4A" stroke-width="1.2" marker-end="url(#arrow-small)"/>
+
+        <!-- Middelpunt M -->
+        <circle cx="260" cy="170" r="5" fill="#C1440E"/>
+        <text x="270" y="184" font-family="'Playfair Display', serif" font-size="15" font-weight="700" fill="#C1440E">M</text>
+
+        <!-- Punten op cirkel -->
+        <circle cx="260" cy="40" r="4" fill="#1A2B4A"/>
+        <circle cx="390" cy="170" r="4" fill="#1A2B4A"/>
+        <circle cx="130" cy="170" r="4" fill="#1A2B4A"/>
+        <circle cx="155" cy="255" r="4" fill="#243B63"/>
+        <circle cx="370" cy="95" r="4" fill="#243B63"/>
+
+        <!-- Labels punten -->
+        <text x="265" y="33" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#1A2B4A">P</text>
+        <text x="395" y="175" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#1A2B4A">Q</text>
+        <text x="115" y="175" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#1A2B4A">R</text>
+
+        <!-- Diameter label -->
+        <text x="260" y="320" font-family="'Source Sans 3', sans-serif" font-size="12" fill="#1A2B4A" text-anchor="middle" opacity="0.7">&#8592; diameter d = RQ (door M) &#8594;</text>
+      </svg>
+      <span class="svg-caption">Cirkel met middelpunt M, straal r (rood), diameter d = 2r (stippellijn), een koorde (blauw) en een goudkleurige sector. De boog is het deel van de cirkelomtrek.</span>
+    </div>
+
+    <h3 class="sub-heading">Omtrek en oppervlakte van een cirkel</h3>
+
+    <p>De omtrek van een cirkel heet ook wel de <strong>circumferentie</strong>. Om hem te berekenen, hebben we het beroemde getal <strong>&pi;</strong> (pi) nodig. Dit is een irrationaal getal: <em>&pi; &asymp; 3,14159&hellip;</em> Het is de verhouding tussen de omtrek en de diameter van <em>elke</em> cirkel, ongeacht de grootte.</p>
+
+    <div class="formule">
+      <span class="formule-naam">Formule &mdash; Omtrek van een cirkel</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <mi>O</mi>
+          <mo>=</mo>
+          <mn>2</mn>
+          <mi>&#960;</mi>
+          <mi>r</mi>
+          <mo>=</mo>
+          <mi>&#960;</mi>
+          <mi>d</mi>
+        </mrow>
+      </math>
+    </div>
+
+    <div class="formule">
+      <span class="formule-naam">Formule &mdash; Oppervlakte van een cirkel</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <mi>A</mi>
+          <mo>=</mo>
+          <mi>&#960;</mi>
+          <msup><mi>r</mi><mn>2</mn></msup>
+        </mrow>
+      </math>
+    </div>
+
+    <p>De volledige afleiding van deze formules volgt in Hoofdstuk 11. Hier leer je ze al toepassen.</p>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Bereken de omtrek en de oppervlakte van een cirkel met straal <em>r</em> = 5 cm. Gebruik &pi; &asymp; 3,14159.</p>
+      <ul class="rv-stappen">
+        <li><strong>Omtrek:</strong> &nbsp;
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <mrow><mi>O</mi><mo>=</mo><mn>2</mn><mi>&#960;</mi><mi>r</mi><mo>=</mo><mn>2</mn><mo>&#215;</mo><mi>&#960;</mi><mo>&#215;</mo><mn>5</mn></mrow>
+          </math>
+          &nbsp;= 10&pi; cm
+        </li>
+        <li>Numeriek: 10 &times; 3,14159 &asymp; <strong>31,42 cm</strong></li>
+        <li><strong>Oppervlakte:</strong> &nbsp;
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <mrow><mi>A</mi><mo>=</mo><mi>&#960;</mi><msup><mi>r</mi><mn>2</mn></msup><mo>=</mo><mi>&#960;</mi><mo>&#215;</mo><msup><mn>5</mn><mn>2</mn></msup><mo>=</mo><mn>25</mn><mi>&#960;</mi></mrow>
+          </math>
+          &nbsp; cm&sup2;
+        </li>
+        <li>Numeriek: 25 &times; 3,14159 &asymp; <strong>78,54 cm&sup2;</strong></li>
+      </ul>
+      <p class="rv-antwoord">Omtrek &asymp; 31,42 cm &nbsp;|&nbsp; Oppervlakte &asymp; 78,54 cm&sup2;</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Als de straal van een cirkel verdubbelt, wat gebeurt er dan met de omtrek? En met de oppervlakte? Redeneer zonder te rekenen, en controleer daarna met de formules.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 5: HOEKEN IN EEN CIRKEL
+  ============================================================ -->
+  <section class="section-block" id="hoeken-cirkel">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Hoeken in een cirkel</h2>
+    </div>
+
+    <p>Wanneer je hoeken tekent die te maken hebben met een cirkel, zijn er twee belangrijke soorten: de <strong>middelpuntshoek</strong> en de <strong>omtrekshoek</strong> (ook: ingeschreven hoek). Ze hangen op een elegante manier met elkaar samen.</p>
+
+    <h3 class="sub-heading">Middelpuntshoek en omtrekshoek</h3>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9676;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Middelpuntshoek</span>
+        <p class="begrip-def">Een <strong>middelpuntshoek</strong> is een hoek waarvan het hoekpunt in het <em>middelpunt M</em> van de cirkel ligt, en waarvan de twee benen door punten op de cirkel gaan. De bogen die de benen afsnijden, worden bepaald door deze hoek.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9676;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Omtrekshoek (ingeschreven hoek)</span>
+        <p class="begrip-def">Een <strong>omtrekshoek</strong> is een hoek waarvan het hoekpunt <em>op de cirkel</em> zelf ligt, en waarvan de twee benen koorden zijn die op dezelfde boog steunen als de bijbehorende middelpuntshoek.</p>
+      </div>
+    </div>
+
+    <div class="stelling">
+      <span class="st-label">Stelling &mdash; Ingeschreven hoekstelling (vereenvoudigd)</span>
+      <p class="st-body">Een <strong>omtrekshoek</strong> is steeds de <strong>helft</strong> van de <strong>middelpuntshoek</strong> die op dezelfde boog steunt.<br><br>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline">
+        <mrow>
+          <mtext>omtrekshoek</mtext>
+          <mo>=</mo>
+          <mfrac><mn>1</mn><mn>2</mn></mfrac>
+          <mo>&#215;</mo>
+          <mtext>middelpuntshoek</mtext>
+        </mrow>
+      </math><br><br>
+      Alle omtrekshoeken op dezelfde boog zijn ook onderling gelijk aan elkaar.</p>
+    </div>
+
+    <div class="stelling">
+      <span class="st-label">Stelling van Thales &mdash; Omtrekshoek in halve cirkel</span>
+      <p class="st-body">Als de koorde waarop de omtrekshoek steunt een <strong>diameter</strong> is, dan is de omtrekshoek gelijk aan <strong>90&deg;</strong>.<br><br>
+      Met andere woorden: elk punt op een cirkel &ldquo;ziet&rdquo; de diameter onder een rechte hoek. Dit is de stelling van Thales.<br><br>
+      <em>Bewijs (idee):</em> de diameter stemt overeen met een middelpuntshoek van 180&deg; (een gestrekte hoek). De omtrekshoek is de helft: 180&deg; &divide; 2 = 90&deg;.</p>
+    </div>
+
+    <!-- SVG: cirkel met middelpuntshoek en omtrekshoek -->
+    <div class="svg-container">
+      <svg viewBox="0 0 560 360" width="100%" style="max-width:560px" role="img" aria-labelledby="inscribed-title">
+        <title id="inscribed-title">Cirkel met middelpuntshoek bij M en omtrekshoek bij P op dezelfde boog AB; de omtrekshoek is de helft van de middelpuntshoek</title>
+
+        <!-- Cirkel -->
+        <circle cx="200" cy="180" r="140" fill="none" stroke="#1A2B4A" stroke-width="2.5"/>
+
+        <!-- Punten A en B op de cirkel (boog onderkant) -->
+        <!-- A bij hoek 210° (linksonder), B bij 330° (rechtsonder) van cirkel -->
+        <!-- A: cx + r*cos(210°) = 200 + 140*(-0.866) = 200-121 = 79, cy + r*sin(210°) = 180 + 140*(0.5) = 250 -->
+        <!-- B: cx + r*cos(330°) = 200 + 140*(0.866) = 321, cy + r*sin(330°) = 180 + 140*(0.5) = 250 -->
+        <!-- P (omtrekshoek) boven: hoek 90° → (200, 40) -->
+
+        <!-- Boog AB (boven, groter) gemarkeerd -->
+        <path d="M 79,250 A 140,140 0 1,1 321,250" fill="none" stroke="#D4A017" stroke-width="3" stroke-dasharray="10,5" opacity="0.6"/>
+
+        <!-- Middelpuntshoek bij M: benen MA en MB -->
+        <line x1="200" y1="180" x2="79" y2="250" stroke="#C1440E" stroke-width="2.5"/>
+        <line x1="200" y1="180" x2="321" y2="250" stroke="#C1440E" stroke-width="2.5"/>
+        <!-- Boogje voor middelpuntshoek bij M -->
+        <path d="M 168,196 A 35,35 0 0,1 232,196" fill="#C1440E" fill-opacity="0.12" stroke="#C1440E" stroke-width="1.8"/>
+        <text x="200" y="222" font-family="'Source Sans 3', sans-serif" font-size="12" fill="#C1440E" font-weight="700" text-anchor="middle">2&#945;</text>
+
+        <!-- Omtrekshoek bij P: benen PA en PB -->
+        <line x1="200" y1="40" x2="79" y2="250" stroke="#243B63" stroke-width="2.5"/>
+        <line x1="200" y1="40" x2="321" y2="250" stroke="#243B63" stroke-width="2.5"/>
+        <!-- Boogje voor omtrekshoek bij P -->
+        <path d="M 178,65 A 30,30 0 0,1 222,65" fill="#243B63" fill-opacity="0.12" stroke="#243B63" stroke-width="1.8"/>
+        <text x="200" y="90" font-family="'Source Sans 3', sans-serif" font-size="12" fill="#243B63" font-weight="700" text-anchor="middle">&#945;</text>
+
+        <!-- Middelpunt M -->
+        <circle cx="200" cy="180" r="5" fill="#C1440E"/>
+        <text x="212" y="178" font-family="'Playfair Display', serif" font-size="14" font-weight="700" fill="#C1440E">M</text>
+
+        <!-- Punt P -->
+        <circle cx="200" cy="40" r="5" fill="#243B63"/>
+        <text x="212" y="42" font-family="'Source Sans 3', sans-serif" font-size="12" fill="#243B63" font-weight="700">P</text>
+
+        <!-- Punt A -->
+        <circle cx="79" cy="250" r="5" fill="#1A2B4A"/>
+        <text x="63" y="255" font-family="'Source Sans 3', sans-serif" font-size="12" fill="#1A2B4A" font-weight="700">A</text>
+
+        <!-- Punt B -->
+        <circle cx="321" cy="250" r="5" fill="#1A2B4A"/>
+        <text x="328" y="255" font-family="'Source Sans 3', sans-serif" font-size="12" fill="#1A2B4A" font-weight="700">B</text>
+
+        <!-- Legenda rechts -->
+        <rect x="380" y="80" width="160" height="180" rx="6" fill="#F5F0E8" stroke="#E8DCC8" stroke-width="1.2"/>
+        <text x="460" y="104" font-family="'Source Sans 3', sans-serif" font-size="11" font-weight="700" fill="#1A2B4A" text-anchor="middle">Legenda</text>
+        <line x1="394" y1="130" x2="424" y2="130" stroke="#C1440E" stroke-width="2.5"/>
+        <text x="432" y="134" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#C1440E">Middelpuntshoek 2&#945;</text>
+        <text x="432" y="148" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#C1440E">(hoekpunt = M)</text>
+        <line x1="394" y1="178" x2="424" y2="178" stroke="#243B63" stroke-width="2.5"/>
+        <text x="432" y="182" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#243B63">Omtrekshoek &#945;</text>
+        <text x="432" y="196" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#243B63">(hoekpunt = P op cirkel)</text>
+        <line x1="394" y1="228" x2="424" y2="228" stroke="#D4A017" stroke-width="3" stroke-dasharray="6,3"/>
+        <text x="432" y="232" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#C8923A">Boog AB (gedeeld)</text>
+
+        <!-- Relatie label -->
+        <text x="460" y="300" font-family="'Source Sans 3', sans-serif" font-size="13" font-weight="700" fill="#1A2B4A" text-anchor="middle">&#945; = &#189; &#215; 2&#945;</text>
+        <text x="460" y="318" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#C8923A" text-anchor="middle" font-style="italic">omtrekshoek = &#189; &times; middelpuntshoek</text>
+      </svg>
+      <span class="svg-caption">De omtrekshoek &alpha; bij P is de helft van de middelpuntshoek 2&alpha; bij M. Beide hoeken steunen op dezelfde boog AB (goud). Dit geldt voor elk punt P op de grote boog.</span>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Als een middelpuntshoek 80&deg; meet, hoe groot is dan de bijbehorende omtrekshoek? En als een omtrekshoek 35&deg; meet, hoe groot is dan de middelpuntshoek? Gebruik de stelling om te redeneren.</p>
+    </div>
+  </section>
+
+</div><!-- end page-wrapper -->
+
+<!-- ============================================================
+     OEFENINGEN
+============================================================ -->
+<section class="exercises-section" id="oefeningen">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <!-- Oefening 1 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Vierhoeken herkennen aan hun eigenschappen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Geef de naam van de vierhoek die voldoet aan de gegeven eigenschappen. Er kan meer dan &eacute;&eacute;n antwoord mogelijk zijn &mdash; geef de <em>meest bijzondere</em> naam.</p>
+      <ol>
+        <li>Een vierhoek met vier gelijke zijden en vier rechte hoeken.</li>
+        <li>Een vierhoek met twee paar evenwijdige zijden, maar de hoeken zijn niet 90&deg; en de zijden zijn niet allemaal gelijk.</li>
+        <li>Een vierhoek met precies &eacute;&eacute;n paar evenwijdige zijden en twee gelijke poten.</li>
+        <li>Een vierhoek waarvan de diagonalen loodrecht op elkaar staan en alle zijden gelijk zijn, maar de hoeken zijn niet 90&deg;.</li>
+        <li>Een vierhoek met twee paar aangrenzende gelijke zijden waarbij de paren niet gelijk zijn aan elkaar.</li>
+        <li>Een vierhoek met vier rechte hoeken waarvan de zijden niet allemaal gelijk zijn.</li>
+      </ol>
+      <p class="ex-tip">Tip: gebruik de hi&euml;rarchie uit sectie 1. Begin met de meest algemene naam en werk naar de meest bijzondere.</p>
+    </div>
+
+    <!-- Oefening 2 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Ontbrekende hoek in een vierhoek berekenen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Bereken de ontbrekende hoek in elke vierhoek. De som van de hoeken is altijd 360&deg;.</p>
+      <ol>
+        <li>Drie hoeken van een vierhoek meten 85&deg;, 110&deg; en 95&deg;. Hoe groot is de vierde hoek?</li>
+        <li>In een parallelogram is &eacute;&eacute;n hoek 65&deg;. Bereken alle andere hoeken.</li>
+        <li>In een trapezium zijn twee aanliggende hoeken bij de langste basis 70&deg; en 85&deg;. De derde hoek is 110&deg;. Bereken de vierde hoek.</li>
+        <li>In een gelijkbenig trapezium is de hoek bij de korte basis 125&deg;. Bereken alle vier de hoeken.</li>
+      </ol>
+      <p class="ex-tip">Tip: voor het parallelogram: aanliggende hoeken zijn supplementair (samen 180&deg;). Tegenovergestelde hoeken zijn gelijk.</p>
+    </div>
+
+    <!-- Oefening 3 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Eigenschappen van bijzondere vierhoeken</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Beantwoord de volgende vragen over vierhoeken en hun eigenschappen.</p>
+      <ol>
+        <li>In een rechthoek ABCD is AB = 8 cm en BC = 5 cm. Hoe lang is de diagonaal AC? (<em>Hint: gebruik de stelling van Pythagoras.</em>)</li>
+        <li>In een ruit met zijde 6 cm is &eacute;&eacute;n diagonaal 10 cm lang. Bereken de lengte van de andere diagonaal. (<em>Hint: de diagonalen staan loodrecht op elkaar en halveren elkaar.</em>)</li>
+        <li>Een parallelogram heeft een zijde van 7 cm en een aangrenzende hoek van 120&deg;. Wat zijn de vier hoeken?</li>
+        <li>Leg uit waarom elk vierkant een ruit is, maar niet elke ruit een vierkant.</li>
+      </ol>
+      <p class="ex-tip">Tip voor vraag 2: teken de situatie. De halve diagonalen en een zijde vormen een rechthoekige driehoek.</p>
+    </div>
+
+    <!-- Oefening 4 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 4</p>
+      <p class="ex-name">Cirkelberekeningen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Bereken de gevraagde grootheden. Gebruik &pi; &asymp; 3,14 of laat je antwoord in termen van &pi;.</p>
+      <ol>
+        <li>Bereken de omtrek en oppervlakte van een cirkel met straal 9 cm. Geef het antwoord exact (in termen van &pi;) en bij benadering.</li>
+        <li>De diameter van een fietswiel bedraagt 70 cm. Hoe ver rijdt de fiets na precies 100 omwentelingen van het wiel?</li>
+        <li>Een cirkel heeft een omtrek van 62,8 cm. Bereken de straal en de oppervlakte.</li>
+        <li>Twee cirkels hebben stralen van respectievelijk 3 cm en 6 cm. Bereken de verhouding van hun oppervlakten.</li>
+      </ol>
+      <p class="ex-tip">Tip voor vraag 4: de oppervlakte schaalt als het kwadraat van de straal. Als de straal verdubbelt, wordt de oppervlakte 4 keer zo groot.</p>
+    </div>
+
+    <!-- Oefening 5 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 5</p>
+      <p class="ex-name">Ingeschreven hoekstelling</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Pas de ingeschreven hoekstelling en de stelling van Thales toe.</p>
+      <ol>
+        <li>Een middelpuntshoek in een cirkel meet 100&deg;. Hoe groot is de bijbehorende omtrekshoek op dezelfde boog?</li>
+        <li>Een omtrekshoek meet 42&deg;. Hoe groot is de corresponderende middelpuntshoek?</li>
+        <li>Drie punten A, B en C liggen op een cirkel. De middelpuntshoek AMB (bij het middelpunt M) is 130&deg;. Punt P ligt ook op de cirkel, aan de andere kant van AB. Hoe groot is de omtrekshoek APB?</li>
+        <li>Punt C ligt op een cirkel waarvan AB de diameter is. Hoe groot is de hoek ACB? Welke stelling gebruik je? Verklaar.</li>
+      </ol>
+      <p class="ex-tip">Tip voor vraag 3: controleer of P aan dezelfde kant of de andere kant van de boog AB ligt als M. Dat bepaalt of de omtrekshoek = &frac12; &times; middelpuntshoek of = 180&deg; &#8722; &frac12; &times; middelpuntshoek.</p>
+    </div>
+
+    <!-- Oefening 6 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 6</p>
+      <p class="ex-name">Ontwerpvraagstuk &mdash; plattegrond met cirkelvormige en rechthoekige ruimtes</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Een architect ontwerpt een kleine recreatiezaal. De zaal is rechthoekig met afmetingen 12 m &times; 8 m. In de zaal worden twee cirkelvormige ruimtes (eethoeken) ingetekend, elk met een straal van 2 m. De rest van de vloer is open ruimte.</p>
+      <ol>
+        <li>Bereken de oppervlakte van de rechthoekige zaal.</li>
+        <li>Bereken de totale oppervlakte van de twee cirkelvormige eethoeken samen. Geef het antwoord in termen van &pi; en bij benadering (gebruik &pi; &asymp; 3,14).</li>
+        <li>Hoeveel vierkante meter open vloerruimte blijft er over na het plaatsen van de twee eethoeken?</li>
+        <li>De omtrek van elke eethoek moet omzoomd worden met een houten rand. Hoeveel meter hout is er in totaal nodig voor beide eethoeken?</li>
+        <li>De architect wil een vierkant tapijt leggen dat zo groot mogelijk is en volledig binnen &eacute;&eacute;n eethoek past. Wat is de zijde van het grootste vierkant dat in een cirkel met straal 2 m past? (<em>Hint: gebruik de diagonaal van het vierkant en de relatie met de cirkeldiameter.</em>)</li>
+      </ol>
+      <p class="ex-tip">Uitdaging voor vraag 5: de diagonaal van het ingeschreven vierkant is gelijk aan de diameter van de cirkel. Gebruik de relatie <em>d</em> = <em>z</em>&#8730;2 voor een vierkant met zijde <em>z</em>.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SAMENVATTING
+============================================================ -->
+<section class="summary-section" id="samenvatting">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>Vierhoek:</strong> vlakke figuur met 4 zijden en 4 hoeken; de som van de binnenhoeken is altijd <strong>360&deg;</strong>.</li>
+      <li><strong>Parallelogram:</strong> twee paar evenwijdige en gelijke tegenovergestelde zijden; tegenovergestelde hoeken gelijk; diagonalen halveren elkaar.</li>
+      <li><strong>Rechthoek:</strong> parallelogram met 4 rechte hoeken; diagonalen zijn gelijk en halveren elkaar.</li>
+      <li><strong>Ruit:</strong> parallelogram met 4 gelijke zijden; diagonalen staan loodrecht op elkaar en halveren elkaar.</li>
+      <li><strong>Vierkant:</strong> combinatie van rechthoek en ruit; 4 gelijke zijden, 4 rechte hoeken, diagonalen gelijk, loodrecht en halverend.</li>
+      <li><strong>Trapezium:</strong> precies &eacute;&eacute;n paar evenwijdige zijden (bases); in een gelijkbenig trapezium zijn de poten gelijk en zijn de basishoeken gelijk.</li>
+      <li><strong>Vlieger:</strong> twee paar aangrenzende gelijke zijden; diagonalen staan loodrecht op elkaar en de hoofddiagonaal halveert de andere.</li>
+      <li><strong>Cirkel:</strong> verzameling van punten op afstand <em>r</em> van middelpunt M; diameter <em>d</em> = 2<em>r</em>; begrippen: koorde, boog, sector, segment.</li>
+      <li><strong>Omtrek cirkel:</strong>
+        <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>O</mi><mo>=</mo><mn>2</mn><mi>&#960;</mi><mi>r</mi></mrow></math>;
+        &nbsp; <strong>Oppervlakte cirkel:</strong>
+        <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>A</mi><mo>=</mo><mi>&#960;</mi><msup><mi>r</mi><mn>2</mn></msup></mrow></math>;
+        &nbsp; &pi; &asymp; 3,14159.
+      </li>
+      <li><strong>Ingeschreven hoekstelling:</strong> omtrekshoek = &frac12; &times; middelpuntshoek (op dezelfde boog). Alle omtrekshoeken op dezelfde boog zijn gelijk.</li>
+      <li><strong>Stelling van Thales:</strong> elk punt op een halve cirkel ziet de diameter onder een hoek van <strong>90&deg;</strong>.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

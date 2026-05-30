@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H13 — Coördinaten en letters | Wiskunde 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     ILLUSTRATIE PLACEHOLDERS
+  ============================================================ */
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+    cursor: default;
+    transition: background var(--transition);
+  }
+
+  .illustratie:hover { background: #EDE7D8; }
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     WISKUNDE-SPECIFIC COMPONENTS
+  ============================================================ */
+  .rekenvoorbeeld { background:white; border:1px solid var(--sand); border-top:4px solid var(--oker); border-radius:var(--border-radius); padding:1.8rem 2rem; margin:2rem 0; box-shadow:var(--shadow-sm); }
+  .rekenvoorbeeld .rv-label { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--oker); display:block; margin-bottom:0.35rem; }
+  .rekenvoorbeeld .rv-vraag { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:700; color:var(--darkblue); margin-bottom:1rem; line-height:1.4; }
+  .rv-stappen { list-style:none; padding:0; counter-reset:stap-teller; margin-bottom:1rem; }
+  .rv-stappen li { counter-increment:stap-teller; padding:0.6rem 0.8rem 0.6rem 3.2rem; position:relative; background:var(--creme); border-radius:4px; margin-bottom:0.4rem; font-size:0.97rem; }
+  .rv-stappen li::before { content:counter(stap-teller); position:absolute; left:0.6rem; top:50%; transform:translateY(-50%); background:var(--darkblue); color:white; width:1.7rem; height:1.7rem; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:700; }
+  .rv-antwoord { background:var(--darkblue); color:var(--gold); padding:0.75rem 1.1rem; border-radius:4px; font-weight:700; font-size:1rem; }
+  .stelling { background:#EEF3FF; border-left:4px solid var(--darkblue); border-radius:0 var(--border-radius) var(--border-radius) 0; padding:1.2rem 1.5rem; margin:1.5rem 0; }
+  .stelling .st-label { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--darkblue); opacity:0.7; display:block; margin-bottom:0.35rem; }
+  .stelling .st-body { font-size:0.97rem; color:var(--text-dark); }
+  .formule { background:var(--darkblue); border-radius:var(--border-radius); padding:1.4rem 1.8rem; text-align:center; margin:1.8rem 0; }
+  .formule math { color:white; font-size:1.2rem; }
+  .formule .formule-naam { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--gold); opacity:0.8; display:block; margin-bottom:0.5rem; }
+  .svg-container { margin:1.8rem 0; padding:1.5rem; background:white; border:1px solid var(--sand); border-radius:var(--border-radius); overflow-x:auto; text-align:center; }
+  .svg-container .svg-caption { font-size:0.85rem; color:var(--text-light); font-style:italic; display:block; margin-top:0.75rem; }
+
+  /* chapter-intro helper */
+  .chapter-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--oker);
+    margin: 3rem 0 0.5rem;
+  }
+  .chapter-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+  .chapter-intro {
+    font-size: 1.08rem;
+    color: var(--text-mid);
+    line-height: 1.8;
+    max-width: 720px;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <span class="label">Wiskunde 1A</span>
+  <span class="label label-right">H13 &mdash; Co&ouml;rdinaten en letters</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Wiskunde &nbsp;&middot;&nbsp; 1A &nbsp;&middot;&nbsp; Eerste graad</div>
+  <h1>Co&ouml;rdinaten en letters</h1>
+  <p class="subtitle">Van het vlak naar de algebra &mdash; de taal van variabelen en verbanden</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- CHAPTER INTRO -->
+  <div class="chapter-label">Hoofdstuk 13</div>
+  <h1 class="chapter-title">Co&ouml;rdinaten en letters</h1>
+  <p class="chapter-intro">Letters nemen de rol van onbekenden of variabelen in de wiskunde over. Ze laten ons toe om algemene regels op te schrijven en problemen op te lossen zonder dat we een specifiek getal kennen. Samen met het co&ouml;rdinatenstelsel vormen ze de brug naar de algebra en de analytische meetkunde.</p>
+
+  <!-- ============================================================
+       SECTIE 1: HET COÖRDINATENSTELSEL
+  ============================================================ -->
+  <section class="section-block" id="coordinatenstelsel">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Het co&ouml;rdinatenstelsel</h2>
+    </div>
+
+    <p>Om punten in een vlak nauwkeurig te beschrijven, gebruiken wiskundigen een <strong>co&ouml;rdinatenstelsel</strong>. Dit bestaat uit twee loodrechte getallenas&#xsen: de horizontale <strong>x-as</strong> en de verticale <strong>y-as</strong>. Beide assen snijden elkaar in het punt <strong>O(0,&nbsp;0)</strong>, dat de <strong>oorsprong</strong> wordt genoemd.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9635;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Co&ouml;rdinatenstelsel (stelsel van Descartes)</span>
+        <p class="begrip-def">Een co&ouml;rdinatenstelsel bestaat uit een x-as (horizontaal) en een y-as (verticaal) die loodrecht op elkaar staan en elkaar snijden in de oorsprong O(0,&nbsp;0). Elk punt in het vlak krijgt een unieke naam P(x,&nbsp;y), waarbij x de <strong>abscis</strong> (horizontale afstand tot de y-as) en y de <strong>ordinaat</strong> (verticale afstand tot de x-as) is.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">De vier kwadranten</h3>
+
+    <p>De twee assen verdelen het vlak in vier gebieden, de <strong>kwadranten</strong> genaamd. Ze worden genummerd met Romeinse cijfers, te beginnen rechtsboven en dan met de klok mee:</p>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.4rem;">
+      <li style="margin-bottom:0.5rem"><strong>Kwadrant I</strong>: x &gt; 0 en y &gt; 0 (rechtsboven)</li>
+      <li style="margin-bottom:0.5rem"><strong>Kwadrant II</strong>: x &lt; 0 en y &gt; 0 (linksboven)</li>
+      <li style="margin-bottom:0.5rem"><strong>Kwadrant III</strong>: x &lt; 0 en y &lt; 0 (linksonder)</li>
+      <li><strong>Kwadrant IV</strong>: x &gt; 0 en y &lt; 0 (rechtsonder)</li>
+    </ul>
+
+    <p>Punten die op een as liggen, behoren tot geen enkel kwadrant.</p>
+
+    <!-- SVG COÖRDINATENSTELSEL -->
+    <div class="svg-container">
+      <svg viewBox="0 0 500 500" width="100%" style="max-width:500px" role="img" aria-labelledby="coord-title">
+        <title id="coord-title">Co&ouml;rdinatenstelsel met assen van &minus;5 tot 5, kwadrantlabels en vijf gekleurde voorbeeldpunten</title>
+
+        <!-- Rooster: verticale lijnen -->
+        <g stroke="#1A2B4A" stroke-opacity="0.2" stroke-width="1">
+          <!-- x = -5 t/m -1 en 1 t/m 5 (elke 44px, oorsprong op 250) -->
+          <line x1="30"  y1="30" x2="30"  y2="470"/>
+          <line x1="74"  y1="30" x2="74"  y2="470"/>
+          <line x1="118" y1="30" x2="118" y2="470"/>
+          <line x1="162" y1="30" x2="162" y2="470"/>
+          <line x1="206" y1="30" x2="206" y2="470"/>
+          <line x1="294" y1="30" x2="294" y2="470"/>
+          <line x1="338" y1="30" x2="338" y2="470"/>
+          <line x1="382" y1="30" x2="382" y2="470"/>
+          <line x1="426" y1="30" x2="426" y2="470"/>
+          <line x1="470" y1="30" x2="470" y2="470"/>
+        </g>
+
+        <!-- Rooster: horizontale lijnen -->
+        <g stroke="#1A2B4A" stroke-opacity="0.2" stroke-width="1">
+          <line x1="30" y1="30"  x2="470" y2="30"/>
+          <line x1="30" y1="74"  x2="470" y2="74"/>
+          <line x1="30" y1="118" x2="470" y2="118"/>
+          <line x1="30" y1="162" x2="470" y2="162"/>
+          <line x1="30" y1="206" x2="470" y2="206"/>
+          <line x1="30" y1="294" x2="470" y2="294"/>
+          <line x1="30" y1="338" x2="470" y2="338"/>
+          <line x1="30" y1="382" x2="470" y2="382"/>
+          <line x1="30" y1="426" x2="470" y2="426"/>
+          <line x1="30" y1="470" x2="470" y2="470"/>
+        </g>
+
+        <!-- x-as -->
+        <line x1="18" y1="250" x2="482" y2="250" stroke="#1A2B4A" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- Pijl rechts -->
+        <polygon points="484,250 472,244 472,256" fill="#1A2B4A"/>
+        <!-- Pijl links -->
+        <polygon points="16,250 28,244 28,256" fill="#1A2B4A"/>
+
+        <!-- y-as -->
+        <line x1="250" y1="482" x2="250" y2="18" stroke="#1A2B4A" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- Pijl boven -->
+        <polygon points="250,16 244,28 256,28" fill="#1A2B4A"/>
+        <!-- Pijl onder -->
+        <polygon points="250,484 244,472 256,472" fill="#1A2B4A"/>
+
+        <!-- As-labels -->
+        <text x="488" y="255" font-family="'Playfair Display', serif" font-size="16" font-weight="700" fill="#1A2B4A" dominant-baseline="middle">x</text>
+        <text x="250" y="10" font-family="'Playfair Display', serif" font-size="16" font-weight="700" fill="#1A2B4A" text-anchor="middle">y</text>
+
+        <!-- Maatstrepen en getallabels x-as -->
+        <g font-family="'Source Sans 3', sans-serif" font-size="11" text-anchor="middle" fill="#1A2B4A">
+          <!-- x = -5 -->
+          <line x1="30"  y1="244" x2="30"  y2="256" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="30"  y="268">&#8722;5</text>
+          <!-- x = -4 -->
+          <line x1="74"  y1="244" x2="74"  y2="256" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="74"  y="268">&#8722;4</text>
+          <!-- x = -3 -->
+          <line x1="118" y1="244" x2="118" y2="256" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="118" y="268">&#8722;3</text>
+          <!-- x = -2 -->
+          <line x1="162" y1="244" x2="162" y2="256" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="162" y="268">&#8722;2</text>
+          <!-- x = -1 -->
+          <line x1="206" y1="244" x2="206" y2="256" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="206" y="268">&#8722;1</text>
+          <!-- x = 1 -->
+          <line x1="294" y1="244" x2="294" y2="256" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="294" y="268">1</text>
+          <!-- x = 2 -->
+          <line x1="338" y1="244" x2="338" y2="256" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="338" y="268">2</text>
+          <!-- x = 3 -->
+          <line x1="382" y1="244" x2="382" y2="256" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="382" y="268">3</text>
+          <!-- x = 4 -->
+          <line x1="426" y1="244" x2="426" y2="256" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="426" y="268">4</text>
+          <!-- x = 5 -->
+          <line x1="470" y1="244" x2="470" y2="256" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="470" y="268">5</text>
+        </g>
+
+        <!-- Maatstrepen en getallabels y-as -->
+        <g font-family="'Source Sans 3', sans-serif" font-size="11" text-anchor="end" fill="#1A2B4A">
+          <!-- y = 5 -->
+          <line x1="244" y1="30"  x2="256" y2="30"  stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="240" y="34">5</text>
+          <!-- y = 4 -->
+          <line x1="244" y1="74"  x2="256" y2="74"  stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="240" y="78">4</text>
+          <!-- y = 3 -->
+          <line x1="244" y1="118" x2="256" y2="118" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="240" y="122">3</text>
+          <!-- y = 2 -->
+          <line x1="244" y1="162" x2="256" y2="162" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="240" y="166">2</text>
+          <!-- y = 1 -->
+          <line x1="244" y1="206" x2="256" y2="206" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="240" y="210">1</text>
+          <!-- y = -1 -->
+          <line x1="244" y1="294" x2="256" y2="294" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="240" y="298">&#8722;1</text>
+          <!-- y = -2 -->
+          <line x1="244" y1="338" x2="256" y2="338" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="240" y="342">&#8722;2</text>
+          <!-- y = -3 -->
+          <line x1="244" y1="382" x2="256" y2="382" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="240" y="386">&#8722;3</text>
+          <!-- y = -4 -->
+          <line x1="244" y1="426" x2="256" y2="426" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="240" y="430">&#8722;4</text>
+          <!-- y = -5 -->
+          <line x1="244" y1="470" x2="256" y2="470" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="240" y="474">&#8722;5</text>
+        </g>
+
+        <!-- Oorsprong label -->
+        <text x="236" y="268" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#1A2B4A" text-anchor="end">O</text>
+
+        <!-- Kwadrant labels -->
+        <text x="370" y="130" font-family="'Playfair Display', serif" font-size="22" font-weight="700" fill="#1A2B4A" opacity="0.12" text-anchor="middle">I</text>
+        <text x="130" y="130" font-family="'Playfair Display', serif" font-size="22" font-weight="700" fill="#1A2B4A" opacity="0.12" text-anchor="middle">II</text>
+        <text x="130" y="390" font-family="'Playfair Display', serif" font-size="22" font-weight="700" fill="#1A2B4A" opacity="0.12" text-anchor="middle">III</text>
+        <text x="370" y="390" font-family="'Playfair Display', serif" font-size="22" font-weight="700" fill="#1A2B4A" opacity="0.12" text-anchor="middle">IV</text>
+
+        <!-- Punt A(3,2) — terracotta — x=250+3*44=382, y=250-2*44=162 -->
+        <circle cx="382" cy="162" r="7" fill="#C1440E"/>
+        <text x="394" y="155" font-family="'Source Sans 3', sans-serif" font-size="13" font-weight="700" fill="#C1440E">A(3,&nbsp;2)</text>
+
+        <!-- Punt B(-1,4) — gold — x=250+(-1)*44=206, y=250-4*44=74 -->
+        <circle cx="206" cy="74" r="7" fill="#D4A017"/>
+        <text x="218" y="67" font-family="'Source Sans 3', sans-serif" font-size="13" font-weight="700" fill="#D4A017">B(&#8722;1,&nbsp;4)</text>
+
+        <!-- Punt C(-3,-2) — oker — x=250+(-3)*44=118, y=250-(-2)*44=338 -->
+        <circle cx="118" cy="338" r="7" fill="#C8923A"/>
+        <text x="126" y="356" font-family="'Source Sans 3', sans-serif" font-size="13" font-weight="700" fill="#C8923A">C(&#8722;3,&nbsp;&#8722;2)</text>
+
+        <!-- Punt D(2,-3) — darkblue-light — x=250+2*44=338, y=250+3*44=382 -->
+        <circle cx="338" cy="382" r="7" fill="#243B63"/>
+        <text x="348" y="398" font-family="'Source Sans 3', sans-serif" font-size="13" font-weight="700" fill="#243B63">D(2,&nbsp;&#8722;3)</text>
+
+        <!-- Punt E(-4,-4) — terracotta-light — x=250+(-4)*44=74, y=250+4*44=426 -->
+        <circle cx="74" cy="426" r="7" fill="#D4561E"/>
+        <text x="82" y="443" font-family="'Source Sans 3', sans-serif" font-size="13" font-weight="700" fill="#D4561E">E(&#8722;4,&nbsp;&#8722;4)</text>
+      </svg>
+      <span class="svg-caption">Co&ouml;rdinatenstelsel van &minus;5 tot 5 op beide assen. De kwadranten I t/m IV zijn lichtjes aangeduid. Vijf punten A t/m E zijn ingetekend, elk in een eigen kleur.</span>
+    </div>
+
+    <h3 class="sub-heading">Een punt aflezen en plotten</h3>
+
+    <p>Om een punt <strong>af te lezen</strong> begin je in de oorsprong: kijk hoeveel stappen je horizontaal (x-richting) en dan verticaal (y-richting) moet afleggen om bij het punt te komen. Om een punt te <strong>plotten</strong> ga je omgekeerd te werk: vertrek vanuit O, ga x stappen horizontaal en y stappen verticaal.</p>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Plot en lees af: A(3,&nbsp;2), B(&#8722;1,&nbsp;4), C(&#8722;3,&nbsp;&#8722;2), D(2,&nbsp;&#8722;3).</p>
+      <ul class="rv-stappen">
+        <li><strong>A(3,&nbsp;2)</strong>: ga vanuit O drie eenheden naar rechts (x&nbsp;=&nbsp;3), dan twee omhoog (y&nbsp;=&nbsp;2). Punt A ligt in kwadrant I.</li>
+        <li><strong>B(&#8722;1,&nbsp;4)</strong>: ga vanuit O één eenheid naar links (x&nbsp;=&nbsp;&#8722;1), dan vier omhoog (y&nbsp;=&nbsp;4). Punt B ligt in kwadrant II.</li>
+        <li><strong>C(&#8722;3,&nbsp;&#8722;2)</strong>: ga vanuit O drie eenheden naar links, dan twee omlaag. Punt C ligt in kwadrant III.</li>
+        <li><strong>D(2,&nbsp;&#8722;3)</strong>: ga vanuit O twee eenheden naar rechts, dan drie omlaag. Punt D ligt in kwadrant IV.</li>
+      </ul>
+      <p class="rv-antwoord">Alle vier punten zijn ingetekend in de figuur hierboven. De abscis bepaalt altijd de horizontale positie, de ordinaat de verticale.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Een punt P(a,&nbsp;b) ligt in kwadrant III. Wat kun je zeggen over het teken van a en van b? En wat als P op de negatieve y-as ligt?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 2: AFSTAND EN MIDDELPUNT
+  ============================================================ -->
+  <section class="section-block" id="afstand-middelpunt">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Afstand en middelpunt</h2>
+    </div>
+
+    <p>Met het co&ouml;rdinatenstelsel kunnen we de <strong>afstand</strong> tussen twee punten precies berekenen zonder te meten. We gebruiken daarvoor de stelling van Pythagoras: het rechte hoekige driehoekje dat je tekent tussen de twee punten heeft als hypotenusa de afstand die we zoeken.</p>
+
+    <h3 class="sub-heading">Afstand tussen twee punten</h3>
+
+    <p>Voor twee punten P<sub>1</sub>(x<sub>1</sub>,&nbsp;y<sub>1</sub>) en P<sub>2</sub>(x<sub>2</sub>,&nbsp;y<sub>2</sub>) geldt de <strong>afstandsformule</strong>:</p>
+
+    <div class="formule">
+      <span class="formule-naam">Afstandsformule</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <mi>d</mi>
+          <mo>=</mo>
+          <msqrt>
+            <mrow>
+              <msup>
+                <mrow><mo>(</mo><msub><mi>x</mi><mn>2</mn></msub><mo>&#8722;</mo><msub><mi>x</mi><mn>1</mn></msub><mo>)</mo></mrow>
+                <mn>2</mn>
+              </msup>
+              <mo>+</mo>
+              <msup>
+                <mrow><mo>(</mo><msub><mi>y</mi><mn>2</mn></msub><mo>&#8722;</mo><msub><mi>y</mi><mn>1</mn></msub><mo>)</mo></mrow>
+                <mn>2</mn>
+              </msup>
+            </mrow>
+          </msqrt>
+        </mrow>
+      </math>
+    </div>
+
+    <p>De volgorde van de punten maakt niet uit: (x<sub>2</sub>&nbsp;&minus;&nbsp;x<sub>1</sub>)² = (x<sub>1</sub>&nbsp;&minus;&nbsp;x<sub>2</sub>)² omdat een kwadraat altijd positief is.</p>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Bereken de afstand tussen P(1,&nbsp;2) en Q(4,&nbsp;6).</p>
+      <ul class="rv-stappen">
+        <li>Bepaal de verschillen: x<sub>2</sub>&nbsp;&minus;&nbsp;x<sub>1</sub>&nbsp;=&nbsp;4&nbsp;&minus;&nbsp;1&nbsp;=&nbsp;3 en y<sub>2</sub>&nbsp;&minus;&nbsp;y<sub>1</sub>&nbsp;=&nbsp;6&nbsp;&minus;&nbsp;2&nbsp;=&nbsp;4.</li>
+        <li>Kwadraten optellen:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mn>3</mn><mn>2</mn></msup><mo>+</mo><msup><mn>4</mn><mn>2</mn></msup><mo>=</mo><mn>9</mn><mo>+</mo><mn>16</mn><mo>=</mo><mn>25</mn></math>.
+        </li>
+        <li>Wortel trekken:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><msqrt><mn>25</mn></msqrt><mo>=</mo><mn>5</mn></math>.
+        </li>
+      </ul>
+      <p class="rv-antwoord">d&nbsp;=&nbsp;5 eenheden. (Let op: dit is een 3&ndash;4&ndash;5 rechthoekige driehoek!)</p>
+    </div>
+
+    <h3 class="sub-heading">Middelpunt van een lijnstuk</h3>
+
+    <p>Het <strong>middelpunt</strong> M van het lijnstuk tussen twee punten berekenen we door de co&ouml;rdinaten te middelen: het gemiddelde van de x-co&ouml;rdinaten en het gemiddelde van de y-co&ouml;rdinaten.</p>
+
+    <div class="formule">
+      <span class="formule-naam">Middelpuntsformule</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <mi>M</mi>
+          <mo>=</mo>
+          <mo>(</mo>
+          <mfrac>
+            <mrow><msub><mi>x</mi><mn>1</mn></msub><mo>+</mo><msub><mi>x</mi><mn>2</mn></msub></mrow>
+            <mn>2</mn>
+          </mfrac>
+          <mo>,</mo>
+          <mspace width="0.5em"/>
+          <mfrac>
+            <mrow><msub><mi>y</mi><mn>1</mn></msub><mo>+</mo><msub><mi>y</mi><mn>2</mn></msub></mrow>
+            <mn>2</mn>
+          </mfrac>
+          <mo>)</mo>
+        </mrow>
+      </math>
+    </div>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Bepaal het middelpunt van het lijnstuk AB met A(&#8722;2,&nbsp;3) en B(6,&nbsp;1).</p>
+      <ul class="rv-stappen">
+        <li>Bereken de x-co&ouml;rdinaat van M:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mrow><mo>&#8722;</mo><mn>2</mn><mo>+</mo><mn>6</mn></mrow><mn>2</mn></mfrac><mo>=</mo><mfrac><mn>4</mn><mn>2</mn></mfrac><mo>=</mo><mn>2</mn></math>.
+        </li>
+        <li>Bereken de y-co&ouml;rdinaat van M:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mrow><mn>3</mn><mo>+</mo><mn>1</mn></mrow><mn>2</mn></mfrac><mo>=</mo><mfrac><mn>4</mn><mn>2</mn></mfrac><mo>=</mo><mn>2</mn></math>.
+        </li>
+        <li>Het middelpunt is M(2,&nbsp;2).</li>
+      </ul>
+      <p class="rv-antwoord">M(2,&nbsp;2) &mdash; het middelpunt ligt in kwadrant I, gelijk ver van A als van B.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Je weet dat het middelpunt M van AB gelijk is aan M(0,&nbsp;0) en dat A&nbsp;=&nbsp;(3,&nbsp;&minus;5). Wat zijn de co&ouml;rdinaten van B? Leg uit hoe je dit bepaalt.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 3: LETTERS ALS VARIABELEN
+  ============================================================ -->
+  <section class="section-block" id="variabelen">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Letters als variabelen</h2>
+    </div>
+
+    <p>In de wiskunde gebruiken we letters om <strong>onbekende</strong> of <strong>veranderlijke</strong> getallen voor te stellen. Zo'n letter noemen we een <strong>variabele</strong>. Een <strong>constante</strong> daarentegen is een vaste, bekende waarde &mdash; zoals het getal 5 of &pi;.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">x</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Variabele en constante</span>
+        <p class="begrip-def">Een <strong>variabele</strong> is een letter die een onbekend of veranderlijk getal voorstelt (bv. x, y, a, b, n). Een <strong>constante</strong> is een vaste waarde die niet verandert (bv. 3, &minus;7, &pi;). In de uitdrukking 4x&nbsp;+&nbsp;3 is x de variabele en 3 de constante.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Termen en co&euml;ffici&euml;nten</h3>
+
+    <p>Een <strong>term</strong> is een product van een getal en een of meer variabelen, of een losse constante. De getallenfactor heet de <strong>co&euml;ffici&euml;nt</strong> van de term. In de uitdrukking 5x&nbsp;&minus;&nbsp;3y&nbsp;+&nbsp;2 zijn er drie termen:</p>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.4rem;">
+      <li style="margin-bottom:0.5rem"><strong>5x</strong>: term met variabele x, co&euml;ffici&euml;nt 5</li>
+      <li style="margin-bottom:0.5rem"><strong>&minus;3y</strong>: term met variabele y, co&euml;ffici&euml;nt &minus;3</li>
+      <li><strong>2</strong>: constante term (ook <em>vrij lid</em> of <em>constante term</em> genoemd)</li>
+    </ul>
+
+    <h3 class="sub-heading">Gelijknamige termen samenvoegen</h3>
+
+    <p><strong>Gelijknamige termen</strong> (ook <em>soortgelijke termen</em>) zijn termen met precies dezelfde variabelen tot dezelfde machten. Alleen gelijknamige termen mogen worden samengevoegd door hun co&euml;ffici&euml;nten op te tellen of af te trekken.</p>
+
+    <div class="stelling">
+      <span class="st-label">Regel &mdash; Gelijknamige termen</span>
+      <p class="st-body">
+        Termen zijn gelijknamig als ze dezelfde lettercomponent hebben.<br>
+        Voorbeeld: 3x en &minus;5x zijn gelijknamig (beide bevatten x). 3x en 3y zijn <em>niet</em> gelijknamig.
+        <br><br>
+        3x&nbsp;+&nbsp;(&minus;5x)&nbsp;=&nbsp;(3&nbsp;&minus;&nbsp;5)x&nbsp;=&nbsp;&minus;2x
+      </p>
+    </div>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Vereenvoudig: 3x + 2y &#8722; x + 5y.</p>
+      <ul class="rv-stappen">
+        <li>Groepeer de x-termen samen: 3x&nbsp;&minus;&nbsp;x&nbsp;=&nbsp;(3&nbsp;&minus;&nbsp;1)x&nbsp;=&nbsp;2x.</li>
+        <li>Groepeer de y-termen samen: 2y&nbsp;+&nbsp;5y&nbsp;=&nbsp;(2&nbsp;+&nbsp;5)y&nbsp;=&nbsp;7y.</li>
+        <li>Schrijf de vereenvoudigde uitdrukking op.</li>
+      </ul>
+      <p class="rv-antwoord">3x + 2y &#8722; x + 5y = 2x + 7y</p>
+    </div>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Vereenvoudig: 4a² &#8722; 3a + 2a² + 6a &#8722; 1.</p>
+      <ul class="rv-stappen">
+        <li>Groepeer de a²-termen: 4a²&nbsp;+&nbsp;2a²&nbsp;=&nbsp;6a².</li>
+        <li>Groepeer de a-termen: &minus;3a&nbsp;+&nbsp;6a&nbsp;=&nbsp;3a.</li>
+        <li>De constante &minus;1 blijft staan (geen gelijknamige term).</li>
+        <li>Combineer: 6a²&nbsp;+&nbsp;3a&nbsp;&minus;&nbsp;1.</li>
+      </ul>
+      <p class="rv-antwoord">4a² &#8722; 3a + 2a² + 6a &#8722; 1 = 6a² + 3a &#8722; 1</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Waarom mogen 3x² en 3x <em>niet</em> samengevoegd worden, maar 3x² en &minus;7x² wel? Denk na over wat &ldquo;gelijknamig&rdquo; precies betekent.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 4: REKENREGELS MET LETTERS
+  ============================================================ -->
+  <section class="section-block" id="rekenregels">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Rekenregels met letters</h2>
+    </div>
+
+    <p>Met algebraïsche uitdrukkingen gelden dezelfde rekenregels als met gewone getallen: optellen, aftrekken, vermenigvuldigen en de prioriteitsregels. De <strong>distributieve wet</strong> is bijzonder belangrijk: ze laat ons toe om haakjes weg te werken.</p>
+
+    <h3 class="sub-heading">Optellen en aftrekken van uitdrukkingen</h3>
+
+    <p>Om twee uitdrukkingen op te tellen of af te trekken, voeg je de gelijknamige termen samen. Let bij aftrekken goed op het minteken: dat wijzigt het teken van <em>alle</em> termen van de tweede uitdrukking.</p>
+
+    <h3 class="sub-heading">De distributieve wet</h3>
+
+    <div class="stelling">
+      <span class="st-label">Wet &mdash; Distributieve wet (uitdelen)</span>
+      <p class="st-body">
+        Voor elk getal of elke uitdrukking a, b, c geldt:<br><br>
+        <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline">
+          <mrow>
+            <mi>a</mi><mo>(</mo><mi>b</mi><mo>+</mo><mi>c</mi><mo>)</mo>
+            <mo>=</mo>
+            <mi>a</mi><mi>b</mi><mo>+</mo><mi>a</mi><mi>c</mi>
+          </mrow>
+        </math>
+        <br><br>
+        en eveneens: &nbsp;
+        <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline">
+          <mrow>
+            <mi>a</mi><mo>(</mo><mi>b</mi><mo>&#8722;</mo><mi>c</mi><mo>)</mo>
+            <mo>=</mo>
+            <mi>a</mi><mi>b</mi><mo>&#8722;</mo><mi>a</mi><mi>c</mi>
+          </mrow>
+        </math>
+        <br><br>
+        Je vermenigvuldigt de factor voor de haakjes met <em>elke</em> term binnenin.
+      </p>
+    </div>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Bereken: 3(2x &#8722; 4).</p>
+      <ul class="rv-stappen">
+        <li>Verdeel de factor 3 over beide termen: 3&nbsp;&times;&nbsp;2x&nbsp;=&nbsp;6x en 3&nbsp;&times;&nbsp;(&minus;4)&nbsp;=&nbsp;&minus;12.</li>
+        <li>Schrijf het resultaat op.</li>
+      </ul>
+      <p class="rv-antwoord">3(2x &#8722; 4) = 6x &#8722; 12</p>
+    </div>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Bereken: &#8722;2(3a &#8722; 5b + 1).</p>
+      <ul class="rv-stappen">
+        <li>Verdeel &minus;2 over elke term afzonderlijk:</li>
+        <li>(&minus;2)&nbsp;&times;&nbsp;3a&nbsp;=&nbsp;&minus;6a</li>
+        <li>(&minus;2)&nbsp;&times;&nbsp;(&minus;5b)&nbsp;=&nbsp;+10b</li>
+        <li>(&minus;2)&nbsp;&times;&nbsp;1&nbsp;=&nbsp;&minus;2</li>
+        <li>Combineer: &minus;6a&nbsp;+&nbsp;10b&nbsp;&minus;&nbsp;2. Er zijn geen gelijknamige termen.</li>
+      </ul>
+      <p class="rv-antwoord">&#8722;2(3a &#8722; 5b + 1) = &#8722;6a + 10b &#8722; 2</p>
+    </div>
+
+    <h3 class="sub-heading">Uitdrukking &times; uitdrukking (uitbreiding)</h3>
+
+    <p>Wanneer twee uitdrukkingen tussen haakjes vermenigvuldigd worden, passen we de distributieve wet <em>twee keer</em> toe: elke term van de eerste uitdrukking wordt vermenigvuldigd met elke term van de tweede.</p>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld &mdash; Uitbreiding</span>
+      <p class="rv-vraag">Bereken: (x + 2)(x &#8722; 3).</p>
+      <ul class="rv-stappen">
+        <li>Verdeel x over de tweede haakjes: x&nbsp;&times;&nbsp;x&nbsp;=&nbsp;x² en x&nbsp;&times;&nbsp;(&minus;3)&nbsp;=&nbsp;&minus;3x.</li>
+        <li>Verdeel +2 over de tweede haakjes: 2&nbsp;&times;&nbsp;x&nbsp;=&nbsp;2x en 2&nbsp;&times;&nbsp;(&minus;3)&nbsp;=&nbsp;&minus;6.</li>
+        <li>Tel alles samen: x²&nbsp;&minus;&nbsp;3x&nbsp;+&nbsp;2x&nbsp;&minus;&nbsp;6.</li>
+        <li>Voeg gelijknamige termen samen: &minus;3x&nbsp;+&nbsp;2x&nbsp;=&nbsp;&minus;x.</li>
+      </ul>
+      <p class="rv-antwoord">(x + 2)(x &#8722; 3) = x² &#8722; x &#8722; 6</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Wat is het resultaat van (x&nbsp;+&nbsp;a)(x&nbsp;&minus;&nbsp;a)? Bereken het uit en kijk of je een patroon ziet. Dit noemen wiskundigen het &ldquo;product van een som en een verschil&rdquo;.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 5: WAARDE VAN EEN UITDRUKKING
+  ============================================================ -->
+  <section class="section-block" id="waarde-uitdrukking">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Waarde van een uitdrukking berekenen</h2>
+    </div>
+
+    <p>Wanneer we een specifieke waarde voor de variabele(n) kennen, kunnen we die <strong>invullen</strong> in de uitdrukking en de numerieke waarde berekenen. Dit noemen we het <strong>evalueren</strong> van de uitdrukking. Vervang elke letter door zijn waarde en reken dan zorgvuldig uit, met respect voor de bewerkingsvolgorde (machten eerst, dan vermenigvuldigen en delen, dan optellen en aftrekken).</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#8801;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Evalueren van een uitdrukking</span>
+        <p class="begrip-def">Een uitdrukking evalueren betekent: vervang elke variabele door de opgegeven waarde en bereken het resultaat stap voor stap. Gebruik altijd haakjes wanneer je een negatief getal invult, zodat je tekenvergissingen vermijdt.</p>
+      </div>
+    </div>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Bereken 3x² &#8722; 2x + 1 voor x = &#8722;2.</p>
+      <ul class="rv-stappen">
+        <li>Vul x&nbsp;=&nbsp;&minus;2 in (met haakjes): 3(&minus;2)²&nbsp;&minus;&nbsp;2(&minus;2)&nbsp;+&nbsp;1.</li>
+        <li>Bereken de macht: (&minus;2)²&nbsp;=&nbsp;4.</li>
+        <li>Bereken de producten: 3&nbsp;&times;&nbsp;4&nbsp;=&nbsp;12 en &minus;2&nbsp;&times;&nbsp;(&minus;2)&nbsp;=&nbsp;+4.</li>
+        <li>Tel alles op: 12&nbsp;+&nbsp;4&nbsp;+&nbsp;1&nbsp;=&nbsp;17.</li>
+      </ul>
+      <p class="rv-antwoord">Voor x = &#8722;2: 3x² &#8722; 2x + 1 = 17</p>
+    </div>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Bereken (2a + b)² voor a = 3 en b = &#8722;1.</p>
+      <ul class="rv-stappen">
+        <li>Vul in: (2&nbsp;&times;&nbsp;3&nbsp;+&nbsp;(&minus;1))².</li>
+        <li>Bereken de binnenste uitdrukking: 2&nbsp;&times;&nbsp;3&nbsp;=&nbsp;6, dan 6&nbsp;+&nbsp;(&minus;1)&nbsp;=&nbsp;5.</li>
+        <li>Kwadraat nemen: 5²&nbsp;=&nbsp;25.</li>
+      </ul>
+      <p class="rv-antwoord">Voor a = 3, b = &#8722;1: (2a + b)² = 25</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Twee leerlingen berekenen (&minus;3)² en krijgen respectievelijk 9 en &minus;9. Wie heeft gelijk? Wat is het verschil tussen (&minus;3)² en &minus;3²?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 6: FORMULES EN VERBANDEN
+  ============================================================ -->
+  <section class="section-block" id="formules">
+    <div class="section-heading">
+      <span class="section-num">6</span>
+      <h2 class="section-title">Formules en verbanden</h2>
+    </div>
+
+    <p>Een <strong>formule</strong> is een wiskundige uitdrukking die een <em>verband</em> beschrijft tussen grootheden. Formules zijn krachtig: ze laten ons toe om onbekenden te berekenen zolang we de andere grootheden kennen. Wiskunde, wetenschappen en techniek zijn vol van zulke verbanden.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#402;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Formule</span>
+        <p class="begrip-def">Een formule is een gelijkheid die het verband uitdrukt tussen twee of meer variabelen of grootheden. Bv. A&nbsp;=&nbsp;l&nbsp;&times;&nbsp;b legt het verband vast tussen de oppervlakte, de lengte en de breedte van een rechthoek.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Bekende formules</h3>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.4rem;">
+      <li style="margin-bottom:0.6rem"><strong>Oppervlakte rechthoek</strong>: A&nbsp;=&nbsp;l&nbsp;&times;&nbsp;b</li>
+      <li style="margin-bottom:0.6rem"><strong>Omtrek rechthoek</strong>: O&nbsp;=&nbsp;2(l&nbsp;+&nbsp;b)</li>
+      <li style="margin-bottom:0.6rem"><strong>Omtrek cirkel</strong>: O&nbsp;=&nbsp;2&pi;r</li>
+      <li style="margin-bottom:0.6rem"><strong>Oppervlakte cirkel</strong>: A&nbsp;=&nbsp;&pi;r²</li>
+      <li><strong>Inhoud balk</strong>: V&nbsp;=&nbsp;l&nbsp;&times;&nbsp;b&nbsp;&times;&nbsp;h</li>
+    </ul>
+
+    <p>We kunnen een formule ook <strong>omvormen</strong>: als we V, l en b kennen maar h niet, kunnen we h uitdrukken door beide kanten door l&nbsp;&times;&nbsp;b te delen.</p>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Gebruik de formule V = l &times; b &times; h om de hoogte te vinden van een balk met V&nbsp;=&nbsp;120, l&nbsp;=&nbsp;6 en b&nbsp;=&nbsp;4.</p>
+      <ul class="rv-stappen">
+        <li>Schrijf de formule op: V&nbsp;=&nbsp;l&nbsp;&times;&nbsp;b&nbsp;&times;&nbsp;h.</li>
+        <li>Vul de bekende waarden in: 120&nbsp;=&nbsp;6&nbsp;&times;&nbsp;4&nbsp;&times;&nbsp;h&nbsp;=&nbsp;24h.</li>
+        <li>Los op naar h: h&nbsp;=&nbsp;120&nbsp;&divide;&nbsp;24&nbsp;=&nbsp;5.</li>
+      </ul>
+      <p class="rv-antwoord">h = 5 (lengte-eenheden) &mdash; de balk is 5 eenheden hoog.</p>
+    </div>
+
+    <h3 class="sub-heading">Functies: een eerste kennismaking</h3>
+
+    <p>Een speciale soort verband is de <strong>functie</strong>: bij elke waarde van x hoort precies één waarde van y. We schrijven dit als y&nbsp;=&nbsp;f(x) of geven een regelmatig voorschrift, zoals y&nbsp;=&nbsp;2x&nbsp;+&nbsp;1. Voor elke x kun je dan de bijbehorende y-waarde berekenen door x in te vullen. Dit concept zul je in latere hoofdstukken uitvoerig verkennen.</p>
+
+    <div class="stelling">
+      <span class="st-label">Begrip &mdash; Functie (informeel)</span>
+      <p class="st-body">
+        Een functie is een regel die aan elke invoerwaarde x precies één uitvoerwaarde y koppelt.<br><br>
+        Voorbeeld: voor y&nbsp;=&nbsp;2x&nbsp;+&nbsp;1 geldt:<br>
+        x&nbsp;=&nbsp;0 &rarr; y&nbsp;=&nbsp;1; &nbsp; x&nbsp;=&nbsp;3 &rarr; y&nbsp;=&nbsp;7; &nbsp; x&nbsp;=&nbsp;&minus;2 &rarr; y&nbsp;=&nbsp;&minus;3.<br><br>
+        Je kunt deze koppels (x,&nbsp;y) als punten uitzetten in het co&ouml;rdinatenstelsel. Samen vormen ze een rechte lijn &mdash; de grafiek van de functie.
+      </p>
+    </div>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Stel y = 3x &#8722; 2. Bereken y voor x = 0, x = 2 en x = &#8722;1, en schrijf de koppels (x,&nbsp;y) op.</p>
+      <ul class="rv-stappen">
+        <li>x&nbsp;=&nbsp;0: y&nbsp;=&nbsp;3&nbsp;&times;&nbsp;0&nbsp;&minus;&nbsp;2&nbsp;=&nbsp;&minus;2. Koppel: (0,&nbsp;&minus;2).</li>
+        <li>x&nbsp;=&nbsp;2: y&nbsp;=&nbsp;3&nbsp;&times;&nbsp;2&nbsp;&minus;&nbsp;2&nbsp;=&nbsp;6&nbsp;&minus;&nbsp;2&nbsp;=&nbsp;4. Koppel: (2,&nbsp;4).</li>
+        <li>x&nbsp;=&nbsp;&minus;1: y&nbsp;=&nbsp;3&nbsp;&times;&nbsp;(&minus;1)&nbsp;&minus;&nbsp;2&nbsp;=&nbsp;&minus;3&nbsp;&minus;&nbsp;2&nbsp;=&nbsp;&minus;5. Koppel: (&minus;1,&nbsp;&minus;5).</li>
+      </ul>
+      <p class="rv-antwoord">De koppels zijn (0, &#8722;2), (2, 4) en (&#8722;1, &#8722;5). Deze punten liggen alle drie op de rechte lijn y = 3x &#8722; 2.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Je koopt ballonnen aan &euro;&nbsp;0,35 per stuk. Schrijf een formule die de totale kostprijs K uitdrukt als functie van het aantal ballonnen n. Wat stelt de variabele voor? Wat is de constante?</p>
+    </div>
+  </section>
+
+</div><!-- end page-wrapper -->
+
+<!-- ============================================================
+     OEFENINGEN
+============================================================ -->
+<section class="exercises-section" id="oefeningen">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <!-- Oefening 1 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Co&ouml;rdinaten plotten en aflezen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Teken zelf een co&ouml;rdinatenstelsel op millimeterpapier (of schrift) met assen van &minus;6 tot 6.</p>
+      <ol>
+        <li>Plot de punten P(4,&nbsp;1), Q(&minus;2,&nbsp;5), R(0,&nbsp;&minus;3), S(&minus;4,&nbsp;&minus;1) en T(3,&nbsp;0).</li>
+        <li>In welk kwadrant (of op welke as) ligt elk punt?</li>
+        <li>Lees de co&ouml;rdinaten af van drie punten die jij zelf op het rooster hebt getekend en geef ze aan je buur. Laat de buur de kwadranten benoemen.</li>
+      </ol>
+      <p class="ex-tip">Tip: begin altijd bij de oorsprong O(0,&nbsp;0). De abscis (x) bepaalt de horizontale richting, de ordinaat (y) de verticale.</p>
+    </div>
+
+    <!-- Oefening 2 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Afstand tussen twee punten</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Bereken de afstand tussen de volgende puntenparen. Geef een exacte waarde (met een wortel indien nodig) én een decimale benadering tot op &#233;&#233;n decimaal.</p>
+      <ol>
+        <li>A(0,&nbsp;0) en B(5,&nbsp;12)</li>
+        <li>C(2,&nbsp;3) en D(6,&nbsp;6)</li>
+        <li>E(&minus;3,&nbsp;1) en F(1,&nbsp;&minus;2)</li>
+        <li>G(&minus;4,&nbsp;&minus;2) en H(2,&nbsp;6)</li>
+      </ol>
+      <p class="ex-tip">Tip: let op de tekens bij het berekenen van de verschillen. Vergeet niet dat het kwadraat van een negatief getal positief is.</p>
+    </div>
+
+    <!-- Oefening 3 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Middelpunt van een lijnstuk</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Bepaal het middelpunt M van elk lijnstuk.</p>
+      <ol>
+        <li>A(1,&nbsp;3) en B(5,&nbsp;7)</li>
+        <li>P(&minus;6,&nbsp;4) en Q(2,&nbsp;&minus;2)</li>
+        <li>Het middelpunt M van segment CD is M(3,&nbsp;&minus;1). Als C&nbsp;=&nbsp;(1,&nbsp;2), wat zijn dan de co&ouml;rdinaten van D?</li>
+      </ol>
+      <p class="ex-tip">Tip: voor vraag 3 gebruik je de middelpuntsformule omgekeerd: als je het gemiddelde kent, kun je de tweede waarde bepalen.</p>
+    </div>
+
+    <!-- Oefening 4 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 4</p>
+      <p class="ex-name">Algebraïsche uitdrukkingen vereenvoudigen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Vereenvoudig de volgende uitdrukkingen door gelijknamige termen samen te voegen en haakjes weg te werken.</p>
+      <ol>
+        <li>5x &minus; 3y + 2x + 4y &minus; x</li>
+        <li>2a² + 5a &minus; 3a² &minus; a + 7</li>
+        <li>4(x &minus; 2) + 3(2x + 1)</li>
+        <li>&minus;(3m &minus; 2n) + 2(m + 4n)</li>
+        <li>2x(x + 3) &minus; x²</li>
+      </ol>
+      <p class="ex-tip">Tip: werk de haakjes eerst weg via de distributieve wet, en voeg daarna gelijknamige termen samen.</p>
+    </div>
+
+    <!-- Oefening 5 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 5</p>
+      <p class="ex-name">Waarde van een uitdrukking berekenen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Bereken de waarde van elke uitdrukking voor de opgegeven waarden.</p>
+      <ol>
+        <li>2x + 5 voor x = 4</li>
+        <li>x² &minus; 3x + 2 voor x = &minus;1</li>
+        <li>4a &minus; b² voor a = 2 en b = &minus;3</li>
+        <li>(x + y)(x &minus; y) voor x = 5 en y = 3</li>
+        <li>3p² &minus; 2q + 1 voor p = &minus;2 en q = 4</li>
+      </ol>
+      <p class="ex-tip">Tip: vervang altijd de variabele door de waarde tussen haakjes, zodat je de juiste volgorde van bewerkingen volgt (machten eerst, daarna &times; en &divide;, dan + en &minus;).</p>
+    </div>
+
+    <!-- Oefening 6 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 6</p>
+      <p class="ex-name">Formule toepassen om een onbekende te vinden</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Gebruik de gegeven formule om de gevraagde grootheid te berekenen.</p>
+      <ol>
+        <li>De oppervlakte van een rechthoek is A&nbsp;=&nbsp;l&nbsp;&times;&nbsp;b. Als A&nbsp;=&nbsp;84 en l&nbsp;=&nbsp;12, wat is dan b?</li>
+        <li>De omtrek van een rechthoek is O&nbsp;=&nbsp;2(l&nbsp;+&nbsp;b). Als O&nbsp;=&nbsp;38 en b&nbsp;=&nbsp;7, wat is dan l?</li>
+        <li>De omtrek van een cirkel is O&nbsp;=&nbsp;2&pi;r. Als O&nbsp;&approx;&nbsp;31,4 (gebruik &pi;&nbsp;&approx;&nbsp;3,14), wat is dan r?</li>
+        <li>Gebruik y&nbsp;=&nbsp;2x&nbsp;&minus;&nbsp;3. Voor welke x-waarde is y&nbsp;=&nbsp;7?</li>
+      </ol>
+      <p class="ex-tip">Tip: schrijf de formule eerst op, vul de bekende waarden in, en herschrijf de vergelijking zodat de onbekende alleen links staat.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SAMENVATTING
+============================================================ -->
+<section class="summary-section" id="samenvatting">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>Co&ouml;rdinatenstelsel</strong>: twee loodrechte assen (x-as en y-as) snijden elkaar in de <strong>oorsprong O(0,&nbsp;0)</strong>. Een punt P(x,&nbsp;y) heeft abscis x en ordinaat y.</li>
+      <li><strong>Vier kwadranten</strong>: kwadrant I (x&nbsp;&gt;&nbsp;0, y&nbsp;&gt;&nbsp;0), II (x&nbsp;&lt;&nbsp;0, y&nbsp;&gt;&nbsp;0), III (x&nbsp;&lt;&nbsp;0, y&nbsp;&lt;&nbsp;0), IV (x&nbsp;&gt;&nbsp;0, y&nbsp;&lt;&nbsp;0).</li>
+      <li><strong>Afstandsformule</strong>:
+        <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>d</mi><mo>=</mo><msqrt><mrow><msup><mrow><mo>(</mo><msub><mi>x</mi><mn>2</mn></msub><mo>&#8722;</mo><msub><mi>x</mi><mn>1</mn></msub><mo>)</mo></mrow><mn>2</mn></msup><mo>+</mo><msup><mrow><mo>(</mo><msub><mi>y</mi><mn>2</mn></msub><mo>&#8722;</mo><msub><mi>y</mi><mn>1</mn></msub><mo>)</mo></mrow><mn>2</mn></msup></mrow></msqrt></math>
+        &mdash; gebaseerd op de stelling van Pythagoras.
+      </li>
+      <li><strong>Middelpuntsformule</strong>: M&nbsp;=&nbsp;
+        <math xmlns="http://www.w3.org/1998/Math/MathML"><mo>(</mo><mfrac><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>+</mo><msub><mi>x</mi><mn>2</mn></msub></mrow><mn>2</mn></mfrac><mo>,</mo><mspace width="0.3em"/><mfrac><mrow><msub><mi>y</mi><mn>1</mn></msub><mo>+</mo><msub><mi>y</mi><mn>2</mn></msub></mrow><mn>2</mn></mfrac><mo>)</mo></math>
+        &mdash; het gemiddelde van de co&ouml;rdinaten.
+      </li>
+      <li><strong>Variabele</strong>: een letter die een onbekend of veranderlijk getal voorstelt. Een <strong>constante</strong> is een vaste waarde.</li>
+      <li><strong>Termen en co&euml;ffici&euml;nten</strong>: de co&euml;ffici&euml;nt is de getallenfactor van een term. Termen worden gescheiden door + of &minus;.</li>
+      <li><strong>Gelijknamige termen</strong> hebben dezelfde lettercomponent en kunnen worden samengevoegd door hun co&euml;ffici&euml;nten op te tellen.</li>
+      <li><strong>Distributieve wet</strong>: a(b&nbsp;+&nbsp;c)&nbsp;=&nbsp;ab&nbsp;+&nbsp;ac. De factor voor de haakjes wordt vermenigvuldigd met elke term binnenin.</li>
+      <li>Een uitdrukking <strong>evalueren</strong>: vul de opgegeven waarden in voor de variabelen en bereken stap voor stap, met haakjes rond negatieve getallen.</li>
+      <li>Een <strong>formule</strong> drukt een verband uit tussen grootheden. Een <strong>functie</strong> koppelt aan elke x-waarde precies één y-waarde; de grafiek is een verzameling van punten in het co&ouml;rdinatenstelsel.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

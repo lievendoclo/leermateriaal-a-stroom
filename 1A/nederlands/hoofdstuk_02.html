@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoofdstuk 2 — Welke soort tekst is dit? | Nederlands 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.25; }
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+    text-decoration: none;
+  }
+  .site-header .label-right { text-align: right; }
+
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image: radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+  .chapter-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+  .prologue .ornament-line .ornament-sym { color: var(--gold); font-size: 1.1rem; opacity: 0.8; }
+  .prologue p { font-style: italic; font-size: 1.05rem; line-height: 1.85; color: rgba(250,246,239,0.9); }
+  .prologue p + p { margin-top: 0.9em; }
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+  .begrip .begrip-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .begrip .begrip-body { flex: 1; }
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+  .begrip .begrip-def { font-size: 0.97rem; color: var(--text-mid); line-height: 1.65; margin: 0; }
+
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .denkvraag .dv-text { font-style: italic; font-size: 1rem; color: var(--text-mid); line-height: 1.7; }
+
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+  }
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ── VOORBEELDTEKST ── */
+  .voorbeeldtekst {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 2rem 2.2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .voorbeeldtekst .vt-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--darkblue);
+    opacity: 0.6;
+    margin-bottom: 0.4rem;
+    display: block;
+  }
+  .voorbeeldtekst .vt-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 0.3rem;
+  }
+  .voorbeeldtekst .vt-meta {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    margin-bottom: 1.2rem;
+    font-style: italic;
+  }
+  .voorbeeldtekst .vt-body p {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-bottom: 0.9em;
+  }
+  .voorbeeldtekst .vt-body p:last-child { margin-bottom: 0; }
+  .voorbeeldtekst .vt-source {
+    margin-top: 1rem;
+    font-size: 0.78rem;
+    color: var(--text-light);
+    border-top: 1px solid var(--sand);
+    padding-top: 0.6rem;
+    font-style: italic;
+  }
+
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+  .exercise-card ol, .exercise-card ul { padding-left: 1.4rem; margin-top: 0.5rem; }
+  .exercise-card li { margin-bottom: 0.45rem; font-size: 0.96rem; color: var(--text-mid); }
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+  .summary-section ul { list-style: none; padding: 0; }
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0; top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem; right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px; height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  .prose-text { max-width: 100%; }
+  .highlighted-para {
+    background: rgba(212,160,23,0.08);
+    border-left: 3px solid var(--gold);
+    padding: 0.8rem 1.1rem;
+    border-radius: 0 4px 4px 0;
+    margin: 1.2rem 0;
+    font-size: 0.97rem;
+    color: var(--text-mid);
+  }
+
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section, .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .voorbeeldtekst { padding: 1.4rem 1.2rem; }
+  }
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ── VERGELIJKINGSTABEL (flexbox grid) ── */
+  .vergelijk-grid {
+    margin: 1.8rem 0;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    border: 1px solid var(--sand);
+    box-shadow: var(--shadow-sm);
+  }
+  .vg-header {
+    display: flex;
+    background: var(--darkblue);
+    color: var(--gold);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .vg-row {
+    display: flex;
+    border-top: 1px solid var(--sand);
+  }
+  .vg-row:nth-child(even) { background: #FFFDF8; }
+  .vg-row:nth-child(odd) { background: var(--sand-light); }
+  .vg-cell {
+    flex: 1;
+    padding: 0.7rem 1rem;
+    font-size: 0.92rem;
+    color: var(--text-mid);
+    line-height: 1.55;
+    border-right: 1px solid var(--sand);
+  }
+  .vg-cell:last-child { border-right: none; }
+  .vg-header .vg-cell {
+    color: var(--gold);
+    padding: 0.65rem 1rem;
+    border-right: 1px solid rgba(212,160,23,0.2);
+  }
+  .vg-header .vg-cell:last-child { border-right: none; }
+  .vg-cell.soort { font-weight: 700; color: var(--terracotta); font-family: 'Playfair Display', serif; font-size: 0.97rem; }
+  @media (max-width: 600px) {
+    .vg-header, .vg-row { flex-wrap: wrap; }
+    .vg-cell { flex: 0 0 50%; font-size: 0.84rem; padding: 0.5rem 0.7rem; }
+    .vg-cell.soort { flex: 0 0 100%; background: rgba(193,68,14,0.06); }
+  }
+
+  /* ── GEDICHT ── */
+  .gedicht {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--oker);
+    border-radius: var(--border-radius);
+    padding: 2.2rem 2.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+  }
+  .gedicht .ged-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--oker);
+    margin-bottom: 1rem;
+    display: block;
+  }
+  .gedicht .ged-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 1.5rem;
+  }
+  .gedicht .ged-body {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 2;
+    color: var(--text-dark);
+    white-space: pre-line;
+  }
+  .gedicht .ged-author {
+    margin-top: 1.4rem;
+    font-size: 0.82rem;
+    color: var(--text-light);
+    font-style: italic;
+  }
+
+  /* ── INSTRUCTIE-VOORBEELD ── */
+  .instructie-voorbeeld {
+    background: #F0F6FF;
+    border: 1px solid #C5D8F0;
+    border-left: 4px solid var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 1.4rem 1.6rem;
+    margin: 1.6rem 0;
+  }
+  .instructie-voorbeeld .iv-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--darkblue);
+    opacity: 0.65;
+    margin-bottom: 0.6rem;
+    display: block;
+  }
+  .instructie-voorbeeld ol { padding-left: 1.4rem; margin-top: 0.4rem; }
+  .instructie-voorbeeld li { margin-bottom: 0.35rem; font-size: 0.96rem; color: var(--text-mid); }
+
+  /* ── FRAGMENT-CARD (voor oefening 1) ── */
+  .fragment-list { margin: 1rem 0; }
+  .fragment-item {
+    background: white;
+    border: 1px solid var(--sand);
+    border-radius: var(--border-radius);
+    padding: 1rem 1.3rem;
+    margin-bottom: 0.9rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    box-shadow: var(--shadow-sm);
+  }
+  .fragment-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    opacity: 0.6;
+    line-height: 1;
+    flex-shrink: 0;
+    min-width: 1.6rem;
+  }
+  .fragment-text {
+    font-size: 0.96rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header" id="top">
+  <a class="label" href="index.html">Nederlands 1A</a>
+  <span class="label label-right">Hoofdstuk 2</span>
+</header>
+
+<div class="chapter-hero">
+  <div class="chapter-kicker">Nederlands &nbsp;·&nbsp; 1A &nbsp;·&nbsp; Eerste graad</div>
+  <h1>Hoofdstuk 2<br>Welke soort tekst is dit?</h1>
+  <p class="subtitle">Zes soorten teksten die je elke dag tegenkomt — en hoe je ze herkent</p>
+</div>
+
+<div class="page-wrapper">
+
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Eén minuut op je telefoon</span>
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+
+    <p>Stel je voor: je pakt je telefoon op, precies zoals je dat honderd keer per dag doet. Eén minuut lang scrol je. Eerst een melding — <em>Breakingnieuws: treinverkeer op lijn 12 verstoord door stroomprobleem.</em> Negen woorden, maar je weet meteen dat dit feiten zijn, geen mening. Je scrollt verder. Een gesponsord bericht sluipt je tijdlijn in: een foto van een slanke jongere met felgekleurd blikje in de hand, en de tekst <em>"VoltBoost geeft jou de energie om elke dag te knallen — nu 20% korting!"</em> Mooi gemaakt. Maar wat wil dit eigenlijk van je?</p>
+
+    <p>Dan een bericht van een vriendin: <em>"Ik was gisteren bij Taco Palace — totaal teleurstellend, de service was rampzalig en het eten lauw. Twee sterren van mij."</em> Dat is haar mening. Dan een Reels-video: iemand legt stap voor stap uit hoe je de perfecte scrambled eggs maakt. Daarna een TikTok waarop een meisje vertelt hoe ze haar grootmoeder verloor en hoe die dag voelde — de muziek zwelt aan, je voelt iets in je borst. En als laatste: een screenshot van een gedicht dat een vriend je stuurde, acht regels over de regen, zonder uitleg.</p>
+
+    <p>Zes inhoudsstukken, één minuut, zes totaal verschillende ervaringen. Je las ze niet op dezelfde manier. Het nieuwsbericht checkte je snel op feiten. De reclame bekeek je met licht wantrouwen. De recensie vergeleek je met je eigen ervaring. De instructievideo volgde je stap voor stap. Het verhaal liet je meeslepen. Het gedicht las je langzaam, tweemaal. <strong style="color: var(--gold);">Waarom deed je dat zo? Omdat je — misschien zonder het te weten — de tekstsoort herkende.</strong></p>
+
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+  </section>
+
+  <div class="prose-text" style="padding: 1.5rem 0 0.5rem;">
+    <p>Elke tekst heeft een <em>doel</em>: informeren, overtuigen, een mening delen, uitleggen, vertellen of ontroeren. Dat doel bepaalt hoe de tekst is opgebouwd, welke taal er wordt gebruikt en wat er van jou als lezer wordt verwacht. Als je weet welk type tekst je voor je hebt, lees je slimmer. Je stelt de juiste vragen, je pikt misleiding sneller op en je begrijpt de tekst veel beter. In dit hoofdstuk leer je zes tekstsoorten herkennen — en gebruiken.</p>
+  </div>
+
+  <section class="section-block" id="s1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Overzicht: zes tekstsoorten en hun doel</h2>
+    </div>
+    <div class="prose-text">
+      <p>Elke tekst die ooit geschreven of gesproken werd, heeft een <strong>tekstdoel</strong>: een communicatieve bedoeling. De schrijver of spreker wil iets bereiken bij de lezer of luisteraar. Op basis van dat doel groeperen taalwetenschappers teksten in <em>tekstsoorten</em>.</p>
+
+      <p>In dit hoofdstuk werken we met zes grote tekstsoorten. Ze zijn niet altijd strikt gescheiden — een tekst kan elementen van meerdere soorten bevatten — maar in de meeste gevallen overheerst er één doel. Leer die zes soorten kennen als een gereedschapskist: elke tool heeft een eigen vorm en functie.</p>
+
+      <div class="begrip">
+        <span class="begrip-icon">📖</span>
+        <div class="begrip-body">
+          <span class="begrip-term">Begrip</span>
+          <span class="begrip-name">Tekstsoort</span>
+          <p class="begrip-def">Een tekstsoort is een categorie van teksten met een vergelijkbaar communicatief doel en vergelijkbare kenmerken. Het tekstdoel — informeren, overtuigen, een mening geven, uitleggen, vertellen of esthetisch ontroeren — bepaalt welke tekstsoort een tekst is.</p>
+        </div>
+      </div>
+
+      <p>Hier zijn de zes tekstsoorten in één oogopslag:</p>
+
+      <div class="vergelijk-grid">
+        <div class="vg-header">
+          <div class="vg-cell">Tekstsoort</div>
+          <div class="vg-cell">Doel</div>
+          <div class="vg-cell">Voorbeelden</div>
+        </div>
+        <div class="vg-row">
+          <div class="vg-cell soort">Informatief</div>
+          <div class="vg-cell">Feiten en informatie doorgeven</div>
+          <div class="vg-cell">Krantenartikel, leerboek, interview</div>
+        </div>
+        <div class="vg-row">
+          <div class="vg-cell soort">Overtuigend</div>
+          <div class="vg-cell">Gedrag of mening beïnvloeden</div>
+          <div class="vg-cell">Reclame, campagnefolder, propaganda</div>
+        </div>
+        <div class="vg-row">
+          <div class="vg-cell soort">Opiniërend</div>
+          <div class="vg-cell">Eigen mening delen</div>
+          <div class="vg-cell">Recensie, forumreactie, review</div>
+        </div>
+        <div class="vg-row">
+          <div class="vg-cell soort">Instructief</div>
+          <div class="vg-cell">Uitleggen hoe je iets doet</div>
+          <div class="vg-cell">Recept, handleiding, bijsluiter</div>
+        </div>
+        <div class="vg-row">
+          <div class="vg-cell soort">Verhalend</div>
+          <div class="vg-cell">Een verhaal vertellen, beleving delen</div>
+          <div class="vg-cell">Vlog, reisverslag, podcast</div>
+        </div>
+        <div class="vg-row">
+          <div class="vg-cell soort">Literair</div>
+          <div class="vg-cell">Emotie oproepen, taal als kunst</div>
+          <div class="vg-cell">Gedicht, roman, strip, lied</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-block" id="s2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Informatieve teksten</h2>
+    </div>
+    <div class="prose-text">
+      <p>De informatieve tekst heeft één hoofddoel: de lezer iets <em>laten weten</em>. De schrijver deelt feiten, gegevens, verklaringen of beschrijvingen — zonder er een persoonlijke mening aan toe te voegen. Dat is meteen het grote kenmerk: een goede informatieve tekst is <strong>zo objectief mogelijk</strong>. De schrijver staat als het ware op de achtergrond.</p>
+
+      <p>Je vindt informatieve teksten overal: in je leerboeken, in de krant, op Wikipedia, in documentaires, in wetenschappelijke tijdschriften, in verslagen en in interviews waarbij feiten centraal staan. Ze zijn de ruggengraat van kennis overdragen.</p>
+
+      <p>Hoe herken je een informatieve tekst? Let op deze kenmerken:</p>
+      <ul style="padding-left: 1.4rem; margin: 0.5rem 0 1rem;">
+        <li style="margin-bottom: 0.4rem;">Feiten worden gestaafd met bronnen, cijfers of namen.</li>
+        <li style="margin-bottom: 0.4rem;">De schrijver gebruikt weinig "ik" of persoonlijke oordelen.</li>
+        <li style="margin-bottom: 0.4rem;">De taal is neutraal: geen sterke bijvoeglijke naamwoorden zoals "geweldig" of "verschrikkelijk".</li>
+        <li style="margin-bottom: 0.4rem;">De structuur is helder: inleiding, uitleg, conclusie.</li>
+        <li style="margin-bottom: 0.4rem;">Er staan verwijzingen naar andere bronnen, experts of onderzoek.</li>
+      </ul>
+
+      <p>Let op: volledig objectief bestaat niet. Elke schrijver maakt keuzes — welke feiten hij vermeldt, in welke volgorde, met welke woorden. Maar een <em>goede</em> informatieve tekst probeert die subjectiviteit zo klein mogelijk te houden.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Informatieve tekst</span>
+        <p class="begrip-def">Een informatieve tekst geeft de lezer feitelijke informatie over een onderwerp. Het doel is informeren: de tekst is zo objectief mogelijk en gebruikt feiten, cijfers en bronnen in plaats van persoonlijke meningen.</p>
+      </div>
+    </div>
+
+    <div class="illustratie">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Illustratie: een krantenvoorpagina naast een leerboekpagina naast een Wikipedia-schermafbeelding. Alle drie hebben koppen, tussenkopjes en bronvermeldingen zichtbaar. Bijschrift: "Informatieve teksten herken je aan hun gelaagde, gedocumenteerde structuur."</p>
+    </div>
+  </section>
+
+  <section class="section-block" id="s3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Overtuigende en beïnvloedende teksten</h2>
+    </div>
+    <div class="prose-text">
+      <p>Overtuigende teksten willen dat je iets <em>doet</em> of iets <em>gelooft</em>. Het gaat niet alleen om het delen van informatie, maar om het sturen van gedrag of overtuiging. Reclame wil dat je koopt. Een politieke folder wil dat je op iemand stemt. Een campagne wil dat je je gedrag verandert. Propaganda wil dat je een bepaald beeld van de wereld gaat overnemen.</p>
+
+      <p>Het gevaarlijke aan overtuigende teksten is dat ze er soms heel anders <em>uitzien</em> dan wat ze zijn. Reclame vermomt zich als nieuws. Gesponsorde inhoud lijkt op een gewone post van een vriend. Nepnieuws heeft de opmaak van een betrouwbaar nieuwsartikel. Precies daarom is het zo belangrijk dat je deze tekstsoort leert herkennen: zodat jij beslist wat je denkt, en niet de tekst dat voor jou doet.</p>
+
+      <p>Signalen van overtuigende teksten:</p>
+      <ul style="padding-left: 1.4rem; margin: 0.5rem 0 1rem;">
+        <li style="margin-bottom: 0.4rem;">Emotionele taal: woorden die je enthousiast, bang of boos maken.</li>
+        <li style="margin-bottom: 0.4rem;">Een duidelijke oproep tot actie: "Koop nu", "Stem voor", "Deel dit".</li>
+        <li style="margin-bottom: 0.4rem;">Eenzijdigheid: tegenargumenten worden weggelaten of belachelijk gemaakt.</li>
+        <li style="margin-bottom: 0.4rem;">Gebruik van beroemdheden, experts of "de meeste mensen".</li>
+        <li style="margin-bottom: 0.4rem;">Labels zoals "Gesponsord", "Advertentie" of "Samenwerking" — als die er zijn.</li>
+      </ul>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Overtuigende tekst</span>
+        <p class="begrip-def">Een overtuigende of beïnvloedende tekst probeert de lezer te overtuigen iets te doen, te kopen of te geloven. Reclame, politieke folders, campagnes, propaganda en publireportages zijn voorbeelden. Ze gebruiken bewust emotionele taal, beelden en argumenten om gedrag of mening te sturen.</p>
+      </div>
+    </div>
+
+    <div class="voorbeeldtekst">
+      <span class="vt-label">Voorbeeldtekst · Overtuigende tekst (gesponsorde inhoud)</span>
+      <p class="vt-title">Nieuw energiedrankje veroverde België in drie maanden</p>
+      <p class="vt-meta">Geplaatst op SportActueel.be · door redactie · gesponsord</p>
+      <div class="vt-body">
+        <p>Sporters en studenten zweren er massaal bij: VoltBoost, het nieuwste energiedrankje uit de stal van NutriLab, is in minder dan drie maanden uitgegroeid tot een van de populairste drankjes in zijn categorie. Maar liefst 94% van de testgebruikers gaf aan zich merkbaar energieker te voelen na dagelijks gebruik.</p>
+        <p>"Het is niet zomaar een energiedrank," vertelt diëtiste Lien Verbraeken. "VoltBoost combineert vitamines, plantenextracten en elektrolyten op een manier die het lichaam écht ondersteunt." Wetenschappelijk onderzoek naar de exacte werking loopt nog, maar de eerste resultaten zijn veelbelovend.</p>
+        <p>VoltBoost is nu verkrijgbaar in vier smaken via de webshop en bij geselecteerde sportwinkels. Voor lezers van SportActueel geldt t/m zondag een welkomstkorting van 20% met de code VOLT20. Mis het niet — de voorraad is beperkt.</p>
+      </div>
+      <p class="vt-source">Fictieve gesponsorde inhoud ter illustratie. Alle namen zijn verzonnen.</p>
+    </div>
+
+    <div class="prose-text">
+      <p>Zie je hoe dit stuk eruitziet als een nieuwsartikel — met een "redactie", een "expert" en cijfers — maar eigenlijk pure reclame is? Let op de verklikkertekens: het woord "gesponsord" bovenaan (niet iedereen leest dat), de 94%-claim zonder bronvermelding, de wetenschappelijke twijfel die snel weggewuifd wordt ("resultaten zijn veelbelovend"), en de urgentie aan het einde ("voorraad is beperkt"). Dit zijn klassieke overtuigingstechnieken. Een <strong>publireportage</strong> is reclame die is opgemaakt als journalistieke tekst — en precies daardoor extra misleidend.</p>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">Wat is het verschil tussen reclame en propaganda? Beide willen overtuigen — maar is er een moreel verschil? En waar ligt de grens tussen overtuigen en manipuleren?</p>
+    </div>
+  </section>
+
+  <section class="section-block" id="s4">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Opiniërende teksten</h2>
+    </div>
+    <div class="prose-text">
+      <p>Een opiniërende tekst geeft de <em>persoonlijke mening</em> van de schrijver. Het gaat niet om feiten alleen, maar om een oordeel: wat vindt de schrijver goed, slecht, mooi, waardeloos, overgewaardeerd? Dat oordeel mag er zijn — zolang het duidelijk als mening gepresenteerd wordt en niet als feit.</p>
+
+      <p>Opiniërende teksten vind je overal: in filmrecensies en boekbesprekingen, in hoteltbeoordelingen op Booking.com, in productreviews op webshops, in ingezonden brieven in de krant, in forumreacties en op sociale media. Ook protestliedjes en satirische teksten zijn opiniërend: ze nemen een standpunt in over de wereld.</p>
+
+      <p>Hoe herken je een opiniërende tekst? De schrijver gebruikt:</p>
+      <ul style="padding-left: 1.4rem; margin: 0.5rem 0 1rem;">
+        <li style="margin-bottom: 0.4rem;">Beoordelende woorden: "uitstekend", "teleurstellend", "overgewaardeerd".</li>
+        <li style="margin-bottom: 0.4rem;">De eerste persoon ("ik vind", "volgens mij", "naar mijn mening").</li>
+        <li style="margin-bottom: 0.4rem;">Argumenten ter ondersteuning van het standpunt.</li>
+        <li style="margin-bottom: 0.4rem;">Een duidelijke conclusie of aanbeveling.</li>
+      </ul>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Opiniërende tekst</span>
+        <p class="begrip-def">Een opiniërende tekst geeft de persoonlijke mening of het oordeel van de schrijver. Recensies, forumreacties, productreviews en opinieartikelen zijn voorbeelden. De mening wordt onderbouwd met argumenten, maar blijft een subjectief standpunt — geen objectief feit.</p>
+      </div>
+    </div>
+
+    <div class="voorbeeldtekst">
+      <span class="vt-label">Voorbeeldtekst · Opiniërende tekst (filmrecensie)</span>
+      <p class="vt-title">Recensie: <em>De Nacht van de Zilveren Maan</em> (2024)</p>
+      <p class="vt-meta">Bioscoopfilm · drama/thriller · regie: fictief · door recensent Tijs Maessen</p>
+      <div class="vt-body">
+        <p>Na de veel geprezen debuutfilm van regisseur Kaat Hendricks verwachtte iedereen een meesterwerk. Dat <em>De Nacht van de Zilveren Maan</em> zo diep teleurstelt, doet dan ook extra pijn.</p>
+        <p>Het verhaal start veelbelovend: een forensisch analiste ontdekt dat de dood van haar zus geen ongeluk was. Maar al snel verliest de film zich in onlogische plotwendingen. De personages nemen beslissingen die geen enkel mens in die situatie zou nemen, waardoor elke spanning meteen verdampt. De dialogen klinken dan ook eerder als een draaiboekversie van het leven dan als echte mensen die praten.</p>
+        <p>De enige lichtpunten zijn het camerawerk — prachtige nachtopnames — en de soundtrack. Die redden echter niet wat een slordig script kapotmaakt. Twee sterren op vijf, en dat is genereus.</p>
+      </div>
+      <p class="vt-source">Fictieve recensie ter illustratie. Film en personen zijn verzonnen.</p>
+    </div>
+
+    <div class="prose-text">
+      <p>Welke signalen vertellen jou dat dit een opiniërende tekst is? De recensent gebruikt oordelen ("doet extra pijn", "zo diep teleurstelt", "slordig script"), hij bouwt argumenten op ("de personages nemen beslissingen die geen enkel mens…"), en hij sluit af met een expliciete beoordeling ("twee sterren op vijf"). Dit is geen beschrijving van de film, maar een <em>oordeel</em> over de film. Dat is precies het verschil met een informatieve tekst.</p>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">Als je een productreview leest op een webshop, hoe weet je dan of de mening te vertrouwen is? Welke elementen maken een mening betrouwbaar of onbetrouwbaar?</p>
+    </div>
+  </section>
+
+  <section class="section-block" id="s5">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Instructieve teksten</h2>
+    </div>
+    <div class="prose-text">
+      <p>Instructieve teksten leggen uit <em>hoe je iets doet</em>. Het doel is niet informeren in de brede zin, maar concreet begeleiden bij het uitvoeren van een taak. Elk recept, elke handleiding, elke bijsluiter, elk schoolreglement en elk instructiefilmpje is instructief. Ze zijn geschreven om gevolgd te worden.</p>
+
+      <p>Herkenningspunten van instructieve teksten zijn heel kenmerkend:</p>
+      <ul style="padding-left: 1.4rem; margin: 0.5rem 0 1rem;">
+        <li style="margin-bottom: 0.4rem;"><strong>Gebiedende wijs</strong> (imperatief): "Verwarm de oven", "Klik op Installeren", "Bewaar op een koele plaats".</li>
+        <li style="margin-bottom: 0.4rem;"><strong>Genummerde stappen</strong> of een duidelijke chronologische volgorde.</li>
+        <li style="margin-bottom: 0.4rem;"><strong>Lijsten</strong> van benodigdheden, onderdelen of ingrediënten.</li>
+        <li style="margin-bottom: 0.4rem;"><strong>Waarschuwingen</strong> en veiligheidsinstructies ("Let op:", "Opgelet:").</li>
+        <li style="margin-bottom: 0.4rem;">Korte, directe zinnen zonder omhaal.</li>
+      </ul>
+
+      <p>Het publiek van instructieve teksten staat centraal: de tekst moet zo duidelijk zijn dat iemand die er niets van weet de taak kan uitvoeren. Ambiguïteit — dubbelzinnigheid — is de vijand van de goede instructieve tekst.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Instructieve tekst</span>
+        <p class="begrip-def">Een instructieve tekst legt stap voor stap uit hoe je een handeling uitvoert. Recepten, handleidingen, bijsluiters, schoolreglementen en instructiefilmpjes zijn instructieve teksten. Ze gebruiken de gebiedende wijs, genummerde stappen en een heldere structuur.</p>
+      </div>
+    </div>
+
+    <div class="instructie-voorbeeld">
+      <span class="iv-label">Mini-voorbeeld · Instructieve tekst: recept (fragment)</span>
+      <p style="font-size: 0.95rem; color: var(--text-mid); margin-bottom: 0.7rem;"><strong>Perfecte scrambled eggs (voor 2 personen)</strong></p>
+      <p style="font-size: 0.88rem; color: var(--text-light); font-style: italic; margin-bottom: 0.6rem;">Benodigdheden: 4 eieren, 1 eetlepel boter, snufje zout, eventueel bieslook</p>
+      <ol>
+        <li>Breek de eieren in een kom en klop ze los met een vork. Voeg een snufje zout toe.</li>
+        <li>Verhit een pan op laag vuur en laat de boter smelten zonder te bruinen.</li>
+        <li>Giet het eiermengsel in de pan. Roer continu met een houten spatel.</li>
+        <li>Haal de pan van het vuur zodra de eieren bijna gestold zijn — ze garen nog na.</li>
+        <li>Serveer onmiddellijk op toast en bestrooi desgewenst met bieslook.</li>
+      </ol>
+    </div>
+
+    <div class="prose-text">
+      <p>Merk je hoe elke stap begint met een werkwoord in de gebiedende wijs? "Breek", "Verhit", "Giet", "Haal", "Serveer". Dat is het duidelijkste kenmerk van de instructieve tekst: de lezer wordt rechtstreeks aangesproken als iemand die iets gaat <em>doen</em>, niet als iemand die iets gaat <em>begrijpen</em>.</p>
+    </div>
+  </section>
+
+  <section class="section-block" id="s6">
+    <div class="section-heading">
+      <span class="section-num">6</span>
+      <h2 class="section-title">Verhalende teksten</h2>
+    </div>
+    <div class="prose-text">
+      <p>Verhalende teksten vertellen een verhaal. Ze beschrijven gebeurtenissen in een bepaalde volgorde, met personages, een setting en een verloop. Het gaat niet alleen om fictie: ook een reisverslag, een videoblog, een podcast over iemands persoonlijke ervaring of een dagboekfragment zijn verhalend. Het centrale element is de <em>verteller</em> — er is altijd iemand die het verhaal brengt, en die verteller kleurt wat je leest of hoort.</p>
+
+      <p>Verhalende teksten onderscheiden zich van informatieve teksten doordat het accent ligt op <em>beleving</em> in plaats van feiten. Je leest niet alleen wat er gebeurde, maar ook hoe het voelde, wie de mensen waren, wat de sfeer was. Verhalende teksten nemen je mee.</p>
+
+      <p>Kenmerken van verhalende teksten:</p>
+      <ul style="padding-left: 1.4rem; margin: 0.5rem 0 1rem;">
+        <li style="margin-bottom: 0.4rem;">Er is een verteller (ik-perspectief of derde persoon).</li>
+        <li style="margin-bottom: 0.4rem;">Er is een tijdsvolgorde: begin, midden, einde.</li>
+        <li style="margin-bottom: 0.4rem;">Er zijn personages of een centrale figuur.</li>
+        <li style="margin-bottom: 0.4rem;">Er is beschrijving van sfeer, emotie en beleving.</li>
+        <li style="margin-bottom: 0.4rem;">Werkwoorden staan vaak in de verleden tijd.</li>
+      </ul>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Verhalende tekst</span>
+        <p class="begrip-def">Een verhalende tekst vertelt een verhaal of een beleving. Er is altijd een verteller, personages, een tijdsvolgorde en een setting. Videoblogs, reisverslagen, podcasts, dagboeken en verhalende gedichten zijn verhalende teksten. Het accent ligt op beleving, niet op feitelijke informatie.</p>
+      </div>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">Een reisverslag vertelt een verhaal, maar bevat ook informatieve elementen (plaatsnamen, feiten over een land). Hoe beslis je dan welke tekstsoort het is? Waar kijk je naar?</p>
+    </div>
+  </section>
+
+  <section class="section-block" id="s7">
+    <div class="section-heading">
+      <span class="section-num">7</span>
+      <h2 class="section-title">Literaire teksten</h2>
+    </div>
+    <div class="prose-text">
+      <p>Literaire teksten zijn een bijzondere categorie. Ze kunnen vertellen, informeren of een mening geven — maar dat is niet hun <em>eigenlijke</em> doel. Het hoofddoel van een literaire tekst is <strong>esthetische waarde</strong>: de taal zelf is mooi, origineel, verrassend of ontroerend. De schrijver speelt bewust met woorden, klanken, beelden en betekenissen.</p>
+
+      <p>Jeugdboeken, romans, kortverhalen, strips, gedichten, liedteksten en stand-upcomedy zijn literaire teksten. Ze wekken emoties op — verdriet, vreugde, nostalgie, angst, verwondering — en ze laten ruimte voor interpretatie. Een goede literaire tekst heeft geen één correcte betekenis: verschillende lezers kunnen er iets anders in zien, en dat is precies de bedoeling.</p>
+
+      <p>Wat maakt een tekst "literair"?</p>
+      <ul style="padding-left: 1.4rem; margin: 0.5rem 0 1rem;">
+        <li style="margin-bottom: 0.4rem;"><strong>Beeldspraak</strong>: metaforen, vergelijkingen, symbolen.</li>
+        <li style="margin-bottom: 0.4rem;"><strong>Klankeffecten</strong>: rijm, alliteratie, ritme.</li>
+        <li style="margin-bottom: 0.4rem;"><strong>Meerduidigheid</strong>: woorden en zinnen hebben meer dan één lezing.</li>
+        <li style="margin-bottom: 0.4rem;"><strong>Emotionele impact</strong>: de tekst raakt je, ook al kun je niet altijd uitleggen waarom.</li>
+        <li style="margin-bottom: 0.4rem;"><strong>Taal als doel op zich</strong>: hoe iets gezegd wordt is even belangrijk als wát er gezegd wordt.</li>
+      </ul>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Literaire tekst</span>
+        <p class="begrip-def">Een literaire tekst heeft esthetische waarde: de taal zelf — de klanken, beelden, ritmes en meerduidigheid — is net zo belangrijk als de inhoud. Literaire teksten spelen bewust in op emoties en laten ruimte voor interpretatie. Gedichten, romans, liedteksten en strips zijn voorbeelden.</p>
+      </div>
+    </div>
+
+    <div class="gedicht">
+      <span class="ged-label">Voorbeeldtekst · Literaire tekst (gedicht)</span>
+      <p class="ged-title">Maandagochtend in november</p>
+      <div class="ged-body">De regen tikt op glas
+als iemand die wacht
+maar niet durft te kloppen.
+
+De straat glanst leeg.
+Een paraplu vecht
+tegen zichzelf in de wind.
+
+Ik zit met koud brood
+en een kopje dat langzaam
+zijn warmte weggeeft —
+
+en buiten wordt grijs
+gewoon maar grijs,
+gewoon.</div>
+      <p class="ged-author">Origineel gedicht, geschreven ter illustratie</p>
+    </div>
+
+    <div class="prose-text">
+      <p>Welke emoties roept dit gedicht bij je op? Merk je hoe de regen wordt beschreven als "iemand die wacht maar niet durft te kloppen"? Dat is een <strong>personificatie</strong> — een stijlfiguur waarbij iets niet-menselijks menselijke eigenschappen krijgt. Of de herhaling van "gewoon maar grijs / gewoon" op het einde: die herhaling geeft een gevoel van berusting, van iets dat maar niet wil ophouden. Dat zijn geen toevalligheden. De schrijver heeft bewust die keuzes gemaakt. Dát is wat een tekst literair maakt.</p>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">Wat voelt dit gedicht voor jou: verdrietig, rustig, triest, gezellig, iets anders? En waarom denk je dat twee mensen hetzelfde gedicht heel anders kunnen ervaren?</p>
+    </div>
+  </section>
+
+  <section class="section-block" id="s8">
+    <div class="section-heading">
+      <span class="section-num">8</span>
+      <h2 class="section-title">Hoe herken je de tekstsoort?</h2>
+    </div>
+    <div class="prose-text">
+      <p>Nu je alle zes tekstsoorten kent, is de volgende stap: ze snel en betrouwbaar herkennen in de praktijk. Dat doe je door vier vragen te stellen bij elke tekst die je tegenkomt.</p>
+
+      <p><strong>1. Kanaal — Waar vind je de tekst?</strong> Een tekst op een reclamebanner is waarschijnlijk overtuigend. Een tekst in een leerboek is waarschijnlijk informatief. Een tekst op TripAdvisor is waarschijnlijk opiniërend. Het kanaal geeft je al een eerste hint — maar vertrouw er niet blind op, want overtuigende teksten vermommen zich graag op informatieve kanalen.</p>
+
+      <p><strong>2. Doel — Wat wil de tekst van jou?</strong> Wil de tekst dat je iets weet? Dat je iets doet? Dat je het eens bent met een standpunt? Dat je een procedure volgt? Dat je meegaat in een verhaal of een gevoel? Het doel is de kern van de tekstsoort.</p>
+
+      <p><strong>3. Taal — Welke woorden en zinnen worden gebruikt?</strong> Gebiedende wijs wijst op instructief. Beoordelende woorden wijzen op opiniërend. Emotionele taal met een oproep tot actie wijst op overtuigend. Rijm en beeldspraak wijzen op literair. Neutrale feitelijke taal wijst op informatief. Verleden tijd en beschrijvingen van beleving wijzen op verhalend.</p>
+
+      <p><strong>4. Structuur — Hoe is de tekst opgebouwd?</strong> Genummerde stappen: instructief. Inleiding-middenstuk-conclusie met feiten: informatief. Stelling gevolgd door argumenten: opiniërend of overtuigend. Chronologische verhaallijn: verhalend. Vrije vorm met witruimte: literair.</p>
+    </div>
+
+    <div class="highlighted-para">
+      <strong>Onthoud:</strong> veel teksten combineren elementen van meerdere tekstsoorten. Een reportage kan informatief zijn maar ook verhalende passages bevatten. Een roman kan informatieve details bevatten. Zoek altijd het <em>overheersende</em> doel — dat bepaalt de tekstsoort.
+    </div>
+
+    <div class="vergelijk-grid" style="margin-top: 1.8rem;">
+      <div class="vg-header">
+        <div class="vg-cell">Tekstsoort</div>
+        <div class="vg-cell">Taalsignaal</div>
+        <div class="vg-cell">Structuursignaal</div>
+        <div class="vg-cell">Kanaal (typisch)</div>
+      </div>
+      <div class="vg-row">
+        <div class="vg-cell soort">Informatief</div>
+        <div class="vg-cell">Neutraal, bronvermelding</div>
+        <div class="vg-cell">Inl. – uitleg – concl.</div>
+        <div class="vg-cell">Krant, leerboek, wiki</div>
+      </div>
+      <div class="vg-row">
+        <div class="vg-cell soort">Overtuigend</div>
+        <div class="vg-cell">Emotioneel, oproep tot actie</div>
+        <div class="vg-cell">Stelling – bewijs – actie</div>
+        <div class="vg-cell">Reclame, social media</div>
+      </div>
+      <div class="vg-row">
+        <div class="vg-cell soort">Opiniërend</div>
+        <div class="vg-cell">"Ik vind", oordelen</div>
+        <div class="vg-cell">Standpunt – argumenten</div>
+        <div class="vg-cell">Review, forum, opinie</div>
+      </div>
+      <div class="vg-row">
+        <div class="vg-cell soort">Instructief</div>
+        <div class="vg-cell">Gebiedende wijs</div>
+        <div class="vg-cell">Genummerde stappen</div>
+        <div class="vg-cell">Handleiding, recept</div>
+      </div>
+      <div class="vg-row">
+        <div class="vg-cell soort">Verhalend</div>
+        <div class="vg-cell">Verleden tijd, beleving</div>
+        <div class="vg-cell">Begin – midden – einde</div>
+        <div class="vg-cell">Vlog, podcast, verslag</div>
+      </div>
+      <div class="vg-row">
+        <div class="vg-cell soort">Literair</div>
+        <div class="vg-cell">Beeldspraak, rijm, ritme</div>
+        <div class="vg-cell">Vrij, witruimte, strofen</div>
+        <div class="vg-cell">Boek, lied, strip</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="exercises-section" id="oefeningen">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Herken de tekstsoort</p>
+      <p>Lees de vijf tekstfragmenten hieronder. Bepaal voor elk fragment:</p>
+      <ol>
+        <li>Om welke tekstsoort gaat het?</li>
+        <li>Noem één concreet signaal in de tekst zelf dat jou dat vertelt.</li>
+      </ol>
+
+      <div class="fragment-list" style="margin-top: 1.2rem;">
+        <div class="fragment-item">
+          <span class="fragment-num">A</span>
+          <span class="fragment-text">"Zet de Arduino-kaart in de USB-poort van je computer. Open daarna de software en klik op 'Nieuw project'. Sla het bestand op in een map die je makkelijk terugvindt."</span>
+        </div>
+        <div class="fragment-item">
+          <span class="fragment-num">B</span>
+          <span class="fragment-text">"De klimaatconferentie in Genève eindigde gisteren zonder bindend akkoord. Delegaties van 47 landen discussieerden drie dagen over de reductiedoelstellingen voor 2035. Een volgende vergadering is gepland voor maart."</span>
+        </div>
+        <div class="fragment-item">
+          <span class="fragment-num">C</span>
+          <span class="fragment-text">"Dit is veruit het beste koptelefoon dat ik ooit kocht. De geluidskwaliteit is fenomenaal, de batterij gaat bijna 30 uur mee en hij zit comfortabel. Absoluut een aanrader voor iedereen die echt van muziek houdt."</span>
+        </div>
+        <div class="fragment-item">
+          <span class="fragment-num">D</span>
+          <span class="fragment-text">"De zon zakt weg achter de bergen als we eindelijk het dorp bereiken. Onze rugzakken wegen zwaarder dan ze 's ochtends deden, maar het uitzicht — al dat goud op de rotsen — laat me alles vergeten."</span>
+        </div>
+        <div class="fragment-item">
+          <span class="fragment-num">E</span>
+          <span class="fragment-text">"Tijd vliegt niet —
+het kruipt soms,
+soms staat het stil,
+en soms verdwijnt een jaar
+in een knipoog
+die je miste."</span>
+        </div>
+      </div>
+
+      <p class="ex-tip">Tip: schrijf volledige zinnen in je antwoord, ook voor het signaal. Niet "rijm", maar "De tekst gebruikt rijm ('stil' / 'miste') en witruimte, wat typisch is voor een gedicht."</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Drie soorten over één onderwerp</p>
+      <p>Stel je voor dat je schrijft voor de schoolkrant van jullie school. Het onderwerp is: <strong>de schoolcafetaria</strong>. Schrijf voor elk van de drie onderstaande tekstsoorten <em>één goede zin of twee korte zinnen</em> over datzelfde onderwerp. Let goed op de taal en toon die bij elke soort hoort.</p>
+      <ol>
+        <li><strong>Informatief</strong> — rapporteer een feit over de cafetaria.</li>
+        <li><strong>Opiniërend</strong> — geef jouw mening over de cafetaria.</li>
+        <li><strong>Overtuigend</strong> — probeer leerlingen iets te laten doen of geloven in verband met de cafetaria.</li>
+      </ol>
+      <p>Vergelijk daarna jouw drie zinnen met die van een klasgenoot. Zijn de tekstsoorten duidelijk herkenbaar?</p>
+      <p class="ex-tip">Tip: gebruik bij de informatieve zin een getal of feit. Gebruik bij de opiniërende zin "ik vind" of "naar mijn mening". Gebruik bij de overtuigende zin een werkwoord dat aanstuurt op actie.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Analyse van een echte tekst</p>
+      <p>Zoek op je telefoon of tablet een tekst die je de afgelopen week tegenkwam — een bericht, een post, een artikel, een reclame, een video-omschrijving, wat dan ook. Analyseer die tekst aan de hand van de vier vragen uit sectie 8:</p>
+      <ol>
+        <li><strong>Kanaal:</strong> Waar vond je de tekst? Wat zegt dat al over de tekstsoort?</li>
+        <li><strong>Doel:</strong> Wat wil de tekst van jou?</li>
+        <li><strong>Taal:</strong> Welke taalsignalen herken je (gebiedende wijs, oordelen, beeldspraak…)?</li>
+        <li><strong>Structuur:</strong> Hoe is de tekst opgebouwd?</li>
+        <li><strong>Conclusie:</strong> Welke tekstsoort is het, en ben je het eens met het doel van de tekst?</li>
+      </ol>
+      <p class="ex-tip">Tip: als de tekst je opviel of irriteerde of blij maakte — dat is een goed teken. Interessante teksten zijn de beste om te analyseren.</p>
+    </div>
+  </section>
+
+  <section class="summary-section" id="samenvatting">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li>Elke tekst heeft een <strong>tekstdoel</strong> — de communicatieve bedoeling van de schrijver. Op basis daarvan onderscheiden we <strong>zes tekstsoorten</strong>.</li>
+      <li><strong>Informatieve teksten</strong> geven feiten en informatie zo objectief mogelijk, met bronnen en neutrale taal.</li>
+      <li><strong>Overtuigende teksten</strong> willen gedrag of mening beïnvloeden. Ze gebruiken emotionele taal en een oproep tot actie — en vermommen zich soms als nieuws of informatie.</li>
+      <li><strong>Opiniërende teksten</strong> geven het persoonlijke oordeel van de schrijver, onderbouwd met argumenten. Recensies, reviews en forumreacties zijn typische voorbeelden.</li>
+      <li><strong>Instructieve teksten</strong> leggen stap voor stap uit hoe je iets doet. Je herkent ze aan de gebiedende wijs en de genummerde structuur.</li>
+      <li><strong>Verhalende teksten</strong> vertellen een beleving of verhaal, met een verteller, personages en een tijdsvolgorde.</li>
+      <li><strong>Literaire teksten</strong> hebben esthetische waarde: de taal zelf is kunst. Ze spelen in op emoties en laten ruimte voor meerdere interpretaties.</li>
+    </ul>
+  </section>
+
+</div>
+
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Terug naar boven">↑</button>
+<script>
+  const btn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => btn.classList.toggle('visible', window.scrollY > 400));
+</script>
+<script src="nav.js"></script>
+</body>
+</html>

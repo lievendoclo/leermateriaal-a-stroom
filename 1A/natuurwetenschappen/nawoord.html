@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nawoord — Klaar voor je examen | Natuurwetenschappen 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --gold: #D4A017;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    /* Extended tokens used internally */
+    --terracotta-light: #D4561E;
+    --gold-light: #E8B82A;
+    --darkblue-light: #243B63;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     CLOSING QUOTE
+  ============================================================ */
+  .closing-quote {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0D1E38 100%);
+    border-radius: var(--border-radius);
+    padding: 3rem 3rem 2.5rem;
+    margin: 3.5rem 0 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.5rem; left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .closing-quote .cq-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--gold);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 1.2rem;
+  }
+
+  .closing-quote .cq-attribution {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(212,160,23,0.6);
+  }
+
+  .closing-quote .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .closing-quote .ornament-line::before,
+  .closing-quote .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.4), transparent);
+  }
+
+  .closing-quote .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.7;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .closing-quote { padding: 2rem 1.2rem 1.8rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     NATUURWETENSCHAPPEN-SPECIFIC COMPONENTS
+  ============================================================ */
+
+  /* ── EXPERIMENT KADER ───────────────────────────────── */
+  .experiment-kader { background: #FFF8F5; border-left: 4px solid var(--terracotta); border-radius: 0 var(--border-radius) var(--border-radius) 0; padding: 1.3rem 1.5rem; margin: 1.8rem 0; box-shadow: var(--shadow-sm); }
+  .experiment-kader .exp-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--terracotta); display: block; margin-bottom: 0.35rem; }
+  .experiment-kader .exp-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--darkblue); display: block; margin-bottom: 0.8rem; }
+
+  /* ── WETENSCHAPS KADER ──────────────────────────────── */
+  .wetenschaps-kader { background: #EEF3FF; border-left: 4px solid var(--darkblue); border-radius: 0 var(--border-radius) var(--border-radius) 0; padding: 1.2rem 1.5rem; margin: 1.5rem 0; }
+  .wetenschaps-kader .wk-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--darkblue); opacity: 0.7; display: block; margin-bottom: 0.35rem; }
+  .wetenschaps-kader .wk-body { font-size: 0.97rem; color: var(--text-dark); }
+
+  /* ── TABEL WRAP ─────────────────────────────────────── */
+  .tabel-wrap { margin: 1.8rem 0; overflow-x: auto; border-radius: var(--border-radius); box-shadow: var(--shadow-sm); }
+  .tabel-wrap table { width: 100%; border-collapse: collapse; font-size: 0.96rem; }
+  .tabel-wrap th { background: var(--darkblue); color: var(--gold); padding: 0.75rem 1rem; text-align: left; font-family: 'Source Sans 3', sans-serif; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; }
+  .tabel-wrap td { padding: 0.65rem 1rem; border-bottom: 1px solid rgba(200,146,58,0.2); color: var(--text-mid); }
+  .tabel-wrap tr:last-child td { border-bottom: none; }
+  .tabel-wrap tr:nth-child(even) td { background: rgba(232,220,200,0.3); }
+
+  /* ── CHECKLIST SECTION ──────────────────────────────── */
+  .checklist-section { background: var(--sand-light); border-radius: var(--border-radius); padding: 2rem 2.5rem; margin: 2rem 0; }
+  .checklist-section h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--darkblue); margin-bottom: 1.2rem; }
+  .checklist-section ul { list-style: none; padding: 0; }
+  .checklist-section ul li { padding: 0.5rem 0 0.5rem 2.5rem; position: relative; font-size: 0.97rem; color: var(--text-mid); border-bottom: 1px solid rgba(200,146,58,0.15); }
+  .checklist-section ul li:last-child { border-bottom: none; }
+  .checklist-section ul li::before { content: '&#9744;'; position: absolute; left: 0; color: var(--terracotta); font-size: 1.1rem; }
+
+  /* ── TIP KADER ──────────────────────────────────────── */
+  .tip-kader { background: linear-gradient(135deg, #1A2B4A 0%, #243B63 100%); border-radius: var(--border-radius); padding: 1.5rem 1.8rem; margin: 1.5rem 0; color: var(--creme); box-shadow: var(--shadow-md); }
+  .tip-kader .tip-num { display: inline-block; background: var(--gold); color: var(--darkblue); font-weight: 700; font-size: 0.8rem; padding: 0.2rem 0.6rem; border-radius: 3px; margin-bottom: 0.6rem; font-family: 'Source Sans 3', sans-serif; }
+  .tip-kader .tip-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600; color: var(--gold); display: block; margin-bottom: 0.4rem; }
+  .tip-kader .tip-body { font-size: 0.97rem; color: rgba(250,246,239,0.88); line-height: 1.7; }
+
+  /* ── FORMULE REF GRID ───────────────────────────────── */
+  .formule-ref-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+    margin: 1.8rem 0;
+  }
+  .formule-ref-card {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 3px solid var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 1.2rem 1.3rem;
+    box-shadow: var(--shadow-sm);
+  }
+  .formule-ref-card .frc-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--oker);
+    display: block;
+    margin-bottom: 0.6rem;
+  }
+  .formule-ref-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .formule-ref-card ul li {
+    font-size: 0.93rem;
+    color: var(--text-mid);
+    padding: 0.3rem 0;
+    border-bottom: 1px solid rgba(200,146,58,0.12);
+    line-height: 1.55;
+  }
+  .formule-ref-card ul li:last-child { border-bottom: none; }
+  .formule-ref-card ul li strong { color: var(--darkblue); }
+
+  /* ── ALERT BANNER ───────────────────────────────────── */
+  .alert-banner {
+    background: var(--terracotta);
+    color: white;
+    border-radius: var(--border-radius);
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    box-shadow: var(--shadow-sm);
+  }
+  .alert-banner .alert-icon { font-size: 1.2rem; flex-shrink: 0; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <span class="label">Natuurwetenschappen &nbsp;&middot;&nbsp; 1A</span>
+  <span class="label label-right">Eerste graad A-stroom</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Natuurwetenschappen &nbsp;&middot;&nbsp; 1A &nbsp;&middot;&nbsp; Nawoord</div>
+  <h1>Nawoord<br>Klaar voor je examen</h1>
+  <p class="subtitle">Alles wat je nodig hebt om met vertrouwen naar het examen te gaan</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- CHAPTER TITLE BLOCK -->
+  <div style="padding: 2.5rem 0 0.5rem;">
+    <div style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.2em;color:var(--oker);margin-bottom:0.5rem;">Nawoord</div>
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;color:var(--darkblue);margin-bottom:1.2rem;line-height:1.2;">Klaar voor je examen</h1>
+    <p style="font-size:1.08rem;color:var(--text-mid);line-height:1.8;max-width:720px;border-left:3px solid var(--oker);padding-left:1.2rem;">Je hebt een heel jaar door de wereld van de natuurwetenschappen gereisd. Van de kleinste celonderdelen tot de krachten die voorwerpen in beweging brengen. Dit nawoord is je gids voor de laatste kilometers: het examen. Hier vind je alles wat je moet weten &mdash; georganiseerd, overzichtelijk, klaar om te gebruiken.</p>
+  </div>
+
+  <!-- PROLOGUE -->
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Voordat we beginnen &hellip;</span>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p>Een wetenschapper neemt nooit iets zomaar aan. Die stelt vragen, zoekt bewijs, test hypothesen en trekt conclusies op basis van data. Jij hebt dat dit jaar geleerd: hoe je een experiment opzet, hoe je een grafiek leest, hoe je een reactievergelijking schrijft. Dat is geen losse kennis &mdash; dat is een manier van denken.</p>
+    <p>Het examen vraagt je om die kennis en die manier van denken te laten zien. Niet met vrije tekst, maar via gerichte vragen met bronnenmateriaal. De vragen zijn zorgvuldig samengesteld om te peilen of je begrijpt wat je hebt geleerd &mdash; niet of je dingen blindelings kunt opdreunen.</p>
+    <p><strong style="color: var(--gold);">Gebruik dit nawoord als een routekaart. Kruis af wat je beheerst. Herhaal wat nog wankel voelt. En ga met vertrouwen naar het examen.</strong></p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 1 — ZO ZIET HET EXAMEN ERUIT
+  ============================================================ -->
+  <section class="section-block" id="s1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Zo ziet het examen eruit</h2>
+    </div>
+
+    <p>Het examen voor Natuurwetenschappen 1A wordt afgelegd via de Examencommissie van de Vlaamse Gemeenschap. Hier zijn alle praktische details die je moet kennen vóór de dag zelf.</p>
+
+    <h3 class="sub-heading">Praktische info</h3>
+
+    <div class="tabel-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Gegeven</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Locatie</strong></td>
+            <td>Examencentrum in Brussel</td>
+          </tr>
+          <tr>
+            <td><strong>Duur</strong></td>
+            <td>90 minuten</td>
+          </tr>
+          <tr>
+            <td><strong>Type</strong></td>
+            <td>Digitaal examen, gesloten vragen (geen vrije tekstvragen)</td>
+          </tr>
+          <tr>
+            <td><strong>Vraagtypes</strong></td>
+            <td>Invulvragen, sleepvragen, dropdownvragen, meerkeuzevragen</td>
+          </tr>
+          <tr>
+            <td><strong>Bronnenmateriaal</strong></td>
+            <td>Bij de meeste opdrachten horen prenten, foto&rsquo;s of stukjes tekst</td>
+          </tr>
+          <tr>
+            <td><strong>Mee te brengen</strong></td>
+            <td>Identiteitskaart of een geldig alternatief</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub-heading">Toegestane hulpmiddelen</h3>
+    <p>Tijdens het examen mag je de volgende digitale hulpmiddelen gebruiken:</p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.4rem"><strong>Spellingscontrole</strong> &mdash; ingebouwd in het systeem</li>
+      <li style="margin-bottom:0.4rem"><strong>Eenvoudig woordenboek</strong> &mdash; voor het opzoeken van woorden</li>
+      <li style="margin-bottom:0.4rem"><strong>Digitale rekenapp</strong> &mdash; voor berekeningen</li>
+      <li style="margin-bottom:0.4rem"><strong>Geodriehoek, passer, meetlat</strong> &mdash; op aanvraag bij de begeleider</li>
+    </ul>
+
+    <div class="alert-banner">
+      <span class="alert-icon">&#9888;</span>
+      <span>Bijlage 2 (voedings- en bewegingsdriehoek) MAG je gebruiken. Bijlage 1 (formules en grootheden) MAG NIET &mdash; die moet je uit het hoofd kennen!</span>
+    </div>
+
+    <h3 class="sub-heading">Verboden tijdens het examen</h3>
+    <p>Alle persoonlijke spullen &mdash; gsm, smartwatch, notities, of welk ander hulpmiddel dan ook &mdash; moeten in een <strong>locker</strong> voor het examen. Meebrengen of gebruik in de examenruimte wordt beschouwd als <strong>examenoplichting</strong> en heeft ernstige gevolgen.</p>
+
+    <h3 class="sub-heading">Weging per onderdeel</h3>
+    <p>Het examen bestaat uit drie grote onderdelen. Zorg dat je de zwaardere delen extra goed beheerst:</p>
+
+    <div class="tabel-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Onderdeel</th>
+            <th>Gewicht</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Deel Biologie</strong></td>
+            <td>47,5%</td>
+          </tr>
+          <tr>
+            <td><strong>Deel Chemie en Fysica</strong></td>
+            <td>32,5%</td>
+          </tr>
+          <tr>
+            <td><strong>Deel Wetenschappelijk Onderzoek</strong></td>
+            <td>20%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="wetenschaps-kader">
+      <span class="wk-label">Formules die je uit het hoofd moet kennen (bijlage 1 mag niet!)</span>
+      <p class="wk-body">
+        <strong>Massadichtheid:</strong> &rho; = m/V &nbsp;&nbsp;
+        <strong>Snelheid:</strong> v = &Delta;x/&Delta;t<br>
+        <strong>Volumes:</strong> V<sub>kubus</sub> = z&sup3; &nbsp;&bull;&nbsp; V<sub>balk</sub> = l&middot;b&middot;h &nbsp;&bull;&nbsp; V<sub>bol</sub> = (4/3)&middot;&pi;&middot;r&sup3; &nbsp;&bull;&nbsp; V<sub>cilinder</sub> = &pi;&middot;r&sup2;&middot;h<br><br>
+        <strong>Fotosynthese:</strong> 6CO<sub>2</sub> + 6H<sub>2</sub>O + lichtenergie &rarr; C<sub>6</sub>H<sub>12</sub>O<sub>6</sub> + 6O<sub>2</sub><br>
+        <strong>Celademhaling:</strong> C<sub>6</sub>H<sub>12</sub>O<sub>6</sub> + 6O<sub>2</sub> &rarr; 6CO<sub>2</sub> + 6H<sub>2</sub>O + energie<br><br>
+        <em>Deze formules en vergelijkingen staan NIET in de bijlage &mdash; je moet ze volledig uit het hoofd kennen, inclusief alle co&euml;ffi&euml;nten.</em>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 2 — CHECKLIST BIOLOGIE
+  ============================================================ -->
+  <section class="section-block" id="s2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Checklist Biologie <span style="font-size:1.1rem;font-weight:400;color:var(--terracotta);">(47,5%)</span></h2>
+    </div>
+
+    <p>Biologie is het zwaarste onderdeel van het examen. Werk elke sectie grondig door en kruis af wat je zeker beheerst. Blijf herhalen tot alle vakjes zijn afgevinkt.</p>
+
+    <!-- H1: De cel -->
+    <div class="checklist-section">
+      <h3>H1 &mdash; De cel</h3>
+      <ul>
+        <li>Ik ken de organisatieniveaus: cel &rarr; weefsel &rarr; orgaan &rarr; stelsel &rarr; organisme</li>
+        <li>Ik kan de celonderdelen van een dierlijke cel benoemen en hun functie uitleggen</li>
+        <li>Ik kan de celonderdelen van een plantaardige cel benoemen en hun functie uitleggen</li>
+        <li>Ik kan dierlijke en plantaardige cellen vergelijken (overeenkomsten en verschillen)</li>
+      </ul>
+    </div>
+
+    <!-- H2: Fotosynthese -->
+    <div class="checklist-section">
+      <h3>H2 &mdash; Fotosynthese</h3>
+      <ul>
+        <li>Ik kan het verschil uitleggen tussen autotrofen en heterotrofen</li>
+        <li>Ik ken de reactievergelijking van fotosynthese (grondstoffen &eacute;n producten)</li>
+        <li>Ik kan uitleggen welke factoren fotosynthese be&iuml;nvloeden</li>
+        <li>Ik kan het belang van fotosynthese voor het leven op Aarde uitleggen</li>
+      </ul>
+    </div>
+
+    <!-- H3: Stofomzettingen -->
+    <div class="checklist-section">
+      <h3>H3 &mdash; Stofomzettingen</h3>
+      <ul>
+        <li>Ik kan de weg van voedsel door het spijsverteringsstelsel beschrijven</li>
+        <li>Ik kan het verschil uitleggen tussen mechanische en chemische vertering</li>
+        <li>Ik kan het proces van gaswisseling in de longen beschrijven</li>
+        <li>Ik ken de kleine en grote bloedsomloop</li>
+        <li>Ik kan de drie bloedvattypes benoemen en hun kenmerken beschrijven</li>
+        <li>Ik kan de reactievergelijking van celademhaling schrijven</li>
+        <li>Ik kan celademhaling vergelijken met fotosynthese</li>
+      </ul>
+    </div>
+
+    <!-- H4: Voortplanting -->
+    <div class="checklist-section">
+      <h3>H4 &mdash; Voortplanting</h3>
+      <ul>
+        <li>Ik kan het verschil uitleggen tussen aseksuele en seksuele voortplanting</li>
+        <li>Ik kan de voortplanting bij planten beschrijven (bloembouw, bestuiving, bevruchting)</li>
+        <li>Ik kan de menstruatiecyclus in grote lijnen beschrijven</li>
+        <li>Ik ken de voornaamste voorbehoedsmiddelen en hun werking</li>
+      </ul>
+    </div>
+
+    <!-- H5: Ecologie -->
+    <div class="checklist-section">
+      <h3>H5 &mdash; Ecologie</h3>
+      <ul>
+        <li>Ik ken het verschil tussen biotoop, populatie, levensgemeenschap en ecosysteem</li>
+        <li>Ik kan abiotische en biotische factoren onderscheiden en voorbeelden geven</li>
+        <li>Ik kan een voedselketen opbouwen en de rollen benoemen (producent, consument, decomponent)</li>
+        <li>Ik kan het principe van de ecologische pira&shy;mide uitleggen</li>
+        <li>Ik ken het belang van biodiversiteit</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 3 — CHECKLIST CHEMIE EN FYSICA
+  ============================================================ -->
+  <section class="section-block" id="s3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Checklist Chemie en Fysica <span style="font-size:1.1rem;font-weight:400;color:var(--terracotta);">(32,5%)</span></h2>
+    </div>
+
+    <p>Chemie en fysica vragen zowel begrip als rekenvaardigheid. Let extra op de formules, de eenheden en de redeneerlijnen achter elk concept.</p>
+
+    <!-- H6: Materie -->
+    <div class="checklist-section">
+      <h3>H6 &mdash; Materie</h3>
+      <ul>
+        <li>Ik kan het verschil uitleggen tussen een fysisch en chemisch verschijnsel</li>
+        <li>Ik kan het deeltjesmodel gebruiken om de drie aggregatietoestanden te beschrijven</li>
+        <li>Ik kan alle zes faseovergangen benoemen en verklaren</li>
+        <li>Ik kan thermisch uitzetten en krimpen verklaren aan de hand van het deeltjesmodel</li>
+      </ul>
+    </div>
+
+    <!-- H7: Mengsels -->
+    <div class="checklist-section">
+      <h3>H7 &mdash; Mengsels</h3>
+      <ul>
+        <li>Ik kan het verschil uitleggen tussen een zuivere stof en een mengsel</li>
+        <li>Ik kan homogene en heterogene mengsels onderscheiden</li>
+        <li>Ik ken de voornaamste scheidingstechnieken en wanneer je ze gebruikt</li>
+      </ul>
+    </div>
+
+    <!-- H8: Massadichtheid -->
+    <div class="checklist-section">
+      <h3>H8 &mdash; Massadichtheid</h3>
+      <ul>
+        <li>Ik kan de formule &rho; = m/V correct toepassen</li>
+        <li>Ik kan het volume bepalen van regelmatige voorwerpen (met de volumeformules)</li>
+        <li>Ik kan het volume bepalen via onderdompeling</li>
+        <li>Ik kan omzettingen maken: kg/m&sup3; &harr; g/cm&sup3;, L &harr; m&sup3;</li>
+        <li>Ik kan verklaren wanneer een voorwerp zinkt, zweeft of drijft</li>
+      </ul>
+    </div>
+
+    <!-- H9: Energie -->
+    <div class="checklist-section">
+      <h3>H9 &mdash; Energie</h3>
+      <ul>
+        <li>Ik kan de zeven energievormen benoemen en voorbeelden geven</li>
+        <li>Ik kan energieomzettingen beschrijven en het energieverlies als warmte verklaren</li>
+        <li>Ik kan het rendement berekenen</li>
+      </ul>
+    </div>
+
+    <!-- H10: Krachten en snelheid -->
+    <div class="checklist-section">
+      <h3>H10 &mdash; Krachten en snelheid</h3>
+      <ul>
+        <li>Ik kan de soorten krachten herkennen en benoemen</li>
+        <li>Ik kan de vier vectori&euml;le kenmerken van een kracht beschrijven</li>
+        <li>Ik kan het onderscheid maken tussen statische en dynamische uitwerking</li>
+        <li>Ik kan de resulterende kracht berekenen</li>
+        <li>Ik kan de formule v = &Delta;x/&Delta;t correct toepassen</li>
+        <li>Ik kan omzettingen maken: m/s &harr; km/h</li>
+        <li>Ik kan positie-tijdgrafieken lezen en interpreteren</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 4 — CHECKLIST WETENSCHAPPELIJK ONDERZOEK
+  ============================================================ -->
+  <section class="section-block" id="s4">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Checklist Wetenschappelijk Onderzoek <span style="font-size:1.1rem;font-weight:400;color:var(--terracotta);">(20%)</span></h2>
+    </div>
+
+    <p>Het onderzoeksgedeelte test of je de wetenschappelijke methode begrijpt en kunt toepassen. Dit is het meest procesgericht deel: het gaat niet om feiten, maar om hoe je als wetenschapper werkt.</p>
+
+    <div class="checklist-section">
+      <h3>Wetenschappelijke methode en laboveiligheid</h3>
+      <ul>
+        <li>Ik kan de acht stappen van de wetenschappelijke methode in de juiste volgorde zetten</li>
+        <li>Ik kan een goede onderzoeksvraag formuleren (open, enkelvoudig, objectief, haalbaar, onderzoekbaar, relevant)</li>
+        <li>Ik kan een hypothese formuleren (&ldquo;Als&hellip; dan&hellip;&rdquo;)</li>
+        <li>Ik ken de regels voor veilig en duurzaam werken in het labo</li>
+        <li>Ik ken de meetinstrumenten en hun gebruik (dynamometer, weegschaal, maatcilinder, thermometer, chronometer)</li>
+        <li>Ik kan meetinstrumenten nauwkeurig aflezen</li>
+        <li>Ik kan SI-eenheden correct gebruiken en omzetten</li>
+        <li>Ik kan gegevens in een tabel organiseren en een grafiek tekenen</li>
+        <li>Ik kan het type verband (recht/omgekeerd evenredig) herkennen uit een grafiek</li>
+        <li>Ik kan een conclusie formuleren op basis van data</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 5 — 10 EXAMENSTIPS
+  ============================================================ -->
+  <section class="section-block" id="s5">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">10 Examenstips</h2>
+    </div>
+
+    <p>Kennis alleen is niet genoeg. De manier waarop je het examen aanpakt, be&iuml;nvloedt je resultaat minstens even veel als wat je weet. Lees deze tien tips aandachtig &mdash; ze zijn gebaseerd op de meest voorkomende valkuilen bij dit type digitaal examen.</p>
+
+    <div class="tip-kader">
+      <span class="tip-num">Tip 1</span>
+      <span class="tip-title">Begin met het overzicht</span>
+      <p class="tip-body">Lees alle vragen snel door voor je begint te antwoorden. Begin met de vragen waarop je zeker weet wat het antwoord is. Dat geeft je zelfvertrouwen en zorgt dat je de makkelijke punten niet verliest door tijdgebrek aan het einde.</p>
+    </div>
+
+    <div class="tip-kader">
+      <span class="tip-num">Tip 2</span>
+      <span class="tip-title">Gebruik de bijlage slim</span>
+      <p class="tip-body">Bijlage 2 (voedings- en bewegingsdriehoek) mag je <strong style="color:var(--gold);">WEL</strong> gebruiken op het examen. Bijlage 1 (formules, grootheden, eenheden) mag <strong style="color:var(--gold);">NIET</strong>. Zorg dat je alle formules van bijlage 1 feilloos uit het hoofd kent &mdash; er is geen tweede kans als je die bijlage niet bij je mag houden.</p>
+    </div>
+
+    <div class="tip-kader">
+      <span class="tip-num">Tip 3</span>
+      <span class="tip-title">Controleer je eenheden</span>
+      <p class="tip-body">Bij berekeningsvragen: zet altijd alle getallen om naar SI-eenheden V&Oacute;&Oacute;R je de formule toepast. Massa in kilogram, lengte in meter, tijd in seconden. Veel fouten ontstaan niet door een verkeerde formule, maar door een vergeten eenhedomzetting.</p>
+    </div>
+
+    <div class="tip-kader">
+      <span class="tip-num">Tip 4</span>
+      <span class="tip-title">Lees de vraag twee keer</span>
+      <p class="tip-body">Studenten verliezen punten door de vraag te snel te lezen. Lees elke vraag minstens twee keer en let op sleutelwoorden: <em>benoem</em> (geef de naam), <em>verklaar</em> (geef de reden), <em>vergelijk</em> (zoek overeenkomsten &eacute;n verschillen), <em>bereken</em> (gebruik een formule en toon je werk). Bij een digitaal examen zijn deze woorden even cruciaal als bij een schriftelijk examen.</p>
+    </div>
+
+    <div class="tip-kader">
+      <span class="tip-num">Tip 5</span>
+      <span class="tip-title">Teken bij krachten</span>
+      <p class="tip-body">Bij krachtvragen: stel je altijd een pijltje voor. Denk aan de vier vectori&euml;le kenmerken: aanrijpingspunt, richting, zin en grootte. Dit helpt je om richting en grootte correct te interpreteren bij sleepvragen en meerkeuzevragen, ook als je de tekening niet zichtbaar maakt.</p>
+    </div>
+
+    <div class="tip-kader">
+      <span class="tip-num">Tip 6</span>
+      <span class="tip-title">Gebruik het deeltjesmodel</span>
+      <p class="tip-body">Als je een vraag over materie, faseovergangen of mengsels niet meteen begrijpt, denk aan het deeltjesmodel. Stel je voor hoe de deeltjes bewegen en hoe ver ze uit elkaar liggen in de drie aggregatietoestanden. Het deeltjesmodel beantwoordt bijna altijd de vraag &mdash; het is het universele denkgereedschap voor dit deel van de chemie.</p>
+    </div>
+
+    <div class="tip-kader">
+      <span class="tip-num">Tip 7</span>
+      <span class="tip-title">Controleer je berekeningen</span>
+      <p class="tip-body">Schat het antwoord eerst. Als je uitkomt op de massa van een gemiddelde mens van 2.000.000 kg, of de snelheid van een fietser van 0,003 m/s, klopt er duidelijk iets niet. Een snelle grootteorde-schatting voor je rekent &mdash; en een controle na het rekenen &mdash; vermijdt de meeste rekenfouten.</p>
+    </div>
+
+    <div class="tip-kader">
+      <span class="tip-num">Tip 8</span>
+      <span class="tip-title">Leer de reactievergelijkingen</span>
+      <p class="tip-body">Fotosynthese &eacute;n celademhaling staan NIET in de bijlage. Je moet ze uit het hoofd kennen, inclusief alle co&euml;ffi&euml;nten. Een handige geheugensteun: fotosynthese gebruikt zonlicht om glucose te <em>maken</em> (6CO<sub>2</sub> + 6H<sub>2</sub>O &rarr; C<sub>6</sub>H<sub>12</sub>O<sub>6</sub> + 6O<sub>2</sub>), celademhaling is exact het omgekeerde &mdash; glucose wordt <em>afgebroken</em> voor energie.</p>
+    </div>
+
+    <div class="tip-kader">
+      <span class="tip-num">Tip 9</span>
+      <span class="tip-title">Oefen met oefenexamens</span>
+      <p class="tip-body">Op de website van de Examencommissie staan digitale oefenexamens die identiek zijn aan het echte examen qua interface en vraagtype. Maak ze onder examenomstandigheden: 90 minuten, geen hulpmiddelen buiten de toegelaten, geen pauze. Zo went je aan het ritme en de interface, en kom je geen verrassingen tegen op de examendag zelf.</p>
+    </div>
+
+    <div class="tip-kader">
+      <span class="tip-num">Tip 10</span>
+      <span class="tip-title">Rust voor het examen</span>
+      <p class="tip-body">Slaap voldoende de nacht voor het examen. Slaap is het moment waarop je hersenen de leerstof consolideren &mdash; wetenschappelijk aangetoond. Een uitgeruste geest onthoud beter, denkt helderder en maakt minder impulsieve fouten. Laat nachtbraken achterwege: ze geven je een vals gevoel van voorbereiding en kosten je precies de slaap die je nodig hebt.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 6 — FORMULES EN WEETJES OM TE KENNEN
+  ============================================================ -->
+  <section class="section-block" id="s6">
+    <div class="section-heading">
+      <span class="section-num">6</span>
+      <h2 class="section-title">Formules en weetjes om te kennen</h2>
+    </div>
+
+    <p>Dit is je compacte naslagblad voor alles wat je uit het hoofd moet kennen. Bijlage 1 is niet toegestaan op het examen, dus alles hieronder is <strong>verplichte kennis</strong>. Gebruik dit als laatste check de avond voor het examen.</p>
+
+    <div class="alert-banner">
+      <span class="alert-icon">&#9888;</span>
+      <span>Alles in dit hoofdstuk valt onder bijlage 1 &mdash; je mag deze informatie NIET raadplegen tijdens het examen. Leer het volledig van buiten.</span>
+    </div>
+
+    <h3 class="sub-heading">Formules Chemie &amp; Fysica</h3>
+
+    <div class="formule-ref-grid">
+      <div class="formule-ref-card">
+        <span class="frc-label">Massadichtheid</span>
+        <ul>
+          <li><strong>&rho; = m / V</strong></li>
+          <li>&rho; = massadichtheid (kg/m&sup3; of g/cm&sup3;)</li>
+          <li>m = massa (kg of g)</li>
+          <li>V = volume (m&sup3; of cm&sup3;)</li>
+        </ul>
+      </div>
+      <div class="formule-ref-card">
+        <span class="frc-label">Snelheid</span>
+        <ul>
+          <li><strong>v = &Delta;x / &Delta;t</strong></li>
+          <li>v = gemiddelde snelheid (m/s)</li>
+          <li>&Delta;x = verplaatsing (m)</li>
+          <li>&Delta;t = tijdsinterval (s)</li>
+        </ul>
+      </div>
+      <div class="formule-ref-card">
+        <span class="frc-label">Volume kubus &amp; balk</span>
+        <ul>
+          <li><strong>V<sub>kubus</sub> = z&sup3;</strong></li>
+          <li><strong>V<sub>balk</sub> = l &middot; b &middot; h</strong></li>
+          <li>z = zijde; l = lengte; b = breedte; h = hoogte</li>
+        </ul>
+      </div>
+      <div class="formule-ref-card">
+        <span class="frc-label">Volume bol &amp; cilinder</span>
+        <ul>
+          <li><strong>V<sub>bol</sub> = (4/3) &middot; &pi; &middot; r&sup3;</strong></li>
+          <li><strong>V<sub>cilinder</sub> = &pi; &middot; r&sup2; &middot; h</strong></li>
+          <li>r = straal; h = hoogte</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Eenheidsomzettingen</h3>
+
+    <div class="tabel-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Van</th>
+            <th>Naar</th>
+            <th>Omzetting</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>g/cm&sup3;</td>
+            <td>kg/m&sup3;</td>
+            <td>&times; 1&nbsp;000</td>
+          </tr>
+          <tr>
+            <td>kg/m&sup3;</td>
+            <td>g/cm&sup3;</td>
+            <td>&divide; 1&nbsp;000</td>
+          </tr>
+          <tr>
+            <td>cm&sup3;</td>
+            <td>m&sup3;</td>
+            <td>&divide; 1&nbsp;000&nbsp;000</td>
+          </tr>
+          <tr>
+            <td>L</td>
+            <td>m&sup3;</td>
+            <td>&divide; 1&nbsp;000</td>
+          </tr>
+          <tr>
+            <td>m/s</td>
+            <td>km/h</td>
+            <td>&times; 3,6</td>
+          </tr>
+          <tr>
+            <td>km/h</td>
+            <td>m/s</td>
+            <td>&divide; 3,6</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub-heading">Reactievergelijkingen</h3>
+
+    <div class="wetenschaps-kader">
+      <span class="wk-label">Fotosynthese</span>
+      <p class="wk-body">
+        6CO<sub>2</sub> + 6H<sub>2</sub>O + lichtenergie &rarr; C<sub>6</sub>H<sub>12</sub>O<sub>6</sub> + 6O<sub>2</sub><br>
+        <em>Vindt plaats in: chloroplasten (bladgroenkorrels) van plantaardige cellen. Grondstoffen: koolstofdioxide + water. Producten: glucose + zuurstof.</em>
+      </p>
+    </div>
+
+    <div class="wetenschaps-kader">
+      <span class="wk-label">Celademhaling</span>
+      <p class="wk-body">
+        C<sub>6</sub>H<sub>12</sub>O<sub>6</sub> + 6O<sub>2</sub> &rarr; 6CO<sub>2</sub> + 6H<sub>2</sub>O + energie<br>
+        <em>Vindt plaats in: mitochondri&euml;n van alle levende cellen. Grondstoffen: glucose + zuurstof. Producten: koolstofdioxide + water + energie.</em>
+      </p>
+    </div>
+
+    <h3 class="sub-heading">Faseovergangen &mdash; alle zes</h3>
+
+    <div class="tabel-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Naam</th>
+            <th>Van</th>
+            <th>Naar</th>
+            <th>Energie</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Smelten</strong></td>
+            <td>Vast</td>
+            <td>Vloeibaar</td>
+            <td>Absorptie (opneming)</td>
+          </tr>
+          <tr>
+            <td><strong>Stollen</strong></td>
+            <td>Vloeibaar</td>
+            <td>Vast</td>
+            <td>Afgifte</td>
+          </tr>
+          <tr>
+            <td><strong>Verdampen</strong></td>
+            <td>Vloeibaar</td>
+            <td>Gas</td>
+            <td>Absorptie</td>
+          </tr>
+          <tr>
+            <td><strong>Condenseren</strong></td>
+            <td>Gas</td>
+            <td>Vloeibaar</td>
+            <td>Afgifte</td>
+          </tr>
+          <tr>
+            <td><strong>Sublimeren</strong></td>
+            <td>Vast</td>
+            <td>Gas</td>
+            <td>Absorptie</td>
+          </tr>
+          <tr>
+            <td><strong>Desublimeren</strong></td>
+            <td>Gas</td>
+            <td>Vast</td>
+            <td>Afgifte</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub-heading">De zeven energievormen</h3>
+
+    <div class="tabel-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Energievorm</th>
+            <th>Voorbeeld</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Kinetische energie</strong> (beweging)</td><td>Een rijdende auto, een vallende steen</td></tr>
+          <tr><td><strong>Potenti&euml;le energie</strong> (ligging)</td><td>Een steen boven op een muur</td></tr>
+          <tr><td><strong>Warmte-energie</strong></td><td>Een hete radiatior, een vuur</td></tr>
+          <tr><td><strong>Elektrische energie</strong></td><td>Stroom uit een stopcontact</td></tr>
+          <tr><td><strong>Chemische energie</strong></td><td>Brandstof, voedsel, batterij</td></tr>
+          <tr><td><strong>Lichtenergie</strong></td><td>Zon, lamp, laserstraal</td></tr>
+          <tr><td><strong>Kernenergie</strong></td><td>Kerncentrale, radioactief verval</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub-heading">Soorten krachten</h3>
+
+    <div class="tabel-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Kracht</th>
+            <th>Beschrijving</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Zwaartekracht</strong></td><td>Trekt elk voorwerp naar het middelpunt van de Aarde</td></tr>
+          <tr><td><strong>Normaalkracht</strong></td><td>Loodrecht op het contactoppervlak, tegengesteld aan druk</td></tr>
+          <tr><td><strong>Wrijvingskracht</strong></td><td>Tegengesteld aan de beweging; remt af</td></tr>
+          <tr><td><strong>Veerkracht</strong></td><td>Een veer of elastisch materiaal dat terugveert</td></tr>
+          <tr><td><strong>Spankracht</strong></td><td>Kracht langs een touw, draad of ketting</td></tr>
+          <tr><td><strong>Drijfkracht (opwaartse druk)</strong></td><td>Vloeistof of gas duwt een voorwerp omhoog</td></tr>
+          <tr><td><strong>Magnetische kracht</strong></td><td>Aantrekking of afstoting tussen magneten of magnetische materialen</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub-heading">Organisatieniveaus van het leven</h3>
+
+    <div class="wetenschaps-kader">
+      <span class="wk-label">Van klein naar groot</span>
+      <p class="wk-body" style="font-size:1.05rem;letter-spacing:0.02em;">
+        <strong>Cel</strong> &nbsp;&rarr;&nbsp; <strong>Weefsel</strong> &nbsp;&rarr;&nbsp; <strong>Orgaan</strong> &nbsp;&rarr;&nbsp; <strong>Stelsel</strong> &nbsp;&rarr;&nbsp; <strong>Organisme</strong><br>
+        <em style="font-size:0.9rem;">Voorbeeld: spiercellen &rarr; spierweefsel &rarr; hartspier &rarr; bloedsomloopstelsel &rarr; mens</em>
+      </p>
+    </div>
+
+    <h3 class="sub-heading">Criteria voor een goede onderzoeksvraag</h3>
+
+    <div class="tabel-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Criterium</th>
+            <th>Wat betekent het?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Open</strong></td><td>Niet te beantwoorden met alleen ja/nee; vraagt om uitleg of meting</td></tr>
+          <tr><td><strong>Enkelvoudig</strong></td><td>Onderzoekt slechts &eacute;&eacute;n variabele tegelijk</td></tr>
+          <tr><td><strong>Objectief</strong></td><td>Geen mening of gevoel; meetbaar en verifieerbaar</td></tr>
+          <tr><td><strong>Haalbaar</strong></td><td>Kan uitgevoerd worden met beschikbare middelen en tijd</td></tr>
+          <tr><td><strong>Onderzoekbaar</strong></td><td>Er kan daadwerkelijk een experiment of meting voor worden opgezet</td></tr>
+          <tr><td><strong>Relevant</strong></td><td>Heeft een duidelijk doel of maatschappelijk belang</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub-heading">De acht stappen van de wetenschappelijke methode</h3>
+
+    <div class="checklist-section">
+      <h3>In de juiste volgorde</h3>
+      <ul>
+        <li><strong>Stap 1:</strong> Observatie &mdash; je merkt iets op in de natuur of in een experiment</li>
+        <li><strong>Stap 2:</strong> Onderzoeksvraag formuleren &mdash; open, enkelvoudig, objectief, haalbaar, onderzoekbaar, relevant</li>
+        <li><strong>Stap 3:</strong> Hypothese opstellen &mdash; (&ldquo;Als&hellip; dan&hellip;&rdquo;): een te testen voorspelling</li>
+        <li><strong>Stap 4:</strong> Experiment opzetten &mdash; variabelen bepalen (onafhankelijk, afhankelijk, constant)</li>
+        <li><strong>Stap 5:</strong> Experiment uitvoeren &mdash; nauwkeurig en veilig meten en noteren</li>
+        <li><strong>Stap 6:</strong> Gegevens verwerken &mdash; tabel, grafiek, berekeningen</li>
+        <li><strong>Stap 7:</strong> Conclusie trekken &mdash; hypothese bevestigd of verworpen op basis van data</li>
+        <li><strong>Stap 8:</strong> Communiceren &mdash; resultaten delen met anderen (verslag, presentatie)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SLOTWOORD
+  ============================================================ -->
+  <section class="section-block" id="slotwoord" style="border-bottom:none;">
+    <div class="section-heading">
+      <span class="section-num" style="font-size:2rem;opacity:0.5;">&#10022;</span>
+      <h2 class="section-title">Tot slot</h2>
+    </div>
+
+    <p>Je hebt een lange reis gemaakt &mdash; van de eerste celonderdelen tot krachten, energie en de wetenschappelijke methode. Van de microscopisch kleine wereld van mitochondri&euml;n en chloroplasten tot het grote geheel van ecosystemen en biodiversiteit. Van de abstracte wereld van deeltjesmodellen en faseovergangen tot de concrete wereld van vallende voorwerpen en rijdende fietsen.</p>
+
+    <p>Dit is niet alleen leerstof voor een examen. Het is een manier van naar de wereld kijken: <em>nieuwsgierig</em>, <em>vragend</em>, <em>testend</em>. Een wetenschapper ziet een regenboog en vraagt zich af hoe licht breekt. Een wetenschapper ziet een dode vis in een rivier en vraagt zich af waarom. Een wetenschapper ziet een patroon in data en vraagt zich af wat het betekent.</p>
+
+    <p><strong>Jij hebt die manier van kijken dit jaar geoefend. Dat is de grootste winst van dit jaar &mdash; groter dan welke formule dan ook.</strong></p>
+
+    <p>Gebruik de checklists, leer de formules, maak de oefenexamens. En ga dan met vertrouwen naar Brussel. Je bent er klaar voor.</p>
+
+    <p style="text-align:center;font-size:1.15rem;color:var(--darkblue);font-family:'Playfair Display',serif;margin-top:2rem;font-style:italic;">Succes!</p>
+  </section>
+
+  <!-- CLOSING QUOTE -->
+  <div class="closing-quote" role="note" aria-label="Slotcitaat">
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p class="cq-text">&ldquo;In science, there is only physics; all the rest is stamp collecting.&rdquo;<br>
+    <span style="font-size:0.9em;opacity:0.75;">Maar ook: alles is met elkaar verbonden. De fotosynthese die planten voedt, de spieren die bewegen, de ecosystemen die in balans zijn &mdash; het is allemaal &eacute;&eacute;n verhaal.</span></p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p class="cq-text" style="font-size:clamp(1rem,2.2vw,1.25rem);">&ldquo;Nothing in life is to be feared, it is only to be understood. Now is the time to understand more, so that we may fear less.&rdquo;</p>
+    <span class="cq-attribution">Marie Curie &nbsp;&middot;&nbsp; Natuur&shy;wetenschappen 1A &nbsp;&middot;&nbsp; Eerste Graad A-stroom</span>
+  </div>
+
+</div><!-- end page-wrapper -->
+
+<!-- SUMMARY -->
+<section class="summary-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting &mdash; Nawoord</h2>
+    <ul>
+      <li><strong>Examenformat:</strong> 90 minuten, digitaal, gesloten vragen (invul-, sleep-, dropdown- en meerkeuzevragen), locatie Brussel, identiteitskaart verplicht.</li>
+      <li><strong>Weging:</strong> Biologie 47,5% &middot; Chemie &amp; Fysica 32,5% &middot; Wetenschappelijk Onderzoek 20%.</li>
+      <li><strong>Bijlage 1 is NIET toegestaan:</strong> alle formules (&rho; = m/V, v = &Delta;x/&Delta;t, volumeformules) en reactievergelijkingen (fotosynthese, celademhaling) moet je uit het hoofd kennen.</li>
+      <li><strong>Biologie:</strong> beheer de cel, fotosynthese, stofomzettingen, voortplanting en ecologie &mdash; ken de reactievergelijkingen en de organisatieniveaus.</li>
+      <li><strong>Chemie &amp; Fysica:</strong> oefen berekeningen met massadichtheid en snelheid, ken alle zes faseovergangen, de zeven energievormen en de soorten krachten.</li>
+      <li><strong>Wetenschappelijk Onderzoek:</strong> ken de acht stappen van de wetenschappelijke methode in de juiste volgorde en de zes criteria voor een goede onderzoeksvraag.</li>
+      <li><strong>Examenstrategie:</strong> begin met een overzicht, controleer eenheden, lees vragen twee keer, slaap goed de nacht voor het examen.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

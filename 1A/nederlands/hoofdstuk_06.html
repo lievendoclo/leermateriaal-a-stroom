@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoofdstuk 6 — Zeggen wat je bedoelt | Nederlands 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.25; }
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+    text-decoration: none;
+  }
+  .site-header .label-right { text-align: right; }
+
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image: radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+  .chapter-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+  .prologue .ornament-line .ornament-sym { color: var(--gold); font-size: 1.1rem; opacity: 0.8; }
+  .prologue p { font-style: italic; font-size: 1.05rem; line-height: 1.85; color: rgba(250,246,239,0.9); }
+  .prologue p + p { margin-top: 0.9em; }
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+  .begrip .begrip-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .begrip .begrip-body { flex: 1; }
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+  .begrip .begrip-def { font-size: 0.97rem; color: var(--text-mid); line-height: 1.65; margin: 0; }
+
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .denkvraag .dv-text { font-style: italic; font-size: 1rem; color: var(--text-mid); line-height: 1.7; }
+
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+  }
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ── VOORBEELDTEKST ── */
+  .voorbeeldtekst {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 2rem 2.2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .voorbeeldtekst .vt-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--darkblue);
+    opacity: 0.6;
+    margin-bottom: 0.4rem;
+    display: block;
+  }
+  .voorbeeldtekst .vt-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 0.3rem;
+  }
+  .voorbeeldtekst .vt-meta {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    margin-bottom: 1.2rem;
+    font-style: italic;
+  }
+  .voorbeeldtekst .vt-body p {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-bottom: 0.9em;
+  }
+  .voorbeeldtekst .vt-body p:last-child { margin-bottom: 0; }
+  .voorbeeldtekst .vt-source {
+    margin-top: 1rem;
+    font-size: 0.78rem;
+    color: var(--text-light);
+    border-top: 1px solid var(--sand);
+    padding-top: 0.6rem;
+    font-style: italic;
+  }
+
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+  .exercise-card ol, .exercise-card ul { padding-left: 1.4rem; margin-top: 0.5rem; }
+  .exercise-card li { margin-bottom: 0.45rem; font-size: 0.96rem; color: var(--text-mid); }
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+  .summary-section ul { list-style: none; padding: 0; }
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0; top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem; right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px; height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  .prose-text { max-width: 100%; }
+  .highlighted-para {
+    background: rgba(212,160,23,0.08);
+    border-left: 3px solid var(--gold);
+    padding: 0.8rem 1.1rem;
+    border-radius: 0 4px 4px 0;
+    margin: 1.2rem 0;
+    font-size: 0.97rem;
+    color: var(--text-mid);
+  }
+
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section, .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .voorbeeldtekst { padding: 1.4rem 1.2rem; }
+  }
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header" id="top">
+  <a class="label" href="index.html">Nederlands 1A</a>
+  <span class="label label-right">Hoofdstuk 6</span>
+</header>
+
+<div class="chapter-hero">
+  <div class="chapter-kicker">Nederlands &nbsp;·&nbsp; 1A &nbsp;·&nbsp; Eerste graad</div>
+  <h1>Hoofdstuk 6<br>Zeggen wat je bedoelt</h1>
+  <p class="subtitle">Van zoekertje tot forum — helder communiceren in het dagelijks leven</p>
+</div>
+
+<div class="page-wrapper">
+
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Hoe het fout ging — en beter kon &hellip;</span>
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+
+    <p>Lena heeft een oude fiets staan die ze al twee jaar niet meer gebruikt. Ze besluit hem te verkopen en zet een berichtje online. Ze typt vlug: <em>"fiets te koop. 50 euro. bel me."</em> Ze wacht. Eén dag. Twee dagen. Niets. Geen reactie, geen telefoontje, nul interesse.</p>
+
+    <p>Haar klasgenoot Sander kijkt over haar schouder en zegt: "Wacht, ik help je dat herschrijven." Ze doen het samen. Het nieuwe bericht bevat een duidelijke titel, een beschrijving van de fiets, de staat ervan, de originele prijs, de vraagprijs, de locatie en een contactmogelijkheid. Sander voegt toe: <em>"Perfecte stadsfiets voor 12-14 jaar, zelden gebruikt."</em></p>
+
+    <p>Ze plaatst het nieuwe bericht. Binnen een uur heeft ze acht reacties. Eén persoon komt de fiets die avond nog ophalen.</p>
+
+    <p>Wat veranderde er? De fiets bleef dezelfde fiets. De prijs bleef dezelfde prijs. Het enige verschil zat in de boodschap zelf: het nieuwe bericht gaf potentiële kopers alle informatie die ze nodig hadden. Het originele berichtje liet te veel vragen open. <em>Welke fiets? In welke staat? Waar ben je? Wanneer kan ik bellen?</em> Wie interesse had, haakte af — gewoon omdat het te veel moeite kostte om het uit te zoeken.</p>
+
+    <p><strong style="color: var(--gold);">Goede communicatie betekent niet meer zeggen, maar het juiste zeggen — volledig, duidelijk en op de juiste manier.</strong></p>
+
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+  </section>
+
+  <!-- SECTIE 1 -->
+  <section class="section-block" id="s1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Informatie geven: volledig en duidelijk</h2>
+    </div>
+    <div class="prose-text">
+      <p>Als je informatie geeft — of dat nu in een berichtje, een zoekertje, een uitnodiging of een mondelinge uitleg is — is er één gouden regel: <strong>je boodschap moet aankomen zoals jij het bedoelt</strong>. Dat klinkt vanzelfsprekend, maar in de praktijk gaat het vaak mis. Te kort, te vaag, of net te verwarrend.</p>
+
+      <p>Communicatiedeskundigen spreken over <strong>taakvoltooiing</strong>: je taak als schrijver of spreker is voltooid als de lezer of luisteraar alle informatie heeft die hij nodig heeft om te begrijpen wat je bedoelt en om erop te reageren. Een boodschap is pas volledig als je niets essentieels weglaat.</p>
+
+      <p>Een handige manier om te controleren of jouw boodschap volledig is, zijn de zogenaamde <strong>W-vragen</strong>. Die gebruik je als een checklist: heb ik alles beantwoord wat de lezer zou kunnen vragen?</p>
+
+      <div class="highlighted-para">
+        <strong>De W-vragen als checklist:</strong> Wie? &mdash; Wat? &mdash; Waar? &mdash; Wanneer? &mdash; Waarom? &mdash; Hoe?
+      </div>
+
+      <p>Niet elke W-vraag is altijd even relevant. Als je een zoekertje schrijft over een fiets, is "Waarom verkoop je hem?" minder belangrijk dan "Wat voor fiets is het?" en "Hoeveel vraag je ervoor?". Kies de vragen die voor <em>jouw</em> situatie tellen. Maar denk ze allemaal even langs — zo mis je niets.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Taakvoltooiing</span>
+        <p class="begrip-def">Taakvoltooiing betekent dat je als schrijver of spreker je communicatietaak volledig uitvoert: de boodschap is compleet, duidelijk en voldoende uitgewerkt zodat de ontvanger precies begrijpt wat je bedoelt en zo nodig kan reageren. Een onvolledige boodschap laat te veel vragen open en mislukt daardoor.</p>
+      </div>
+    </div>
+
+    <div class="illustratie">
+      <span class="ill-icon">📋</span>
+      <p class="ill-caption">Illustratie: een checklist met zes vakjes, elk gelabeld met een W-vraag (Wie? Wat? Waar? Wanneer? Waarom? Hoe?). Twee vakjes zijn aangevinkt in het eerste berichtje, alle zes in het herziene berichtje. Visueel verschil: eerste versie schaars, tweede versie volledig ingevuld.</p>
+    </div>
+  </section>
+
+  <!-- SECTIE 2 — VOORBEELDTEKST 1 -->
+  <section class="section-block" id="s2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Een zoekertje schrijven</h2>
+    </div>
+    <div class="prose-text">
+      <p>Een zoekertje is een korte advertentie waarmee je iets wil verkopen, kopen of weggeven. Je vindt ze op websites zoals Vinted, 2dehands of in een schoolkrantje. Een goed zoekertje trekt aandacht, geeft alle nodige informatie en maakt het de koper makkelijk om contact op te nemen.</p>
+
+      <p>Vergelijk de twee versies hieronder. Versie A en versie B gaan over hetzelfde product, maar het effect is heel anders.</p>
+    </div>
+
+    <div class="voorbeeldtekst">
+      <span class="vt-label">Voorbeeldtekst 1 &middot; Zoekertje &middot; Versie A — onvolledig</span>
+      <p class="vt-title">Gaming console te koop</p>
+      <p class="vt-meta">Geplaatst op een online verkoopplatform</p>
+      <div class="vt-body">
+        <p>console te koop. werkt nog. goedkoop. stuur maar een berichtje als ge geïnteresseerd zijt.</p>
+      </div>
+      <p class="vt-source">Fictief voorbeeld ter illustratie.</p>
+    </div>
+
+    <div class="voorbeeldtekst">
+      <span class="vt-label">Voorbeeldtekst 1 &middot; Zoekertje &middot; Versie B — volledig en effectief</span>
+      <p class="vt-title">Nintendo Switch (2022) te koop — inclusief 2 controllers en 3 spellen</p>
+      <p class="vt-meta">Geplaatst op een online verkoopplatform</p>
+      <div class="vt-body">
+        <p>Ik verkoop mijn Nintendo Switch uit 2022 omdat ik inmiddels een nieuwer model heb gekregen. De console is in uitstekende staat: geen krassen op het scherm, alles werkt perfect. Inbegrepen: 2 Joy-Con controllers (één rood, één blauw) en drie spellen (Mario Kart 8, Minecraft en Stardew Valley).</p>
+        <p>Originele prijs: &euro;329. Vraagprijs: &euro;175 (niet onderhandelbaar). Ophalen in Gent (Sint-Amandsberg) of verzenden op kosten van de koper (&euro;6,95 via bpack).</p>
+        <p>Meer foto's beschikbaar op aanvraag. Contacteer me via privébericht op dit platform. Ik reageer elke dag na 16u.</p>
+      </div>
+      <p class="vt-source">Fictief voorbeeld ter illustratie.</p>
+    </div>
+
+    <div class="prose-text">
+      <p>Wat maakt versie B zoveel beter? Kijk maar naar de W-vragen:</p>
+      <ul style="padding-left: 1.4rem; margin: 0.6rem 0 1.1rem;">
+        <li style="margin-bottom: 0.5rem;"><strong>Wat?</strong> Nintendo Switch uit 2022, inclusief controllers en spellen — versie A zei alleen "console".</li>
+        <li style="margin-bottom: 0.5rem;"><strong>Hoe?</strong> De staat is beschreven (geen krassen, alles werkt). Versie A zei alleen "werkt nog" — dat stelt niemand gerust.</li>
+        <li style="margin-bottom: 0.5rem;"><strong>Hoeveel?</strong> Een concrete prijs, met de originele prijs erbij voor vergelijking. Versie A zei "goedkoop" — dat betekent niets.</li>
+        <li style="margin-bottom: 0.5rem;"><strong>Waar?</strong> Gent, Sint-Amandsberg. Plus de mogelijkheid tot verzending. Versie A gaf geen locatie.</li>
+        <li style="margin-bottom: 0.5rem;"><strong>Hoe contact?</strong> Privébericht, bereikbaar na 16u. Versie A zei "stuur maar een berichtje" — vaag en weinig uitnodigend.</li>
+      </ul>
+      <p>Versie B is ook concreter en professioneler van toon. De schrijver lijkt betrouwbaar. Een koper die versie B leest, heeft direct het gevoel: <em>ik weet wat ik koop.</em></p>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">Stel dat jij een koper bent. Welke extra vragen zou jij nog stellen na versie A? En na versie B? Wat zegt dat over het verschil in taakvoltooiing?</p>
+    </div>
+  </section>
+
+  <!-- SECTIE 3 -->
+  <section class="section-block" id="s3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">De IMS-structuur: inleiding, midden en slot</h2>
+    </div>
+    <div class="prose-text">
+      <p>Een goede boodschap is niet alleen volledig — ze is ook goed opgebouwd. Of je nu een zoekertje schrijft, een uitnodiging stuurt of een forumpost plaatst: als alles door elkaar staat, raken lezers de draad kwijt. Structuur helpt de lezer om snel en makkelijk te begrijpen wat je bedoelt.</p>
+
+      <p>De meest gebruikte basisstructuur heet <strong>IMS</strong>: Inleiding, Midden, Slot. Je kent dit misschien al van het lezen, maar nu pas je het ook toe in je eigen schrijfwerk. Elke laag heeft een duidelijke functie.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">IMS-structuur</span>
+        <p class="begrip-def">De IMS-structuur is een basisopbouw voor teksten: <strong>Inleiding</strong> (context en doel: waarover gaat dit en wat wil je bereiken?), <strong>Midden</strong> (de details, de eigenlijke informatie), <strong>Slot</strong> (afsluiting of oproep tot actie). Een tekst met IMS-structuur is overzichtelijk en gemakkelijk te volgen.</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>Laten we de drie delen concreet bekijken:</p>
+
+      <p><strong>De inleiding</strong> geeft de lezer meteen het kader: wat is dit voor bericht en wat wil je ermee bereiken? Soms is de inleiding één zin, soms twee. De lezer moet na de inleiding weten: <em>waar gaat dit over en wat wil deze persoon van mij?</em></p>
+
+      <p><strong>Het midden</strong> is het hart van de tekst. Hier geef je alle details, informatie, beschrijvingen of vragen. Dit is de langste en inhoudelijk rijkste sectie. Zorg dat je alles logisch ordent: van algemeen naar specifiek, of chronologisch, of van meest naar minst belangrijk.</p>
+
+      <p><strong>Het slot</strong> rondt af. In informatieve berichten is het slot vaak een oproep tot actie: <em>Neem gerust contact op, Ik kijk uit naar je antwoord, Graag tot dan.</em> Het slot geeft ook een gevoel van volledigheid — een bericht zonder slot voelt abrupt aan.</p>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">Bekijk versie B van het zoekertje in sectie 2 opnieuw. Kun jij de drie delen aanwijzen? Welke zin(nen) zijn de inleiding, welke het midden, welke het slot?</p>
+    </div>
+  </section>
+
+  <!-- SECTIE 4 — VOORBEELDTEKST 2 -->
+  <section class="section-block" id="s4">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Een uitnodiging schrijven</h2>
+    </div>
+    <div class="prose-text">
+      <p>Een uitnodiging is een tekst waarbij je iemand vraagt om ergens naartoe te komen of aan iets deel te nemen. De kernvraag is altijd: heeft de ontvanger na het lezen alle info om te beslissen of hij of zij kan komen — en om effectief aanwezig te zijn? Denk aan: wat? wanneer? waar? en soms: wat moet ik meebrengen of doen?</p>
+
+      <p>Het register verschilt naargelang de situatie. Een uitnodiging voor je verjaardagsfeestje aan vrienden schrijf je informeel: losjes, persoonlijk, met jouw eigen stem. Een uitnodiging van een klasvertegenwoordiger aan ouders schrijf je formeel: beleefder, gestructureerder, met aanspreking.</p>
+    </div>
+
+    <div class="voorbeeldtekst">
+      <span class="vt-label">Voorbeeldtekst 2 &middot; Uitnodiging &middot; Informeel — WhatsApp-bericht</span>
+      <p class="vt-title">Uitnodiging verjaardagsfeestje</p>
+      <p class="vt-meta">Informeel, via WhatsApp, van vriend aan vrienden, leeftijd 12–13</p>
+      <div class="vt-body">
+        <p><strong>[Inleiding]</strong> Hey! Ik word zaterdag 14 december eindelijk 13 en dat wil ik vieren met jullie.</p>
+        <p><strong>[Midden]</strong> Het feest is bij mij thuis (Kerkstraat 7, Mechelen) en begint om 15u. We gaan pizza eten, films kijken en er is ook een klein cadeautjesspel — dus breng iets kleins mee van maximaal 5 euro (verrassingscadeau). We eindigen rond 20u, dus zeg even aan je ouders dat ze je dan kunnen ophalen.</p>
+        <p><strong>[Slot]</strong> Laat me voor vrijdag 6 december weten of je komt zodat ik weet hoeveel pizza ik moet bestellen. Tot zaterdag!</p>
+      </div>
+      <p class="vt-source">Fictief voorbeeld ter illustratie. De IMS-structuur is aangeduid voor educatief gebruik.</p>
+    </div>
+
+    <div class="prose-text">
+      <p>Merk op hoe dit bericht alle W-vragen beantwoordt: <em>wat</em> (verjaardagsfeest), <em>wanneer</em> (zaterdag 14 december, 15u–20u), <em>waar</em> (Kerkstraat 7, Mechelen), <em>wat meebrengen</em> (cadeautje max. 5 euro), <em>hoe reageren</em> (vóór 6 december). Het register is informeel maar toch helder en beleefd. De toon is vriendelijk en enthousiast — dat past bij een verjaardagsuitnodiging aan vrienden.</p>
+
+      <p>Vergelijk dat nu met een formele uitnodiging voor een schoolevenement:</p>
+    </div>
+
+    <div class="voorbeeldtekst">
+      <span class="vt-label">Voorbeeldtekst 2 &middot; Uitnodiging &middot; Formeel — brief van klasvertegenwoordiger</span>
+      <p class="vt-title">Uitnodiging infoavond schoolproject</p>
+      <p class="vt-meta">Formeel, schriftelijke brief, van klasvertegenwoordiger aan ouders</p>
+      <div class="vt-body">
+        <p><strong>[Inleiding]</strong> Geachte ouders en verzorgers, namens klas 1A van het Onze-Lieve-Vrouwecollege nodigen wij u van harte uit voor de presentatie van ons jaarlijks klasproject.</p>
+        <p><strong>[Midden]</strong> De presentatie vindt plaats op donderdag 19 december om 18u30 in de aula van de school (Schoolstraat 12, 2800 Mechelen). Elke leerling stelt zijn of haar werk voor aan de hand van een korte toelichting. De avond duurt ongeveer anderhalf uur. Na afloop is er gelegenheid om de tentoongestelde werken te bekijken en een drankje te nuttigen.</p>
+        <p><strong>[Slot]</strong> Wij hopen u te mogen verwelkomen op deze avond. Gelieve uw aanwezigheid vóór 13 december te bevestigen via de schoolapp of per mail aan de klastitularis. Met vriendelijke groeten, de klasvertegenwoordigers van 1A.</p>
+      </div>
+      <p class="vt-source">Fictief voorbeeld ter illustratie.</p>
+    </div>
+
+    <div class="prose-text">
+      <p>Zie je het verschil in register? De informele uitnodiging gebruikt "hey", "jullie", "je" en een losse toon. De formele uitnodiging gebruikt "Geachte", "u", "wij" en een structurele, beleefde toon. Beide zijn correct — maar voor een andere situatie en een ander publiek.</p>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">Stel dat je de formele uitnodiging per ongeluk naar je beste vrienden stuurt in plaats van naar ouders. Wat zou er gek aanvoelen? En wat zou er gebeuren als je de informele versie naar ouders stuurt?</p>
+    </div>
+  </section>
+
+  <!-- SECTIE 5 -->
+  <section class="section-block" id="s5">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Informatie vragen: op een forum of in een winkel</h2>
+    </div>
+    <div class="prose-text">
+      <p>Soms wil je niet informatie <em>geven</em>, maar informatie <em>vragen</em>. Dat doe je bijvoorbeeld als je advies zoekt over een aankoop, een vraag stelt op een online forum, of iets vraagt aan een medewerker in een winkel. Ook hier geldt: hoe duidelijker en vollediger je vraag, hoe beter het antwoord dat je krijgt.</p>
+
+      <p>Een goede informatievraag heeft drie onderdelen:</p>
+      <ol style="padding-left: 1.4rem; margin: 0.5rem 0 1.1rem;">
+        <li style="margin-bottom: 0.5rem;"><strong>Context:</strong> vertel wie je bent en wat je situatie is. Waarom stel je deze vraag? Wat heb je al geprobeerd of gezocht?</li>
+        <li style="margin-bottom: 0.5rem;"><strong>De vraag zelf:</strong> stel je vraag zo concreet en specifiek mogelijk. Vermijd vage formuleringen.</li>
+        <li style="margin-bottom: 0.5rem;"><strong>Beleefde afsluiting:</strong> bedank alvast, laat weten dat je openstaat voor verdere vragen of aanvullingen.</li>
+      </ol>
+
+      <p>Vergelijk deze twee vragen op een forum over technologie:</p>
+
+      <div class="highlighted-para">
+        <strong>Vaag:</strong> "welke laptop is goed?"
+      </div>
+
+      <p>Deze vraag is bijna niet te beantwoorden. Goed voor wie? Voor welk gebruik? Met welk budget? Je kunt er tientallen kanten mee op. De kans is groot dat niemand reageert — of dat je twaalf compleet verschillende antwoorden krijgt die jou geen stap verder helpen.</p>
+
+      <div class="highlighted-para">
+        <strong>Concreet en contextueel:</strong> "Ik zoek een tweedehands laptop voor school (tekstverwerking, browsen, lichte video's). Budget max. &euro;250. Heeft iemand een aanbeveling?"
+      </div>
+
+      <p>Deze vraag werkt veel beter. De context is helder, het gebruik is afgebakend, het budget is concreet. Iemand die wil helpen, kan nu een gericht advies geven.</p>
+    </div>
+
+    <div class="voorbeeldtekst">
+      <span class="vt-label">Voorbeeldtekst 3 &middot; Forumpost &middot; Informatievraag</span>
+      <p class="vt-title">Advies gevraagd: tweedehands laptop kopen voor school</p>
+      <p class="vt-meta">Geplaatst op een technologieforum, informeel register</p>
+      <div class="vt-body">
+        <p>Hallo iedereen,</p>
+        <p>Ik ben 13 jaar en zoek een tweedehands laptop voor schoolgebruik. Ik heb hem nodig voor tekstverwerking (Word, Google Docs), browsen en soms een YouTube-video bekijken. Zware programma's of gaming zijn niet nodig. Mijn budget is maximaal 250 euro en ik koop bij voorkeur via een betrouwbaar platform als 2dehands of Refurbed.</p>
+        <p>Ik heb al wat zitten zoeken en twijfel tussen een refurbished Dell Latitude en een Lenovo ThinkPad uit 2019-2020. Heeft iemand ervaring met een van beide? Of zijn er betere alternatieven in dit prijssegment? Een minimale RAM van 8 GB en een SSD zijn voor mij een must.</p>
+        <p>Alvast bedankt voor jullie hulp!</p>
+      </div>
+      <p class="vt-source">Fictief voorbeeld ter illustratie.</p>
+    </div>
+
+    <div class="prose-text">
+      <p>Deze forumpost werkt goed omdat de schrijver zijn of haar situatie meteen duidelijk maakt. De lezer weet: wie vraagt dit (een 13-jarige scholier), wat is het doel (schoolgebruik), wat zijn de eisen (budget, specificaties), en wat is er al onderzocht (Dell vs. Lenovo). Mensen die dit lezen, kunnen een gericht en zinvol antwoord geven.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Context geven</span>
+        <p class="begrip-def">Context geven betekent dat je de lezer of luisteraar voldoende achtergrondinformatie geeft om jouw vraag of boodschap te begrijpen. Wie ben je? Wat is de situatie? Wat heb je al geprobeerd? Zonder context is een vraag vaak te vaag om goed op te antwoorden.</p>
+      </div>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">Stel je voor dat je in een sportwinkel staat en een medewerker vraagt: "Kan ik je helpen?" Hoe zou jij een vraag stellen over sportschoenen met context, een concrete vraag en een beleefde afsluiting? Formuleer dit even in je hoofd of op papier.</p>
+    </div>
+  </section>
+
+  <!-- SECTIE 6 -->
+  <section class="section-block" id="s6">
+    <div class="section-heading">
+      <span class="section-num">6</span>
+      <h2 class="section-title">Structuuraanduiders: de wegwijzers van je tekst</h2>
+    </div>
+    <div class="prose-text">
+      <p>Een goed gestructureerde tekst voelt vloeiend aan: de lezer weet altijd waar hij of zij zich bevindt in de tekst. Dat gevoel van richting komt voor een groot deel van <strong>structuuraanduiders</strong> — kleine woorden en uitdrukkingen die de lezer door je tekst gidsen.</p>
+
+      <p>Je kent deze woorden al van lezen (ze hielpen je hoofdpunten herkennen), maar als schrijver gebruik je ze nu zelf. Ze zijn de verbindingstekens tussen je zinnen en alinea's. Zonder structuuraanduiders voelt een tekst los en onsamenhangend aan, zelfs als de inhoud klopt.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Structuuraanduiders</span>
+        <p class="begrip-def">Structuuraanduiders (ook wel signaalwoorden of verbindingswoorden) zijn woorden en uitdrukkingen die de relatie tussen zinnen of alinea's aangeven. Ze vertellen de lezer of er een opsomming komt, een tegenstelling, een gevolg, een voorbeeld, of een samenvatting. Zo maak je de structuur van je tekst zichtbaar.</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>Hieronder vind je een overzicht van veelgebruikte structuuraanduiders, geordend per functie:</p>
+    </div>
+
+    <div style="margin: 1.8rem 0; display: flex; flex-direction: column; gap: 0.9rem;">
+
+      <div style="display: flex; gap: 0; border-radius: var(--border-radius); overflow: hidden; box-shadow: var(--shadow-sm);">
+        <div style="background: var(--darkblue); color: var(--gold); padding: 0.9rem 1.1rem; min-width: 140px; display: flex; align-items: center; font-family: 'Source Sans 3', sans-serif; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;">
+          Opsomming
+        </div>
+        <div style="background: white; border: 1px solid var(--sand); border-left: none; padding: 0.9rem 1.1rem; flex: 1; font-size: 0.96rem; color: var(--text-mid);">
+          ten eerste, ten tweede, ten derde; ook; verder; bovendien; daarnaast; tot slot; ten slotte
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 0; border-radius: var(--border-radius); overflow: hidden; box-shadow: var(--shadow-sm);">
+        <div style="background: var(--terracotta); color: white; padding: 0.9rem 1.1rem; min-width: 140px; display: flex; align-items: center; font-family: 'Source Sans 3', sans-serif; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;">
+          Tegenstelling
+        </div>
+        <div style="background: white; border: 1px solid var(--sand); border-left: none; padding: 0.9rem 1.1rem; flex: 1; font-size: 0.96rem; color: var(--text-mid);">
+          maar, toch, echter, hoewel, terwijl, aan de andere kant, in tegenstelling tot, desondanks
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 0; border-radius: var(--border-radius); overflow: hidden; box-shadow: var(--shadow-sm);">
+        <div style="background: var(--oker); color: white; padding: 0.9rem 1.1rem; min-width: 140px; display: flex; align-items: center; font-family: 'Source Sans 3', sans-serif; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;">
+          Gevolg
+        </div>
+        <div style="background: white; border: 1px solid var(--sand); border-left: none; padding: 0.9rem 1.1rem; flex: 1; font-size: 0.96rem; color: var(--text-mid);">
+          dus, daarom, daardoor, hierdoor, als gevolg daarvan, dat is de reden waarom, bijgevolg
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 0; border-radius: var(--border-radius); overflow: hidden; box-shadow: var(--shadow-sm);">
+        <div style="background: var(--darkblue-light); color: var(--gold); padding: 0.9rem 1.1rem; min-width: 140px; display: flex; align-items: center; font-family: 'Source Sans 3', sans-serif; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;">
+          Voorbeeld
+        </div>
+        <div style="background: white; border: 1px solid var(--sand); border-left: none; padding: 0.9rem 1.1rem; flex: 1; font-size: 0.96rem; color: var(--text-mid);">
+          bijvoorbeeld, zoals, namelijk, ter illustratie, denk aan, stel je voor
+        </div>
+      </div>
+
+    </div>
+
+    <div class="prose-text">
+      <p>Let op het verschil: je gebruikt <em>bovendien</em> als je nog een extra argument toevoegt, maar <em>echter</em> als je een tegenstelling inleidt. Het verkeerde structuuraanduider gebruiken is verwarrend: het geeft de lezer een vals signaal over wat er gaat komen.</p>
+
+      <p>Een praktische tip: lees je tekst luidop voor na het schrijven. Op plaatsen waar het stroef klinkt of waar je zelf de draad kwijtraakt, ontbreekt waarschijnlijk een structuuraanduider — of staat er een verkeerde.</p>
+    </div>
+  </section>
+
+  <!-- OEFENINGEN -->
+  <section class="exercises-section" id="oefeningen">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Herstel een vage boodschap</p>
+      <p>Hieronder staat een vaag en onvolledig bericht. Herschrijf het als een heldere, volledige informatievraag. Gebruik de W-vragen als checklist en de IMS-structuur als opbouw.</p>
+      <div style="background: #F5F0E8; border-left: 3px solid var(--sand); padding: 0.9rem 1.1rem; border-radius: 0 4px 4px 0; margin: 0.8rem 0; font-style: italic; font-size: 0.95rem; color: var(--text-mid);">
+        "hallo. ik wou iets vragen over de zwemlessen. wanneer beginnen die? en wat kost het? en nog een paar andere dingen."
+      </div>
+      <p>Je herschreven versie moet:</p>
+      <ol>
+        <li>Een duidelijke inleiding hebben (wie ben je, wat is je situatie?)</li>
+        <li>In het midden alle concrete vragen bevatten (gebruik structuuraanduiders bij meerdere vragen)</li>
+        <li>Eindigen met een beleefde afsluiting en contactgegeven</li>
+      </ol>
+      <p class="ex-tip">Tip: dit kan een bericht zijn aan een sportclub, een gemeentelijk zwembad of een school — kies zelf. Schrijf minimaal 80 woorden.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Schrijf een zoekertje</p>
+      <p>Kies een voorwerp dat je thuis hebt en dat je zou kunnen verkopen (echt of verzonnen). Schrijf een volledig zoekertje voor een online verkoopplatform. Je tekst moet voldoen aan de volgende eisen:</p>
+      <ul>
+        <li>Een pakkende titel die het product goed omschrijft</li>
+        <li>Antwoord op alle relevante W-vragen (wat, in welke staat, hoeveel, waar, hoe contact?)</li>
+        <li>Een duidelijke IMS-structuur: inleiding (wat verkoop je en waarom), midden (details), slot (contactinfo en oproep)</li>
+        <li>Minimaal 100 woorden</li>
+      </ul>
+      <p class="ex-tip">Tip: bekijk versie B van de Nintendo Switch als voorbeeld. Probeer even concreet en specifiek te zijn.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Register: informeel en formeel</p>
+      <p>Je wil informatie vragen over openingstijden en prijzen van een lokaal museum. Schrijf <strong>twee versies</strong> van hetzelfde verzoek:</p>
+      <ul>
+        <li><strong>Versie A — informeel:</strong> een WhatsApp-bericht aan een vriend die vorig jaar al naar dat museum geweest is en je er meer over kan vertellen</li>
+        <li><strong>Versie B — formeel:</strong> een mail aan de receptie van het museum</li>
+      </ul>
+      <p>Elke versie bevat minstens vier zinnen. Let op:</p>
+      <ul>
+        <li>Gebruik van "je/jij" versus "u"</li>
+        <li>Toon (ontspannen versus beleefd-formeel)</li>
+        <li>Aanspreking en afsluiting (hey vs. Geachte / Met vriendelijke groeten)</li>
+        <li>Woordkeuze (cool vs. interessant; zeker weten? vs. kunt u mij informeren?)</li>
+      </ul>
+      <p class="ex-tip">Tip: de inhoud van je vraag (openingstijden, prijzen) mag in beide versies hetzelfde zijn — het register is wat verschilt.</p>
+    </div>
+
+  </section>
+
+  <!-- SAMENVATTING -->
+  <section class="summary-section" id="samenvatting">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>Taakvoltooiing</strong> betekent dat je boodschap compleet en duidelijk is: de ontvanger heeft alle informatie die hij of zij nodig heeft. Gebruik de W-vragen (Wie? Wat? Waar? Wanneer? Waarom? Hoe?) als checklist.</li>
+      <li>De <strong>IMS-structuur</strong> (Inleiding, Midden, Slot) helpt je teksten overzichtelijk op te bouwen: de inleiding geeft context en doel, het midden geeft de details, het slot rondt af met een oproep tot actie of een beleefde groet.</li>
+      <li>Een goed <strong>zoekertje</strong> bevat concrete informatie over het product, de staat, de prijs, de locatie en hoe je contact kunt opnemen. Vaagheid schrikt potentiële kopers af.</li>
+      <li>Bij een <strong>informatievraag</strong> — op een forum, in een winkel of per mail — geef je eerst context, dan een concrete vraag, dan een beleefde afsluiting. Hoe specifieker je vraag, hoe beter je antwoord.</li>
+      <li><strong>Register en beleefdheidsconventies</strong> bepalen de toon van je tekst: informele berichten aan vrienden gebruiken "je/jij" en een losse toon; formele berichten aan onbekenden of gezagsfiguren vragen "u", een correcte aanspreking en een beleefde afsluiting.</li>
+      <li><strong>Structuuraanduiders</strong> (signaalwoorden zoals <em>bovendien, echter, dus, bijvoorbeeld</em>) zijn de wegwijzers van je tekst: ze vertellen de lezer welke relatie er bestaat tussen zinnen en alinea's, en maken je tekst vloeiend en logisch.</li>
+    </ul>
+  </section>
+
+</div>
+
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Terug naar boven">↑</button>
+<script>
+  const btn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => btn.classList.toggle('visible', window.scrollY > 400));
+</script>
+<script src="nav.js"></script>
+</body>
+</html>

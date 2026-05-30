@@ -1,0 +1,1543 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H11 — Omtrek en oppervlakte | Wiskunde 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     ILLUSTRATIE PLACEHOLDERS
+  ============================================================ */
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+    cursor: default;
+    transition: background var(--transition);
+  }
+
+  .illustratie:hover { background: #EDE7D8; }
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     WISKUNDE-SPECIFIC COMPONENTS
+  ============================================================ */
+  .rekenvoorbeeld { background:white; border:1px solid var(--sand); border-top:4px solid var(--oker); border-radius:var(--border-radius); padding:1.8rem 2rem; margin:2rem 0; box-shadow:var(--shadow-sm); }
+  .rekenvoorbeeld .rv-label { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--oker); display:block; margin-bottom:0.35rem; }
+  .rekenvoorbeeld .rv-vraag { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:700; color:var(--darkblue); margin-bottom:1rem; line-height:1.4; }
+  .rv-stappen { list-style:none; padding:0; counter-reset:stap-teller; margin-bottom:1rem; }
+  .rv-stappen li { counter-increment:stap-teller; padding:0.6rem 0.8rem 0.6rem 3.2rem; position:relative; background:var(--creme); border-radius:4px; margin-bottom:0.4rem; font-size:0.97rem; }
+  .rv-stappen li::before { content:counter(stap-teller); position:absolute; left:0.6rem; top:50%; transform:translateY(-50%); background:var(--darkblue); color:white; width:1.7rem; height:1.7rem; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:700; }
+  .rv-antwoord { background:var(--darkblue); color:var(--gold); padding:0.75rem 1.1rem; border-radius:4px; font-weight:700; font-size:1rem; }
+  .stelling { background:#EEF3FF; border-left:4px solid var(--darkblue); border-radius:0 var(--border-radius) var(--border-radius) 0; padding:1.2rem 1.5rem; margin:1.5rem 0; }
+  .stelling .st-label { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--darkblue); opacity:0.7; display:block; margin-bottom:0.35rem; }
+  .stelling .st-body { font-size:0.97rem; color:var(--text-dark); }
+  .formule { background:var(--darkblue); border-radius:var(--border-radius); padding:1.4rem 1.8rem; text-align:center; margin:1.8rem 0; }
+  .formule math { color:white; font-size:1.2rem; }
+  .formule .formule-naam { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--gold); opacity:0.8; display:block; margin-bottom:0.5rem; }
+  .svg-container { margin:1.8rem 0; padding:1.5rem; background:white; border:1px solid var(--sand); border-radius:var(--border-radius); overflow-x:auto; text-align:center; }
+  .svg-container .svg-caption { font-size:0.85rem; color:var(--text-light); font-style:italic; display:block; margin-top:0.75rem; }
+
+  /* chapter-intro helper */
+  .chapter-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--oker);
+    margin: 3rem 0 0.5rem;
+  }
+  .chapter-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+  .chapter-intro {
+    font-size: 1.08rem;
+    color: var(--text-mid);
+    line-height: 1.8;
+    max-width: 720px;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  /* ============================================================
+     EENHEDEN TABLE
+  ============================================================ */
+  .eenheden-tabel {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+  }
+  .eenheden-tabel th {
+    background: var(--darkblue);
+    color: var(--gold);
+    padding: 0.6rem 1rem;
+    text-align: left;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .eenheden-tabel td {
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid var(--sand);
+    color: var(--text-mid);
+    vertical-align: middle;
+  }
+  .eenheden-tabel tr:nth-child(even) td { background: var(--sand-light); }
+  .eenheden-tabel tr:last-child td { border-bottom: none; }
+  .eenheden-tabel td strong { color: var(--darkblue); }
+
+  /* formula grid for summary */
+  .formule-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .formule-grid-item {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(212,160,23,0.25);
+    border-radius: var(--border-radius);
+    padding: 0.9rem 1.1rem;
+  }
+  .formule-grid-item .fg-naam {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    opacity: 0.8;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+  .formule-grid-item math { color: white; font-size: 1rem; }
+  @media (max-width: 540px) {
+    .formule-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <span class="label">Wiskunde 1A</span>
+  <span class="label label-right">H11 &mdash; Omtrek en oppervlakte</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Wiskunde &nbsp;&middot;&nbsp; 1A &nbsp;&middot;&nbsp; Eerste graad</div>
+  <h1>Omtrek en<br>oppervlakte</h1>
+  <p class="subtitle">Meten wat een figuur omsluit &mdash; van vierkant tot cirkel</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- CHAPTER INTRO -->
+  <div class="chapter-label">Hoofdstuk 11</div>
+  <h1 class="chapter-title">Omtrek en oppervlakte</h1>
+  <p class="chapter-intro">Hoeveel verf heb je nodig voor een muur? Hoelang duurt het om een park te omhalen? Omtrek en oppervlakte zijn twee fundamentele meetkundige begrippen die in elke praktische situatie opduiken. In dit hoofdstuk leer je de formules voor alle belangrijke vlakke figuren.</p>
+
+  <!-- ============================================================
+       SECTIE 1: OMTREK
+  ============================================================ -->
+  <section class="section-block" id="omtrek">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Omtrek</h2>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9655;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Omtrek</span>
+        <p class="begrip-def">De <strong>omtrek</strong> van een vlakke figuur is de <em>totale lengte van de rand</em> van die figuur. Je berekent de omtrek door alle zijden op te tellen of door een formule te gebruiken. De omtrek is een lengte en wordt uitgedrukt in mm, cm, m of km.</p>
+      </div>
+    </div>
+
+    <p>Stel je voor dat je een mierenloper bent die precies langs de rand van een figuur loopt. De totale afstand die je aflegt, is de omtrek. Voor een rechthoek van 8 cm op 5 cm loop je: 8 + 5 + 8 + 5 = 26 cm.</p>
+
+    <h3 class="sub-heading">Eenheden van lengte</h3>
+
+    <p>De omtrek is een <strong>lengte</strong>. De meest gebruikte eenheden zijn:</p>
+
+    <table class="eenheden-tabel" role="table" aria-label="Lengte-eenheden">
+      <thead>
+        <tr>
+          <th>Eenheid</th>
+          <th>Afkorting</th>
+          <th>Omzetting</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>kilometer</strong></td><td>km</td><td>1 km = 1 000 m</td>
+        </tr>
+        <tr>
+          <td><strong>meter</strong></td><td>m</td><td>1 m = 100 cm</td>
+        </tr>
+        <tr>
+          <td><strong>centimeter</strong></td><td>cm</td><td>1 cm = 10 mm</td>
+        </tr>
+        <tr>
+          <td><strong>millimeter</strong></td><td>mm</td><td>basiseenheid (kleinste)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub-heading">Formules voor de omtrek</h3>
+
+    <!-- Driehoek -->
+    <p><strong>Driehoek</strong> met zijden <em>a</em>, <em>b</em> en <em>c</em>:</p>
+    <div class="formule">
+      <span class="formule-naam">Omtrek driehoek</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <mi>O</mi>
+          <mo>=</mo>
+          <mi>a</mi>
+          <mo>+</mo>
+          <mi>b</mi>
+          <mo>+</mo>
+          <mi>c</mi>
+        </mrow>
+      </math>
+    </div>
+
+    <!-- Rechthoek -->
+    <p><strong>Rechthoek</strong> met lengte <em>l</em> en breedte <em>b</em>:</p>
+    <div class="formule">
+      <span class="formule-naam">Omtrek rechthoek</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <mi>O</mi>
+          <mo>=</mo>
+          <mn>2</mn>
+          <mo>(</mo>
+          <mi>l</mi>
+          <mo>+</mo>
+          <mi>b</mi>
+          <mo>)</mo>
+        </mrow>
+      </math>
+    </div>
+
+    <!-- Vierkant -->
+    <p><strong>Vierkant</strong> met zijde <em>z</em>:</p>
+    <div class="formule">
+      <span class="formule-naam">Omtrek vierkant</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <mi>O</mi>
+          <mo>=</mo>
+          <mn>4</mn>
+          <mi>z</mi>
+        </mrow>
+      </math>
+    </div>
+
+    <!-- Cirkel -->
+    <p><strong>Cirkel</strong> met straal <em>r</em> of middellijn <em>d</em>. Het getal &pi; &asymp; 3,14159&hellip;</p>
+    <div class="formule">
+      <span class="formule-naam">Omtrek (omtrek) cirkel</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <mi>O</mi>
+          <mo>=</mo>
+          <mn>2</mn>
+          <mi>&#960;</mi>
+          <mi>r</mi>
+          <mo>=</mo>
+          <mi>&#960;</mi>
+          <mi>d</mi>
+        </mrow>
+      </math>
+    </div>
+
+    <p>De omtrek van een cirkel wordt ook wel de <strong>omtrek</strong> of <strong>cirkelomtrek</strong> genoemd. Let erop dat <em>d = 2r</em>: de middellijn is twee keer de straal.</p>
+
+    <!-- Rekenvoorbeeld: rechthoek -->
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Bereken de omtrek van een rechthoek met lengte 8 cm en breedte 5 cm.</p>
+      <ul class="rv-stappen">
+        <li>Schrijf de formule op: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>O</mi><mo>=</mo><mn>2</mn><mo>(</mo><mi>l</mi><mo>+</mo><mi>b</mi><mo>)</mo></mrow></math></li>
+        <li>Vul de waarden in: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>O</mi><mo>=</mo><mn>2</mn><mo>(</mo><mn>8</mn><mo>+</mo><mn>5</mn><mo>)</mo></mrow></math></li>
+        <li>Bereken de haakjes: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>8</mn><mo>+</mo><mn>5</mn><mo>=</mo><mn>13</mn></mrow></math></li>
+        <li>Vermenigvuldig: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2</mn><mo>&times;</mo><mn>13</mn><mo>=</mo><mn>26</mn></mrow></math></li>
+      </ul>
+      <p class="rv-antwoord">Antwoord: O = 26 cm</p>
+    </div>
+
+    <!-- Rekenvoorbeeld: cirkel -->
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Een cirkel heeft een omtrek van 31,4 cm. Bereken de middellijn.</p>
+      <ul class="rv-stappen">
+        <li>Formule: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>O</mi><mo>=</mo><mi>&#960;</mi><mi>d</mi></mrow></math></li>
+        <li>Vul in en los op voor <em>d</em>: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>31,4</mn><mo>=</mo><mi>&#960;</mi><mi>d</mi></mrow></math></li>
+        <li><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>d</mi><mo>=</mo><mfrac><mn>31,4</mn><mi>&#960;</mi></mfrac><mo>&#8776;</mo><mfrac><mn>31,4</mn><mn>3,14159</mn></mfrac></mrow></math></li>
+        <li>Uitrekenen: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>d</mi><mo>&#8776;</mo><mn>10</mn></mrow></math> cm</li>
+      </ul>
+      <p class="rv-antwoord">Antwoord: d &asymp; 10 cm</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Je hebt 20 meter hekwerk om een rechthoekig tuintje af te bakenen. Welke afmetingen geeft de meeste oppervlakte: 2 m &times; 8 m of 4 m &times; 6 m? Bereken beide omtrekken om te controleren dat ze kloppen, en vergelijk de oppervlakten alvast.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 2: OPPERVLAKTE VAN VEELHOEKEN
+  ============================================================ -->
+  <section class="section-block" id="oppervlakte-veelhoeken">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Oppervlakte van veelhoeken</h2>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9633;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Oppervlakte</span>
+        <p class="begrip-def">De <strong>oppervlakte</strong> is de maat voor de grootte van een vlak. Ze geeft aan hoeveel eenheidsvlakken (vierkantjes van 1&times;1) in de figuur passen. De oppervlakte wordt uitgedrukt in <strong>kwadratische eenheden</strong>: mm&sup2;, cm&sup2;, dm&sup2;, m&sup2;, km&sup2;.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Eenheden omzetten</h3>
+
+    <p>Bij oppervlakte ga je in stappen van 100 (niet 10!) omdat je twee dimensies hebt: lengte &eacute;n breedte. Elke stap op de ladderladder van oppervlakten is een factor 100.</p>
+
+    <table class="eenheden-tabel" role="table" aria-label="Oppervlakte-eenheden">
+      <thead>
+        <tr>
+          <th>Eenheid</th>
+          <th>Afkorting</th>
+          <th>Omzetting</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>vierkante kilometer</strong></td><td>km&sup2;</td><td>1 km&sup2; = 100 ha = 1 000 000 m&sup2;</td></tr>
+        <tr><td><strong>hectare</strong></td><td>ha</td><td>1 ha = 10 000 m&sup2;</td></tr>
+        <tr><td><strong>vierkante meter</strong></td><td>m&sup2;</td><td>1 m&sup2; = 100 dm&sup2; = 10 000 cm&sup2;</td></tr>
+        <tr><td><strong>vierkante decimeter</strong></td><td>dm&sup2;</td><td>1 dm&sup2; = 100 cm&sup2;</td></tr>
+        <tr><td><strong>vierkante centimeter</strong></td><td>cm&sup2;</td><td>1 cm&sup2; = 100 mm&sup2;</td></tr>
+        <tr><td><strong>vierkante millimeter</strong></td><td>mm&sup2;</td><td>basiseenheid (kleinste)</td></tr>
+      </tbody>
+    </table>
+
+    <p><strong>Geheugensteun:</strong> bij het omzetten van m&sup2; naar cm&sup2; vermenigvuldig je met 10 000 (= 100&sup2;), want 1 m = 100 cm &rarr; 1 m&sup2; = 100 cm &times; 100 cm = 10 000 cm&sup2;.</p>
+
+    <h3 class="sub-heading">Formules voor de oppervlakte</h3>
+
+    <!-- SVG figuren naast formules -->
+
+    <!-- Rechthoek -->
+    <p><strong>Rechthoek</strong> met lengte <em>l</em> en breedte <em>b</em>:</p>
+    <div class="formule">
+      <span class="formule-naam">Oppervlakte rechthoek</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <mi>A</mi>
+          <mo>=</mo>
+          <mi>l</mi>
+          <mo>&times;</mo>
+          <mi>b</mi>
+        </mrow>
+      </math>
+    </div>
+    <div class="svg-container">
+      <svg viewBox="0 0 300 160" width="100%" style="max-width:300px" role="img" aria-labelledby="rect-title">
+        <title id="rect-title">Rechthoek met lengte l en breedte b gelabeld</title>
+        <rect x="40" y="30" width="200" height="100" fill="#EEF3FF" stroke="#1A2B4A" stroke-width="2.5" rx="3"/>
+        <!-- lengte label -->
+        <line x1="40" y1="148" x2="240" y2="148" stroke="#C1440E" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <line x1="40" y1="144" x2="40" y2="152" stroke="#C1440E" stroke-width="1.5"/>
+        <line x1="240" y1="144" x2="240" y2="152" stroke="#C1440E" stroke-width="1.5"/>
+        <text x="140" y="162" font-family="'Playfair Display', serif" font-style="italic" font-size="15" fill="#C1440E" text-anchor="middle">l</text>
+        <!-- breedte label -->
+        <line x1="16" y1="30" x2="16" y2="130" stroke="#C8923A" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <line x1="12" y1="30" x2="20" y2="30" stroke="#C8923A" stroke-width="1.5"/>
+        <line x1="12" y1="130" x2="20" y2="130" stroke="#C8923A" stroke-width="1.5"/>
+        <text x="6" y="85" font-family="'Playfair Display', serif" font-style="italic" font-size="15" fill="#C8923A" text-anchor="middle">b</text>
+      </svg>
+      <span class="svg-caption">Rechthoek: lengte <em>l</em> (horizontaal, rood) en breedte <em>b</em> (verticaal, oranje).</span>
+    </div>
+
+    <!-- Vierkant -->
+    <p><strong>Vierkant</strong> met zijde <em>z</em>:</p>
+    <div class="formule">
+      <span class="formule-naam">Oppervlakte vierkant</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <mi>A</mi>
+          <mo>=</mo>
+          <msup><mi>z</mi><mn>2</mn></msup>
+        </mrow>
+      </math>
+    </div>
+    <div class="svg-container">
+      <svg viewBox="0 0 240 180" width="100%" style="max-width:220px" role="img" aria-labelledby="sq-title">
+        <title id="sq-title">Vierkant met zijde z gelabeld</title>
+        <rect x="50" y="20" width="130" height="130" fill="#FBF0D0" stroke="#D4A017" stroke-width="2.5" rx="3"/>
+        <!-- rechte hoek icoon -->
+        <polyline points="68,130 68,112 86,112" fill="none" stroke="#D4A017" stroke-width="1.5"/>
+        <!-- zijde label -->
+        <line x1="50" y1="162" x2="180" y2="162" stroke="#D4A017" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <line x1="50" y1="158" x2="50" y2="166" stroke="#D4A017" stroke-width="1.5"/>
+        <line x1="180" y1="158" x2="180" y2="166" stroke="#D4A017" stroke-width="1.5"/>
+        <text x="115" y="176" font-family="'Playfair Display', serif" font-style="italic" font-size="15" fill="#D4A017" text-anchor="middle">z</text>
+        <!-- rechter zijde -->
+        <text x="196" y="90" font-family="'Playfair Display', serif" font-style="italic" font-size="15" fill="#D4A017" text-anchor="start">z</text>
+      </svg>
+      <span class="svg-caption">Vierkant: alle zijden zijn gelijk aan <em>z</em>.</span>
+    </div>
+
+    <!-- Driehoek -->
+    <p><strong>Driehoek</strong> met grondlijn <em>g</em> en hoogte <em>h</em>:</p>
+    <div class="formule">
+      <span class="formule-naam">Oppervlakte driehoek</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <mi>A</mi>
+          <mo>=</mo>
+          <mfrac>
+            <mrow><mi>g</mi><mo>&times;</mo><mi>h</mi></mrow>
+            <mn>2</mn>
+          </mfrac>
+        </mrow>
+      </math>
+    </div>
+    <div class="svg-container">
+      <svg viewBox="0 0 300 180" width="100%" style="max-width:300px" role="img" aria-labelledby="tri-title">
+        <title id="tri-title">Driehoek met grondlijn g en hoogte h gelabeld</title>
+        <!-- driehoek -->
+        <polygon points="50,150 250,150 170,30" fill="#EEF3FF" stroke="#1A2B4A" stroke-width="2.5"/>
+        <!-- hoogte stippellijn -->
+        <line x1="170" y1="30" x2="170" y2="150" stroke="#C1440E" stroke-width="1.8" stroke-dasharray="5,4"/>
+        <!-- rechte hoek -->
+        <rect x="170" y="135" width="14" height="14" fill="none" stroke="#C1440E" stroke-width="1.5"/>
+        <!-- h label -->
+        <text x="180" y="100" font-family="'Playfair Display', serif" font-style="italic" font-size="15" fill="#C1440E">h</text>
+        <!-- g label -->
+        <line x1="50" y1="165" x2="250" y2="165" stroke="#C8923A" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <line x1="50" y1="161" x2="50" y2="169" stroke="#C8923A" stroke-width="1.5"/>
+        <line x1="250" y1="161" x2="250" y2="169" stroke="#C8923A" stroke-width="1.5"/>
+        <text x="150" y="178" font-family="'Playfair Display', serif" font-style="italic" font-size="15" fill="#C8923A" text-anchor="middle">g</text>
+      </svg>
+      <span class="svg-caption">Driehoek: grondlijn <em>g</em> (oranje) en loodrechte hoogte <em>h</em> (rood).</span>
+    </div>
+
+    <!-- Parallellogram -->
+    <p><strong>Parallellogram</strong> met grondlijn <em>g</em> en hoogte <em>h</em>:</p>
+    <div class="formule">
+      <span class="formule-naam">Oppervlakte parallellogram</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <mi>A</mi>
+          <mo>=</mo>
+          <mi>g</mi>
+          <mo>&times;</mo>
+          <mi>h</mi>
+        </mrow>
+      </math>
+    </div>
+    <div class="svg-container">
+      <svg viewBox="0 0 320 160" width="100%" style="max-width:320px" role="img" aria-labelledby="para-title">
+        <title id="para-title">Parallellogram met grondlijn g en hoogte h gelabeld</title>
+        <polygon points="70,130 250,130 210,30 30,30" fill="#FDF3E7" stroke="#C8923A" stroke-width="2.5"/>
+        <!-- hoogte -->
+        <line x1="210" y1="30" x2="210" y2="130" stroke="#C1440E" stroke-width="1.8" stroke-dasharray="5,4"/>
+        <rect x="210" y="115" width="14" height="14" fill="none" stroke="#C1440E" stroke-width="1.5"/>
+        <text x="222" y="85" font-family="'Playfair Display', serif" font-style="italic" font-size="15" fill="#C1440E">h</text>
+        <!-- grondlijn -->
+        <line x1="70" y1="148" x2="250" y2="148" stroke="#C8923A" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <line x1="70" y1="144" x2="70" y2="152" stroke="#C8923A" stroke-width="1.5"/>
+        <line x1="250" y1="144" x2="250" y2="152" stroke="#C8923A" stroke-width="1.5"/>
+        <text x="160" y="162" font-family="'Playfair Display', serif" font-style="italic" font-size="15" fill="#C8923A" text-anchor="middle">g</text>
+      </svg>
+      <span class="svg-caption">Parallellogram: de hoogte <em>h</em> staat <strong>loodrecht</strong> op de grondlijn <em>g</em>, niet langs de schuine zijde!</span>
+    </div>
+
+    <!-- Trapezium -->
+    <p><strong>Trapezium</strong> met parallelle zijden <em>a</em> en <em>b</em>, en hoogte <em>h</em>:</p>
+    <div class="formule">
+      <span class="formule-naam">Oppervlakte trapezium</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <mi>A</mi>
+          <mo>=</mo>
+          <mfrac>
+            <mrow><mo>(</mo><mi>a</mi><mo>+</mo><mi>b</mi><mo>)</mo><mo>&times;</mo><mi>h</mi></mrow>
+            <mn>2</mn>
+          </mfrac>
+        </mrow>
+      </math>
+    </div>
+    <div class="svg-container">
+      <svg viewBox="0 0 320 170" width="100%" style="max-width:320px" role="img" aria-labelledby="trap-title">
+        <title id="trap-title">Trapezium met parallelle zijden a boven en b onder, en hoogte h</title>
+        <polygon points="90,30 220,30 260,130 50,130" fill="#EEF3FF" stroke="#1A2B4A" stroke-width="2.5"/>
+        <!-- hoogte -->
+        <line x1="155" y1="30" x2="155" y2="130" stroke="#C1440E" stroke-width="1.8" stroke-dasharray="5,4"/>
+        <rect x="155" y="115" width="13" height="13" fill="none" stroke="#C1440E" stroke-width="1.5"/>
+        <text x="165" y="85" font-family="'Playfair Display', serif" font-style="italic" font-size="15" fill="#C1440E">h</text>
+        <!-- a (bovenzijde) -->
+        <text x="155" y="22" font-family="'Playfair Display', serif" font-style="italic" font-size="15" fill="#D4A017" text-anchor="middle">a</text>
+        <!-- b (onderzijde) -->
+        <text x="155" y="150" font-family="'Playfair Display', serif" font-style="italic" font-size="15" fill="#C8923A" text-anchor="middle">b</text>
+      </svg>
+      <span class="svg-caption">Trapezium: <em>a</em> en <em>b</em> zijn de twee parallelle zijden; <em>h</em> is de loodrechte hoogte ertussen.</span>
+    </div>
+
+    <!-- Ruit -->
+    <p><strong>Ruit</strong> met diagonalen <em>d</em><sub>1</sub> en <em>d</em><sub>2</sub>:</p>
+    <div class="formule">
+      <span class="formule-naam">Oppervlakte ruit</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <mi>A</mi>
+          <mo>=</mo>
+          <mfrac>
+            <mrow><msub><mi>d</mi><mn>1</mn></msub><mo>&times;</mo><msub><mi>d</mi><mn>2</mn></msub></mrow>
+            <mn>2</mn>
+          </mfrac>
+        </mrow>
+      </math>
+    </div>
+    <div class="svg-container">
+      <svg viewBox="0 0 280 200" width="100%" style="max-width:260px" role="img" aria-labelledby="rhom-title">
+        <title id="rhom-title">Ruit met diagonalen d1 en d2 gelabeld</title>
+        <polygon points="140,20 240,100 140,180 40,100" fill="#FBF0D0" stroke="#D4A017" stroke-width="2.5"/>
+        <!-- diagonaal d1 (horizontaal) -->
+        <line x1="40" y1="100" x2="240" y2="100" stroke="#C8923A" stroke-width="1.8" stroke-dasharray="5,4"/>
+        <text x="140" y="90" font-family="'Playfair Display', serif" font-style="italic" font-size="14" fill="#C8923A" text-anchor="middle">d&#8321;</text>
+        <!-- diagonaal d2 (verticaal) -->
+        <line x1="140" y1="20" x2="140" y2="180" stroke="#C1440E" stroke-width="1.8" stroke-dasharray="5,4"/>
+        <text x="155" y="115" font-family="'Playfair Display', serif" font-style="italic" font-size="14" fill="#C1440E">d&#8322;</text>
+        <!-- rechte hoek -->
+        <rect x="140" y="100" width="12" height="12" fill="none" stroke="#1A2B4A" stroke-width="1.5"/>
+      </svg>
+      <span class="svg-caption">Ruit: de twee diagonalen <em>d</em><sub>1</sub> en <em>d</em><sub>2</sub> staan loodrecht op elkaar.</span>
+    </div>
+
+    <!-- Rekenvoorbeeld: trapezium -->
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Bereken de oppervlakte van een trapezium met parallelle zijden 6 cm en 10 cm, en hoogte 4 cm.</p>
+      <ul class="rv-stappen">
+        <li>Formule: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>A</mi><mo>=</mo><mfrac><mrow><mo>(</mo><mi>a</mi><mo>+</mo><mi>b</mi><mo>)</mo><mo>&times;</mo><mi>h</mi></mrow><mn>2</mn></mfrac></mrow></math></li>
+        <li>Vul in: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>A</mi><mo>=</mo><mfrac><mrow><mo>(</mo><mn>6</mn><mo>+</mo><mn>10</mn><mo>)</mo><mo>&times;</mo><mn>4</mn></mrow><mn>2</mn></mfrac></mrow></math></li>
+        <li>Haakjes: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>6</mn><mo>+</mo><mn>10</mn><mo>=</mo><mn>16</mn></mrow></math></li>
+        <li>Teller: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>16</mn><mo>&times;</mo><mn>4</mn><mo>=</mo><mn>64</mn></mrow></math></li>
+        <li>Deel door 2: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>64</mn><mo>&divide;</mo><mn>2</mn><mo>=</mo><mn>32</mn></mrow></math></li>
+      </ul>
+      <p class="rv-antwoord">Antwoord: A = 32 cm&sup2;</p>
+    </div>
+
+    <!-- Rekenvoorbeeld: driehoek -->
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Bereken de oppervlakte van een driehoek met grondlijn 9 cm en hoogte 6 cm.</p>
+      <ul class="rv-stappen">
+        <li>Formule: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>A</mi><mo>=</mo><mfrac><mrow><mi>g</mi><mo>&times;</mo><mi>h</mi></mrow><mn>2</mn></mfrac></mrow></math></li>
+        <li>Vul in: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>A</mi><mo>=</mo><mfrac><mrow><mn>9</mn><mo>&times;</mo><mn>6</mn></mrow><mn>2</mn></mfrac></mrow></math></li>
+        <li>Bereken de teller: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>9</mn><mo>&times;</mo><mn>6</mn><mo>=</mo><mn>54</mn></mrow></math></li>
+        <li>Deel door 2: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>54</mn><mo>&divide;</mo><mn>2</mn><mo>=</mo><mn>27</mn></mrow></math></li>
+      </ul>
+      <p class="rv-antwoord">Antwoord: A = 27 cm&sup2;</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Vergelijk de formule voor een parallellogram (<em>A = g &times; h</em>) met die voor een rechthoek (<em>A = l &times; b</em>). Wanneer zijn ze hetzelfde? En waarom is de hoogte van een parallellogram <em>niet</em> gelijk aan de zijde?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 3: OPPERVLAKTE VAN DE CIRKEL
+  ============================================================ -->
+  <section class="section-block" id="oppervlakte-cirkel">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Oppervlakte van de cirkel</h2>
+    </div>
+
+    <p>De oppervlakte van een cirkel berekenen we met de straal <em>r</em>. De formule bevat <strong>&pi;r&sup2;</strong>: men vermenigvuldigt &pi; met het kwadraat van de straal.</p>
+
+    <div class="formule">
+      <span class="formule-naam">Oppervlakte cirkel</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <mi>A</mi>
+          <mo>=</mo>
+          <mi>&#960;</mi>
+          <msup><mi>r</mi><mn>2</mn></msup>
+        </mrow>
+      </math>
+    </div>
+
+    <!-- SVG: cirkel met straal + vergelijkend vierkant r×r -->
+    <div class="svg-container">
+      <svg viewBox="0 0 480 220" width="100%" style="max-width:480px" role="img" aria-labelledby="circ-title">
+        <title id="circ-title">Cirkel met straal r en een vergelijkend vierkant r bij r</title>
+        <!-- Cirkel links -->
+        <circle cx="120" cy="110" r="90" fill="#EEF3FF" stroke="#1A2B4A" stroke-width="2.5"/>
+        <!-- straal -->
+        <line x1="120" y1="110" x2="210" y2="110" stroke="#C1440E" stroke-width="2"/>
+        <circle cx="120" cy="110" r="4" fill="#C1440E"/>
+        <text x="162" y="103" font-family="'Playfair Display', serif" font-style="italic" font-size="16" fill="#C1440E" text-anchor="middle">r</text>
+        <text x="120" y="202" font-family="'Source Sans 3', sans-serif" font-size="12" fill="#1A2B4A" text-anchor="middle">Cirkel: A = &#960;r&#xB2;</text>
+
+        <!-- Scheidingslijn -->
+        <line x1="250" y1="20" x2="250" y2="200" stroke="#E8DCC8" stroke-width="1.5" stroke-dasharray="6,4"/>
+
+        <!-- Vierkant r×r rechts (ter vergelijking, iets kleiner weergegeven met schaal) -->
+        <rect x="280" y="50" width="90" height="90" fill="#FBF0D0" stroke="#D4A017" stroke-width="2" stroke-dasharray="6,4"/>
+        <text x="325" y="43" font-family="'Playfair Display', serif" font-style="italic" font-size="13" fill="#D4A017" text-anchor="middle">r</text>
+        <text x="276" y="100" font-family="'Playfair Display', serif" font-style="italic" font-size="13" fill="#D4A017" text-anchor="end">r</text>
+        <text x="325" y="162" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#C8923A" text-anchor="middle">Vierkant r&times;r = r&#xB2;</text>
+        <text x="325" y="175" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#1A2B4A" text-anchor="middle">Cirkel &asymp; 3,14 &times; r&#xB2;</text>
+
+        <!-- Pijl met &pi; -->
+        <text x="390" y="98" font-family="'Playfair Display', serif" font-size="22" fill="#1A2B4A" text-anchor="middle">&times; &#960;</text>
+      </svg>
+      <span class="svg-caption">Links: cirkel met straal <em>r</em>. Rechts: het vierkant met zijde <em>r</em> ter vergelijking. De cirkel beslaat precies &pi; &asymp; 3,14 keer de oppervlakte van dat vierkant.</span>
+    </div>
+
+    <p>Waarom r&sup2;? Stel je voor dat je een vierkant tekent met zijde gelijk aan de straal. Dan is de oppervlakte van de cirkel precies &pi; keer die van het vierkant. Dit is de intui&iuml;tieve betekenis van de formule A = &pi;r&sup2;.</p>
+
+    <!-- Rekenvoorbeeld: oppervlakte cirkel -->
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Bereken de oppervlakte van een cirkel met straal 7 cm. Geef het antwoord exact en bij benadering.</p>
+      <ul class="rv-stappen">
+        <li>Formule: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>A</mi><mo>=</mo><mi>&#960;</mi><msup><mi>r</mi><mn>2</mn></msup></mrow></math></li>
+        <li>Vul in: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>A</mi><mo>=</mo><mi>&#960;</mi><mo>&times;</mo><msup><mn>7</mn><mn>2</mn></msup></mrow></math></li>
+        <li>Kwadraat: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mn>7</mn><mn>2</mn></msup><mo>=</mo><mn>49</mn></mrow></math></li>
+        <li>Exact: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>A</mi><mo>=</mo><mn>49</mn><mi>&#960;</mi></mrow></math> cm&sup2;</li>
+        <li>Benadering: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>A</mi><mo>&#8776;</mo><mn>49</mn><mo>&times;</mo><mn>3,14159</mn><mo>&#8776;</mo><mn>153,94</mn></mrow></math> cm&sup2;</li>
+      </ul>
+      <p class="rv-antwoord">Antwoord: A = 49&pi; cm&sup2; &asymp; 153,94 cm&sup2;</p>
+    </div>
+
+    <!-- Rekenvoorbeeld: straal berekenen uit oppervlakte -->
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Een cirkel heeft oppervlakte 100&pi; cm&sup2;. Bereken de straal.</p>
+      <ul class="rv-stappen">
+        <li>Formule: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>A</mi><mo>=</mo><mi>&#960;</mi><msup><mi>r</mi><mn>2</mn></msup></mrow></math></li>
+        <li>Vul in: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>100</mn><mi>&#960;</mi><mo>=</mo><mi>&#960;</mi><msup><mi>r</mi><mn>2</mn></msup></mrow></math></li>
+        <li>Deel beide leden door &pi;: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mi>r</mi><mn>2</mn></msup><mo>=</mo><mn>100</mn></mrow></math></li>
+        <li>Neem de vierkantswortel: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>r</mi><mo>=</mo><msqrt><mn>100</mn></msqrt><mo>=</mo><mn>10</mn></mrow></math></li>
+      </ul>
+      <p class="rv-antwoord">Antwoord: r = 10 cm</p>
+    </div>
+
+    <div class="stelling">
+      <span class="st-label">Onthoud</span>
+      <p class="st-body">
+        Omtrek en oppervlakte van een cirkel &mdash; overzicht:<br><br>
+        Omtrek: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>O</mi><mo>=</mo><mn>2</mn><mi>&#960;</mi><mi>r</mi><mo>=</mo><mi>&#960;</mi><mi>d</mi></mrow></math><br><br>
+        Oppervlakte: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>A</mi><mo>=</mo><mi>&#960;</mi><msup><mi>r</mi><mn>2</mn></msup></mrow></math><br><br>
+        Gebruik altijd <strong>de straal <em>r</em></strong> bij de oppervlakteformule. Als je de middellijn <em>d</em> hebt, bereken dan eerst <em>r = d / 2</em>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 4: SAMENGESTELDE FIGUREN
+  ============================================================ -->
+  <section class="section-block" id="samengestelde-figuren">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Samengestelde figuren</h2>
+    </div>
+
+    <p>Veel figuren in de praktijk zijn samengesteld: een L-vormige kamer, een cirkel met een rechthoekig stuk eruit, een halve cirkel op een rechthoek&hellip; De strategie is altijd dezelfde:</p>
+
+    <div class="stelling">
+      <span class="st-label">Strategie &mdash; Samengestelde figuren</span>
+      <p class="st-body">
+        <strong>1.</strong> Splits de figuur in eenvoudigere deelfiguren (rechthoeken, driehoeken, cirkels&hellip;).<br>
+        <strong>2.</strong> Bereken de oppervlakte (of omtrek) van elk deel afzonderlijk.<br>
+        <strong>3.</strong> Tel de oppervlakten op (of trek ze af als een deel verwijderd is).
+      </p>
+    </div>
+
+    <!-- Rekenvoorbeeld: L-vormige kamer -->
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Een L-vormige kamer heeft buitenafmetingen 10 m &times; 8 m. In de rechterbovenhoek ontbreekt een rechthoek van 4 m &times; 3 m. Bereken de oppervlakte van de kamer.</p>
+      <ul class="rv-stappen">
+        <li>Methode: bereken de volledige rechthoek en trek het ontbrekende stuk af.</li>
+        <li>Volledige rechthoek: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>10</mn><mo>&times;</mo><mn>8</mn><mo>=</mo><mn>80</mn></mrow></math> m&sup2;</li>
+        <li>Ontbrekend stuk: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>4</mn><mo>&times;</mo><mn>3</mn><mo>=</mo><mn>12</mn></mrow></math> m&sup2;</li>
+        <li>Oppervlakte kamer: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>80</mn><mo>&#8722;</mo><mn>12</mn><mo>=</mo><mn>68</mn></mrow></math> m&sup2;</li>
+      </ul>
+      <p class="rv-antwoord">Antwoord: A = 68 m&sup2;</p>
+    </div>
+
+    <!-- SVG: L-vormige kamer -->
+    <div class="svg-container">
+      <svg viewBox="0 0 400 300" width="100%" style="max-width:400px" role="img" aria-labelledby="lshape-title">
+        <title id="lshape-title">L-vormige kamer: grote rechthoek 10 bij 8 m min een hoekstuk 4 bij 3 m</title>
+        <!-- Grote rechthoek (achtergrond, lichtblauw) -->
+        <rect x="40" y="30" width="280" height="224" fill="#D8E4F0" stroke="#1A2B4A" stroke-width="1.5" stroke-dasharray="6,4" rx="2"/>
+        <!-- L-vorm (de kamer zelf) -->
+        <!-- Hele rechthoek minus rechterbovenhoek 4x3 (schaal: 10m=280px, 8m=224px => 1m=28px) -->
+        <!-- Ontbrekend stuk: rechts boven: breedte 4m=112px, hoogte 3m=84px, dus van x=40+280-112=208 tot 320, y=30 tot 114 -->
+        <polygon points="40,30 208,30 208,114 320,114 320,254 40,254"
+          fill="#C5D8EF" stroke="#1A2B4A" stroke-width="2.5" rx="2"/>
+        <!-- Ontbrekend stuk in een andere kleur om te tonen -->
+        <rect x="208" y="30" width="112" height="84" fill="#F7C8B0" stroke="#C1440E" stroke-width="2" stroke-dasharray="5,3"/>
+        <text x="264" y="78" font-family="'Source Sans 3', sans-serif" font-size="12" fill="#C1440E" text-anchor="middle" font-weight="700">4 m &times; 3 m</text>
+        <text x="264" y="94" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#C1440E" text-anchor="middle" opacity="0.8">ontbreekt</text>
+        <!-- Maatstrepen: breedte 10m -->
+        <line x1="40" y1="272" x2="320" y2="272" stroke="#1A2B4A" stroke-width="1.5"/>
+        <line x1="40" y1="268" x2="40" y2="276" stroke="#1A2B4A" stroke-width="1.5"/>
+        <line x1="320" y1="268" x2="320" y2="276" stroke="#1A2B4A" stroke-width="1.5"/>
+        <text x="180" y="286" font-family="'Source Sans 3', sans-serif" font-size="13" fill="#1A2B4A" text-anchor="middle">10 m</text>
+        <!-- Maatstrepen: hoogte 8m -->
+        <line x1="10" y1="30" x2="10" y2="254" stroke="#1A2B4A" stroke-width="1.5"/>
+        <line x1="6" y1="30" x2="14" y2="30" stroke="#1A2B4A" stroke-width="1.5"/>
+        <line x1="6" y1="254" x2="14" y2="254" stroke="#1A2B4A" stroke-width="1.5"/>
+        <text x="0" y="145" font-family="'Source Sans 3', sans-serif" font-size="13" fill="#1A2B4A" text-anchor="middle" transform="rotate(-90, 0, 145)">8 m</text>
+        <!-- Kamer label -->
+        <text x="120" y="190" font-family="'Playfair Display', serif" font-size="14" fill="#1A2B4A" text-anchor="middle">Kamer</text>
+        <text x="120" y="207" font-family="'Source Sans 3', sans-serif" font-size="12" fill="#1A2B4A" text-anchor="middle">80 &minus; 12 = 68 m&sup2;</text>
+      </svg>
+      <span class="svg-caption">L-vormige kamer: de grote rechthoek (blauw) min het ontbrekende hoekstuk (rood gestippeld). Oppervlakte = 80 &minus; 12 = 68 m&sup2;.</span>
+    </div>
+
+    <!-- Rekenvoorbeeld: ring (annulus) -->
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Bereken de oppervlakte van een ring (annulus) met buitenstraal 8 cm en binnenstraal 5 cm.</p>
+      <ul class="rv-stappen">
+        <li>Oppervlakte grote cirkel: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>&#960;</mi><mo>&times;</mo><msup><mn>8</mn><mn>2</mn></msup><mo>=</mo><mn>64</mn><mi>&#960;</mi></mrow></math></li>
+        <li>Oppervlakte kleine cirkel: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>&#960;</mi><mo>&times;</mo><msup><mn>5</mn><mn>2</mn></msup><mo>=</mo><mn>25</mn><mi>&#960;</mi></mrow></math></li>
+        <li>Oppervlakte ring: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>64</mn><mi>&#960;</mi><mo>&#8722;</mo><mn>25</mn><mi>&#960;</mi><mo>=</mo><mn>39</mn><mi>&#960;</mi></mrow></math></li>
+        <li>Benadering: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>39</mn><mi>&#960;</mi><mo>&#8776;</mo><mn>122,5</mn></mrow></math> cm&sup2;</li>
+      </ul>
+      <p class="rv-antwoord">Antwoord: A = 39&pi; &asymp; 122,5 cm&sup2;</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Een zwembad heeft de vorm van een rechthoek van 25 m &times; 10 m. Rondom het zwembad loopt een gelijkmatig pad van 2 m breed. Hoe bereken je de oppervlakte van enkel het pad? Welke methode gebruik je?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 5: EENHEDEN EN NAUWKEURIGHEID
+  ============================================================ -->
+  <section class="section-block" id="eenheden-nauwkeurigheid">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Eenheden en nauwkeurigheid</h2>
+    </div>
+
+    <p>Bij meetkunde is het cruciaal dat je de juiste eenheden gebruikt en dat je op een verstandige manier afrond. Een opgave over een speelterrein in km&sup2; uitdrukken is zinloos; maar andersom: een boerderij in mm&sup2; schrijven ook.</p>
+
+    <h3 class="sub-heading">Omzetten van oppervlakte-eenheden</h3>
+
+    <p>Elk niveau op de ladder van oppervlakten verschilt met een factor <strong>100</strong>. Visualiseer het zo: een vierkant van 1 m &times; 1 m = 100 cm &times; 100 cm = 10 000 cm&sup2;.</p>
+
+    <!-- SVG: eenheden-ladder voor oppervlakte -->
+    <div class="svg-container">
+      <svg viewBox="0 0 460 300" width="100%" style="max-width:460px" role="img" aria-labelledby="units-title">
+        <title id="units-title">Ladder van oppervlakteenheden van km&#xB2; tot mm&#xB2;</title>
+        <!-- Ladder -->
+        <!-- Stijgen = &divide; 100, dalen = &times; 100 -->
+        <g font-family="'Source Sans 3', sans-serif">
+          <!-- km2 -->
+          <rect x="155" y="20" width="150" height="36" rx="6" fill="#1A2B4A"/>
+          <text x="230" y="44" font-size="14" font-weight="700" fill="#D4A017" text-anchor="middle">km&sup2;</text>
+          <!-- pijlen -->
+          <line x1="230" y1="56" x2="230" y2="76" stroke="#C8923A" stroke-width="2"/>
+          <polygon points="230,78 224,68 236,68" fill="#C8923A"/>
+          <text x="245" y="72" font-size="11" fill="#C1440E">&#215; 100</text>
+          <!-- ha -->
+          <rect x="155" y="78" width="150" height="36" rx="6" fill="#243B63"/>
+          <text x="230" y="102" font-size="14" font-weight="700" fill="#D4A017" text-anchor="middle">ha (hectare)</text>
+          <!-- pijlen -->
+          <line x1="230" y1="114" x2="230" y2="134" stroke="#C8923A" stroke-width="2"/>
+          <polygon points="230,136 224,126 236,126" fill="#C8923A"/>
+          <text x="245" y="130" font-size="11" fill="#C1440E">&#215; 10 000</text>
+          <!-- m2 -->
+          <rect x="155" y="136" width="150" height="36" rx="6" fill="#1A2B4A"/>
+          <text x="230" y="160" font-size="14" font-weight="700" fill="#D4A017" text-anchor="middle">m&sup2;</text>
+          <!-- pijlen -->
+          <line x1="230" y1="172" x2="230" y2="192" stroke="#C8923A" stroke-width="2"/>
+          <polygon points="230,194 224,184 236,184" fill="#C8923A"/>
+          <text x="245" y="188" font-size="11" fill="#C1440E">&#215; 100</text>
+          <!-- dm2 -->
+          <rect x="155" y="194" width="150" height="36" rx="6" fill="#243B63"/>
+          <text x="230" y="218" font-size="14" font-weight="700" fill="#D4A017" text-anchor="middle">dm&sup2;</text>
+          <!-- pijlen -->
+          <line x1="230" y1="230" x2="230" y2="250" stroke="#C8923A" stroke-width="2"/>
+          <polygon points="230,252 224,242 236,242" fill="#C8923A"/>
+          <text x="245" y="246" font-size="11" fill="#C1440E">&#215; 100</text>
+          <!-- cm2 -->
+          <rect x="155" y="252" width="150" height="36" rx="6" fill="#1A2B4A"/>
+          <text x="230" y="276" font-size="14" font-weight="700" fill="#D4A017" text-anchor="middle">cm&sup2;</text>
+          <!-- mm2 (buiten de hoofdlijn) -->
+          <rect x="335" y="252" width="110" height="36" rx="6" fill="#243B63"/>
+          <text x="390" y="276" font-size="13" font-weight="700" fill="#gold" fill="#D4A017" text-anchor="middle">mm&sup2; (&#215;100)</text>
+          <line x1="305" y1="270" x2="335" y2="270" stroke="#C8923A" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+          <!-- Opwaartse pijl voor omzetten naar grotere eenheid -->
+          <line x1="140" y1="285" x2="140" y2="25" stroke="#C1440E" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <polygon points="140,22 134,34 146,34" fill="#C1440E"/>
+          <text x="80" y="160" font-size="11" fill="#C1440E" text-anchor="middle">&#247; 100</text>
+          <text x="80" y="175" font-size="10" fill="#C1440E" text-anchor="middle">(naar grotere</text>
+          <text x="80" y="188" font-size="10" fill="#C1440E" text-anchor="middle">eenheid)</text>
+        </g>
+      </svg>
+      <span class="svg-caption">Ladder van oppervlakteenheden. Naar beneden vermenigvuldig je met 100. Naar boven deel je door 100. Let op: van ha naar m&sup2; is een factor 10 000!</span>
+    </div>
+
+    <h3 class="sub-heading">Significante cijfers en afronden</h3>
+
+    <p>Als je met &pi; werkt, geeft je rekenmachine veel decimalen. In de praktijk rond je af op een <strong>zinvol aantal decimalen</strong>:</p>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.4rem;">
+      <li style="margin-bottom:0.5rem">Bij een <strong>exact antwoord</strong> laat je &pi; in de uitdrukking staan: bv. 49&pi; cm&sup2;.</li>
+      <li style="margin-bottom:0.5rem">Bij een <strong>benadering</strong> rond je af op 2 decimalen tenzij anders gevraagd: 153,94 cm&sup2;.</li>
+      <li>In een <strong>praktische context</strong> (bv. gras bestellen): rond steeds <em>naar boven</em> af, zodat je zeker genoeg hebt.</li>
+    </ul>
+
+    <!-- Rekenvoorbeeld: eenheden omzetten -->
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Een weiland heeft een oppervlakte van 2,5 ha. Druk dit uit in m&sup2; en in km&sup2;.</p>
+      <ul class="rv-stappen">
+        <li>Omzetten naar m&sup2;: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2,5</mn><mo>&times;</mo><mn>10&#x202F;000</mn><mo>=</mo><mn>25&#x202F;000</mn></mrow></math> m&sup2;</li>
+        <li>Omzetten naar km&sup2;: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mfrac><mn>2,5</mn><mn>100</mn></mfrac><mo>=</mo><mn>0,025</mn></mrow></math> km&sup2;</li>
+      </ul>
+      <p class="rv-antwoord">Antwoord: 2,5 ha = 25 000 m&sup2; = 0,025 km&sup2;</p>
+    </div>
+
+    <div class="stelling">
+      <span class="st-label">Veel gemaakte fout</span>
+      <p class="st-body">
+        Vergeet niet dat je bij het omzetten van <strong>oppervlakteenheden</strong> <em>kwadratisch</em> werkt. Als 1 m = 100 cm, dan is 1 m&sup2; = 100 cm &times; 100 cm = <strong>10 000 cm&sup2;</strong> (niet 100 cm&sup2;!). Denk altijd aan <em>twee dimensies</em>.
+      </p>
+    </div>
+  </section>
+
+</div><!-- end page-wrapper -->
+
+<!-- ============================================================
+     OEFENINGEN
+============================================================ -->
+<section class="exercises-section" id="oefeningen">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <!-- Oefening 1 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Omtrek van een samengestelde figuur</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Een L-vormige figuur bestaat uit twee rechthoeken die aan elkaar grenzen. De buitenmaten zijn: breedte 12 cm, hoogte 8 cm. In de rechterbovenhoek is een rechthoek van 5 cm &times; 3 cm verwijderd.</p>
+      <ol>
+        <li>Teken de figuur op papier en label alle zijden.</li>
+        <li>Bepaal alle zijdelengten van de L-vorm (let op: de figuur heeft 6 zijden).</li>
+        <li>Bereken de omtrek van de L-vorm.</li>
+      </ol>
+      <p class="ex-tip">Tip: de omtrek is de som van alle buitenranden. De ingebogen hoeken maken extra zijden aan. Tel zorgvuldig alle 6 zijden op.</p>
+    </div>
+
+    <!-- Oefening 2 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Oppervlakte van een parallellogram</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Een parallellogram heeft een grondlijn van 14 cm en een hoogte van 6 cm. De schuine zijde is 7,5 cm.</p>
+      <ol>
+        <li>Bereken de oppervlakte van het parallellogram.</li>
+        <li>Waarom gebruik je de hoogte (6 cm) en niet de schuine zijde (7,5 cm)?</li>
+        <li>Bereken ook de omtrek van het parallellogram.</li>
+      </ol>
+      <p class="ex-tip">Tip: de hoogte staat altijd loodrecht op de grondlijn. De zijde is de schuine lijn die de twee parallelle randen verbindt.</p>
+    </div>
+
+    <!-- Oefening 3 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Trapezium: van formule naar rekenwerk</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Een dak heeft de vorm van een trapezium. De nok (bovenzijde) is 5 m lang, de dakvoet (onderzijde) is 11 m lang, en de loodrechte hoogte is 3,5 m.</p>
+      <ol>
+        <li>Bereken de oppervlakte van het dakoppervlak.</li>
+        <li>Dakpannen kosten 35 euro per m&sup2;. Hoeveel kost het om het hele dak te bedekken?</li>
+        <li>Aannemer De Groote raadt aan 10% extra te bestellen voor snijverlies. Hoeveel m&sup2; dakpannen moet je bestellen?</li>
+      </ol>
+    </div>
+
+    <!-- Oefening 4 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 4</p>
+      <p class="ex-name">Cirkel: omtrek en oppervlakte</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Een ronde vijver heeft een middellijn van 6 m.</p>
+      <ol>
+        <li>Bereken de omtrek (de rand van de vijver). Geef het exacte antwoord en een benadering op 2 decimalen.</li>
+        <li>Bereken de oppervlakte van de vijver. Geef het exacte antwoord en een benadering op 2 decimalen.</li>
+        <li>Langs de rand van de vijver wil je decoratieve steen leggen in een strook van 50 cm breed. Bereken de oppervlakte van die strook.</li>
+      </ol>
+      <p class="ex-tip">Tip: voor vraag 3 bereken je de oppervlakte van de grote cirkel (met straal 3 + 0,5 = 3,5 m) min de kleine cirkel (r = 3 m).</p>
+    </div>
+
+    <!-- Oefening 5 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 5</p>
+      <p class="ex-name">Samengestelde figuur: halve cirkel op rechthoek</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Een raam bestaat uit een rechthoek van 80 cm breed en 120 cm hoog, met bovenaan een halve cirkel waarvan de diameter gelijk is aan de breedte van de rechthoek.</p>
+      <ol>
+        <li>Bereken de oppervlakte van de rechthoek.</li>
+        <li>Bereken de oppervlakte van de halve cirkel.</li>
+        <li>Bereken de totale oppervlakte van het raam.</li>
+        <li>Glas kost 45 euro per m&sup2;. Wat kost het glas voor dit raam? (Let op de eenheden!)</li>
+      </ol>
+      <p class="ex-tip">Tip: een halve cirkel heeft oppervlakte &frac12;&pi;r&sup2;. Zet cm&sup2; om naar m&sup2; voor de kostprijs.</p>
+    </div>
+
+    <!-- Oefening 6 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 6</p>
+      <p class="ex-name">Praktijkprobleem &mdash; Grasveld met pad</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">In een park is een cirkelvormig grasveld met straal 10 m. Dwars door dit grasveld loopt een rechtlijnig pad van 2 m breed en 20 m lang (precies door het middelpunt, van rand tot rand).</p>
+      <ol>
+        <li>Bereken de totale oppervlakte van het cirkelvormige grasveld.</li>
+        <li>Bereken de oppervlakte van het pad (als rechthoek).</li>
+        <li>Bereken de oppervlakte van het gras (cirkel min pad). Geef de benadering op 2 decimalen.</li>
+        <li>Graszaad kost 3,50 euro per m&sup2;. Hoeveel kost het om het gras in te zaaien? Rond naar boven af op hele euro.</li>
+      </ol>
+      <p class="ex-tip">Tip: het pad gaat precies door het middelpunt, dus de lengte van het pad = de middellijn van de cirkel = 2r = 20 m. De breedte van het pad is 2 m.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SAMENVATTING
+============================================================ -->
+<section class="summary-section" id="samenvatting">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+
+    <!-- Formule-overzichtsraster -->
+    <div class="formule-grid">
+      <div class="formule-grid-item">
+        <span class="fg-naam">Omtrek rechthoek</span>
+        <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+          <mrow><mi>O</mi><mo>=</mo><mn>2</mn><mo>(</mo><mi>l</mi><mo>+</mo><mi>b</mi><mo>)</mo></mrow>
+        </math>
+      </div>
+      <div class="formule-grid-item">
+        <span class="fg-naam">Omtrek vierkant</span>
+        <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+          <mrow><mi>O</mi><mo>=</mo><mn>4</mn><mi>z</mi></mrow>
+        </math>
+      </div>
+      <div class="formule-grid-item">
+        <span class="fg-naam">Omtrek cirkel</span>
+        <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+          <mrow><mi>O</mi><mo>=</mo><mn>2</mn><mi>&#960;</mi><mi>r</mi><mo>=</mo><mi>&#960;</mi><mi>d</mi></mrow>
+        </math>
+      </div>
+      <div class="formule-grid-item">
+        <span class="fg-naam">Oppervlakte rechthoek</span>
+        <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+          <mrow><mi>A</mi><mo>=</mo><mi>l</mi><mo>&times;</mo><mi>b</mi></mrow>
+        </math>
+      </div>
+      <div class="formule-grid-item">
+        <span class="fg-naam">Oppervlakte vierkant</span>
+        <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+          <mrow><mi>A</mi><mo>=</mo><msup><mi>z</mi><mn>2</mn></msup></mrow>
+        </math>
+      </div>
+      <div class="formule-grid-item">
+        <span class="fg-naam">Oppervlakte driehoek</span>
+        <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+          <mrow><mi>A</mi><mo>=</mo><mfrac><mrow><mi>g</mi><mo>&times;</mo><mi>h</mi></mrow><mn>2</mn></mfrac></mrow>
+        </math>
+      </div>
+      <div class="formule-grid-item">
+        <span class="fg-naam">Oppervlakte parallellogram</span>
+        <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+          <mrow><mi>A</mi><mo>=</mo><mi>g</mi><mo>&times;</mo><mi>h</mi></mrow>
+        </math>
+      </div>
+      <div class="formule-grid-item">
+        <span class="fg-naam">Oppervlakte trapezium</span>
+        <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+          <mrow><mi>A</mi><mo>=</mo><mfrac><mrow><mo>(</mo><mi>a</mi><mo>+</mo><mi>b</mi><mo>)</mo><mo>&times;</mo><mi>h</mi></mrow><mn>2</mn></mfrac></mrow>
+        </math>
+      </div>
+      <div class="formule-grid-item">
+        <span class="fg-naam">Oppervlakte ruit</span>
+        <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+          <mrow><mi>A</mi><mo>=</mo><mfrac><mrow><msub><mi>d</mi><mn>1</mn></msub><mo>&times;</mo><msub><mi>d</mi><mn>2</mn></msub></mrow><mn>2</mn></mfrac></mrow>
+        </math>
+      </div>
+      <div class="formule-grid-item">
+        <span class="fg-naam">Oppervlakte cirkel</span>
+        <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+          <mrow><mi>A</mi><mo>=</mo><mi>&#960;</mi><msup><mi>r</mi><mn>2</mn></msup></mrow>
+        </math>
+      </div>
+    </div>
+
+    <ul>
+      <li><strong>Omtrek</strong> = totale randlengte van een figuur, uitgedrukt in mm, cm, m of km.</li>
+      <li>Bij de <strong>cirkel</strong> geldt: O = 2&pi;r = &pi;d, en A = &pi;r&sup2;. Gebruik altijd de straal <em>r</em> in de oppervlakteformule.</li>
+      <li><strong>Oppervlakte</strong> = maat voor de grootte van een vlak, uitgedrukt in mm&sup2;, cm&sup2;, dm&sup2;, m&sup2; of km&sup2;.</li>
+      <li>De <strong>hoogte</strong> van een driehoek of parallellogram staat altijd <em>loodrecht</em> op de grondlijn &mdash; het is nooit de schuine zijde.</li>
+      <li>Bij het omzetten van oppervlakteenheden: elke stap is een factor <strong>100</strong>. Dus 1 m&sup2; = 10 000 cm&sup2; en 1 ha = 10 000 m&sup2;.</li>
+      <li>Bij <strong>samengestelde figuren</strong>: splits op, bereken elk deel apart, en tel op of trek af.</li>
+      <li>Geef bij &pi; het antwoord eerst <strong>exact</strong> (bv. 49&pi;) en daarna bij benadering (bv. &asymp; 153,94 cm&sup2;).</li>
+      <li>In een praktische context: rond de hoeveelheid altijd <strong>naar boven</strong> af (je bestelt liever iets te veel dan te weinig).</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

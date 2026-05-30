@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inleiding — Wat zijn natuurwetenschappen? | Natuurwetenschappen 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --gold: #D4A017;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    /* Extended tokens used internally */
+    --terracotta-light: #D4561E;
+    --gold-light: #E8B82A;
+    --darkblue-light: #243B63;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     CLOSING QUOTE
+  ============================================================ */
+  .closing-quote {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0D1E38 100%);
+    border-radius: var(--border-radius);
+    padding: 3rem 3rem 2.5rem;
+    margin: 3.5rem 0 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.5rem; left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .closing-quote .cq-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--gold);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 1.2rem;
+  }
+
+  .closing-quote .cq-attribution {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(212,160,23,0.6);
+  }
+
+  .closing-quote .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .closing-quote .ornament-line::before,
+  .closing-quote .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.4), transparent);
+  }
+
+  .closing-quote .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.7;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .closing-quote { padding: 2rem 1.2rem 1.8rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     NATUURWETENSCHAPPEN-SPECIFIC COMPONENTS
+  ============================================================ */
+
+  /* EXPERIMENT KADER */
+  .experiment-kader { background: #FFF8F5; border-left: 4px solid var(--terracotta); border-radius: 0 var(--border-radius) var(--border-radius) 0; padding: 1.3rem 1.5rem; margin: 1.8rem 0; box-shadow: var(--shadow-sm); }
+  .experiment-kader .exp-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--terracotta); display: block; margin-bottom: 0.35rem; }
+  .experiment-kader .exp-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--darkblue); display: block; margin-bottom: 0.8rem; }
+  .experiment-kader .exp-stappen { list-style: none; padding: 0; counter-reset: stap-teller; }
+  .experiment-kader .exp-stappen li { counter-increment: stap-teller; padding: 0.5rem 0.8rem 0.5rem 3rem; position: relative; background: var(--creme); border-radius: 4px; margin-bottom: 0.4rem; font-size: 0.96rem; }
+  .experiment-kader .exp-stappen li::before { content: counter(stap-teller); position: absolute; left: 0.6rem; top: 50%; transform: translateY(-50%); background: var(--terracotta); color: white; width: 1.7rem; height: 1.7rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; }
+
+  /* WETENSCHAPS KADER */
+  .wetenschaps-kader { background: #EEF3FF; border-left: 4px solid var(--darkblue); border-radius: 0 var(--border-radius) var(--border-radius) 0; padding: 1.2rem 1.5rem; margin: 1.5rem 0; }
+  .wetenschaps-kader .wk-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--darkblue); opacity: 0.7; display: block; margin-bottom: 0.35rem; }
+  .wetenschaps-kader .wk-body { font-size: 0.97rem; color: var(--text-dark); }
+
+  /* VEILIGHEID KADER */
+  .veiligheid-kader { background: #FFFBEB; border: 1.5px solid rgba(212,160,23,0.6); border-radius: var(--border-radius); padding: 1.2rem 1.5rem; margin: 1.8rem 0; }
+  .veiligheid-kader .vk-header { font-family: 'Source Sans 3', sans-serif; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--oker); margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.4rem; }
+  .veiligheid-kader .vk-body { font-size: 0.96rem; color: var(--text-mid); }
+
+  /* FORMULE KADER */
+  .formule-kader { background: var(--darkblue); border-radius: var(--border-radius); padding: 1.6rem 2rem; text-align: center; margin: 1.8rem 0; box-shadow: var(--shadow-md); }
+  .formule-kader .fk-naam { font-family: 'Source Sans 3', sans-serif; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--gold); opacity: 0.8; display: block; margin-bottom: 0.6rem; }
+  .formule-kader math { color: white; font-size: 1.3rem; display: block; }
+  .formule-kader .fk-uitleg { margin-top: 0.9rem; font-size: 0.88rem; color: rgba(250,246,239,0.7); line-height: 1.6; }
+
+  /* TABEL */
+  .tabel-wrap { margin: 1.8rem 0; overflow-x: auto; border-radius: var(--border-radius); box-shadow: var(--shadow-sm); }
+  .tabel-wrap table { width: 100%; border-collapse: collapse; font-size: 0.96rem; }
+  .tabel-wrap th { background: var(--darkblue); color: var(--gold); padding: 0.75rem 1rem; text-align: left; font-family: 'Source Sans 3', sans-serif; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; }
+  .tabel-wrap td { padding: 0.65rem 1rem; border-bottom: 1px solid rgba(200,146,58,0.2); color: var(--text-mid); }
+  .tabel-wrap tr:last-child td { border-bottom: none; }
+  .tabel-wrap tr:nth-child(even) td { background: rgba(232,220,200,0.3); }
+
+  /* SVG CONTAINER */
+  .svg-container { margin: 1.8rem 0; padding: 1.5rem; background: white; border: 1px solid var(--sand); border-radius: var(--border-radius); overflow-x: auto; text-align: center; }
+  .svg-container .svg-caption { font-size: 0.85rem; color: var(--text-light); font-style: italic; display: block; margin-top: 0.75rem; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <span class="label">Natuurwetenschappen &middot; 1A</span>
+  <span class="label label-right">Eerste graad A-stroom</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Natuurwetenschappen &nbsp;&middot;&nbsp; 1A &nbsp;&middot;&nbsp; Eerste graad</div>
+  <h1>Inleiding<br>Wat zijn natuurwetenschappen?</h1>
+  <p class="subtitle">De levende en niet-levende wereld verkennen &mdash; van bacterie&euml;n tot zwarte gaten, van moleculen tot ecosystemen</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- CHAPTER TITLE BLOCK -->
+  <div style="padding: 2.5rem 0 0.5rem;">
+    <div class="chapter-label" style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.2em;color:var(--oker);margin-bottom:0.5rem;">Inleiding</div>
+    <h1 class="chapter-title" style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;color:var(--darkblue);margin-bottom:1.2rem;line-height:1.2;">Wat zijn natuurwetenschappen?</h1>
+    <p class="chapter-intro" style="font-size:1.08rem;color:var(--text-mid);line-height:1.8;max-width:720px;border-left:3px solid var(--oker);padding-left:1.2rem;">Natuurwetenschappen gaan over nieuwsgierigheid. Ze stellen de vragen die mensen al duizenden jaren bezighouden: waaruit bestaat de wereld? Hoe werkt het leven? Waarom valt een appel naar beneden en niet omhoog? In dit vak leer je die vragen op een systematische, eerlijke manier te onderzoeken.</p>
+  </div>
+
+  <!-- PROLOGUE -->
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Stel je voor &hellip;</span>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p>Je staat op een strand. De golven rollen aan en trekken zich terug, aan &eacute;&eacute;n stuk door, ritme na ritme. Een krab steekt zijn scharen uit het natte zand en beweegt schoksgewijs zijwaarts weg. Een kwal drijft een eindje verder &mdash; een doorschijnende schijf, alsof iemand een stuk gelei in zee heeft gelegd. Verderop scheert een meeuw over het wateroppervlak en pikt in &eacute;&eacute;n vloeiende beweging een visje weg.</p>
+    <p>Je kijkt en je begint te vragen. Waarom beweegt die krab, maar drijft de kwal gewoon mee? Wat maakt de krab <em>levend</em> en een steen niet? Waaruit bestaat dat zeewater eigenlijk &mdash; is het gewoon water met zout erdoor gemengd, of iets ingewikkelder? En waarom voel je de zon op je huid als warmte, terwijl je de stralen zelf niet kunt zien of aanraken?</p>
+    <p>Die vragen zijn precies de vragen van de natuurwetenschappen. Ze gaan over levende organismen en hoe die werken &mdash; dat is <strong>biologie</strong>. Ze gaan over de stoffen waaruit de wereld is opgebouwd en hoe die met elkaar reageren &mdash; dat is <strong>chemie</strong>. En ze gaan over energie, krachten en beweging &mdash; dat is <strong>fysica</strong>.</p>
+    <p><strong style="color: var(--gold);">Natuurwetenschappen zijn geen droge opsomming van feiten die je van buiten leert. Het is een manier van kijken naar de wereld &mdash; een manier die alles interessanter maakt.</strong></p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+  </section>
+
+  <!-- SECTION 1 — Wat zijn natuurwetenschappen? -->
+  <section class="section-block" id="s1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Wat zijn natuurwetenschappen?</h2>
+    </div>
+
+    <p>Natuurwetenschappen bestuderen de wereld zoals die werkelijk is: de sterren boven ons hoofd, de bacterie&euml;n in onze darmen, de atomen in een glas water, de krachten die een vogel in de lucht houden. Ze proberen die wereld te begrijpen via <strong>observatie</strong>, <strong>experimenten</strong> en <strong>logisch redeneren</strong>.</p>
+
+    <p>In het eerste jaar van de middelbare school worden natuurwetenschappen behandeld als &eacute;&eacute;n ge&iuml;ntegreerd vak. Dat is bewust: biologie, chemie en fysica zijn geen drie aparte werelden. Ze zijn drie lenzen waardoor je naar dezelfde werkelijkheid kijkt, en de mooiste inzichten ontstaan precies op de plaatsen waar ze overlappen.</p>
+
+    <h3 class="sub-heading">De drie pijlers</h3>
+    <p>Toch is het nuttig om de drie disciplines even apart voor te stellen, want elk heeft haar eigen focus en methodes:</p>
+
+    <ul style="padding-left: 1.4rem; margin: 0.5rem 0 1.4rem;">
+      <li style="margin-bottom: 0.7rem;"><strong>Biologie</strong> bestudeert het leven in al zijn vormen: van eencellige bacterie&euml;n en schimmels tot planten, dieren en de mens. Biologen stellen vragen als: Hoe reproduceert een cel zich? Waarom heeft een vis kieuwen en een zoogdier longen? Hoe werkt het immuunsysteem? Biologie gaat over structuur, functie, erfelijkheid, evolutie en de interacties tussen organismen en hun omgeving.</li>
+      <li style="margin-bottom: 0.7rem;"><strong>Chemie</strong> bestudeert materie: de stoffen waaruit alles is opgebouwd, hun eigenschappen en de reacties waarbij stoffen in andere stoffen worden omgezet. Chemici vragen: Waaruit bestaat water? Waarom roest ijzer? Hoe smaakt suiker zoet? Chemie speelt een centrale rol in geneesmiddelen, voeding, materialen en milieu.</li>
+      <li style="margin-bottom: 0.7rem;"><strong>Fysica</strong> bestudeert energie, krachten en beweging. Fysici vragen: Waarom valt een bal naar beneden? Hoe werkt een magneet? Hoe kan geluid door de lucht reizen? Wat is licht eigenlijk? Zonder fysica geen elektriciteit, geen smartphones, geen vliegtuigen en geen geneeskundige scanners.</li>
+    </ul>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#127758;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Natuurwetenschappen</span>
+        <p class="begrip-def">Natuurwetenschappen zijn de wetenschappelijke disciplines die de levende en niet-levende natuur bestuderen vanuit biologisch, chemisch en fysisch perspectief. Ze gebruiken observatie, experimenten en logisch redeneren om betrouwbare kennis over de wereld op te bouwen.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Drie lenzen, &eacute;&eacute;n werkelijkheid</h3>
+    <p>Het krachtigste argument voor een ge&iuml;ntegreerde aanpak is een simpel voorbeeld: een boom.</p>
+
+    <p>Vanuit <strong>biologisch</strong> oogpunt is een boom een levend organisme dat cellen heeft, groeit, zich voortplant en reageert op zijn omgeving. Zijn bladeren voeren <em>fotosynthese</em> uit: ze zetten zonlicht om in voedsel.</p>
+
+    <p>Maar fotosynthese is ook een <strong>chemische</strong> reactie. Koolstofdioxide (CO&sub2;) uit de lucht en water (H&sub2;O) uit de bodem worden gecombineerd tot glucose (C&sub6;H&sub12;O&sub6;) en zuurstof (O&sub2;). Zonder chemie begrijp je niet <em>hoe</em> fotosynthese werkt, alleen <em>dat</em> het werkt.</p>
+
+    <p>En de energie die dat proces aandrijft &mdash; zonlicht &mdash; is een <strong>fysisch</strong> verschijnsel. Licht is elektromagnetische straling. De bladeren absorberen bepaalde golflengten en weerkaatsen andere. Dat is de reden waarom bladeren groen lijken.</p>
+
+    <p>Dezelfde boom, drie perspectieven, &eacute;&eacute;n dieper begrip. Zo werken natuurwetenschappen.</p>
+
+    <div class="wetenschaps-kader">
+      <span class="wk-label">Wist je dat &mdash; STEM</span>
+      <p class="wk-body"><strong>STEM</strong> staat voor <em>Science, Technology, Engineering</em> en <em>Mathematics</em> &mdash; in het Nederlands: Wetenschap, Technologie, Ingenieurswetenschappen en Wiskunde. In Belgi&euml; werken scholen steeds meer aan ge&iuml;ntegreerd STEM-onderwijs: je leert niet alleen de theorie van de wetenschappen, maar ook hoe je die toepast in technologie en ontwerp, en hoe wiskunde als gereedschap dient om die idee&euml;n precies te beschrijven.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 2 — Wetenschappelijk denken -->
+  <section class="section-block" id="s2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Wetenschappelijk denken</h2>
+    </div>
+
+    <p>Wat maakt wetenschap anders dan een mening of een gevoel? Het antwoord is de <strong>wetenschappelijke methode</strong>: een gestructureerde manier van denken en onderzoeken waarbij je conclusies baseert op bewijsmateriaal, niet op aannames of autoriteit.</p>
+
+    <p>De wetenschappelijke methode begint altijd bij de wereld zelf. Je <strong>observeert</strong> iets, je stelt een <strong>vraag</strong>, je bedenkt een mogelijke verklaring (een <strong>hypothese</strong>), je <strong>test</strong> die verklaring door een experiment op te zetten, en je trekt een <strong>conclusie</strong> op basis van wat je meet. Klopt de hypothese niet? Dan pas je ze aan en test je opnieuw. Wetenschap is een cyclisch, zelfreinigend proces.</p>
+
+    <p>In hoofdstuk 11 van dit boek wordt de wetenschappelijke methode uitgebreid behandeld. Hier volstaat een eerste kennismaking met de vijf stappen.</p>
+
+    <div class="tabel-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Stap</th>
+            <th>Naam</th>
+            <th>Wat doe je?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1</strong></td>
+            <td>Observatie</td>
+            <td>Je neemt iets waar in de wereld om je heen, zo nauwkeurig en objectief mogelijk.</td>
+          </tr>
+          <tr>
+            <td><strong>2</strong></td>
+            <td>Vraagstelling</td>
+            <td>Je formuleert een heldere, specifieke vraag over wat je hebt waargenomen.</td>
+          </tr>
+          <tr>
+            <td><strong>3</strong></td>
+            <td>Hypothese</td>
+            <td>Je stelt een mogelijke verklaring voor die vraag op &mdash; een testbare voorspelling.</td>
+          </tr>
+          <tr>
+            <td><strong>4</strong></td>
+            <td>Experiment</td>
+            <td>Je ontwerpt en voert een test uit waarbij je &eacute;&eacute;n variabele tegelijk verandert en de rest constant houdt.</td>
+          </tr>
+          <tr>
+            <td><strong>5</strong></td>
+            <td>Conclusie</td>
+            <td>Je vergelijkt de resultaten met je hypothese en trekt een onderbouwde conclusie. Je stelt bij indien nodig.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub-heading">Een hypothese is geen gok</h3>
+    <p>Een veelvoorkomend misverstand: een hypothese is niet zomaar een wilde gok. Het is een <strong>beredeneerde voorspelling</strong> die gebaseerd is op wat je al weet. Een goede hypothese is ook <em>falsifieerbaar</em>: je moet in principe een experiment kunnen bedenken dat haar weerlegt. Als er geen enkel experiment mogelijk is dat de hypothese zou kunnen tegenspreken, is het geen wetenschappelijke hypothese.</p>
+
+    <p>Voorbeeld: &ldquo;Planten groeien sneller als ze meer licht krijgen&rdquo; is een testbare hypothese. Je kunt planten bij verschillende lichtniveaus zetten en de groei meten. &ldquo;Planten groeien sneller als ze gelukkig zijn&rdquo; is dat niet &mdash; hoe zou je het geluk van een plant meten?</p>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Je laat twee stenen vallen vanuit verschillende hoogtes op hetzelfde moment. Welke verwacht je als eerste de grond te zien raken? Wat denk je op basis van je gevoel? Hoe zou je dit wetenschappelijk kunnen testen? Welke variabelen zou je constant moeten houden?</p>
+    </div>
+
+    <h3 class="sub-heading">Observeren versus interpreteren</h3>
+    <p>Een belangrijk onderscheid in wetenschap is dat tussen een <strong>observatie</strong> en een <strong>interpretatie</strong>. Een observatie is wat je letterlijk waarneemt &mdash; wat je ziet, hoort, meet, voelt. Een interpretatie is de verklaring die je eraan geeft, en die kan fout zijn.</p>
+
+    <p>Voorbeeld: &ldquo;De plant heeft gele bladeren&rdquo; is een observatie. &ldquo;De plant heeft gele bladeren omdat de grond te nat is&rdquo; is een interpretatie. Misschien klopt die verklaring, maar misschien heeft de plant gewoon te weinig ijzer, of is het een herfstblad dat normaal verkleurt. Je kunt de observatie niet ter discussie stellen; de interpretatie wel.</p>
+
+    <p>Goede wetenschappers maken dit onderscheid bewust. Ze schrijven eerst neer wat ze zien, los van wat ze denken dat het betekent.</p>
+  </section>
+
+  <!-- SECTION 3 — Veilig werken in het labo -->
+  <section class="section-block" id="s3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Veilig werken in het labo</h2>
+    </div>
+
+    <p>Een groot deel van het werk in natuurwetenschappen gebeurt in het laboratorium. Het labo is een bijzondere werkplek: er zijn chemische stoffen, glaswerk, elektriciteitstoestellen, brandende vloeistoffen en biologisch materiaal. Dat maakt het een fascinerende plek, maar ook &eacute;&eacute;n waar veiligheid op de eerste plaats staat.</p>
+
+    <p>Veiligheidsregels zijn er niet om je werk te bemoeilijken. Ze zijn er omdat mensen v&oacute;&oacute;r jou geleerd hebben wat er misloopt als je ze niet opvolgt. Elke laboveiligheidsmaatregel heeft een reden, en die reden begrijpen maakt je een betere wetenschapper.</p>
+
+    <div class="veiligheid-kader">
+      <div class="vk-header">&#9888;&#65039; Laboveiligheid &mdash; Basisregels</div>
+      <div class="vk-body">
+        <ul style="padding-left: 1.3rem; margin: 0;">
+          <li style="margin-bottom: 0.5rem;"><strong>Gemorste producten</strong> ruim je onmiddellijk op, ook als het &ldquo;maar water&rdquo; lijkt. Zo voorkom je uitglijden en chemische reacties met andere stoffen op de werktafel.</li>
+          <li style="margin-bottom: 0.5rem;"><strong>Glaswerk</strong> behandel je voorzichtig. Controleer voor elk gebruik of het niet gebarsten is. Maak glaswerk na gebruik schoon en laat het drogen op de aangewezen plek.</li>
+          <li style="margin-bottom: 0.5rem;"><strong>Biologisch afval</strong> sorteer je correct. Stoffen die in contact zijn geweest met levend materiaal (bacterie&euml;n, bloed, plantenweefsel) mogen niet zomaar in de gewone vuilnisbak.</li>
+          <li style="margin-bottom: 0.5rem;"><strong>Elektrische toestellen</strong> bedien je nooit met natte handen. Water en elektriciteit zijn een gevaarlijke combinatie.</li>
+          <li style="margin-bottom: 0.5rem;"><strong>Meetinstrumenten</strong> schakel je uit wanneer je niet meet. Dit beschermt de batterijen, de apparatuur &eacute;n je eigen resultaten.</li>
+          <li style="margin-bottom: 0;"><strong>Hygi&euml;ne met biologisch materiaal</strong>: draag handschoenen wanneer je biologisch materiaal aanraakt, raak je gezicht niet aan tijdens een labosessie, en was je handen grondig na afloop.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p>Naast deze specifieke regels zijn er ook algemene attitudes die in elk labo verwacht worden. Je werkt geconcentreerd. Je rent niet. Je proeft of ruikt nooit aan chemische stoffen tenzij de leerkracht dat uitdrukkelijk vraagt. Je leest de volledige opdracht v&oacute;&oacute;r je begint, zodat je weet wat er staat te gebeuren en je niet verrast wordt.</p>
+
+    <h3 class="sub-heading">Beschermingsmiddelen</h3>
+    <p>In het labo gebruik je persoonlijke beschermingsmiddelen (PBM) naargelang van de activiteit:</p>
+    <ul style="padding-left: 1.4rem; margin: 0.5rem 0 1.2rem;">
+      <li style="margin-bottom: 0.5rem;"><strong>Labobril:</strong> beschermt je ogen tegen spatten van vloeistoffen en glasscherven. Altijd dragen bij experimenten met vloeistoffen of hitte.</li>
+      <li style="margin-bottom: 0.5rem;"><strong>Handschoenen:</strong> beschermen je handen bij contact met bijtende stoffen, biologisch materiaal of hete oppervlakken.</li>
+      <li style="margin-bottom: 0.5rem;"><strong>Labojas:</strong> beschermt je kledij bij morsen en vermindert risico&rsquo;s bij ontvlambare stoffen.</li>
+    </ul>
+
+    <div class="experiment-kader">
+      <span class="exp-label">Eerste Labosessie</span>
+      <span class="exp-title">Je eerste lab: kennismaking met materialen en regels</span>
+      <ol class="exp-stappen">
+        <li><strong>Lees de opdracht volledig.</strong> Voor je iets aanraakt, lees je de volledige instructies van begin tot einde. Stel vragen als iets onduidelijk is.</li>
+        <li><strong>Zorg voor de juiste beschermingsmiddelen.</strong> Controleer of je de juiste bril, handschoenen en labojas bij de hand hebt. Draag ze voor je begint, niet nadat iets is misgegaan.</li>
+        <li><strong>Werk ordelijk en methodisch.</strong> Label alles wat je gebruikt. Schrijf observaties onmiddellijk neer, niet &ldquo;later&rdquo;. Zet materialen terug op hun vaste plek.</li>
+        <li><strong>Ruim op en sorteer afval correct.</strong> Glazen materiaal in de glazenbak, chemisch afval in de aangeduide recipi&euml;nten, biologisch materiaal apart. Maak je werkplek schoon.</li>
+        <li><strong>Verwerk je resultaten.</strong> Schrijf je conclusies neer terwijl het experiment nog vers in je geheugen zit. Vergelijk je resultaten met je oorspronkelijke hypothese.</li>
+      </ol>
+    </div>
+
+    <div class="wetenschaps-kader">
+      <span class="wk-label">Waarom veiligheid ook wetenschap is</span>
+      <p class="wk-body">Een veilige manier van werken en een nauwkeurige wetenschappelijke methode zijn dezelfde gewoonte: discipline. Wanneer je systematisch bent &mdash; labels schrijven, stap voor stap werken, resultaten noteren &mdash; maak je minder fouten en zijn je resultaten betrouwbaarder. Veiligheid en wetenschap versterken elkaar.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 4 — Wat ga je leren? -->
+  <section class="section-block" id="s4">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Wat ga je leren dit jaar?</h2>
+    </div>
+
+    <p>Dit boek is opgebouwd uit drie grote domeinen die samen het vak Natuurwetenschappen 1A vormen. Ze zijn niet strikt van elkaar gescheiden &mdash; je zult merken dat thema&rsquo;s terugkomen en dat inzichten uit het ene domein het andere verdiepen.</p>
+
+    <h3 class="sub-heading">Biologie &mdash; 47,5% van het examen</h3>
+    <p>Het grootste deel van dit jaar gaat over <strong>levende organismen</strong>. Je begint bij de kleinste eenheid van het leven: de <em>cel</em>. Wat zit er in een cel? Hoe werkt een celwand? Wat is het verschil tussen een plantencel en een dierlijke cel?</p>
+    <p>Daarna verken je de grote groepen van levende wezens: planten, dieren, schimmels, bacterie&euml;n. Je leert hoe organismen zijn opgebouwd uit weefsels en organen, hoe ze energie halen uit voedsel, hoe ze reageren op hun omgeving en hoe ze samenleven in ecosystemen. Je zult ook bestuderen hoe organismen zich voortplanten en hoe erfelijkheid werkt op het meest fundamentele niveau.</p>
+
+    <h3 class="sub-heading">Chemie en Fysica &mdash; 32,5% van het examen</h3>
+    <p>In het chemische luik maak je kennis met <strong>materie</strong>: alles wat massa heeft en ruimte inneemt. Je leert het verschil tussen zuivere stoffen en mengsels, tussen atomen en moleculen, en je ontdekt hoe stoffen van toestand kunnen wisselen &mdash; van vast naar vloeibaar naar gas en omgekeerd. Chemische symbolen en de eerste basisformules komen aan bod.</p>
+    <p>In de fysica verken je <strong>krachten en beweging</strong>. Waarom beweegt iets? Wat stopt een bewegende bal? Je bestudeert ook <strong>energie</strong>: warmte, licht en geluid zijn allemaal vormen van energie die worden overgedragen. Je verkent hoe geluid reist als een golf door lucht, hoe licht wordt weerkaatst en gebroken, en wat temperatuur eigenlijk betekent op atomair niveau.</p>
+
+    <h3 class="sub-heading">Wetenschappelijk onderzoek &mdash; 20% van het examen</h3>
+    <p>Dit domein loopt als een rode draad door het hele jaar. Je leert systematisch observeren, hypothesen formuleren, experimenten ontwerpen en resultaten verwerken. Je maakt kennis met meetinstrumenten, met grafieken en tabellen als manieren om data voor te stellen, en met de vraag hoe je weet of een bron betrouwbaar is.</p>
+    <p>In hoofdstuk 11 wordt dit domein formeel behandeld, maar je oefent er al vanaf de allereerste labosessie mee.</p>
+
+    <div class="svg-container">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 180" width="100%" aria-label="Overzicht van de drie domeinen en hun gewicht">
+        <!-- Biologie blok -->
+        <rect x="20" y="30" width="220" height="120" rx="6" fill="#1A2B4A" />
+        <text x="130" y="62" font-family="'Playfair Display', serif" font-size="15" font-weight="700" fill="#D4A017" text-anchor="middle">Biologie</text>
+        <text x="130" y="84" font-family="'Source Sans 3', sans-serif" font-size="11" fill="rgba(250,246,239,0.75)" text-anchor="middle">Levende organismen</text>
+        <text x="130" y="100" font-family="'Source Sans 3', sans-serif" font-size="11" fill="rgba(250,246,239,0.75)" text-anchor="middle">Cel, weefsel, ecosysteem</text>
+        <text x="130" y="122" font-family="'Source Sans 3', sans-serif" font-size="19" font-weight="700" fill="#D4A017" text-anchor="middle">47,5%</text>
+        <!-- Chemie/Fysica blok -->
+        <rect x="260" y="30" width="140" height="120" rx="6" fill="#C1440E" />
+        <text x="330" y="62" font-family="'Playfair Display', serif" font-size="13" font-weight="700" fill="white" text-anchor="middle">Chemie &amp; Fysica</text>
+        <text x="330" y="80" font-family="'Source Sans 3', sans-serif" font-size="10" fill="rgba(255,255,255,0.8)" text-anchor="middle">Materie, energie</text>
+        <text x="330" y="95" font-family="'Source Sans 3', sans-serif" font-size="10" fill="rgba(255,255,255,0.8)" text-anchor="middle">krachten, beweging</text>
+        <text x="330" y="122" font-family="'Source Sans 3', sans-serif" font-size="19" font-weight="700" fill="white" text-anchor="middle">32,5%</text>
+        <!-- Onderzoek blok -->
+        <rect x="420" y="30" width="100" height="120" rx="6" fill="#C8923A" />
+        <text x="470" y="62" font-family="'Playfair Display', serif" font-size="12" font-weight="700" fill="white" text-anchor="middle">Onderzoek</text>
+        <text x="470" y="78" font-family="'Source Sans 3', sans-serif" font-size="10" fill="rgba(255,255,255,0.85)" text-anchor="middle">Methode</text>
+        <text x="470" y="93" font-family="'Source Sans 3', sans-serif" font-size="10" fill="rgba(255,255,255,0.85)" text-anchor="middle">Meten</text>
+        <text x="470" y="108" font-family="'Source Sans 3', sans-serif" font-size="10" fill="rgba(255,255,255,0.85)" text-anchor="middle">Verwerken</text>
+        <text x="470" y="130" font-family="'Source Sans 3', sans-serif" font-size="17" font-weight="700" fill="white" text-anchor="middle">20%</text>
+        <!-- Label onder -->
+        <text x="270" y="168" font-family="'Source Sans 3', sans-serif" font-size="10.5" fill="#6B5F4A" font-style="italic" text-anchor="middle">Verdeling leerstof en examenpunten &#8212; Natuurwetenschappen 1A</text>
+      </svg>
+      <span class="svg-caption">Overzicht van de drie domeinen met hun relatief gewicht in het examen. Biologie neemt het grootste deel in beslag; chemie en fysica vormen samen het tweede domein; wetenschappelijk onderzoek loopt door het hele jaar.</span>
+    </div>
+
+    <h3 class="sub-heading">Verbindingen die je zult ontdekken</h3>
+    <p>Door het jaar heen zul je ontdekken hoe de domeinen met elkaar in verbinding staan. Wanneer je fotosynthese bestudeert, gebruik je scheikundige formules. Wanneer je over krachten leert, komt dat terug in de beweging van spieren. Wanneer je een experiment ontwerpt, gebruik je meetvaardigheden die je in het onderzoeksdomein hebt geleerd. Dat is geen toeval &mdash; het is de natuur van de natuurwetenschappen.</p>
+
+    <p style="font-style: italic; color: var(--text-light); border-left: 3px solid var(--sand); padding-left: 1rem; margin-top: 1.5rem;">&ldquo;Wetenschap is niet iets wat alleen wetenschappers doen. Het is een manier van naar de wereld kijken.&rdquo;</p>
+  </section>
+
+  <!-- CLOSING QUOTE -->
+  <div class="closing-quote" role="note" aria-label="Slotcitaat">
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p class="cq-text">De grootste wetenschappelijke ontdekkingen begonnen bij iemand die iets zag wat anderen over het hoofd zagen &mdash; en die de moeite nam om te vragen <em>waarom</em>.</p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <span class="cq-attribution">Natuurwetenschappen 1A &nbsp;&middot;&nbsp; Eerste Graad A-stroom</span>
+  </div>
+
+  <div style="margin-top: 2.5rem;">
+    <p style="font-size: 1.05rem; color: var(--text-mid); font-style: italic; text-align: center;">Labobril op. We gaan kijken.</p>
+  </div>
+
+</div><!-- end page-wrapper -->
+
+<!-- EXERCISES -->
+<section class="exercises-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <!-- Oefening 1 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Biologie, chemie of fysica?</p>
+      <p style="font-size: 0.96rem; color: var(--text-mid); margin-bottom: 0.8rem;">Geef voor elk van de volgende verschijnselen aan of het eerder bij biologie, chemie of fysica hoort. Sommige verschijnselen horen bij meerdere disciplines &mdash; leg dan uit waarom.</p>
+      <ol>
+        <li>Een vlinder vliegt van bloem naar bloem.</li>
+        <li>Water bevriest bij 0&nbsp;&deg;C.</li>
+        <li>Een spier trekt samen wanneer je je vinger buigt.</li>
+        <li>Zout lost op in water.</li>
+        <li>Een bal rolt van een helling naar beneden.</li>
+        <li>Een kaars brandt en er verschijnt roet.</li>
+        <li>Een zaad kiemt na regen.</li>
+        <li>Een gitaarsnaar trilt en maakt geluid.</li>
+      </ol>
+      <p class="ex-tip">Tip: vraag jezelf voor elk verschijnsel af welk aspect het meest opvallend is &mdash; gaat het over een levend organisme, over stoffen en reacties, of over energie en krachten?</p>
+    </div>
+
+    <!-- Oefening 2 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">De wetenschappelijke methode in de juiste volgorde</p>
+      <p style="font-size: 0.96rem; color: var(--text-mid); margin-bottom: 0.8rem;">Hieronder staan de stappen van een onderzoek door een leerling door elkaar. Breng ze in de juiste volgorde en geef elke stap de juiste naam (observatie, vraagstelling, hypothese, experiment, conclusie).</p>
+      <ol type="A">
+        <li>De leerling plaatst drie identieke plantjes bij drie verschillende ramen: een op het noorden, een op het zuiden en een op het oosten. Na twee weken meet ze de groei.</li>
+        <li>De leerling merkt dat haar kamerplant aan de kant van het raam meer bladeren heeft dan aan de andere kant.</li>
+        <li>De leerling stelt vast dat het plantje op het zuiden het meest gegroeid is. Haar voorspelling klopte.</li>
+        <li>&ldquo;Groeien planten sneller als ze meer zonlicht krijgen?&rdquo;</li>
+        <li>&ldquo;Ik denk dat planten die meer zonlicht ontvangen, sneller groeien.&rdquo;</li>
+      </ol>
+      <p class="ex-tip">Tip: de letters A t/m E zijn niet de juiste volgorde. Schrijf de letters in de volgorde die overeenkomt met de vijf stappen van de wetenschappelijke methode.</p>
+    </div>
+
+    <!-- Oefening 3 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Laboveiligheid: wat gaat er fout?</p>
+      <p style="font-size: 0.96rem; color: var(--text-mid); margin-bottom: 0.8rem;">Bekijk de zes situaties hieronder. Geef voor elke situatie aan of ze veilig of onveilig is. Als ze onveilig is, leg dan uit wat er fout gaat en hoe je het correct zou doen.</p>
+      <ol>
+        <li>Lena ruikt aan een vloeistof in een bekerglas om te controleren wat het is.</li>
+        <li>Pieter trekt handschoenen aan voor hij een bacteriekweek aanraakt, ook al ziet alles er proper uit.</li>
+        <li>Yasmine gooit een gebruikte naald in de gewone afvalbak omdat ze het vuilnisbakje voor scherpe voorwerpen niet ziet.</li>
+        <li>Jonas spoelt een kleine hoeveelheid gekleurde vloeistof die hij gemorst heeft, onmiddellijk weg met water.</li>
+        <li>Roos meet de temperatuur van een vloeistof met een thermometer terwijl ze geen bril draagt, omdat ze denkt dat het niet gevaarlijk is.</li>
+        <li>Tom schakelt de elektronische weegschaal uit na het wegen, zoals gevraagd in de instructies.</li>
+      </ol>
+    </div>
+
+    <!-- Oefening 4 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 4</p>
+      <p class="ex-name">Observeren versus interpreteren</p>
+      <p style="font-size: 0.96rem; color: var(--text-mid); margin-bottom: 0.8rem;">Hieronder staan zes uitspraken. Beslis voor elk of het een pure <strong>observatie</strong> is (wat je letterlijk waarneemt) of een <strong>interpretatie</strong> (een verklaring die je eraan geeft). Leg je antwoord telkens kort uit.</p>
+      <ol>
+        <li>&ldquo;De bladeren van de plant zijn geel geworden.&rdquo;</li>
+        <li>&ldquo;De plant is ziek omdat de bladeren geel zijn.&rdquo;</li>
+        <li>&ldquo;De thermometer toont 38,4&nbsp;&deg;C.&rdquo;</li>
+        <li>&ldquo;De pati&euml;nt heeft koorts.&rdquo;</li>
+        <li>&ldquo;De steen valt sneller dan het blaadje.&rdquo;</li>
+        <li>&ldquo;De steen valt sneller omdat hij zwaarder is.&rdquo;</li>
+      </ol>
+      <p class="ex-tip">Tip: een observatie beschrijft wat je rechtstreeks waarneemt met je zintuigen of een meetinstrument. Een interpretatie voegt een verklaring of oorzaak toe die je niet rechtstreeks kunt waarnemen.</p>
+    </div>
+
+    <!-- Oefening 5 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 5</p>
+      <p class="ex-name">Vragen stellen als een wetenschapper</p>
+      <p style="font-size: 0.96rem; color: var(--text-mid); margin-bottom: 0.8rem;">Je merkt op dat de planten aan de vensterkant van je klas groter en groener zijn dan de planten achterin de klas, ver van het raam.</p>
+      <ol>
+        <li>Formuleer deze vaststelling als een nauwkeurige <strong>observatie</strong> in &eacute;&eacute;n of twee zinnen. Wees concreet: beschrijf wat je ziet, niet waarom je denkt dat het zo is.</li>
+        <li>Stel een <strong>onderzoeksvraag</strong> op die aangeeft wat je precies wil weten. Een goede onderzoeksvraag bevat een meetbare variabele.</li>
+        <li>Formuleer een <strong>hypothese</strong>: een testbare voorspelling die aangeeft wat je verwacht en waarom. Gebruik de structuur: &ldquo;Ik verwacht dat &hellip; omdat &hellip;&rdquo;</li>
+        <li>Beschrijf kort hoe je een eenvoudig experiment zou opzetten om je hypothese te testen. Welke variabele verander je? Welke houd je constant? Wat meet je?</li>
+      </ol>
+      <p class="ex-tip">Tip: dit is hetzelfde als wat echte wetenschappers doen. Er is geen &eacute;&eacute;n juist antwoord &mdash; wel een betere en een minder goede manier van formuleren. Leg je keuzes uit.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="summary-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>Natuurwetenschappen</strong> bestuderen de levende en niet-levende natuur vanuit drie perspectieven: <strong>biologie</strong> (levende organismen), <strong>chemie</strong> (materie en stoffen) en <strong>fysica</strong> (energie, krachten en beweging). Deze drie domeinen overlappen en versterken elkaar.</li>
+      <li>De <strong>wetenschappelijke methode</strong> verloopt in vijf stappen: observatie &rarr; vraagstelling &rarr; hypothese &rarr; experiment &rarr; conclusie. Een hypothese is een beredeneerde, falsifieerbare voorspelling, geen wilde gok.</li>
+      <li>Het onderscheid tussen een <strong>observatie</strong> (wat je rechtstreeks waarneemt) en een <strong>interpretatie</strong> (een verklaring die je eraan geeft) is fundamenteel in wetenschappelijk denken.</li>
+      <li><strong>Laboveiligheid</strong> is niet optioneel: beschermingsmiddelen dragen, gemorste stoffen onmiddellijk opruimen, biologisch afval correct sorteren en elektrische toestellen niet met natte handen bedienen zijn basisregels in elk laboratorium.</li>
+      <li>Dit jaar is de leerstof verdeeld over drie domeinen: <strong>Biologie</strong> (47,5%), <strong>Chemie &amp; Fysica</strong> (32,5%) en <strong>Wetenschappelijk onderzoek</strong> (20%), waarbij het onderzoeksdomein doorheen het hele jaar ge&iuml;ntegreerd wordt ge&ouml;efend.</li>
+      <li>Wetenschap is een <strong>manier van kijken</strong>: nieuwsgierig, systematisch, eerlijk over wat je niet weet, en bereid om je mening bij te stellen wanneer de feiten dat vragen.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

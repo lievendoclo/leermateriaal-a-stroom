@@ -1,0 +1,1607 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H10 — Ruimtelijke figuren | Wiskunde 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     ILLUSTRATIE PLACEHOLDERS
+  ============================================================ */
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+    cursor: default;
+    transition: background var(--transition);
+  }
+
+  .illustratie:hover { background: #EDE7D8; }
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     WISKUNDE-SPECIFIC COMPONENTS
+  ============================================================ */
+  .rekenvoorbeeld { background:white; border:1px solid var(--sand); border-top:4px solid var(--oker); border-radius:var(--border-radius); padding:1.8rem 2rem; margin:2rem 0; box-shadow:var(--shadow-sm); }
+  .rekenvoorbeeld .rv-label { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--oker); display:block; margin-bottom:0.35rem; }
+  .rekenvoorbeeld .rv-vraag { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:700; color:var(--darkblue); margin-bottom:1rem; line-height:1.4; }
+  .rv-stappen { list-style:none; padding:0; counter-reset:stap-teller; margin-bottom:1rem; }
+  .rv-stappen li { counter-increment:stap-teller; padding:0.6rem 0.8rem 0.6rem 3.2rem; position:relative; background:var(--creme); border-radius:4px; margin-bottom:0.4rem; font-size:0.97rem; }
+  .rv-stappen li::before { content:counter(stap-teller); position:absolute; left:0.6rem; top:50%; transform:translateY(-50%); background:var(--darkblue); color:white; width:1.7rem; height:1.7rem; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:700; }
+  .rv-antwoord { background:var(--darkblue); color:var(--gold); padding:0.75rem 1.1rem; border-radius:4px; font-weight:700; font-size:1rem; }
+  .stelling { background:#EEF3FF; border-left:4px solid var(--darkblue); border-radius:0 var(--border-radius) var(--border-radius) 0; padding:1.2rem 1.5rem; margin:1.5rem 0; }
+  .stelling .st-label { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--darkblue); opacity:0.7; display:block; margin-bottom:0.35rem; }
+  .stelling .st-body { font-size:0.97rem; color:var(--text-dark); }
+  .formule { background:var(--darkblue); border-radius:var(--border-radius); padding:1.4rem 1.8rem; text-align:center; margin:1.8rem 0; }
+  .formule math { color:white; font-size:1.2rem; }
+  .formule .formule-naam { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--gold); opacity:0.8; display:block; margin-bottom:0.5rem; }
+  .svg-container { margin:1.8rem 0; padding:1.5rem; background:white; border:1px solid var(--sand); border-radius:var(--border-radius); overflow-x:auto; text-align:center; }
+  .svg-container .svg-caption { font-size:0.85rem; color:var(--text-light); font-style:italic; display:block; margin-top:0.75rem; }
+
+  /* chapter-intro helper */
+  .chapter-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--oker);
+    margin: 3rem 0 0.5rem;
+  }
+  .chapter-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+  .chapter-intro {
+    font-size: 1.08rem;
+    color: var(--text-mid);
+    line-height: 1.8;
+    max-width: 720px;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  /* ============================================================
+     SHAPES TABLE
+  ============================================================ */
+  .shapes-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.4rem 0;
+    font-size: 0.95rem;
+  }
+  .shapes-table th {
+    background: var(--darkblue);
+    color: var(--gold);
+    padding: 0.65rem 0.9rem;
+    text-align: left;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .shapes-table td {
+    padding: 0.6rem 0.9rem;
+    border-bottom: 1px solid var(--sand);
+    color: var(--text-mid);
+    vertical-align: middle;
+  }
+  .shapes-table tr:nth-child(even) td { background: var(--sand-light); }
+  .shapes-table tr:last-child td { border-bottom: none; }
+  .shapes-table td:first-child { font-weight: 700; color: var(--darkblue); }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <span class="label">Wiskunde 1A</span>
+  <span class="label label-right">H10 &mdash; Ruimtelijke figuren</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Wiskunde &nbsp;&middot;&nbsp; 1A &nbsp;&middot;&nbsp; Eerste graad</div>
+  <h1>Ruimtelijke figuren</h1>
+  <p class="subtitle">Dozen, ballen, piramides &mdash; de driedimensionale wereld beschreven met wiskunde</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- CHAPTER INTRO -->
+  <div class="chapter-label">Hoofdstuk 10</div>
+  <h1 class="chapter-title">Ruimtelijke figuren</h1>
+  <p class="chapter-intro">De wereld om ons heen is driedimensionaal. Dozen, blikken, ballen, piramides &mdash; alle ruimtelijke figuren hebben vlakken, ribben en hoekpunten. In dit hoofdstuk leer je de meest voorkomende ruimtelijke figuren herkennen, benoemen en beschrijven.</p>
+
+  <!-- ============================================================
+       SECTIE 1: BASISCONCEPTEN
+  ============================================================ -->
+  <section class="section-block" id="basisconcepten">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Basisconcepten van ruimtelijke figuren</h2>
+    </div>
+
+    <p>Een <strong>ruimtelijke figuur</strong> (of <strong>veelvlak</strong>) is een driedimensionale figuur die begrensd wordt door platte vlakken. Om alle ruimtelijke figuren op een eenduidige manier te beschrijven, gebruiken wiskundigen drie basisbegrippen: <strong>vlakken</strong>, <strong>ribben</strong> en <strong>hoekpunten</strong>.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9701;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Vlakken, ribben en hoekpunten</span>
+        <p class="begrip-def">
+          Een <strong>vlak</strong> (<em>face</em>, symbool V) is een plat veelhoekig zijvlak van de figuur.<br>
+          Een <strong>ribbe</strong> (<em>edge</em>, symbool R) is een lijnstuk waar twee vlakken elkaar ontmoeten.<br>
+          Een <strong>hoekpunt</strong> (<em>vertex</em>, symbool H) is een punt waar drie of meer ribben samenkomen.
+        </p>
+      </div>
+    </div>
+
+    <p>Een kubus heeft bijvoorbeeld 6 vlakken (zes vierkanten), 12 ribben (de lijnen langs de randen) en 8 hoekpunten (de hoeken). Deze drie kengetallen karakteriseren de structuur van een veelvlak volledig.</p>
+
+    <h3 class="sub-heading">De formule van Euler</h3>
+
+    <p>De Zwitserse wiskundige <strong>Leonhard Euler</strong> (1707&ndash;1783) ontdekte een verrassend verband tussen het aantal hoekpunten, ribben en vlakken van elk convex veelvlak. Dit verband geldt voor alle &ldquo;gewone&rdquo; ruimtelijke figuren zonder gaten of gekromde vlakken.</p>
+
+    <div class="stelling">
+      <span class="st-label">Stelling &mdash; Formule van Euler</span>
+      <div class="st-body">
+        <p style="margin-bottom:0.6rem;">Voor elk convex veelvlak met <em>H</em> hoekpunten, <em>R</em> ribben en <em>V</em> vlakken geldt:</p>
+        <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+          <mrow>
+            <mi>H</mi>
+            <mo>&#x2212;</mo>
+            <mi>R</mi>
+            <mo>+</mo>
+            <mi>V</mi>
+            <mo>=</mo>
+            <mn>2</mn>
+          </mrow>
+        </math>
+        <p style="margin-top:0.6rem;margin-bottom:0;">Het resultaat is <strong>altijd 2</strong>, ongeacht de vorm van het veelvlak.</p>
+      </div>
+    </div>
+
+    <!-- SVG: Isometrische kubus met labels -->
+    <div class="svg-container">
+      <svg viewBox="0 0 400 300" width="100%" style="max-width:400px" role="img" aria-labelledby="kubus-svg-title">
+        <title id="kubus-svg-title">Isometrische tekening van een kubus met gelabelde hoekpunten, ribben en vlakken</title>
+        <!-- Isometrische kubus: voorzijde, rechterzijde, bovenzijde -->
+        <!-- Coordinaten kubus (isometrisch): middelpunt ~(200,150) -->
+        <!-- Ondervoor-links A=(120,220), ondervoor-rechts B=(280,220) -->
+        <!-- bovenvoor-links C=(120, 80), bovenvoor-rechts D=(280, 80) -->
+        <!-- isometrisch: rechter zijkant verloopt schuin omhoog-rechts -->
+        <!-- A=(100,200) B=(240,200) C=(100,80) D=(240,80) — voorkant -->
+        <!-- E=(160,240) rechtsachteronder, F=(300,240) rechts, G=(300,120) rechtsboven, H=(160,40) linksboven achter -->
+        <!-- Voorkant ABDC: -->
+        <!-- Laten we concrete isometrische coördinaten bepalen: -->
+        <!-- Kubus zijde = 120px -->
+        <!-- Isometrisch: x-as 30° rechts omlaag, y-as verticaal, z-as 30° links omlaag -->
+        <!-- Hoekpunten (iso projective): -->
+        <!-- Voor-links-onder: (110, 210) -->
+        <!-- Voor-rechts-onder: (230, 210) -->
+        <!-- Voor-links-boven: (110,  90) -->
+        <!-- Voor-rechts-boven: (230, 90) -->
+        <!-- Rechts-achter-onder: (290, 175) -->
+        <!-- Rechts-achter-boven: (290,  55) -->
+        <!-- Links-achter-boven: (170,  55) -->
+        <!-- Alle zijde = 120, schuine diepte x+60, y-30 per 120px -->
+
+        <!-- Verborgen ribben (gestippeld) -->
+        <line x1="110" y1="210" x2="170" y2="175" stroke="#1A2B4A" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.4"/>
+        <line x1="170" y1="175" x2="290" y2="175" stroke="#1A2B4A" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.4"/>
+        <line x1="170" y1="175" x2="170" y2="55" stroke="#1A2B4A" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.4"/>
+
+        <!-- Zichtbare vlakken (gevuld) -->
+        <!-- Voorkant -->
+        <polygon points="110,210 230,210 230,90 110,90" fill="rgba(26,43,74,0.07)" stroke="none"/>
+        <!-- Bovenkant -->
+        <polygon points="110,90 230,90 290,55 170,55" fill="rgba(26,43,74,0.12)" stroke="none"/>
+        <!-- Rechterkant -->
+        <polygon points="230,210 290,175 290,55 230,90" fill="rgba(26,43,74,0.05)" stroke="none"/>
+
+        <!-- Zichtbare ribben -->
+        <!-- Voorkant rechthoek -->
+        <line x1="110" y1="210" x2="230" y2="210" stroke="#1A2B4A" stroke-width="2.2"/>
+        <line x1="230" y1="210" x2="230" y2="90" stroke="#1A2B4A" stroke-width="2.2"/>
+        <line x1="230" y1="90" x2="110" y2="90" stroke="#1A2B4A" stroke-width="2.2"/>
+        <line x1="110" y1="90" x2="110" y2="210" stroke="#1A2B4A" stroke-width="2.2"/>
+        <!-- Bovenkant -->
+        <line x1="110" y1="90" x2="170" y2="55" stroke="#1A2B4A" stroke-width="2.2"/>
+        <line x1="170" y1="55" x2="290" y2="55" stroke="#1A2B4A" stroke-width="2.2"/>
+        <line x1="290" y1="55" x2="230" y2="90" stroke="#1A2B4A" stroke-width="2.2"/>
+        <!-- Rechterkant -->
+        <line x1="230" y1="210" x2="290" y2="175" stroke="#1A2B4A" stroke-width="2.2"/>
+        <line x1="290" y1="175" x2="290" y2="55" stroke="#1A2B4A" stroke-width="2.2"/>
+
+        <!-- Hoekpunten (stippen) -->
+        <circle cx="110" cy="210" r="4" fill="#C1440E"/>
+        <circle cx="230" cy="210" r="4" fill="#C1440E"/>
+        <circle cx="110" cy="90"  r="4" fill="#C1440E"/>
+        <circle cx="230" cy="90"  r="4" fill="#C1440E"/>
+        <circle cx="170" cy="55"  r="4" fill="#C1440E"/>
+        <circle cx="290" cy="55"  r="4" fill="#C1440E"/>
+        <circle cx="290" cy="175" r="4" fill="#C1440E"/>
+        <circle cx="170" cy="175" r="4" fill="#C1440E" opacity="0.5"/>
+
+        <!-- Labels hoekpunten -->
+        <text x="90"  y="225" font-family="'Source Sans 3',sans-serif" font-size="12" fill="#C1440E" font-weight="700">H</text>
+        <text x="234" y="225" font-family="'Source Sans 3',sans-serif" font-size="12" fill="#C1440E" font-weight="700">H</text>
+        <text x="88"  y="86"  font-family="'Source Sans 3',sans-serif" font-size="12" fill="#C1440E" font-weight="700">H</text>
+        <text x="234" y="86"  font-family="'Source Sans 3',sans-serif" font-size="12" fill="#C1440E" font-weight="700">H</text>
+        <text x="152" y="50"  font-family="'Source Sans 3',sans-serif" font-size="12" fill="#C1440E" font-weight="700">H</text>
+        <text x="294" y="50"  font-family="'Source Sans 3',sans-serif" font-size="12" fill="#C1440E" font-weight="700">H</text>
+        <text x="294" y="187" font-family="'Source Sans 3',sans-serif" font-size="12" fill="#C1440E" font-weight="700">H</text>
+        <text x="152" y="185" font-family="'Source Sans 3',sans-serif" font-size="12" fill="#C1440E" font-weight="700" opacity="0.45">H</text>
+
+        <!-- Ribben label -->
+        <text x="165" y="230" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#1A2B4A" text-anchor="middle">R</text>
+        <text x="242" y="155" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#1A2B4A">R</text>
+        <text x="263" y="128" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#1A2B4A">R</text>
+
+        <!-- Vlak label -->
+        <text x="168" y="158" font-family="'Source Sans 3',sans-serif" font-size="13" fill="#1A2B4A" text-anchor="middle" font-weight="600">Vlak</text>
+        <text x="200" y="72"  font-family="'Source Sans 3',sans-serif" font-size="11" fill="#1A2B4A" text-anchor="middle" opacity="0.75">Vlak (boven)</text>
+
+        <!-- Legende -->
+        <circle cx="46" cy="265" r="5" fill="#C1440E"/>
+        <text x="56" y="269" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#C1440E">= hoekpunt (H)</text>
+        <line x1="185" y1="265" x2="205" y2="265" stroke="#1A2B4A" stroke-width="2"/>
+        <text x="210" y="269" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#1A2B4A">= ribbe (R)</text>
+        <line x1="295" y1="265" x2="315" y2="265" stroke="#1A2B4A" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.5"/>
+        <text x="320" y="269" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#1A2B4A" opacity="0.6">= verborgen ribbe</text>
+      </svg>
+      <span class="svg-caption">Isometrische tekening van een kubus. Rode punten zijn hoekpunten (H), volle lijnen zijn zichtbare ribben (R), gestippelde lijnen zijn verborgen ribben. De drie zichtbare vlakken zijn lichtblauw ingekleurd.</span>
+    </div>
+
+    <!-- Rekenvoorbeeld Euler kubus -->
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Verifieer de formule van Euler voor een kubus.</p>
+      <ul class="rv-stappen">
+        <li>Tel de <strong>hoekpunten</strong> van een kubus: een kubus heeft 8 hoeken (4 bovenaan, 4 onderaan). Dus H = 8.</li>
+        <li>Tel de <strong>ribben</strong>: 4 ribben langs de onderkant + 4 verticale ribben + 4 ribben langs de bovenkant = 12. Dus R = 12.</li>
+        <li>Tel de <strong>vlakken</strong>: boven, onder, voor, achter, links, rechts = 6. Dus V = 6.</li>
+        <li>
+          Pas de formule van Euler toe:
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <mrow>
+              <mi>H</mi><mo>&#x2212;</mo><mi>R</mi><mo>+</mo><mi>V</mi>
+              <mo>=</mo>
+              <mn>8</mn><mo>&#x2212;</mo><mn>12</mn><mo>+</mo><mn>6</mn>
+              <mo>=</mo>
+              <mn>2</mn>
+            </mrow>
+          </math>
+        </li>
+      </ul>
+      <p class="rv-antwoord">Antwoord: 8 &minus; 12 + 6 = 2 &#10003; &mdash; de formule van Euler klopt voor de kubus.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Pak een doosje of doos in de klas. Tel de hoekpunten, ribben en vlakken. Klopt de formule van Euler? Probeer het ook met een niet-rechthoekig voorwerp, als je er een vindt.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 2: PRISMA'S
+  ============================================================ -->
+  <section class="section-block" id="prismas">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Prisma's</h2>
+    </div>
+
+    <p>Een <strong>prisma</strong> is een ruimtelijke figuur met twee congruente (gelijke) en evenwijdige <strong>grondvlakken</strong> die verbonden zijn door rechthoekige <strong>zijvlakken</strong>. De grondvlakken bepalen het type prisma: als de grondvlakken driehoeken zijn, spreken we van een <em>driehoekig prisma</em>; als het rechthoeken zijn, van een <em>vierhoekig prisma</em> of <em>quader</em>.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9634;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Rechte prisma</span>
+        <p class="begrip-def">Een rechte prisma is een ruimtelijke figuur met twee congruente, evenwijdige grondvlakken (veelhoeken) en rechthoekige zijvlakken die loodrecht op de grondvlakken staan. De grondvlakken kunnen elke veelhoek zijn: driehoek, vierhoek, vijfhoek, zeshoek, &hellip;</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Soorten prisma's en hun eigenschappen</h3>
+
+    <p>Het aantal vlakken, ribben en hoekpunten hangt af van hoeveel zijden de grondvlakken hebben. Als de grondvlakken <em>n</em>-hoeken zijn, dan geldt:</p>
+
+    <table class="shapes-table" aria-label="Eigenschappen van prismas">
+      <thead>
+        <tr>
+          <th>Type prisma</th>
+          <th>Grondvlak</th>
+          <th>Hoekpunten (H)</th>
+          <th>Ribben (R)</th>
+          <th>Vlakken (V)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Driehoekig prisma</td>
+          <td>Driehoek (n=3)</td>
+          <td>6</td>
+          <td>9</td>
+          <td>5</td>
+        </tr>
+        <tr>
+          <td>Vierhoekig prisma (quader)</td>
+          <td>Vierhoek (n=4)</td>
+          <td>8</td>
+          <td>12</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>Vijfhoekig prisma</td>
+          <td>Vijfhoek (n=5)</td>
+          <td>10</td>
+          <td>15</td>
+          <td>7</td>
+        </tr>
+        <tr>
+          <td>Zeshoekig prisma</td>
+          <td>Zeshoek (n=6)</td>
+          <td>12</td>
+          <td>18</td>
+          <td>8</td>
+        </tr>
+        <tr>
+          <td><em>n</em>-hoekig prisma</td>
+          <td><em>n</em>-hoek</td>
+          <td>2<em>n</em></td>
+          <td>3<em>n</em></td>
+          <td><em>n</em>+2</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>De <strong>kubus</strong> is een bijzonder geval van de quader: alle zijden zijn even lang en alle vlakken zijn vierkanten. Een <strong>quader</strong> (ook wel <em>balk</em> of <em>rechthoekig parallellepipedum</em> genaamd) heeft drie paren evenwijdige rechthoekige vlakken.</p>
+
+    <!-- SVG: drie prisma's naast elkaar -->
+    <div class="svg-container">
+      <svg viewBox="0 0 760 240" width="100%" style="max-width:760px" role="img" aria-labelledby="prismas-svg-title">
+        <title id="prismas-svg-title">Drie prismas in isometrisch aanzicht: driehoekig prisma, quader en zeshoekig prisma</title>
+
+        <!-- === DRIEHOEKIG PRISMA (links) === -->
+        <!-- Voorkant driehoek: A(60,190) B(160,190) top C(110,100) -->
+        <!-- Achter: A'(90,170) B'(190,170) C'(140,80) -->
+        <!-- Verborgen ribben -->
+        <line x1="60"  y1="190" x2="90"  y2="170" stroke="#1A2B4A" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.4"/>
+        <line x1="90"  y1="170" x2="190" y2="170" stroke="#1A2B4A" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.4"/>
+        <line x1="90"  y1="170" x2="140" y2="80"  stroke="#1A2B4A" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.4"/>
+        <!-- Vlakken -->
+        <polygon points="60,190 160,190 110,100" fill="rgba(26,43,74,0.08)" stroke="none"/>
+        <polygon points="160,190 190,170 140,80 110,100" fill="rgba(26,43,74,0.05)" stroke="none"/>
+        <polygon points="110,100 140,80 190,170 160,190" fill="rgba(212,160,23,0.12)" stroke="none"/>
+        <!-- Ribben -->
+        <line x1="60"  y1="190" x2="160" y2="190" stroke="#1A2B4A" stroke-width="2"/>
+        <line x1="160" y1="190" x2="110" y2="100" stroke="#1A2B4A" stroke-width="2"/>
+        <line x1="110" y1="100" x2="60"  y2="190" stroke="#1A2B4A" stroke-width="2"/>
+        <line x1="160" y1="190" x2="190" y2="170" stroke="#1A2B4A" stroke-width="2"/>
+        <line x1="190" y1="170" x2="140" y2="80"  stroke="#1A2B4A" stroke-width="2"/>
+        <line x1="140" y1="80"  x2="110" y2="100" stroke="#1A2B4A" stroke-width="2"/>
+        <!-- Label -->
+        <text x="110" y="220" font-family="'Source Sans 3',sans-serif" font-size="12" fill="#1A2B4A" text-anchor="middle" font-weight="600">Driehoekig prisma</text>
+        <text x="110" y="234" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#6B5F4A" text-anchor="middle">H=6, R=9, V=5</text>
+
+        <!-- === QUADER / BALK (midden) === -->
+        <!-- Voorkant: (270,185) (410,185) (410,105) (270,105) -->
+        <!-- Verborgen -->
+        <line x1="270" y1="185" x2="305" y2="160" stroke="#1A2B4A" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.4"/>
+        <line x1="305" y1="160" x2="445" y2="160" stroke="#1A2B4A" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.4"/>
+        <line x1="305" y1="160" x2="305" y2="80"  stroke="#1A2B4A" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.4"/>
+        <!-- Vlakken -->
+        <polygon points="270,185 410,185 410,105 270,105" fill="rgba(26,43,74,0.07)" stroke="none"/>
+        <polygon points="270,105 305,80 445,80 410,105" fill="rgba(26,43,74,0.11)" stroke="none"/>
+        <polygon points="410,185 445,160 445,80 410,105" fill="rgba(26,43,74,0.04)" stroke="none"/>
+        <!-- Ribben -->
+        <line x1="270" y1="185" x2="410" y2="185" stroke="#1A2B4A" stroke-width="2"/>
+        <line x1="410" y1="185" x2="410" y2="105" stroke="#1A2B4A" stroke-width="2"/>
+        <line x1="410" y1="105" x2="270" y2="105" stroke="#1A2B4A" stroke-width="2"/>
+        <line x1="270" y1="105" x2="270" y2="185" stroke="#1A2B4A" stroke-width="2"/>
+        <line x1="270" y1="105" x2="305" y2="80"  stroke="#1A2B4A" stroke-width="2"/>
+        <line x1="305" y1="80"  x2="445" y2="80"  stroke="#1A2B4A" stroke-width="2"/>
+        <line x1="445" y1="80"  x2="410" y2="105" stroke="#1A2B4A" stroke-width="2"/>
+        <line x1="410" y1="185" x2="445" y2="160" stroke="#1A2B4A" stroke-width="2"/>
+        <line x1="445" y1="160" x2="445" y2="80"  stroke="#1A2B4A" stroke-width="2"/>
+        <!-- Label -->
+        <text x="340" y="220" font-family="'Source Sans 3',sans-serif" font-size="12" fill="#1A2B4A" text-anchor="middle" font-weight="600">Quader (balk)</text>
+        <text x="340" y="234" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#6B5F4A" text-anchor="middle">H=8, R=12, V=6</text>
+
+        <!-- === ZESHOEKIG PRISMA (rechts) === -->
+        <!-- Zeshoek grondvlak: zes punten, regelmatig, middelpunt (630,175), straal 55 -->
+        <!-- Hoeken: 0°,60°,120°,180°,240°,300° -->
+        <!-- Voorzijde: -->
+        <!-- p0=(630,120) p1=(678,147) p2=(678,203) p3=(630,230) p4=(582,203) p5=(582,147) -->
+        <!-- Achter: schuif +30px rechts, -20px omhoog: dx=30,dy=-20 -->
+        <!-- q0=(660,100) q1=(708,127) q2=(708,183) q3=(660,210) q4=(612,183) q5=(612,127) -->
+        <!-- Verborgen ribben (achterste zijkanten en deel bodem) -->
+        <line x1="582" y1="147" x2="612" y2="127" stroke="#1A2B4A" stroke-width="1.4" stroke-dasharray="4,3" opacity="0.4"/>
+        <line x1="612" y1="127" x2="660" y2="100" stroke="#1A2B4A" stroke-width="1.4" stroke-dasharray="4,3" opacity="0.4"/>
+        <line x1="660" y1="100" x2="708" y2="127" stroke="#1A2B4A" stroke-width="1.4" stroke-dasharray="4,3" opacity="0.4"/>
+        <line x1="612" y1="127" x2="612" y2="183" stroke="#1A2B4A" stroke-width="1.4" stroke-dasharray="4,3" opacity="0.4"/>
+        <line x1="612" y1="183" x2="660" y2="210" stroke="#1A2B4A" stroke-width="1.4" stroke-dasharray="4,3" opacity="0.4"/>
+        <!-- Vlakken zichtbaar -->
+        <polygon points="630,120 678,147 678,203 630,230 582,203 582,147" fill="rgba(26,43,74,0.07)" stroke="none"/>
+        <polygon points="630,120 660,100 708,127 678,147" fill="rgba(26,43,74,0.11)" stroke="none"/>
+        <polygon points="678,147 708,127 708,183 678,203" fill="rgba(26,43,74,0.05)" stroke="none"/>
+        <polygon points="678,203 708,183 660,210 630,230" fill="rgba(212,160,23,0.10)" stroke="none"/>
+        <!-- Ribben voorzijde -->
+        <line x1="630" y1="120" x2="678" y2="147" stroke="#1A2B4A" stroke-width="2"/>
+        <line x1="678" y1="147" x2="678" y2="203" stroke="#1A2B4A" stroke-width="2"/>
+        <line x1="678" y1="203" x2="630" y2="230" stroke="#1A2B4A" stroke-width="2"/>
+        <line x1="630" y1="230" x2="582" y2="203" stroke="#1A2B4A" stroke-width="2"/>
+        <line x1="582" y1="203" x2="582" y2="147" stroke="#1A2B4A" stroke-width="2"/>
+        <line x1="582" y1="147" x2="630" y2="120" stroke="#1A2B4A" stroke-width="2"/>
+        <!-- Verbindingsribben voor-achter zichtbaar -->
+        <line x1="630" y1="120" x2="660" y2="100" stroke="#1A2B4A" stroke-width="2"/>
+        <line x1="678" y1="147" x2="708" y2="127" stroke="#1A2B4A" stroke-width="2"/>
+        <line x1="678" y1="203" x2="708" y2="183" stroke="#1A2B4A" stroke-width="2"/>
+        <line x1="630" y1="230" x2="660" y2="210" stroke="#1A2B4A" stroke-width="2"/>
+        <line x1="582" y1="203" x2="612" y2="183" stroke="#1A2B4A" stroke-width="2"/>
+        <!-- Ribben achterzijde zichtbaar -->
+        <line x1="708" y1="127" x2="708" y2="183" stroke="#1A2B4A" stroke-width="2"/>
+        <line x1="708" y1="183" x2="660" y2="210" stroke="#1A2B4A" stroke-width="2"/>
+        <!-- Label -->
+        <text x="630" y="250" font-family="'Source Sans 3',sans-serif" font-size="12" fill="#1A2B4A" text-anchor="middle" font-weight="600">Zeshoekig prisma</text>
+        <text x="630" y="264" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#6B5F4A" text-anchor="middle">H=12, R=18, V=8</text>
+      </svg>
+      <span class="svg-caption">Drie soorten prisma&rsquo;s in isometrisch aanzicht (van links naar rechts): driehoekig prisma, quader en zeshoekig prisma. Gestippelde lijnen zijn verborgen ribben.</span>
+    </div>
+
+    <!-- Rekenvoorbeeld vijfhoekig prisma -->
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Tel de hoekpunten, ribben en vlakken van een vijfhoekig prisma, en controleer de formule van Euler.</p>
+      <ul class="rv-stappen">
+        <li><strong>Hoekpunten (H):</strong> een vijfhoek heeft 5 hoekpunten. Het prisma heeft twee grondvlakken, dus 2 &times; 5 = <strong>10 hoekpunten</strong>.</li>
+        <li><strong>Ribben (R):</strong> 5 ribben ondergrondvlak + 5 ribben bovengrondvlak + 5 verticale ribben (die de twee grondvlakken verbinden) = <strong>15 ribben</strong>.</li>
+        <li><strong>Vlakken (V):</strong> 2 vijfhoekige grondvlakken + 5 rechthoekige zijvlakken = <strong>7 vlakken</strong>.</li>
+        <li>
+          Euler controleren:
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <mrow>
+              <mi>H</mi><mo>&#x2212;</mo><mi>R</mi><mo>+</mo><mi>V</mi>
+              <mo>=</mo>
+              <mn>10</mn><mo>&#x2212;</mo><mn>15</mn><mo>+</mo><mn>7</mn>
+              <mo>=</mo>
+              <mn>2</mn>
+            </mrow>
+          </math>
+        </li>
+      </ul>
+      <p class="rv-antwoord">Antwoord: H = 10, R = 15, V = 7. Euler: 10 &minus; 15 + 7 = 2 &#10003;</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 3: PIRAMIDES
+  ============================================================ -->
+  <section class="section-block" id="piramides">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Piramides</h2>
+    </div>
+
+    <p>Een <strong>piramide</strong> is een ruimtelijke figuur met &eacute;&eacute;n <strong>grondvlak</strong> (een veelhoek) en driehoekige <strong>zijvlakken</strong> die allemaal samenkomen in &eacute;&eacute;n punt: de <strong>top</strong>. De piramide wordt vernoemd naar het grondvlak: een vierhoekige piramide heeft een vierhoek als grondvlak.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9651;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Piramide</span>
+        <p class="begrip-def">Een piramide heeft &eacute;&eacute;n veelhoekig grondvlak en driehoekige zijvlakken die alle samenkomen in de top. Een <strong>regelmatige piramide</strong> heeft een regelmatig veelhoekig grondvlak en de top staat loodrecht boven het middelpunt van het grondvlak.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Soorten piramides en hun eigenschappen</h3>
+
+    <p>Net als bij prisma&rsquo;s bepaalt het grondvlak het type piramide. Als het grondvlak een <em>n</em>-hoek is, geldt:</p>
+
+    <table class="shapes-table" aria-label="Eigenschappen van piramides">
+      <thead>
+        <tr>
+          <th>Type piramide</th>
+          <th>Grondvlak</th>
+          <th>Hoekpunten (H)</th>
+          <th>Ribben (R)</th>
+          <th>Vlakken (V)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Driehoekige piramide (tetra&euml;der)</td>
+          <td>Driehoek (n=3)</td>
+          <td>4</td>
+          <td>6</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td>Vierhoekige piramide</td>
+          <td>Vierhoek (n=4)</td>
+          <td>5</td>
+          <td>8</td>
+          <td>5</td>
+        </tr>
+        <tr>
+          <td>Vijfhoekige piramide</td>
+          <td>Vijfhoek (n=5)</td>
+          <td>6</td>
+          <td>10</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td><em>n</em>-hoekige piramide</td>
+          <td><em>n</em>-hoek</td>
+          <td><em>n</em>+1</td>
+          <td>2<em>n</em></td>
+          <td><em>n</em>+1</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>De <strong>driehoekige piramide</strong> (ook <em>tetra&euml;der</em> genoemd) is bijzonder: alle vier de vlakken zijn driehoeken. Een <strong>regelmatig tetra&euml;der</strong> heeft vier gelijkzijdige driehoeken als vlakken en is een van de vijf <em>platonische lichamen</em>.</p>
+
+    <!-- SVG: vierhoekige piramide met labels -->
+    <div class="svg-container">
+      <svg viewBox="0 0 400 280" width="100%" style="max-width:400px" role="img" aria-labelledby="piramide-svg-title">
+        <title id="piramide-svg-title">Isometrisch aanzicht van een vierhoekige piramide met gelabelde grondvlak, zijvlak en top</title>
+        <!-- Grondvlak vierhoek: A(100,220) B(280,220) C(320,175) D(140,175) -->
+        <!-- Top T=(210,70) -->
+
+        <!-- Verborgen ribben grondvlak -->
+        <line x1="100" y1="220" x2="140" y2="175" stroke="#1A2B4A" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.4"/>
+        <line x1="140" y1="175" x2="320" y2="175" stroke="#1A2B4A" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.4"/>
+        <line x1="140" y1="175" x2="210" y2="70"  stroke="#1A2B4A" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.35"/>
+
+        <!-- Grondvlak vlak (zichtbaar gedeelte) -->
+        <polygon points="100,220 280,220 320,175 140,175" fill="rgba(26,43,74,0.08)" stroke="none"/>
+
+        <!-- Zijvlakken -->
+        <polygon points="100,220 280,220 210,70" fill="rgba(26,43,74,0.06)" stroke="none"/>
+        <polygon points="280,220 320,175 210,70" fill="rgba(212,160,23,0.15)" stroke="none"/>
+        <polygon points="100,220 140,175 210,70" fill="rgba(26,43,74,0.04)" stroke="none"/>
+
+        <!-- Zichtbare grondvlak ribben -->
+        <line x1="100" y1="220" x2="280" y2="220" stroke="#1A2B4A" stroke-width="2.2"/>
+        <line x1="280" y1="220" x2="320" y2="175" stroke="#1A2B4A" stroke-width="2.2"/>
+
+        <!-- Zijribben naar top -->
+        <line x1="100" y1="220" x2="210" y2="70"  stroke="#1A2B4A" stroke-width="2.2"/>
+        <line x1="280" y1="220" x2="210" y2="70"  stroke="#1A2B4A" stroke-width="2.2"/>
+        <line x1="320" y1="175" x2="210" y2="70"  stroke="#1A2B4A" stroke-width="2.2"/>
+
+        <!-- Top punt -->
+        <circle cx="210" cy="70" r="5" fill="#C1440E"/>
+
+        <!-- Labels -->
+        <text x="210" y="55"  font-family="'Playfair Display',serif" font-size="14" fill="#C1440E" text-anchor="middle" font-weight="700">top</text>
+
+        <text x="190" y="210" font-family="'Source Sans 3',sans-serif" font-size="12" fill="#1A2B4A" text-anchor="middle" font-weight="600" opacity="0.75">grondvlak</text>
+
+        <!-- Pijl naar zijvlak (rechts) -->
+        <line x1="300" y1="155" x2="290" y2="140" stroke="#C8923A" stroke-width="1.5" marker-end="url(#arrow)"/>
+        <text x="315" y="150" font-family="'Source Sans 3',sans-serif" font-size="12" fill="#C8923A" text-anchor="start">zijvlak</text>
+
+        <!-- Hoogte-lijn (gestippeld) -->
+        <line x1="210" y1="70" x2="210" y2="200" stroke="#D4A017" stroke-width="1.2" stroke-dasharray="4,3" opacity="0.6"/>
+        <text x="218" y="140" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#D4A017" opacity="0.85">hoogte</text>
+      </svg>
+      <span class="svg-caption">Vierhoekige piramide in isometrisch aanzicht. De top (rood punt) staat boven het grondvlak. Gestippelde lijnen zijn verborgen ribben. Het goudgele zijvlak is het rechterzijvlak.</span>
+    </div>
+
+    <!-- Rekenvoorbeeld zeshoekige piramide -->
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Tel de hoekpunten, ribben en vlakken van een zeshoekige piramide, en verifieer Euler.</p>
+      <ul class="rv-stappen">
+        <li><strong>Hoekpunten (H):</strong> 6 hoekpunten van het zeshoekig grondvlak + 1 top = <strong>7 hoekpunten</strong>.</li>
+        <li><strong>Ribben (R):</strong> 6 ribben langs het grondvlak + 6 ribben van grondvlak naar top = <strong>12 ribben</strong>.</li>
+        <li><strong>Vlakken (V):</strong> 1 zeshoekig grondvlak + 6 driehoekige zijvlakken = <strong>7 vlakken</strong>.</li>
+        <li>
+          Euler controleren:
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <mrow>
+              <mi>H</mi><mo>&#x2212;</mo><mi>R</mi><mo>+</mo><mi>V</mi>
+              <mo>=</mo>
+              <mn>7</mn><mo>&#x2212;</mo><mn>12</mn><mo>+</mo><mn>7</mn>
+              <mo>=</mo>
+              <mn>2</mn>
+            </mrow>
+          </math>
+        </li>
+      </ul>
+      <p class="rv-antwoord">Antwoord: H = 7, R = 12, V = 7. Euler: 7 &minus; 12 + 7 = 2 &#10003;</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">De grote piramides van Giza in Egypte zijn vierhoekige piramides. Ze hebben een vierkant grondvlak. Hoeveel vlakken, ribben en hoekpunten hebben ze? Klopt de formule van Euler?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 4: CILINDER, KEGEL EN BOL
+  ============================================================ -->
+  <section class="section-block" id="cilinder-kegel-bol">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Cilinder, kegel en bol</h2>
+    </div>
+
+    <p>Niet alle ruimtelijke figuren zijn veelvlakken (figuren met vlakke zijden). De <strong>cilinder</strong>, de <strong>kegel</strong> en de <strong>bol</strong> hebben <em>gekromde oppervlakken</em>. Dat maakt ze anders van aard: de formule van Euler geldt er niet voor, omdat ze geen echte ribben of scherpe hoekpunten hebben.</p>
+
+    <h3 class="sub-heading">De cilinder</h3>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9679;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Cilinder</span>
+        <p class="begrip-def">Een cilinder bestaat uit twee congruente, evenwijdige <strong>cirkelvormige grondvlakken</strong> en een gebogen <strong>zijvlak</strong> dat de twee cirkels verbindt. De rechte lijn door de middelpunten van de twee cirkels heet de <strong>as</strong>. De <strong>straal</strong> <em>r</em> is de straal van de cirkels; de <strong>hoogte</strong> <em>h</em> is de loodrechte afstand tussen de twee cirkels.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">De kegel</h3>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9651;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Kegel</span>
+        <p class="begrip-def">Een kegel heeft &eacute;&eacute;n cirkelvormig <strong>grondvlak</strong> met straal <em>r</em> en een gebogen zijvlak dat naar boven toeloopt en samenkropt in de <strong>top</strong>. De hoogte <em>h</em> is de loodrechte afstand van de top tot het grondvlak. De <strong>schuine hoogte</strong> (ook <em>mantelline</em>) is de afstand langs het gebogen vlak van de top naar de rand van het grondvlak.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">De bol</h3>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9675;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Bol</span>
+        <p class="begrip-def">Een bol is de verzameling van alle punten in de ruimte die op dezelfde afstand <em>r</em> (de <strong>straal</strong>) liggen van een vast punt (het <strong>middelpunt</strong>). Een bol heeft geen vlakken, ribben of hoekpunten &mdash; alleen een gebogen oppervlak.</p>
+      </div>
+    </div>
+
+    <!-- SVG: cilinder, kegel en bol naast elkaar -->
+    <div class="svg-container">
+      <svg viewBox="0 0 680 230" width="100%" style="max-width:680px" role="img" aria-labelledby="ronde-svg-title">
+        <title id="ronde-svg-title">Tekeningen van een cilinder, kegel en bol met labels voor straal r, hoogte h en as</title>
+
+        <!-- === CILINDER (links) === -->
+        <!-- Cilinder: middelpunt boven=(110,80), midden onder=(110,170), rx=55, ry=16 -->
+        <!-- Zijkanten -->
+        <line x1="55"  y1="80"  x2="55"  y2="170" stroke="#1A2B4A" stroke-width="2"/>
+        <line x1="165" y1="80"  x2="165" y2="170" stroke="#1A2B4A" stroke-width="2"/>
+        <!-- Bodem (ellips vol) -->
+        <ellipse cx="110" cy="170" rx="55" ry="16" fill="rgba(26,43,74,0.08)" stroke="#1A2B4A" stroke-width="2"/>
+        <!-- Bovenkant (ellips) -->
+        <ellipse cx="110" cy="80"  rx="55" ry="16" fill="rgba(26,43,74,0.12)" stroke="#1A2B4A" stroke-width="2"/>
+        <!-- Achterkant bodem gestippeld -->
+        <path d="M 55,170 A 55,16 0 0,1 165,170" fill="none" stroke="#1A2B4A" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.4"/>
+        <!-- Zijvlak kleur -->
+        <path d="M 55,80 A 55,16 0 0,0 165,80 L 165,170 A 55,16 0 0,1 55,170 Z" fill="rgba(26,43,74,0.04)" stroke="none"/>
+
+        <!-- Labels cilinder -->
+        <!-- r: straal boven -->
+        <line x1="110" y1="80" x2="165" y2="80" stroke="#C1440E" stroke-width="1.5"/>
+        <text x="137"  y="74" font-family="'Source Sans 3',sans-serif" font-size="12" fill="#C1440E" text-anchor="middle" font-style="italic">r</text>
+        <!-- h: hoogte -->
+        <line x1="175" y1="80" x2="175" y2="170" stroke="#D4A017" stroke-width="1.5"/>
+        <line x1="170" y1="80" x2="180" y2="80" stroke="#D4A017" stroke-width="1.5"/>
+        <line x1="170" y1="170" x2="180" y2="170" stroke="#D4A017" stroke-width="1.5"/>
+        <text x="186" y="130" font-family="'Source Sans 3',sans-serif" font-size="12" fill="#D4A017" font-style="italic">h</text>
+        <!-- as: stippellijn -->
+        <line x1="110" y1="72" x2="110" y2="178" stroke="#C8923A" stroke-width="1.2" stroke-dasharray="4,3"/>
+        <text x="112"  y="68" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#C8923A">as</text>
+        <!-- Naam -->
+        <text x="110" y="210" font-family="'Source Sans 3',sans-serif" font-size="13" fill="#1A2B4A" text-anchor="middle" font-weight="700">Cilinder</text>
+
+        <!-- === KEGEL (midden) === -->
+        <!-- Top T=(350,65), grondvlak midden=(350,175), rx=65, ry=16 -->
+        <!-- Zijkanten -->
+        <line x1="285" y1="175" x2="350" y2="65" stroke="#1A2B4A" stroke-width="2"/>
+        <line x1="415" y1="175" x2="350" y2="65" stroke="#1A2B4A" stroke-width="2"/>
+        <!-- Bodem ellips -->
+        <ellipse cx="350" cy="175" rx="65" ry="16" fill="rgba(26,43,74,0.08)" stroke="#1A2B4A" stroke-width="2"/>
+        <!-- Achterkant gestippeld -->
+        <path d="M 285,175 A 65,16 0 0,1 415,175" fill="none" stroke="#1A2B4A" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.4"/>
+        <!-- Zijvlak -->
+        <path d="M 285,175 A 65,16 0 0,0 415,175 L 350,65 Z" fill="rgba(26,43,74,0.05)" stroke="none"/>
+
+        <!-- Labels kegel -->
+        <!-- top punt -->
+        <circle cx="350" cy="65" r="4" fill="#C1440E"/>
+        <text x="356" y="62" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#C1440E">top</text>
+        <!-- r -->
+        <line x1="350" y1="175" x2="415" y2="175" stroke="#C1440E" stroke-width="1.5"/>
+        <text x="382" y="170" font-family="'Source Sans 3',sans-serif" font-size="12" fill="#C1440E" text-anchor="middle" font-style="italic">r</text>
+        <!-- h stippellijn -->
+        <line x1="350" y1="65" x2="350" y2="175" stroke="#D4A017" stroke-width="1.2" stroke-dasharray="4,3"/>
+        <text x="356" y="125" font-family="'Source Sans 3',sans-serif" font-size="12" fill="#D4A017" font-style="italic">h</text>
+        <!-- Naam -->
+        <text x="350" y="210" font-family="'Source Sans 3',sans-serif" font-size="13" fill="#1A2B4A" text-anchor="middle" font-weight="700">Kegel</text>
+
+        <!-- === BOL (rechts) === -->
+        <!-- Middelpunt=(570,125), straal=70 -->
+        <circle cx="570" cy="125" r="70" fill="rgba(26,43,74,0.06)" stroke="#1A2B4A" stroke-width="2"/>
+        <!-- Evenaar (ellips) gestippeld -->
+        <ellipse cx="570" cy="125" rx="70" ry="18" fill="none" stroke="#1A2B4A" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.5"/>
+        <!-- Middelpunt -->
+        <circle cx="570" cy="125" r="3" fill="#C1440E"/>
+        <!-- Straal r -->
+        <line x1="570" y1="125" x2="619" y2="88" stroke="#C1440E" stroke-width="1.5"/>
+        <text x="608" y="100" font-family="'Source Sans 3',sans-serif" font-size="13" fill="#C1440E" font-style="italic" font-weight="700">r</text>
+        <!-- Naam -->
+        <text x="570" y="213" font-family="'Source Sans 3',sans-serif" font-size="13" fill="#1A2B4A" text-anchor="middle" font-weight="700">Bol</text>
+        <!-- Middelpunt label -->
+        <text x="556" y="122" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#C1440E">M</text>
+      </svg>
+      <span class="svg-caption">Van links naar rechts: cilinder (met straal <em>r</em>, hoogte <em>h</em> en as), kegel (met straal <em>r</em>, hoogte <em>h</em> en top) en bol (met straal <em>r</em> en middelpunt M). Gestippelde lijnen zijn de verborgen achterkant van de ellipsvormige dwarsdoorsneden.</span>
+    </div>
+
+    <p>Let op: deze drie figuren passen <em>niet</em> in de formule van Euler. Ze hebben geen scherpe ribben of puntige hoekpunten. Wiskundigen zeggen dat ze <strong>gladde oppervlakken</strong> hebben. Toch zijn ze in het dagelijks leven overal terug te vinden: blikken (cilinder), ijsjes (kegel), voetballen en planeten (bol).</p>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Zoek in de klas of thuis een voorbeeld van een cilinder, een kegel en een bol. Welke formule voor oppervlakte of inhoud ken je misschien al van de lagere school? (Tip: denk aan de oppervlakte van een cirkel en de inhoud van een kubus.)</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 5: NETTEN
+  ============================================================ -->
+  <section class="section-block" id="netten">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Netten (ontwikkelingen)</h2>
+    </div>
+
+    <p>Een <strong>net</strong> (ook wel <em>ontwikkeling</em> of <em>grondpatroon</em> genaamd) is een plat 2D-patroon dat je kunt opvouwen tot een ruimtelijke figuur. Je kunt het net van een figuur maken door alle vlakken van de figuur &ldquo;open te klappen&rdquo; zodat ze in een vlak liggen &mdash; verbonden langs de ribben.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9633;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Net van een ruimtelijke figuur</span>
+        <p class="begrip-def">Een net is een tweedimensionaal patroon dat door vouwen langs de ribben exact &eacute;&eacute;n ruimtelijke figuur oplevert, zonder overlappingen of gaten. Elke ribbe van de figuur komt overeen met een vouwlijn in het net.</p>
+      </div>
+    </div>
+
+    <!-- SVG: net van een kubus (kruisvorm) en net van driehoekig prisma -->
+    <div class="svg-container">
+      <svg viewBox="0 0 700 280" width="100%" style="max-width:700px" role="img" aria-labelledby="netten-svg-title">
+        <title id="netten-svg-title">Net van een kubus (kruisvorm van zes vierkanten) en net van een driehoekig prisma</title>
+
+        <!-- === NET VAN KUBUS (kruisvorm, links) === -->
+        <!-- Zijde van elk vierkant = 60px -->
+        <!-- Kruisvorm: midden bij (120,120) -->
+        <!-- Vierkant 1 (top): (100,20)-(160,20)-(160,80)-(100,80) -->
+        <rect x="100" y="20"  width="60" height="60" fill="rgba(26,43,74,0.08)" stroke="#1A2B4A" stroke-width="2"/>
+        <text x="130" y="54" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#1A2B4A" text-anchor="middle">1</text>
+        <!-- Vierkant 2 (voor/midden): (100,80)-(160,80)-(160,140)-(100,140) -->
+        <rect x="100" y="80"  width="60" height="60" fill="rgba(26,43,74,0.12)" stroke="#1A2B4A" stroke-width="2"/>
+        <text x="130" y="114" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#1A2B4A" text-anchor="middle">2</text>
+        <!-- Vierkant 3 (links): (40,80)-(100,80)-(100,140)-(40,140) -->
+        <rect x="40"  y="80"  width="60" height="60" fill="rgba(212,160,23,0.15)" stroke="#1A2B4A" stroke-width="2"/>
+        <text x="70"  y="114" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#1A2B4A" text-anchor="middle">3</text>
+        <!-- Vierkant 4 (rechts): (160,80)-(220,80)-(220,140)-(160,140) -->
+        <rect x="160" y="80"  width="60" height="60" fill="rgba(212,160,23,0.15)" stroke="#1A2B4A" stroke-width="2"/>
+        <text x="190" y="114" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#1A2B4A" text-anchor="middle">4</text>
+        <!-- Vierkant 5 (onder/midden): (100,140)-(160,140)-(160,200)-(100,200) -->
+        <rect x="100" y="140" width="60" height="60" fill="rgba(26,43,74,0.08)" stroke="#1A2B4A" stroke-width="2"/>
+        <text x="130" y="174" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#1A2B4A" text-anchor="middle">5</text>
+        <!-- Vierkant 6 (bodem): (100,200)-(160,200)-(160,260)-(100,260) -->
+        <rect x="100" y="200" width="60" height="60" fill="rgba(26,43,74,0.05)" stroke="#1A2B4A" stroke-width="2"/>
+        <text x="130" y="234" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#1A2B4A" text-anchor="middle">6</text>
+
+        <!-- Vouwlijnen aanduiding (pijltjes) -->
+        <text x="130" y="270" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#1A2B4A" text-anchor="middle" font-weight="600">Net van een kubus</text>
+        <text x="130" y="282" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#6B5F4A" text-anchor="middle">(6 vierkante vlakken)</text>
+
+        <!-- === NET VAN DRIEHOEKIG PRISMA (rechts) === -->
+        <!-- Driehoekig prisma: 2 driehoeken + 3 rechthoeken -->
+        <!-- Plaatsing rechtsaf, begin bij x=360 -->
+        <!-- Rechthoek 1 (onderzijde): (360,100)-(520,100)-(520,180)-(360,180) -->
+        <rect x="360" y="100" width="160" height="80" fill="rgba(26,43,74,0.08)" stroke="#1A2B4A" stroke-width="2"/>
+        <text x="440" y="144" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#1A2B4A" text-anchor="middle">Zijvlak 1</text>
+        <!-- Rechthoek 2 boven: (360,20)-(520,20)-(520,100)-(360,100) -->
+        <rect x="360" y="20"  width="160" height="80" fill="rgba(212,160,23,0.12)" stroke="#1A2B4A" stroke-width="2"/>
+        <text x="440" y="64" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#1A2B4A" text-anchor="middle">Zijvlak 2</text>
+        <!-- Rechthoek 3 onder: (360,180)-(520,180)-(520,260)-(360,260) -->
+        <rect x="360" y="180" width="160" height="80" fill="rgba(26,43,74,0.05)" stroke="#1A2B4A" stroke-width="2"/>
+        <text x="440" y="224" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#1A2B4A" text-anchor="middle">Zijvlak 3</text>
+        <!-- Driehoek links: punten (360,100), (360,180), (300,140) -->
+        <polygon points="360,100 360,180 300,140" fill="rgba(193,68,14,0.12)" stroke="#1A2B4A" stroke-width="2"/>
+        <text x="337" y="143" font-family="'Source Sans 3',sans-serif" font-size="9"  fill="#C1440E" text-anchor="middle">Grondv.</text>
+        <!-- Driehoek rechts: punten (520,100), (520,180), (580,140) -->
+        <polygon points="520,100 520,180 580,140" fill="rgba(193,68,14,0.12)" stroke="#1A2B4A" stroke-width="2"/>
+        <text x="543" y="143" font-family="'Source Sans 3',sans-serif" font-size="9"  fill="#C1440E" text-anchor="middle">Grondv.</text>
+
+        <text x="440" y="270" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#1A2B4A" text-anchor="middle" font-weight="600">Net van een driehoekig prisma</text>
+        <text x="440" y="282" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#6B5F4A" text-anchor="middle">(2 driehoeken + 3 rechthoeken)</text>
+      </svg>
+      <span class="svg-caption">Links: net van een kubus &mdash; de klassieke kruisvorm van zes genummerde vierkanten. Rechts: net van een driehoekig prisma &mdash; drie rechthoekige zijvlakken met links en rechts de twee driehoekige grondvlakken (in rood).</span>
+    </div>
+
+    <h3 class="sub-heading">Hoeveel netten heeft een kubus?</h3>
+
+    <p>Een kubus heeft zes vlakken. De vraag is: op hoeveel verschillende manieren kun je zes verbonden vierkanten leggen zodat het patroon opgevouwen een kubus geeft? Dit is een klassiek wiskundig probleem.</p>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld &amp; begrip</span>
+      <p class="rv-vraag">Hoeveel verschillende netten zijn er voor een kubus?</p>
+      <ul class="rv-stappen">
+        <li>Een kubus heeft 6 vlakken. In een net moeten alle 6 vierkanten verbonden zijn (langs een gemeenschappelijke ribbe), zonder dat ze bij het opvouwen overlappen.</li>
+        <li>Wiskundigen hebben alle mogelijke configuraties van 6 verbonden vierkanten (<em>hexomino&rsquo;s</em>) onderzocht: er zijn 35 hexomino&rsquo;s in totaal.</li>
+        <li>Niet alle 35 patronen vouwen op tot een kubus: sommige overlappen, andere geven gaten. Na zorgvuldige analyse blijken er precies <strong>11 geldige netten</strong> te zijn voor een kubus.</li>
+        <li>De klassieke kruisvorm is &eacute;&eacute;n van die 11. Je kunt ze allemaal ontdekken door systematisch te proberen.</li>
+      </ul>
+      <p class="rv-antwoord">Antwoord: een kubus heeft precies <strong>11 verschillende netten</strong>.</p>
+    </div>
+
+    <p>Om te controleren of een patroon van vierkanten een geldig net is voor een kubus, kun je het mentaal opvouwen: elk vlak van de kubus moet precies &eacute;&eacute;n keer bedekt worden, en tegenoverliggende vlakken mogen elkaar niet overlappen. Dit vraagt ruimtelijk inzicht &mdash; een belangrijke wiskundige vaardigheid!</p>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Knip zes vierkanten uit papier en probeer zelf een net te maken dat je kunt opvouwen tot een kubus. Zoek een patroon dat <em>verschilt</em> van de kruisvorm die hierboven getoond wordt. Kun je er nog een derde vinden?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 6: DOORSNEDEN
+  ============================================================ -->
+  <section class="section-block" id="doorsneden">
+    <div class="section-heading">
+      <span class="section-num">6</span>
+      <h2 class="section-title">Doorsneden</h2>
+    </div>
+
+    <p>Een <strong>doorsnede</strong> is de figuur die ontstaat wanneer je een ruimtelijke figuur met een vlak doorsnijdt. Afhankelijk van de hoek en de positie van het snijvlak kan de doorsnede van dezelfde ruimtelijke figuur heel verschillende vormen aannemen. Dit wordt ook wel een <em>dwarsdoorsnede</em> of <em>sectie</em> genoemd.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9632;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Doorsnede (cross-section)</span>
+        <p class="begrip-def">De doorsnede van een ruimtelijke figuur met een vlak is de tweedimensionale figuur die gevormd wordt door het snijpunt van het vlak en de ruimtelijke figuur. De doorsnede is altijd een vlakke figuur (lijnstuk, veelhoek of krommige figuur).</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Doorsneden van bekende figuren</h3>
+
+    <p>Hieronder enkele voorbeelden van doorsneden die je gemakkelijk kunt visualiseren:</p>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.4rem;">
+      <li style="margin-bottom:0.7rem"><strong>Kubus, snijvlak evenwijdig aan het grondvlak:</strong> de doorsnede is een <strong>vierkant</strong> (even groot als het grondvlak).</li>
+      <li style="margin-bottom:0.7rem"><strong>Kubus, snijvlak diagonaal door twee tegenoverliggende ribben:</strong> de doorsnede is een <strong>rechthoek</strong>.</li>
+      <li style="margin-bottom:0.7rem"><strong>Kubus, snijvlak door drie hoekpunten (diagonaal vlak):</strong> de doorsnede kan een <strong>driehoek of regelmatige zeshoek</strong> zijn, afhankelijk van de snijpositie.</li>
+      <li style="margin-bottom:0.7rem"><strong>Cilinder, snijvlak loodrecht op de as:</strong> de doorsnede is een <strong>cirkel</strong>.</li>
+      <li style="margin-bottom:0.7rem"><strong>Cilinder, snijvlak schuin op de as:</strong> de doorsnede is een <strong>ellips</strong>.</li>
+      <li><strong>Bol, elk snijvlak door het middelpunt:</strong> de doorsnede is altijd een <strong>cirkel</strong> (grote cirkel).</li>
+    </ul>
+
+    <!-- SVG: kubus met snijvlak en doorsnede gemarkeerd in goud -->
+    <div class="svg-container">
+      <svg viewBox="0 0 500 280" width="100%" style="max-width:500px" role="img" aria-labelledby="doorsnede-svg-title">
+        <title id="doorsnede-svg-title">Kubus met een snijvlak evenwijdig aan het grondvlak, met de doorsnede (vierkant) gemarkeerd in goud</title>
+
+        <!-- Kubus met coördinaten (isometrisch) zoals eerder maar groter -->
+        <!-- Voorkant: (100,230) (280,230) (280,90) (100,90) -->
+        <!-- Achterkant: (170,195) (350,195) (350,55) (170,55) -->
+
+        <!-- Verborgen ribben -->
+        <line x1="100" y1="230" x2="170" y2="195" stroke="#1A2B4A" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.35"/>
+        <line x1="170" y1="195" x2="350" y2="195" stroke="#1A2B4A" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.35"/>
+        <line x1="170" y1="195" x2="170" y2="55"  stroke="#1A2B4A" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.35"/>
+
+        <!-- Vlakken -->
+        <polygon points="100,230 280,230 280,90 100,90" fill="rgba(26,43,74,0.05)" stroke="none"/>
+        <polygon points="100,90 170,55 350,55 280,90" fill="rgba(26,43,74,0.09)" stroke="none"/>
+        <polygon points="280,230 350,195 350,55 280,90" fill="rgba(26,43,74,0.04)" stroke="none"/>
+
+        <!-- Ribben kubus -->
+        <line x1="100" y1="230" x2="280" y2="230" stroke="#1A2B4A" stroke-width="2"/>
+        <line x1="280" y1="230" x2="280" y2="90"  stroke="#1A2B4A" stroke-width="2"/>
+        <line x1="280" y1="90"  x2="100" y2="90"  stroke="#1A2B4A" stroke-width="2"/>
+        <line x1="100" y1="90"  x2="100" y2="230" stroke="#1A2B4A" stroke-width="2"/>
+        <line x1="100" y1="90"  x2="170" y2="55"  stroke="#1A2B4A" stroke-width="2"/>
+        <line x1="170" y1="55"  x2="350" y2="55"  stroke="#1A2B4A" stroke-width="2"/>
+        <line x1="350" y1="55"  x2="280" y2="90"  stroke="#1A2B4A" stroke-width="2"/>
+        <line x1="280" y1="230" x2="350" y2="195" stroke="#1A2B4A" stroke-width="2"/>
+        <line x1="350" y1="195" x2="350" y2="55"  stroke="#1A2B4A" stroke-width="2"/>
+
+        <!-- DOORSNEDE: snijvlak op halve hoogte evenwijdig aan grondvlak -->
+        <!-- Halverwege tussen y=230 en y=90 op voorkant: y=160 -->
+        <!-- Halverwege achter: y=125 (halverwege 195 en 55) -->
+        <!-- Doorsnede-vlak (parallelogram): (100,160) (280,160) (350,125) (170,125) -->
+        <polygon points="100,160 280,160 350,125 170,125" fill="rgba(212,160,23,0.30)" stroke="rgba(212,160,23,0.9)" stroke-width="2.5"/>
+
+        <!-- Snijvlak pijllegende -->
+        <text x="365" y="145" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#D4A017" font-weight="700">doorsnede</text>
+        <text x="365" y="158" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#D4A017">(vierkant)</text>
+        <line x1="360" y1="142" x2="345" y2="138" stroke="#D4A017" stroke-width="1.5"/>
+
+        <!-- Pijl snijvlak omhoog -->
+        <text x="35"  y="155" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#C8923A" text-anchor="middle">snij-</text>
+        <text x="35"  y="167" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#C8923A" text-anchor="middle">vlak</text>
+        <line x1="52" y1="160" x2="96" y2="160" stroke="#C8923A" stroke-width="1.5" stroke-dasharray="3,2"/>
+
+        <!-- Label onderaan -->
+        <text x="225" y="268" font-family="'Source Sans 3',sans-serif" font-size="12" fill="#1A2B4A" text-anchor="middle" font-weight="600">Kubus: doorsnede evenwijdig aan grondvlak = vierkant</text>
+      </svg>
+      <span class="svg-caption">Een kubus doorgesneden met een vlak evenwijdig aan het grondvlak. De goudgele parallelogram toont de doorsnede &mdash; een vierkant (of rechthoek als de kubus een quader is). Gestippelde lijnen zijn verborgen ribben.</span>
+    </div>
+
+    <p>Het bestuderen van doorsneden is nuttig in de praktijk: ingenieurs gebruiken doorsneden om de binnenkant van constructies te tonen, artsen gebruiken doorsneden van het menselijk lichaam bij scans (MRI, CT), en architecten tekenen plattegronden die eigenlijk horizontale doorsneden van gebouwen zijn.</p>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Als je een sinaasappel (bolvormig) doorsnijdt, krijg je altijd een cirkel. Maar wat als je een cilindrische wortel schuin doorsnijdt? Welke vorm heeft de doorsnede dan? Kun je je een figuur indenken waarbij de doorsnede een regelmatige zeshoek is?</p>
+    </div>
+  </section>
+
+</div><!-- end page-wrapper -->
+
+<!-- ============================================================
+     OEFENINGEN
+============================================================ -->
+<section class="exercises-section" id="oefeningen">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <!-- Oefening 1 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Net herkennen &mdash; welk lichaam hoort erbij?</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Hieronder worden vier netten omschreven. Bepaal telkens welke ruimtelijke figuur je krijgt als je het net opvouwt.</p>
+      <ol>
+        <li>Een net bestaat uit twee grote rechthoeken en twee kleine rechthoeken, plus twee vierkanten. Alle hoeken zijn recht.</li>
+        <li>Een net bestaat uit vier gelijkzijdige driehoeken die samen een groot patroon vormen.</li>
+        <li>Een net bestaat uit twee gelijkzijdige driehoeken en drie rechthoeken van dezelfde breedte.</li>
+        <li>Een net bestaat uit &eacute;&eacute;n zeshoek in het midden en zes gelijkzijdige driehoeken, elk verbonden langs een zijde van de zeshoek.</li>
+      </ol>
+      <p class="ex-tip">Tip: denk aan het aantal en de vorm van de vlakken. Bij een prisma zijn er altijd twee congruente grondvlakken; bij een piramide is er &eacute;&eacute;n grondvlak en komt alles samen in een top.</p>
+    </div>
+
+    <!-- Oefening 2 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Hoekpunten, ribben en vlakken tellen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Bepaal voor elk ruimtelijk lichaam het aantal hoekpunten (H), ribben (R) en vlakken (V).</p>
+      <ol>
+        <li>Een achtzijdig prisma (grondvlak = regelmatige achthoek)</li>
+        <li>Een zevenhoekige piramide</li>
+        <li>Een regelmatig tetra&euml;der (= driehoekige piramide met gelijkzijdige driehoeken)</li>
+        <li>Een driehoekig prisma</li>
+        <li>Een kubus</li>
+      </ol>
+      <p class="ex-tip">Tip: gebruik de formules H = 2n, R = 3n, V = n+2 voor een n-hoekig prisma, en H = n+1, R = 2n, V = n+1 voor een n-hoekige piramide.</p>
+    </div>
+
+    <!-- Oefening 3 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Formule van Euler verifi&euml;ren</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Gebruik je antwoorden van oefening 2 (of tel zelf opnieuw) en verifieer voor elk lichaam of de formule van Euler H &minus; R + V = 2 klopt.</p>
+      <ol>
+        <li>Achtzijdig prisma: H &minus; R + V = ?</li>
+        <li>Zevenhoekige piramide: H &minus; R + V = ?</li>
+        <li>Regelmatig tetra&euml;der: H &minus; R + V = ?</li>
+        <li>Driehoekig prisma: H &minus; R + V = ?</li>
+        <li>Kubus: H &minus; R + V = ?</li>
+      </ol>
+      <p class="ex-tip">Tip: als je antwoord niet 2 is, controleer dan of je de ribben correct hebt geteld. Vergeet niet de horizontale ribben (langs de grondvlakken) én de verticale verbindingsribben mee te tellen.</p>
+    </div>
+
+    <!-- Oefening 4 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 4</p>
+      <p class="ex-name">Doorsneden identificeren</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Beschrijf de vorm van de doorsnede in elk van de volgende situaties.</p>
+      <ol>
+        <li>Een quader (balk) wordt gesneden met een vlak evenwijdig aan het voorste rechthoekige vlak. Welke vorm heeft de doorsnede?</li>
+        <li>Een cilinder wordt gesneden met een vlak loodrecht op zijn as. Welke vorm heeft de doorsnede?</li>
+        <li>Een cilinder wordt gesneden met een vlak dat schuin staat ten opzichte van de as. Welke vorm heeft de doorsnede?</li>
+        <li>Een bol wordt gesneden met een vlak dat door het middelpunt gaat. Welke vorm heeft de doorsnede? Wat is de straal van die doorsnede?</li>
+        <li>Een vierhoekige piramide wordt gesneden met een vlak evenwijdig aan het grondvlak, op halve hoogte. Beschrijf de doorsnede. Is die groter of kleiner dan het grondvlak?</li>
+      </ol>
+      <p class="ex-tip">Tip: stel je voor dat je het lichaam met een mes doorsnijdt. Welk spoor laat het mes na op het snijvlak?</p>
+    </div>
+
+    <!-- Oefening 5 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 5</p>
+      <p class="ex-name">Net tekenen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Teken op ruitjespapier het net van elk van de volgende figuren.</p>
+      <ol>
+        <li>Een kubus met zijde 2 cm. (Hint: gebruik de kruisvorm of een andere van de 11 mogelijke netten.)</li>
+        <li>Een quader (balk) met lengte 4 cm, breedte 2 cm en hoogte 3 cm. Hoe groot is het totale oppervlak van alle vlakken samen?</li>
+        <li>Een driehoekig prisma waarvan de grondvlakken rechthoekige driehoeken zijn met rechthoekszijden 3 cm en 4 cm, en hoogte (lengte) van het prisma 5 cm.</li>
+      </ol>
+      <p class="ex-tip">Tip: bij een quader heb je drie paren van rechthoeken. Bereken de oppervlakte van elk paar en tel ze op voor de totale oppervlakte.</p>
+    </div>
+
+    <!-- Oefening 6 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 6</p>
+      <p class="ex-name">Praktische verpakkingsopdracht</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Een snoepfabrikant wil een doos maken in de vorm van een driehoekig prisma (zoals een Toblerone-doos). De twee driehoekige grondvlakken zijn gelijkzijdige driehoeken met zijde 6 cm. De doos is 20 cm lang.</p>
+      <ol>
+        <li>Hoeveel vlakken, ribben en hoekpunten heeft deze doos? Verifieer Euler.</li>
+        <li>Teken het net van de doos op schaal (gebruik ruitjespapier: 1 cm = 1 ruitje).</li>
+        <li>Bereken de totale oppervlakte van het net. (Hint: de hoogte van een gelijkzijdige driehoek met zijde <em>a</em> is
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mrow><mi>a</mi><msqrt><mn>3</mn></msqrt></mrow><mn>2</mn></mfrac></math>.
+          Gebruik &#8730;3 &asymp; 1,73.)</li>
+        <li>Als karton 0,02 euro per cm&sup2; kost, wat kost het materiaal voor &eacute;&eacute;n doos? En voor 500 dozen?</li>
+      </ol>
+      <p class="ex-tip">Uitdaging: bedenk een alternatieve vorm voor de verpakking (bv. een cilindrische buis). Welke voor- en nadelen zou dat hebben voor de fabrikant en voor het transport?</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SAMENVATTING
+============================================================ -->
+<section class="summary-section" id="samenvatting">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>Ruimtelijke figuren</strong> zijn driedimensionale lichamen begrensd door vlakken, ribben en hoekpunten (of gekromde oppervlakken).</li>
+      <li>De drie basisbegrippen zijn: <strong>vlak</strong> (plat begrensvlak), <strong>ribbe</strong> (snijlijn van twee vlakken) en <strong>hoekpunt</strong> (snijpunt van drie of meer ribben).</li>
+      <li>De <strong>formule van Euler</strong>:
+        <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline" style="color:var(--gold)">
+          <mrow><mi>H</mi><mo>&#x2212;</mo><mi>R</mi><mo>+</mo><mi>V</mi><mo>=</mo><mn>2</mn></mrow>
+        </math>
+        geldt voor alle convexe veelvlakken.
+      </li>
+      <li>Een <strong>prisma</strong> heeft twee congruente evenwijdige grondvlakken en rechthoekige zijvlakken. Voor een <em>n</em>-hoekig prisma: H = 2<em>n</em>, R = 3<em>n</em>, V = <em>n</em>+2.</li>
+      <li>Een <strong>kubus</strong> is een speciaal geval van quader: alle 6 vlakken zijn gelijke vierkanten (H = 8, R = 12, V = 6).</li>
+      <li>Een <strong>piramide</strong> heeft &eacute;&eacute;n grondvlak en driehoekige zijvlakken die samenkomen in de top. Voor een <em>n</em>-hoekige piramide: H = <em>n</em>+1, R = 2<em>n</em>, V = <em>n</em>+1.</li>
+      <li>Een <strong>tetra&euml;der</strong> is een driehoekige piramide met vier driehoekige vlakken (H = 4, R = 6, V = 4).</li>
+      <li>Een <strong>cilinder</strong> heeft twee cirkelvormige grondvlakken en een gebogen zijvlak; gekenmerkt door straal <em>r</em>, hoogte <em>h</em> en as.</li>
+      <li>Een <strong>kegel</strong> heeft &eacute;&eacute;n cirkelvormig grondvlak en een gebogen zijvlak dat samenkomt in de top; gekenmerkt door straal <em>r</em> en hoogte <em>h</em>.</li>
+      <li>Een <strong>bol</strong> is de verzameling van alle punten op afstand <em>r</em> van het middelpunt. De formule van Euler geldt niet voor cilinders, kegels en bollen (gekromde oppervlakken).</li>
+      <li>Een <strong>net</strong> is een 2D-patroon dat door vouwen een ruimtelijke figuur geeft. Een kubus heeft precies <strong>11 verschillende netten</strong>.</li>
+      <li>Een <strong>doorsnede</strong> is de figuur die ontstaat door een ruimtelijke figuur met een vlak te snijden. Een kubus (evenwijdig aan grondvlak) &rarr; vierkant; een cilinder (loodrecht op as) &rarr; cirkel; een cilinder (schuin) &rarr; ellips.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

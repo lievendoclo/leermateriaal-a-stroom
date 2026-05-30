@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H5 — Ecologie: leven in je omgeving | Natuurwetenschappen 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --gold: #D4A017;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --terracotta-light: #D4561E;
+    --gold-light: #E8B82A;
+    --darkblue-light: #243B63;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '&#10003;';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     CLOSING QUOTE
+  ============================================================ */
+  .closing-quote {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0D1E38 100%);
+    border-radius: var(--border-radius);
+    padding: 3rem 3rem 2.5rem;
+    margin: 3.5rem 0 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.5rem; left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .closing-quote .cq-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--gold);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 1.2rem;
+  }
+
+  .closing-quote .cq-attribution {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(212,160,23,0.6);
+  }
+
+  .closing-quote .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .closing-quote .ornament-line::before,
+  .closing-quote .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.4), transparent);
+  }
+
+  .closing-quote .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.7;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .closing-quote { padding: 2rem 1.2rem 1.8rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     NATUURWETENSCHAPPEN-SPECIFIC COMPONENTS
+  ============================================================ */
+
+  /* ── EXPERIMENT KADER ──────────────────────────────────── */
+  .experiment-kader { background: #FFF8F5; border-left: 4px solid var(--terracotta); border-radius: 0 var(--border-radius) var(--border-radius) 0; padding: 1.3rem 1.5rem; margin: 1.8rem 0; box-shadow: var(--shadow-sm); }
+  .experiment-kader .exp-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--terracotta); display: block; margin-bottom: 0.35rem; }
+  .experiment-kader .exp-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--darkblue); display: block; margin-bottom: 0.8rem; }
+  .experiment-kader .exp-stappen { list-style: none; padding: 0; counter-reset: stap-teller; }
+  .experiment-kader .exp-stappen li { counter-increment: stap-teller; padding: 0.5rem 0.8rem 0.5rem 3rem; position: relative; background: var(--creme); border-radius: 4px; margin-bottom: 0.4rem; font-size: 0.96rem; }
+  .experiment-kader .exp-stappen li::before { content: counter(stap-teller); position: absolute; left: 0.6rem; top: 50%; transform: translateY(-50%); background: var(--terracotta); color: white; width: 1.7rem; height: 1.7rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; }
+
+  /* ── WETENSCHAPS KADER ─────────────────────────────────── */
+  .wetenschaps-kader { background: #EEF3FF; border-left: 4px solid var(--darkblue); border-radius: 0 var(--border-radius) var(--border-radius) 0; padding: 1.2rem 1.5rem; margin: 1.5rem 0; }
+  .wetenschaps-kader .wk-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--darkblue); opacity: 0.7; display: block; margin-bottom: 0.35rem; }
+  .wetenschaps-kader .wk-body { font-size: 0.97rem; color: var(--text-dark); }
+
+  /* ── TABEL WRAP ────────────────────────────────────────── */
+  .tabel-wrap { margin: 1.8rem 0; overflow-x: auto; border-radius: var(--border-radius); box-shadow: var(--shadow-sm); }
+  .tabel-wrap table { width: 100%; border-collapse: collapse; font-size: 0.96rem; }
+  .tabel-wrap th { background: var(--darkblue); color: var(--gold); padding: 0.75rem 1rem; text-align: left; font-family: 'Source Sans 3', sans-serif; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; }
+  .tabel-wrap td { padding: 0.65rem 1rem; border-bottom: 1px solid rgba(200,146,58,0.2); color: var(--text-mid); }
+  .tabel-wrap tr:last-child td { border-bottom: none; }
+  .tabel-wrap tr:nth-child(even) td { background: rgba(232,220,200,0.3); }
+
+  /* ── SVG CONTAINER ──────────────────────────────────────── */
+  .svg-container { margin: 1.8rem 0; padding: 1.5rem; background: white; border: 1px solid var(--sand); border-radius: var(--border-radius); text-align: center; }
+  .svg-container .svg-caption { font-size: 0.85rem; color: var(--text-light); font-style: italic; display: block; margin-top: 0.75rem; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <span class="label">Natuurwetenschappen &nbsp;&middot;&nbsp; 1A</span>
+  <span class="label label-right">Eerste graad A-stroom</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Natuurwetenschappen &nbsp;&middot;&nbsp; 1A &nbsp;&middot;&nbsp; Biologie</div>
+  <h1>H5 &mdash; Ecologie<br>Leven in je omgeving</h1>
+  <p class="subtitle">Hoe organismen samenleven, voedsel delen en afhankelijk zijn van hun omgeving</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- CHAPTER TITLE BLOCK -->
+  <div style="padding: 2.5rem 0 0.5rem;">
+    <div style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.2em;color:var(--oker);margin-bottom:0.5rem;">H5 &mdash; Biologie</div>
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;color:var(--darkblue);margin-bottom:1.2rem;line-height:1.2;">Ecologie: leven in je omgeving</h1>
+    <p style="font-size:1.08rem;color:var(--text-mid);line-height:1.8;max-width:720px;border-left:3px solid var(--oker);padding-left:1.2rem;">Kijk uit je raam. Misschien zie je een tuin, een boom, een vogel op een tak, een insect dat over een blad kruipt. Al die levende wezens zijn niet toevallig aanwezig &mdash; ze maken deel uit van een netwerk van relaties, afhankelijkheden en wisselwerkingen. Dat netwerk bestuderen is precies wat de ecologie doet.</p>
+  </div>
+
+  <!-- PROLOGUE -->
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Stel je voor &hellip;</span>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p>Een wolf wandelt door een Ardense vallei. Hij is hongerig en jaagt op een ree. De ree ontsnapt en vlucht het bos in. Daardoor eet de ree minder berkenscheuten op. De berken groeien hoger op. Meer berken betekenen meer schaduw aan de oever. De rivier koelt af. Koudere rivieren bevatten meer zuurstof. Meer zuurstof trekt meer forellen aan. De otter keert terug&hellip;</p>
+    <p>Dit is geen sprookje. Dit zijn de echte gevolgen van de terugkeer van wolven in Yellowstone National Park, beschreven door ecologen. Eén wolf veroorzaakte een kettingreactie die zich door het hele ecosysteem verspreidde &mdash; tot en met de richting van de rivieren.</p>
+    <p><strong style="color: var(--gold);">Ecologie leert ons dat alles in de natuur met alles verbonden is. Wie dat begrijpt, begrijpt ook waarom de bescherming van &eacute;&eacute;n soort het verschil kan maken voor een heel landschap.</strong></p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 1 — BIOTOOP EN LEEFOMGEVING
+  ============================================================ -->
+  <section class="section-block" id="s1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Biotoop en leefomgeving</h2>
+    </div>
+
+    <p>Wanneer een wetenschapper het gedrag van een eekhoorn bestudeert, kijkt hij niet alleen naar het dier zelf. Hij kijkt ook naar de bomen waaruit het zijn voedsel haalt, naar de roofdieren die het vermijdt, naar de temperatuurschommelingen die zijn slaapritme bepalen, en naar de andere eekhoorns waarmee het concurreert om opslagplaatsen. Al deze elementen samen vormen het onderwerp van de <strong>ecologie</strong>.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#127807;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Ecologie</span>
+        <p class="begrip-def">Ecologie is de wetenschap die bestudeert hoe organismen omgaan met hun omgeving en met elkaar. Het woord komt van het Griekse <em>oikos</em> (huis) en <em>logos</em> (wetenschap): de wetenschap van ons huis, de Aarde.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">De bouwstenen van een ecosysteem</h3>
+
+    <p>Om ecosystemen te begrijpen, gebruiken ecologen een reeks nauwkeurig afgebakende begrippen. Deze begrippen zijn als een soort zoom-knop: je kunt inzoomen op &eacute;&eacute;n individu, of uitzoomen tot het volledige ecosysteem.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#127774;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Biotoop</span>
+        <p class="begrip-def">De <strong>biotoop</strong> is de leefomgeving of het geheel van omgevingsfactoren (temperatuur, bodemtype, wateraanbod, lichtintensiteit&hellip;) in een bepaald gebied. Voorbeelden: een Ardens beukenbos, een Vlaamse vijver, een Sahara-woestijn, een getijdenzone aan de Noordzeekust.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128060;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Populatie</span>
+        <p class="begrip-def">Een <strong>populatie</strong> is het geheel van alle individuen van <em>dezelfde soort</em> die in hetzelfde gebied leven en zich met elkaar kunnen voortplanten. Voorbeeld: alle zilvervossen in de Hoge Venen, alle grauwe ganzen op de IJzer-vlakte.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128060;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Levensgemeenschap (biocenose)</span>
+        <p class="begrip-def">Een <strong>levensgemeenschap</strong> of <strong>biocenose</strong> is het geheel van alle populaties van alle soorten die samenleven in &eacute;&eacute;n biotoop. In een Ardense vijver behoren de karpers, de kikkers, de rietgorzen, de waterplanten en de bacteriën in het slib allemaal tot dezelfde levensgemeenschap.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#127758;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Ecosysteem</span>
+        <p class="begrip-def">Een <strong>ecosysteem</strong> is de combinatie van biotoop (leefomgeving) + levensgemeenschap (alle levende wezens). Het ecosysteem omvat dus zowel de levende als de niet-levende componenten van een gebied, <em>en</em> alle wisselwerkingen daartussen.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Belgische ecosystemen</h3>
+    <p>Belgi&euml; is klein, maar bevat een verrassende verscheidenheid aan ecosystemen:</p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.5rem"><strong>Ardens-beukenbos:</strong> koele, vochtige bossen op zure, rotsachtige bodems in de provincie Namen en Luxemburg. Rijk aan paddenstoelen, varens en holen-broedende vogels zoals de zwarte specht.</li>
+      <li style="margin-bottom:0.5rem"><strong>Schelde-estuarium:</strong> de overgangszone tussen zoetwater (de rivier) en zout water (de Noordzee) bij Antwerpen en Zeeland. Uitzonderlijk rijk aan watervogels, vissen en bodemdieren. Miljoenen trekvogels rusten hier elk jaar.</li>
+      <li style="margin-bottom:0.5rem"><strong>Hoge Venen (Hautes Fagnes):</strong> het hoogste plateau van Belgi&euml; (tot 694 m) met uitgestrekte veenmoerassen. Bijzondere soorten zoals de kraanvogel, de adder en de zonnedauw (een insectenetende plant) leven hier.</li>
+      <li style="margin-bottom:0.5rem"><strong>Kustduinen:</strong> de smalle strook zandduinen langs de Belgische kust herbergt unieke planten (helmgras, duindoorn, wilde orchide&euml;en) en dieren (zandhagedisvissen, buizerd, duinviooltje).</li>
+    </ul>
+
+    <div class="wetenschaps-kader">
+      <span class="wk-label">Wist je dat?</span>
+      <p class="wk-body">Ecologie komt van het Griekse <em>oikos</em> (huis) en <em>logos</em> (wetenschap). Het bestudeert letterlijk &ldquo;de wetenschap van ons huis &mdash; de Aarde.&rdquo; De term werd voor het eerst gebruikt door de Duitse bioloog Ernst Haeckel in 1866 &mdash; al meer dan 150 jaar geleden! Toch is ecologie pas na de Tweede Wereldoorlog echt uitgegroeid tot een centrale wetenschap, mede door de groeiende bezorgdheid over milieuverontreiniging en biodiversiteitsverlies.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 2 — ABIOTISCHE EN BIOTISCHE FACTOREN
+  ============================================================ -->
+  <section class="section-block" id="s2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Abiotische en biotische factoren</h2>
+    </div>
+
+    <p>Waarom leven bepaalde planten en dieren op bepaalde plaatsen? Waarom groeit een cactus niet in het regenwoud, en een poolbeer niet in de woestijn? Het antwoord ligt in de omgevingsfactoren die een biotoop karakteriseren. Die factoren worden ingedeeld in twee grote groepen: <strong>abiotische</strong> (niet-levende) en <strong>biotische</strong> (levende) factoren.</p>
+
+    <h3 class="sub-heading">Abiotische factoren: de niet-levende omgeving</h3>
+    <p>Abiotische factoren zijn de fysische en chemische eigenschappen van het leefgebied. Ze bepalen mee welke organismen er kunnen overleven.</p>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.6rem"><strong>Temperatuur:</strong> het daggemiddelde, de minimum- en maximumtemperatuur en de seizoensvariatie zijn cruciaal. Koudebloedige dieren zoals reptielen zijn volledig afhankelijk van de omgevingstemperatuur. In Belgi&euml; kan de kikker niet overleven als de vijver te lang bevroren is.</li>
+      <li style="margin-bottom:0.6rem"><strong>Lichtintensiteit en daglengte (fotoperiode):</strong> planten gebruiken licht voor fotosynthese. De daglengte bepaalt ook wanneer planten bloeien, wanneer vogels nestelen en wanneer herten in bronsttijd gaan. De fotoperiode is eigenlijk de biologische &ldquo;kalender&rdquo; van de natuur.</li>
+      <li style="margin-bottom:0.6rem"><strong>Watervoorziening:</strong> neerslag, luchtvochtigheid en bodemvocht bepalen samen hoeveel water een organisme ter beschikking heeft. Een hazelaar heeft minimum 600 mm neerslag per jaar nodig; een cactus overleeft met minder dan 200 mm. In de polders en Kempen verschilt de waterbeschikbaarheid enorm, wat ook de plantensamenstelling be&iuml;nvloedt.</li>
+      <li style="margin-bottom:0.6rem"><strong>Bodemtype:</strong> de korrelgrootte (zand, klei, leem), het gehalte aan organisch materiaal (humus), de pH (zuur of basisch) en de aanwezigheid van voedingsstoffen (stikstof, fosfor, kalium) bepalen welke planten kunnen groeien. Kleibodem houdt water beter vast dan zandbodem; zure bodem (lage pH) in de Kempen is geschikt voor heide en veenmos.</li>
+      <li style="margin-bottom:0.6rem"><strong>Luchtsamenstelling:</strong> de concentraties CO&sup2;, O&sup2; en stikstofverbindingen in de lucht, maar ook vervuiling (stikstofoxiden, fijnstof, ozon) be&iuml;nvloeden de overleving van organismen. Korstmossen zijn uiterst gevoelig voor luchtvervuiling en worden daarom gebruikt als bioindicatoren voor luchtkwaliteit.</li>
+      <li style="margin-bottom:0.6rem"><strong>Wind, overstromingen en brand:</strong> stormen, seizoenale overstromingen langs de Maas en Schelde, en zelfs gecontroleerde brand op de Hoge Venen vormen dynamische abiotische factoren die een landschap continu herschikken.</li>
+    </ul>
+
+    <h3 class="sub-heading">Biotische factoren: de levende omgeving</h3>
+    <p>Biotische factoren zijn alle invloeden die uitgaan van andere levende organismen. Elk organisme staat in relatie tot andere soorten, en die relaties be&iuml;nvloeden zijn overleven, groei en voortplanting.</p>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.6rem"><strong>Voedselrelaties:</strong> roofdier-prooidier (vos jaagt op konijn), herbivorie (rups eet eikenblad), omnivorie (zwijn eet zowel eikels als muizen). Wie wat eet, bepaalt de structuur van het ecosysteem.</li>
+      <li style="margin-bottom:0.6rem"><strong>Concurrentie:</strong> twee soorten die dezelfde hulpbronnen nodig hebben (voedsel, nestplaatsen, licht, water, ruimte) staan in concurrentie. De Vlaamse gaai en de eekhoorn concurreren om eikels; de Amerikaanse rivierkreeft verdringt de inheemse breedschildpad.</li>
+      <li style="margin-bottom:0.6rem"><strong>Symbiose:</strong> een langdurige, nauwe samenleving tussen twee verschillende soorten.
+        <ul style="margin-top:0.4rem;padding-left:1.2rem;">
+          <li style="margin-bottom:0.3rem"><em>Mutualism</em>e (beide soorten profiteren): bij bestuift bloem en krijgt nectar; acacia beschermt mieren en krijgt bewaking.</li>
+          <li style="margin-bottom:0.3rem"><em>Parasitisme</em> (&eacute;&eacute;n profiteert, de ander lijdt er schade van): teek zuigt bloed van hond; mistelstruik trekt voedingsstoffen uit de boom waarop hij groeit.</li>
+          <li style="margin-bottom:0.3rem"><em>Commensalisme</em> (&eacute;&eacute;n profiteert, de ander merkt niets): de remora-vis hecht zich aan een haai en eet de restjes van zijn maaltijden; de haai ondervindt geen voor- of nadeel.</li>
+        </ul>
+      </li>
+      <li style="margin-bottom:0.6rem"><strong>Ziekteverwekkers:</strong> bacteriën, virussen, schimmels en parasieten be&iuml;nvloeden de populatiegrootte en de gezondheid van dieren en planten. De iepziekte (veroorzaakt door een schimmel) vernietigde tientallen miljoenen iepen in Europa in de 20e eeuw.</li>
+    </ul>
+
+    <div class="tabel-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Factor</th>
+            <th>Categorie</th>
+            <th>Beschrijving</th>
+            <th>Belgisch voorbeeld</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Temperatuur</td>
+            <td>Abiotisch</td>
+            <td>Gemiddelde, min/max, seizoensvariatie</td>
+            <td>Bittere vorstperiodes doden vroeg-opkomende kikkervisjes</td>
+          </tr>
+          <tr>
+            <td>Neerslag</td>
+            <td>Abiotisch</td>
+            <td>Jaarlijkse regenhoeveelheid en verdeling</td>
+            <td>Meer regen in de Ardennen dan in de Kempen (1400 vs 700 mm/jaar)</td>
+          </tr>
+          <tr>
+            <td>Bodem-pH</td>
+            <td>Abiotisch</td>
+            <td>Zuurtegraad van de bodem (0&ndash;14)</td>
+            <td>Zure veenbodem in Hoge Venen (pH 4) bevordert veenmos</td>
+          </tr>
+          <tr>
+            <td>Licht</td>
+            <td>Abiotisch</td>
+            <td>Intensiteit en daglengte</td>
+            <td>Schaduwplanten (klimop) groeien op de bosbodem onder beukenkronen</td>
+          </tr>
+          <tr>
+            <td>Wind</td>
+            <td>Abiotisch</td>
+            <td>Kracht, frequentie, richting</td>
+            <td>Zeewind vormt de kustduinen en verspreidt duindoornzaden</td>
+          </tr>
+          <tr>
+            <td>Voedselrelaties</td>
+            <td>Biotisch</td>
+            <td>Wie eet wie?</td>
+            <td>Havik jaagt op merels in Vlaamse stadsparken</td>
+          </tr>
+          <tr>
+            <td>Concurrentie</td>
+            <td>Biotisch</td>
+            <td>Strijd om dezelfde hulpbron</td>
+            <td>Amerikaanse rivierkreeft verdringt inheemse soorten</td>
+          </tr>
+          <tr>
+            <td>Mutualisme</td>
+            <td>Biotisch</td>
+            <td>Beide soorten profiteren</td>
+            <td>Honingbij bestuift koolzaad; boer krijgt oogst, bij krijgt nectar</td>
+          </tr>
+          <tr>
+            <td>Parasitisme</td>
+            <td>Biotisch</td>
+            <td>&Eacute;&eacute;n profiteert, ander lijdt schade</td>
+            <td>Teek haalt bloed bij ree en hond (risico op borrelia-infectie)</td>
+          </tr>
+          <tr>
+            <td>Ziekteverwekkers</td>
+            <td>Biotisch</td>
+            <td>Bacteriën, virussen, schimmels</td>
+            <td>Iepziekte (schimmel) vernietigde Nederlandse iepenrijen in de jaren 1970</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="experiment-kader">
+      <span class="exp-label">Experiment</span>
+      <span class="exp-title">Bodemonderzoek: twee biotopen vergelijken</span>
+      <ul class="exp-stappen">
+        <li>Neem grondstalen (telkens 100 g droge grond) op twee verschillende plekken &mdash; bij voorbeeld een akker en een bosrand. Label je stalen duidelijk.</li>
+        <li>Bepaal het watergehalte: weeg het staal voor en na het drogen in een oven (of op een verwarmingsbron) op 60&deg;C gedurende 24 uur. Het gewichtsverschil is het watergehalte.</li>
+        <li>Meet de pH met universeel indicatorpapier of een pH-meter. Meng daarvoor 10 g grond met 25 ml gedestilleerd water, roer goed en laat bezinken.</li>
+        <li>Zoek welke organismen in de grond leven door een kleine hoeveelheid grond uit te spreiden op een wit bord. Noteer alle zichtbare bewoners (wormen, pissebedden, miljoenpoten, insectenlarven&hellip;).</li>
+        <li>Vergelijk de resultaten van de twee biotopen. Zijn er verbanden tussen de abiotische metingen (pH, vochtgehalte) en de soortenrijkdom van de bodemdieren?</li>
+      </ul>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Een vijver droogt gedeeltelijk uit door een hittegolf. <em>Welke abiotische factor verandert er primair?</em> Bedenk daarna welke <em>biotische</em> gevolgen dit kan hebben: denk aan concurrentie, voedselrelaties en symbiose. Schets een kettingreactie van minstens vier stappen.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 3 — VOEDSELKETEN EN VOEDSELWEB
+  ============================================================ -->
+  <section class="section-block" id="s3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Voedselketen en voedselweb</h2>
+    </div>
+
+    <p>Elk levend wezen heeft energie nodig om te leven, te groeien en zich voort te planten. Die energie stroomt van organisme naar organisme via <strong>voedselketens</strong>. Maar de natuur is zelden zo eenvoudig als een rechte lijn &mdash; in werkelijkheid zijn er honderden zulke ketens die met elkaar verweven zijn tot een complex <strong>voedselweb</strong>.</p>
+
+    <h3 class="sub-heading">De schakels van de voedselketen</h3>
+
+    <p>Een voedselketen bevat altijd dezelfde soorten schakels, van producent tot afbreker:</p>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.6rem"><strong>Producenten</strong> (planten, algen, cyanobacterien): zij maken organisch materiaal uit anorganische stoffen via <em>fotosynthese</em>. Zonlicht + CO&sup2; + water &rarr; suikers + zuurstof. Zij zijn de enige organismen die energie <em>invoeren</em> in het ecosysteem.</li>
+      <li style="margin-bottom:0.6rem"><strong>Primaire consumenten</strong> (herbivoren): zij eten enkel planten of plantaardige producten. Voorbeelden: konijn, rups, sprinkhaan, slak, gans, graskarper.</li>
+      <li style="margin-bottom:0.6rem"><strong>Secundaire consumenten</strong> (carnivoren): zij eten herbivoren. Voorbeelden: vos, kikker, merel (eet wormen en rupsen), wezel.</li>
+      <li style="margin-bottom:0.6rem"><strong>Tertiaire consumenten</strong> (toppredatoren): zij eten andere carnivoren. In Belgi&euml;: havik (eet merels), arend, snoek (eet kleine zoetwatervissen). Toppredatoren hebben over het algemeen geen natuurlijke vijanden buiten de mens.</li>
+      <li style="margin-bottom:0.6rem"><strong>Decomposenten</strong> (afbrekers &mdash; bacteriën en schimmels): zij breken dood organisch materiaal af tot eenvoudige anorganische stoffen die opnieuw door planten opgenomen kunnen worden. Zonder decomposenten zou de aarde bedolven liggen onder stapels dode materie.</li>
+    </ul>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128013;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Voedselketen</span>
+        <p class="begrip-def">Een <strong>voedselketen</strong> is een reeks organismen waarbij elk organisme dient als voedsel voor het volgende. De pijlen geven de richting aan van de energiestroom: van gegeten naar eter. Voorbeeld in het Ardens bos: <em>eik &rarr; rups &rarr; merel &rarr; havik</em>. De pijl betekent: &ldquo;wordt gegeten door&rdquo; of &ldquo;levert energie aan.&rdquo;</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Van voedselketen naar voedselweb</h3>
+    <p>In de realiteit eet een vos niet alleen konijnen &mdash; hij eet ook muizen, wormen, hagedissen, vruchten en aas. Een merel eet rupsen, wormen, slakken en bessen. Dit betekent dat iedere soort op meerdere plekken in meerdere voedselketens terecht kan komen. Al die ketens samen vormen een <strong>voedselweb</strong> &mdash; een complex netwerk van wie-eet-wie.</p>
+    <p>Een voedselweb is veel realistischer dan een enkelvoudige keten. Het toont ook waarom ecosystemen veerkrachtig zijn: als de rups schaars wordt, kan de merel zijn dieet aanpassen en meer wormen eten. Maar als een sleutelsoort volledig verdwijnt, kan het hele web verstoord raken.</p>
+
+    <div class="svg-container">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 420" width="100%" aria-label="Voedselweb van een Belgisch bos">
+        <defs>
+          <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L8,3 z" fill="#C1440E"/>
+          </marker>
+          <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L8,3 z" fill="#1A2B4A"/>
+          </marker>
+        </defs>
+
+        <!-- TROFISCH NIVEAU LABELS -->
+        <text x="8" y="70" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#6B5F4A" transform="rotate(-90,8,70)" text-anchor="middle">Producenten</text>
+        <text x="8" y="185" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#6B5F4A" transform="rotate(-90,8,185)" text-anchor="middle">Primaire cons.</text>
+        <text x="8" y="295" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#6B5F4A" transform="rotate(-90,8,295)" text-anchor="middle">Secundaire cons.</text>
+        <text x="8" y="385" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#6B5F4A" transform="rotate(-90,8,385)" text-anchor="middle">Top predatoren</text>
+
+        <!-- HORIZONTALE SCHEIDSLIJNEN (subtiel) -->
+        <line x1="25" y1="110" x2="695" y2="110" stroke="rgba(200,146,58,0.15)" stroke-width="1" stroke-dasharray="4,4"/>
+        <line x1="25" y1="230" x2="695" y2="230" stroke="rgba(200,146,58,0.15)" stroke-width="1" stroke-dasharray="4,4"/>
+        <line x1="25" y1="340" x2="695" y2="340" stroke="rgba(200,146,58,0.15)" stroke-width="1" stroke-dasharray="4,4"/>
+
+        <!-- ===== NIVEAU 1: PRODUCENTEN ===== -->
+        <!-- Eikenboom -->
+        <rect x="80" y="40" width="120" height="44" rx="4" fill="#2D5A27" opacity="0.85"/>
+        <text x="140" y="57" font-family="'Source Sans 3',sans-serif" font-size="12" fill="white" text-anchor="middle" font-weight="700">Eikenboom</text>
+        <text x="140" y="74" font-family="'Source Sans 3',sans-serif" font-size="10" fill="rgba(255,255,255,0.75)" text-anchor="middle">producent</text>
+
+        <!-- Gras en kruiden -->
+        <rect x="280" y="40" width="130" height="44" rx="4" fill="#2D5A27" opacity="0.85"/>
+        <text x="345" y="57" font-family="'Source Sans 3',sans-serif" font-size="12" fill="white" text-anchor="middle" font-weight="700">Gras &amp; kruiden</text>
+        <text x="345" y="74" font-family="'Source Sans 3',sans-serif" font-size="10" fill="rgba(255,255,255,0.75)" text-anchor="middle">producent</text>
+
+        <!-- Bessen/vruchten -->
+        <rect x="490" y="40" width="130" height="44" rx="4" fill="#2D5A27" opacity="0.85"/>
+        <text x="555" y="57" font-family="'Source Sans 3',sans-serif" font-size="12" fill="white" text-anchor="middle" font-weight="700">Bessen &amp; vruchten</text>
+        <text x="555" y="74" font-family="'Source Sans 3',sans-serif" font-size="10" fill="rgba(255,255,255,0.75)" text-anchor="middle">producent</text>
+
+        <!-- ===== NIVEAU 2: PRIMAIRE CONSUMENTEN ===== -->
+        <!-- Rups -->
+        <rect x="60" y="148" width="100" height="44" rx="4" fill="#C8923A" opacity="0.9"/>
+        <text x="110" y="165" font-family="'Source Sans 3',sans-serif" font-size="12" fill="white" text-anchor="middle" font-weight="700">Rups</text>
+        <text x="110" y="182" font-family="'Source Sans 3',sans-serif" font-size="10" fill="rgba(255,255,255,0.8)" text-anchor="middle">herbivoor</text>
+
+        <!-- Konijn -->
+        <rect x="220" y="148" width="100" height="44" rx="4" fill="#C8923A" opacity="0.9"/>
+        <text x="270" y="165" font-family="'Source Sans 3',sans-serif" font-size="12" fill="white" text-anchor="middle" font-weight="700">Konijn</text>
+        <text x="270" y="182" font-family="'Source Sans 3',sans-serif" font-size="10" fill="rgba(255,255,255,0.8)" text-anchor="middle">herbivoor</text>
+
+        <!-- Muis -->
+        <rect x="380" y="148" width="100" height="44" rx="4" fill="#C8923A" opacity="0.9"/>
+        <text x="430" y="165" font-family="'Source Sans 3',sans-serif" font-size="12" fill="white" text-anchor="middle" font-weight="700">Muis</text>
+        <text x="430" y="182" font-family="'Source Sans 3',sans-serif" font-size="10" fill="rgba(255,255,255,0.8)" text-anchor="middle">omnivoor</text>
+
+        <!-- Eikel / zaad eter: ekster -->
+        <rect x="540" y="148" width="110" height="44" rx="4" fill="#C8923A" opacity="0.9"/>
+        <text x="595" y="165" font-family="'Source Sans 3',sans-serif" font-size="12" fill="white" text-anchor="middle" font-weight="700">Vlaamse gaai</text>
+        <text x="595" y="182" font-family="'Source Sans 3',sans-serif" font-size="10" fill="rgba(255,255,255,0.8)" text-anchor="middle">omnivoor</text>
+
+        <!-- ===== NIVEAU 3: SECUNDAIRE CONSUMENTEN ===== -->
+        <!-- Merel -->
+        <rect x="80" y="258" width="100" height="44" rx="4" fill="#1A2B4A" opacity="0.9"/>
+        <text x="130" y="275" font-family="'Source Sans 3',sans-serif" font-size="12" fill="white" text-anchor="middle" font-weight="700">Merel</text>
+        <text x="130" y="292" font-family="'Source Sans 3',sans-serif" font-size="10" fill="rgba(255,255,255,0.7)" text-anchor="middle">insectivoor</text>
+
+        <!-- Vos -->
+        <rect x="280" y="258" width="100" height="44" rx="4" fill="#1A2B4A" opacity="0.9"/>
+        <text x="330" y="275" font-family="'Source Sans 3',sans-serif" font-size="12" fill="white" text-anchor="middle" font-weight="700">Vos</text>
+        <text x="330" y="292" font-family="'Source Sans 3',sans-serif" font-size="10" fill="rgba(255,255,255,0.7)" text-anchor="middle">carnivoor</text>
+
+        <!-- Uil -->
+        <rect x="480" y="258" width="100" height="44" rx="4" fill="#1A2B4A" opacity="0.9"/>
+        <text x="530" y="275" font-family="'Source Sans 3',sans-serif" font-size="12" fill="white" text-anchor="middle" font-weight="700">Bosuil</text>
+        <text x="530" y="292" font-family="'Source Sans 3',sans-serif" font-size="10" fill="rgba(255,255,255,0.7)" text-anchor="middle">carnivoor</text>
+
+        <!-- ===== NIVEAU 4: TOP PREDATOR ===== -->
+        <!-- Havik -->
+        <rect x="270" y="358" width="180" height="44" rx="4" fill="#C1440E" opacity="0.9"/>
+        <text x="360" y="375" font-family="'Source Sans 3',sans-serif" font-size="13" fill="white" text-anchor="middle" font-weight="700">Havik</text>
+        <text x="360" y="392" font-family="'Source Sans 3',sans-serif" font-size="10" fill="rgba(255,255,255,0.8)" text-anchor="middle">toppredator</text>
+
+        <!-- ===== PIJLEN (van gegeten naar eter) ===== -->
+        <!-- Eikenboom -> Rups -->
+        <line x1="140" y1="84" x2="115" y2="147" stroke="#C1440E" stroke-width="1.5" marker-end="url(#arrow)"/>
+        <!-- Gras -> Konijn -->
+        <line x1="330" y1="84" x2="285" y2="147" stroke="#C1440E" stroke-width="1.5" marker-end="url(#arrow)"/>
+        <!-- Gras -> Muis -->
+        <line x1="360" y1="84" x2="415" y2="147" stroke="#C1440E" stroke-width="1.5" marker-end="url(#arrow)"/>
+        <!-- Bessen -> Vlaamse gaai -->
+        <line x1="555" y1="84" x2="580" y2="147" stroke="#C1440E" stroke-width="1.5" marker-end="url(#arrow)"/>
+        <!-- Bessen -> Muis -->
+        <line x1="510" y1="84" x2="460" y2="147" stroke="#C1440E" stroke-width="1.5" marker-end="url(#arrow)"/>
+        <!-- Eikenboom -> Vlaamse gaai (eikels) -->
+        <line x1="200" y1="62" x2="540" y2="62" stroke="#C1440E" stroke-width="1" stroke-dasharray="5,3"/>
+        <line x1="540" y1="62" x2="570" y2="148" stroke="#C1440E" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+        <!-- Rups -> Merel -->
+        <line x1="120" y1="192" x2="125" y2="257" stroke="#1A2B4A" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+        <!-- Konijn -> Vos -->
+        <line x1="280" y1="192" x2="315" y2="257" stroke="#1A2B4A" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+        <!-- Muis -> Vos -->
+        <line x1="400" y1="192" x2="355" y2="257" stroke="#1A2B4A" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+        <!-- Muis -> Bosuil -->
+        <line x1="455" y1="192" x2="515" y2="257" stroke="#1A2B4A" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+        <!-- Vlaamse gaai -> Bosuil -->
+        <line x1="570" y1="192" x2="553" y2="257" stroke="#1A2B4A" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+        <!-- Merel -> Havik -->
+        <line x1="155" y1="302" x2="282" y2="358" stroke="#C1440E" stroke-width="2" marker-end="url(#arrow)"/>
+        <!-- Vos -> Havik (soms) -->
+        <line x1="360" y1="302" x2="360" y2="357" stroke="#C1440E" stroke-width="2" marker-end="url(#arrow)"/>
+        <!-- Bosuil -> Havik -->
+        <line x1="495" y1="302" x2="438" y2="357" stroke="#C1440E" stroke-width="2" marker-end="url(#arrow)"/>
+      </svg>
+      <span class="svg-caption">Vereenvoudigd voedselweb van een Belgisch loofbos. Pijlen geven de richting van de energiestroom aan (van gegeten &rarr; naar eter). Let op hoe elke soort op meerdere plekken in het web voorkomt.</span>
+    </div>
+
+    <div class="wetenschaps-kader">
+      <span class="wk-label">Verrassende wetenschap</span>
+      <p class="wk-body">Toppredatoren zoals wolven en lynxen zijn <em>sleutelsoorten</em>: hun aanwezigheid of afwezigheid heeft een buitenproportioneel grote invloed op het hele ecosysteem. Dit fenomeen heet een <strong>trofische cascade</strong>. De herintroductie van wolven in Yellowstone National Park (VS, 1995) leidde niet alleen tot minder elanden &mdash; de elanden begonnen de rivieruiterwaarden te mijden, waardoor de begroeiing herstelde, beuken en wilgen terugkwamen, oevers sterkten, rivieren versmallen en zelfs <em>van richting veranderden</em>. Ecologen noemen dit &ldquo;de wolf die de rivieren veranderde.&rdquo;</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 4 — ECOLOGISCHE PIRAMIDE
+  ============================================================ -->
+  <section class="section-block" id="s4">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">De ecologische piramide</h2>
+    </div>
+
+    <p>Waarom zijn er zoveel meer sprinkhanen dan kikkers, en zoveel meer kikkers dan arenden? Het antwoord ligt in de manier waarop energie stroomt doorheen de voedselketen. Bij elke stap gaat een groot deel van de energie verloren &mdash; en dat heeft fundamentele gevolgen voor de structuur van ecosystemen.</p>
+
+    <h3 class="sub-heading">Energieverlies in de voedselketen</h3>
+    <p>Wanneer een sprinkhaan een grasspriet eet, wordt niet alle energie van het gras omgezet in sprinkhaan-biomassa. Een groot deel &mdash; gemiddeld ongeveer <strong>90%</strong> &mdash; gaat verloren als warmte via celademhaling, beweging en lichaamsonderhoud. Alleen de resterende 10% wordt werkelijk in de sprinkhaan ingebouwd en is beschikbaar voor het volgende trofische niveau. Ecologen noemen dit de <strong>10%-regel</strong> (of de &ldquo;tien-procent-wet&rdquo;).</p>
+
+    <p>Dit betekent:</p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.4rem">Als 10.000 kg gras groeit, kunnen daarmee slechts ~1.000 kg sprinkhanen worden gevoed.</li>
+      <li style="margin-bottom:0.4rem">Die 1.000 kg sprinkhanen leveren energie voor ~100 kg kikkers.</li>
+      <li style="margin-bottom:0.4rem">Die 100 kg kikkers leveren energie voor ~10 kg slangen.</li>
+      <li style="margin-bottom:0.4rem">Die 10 kg slangen leveren energie voor ~1 kg arend.</li>
+    </ul>
+
+    <h3 class="sub-heading">Soorten piramiden</h3>
+    <p>Ecologen stellen dit grafisch voor als een piramide. Er zijn drie soorten:</p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.5rem"><strong>Biomassapiramide:</strong> toont de totale hoeveelheid levend materiaal (biomassa, uitgedrukt in kg per m&sup2;) op elk niveau. Producenten vormen de brede basis; toppredatoren de smalle top.</li>
+      <li style="margin-bottom:0.5rem"><strong>Aantallenpiramide:</strong> toont het aantal individuen per trofisch niveau. &Eacute;&eacute;n eikenboom kan duizenden rupsen voeden, maar de boom is maar &eacute;&eacute;n individu. Soms is de aantallenpiramide omgekeerd (meer parasitische insecten op &eacute;&eacute;n gastheer).</li>
+      <li style="margin-bottom:0.5rem"><strong>Energiepiramide:</strong> toont de totale hoeveelheid energie die per tijdseenheid door elk trofisch niveau stroomt. Deze piramide is <em>altijd</em> rechtstaan (nooit omgekeerd), want energie kan nooit terugstromen naar lagere niveaus.</li>
+    </ul>
+
+    <div class="svg-container">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" width="100%" aria-label="Ecologische biomassapiramide">
+        <!-- Niveau 4: Tertiaire consumenten (toppredator) -->
+        <polygon points="265,20 335,20 355,65 245,65" fill="#C1440E" opacity="0.9"/>
+        <text x="300" y="49" font-family="'Source Sans 3',sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="700">Toppredatoren</text>
+
+        <!-- Niveau 3: Secundaire consumenten -->
+        <polygon points="245,72 355,72 385,117 215,117" fill="#C8923A" opacity="0.9"/>
+        <text x="300" y="98" font-family="'Source Sans 3',sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="700">Secundaire consumenten</text>
+        <text x="300" y="112" font-family="'Source Sans 3',sans-serif" font-size="9" fill="rgba(255,255,255,0.8)" text-anchor="middle">(carnivoren)</text>
+
+        <!-- Niveau 2: Primaire consumenten -->
+        <polygon points="215,124 385,124 425,174 175,174" fill="#D4A017" opacity="0.9"/>
+        <text x="300" y="150" font-family="'Source Sans 3',sans-serif" font-size="12" fill="white" text-anchor="middle" font-weight="700">Primaire consumenten</text>
+        <text x="300" y="167" font-family="'Source Sans 3',sans-serif" font-size="9" fill="rgba(255,255,255,0.8)" text-anchor="middle">(herbivoren)</text>
+
+        <!-- Niveau 1: Producenten -->
+        <polygon points="175,181 425,181 480,240 120,240" fill="#2D5A27" opacity="0.85"/>
+        <text x="300" y="208" font-family="'Source Sans 3',sans-serif" font-size="13" fill="white" text-anchor="middle" font-weight="700">Producenten</text>
+        <text x="300" y="227" font-family="'Source Sans 3',sans-serif" font-size="10" fill="rgba(255,255,255,0.8)" text-anchor="middle">(planten, algen)</text>
+
+        <!-- Biomassa labels rechts -->
+        <text x="510" y="48" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#C1440E" font-weight="700">~1 kg</text>
+        <text x="510" y="100" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#C8923A" font-weight="700">~10 kg</text>
+        <text x="510" y="152" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#D4A017" font-weight="700">~100 kg</text>
+        <text x="510" y="212" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#2D5A27" font-weight="700">~10.000 kg</text>
+
+        <!-- Pijl met "10% regel" -->
+        <line x1="490" y1="60" x2="490" y2="230" stroke="#6B5F4A" stroke-width="1.5"/>
+        <line x1="490" y1="230" x2="486" y2="220" stroke="#6B5F4A" stroke-width="1.5"/>
+        <line x1="490" y1="230" x2="494" y2="220" stroke="#6B5F4A" stroke-width="1.5"/>
+        <text x="538" y="148" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#6B5F4A" text-anchor="middle" transform="rotate(90,538,148)">90% energie verloren per niveau</text>
+
+        <!-- Onderschrift -->
+        <text x="300" y="280" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#6B5F4A" text-anchor="middle" font-style="italic">Biomassapiramide &mdash; biomassa neemt af bij elk hoger trofisch niveau</text>
+      </svg>
+      <span class="svg-caption">De ecologische piramide toont hoe biomassa afneemt bij elk hoger trofisch niveau. Van 10.000 kg plantenmaterie blijft uiteindelijk slechts ~1 kg beschikbaar voor de toppredator, door de 90% energieverlies per niveau.</span>
+    </div>
+
+    <h3 class="sub-heading">Waarom zijn er altijd meer prooidieren dan roofdieren?</h3>
+    <p>De piramide verklaart meteen waarom roofdieren altijd zeldzamer zijn dan hun prooidieren: er is gewoon onvoldoende energie om grote aantallen roofdieren te onderhouden. In de Afrikaanse savanne zijn er honderdduizenden zebra's maar slechts enkele duizenden leeuwen. In een Belgisch bos zijn er miljoenen rupsen, duizenden merels, honderden havik-territoria &mdash; maar slechts een handvol haviknesten per gemeente.</p>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Mensen in armere landen eten over het algemeen lager in de voedselpiramide: meer granen, groenten en peulvruchten, en minder vlees. Leg vanuit <em>energetisch standpunt</em> uit waarom dit economisch logisch is. Hoeveel kg graan is er nodig om 1 kg varkensvlees te produceren, als je uitgaat van de 10%-regel? Wat betekent dit voor de wereldvoedselproductie?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 5 — KRINGLOPEN
+  ============================================================ -->
+  <section class="section-block" id="s5">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Kringlopen in de natuur</h2>
+    </div>
+
+    <p>Er is een belangrijk verschil tussen energie en stoffen in een ecosysteem. <strong>Energie stroomt altijd in &eacute;&eacute;n richting</strong>: van de zon naar producenten naar consumenten naar decomposenten, en bij elke stap gaat er energie verloren als warmte. Energie keert niet terug.</p>
+    <p><strong>Stoffen echter &mdash; koolstof, stikstof, water, fosfor &mdash; worden voortdurend gerecycleerd.</strong> Ze circuleren in gesloten kringlopen doorheen het ecosysteem, soms gedurende miljoenen jaren. Dat is goed nieuws: de koolstofatomen in jouw lichaam zijn ooit misschien dinosaurus geweest, of onderdeel van een oerwoudplant van 50 miljoen jaar geleden.</p>
+
+    <h3 class="sub-heading">De koolstofkringloop</h3>
+    <p>Koolstof is de bouwsteen van al het leven. Koolstofatomen wisselen voortdurend van &ldquo;lichaam&rdquo; via vier hoofdprocessen:</p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.5rem"><strong>Fotosynthese:</strong> planten halen CO&sup2; uit de lucht en zetten het om in suikers en andere organische moleculen. Koolstof uit de lucht wordt &ldquo;vastgelegd&rdquo; in plantenmassa.</li>
+      <li style="margin-bottom:0.5rem"><strong>Celademhaling:</strong> alle levende wezens (planten, dieren, schimmels) breken suikers af voor energie en stoten daarbij CO&sup2; terug in de lucht of het water. Koolstof keert terug naar de atmosfeer.</li>
+      <li style="margin-bottom:0.5rem"><strong>Afbraak door decomposenten:</strong> als een plant of dier sterft, breken bacteriën en schimmels het dode materiaal af. Ook hierbij komt CO&sup2; vrij.</li>
+      <li style="margin-bottom:0.5rem"><strong>Fossiele brandstoffen:</strong> in het verre verleden werd veel organisch materiaal begraven zonder afgebroken te worden. Na miljoenen jaren ontstonden zo steenkool, aardolie en aardgas &mdash; enorme reserves van opgeslagen koolstof. Wanneer wij die verbranden, stoten we CO&sup2; terug in de atmosfeer dat miljoenen jaren &ldquo;opgeslagen&rdquo; was.</li>
+    </ul>
+
+    <div class="wetenschaps-kader">
+      <span class="wk-label">Koppeling aan klimaatverandering</span>
+      <p class="wk-body">De mens verstoort de koolstofkringloop op twee manieren: (1) door fossiele brandstoffen te verbranden sturen we koolstof terug in de atmosfeer dat er miljoenen jaren uit was; (2) door ontbossing verwijderen we planten die anders CO&sup2; hadden vastgelegd. Het resultaat is een stijgende CO&sup2;-concentratie in de atmosfeer: van ~280 ppm v&oacute;&oacute;r de industri&euml;le revolutie naar meer dan 420 ppm vandaag. Dit <strong>versterkt het broeikaseffect</strong> en leidt tot klimaatverandering.</p>
+    </div>
+
+    <h3 class="sub-heading">De waterkringloop</h3>
+    <p>Water circuleert voortdurend tussen de atmosfeer, het land en de zee:</p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.4rem"><strong>Verdamping</strong> van oceanen, meren en rivieren stijgt de lucht in als waterdamp.</li>
+      <li style="margin-bottom:0.4rem"><strong>Condensatie</strong> vormt wolken en neerslag (regen, sneeuw, hagel).</li>
+      <li style="margin-bottom:0.4rem"><strong>Neerslag</strong> vult rivieren, grondwater en bodemvocht aan.</li>
+      <li style="margin-bottom:0.4rem"><strong>Opname door planten</strong> via de wortels; water stijgt via de stengel naar de bladeren.</li>
+      <li style="margin-bottom:0.4rem"><strong>Transpiratie</strong>: planten dampen water uit via hun bladeren terug in de lucht.</li>
+    </ul>
+    <p>Bossen spelen een cruciale rol in de waterkringloop: ze houden neerslag vast, voorkomen bodemerosie en pompen enorme hoeveelheden water terug in de atmosfeer. De ontbossing van het Amazoneregenwoud be&iuml;nvloedt al aantoonbaar het neerslagpatroon in Zuid-Amerika.</p>
+
+    <h3 class="sub-heading">De stikstofkringloop (kort)</h3>
+    <p>Stikstof (N&sub2;) maakt 78% van de atmosfeer uit, maar de meeste planten en dieren kunnen het niet rechtstreeks gebruiken. Dat wordt opgelost door <strong>stikstofbindende bacteriën</strong> die in de bodem en in de wortels van peulvruchten (erwten, klaver, soja) leven. Zij zetten N&sub2; om in ammoniak (NH&sub3;) en nitraten, die planten wel kunnen opnemen. Omgekeerd breken andere bacteriën nitraten weer af tot N&sub2;, die terugkeert in de atmosfeer. De stikstofkringloop is de basis voor alle eiwitproductie op Aarde.</p>
+  </section>
+
+  <!-- ============================================================
+       SECTION 6 — BIODIVERSITEIT
+  ============================================================ -->
+  <section class="section-block" id="s6">
+    <div class="section-heading">
+      <span class="section-num">6</span>
+      <h2 class="section-title">Biodiversiteit</h2>
+    </div>
+
+    <p>Meer dan 8,7 miljoen soorten organismen zijn wetenschappelijk beschreven, maar schattingen gaan tot 1 miljard als we ook bacteriën en andere micro-organismen meerekenen. Al die soorten vormen samen het fundament van het leven op Aarde &mdash; en we verliezen ze in snel tempo.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#127823;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Biodiversiteit</span>
+        <p class="begrip-def"><strong>Biodiversiteit</strong> is de verscheidenheid aan levensvormen op Aarde. Het omvat drie niveaus: <em>genetische diversiteit</em> (variatie binnen een soort), <em>soortenrijkdom</em> (het aantal soorten in een gebied) en <em>ecosysteemdiversiteit</em> (de verscheidenheid aan ecosystemen op Aarde).</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Waarom is biodiversiteit zo belangrijk?</h3>
+    <p>Biodiversiteit is niet alleen interessant voor biologen &mdash; het is letterlijk de basis van menselijk welzijn:</p>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.6rem"><strong>Stabiliteit van ecosystemen:</strong> hoe meer soorten een ecosysteem bevat, hoe veerkrachtiger het is. Als &eacute;&eacute;n soort wegvalt, zijn er andere soorten die zijn rol gedeeltelijk kunnen overnemen. Een monotone maisakker is kwetsbaar voor &eacute;&eacute;n ziekte; een soortenrijke weide niet.</li>
+      <li style="margin-bottom:0.6rem"><strong>Voedsel:</strong> de mensheid heeft meer dan 7.000 plantensoorten gecultiveerd als voedselgewas doorheen de geschiedenis. Toch zijn we vandaag voor 75% van ons voedsel afhankelijk van slechts 12 gewassen. Die smalle basis maakt ons kwetsbaar.</li>
+      <li style="margin-bottom:0.6rem"><strong>Geneesmiddelen:</strong> meer dan 60% van alle goedgekeurde geneesmiddelen zijn afgeleid van of ge&iuml;nspireerd door natuurlijke verbindingen. Aspirine komt van de wilgenbast, morfine van de papaver, penicilline van een schimmel. Elke uitgestorven soort is een bibliotheek die we nooit meer kunnen raadplegen.</li>
+      <li style="margin-bottom:0.6rem"><strong>Ecosysteemdiensten:</strong> bijen en andere bestuivers zorgen voor de voortplanting van 75% van alle voedselgewassen (waarde: honderden miljarden euro per jaar). Wetlands zuiveren drinkwater. Bossen slaan koolstof op. Al die diensten zijn gratis &mdash; maar alleen zolang de biodiversiteit intact is.</li>
+    </ul>
+
+    <h3 class="sub-heading">Bedreigingen voor biodiversiteit</h3>
+
+    <div class="tabel-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Bedreiging</th>
+            <th>Beschrijving</th>
+            <th>Voorbeeld in Belgi&euml;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Habitatverlies</strong></td>
+            <td>Vernietiging of fragmentatie van leefgebied door landbouw, urbanisatie, industrialisatie</td>
+            <td>Drooglegging van Vlaamse moerassen voor akkerbouw; bebouwing van open ruimte</td>
+          </tr>
+          <tr>
+            <td><strong>Overexploitatie</strong></td>
+            <td>Overbevissing, overbegrazing, te veel jacht of planten plukken</td>
+            <td>Historische overbevissing van de Noordzee (haring, kabeljauw)</td>
+          </tr>
+          <tr>
+            <td><strong>Invasieve soorten</strong></td>
+            <td>Ingevoerde soorten die inheemse soorten verdringen</td>
+            <td>Amerikaanse rivierkreeft, Japanse duizendknoop, reuzenbalsemien langs rivieren</td>
+          </tr>
+          <tr>
+            <td><strong>Klimaatverandering</strong></td>
+            <td>Temperatuurstijging, veranderend neerslagpatroon, extremere weersevents</td>
+            <td>Hoge Venen-veen droogt uit bij warme zomers; trekvogels komen vroeger aan</td>
+          </tr>
+          <tr>
+            <td><strong>Vervuiling</strong></td>
+            <td>Pesticiden, stikstofneerslag, plastic, lichtpollutie, geluidsoverlast</td>
+            <td>Hoge stikstofneerslag in Kempen vernietigt heide; plasticsoep in de Noordzee</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub-heading">Bedreigde habitats in Belgi&euml;</h3>
+    <p>Twee Belgische habitats staan bijzonder onder druk:</p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.5rem"><strong>Vlaamse moerassen en natte graslanden:</strong> door intensieve drainage voor landbouw is meer dan 90% van de natte graslanden in Vlaanderen verdwenen na 1950. Soorten als de grutto, de watersnip en de moerasparelmoervlinder zijn daardoor sterk achteruitgegaan of zelfs verdwenen.</li>
+      <li style="margin-bottom:0.5rem"><strong>Hoge Venen (veenmoerassen):</strong> dit kwetsbare veenlandschap &mdash; Belgi&euml;s grootste aaneengesloten natuurgebied &mdash; wordt bedreigd door ontwatering, stikstofneerslag en klimaatopwarming. Het veen is een koolstofreservoir van duizenden jaren oud dat bij uitdroging CO&sup2; vrijstelt, wat de klimaatverandering verder versterkt.</li>
+    </ul>
+
+    <h3 class="sub-heading">Aanpassingen van organismen aan hun omgeving</h3>
+    <p>Organismen die in extreme biotopen leven, hebben gespecialiseerde aanpassingen ontwikkeld via evolutie:</p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.5rem"><strong>Kameel in de woestijn:</strong> slaat geen water op in zijn bochels (dat is vet voor energie), maar kan tot 40% van zijn lichaamsgewicht als vocht verliezen zonder problemen. Zijn nierperfusie is extreem effici&euml;nt; zijn neusgaten sluiten volledig bij zandstorm.</li>
+      <li style="margin-bottom:0.5rem"><strong>IJsbeer in het poolgebied:</strong> transparante haren fungeren als optische geleiders die zonlicht naar de donkere huid leiden. Dikke laag onderhuids vet voor isolatie. Grote, ruwe poten voor grip op ijs.</li>
+      <li style="margin-bottom:0.5rem"><strong>Cactus in de droogte:</strong> bladeren zijn omgevormd tot stekels (minder verdamping), stengel is bol en opgeblazen (waterreservoir), oppervlakkig wortelstelsel vangt zelfs minimale neerslag onmiddellijk op.</li>
+      <li style="margin-bottom:0.5rem"><strong>Vleesetsende plant (zonnedauw) in nutriëntenarme veenbodems:</strong> de zonnedauw groeit op de Hoge Venen waar de bodem stikstofarm is. Door insecten te vangen en te verteren, haalt de plant zelf zijn stikstof op uit levende prooi.</li>
+    </ul>
+
+    <div class="wetenschaps-kader">
+      <span class="wk-label">Alarmerend wetenschappelijk feit</span>
+      <p class="wk-body">Wetenschappers van over de hele wereld waarschuwen dat we ons bevinden in de <strong>zesde massa-extinctie</strong> &mdash; de eerste in de geschiedenis van de Aarde die door &eacute;&eacute;n enkele soort wordt veroorzaakt: <em>Homo sapiens</em>. De afgelopen 50 jaar is de populatiegrootte van wilde dieren wereldwijd met gemiddeld <strong>60%</strong> gedaald (WWF Living Planet Report). De huidige uitstervingssnelheid is naar schatting 100 tot 1000 keer hoger dan de achtergrondsnelheid v&oacute;&oacute;r de menselijke invloed. De vorige vijf massa-extincties hadden elk miljoenen jaren nodig voor herstel.</p>
+    </div>
+  </section>
+
+  <!-- CLOSING QUOTE -->
+  <div class="closing-quote" role="note" aria-label="Slotcitaat">
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p class="cq-text">In het wilde, en in de wildheid, zit de bewaring van de wereld &mdash; want de aarde is niet van ons ge&euml;rfd van onze voorouders, maar geleend van onze kinderen.</p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <span class="cq-attribution">Naar een oud gezegde &nbsp;&middot;&nbsp; Ecologie &nbsp;&middot;&nbsp; H5</span>
+  </div>
+
+</div><!-- end page-wrapper -->
+
+<!-- EXERCISES -->
+<section class="exercises-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <!-- Oefening 1 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Ecosysteem in kaart brengen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.7rem;">Lees de volgende beschrijving van een Belgisch bos en beantwoord de vragen:</p>
+      <p style="font-size:0.93rem;color:var(--text-mid);font-style:italic;background:var(--sand-light);padding:0.9rem 1.1rem;border-radius:4px;margin-bottom:0.9rem;">&ldquo;Een vochtig beukenbos in de Ardennen op 450 m hoogte. De bodem bestaat uit kleirijke, zure grond (pH 5). 's Winters daalt de temperatuur regelmatig tot onder 0&deg;C. In de lente bloeien bosanemonen op de bosbodem voor de beukenbladeren volledig ontvouwen. Kapelmeesvogels nestelen in boomholtes. Everzwijnen wroeten in het slib naar wortels en wormen. Vleermuizen jagen 's avonds op muggen. Een bruine beer werd tien jaar geleden voor het laatst gesignaleerd.&rdquo;</p>
+      <ol>
+        <li>Identificeer <strong>5 abiotische factoren</strong> die in deze beschrijving (direct of indirect) vermeld worden.</li>
+        <li>Identificeer <strong>5 biotische factoren</strong> of -relaties die je kunt afleiden uit de beschrijving.</li>
+        <li>Wat is de biotoop van dit bos? Beschrijf hem in &eacute;&eacute;n zin.</li>
+        <li>Noem minstens vier soorten die deel uitmaken van de <em>levensgemeenschap</em> van dit bos.</li>
+        <li>Is dit bos een ecosysteem? Leg uit waarom (of waarom niet) in twee zinnen.</li>
+      </ol>
+      <p class="ex-tip">Tip: denk bij abiotische factoren aan de letters T-L-W-B-L (Temperatuur, Licht, Water, Bodem, Lucht).</p>
+    </div>
+
+    <!-- Oefening 2 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Voedselketens tekenen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.7rem;">Gegeven zijn de volgende 10 organismen:</p>
+      <p style="font-size:0.93rem;color:var(--text-mid);background:var(--sand-light);padding:0.9rem 1.1rem;border-radius:4px;margin-bottom:0.9rem;font-style:italic;">gras &mdash; sprinkhaan &mdash; kikker &mdash; slang &mdash; adelaar &mdash; eikenboom &mdash; rups &mdash; merel &mdash; havik &mdash; muis</p>
+      <ol>
+        <li>Bouw twee <strong>verschillende voedselketens</strong> op uit deze organismen. Gebruik pijlen om de richting van de energiestroom aan te geven. Elke keten moet minstens vier organismen bevatten.</li>
+        <li>Kleur (of label) elke schakel in jouw ketens: groen voor producenten, oranje voor primaire consumenten, blauw voor secundaire consumenten, rood voor tertiaire consumenten.</li>
+        <li>Waarom kunnen de decomposenten (afbrekers) ontbreken in een tekening van een voedselketen, terwijl ze in werkelijkheid toch onmisbaar zijn voor het ecosysteem?</li>
+        <li>Stel dat de kikkers in het gebied volledig verdwijnen door een ziekte. Welke gevolgen verwacht je voor de populaties van sprinkhanen, slangen en adelaars? Redeneer voor elke soort afzonderlijk.</li>
+      </ol>
+    </div>
+
+    <!-- Oefening 3 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Voedselweb analyseren</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.7rem;">Gebruik het voedselweb uit sectie 3 (het Belgische bosvoedselweb) om de volgende vragen te beantwoorden:</p>
+      <ol>
+        <li>Wie zijn de <strong>producenten</strong> in dit voedselweb? Geef alle namen.</li>
+        <li>Wie zijn de <strong>toppredatoren</strong>? Hoe herken je een toppredator in een voedselweb?</li>
+        <li>Welke organismen eten zowel planten als dieren (omnivoren)? Geef minstens twee voorbeelden uit het web.</li>
+        <li><strong>Scenario-analyse:</strong> stel dat een ernstige schimmelziekte alle rupsen in het bos doodt. Beschrijf de te verwachten effecten op:
+          <ul>
+            <li>de eikenboompopulatie</li>
+            <li>de merlenpopulatie</li>
+            <li>de havikpopulatie</li>
+            <li>de bosuil</li>
+          </ul>
+        </li>
+        <li>Verklaar waarom een voedselweb <em>stabieler</em> is dan een enkelvoudige voedselketen.</li>
+      </ol>
+      <p class="ex-tip">Tip: volg bij de scenario-analyse stap voor stap de pijlen in het web. Soms zijn de gevolgen tegengesteld aan wat je op het eerste gezicht verwacht.</p>
+    </div>
+
+    <!-- Oefening 4 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 4</p>
+      <p class="ex-name">Piramide berekenen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.7rem;">Een grasland produceert jaarlijks <strong>10.000 kg gras</strong> (drooggewicht biomassa). De voedselketen is: gras &rarr; konijn &rarr; vos &rarr; adelaar. Gebruik de <strong>10%-regel</strong> om de volgende vragen te beantwoorden:</p>
+      <ol>
+        <li>Bereken hoeveel kilogram konijnbiomassa het grasland kan onderhouden.</li>
+        <li>Bereken hoeveel kilogram vossenbiomassa er beschikbaar is.</li>
+        <li>Bereken hoeveel kilogram adelaarsbiomassa er ondersteund kan worden.</li>
+        <li>Een volwassen vos weegt gemiddeld 5 kg. Hoeveel vossen kunnen in dit grasland leven?</li>
+        <li>Stel nu een vierde niveau in: <em>gras &rarr; sprinkhaan &rarr; kikker &rarr; slang &rarr; vos</em>. Hoeveel kg vossbiomassa is er nu beschikbaar als het grasland nog steeds 10.000 kg gras produceert? Vergelijk je antwoord met vraag 2. Wat leer je hieruit?</li>
+      </ol>
+      <p class="ex-tip">Tip: bij elke stap in de voedselketen blijft slechts 10% van de biomassa beschikbaar voor het volgende niveau. Dus: biomassa niveau 2 = 10% van biomassa niveau 1.</p>
+    </div>
+
+    <!-- Oefening 5 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 5</p>
+      <p class="ex-name">De reis van een koolstofatoom</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.7rem;">Stel je voor dat je &eacute;&eacute;n enkel koolstofatoom (C) volgt doorheen de koolstofkringloop. Het atoom bevindt zich op dit moment in een CO&sup2;-molecuul in de atmosfeer.</p>
+      <ol>
+        <li>Beschrijf stap voor stap hoe het koolstofatoom zijn reis maakt via: <strong>fotosynthese &rarr; opname door insect &rarr; opname door vogel &rarr; dood van de vogel &rarr; afbraak door decomposenten &rarr; terug in de lucht als CO&sup2;</strong>. Zeg bij elke stap in welk type molecule het koolstofatoom aanwezig is (CO&sup2;, suiker, vet, eiwit&hellip;).</li>
+        <li>Op welke twee manieren kan koolstof voor <em>zeer lange tijd</em> uit de actieve kringloop verdwijnen?</li>
+        <li>Verklaar in je eigen woorden hoe de verbranding van steenkool en aardolie de koolstofkringloop verstoort. Gebruik de begrippen &ldquo;opgeslagen koolstof&rdquo; en &ldquo;CO&sup2;-concentratie&rdquo;.</li>
+        <li><em>Uitdaging:</em> het koolstofatoom zou ook via de oceaan kunnen circuleren. Beschrijf in &eacute;&eacute;n korte paragraaf hoe dat zou kunnen gaan.</li>
+      </ol>
+    </div>
+
+    <!-- Oefening 6 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 6</p>
+      <p class="ex-name">Biodiversiteit en argumenten</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.7rem;">Een boer wil de <strong>houtwal</strong> (een rij struiken en kleine bomen aan de rand van zijn akker) verwijderen om zijn akker groter te maken. Houtwalletjes zijn het thuis van tientallen soorten: houtduif, egel, vos, vlinders, bijen, spitsmuis, klimop, meidoorn, vlier&hellip;</p>
+      <ol>
+        <li>Geef <strong>3 argumenten die de boer zou kunnen geven v&oacute;&oacute;r het verwijderen</strong> van de houtwal.</li>
+        <li>Geef <strong>3 ecologische argumenten t&eacute;gen het verwijderen</strong> van de houtwal. Gebruik de concepten uit dit hoofdstuk (biotoop, biodiversiteit, ecosysteemdiensten, voedselweb, bestuiving&hellip;).</li>
+        <li>Formuleer een <strong>compromisoplossing</strong>: hoe kan de boer zijn akker iets vergroten zonder de ecologische waarde van de houtwal volledig te vernietigen?</li>
+        <li>Hoe zou de verwijdering van de houtwal de <em>abiotische</em> factoren van de naburige akker kunnen be&iuml;nvloeden? Denk aan wind, erosie en bodemkwaliteit.</li>
+      </ol>
+      <p class="ex-tip">Tip: houtwallen zijn een typisch Belgisch cultuurlandschapelement. Ze zijn in de afgelopen eeuw massaal verdwenen: meer dan 80% van de houtwallen in Vlaanderen is since 1950 verwijderd.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="summary-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>Ecologie</strong> bestudeert hoe organismen omgaan met hun omgeving en met elkaar. Een <strong>ecosysteem</strong> bestaat uit een biotoop (niet-levende omgeving) + levensgemeenschap (alle levende wezens in dat gebied), inclusief alle wisselwerkingen daartussen.</li>
+      <li>Omgevingsfactoren worden ingedeeld in <strong>abiotische</strong> (temperatuur, licht, water, bodem, lucht) en <strong>biotische</strong> factoren (voedselrelaties, concurrentie, symbiose &mdash; mutualism, parasitisme, commensalisme).</li>
+      <li>In een <strong>voedselketen</strong> stroomt energie van producenten naar primaire, secundaire en tertiaire consumenten; <strong>decomposenten</strong> sluiten de kringloop. Een <strong>voedselweb</strong> is een realistischer netwerk van verbonden ketens dat de veerkracht van ecosystemen verklaart.</li>
+      <li>De <strong>10%-regel</strong> beschrijft dat bij elke stap in de voedselketen ~90% van de energie verloren gaat als warmte. Dit verklaart de piramidvorm van biomassa en aantallen, en waarom er altijd veel meer prooidieren dan roofdieren zijn.</li>
+      <li>Terwijl energie steeds in &eacute;&eacute;n richting stroomt, worden stoffen (koolstof, water, stikstof) <strong>gerecycleerd in kringlopen</strong>. De verbranding van fossiele brandstoffen en ontbossing verstoren de koolstofkringloop en versterken het broeikaseffect.</li>
+      <li><strong>Biodiversiteit</strong> (genetische diversiteit, soortenrijkdom en ecosysteemdiversiteit) is de basis van stabiele ecosystemen, voedselzekerheid, medicijnen en ecosysteemdiensten. Door habitatverlies, overexploitatie, invasieve soorten, klimaatverandering en vervuiling bevinden we ons in de zesde massa-extinctie: de afgelopen 50 jaar is 60% van de wilde dieren op Aarde verdwenen.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

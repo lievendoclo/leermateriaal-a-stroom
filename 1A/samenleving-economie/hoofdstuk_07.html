@@ -1,0 +1,1770 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H7 — Ik ben digitaal vaardig | Samenleving &amp; Economie 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --gold: #D4A017;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    /* Extended tokens used internally */
+    --terracotta-light: #D4561E;
+    --gold-light: #E8B82A;
+    --darkblue-light: #243B63;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--oker);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     CLOSING QUOTE
+  ============================================================ */
+  .closing-quote {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0D1E38 100%);
+    border-radius: var(--border-radius);
+    padding: 3rem 3rem 2.5rem;
+    margin: 3.5rem 0 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.5rem; left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .closing-quote .cq-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--gold);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 1.2rem;
+  }
+
+  .closing-quote .cq-attribution {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(212,160,23,0.6);
+  }
+
+  .closing-quote .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .closing-quote .ornament-line::before,
+  .closing-quote .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.4), transparent);
+  }
+
+  .closing-quote .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.7;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .closing-quote { padding: 2rem 1.2rem 1.8rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     WISKUNDE-SPECIFIC COMPONENTS
+  ============================================================ */
+
+  /* ── REKENVOORBEELD ─────────────────────────────────── */
+  .rekenvoorbeeld {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--oker);
+    border-radius: var(--border-radius);
+    padding: 1.8rem 2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .rekenvoorbeeld .rv-label {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--oker); display: block; margin-bottom: 0.35rem;
+  }
+  .rekenvoorbeeld .rv-vraag {
+    font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700;
+    color: var(--darkblue); margin-bottom: 1rem; line-height: 1.4;
+  }
+  .rv-stappen { list-style: none; padding: 0; counter-reset: stap-teller; margin-bottom: 1rem; }
+  .rv-stappen li {
+    counter-increment: stap-teller;
+    padding: 0.6rem 0.8rem 0.6rem 3.2rem;
+    position: relative;
+    background: var(--creme);
+    border-radius: 4px;
+    margin-bottom: 0.4rem;
+    font-size: 0.97rem;
+  }
+  .rv-stappen li::before {
+    content: counter(stap-teller);
+    position: absolute; left: 0.6rem; top: 50%; transform: translateY(-50%);
+    background: var(--darkblue); color: white;
+    width: 1.7rem; height: 1.7rem; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; font-weight: 700;
+  }
+  .rv-antwoord {
+    background: var(--darkblue); color: var(--gold);
+    padding: 0.75rem 1.1rem; border-radius: 4px;
+    font-weight: 700; font-size: 1rem;
+  }
+
+  /* ── STELLING ───────────────────────────────────────── */
+  .stelling {
+    background: #EEF3FF;
+    border-left: 4px solid var(--darkblue);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1.2rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .stelling .st-label {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--darkblue); opacity: 0.7;
+    display: block; margin-bottom: 0.35rem;
+  }
+  .stelling .st-body { font-size: 0.97rem; color: var(--text-dark); }
+
+  /* ── FORMULE ────────────────────────────────────────── */
+  .formule {
+    background: var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 1.4rem 1.8rem;
+    text-align: center;
+    margin: 1.8rem 0;
+  }
+  .formule .formule-naam {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--gold); opacity: 0.8;
+    display: block; margin-bottom: 0.5rem;
+  }
+  .formule .formule-tekst {
+    font-family: monospace;
+    font-size: 1.15rem;
+    color: white;
+    background: rgba(255,255,255,0.08);
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    display: inline-block;
+  }
+
+  /* ── SVG CONTAINER ──────────────────────────────────── */
+  .svg-container {
+    margin: 1.8rem 0;
+    padding: 1.5rem;
+    background: white;
+    border: 1px solid var(--sand);
+    border-radius: var(--border-radius);
+    overflow-x: auto;
+    text-align: center;
+  }
+  .svg-container .svg-caption {
+    font-size: 0.85rem; color: var(--text-light); font-style: italic;
+    display: block; margin-top: 0.75rem;
+  }
+
+  /* ── WERKWIJZE LIST ─────────────────────────────────── */
+  .werkwijze-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.2rem 0;
+  }
+  .werkwijze-list li {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 0.8rem 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 0.5rem;
+    background: var(--sand-light);
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.55;
+  }
+  .werkwijze-list li .wl-kleur {
+    flex-shrink: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-top: 0.42rem;
+  }
+  .werkwijze-list li strong { color: var(--darkblue); }
+
+  /* ============================================================
+     DIGITALE VAARDIGHEDEN — EXTRA CSS CLASSES
+  ============================================================ */
+  .begrip-kader { background: #fff8f5; border-left: 4px solid var(--terracotta); border-radius: 0 6px 6px 0; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+  .begrip-kader strong { color: var(--terracotta); display: block; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem; }
+  .schema-kader { background: var(--sand-light, #F2EAD8); border: 1px solid var(--sand); border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; }
+  .schema-kader h4 { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 0.75rem; color: var(--darkblue); }
+  .data-tabel { width: 100%; border-collapse: collapse; margin: 1.25rem 0; font-size: 0.92rem; }
+  .data-tabel th { background: var(--darkblue); color: var(--gold); font-family: 'Source Sans 3', sans-serif; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.75rem 1rem; text-align: left; }
+  .data-tabel td { padding: 0.65rem 1rem; border-bottom: 1px solid var(--sand); vertical-align: top; }
+  .data-tabel tr:nth-child(even) td { background: var(--sand-light, #F2EAD8); }
+  .app-kader { background: white; border: 1px solid var(--sand); border-radius: 8px; padding: 1.25rem 1.5rem; margin: 0.75rem 0; }
+  .app-kader h4 { font-family: 'Playfair Display', serif; color: var(--darkblue); margin-bottom: 0.5rem; }
+  .app-kader .app-tag { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem; display: block; }
+  .waarschuwing-kader { background: #fff3cd; border: 1px solid #ffc107; border-radius: 8px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+  .waarschuwing-kader::before { content: '⚠️ Belangrijk'; display: block; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #856404; margin-bottom: 0.5rem; }
+  .shortcut-tabel { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.88rem; }
+  .shortcut-tabel td { padding: 0.4rem 0.75rem; border-bottom: 1px solid var(--sand); }
+  .shortcut-tabel td:first-child { font-family: monospace; font-size: 0.85rem; background: rgba(26,43,74,0.06); border-radius: 3px; white-space: nowrap; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <span class="label">Samenleving &amp; Economie</span>
+  <span class="label label-right">H7 &middot; Digitale Vaardigheden</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Hoofdstuk 7 &nbsp;&middot;&nbsp; 22,5% van het examen</div>
+  <h1>Ik ben digitaal vaardig</h1>
+  <p class="subtitle">E-mail, bestandsbeheer, Word, Excel, PowerPoint en digitale veiligheid</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- EXAMENNOTA -->
+  <div style="padding: 2.5rem 0 0;">
+    <div class="waarschuwing-kader">
+      Het examen test <strong>screenshots van Windows 10 en MS Office 365</strong>, niet de programma's zelf. Je hoeft niet te werken in de programma's &mdash; je moet herkennen welke knoppen en menu's te zien zijn op een schermafbeelding. Bestudeer de interface goed: waar staat de knop? Welk tabblad? Welk menu?
+    </div>
+  </div>
+
+  <!-- PROLOGUE -->
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Digitaal leven &hellip;</span>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p>Je stuurt elke dag berichten, zoekt informatie op, bewaart foto's en deelt bestanden. Maar weet je ook hoe je dat v&eacute;ilig en <em>netjes</em> doet? Hoe je een professionele e-mail schrijft? Hoe je je bestanden ordent zodat je ze terugvindt? Hoe je een formule in Excel tikt?</p>
+    <p>Digitale vaardigheden zijn niet iets wat je vanzelf leert &mdash; ze vragen bewust oefenen. En ze zijn cruciaal: op school, in je eerste job, en in het dagelijks leven. Dit hoofdstuk legt de basis.</p>
+    <p><strong style="color: var(--gold);">Digitaal vaardig zijn betekent niet alleen k&uacute;nnen werken met een computer, maar ook slim, veilig en respectvol omgaan met technologie.</strong></p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 1 — DIGITAAL COMMUNICEREN
+  ============================================================ -->
+  <section class="section-block" id="s1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Digitaal communiceren</h2>
+    </div>
+
+    <p>Digitale communicatie is communicatie via elektronische kanalen: e-mail, sociale media, fora, videogesprekken&hellip; Elk kanaal heeft zijn eigen regels en stijl. Het is belangrijk te weten <em>wanneer</em> je welk kanaal gebruikt en <em>hoe</em> je je bericht opstelt.</p>
+
+    <h3 class="sub-heading">De structuur van een e-mail</h3>
+
+    <p>Een e-mail heeft een vaste structuur. Op het examen moet je elk onderdeel kunnen benoemen en uitleggen.</p>
+
+    <div class="schema-kader">
+      <h4>Onderdelen van een e-mail</h4>
+      <table class="data-tabel">
+        <thead>
+          <tr>
+            <th>Veld / Onderdeel</th>
+            <th>Uitleg</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Aan</strong></td>
+            <td>Het e-mailadres van de ontvanger(s) &mdash; zij ontvangen de mail.</td>
+          </tr>
+          <tr>
+            <td><strong>CC</strong> (carbon copy)</td>
+            <td>Iemand in kopie zetten: hij/zij ontvangt de mail &eacute;n iedereen ziet dat deze persoon het bericht kreeg.</td>
+          </tr>
+          <tr>
+            <td><strong>BCC</strong> (blind carbon copy)</td>
+            <td>Iemand discreet in kopie zetten: hij/zij ontvangt de mail, maar niemand ziet dit &mdash; het adres blijft verborgen.</td>
+          </tr>
+          <tr>
+            <td><strong>Onderwerpregel</strong></td>
+            <td>Een korte, duidelijke beschrijving van het onderwerp. Altijd invullen!</td>
+          </tr>
+          <tr>
+            <td><strong>Aanhef</strong></td>
+            <td>De begroeting: &ldquo;Geachte mevrouw/meneer&rdquo; (formeel) of &ldquo;Beste [voornaam]&rdquo; (informeel).</td>
+          </tr>
+          <tr>
+            <td><strong>Inhoud</strong></td>
+            <td>Het eigenlijke bericht: duidelijk, bondig en correct geschreven.</td>
+          </tr>
+          <tr>
+            <td><strong>Slotgroet</strong></td>
+            <td>&ldquo;Met vriendelijke groeten&rdquo; (formeel) of &ldquo;Groeten&rdquo; / &ldquo;Met vriendelijke groet&rdquo; (informeel).</td>
+          </tr>
+          <tr>
+            <td><strong>Ondertekening</strong></td>
+            <td>Je naam; bij formele mail ook je functie en eventueel contactgegevens.</td>
+          </tr>
+          <tr>
+            <td><strong>Bijlage</strong></td>
+            <td>Een document, foto of bestand dat je meestuurt. Vermeld in de tekst dat er een bijlage is!</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="begrip-kader">
+      <strong>Begrip &mdash; Formele e-mail</strong>
+      Een formele e-mail stuur je naar iemand die je niet goed kent of naar een autoriteitspersoon (leerkracht, directeur, bedrijf). Je gebruikt correcte taal, geen afkortingen (geen &ldquo;btw&rdquo; of &ldquo;imo&rdquo;), geen emoji en geen informeel taalgebruik. Altijd een aanhef en slotgroet.
+    </div>
+
+    <div class="begrip-kader">
+      <strong>Begrip &mdash; Informele e-mail</strong>
+      Een informele e-mail stuur je naar vrienden of familie. De toon is ontspannen; je mag spreektaal gebruiken. Maar zelfs informele mail heeft een onderwerp en is leesbaar geschreven.
+    </div>
+
+    <h3 class="sub-heading">Andere digitale communicatiekanalen</h3>
+
+    <div class="app-kader">
+      <span class="app-tag">Sociale media</span>
+      <h4>Instagram, TikTok, Facebook</h4>
+      <p style="font-size:0.95rem;color:var(--text-mid);margin:0;">Openbaar of semi-openbaar platform. Informele communicatie; berichten kunnen door velen worden gezien. Denk na voor je post: het internet vergeet niet.</p>
+    </div>
+
+    <div class="app-kader">
+      <span class="app-tag">Fora</span>
+      <h4>Reddit, schoolforum</h4>
+      <p style="font-size:0.95rem;color:var(--text-mid);margin:0;">Discussieplatforms voor vragen en antwoorden. Stel vragen duidelijk; draag bij aan het gesprek op een respectvolle manier.</p>
+    </div>
+
+    <div class="app-kader">
+      <span class="app-tag">Blogwebsites</span>
+      <h4>WordPress, Blogger</h4>
+      <p style="font-size:0.95rem;color:var(--text-mid);margin:0;">Persoonlijke of professionele bijdragen, langer en uitgebreider dan sociale media. Handig voor tutorials, verslagen of reflecties.</p>
+    </div>
+
+    <div class="app-kader">
+      <span class="app-tag">Online meetings</span>
+      <h4>Microsoft Teams, Zoom, Google Meet</h4>
+      <p style="font-size:0.95rem;color:var(--text-mid);margin:0;">Video- en audiogesprekken via internet. Zorg voor een rustige achtergrond, goede microfoon en wees op tijd aanwezig, net als bij een echt gesprek.</p>
+    </div>
+
+    <h3 class="sub-heading">Netiquette: regels voor nette digitale communicatie</h3>
+
+    <p><strong>Netiquette</strong> (van &ldquo;network etiquette&rdquo;) zijn de gedragsregels voor respectvolle communicatie online.</p>
+
+    <ul class="werkwijze-list">
+      <li>
+        <span class="wl-kleur" style="background:var(--darkblue);"></span>
+        <div><strong>Gebruik correcte taal.</strong> Geen beledigingen, geen scheldwoorden. Schrijven in HOOFDLETTERS staat gelijk aan schreeuwen &mdash; gebruik dit dus niet.</div>
+      </li>
+      <li>
+        <span class="wl-kleur" style="background:var(--oker);"></span>
+        <div><strong>Reageer binnen een redelijke termijn.</strong> E-mails van school of leerkrachten beantwoord je binnen 24&ndash;48 uur.</div>
+      </li>
+      <li>
+        <span class="wl-kleur" style="background:var(--terracotta);"></span>
+        <div><strong>Stuur geen spam of ongewenste berichten.</strong> Stuur alleen berichten die relevant zijn voor de ontvanger.</div>
+      </li>
+      <li>
+        <span class="wl-kleur" style="background:var(--gold);"></span>
+        <div><strong>Deel geen priv&eacute;-informatie van anderen</strong> zonder hun toestemming. Foto's, adressen, telefoonnummers van anderen zijn priv&eacute;.</div>
+      </li>
+      <li>
+        <span class="wl-kleur" style="background:#5B8C5A;"></span>
+        <div><strong>Wees voorzichtig met humor.</strong> Ironie en sarcasme gaan verloren in tekst. Wat jij grappig bedoelt, kan kwetsend overkomen bij de ontvanger.</div>
+      </li>
+    </ul>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Stel je voor: je leerkracht stuurt een e-mail met een vraag over je taak. Hoe antwoord jij? Schrijf een antwoord in formele stijl &mdash; met aanhef, inhoud en slotgroet. Vergelijk dan met een informele versie aan een vriend. Wat zijn de verschillen?</p>
+    </div>
+
+  </section>
+
+  <!-- ============================================================
+       SECTIE 2 — MAPPEN EN BESTANDEN
+  ============================================================ -->
+  <section class="section-block" id="s2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Mappen en bestanden</h2>
+    </div>
+
+    <p>Bestandsbeheer is de kunst om je digitale bestanden zo te organiseren dat je ze snel terugvindt. In Windows 10 doe je dit via de <strong>Verkenner</strong> (Windows Explorer).</p>
+
+    <h3 class="sub-heading">Basishandelingen in Windows Verkenner</h3>
+
+    <table class="data-tabel">
+      <thead>
+        <tr>
+          <th>Handeling</th>
+          <th>Hoe doe je het?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Map aanmaken</strong></td>
+          <td>Rechtermuisklik in een lege ruimte &rarr; <em>Nieuw</em> &rarr; <em>Map</em></td>
+        </tr>
+        <tr>
+          <td><strong>Eén bestand selecteren</strong></td>
+          <td>Klik op het bestand</td>
+        </tr>
+        <tr>
+          <td><strong>Meerdere losse bestanden</strong></td>
+          <td>Ctrl + klik op elk gewenst bestand</td>
+        </tr>
+        <tr>
+          <td><strong>Een reeks bestanden</strong></td>
+          <td>Klik op eerste bestand, dan Shift + klik op laatste bestand</td>
+        </tr>
+        <tr>
+          <td><strong>Alle bestanden selecteren</strong></td>
+          <td>Ctrl + A</td>
+        </tr>
+        <tr>
+          <td><strong>Verplaatsen</strong></td>
+          <td>Selecteer &rarr; Ctrl+X (knippen) &rarr; ga naar nieuwe locatie &rarr; Ctrl+V (plakken); of gewoon slepen</td>
+        </tr>
+        <tr>
+          <td><strong>Kopiëren</strong></td>
+          <td>Selecteer &rarr; Ctrl+C (kopiëren) &rarr; ga naar nieuwe locatie &rarr; Ctrl+V (plakken)</td>
+        </tr>
+        <tr>
+          <td><strong>Hernoemen</strong></td>
+          <td>Rechtermuisklik &rarr; <em>Naam wijzigen</em>, of selecteer en druk F2</td>
+        </tr>
+        <tr>
+          <td><strong>Verwijderen</strong></td>
+          <td>Selecteer &rarr; Delete-toets, of rechtermuisklik &rarr; <em>Verwijderen</em> (gaat naar Prullenbak)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub-heading">Logische mappenstructuur</h3>
+
+    <p>Een goede mappenstructuur maakt het verschil tussen chaos en orde. Denk aan een <strong>hiërarchie</strong>: van breed naar specifiek.</p>
+
+    <div class="schema-kader">
+      <h4>Voorbeeld van een goede hiërarchie</h4>
+      <ul style="list-style:none;padding:0;font-family:monospace;font-size:0.93rem;line-height:2;">
+        <li>&#128193; School</li>
+        <li style="padding-left:1.5rem;">&#128193; Wiskunde</li>
+        <li style="padding-left:3rem;">&#128193; Proefwerken</li>
+        <li style="padding-left:3rem;">&#128193; Taken</li>
+        <li style="padding-left:1.5rem;">&#128193; Nederlands</li>
+        <li style="padding-left:3rem;">&#128193; Opstellen</li>
+        <li style="padding-left:1.5rem;">&#128193; Samenleving-Economie</li>
+      </ul>
+    </div>
+
+    <div class="stelling">
+      <span class="st-label">Goede gewoontes voor bestandsnamen</span>
+      <p class="st-body">
+        Gebruik <strong>beschrijvende namen</strong> (geen &ldquo;map1&rdquo; of &ldquo;nieuwdocument&rdquo;).<br>
+        Gebruik <strong>koppeltekens of underscores</strong> in plaats van spaties: <em>proefwerk_wiskunde_2026.docx</em><br>
+        Vermijd <strong>speciale tekens</strong> zoals / \ : * ? " &lt; &gt; | in bestandsnamen.<br>
+        Voeg eventueel een <strong>datum</strong> toe als je meerdere versies bijhoudt: <em>taak-v2_2026-05.docx</em>
+      </p>
+    </div>
+
+    <h3 class="sub-heading">Uploaden en downloaden</h3>
+
+    <div class="begrip-kader">
+      <strong>Begrip &mdash; Uploaden</strong>
+      Bestanden <em>sturen</em> van je computer naar internet of een cloudserver. Bijv.: een taak indienen via Smartschool, een foto plaatsen op Instagram.
+    </div>
+
+    <div class="begrip-kader">
+      <strong>Begrip &mdash; Downloaden</strong>
+      Bestanden <em>ophalen</em> van internet naar je computer. Bijv.: een PDF-syllabus opslaan, een muzieknummer bewaren.
+    </div>
+
+    <h3 class="sub-heading">Cloudopslag</h3>
+
+    <p>Cloudopslag betekent dat je bestanden worden bewaard op servers van een extern bedrijf, zodat je ze overal en op elk apparaat kunt bereiken via internet.</p>
+
+    <div class="app-kader">
+      <span class="app-tag">Microsoft</span>
+      <h4>OneDrive</h4>
+      <p style="font-size:0.95rem;color:var(--text-mid);margin:0;">Geïntegreerd in Windows 10 en Office 365. Bestanden in OneDrive zijn automatisch gesynchroniseerd en toegankelijk via browser of de OneDrive-app.</p>
+    </div>
+
+    <div class="app-kader">
+      <span class="app-tag">Google</span>
+      <h4>Google Drive</h4>
+      <p style="font-size:0.95rem;color:var(--text-mid);margin:0;">Gratis cloudopslag van Google. Bereikbaar via drive.google.com of de app. Integreert met Google Docs, Sheets en Slides.</p>
+    </div>
+
+  </section>
+
+  <!-- ============================================================
+       SECTIE 3 — WORD
+  ============================================================ -->
+  <section class="section-block" id="s3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Word (tekstverwerker)</h2>
+    </div>
+
+    <p>Microsoft Word is een <strong>tekstverwerker</strong>: software om teksten aan te maken, op te maken en af te drukken. Op het examen krijg je schermafbeeldingen van Word 365 en moet je knoppen en opmaak herkennen.</p>
+
+    <h3 class="sub-heading">Tekenopmaak</h3>
+    <p><strong>Tekenopmaak</strong> past de opmaak toe op geselecteerde letters of woorden.</p>
+
+    <table class="data-tabel">
+      <thead>
+        <tr>
+          <th>Opmaak</th>
+          <th>Uitleg</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Lettertype</strong></td>
+          <td>Het ontwerp van de letters (bijv. Arial, Times New Roman, Calibri).</td>
+        </tr>
+        <tr>
+          <td><strong>Lettergrootte</strong></td>
+          <td>De grootte uitgedrukt in punten (pt). Bijv. 12pt voor lopende tekst, 14&ndash;16pt voor titels.</td>
+        </tr>
+        <tr>
+          <td><strong>Vet</strong></td>
+          <td><strong>Dikgedrukt</strong> voor nadruk. Sneltoets: Ctrl+B.</td>
+        </tr>
+        <tr>
+          <td><strong>Cursief</strong></td>
+          <td><em>Schuin</em> voor titels van boeken, citaten of woorden in een vreemde taal. Sneltoets: Ctrl+I.</td>
+        </tr>
+        <tr>
+          <td><strong>Onderstrepen</strong></td>
+          <td><u>Onderstreept</u> voor links of nadruk. Sneltoets: Ctrl+U.</td>
+        </tr>
+        <tr>
+          <td><strong>Kleur</strong></td>
+          <td>De kleur van de letters zelf (letterkleur).</td>
+        </tr>
+        <tr>
+          <td><strong>Markeerkleur</strong></td>
+          <td>Een achtergrondkleur achter tekst, zoals een tekstmarker.</td>
+        </tr>
+        <tr>
+          <td><strong>Superscript</strong></td>
+          <td>Kleine letter <em>boven</em> de lijn: m&sup2;, km&sup3;.</td>
+        </tr>
+        <tr>
+          <td><strong>Subscript</strong></td>
+          <td>Kleine letter <em>onder</em> de lijn: H<sub>2</sub>O.</td>
+        </tr>
+        <tr>
+          <td><strong>Doorhalen</strong></td>
+          <td><s>Doorgehaalde tekst</s> voor correcties of om iets te schrappen.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub-heading">Alineaopmaak</h3>
+    <p><strong>Alineaopmaak</strong> past de opmaak toe op een volledige alinea.</p>
+
+    <table class="data-tabel">
+      <thead>
+        <tr>
+          <th>Opmaak</th>
+          <th>Uitleg</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Regelafstand</strong></td>
+          <td>De ruimte tussen de regels in een alinea: enkel (1,0), anderhalf (1,5) of dubbel (2,0).</td>
+        </tr>
+        <tr>
+          <td><strong>Uitlijning</strong></td>
+          <td>Links (standaard), gecentreerd (midden), rechts, of uitgevuld (beide randen gelijk).</td>
+        </tr>
+        <tr>
+          <td><strong>Inspringen</strong></td>
+          <td>Inspringing van de eerste regel van een alinea of de volledige alinea ten opzichte van de marge.</td>
+        </tr>
+        <tr>
+          <td><strong>Opsomming</strong></td>
+          <td>Een lijst met punten (•) of een genummerde lijst (1, 2, 3&hellip;) voor opsommingen.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub-heading">Paginaopmaak</h3>
+
+    <table class="data-tabel">
+      <thead>
+        <tr>
+          <th>Opmaak</th>
+          <th>Uitleg</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Marges</strong></td>
+          <td>De witte ruimte aan de randen van de pagina (boven, onder, links, rechts). Stel in via Lay-out &rarr; Marges.</td>
+        </tr>
+        <tr>
+          <td><strong>Afdrukstand</strong></td>
+          <td><strong>Staand</strong> (portrait): hogere dan brede pagina. <strong>Liggend</strong> (landscape): bredere dan hoge pagina.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub-heading">Kop- en voettekst</h3>
+
+    <div class="begrip-kader">
+      <strong>Begrip &mdash; Koptekst (header)</strong>
+      Vaste tekst die bovenaan <em>elke</em> pagina verschijnt. Bijv.: naam van het document, naam van de leerling, datum.
+    </div>
+
+    <div class="begrip-kader">
+      <strong>Begrip &mdash; Voettekst (footer)</strong>
+      Vaste tekst onderaan <em>elke</em> pagina. Bijv.: paginanummer, naam van de school, copyright.
+    </div>
+
+    <h3 class="sub-heading">Tabellen in Word</h3>
+
+    <p>Een tabel in Word invoegen: <em>Invoegen</em> &rarr; <em>Tabel</em>. Eenmaal een tabel is ingevoegd, verschijnen extra tabbladen (<em>Tabelontwerp</em> en <em>Indeling</em>).</p>
+
+    <table class="data-tabel">
+      <thead>
+        <tr>
+          <th>Tabelopmaak</th>
+          <th>Uitleg</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Randen</strong></td>
+          <td>Lijnen rondom of tussen cellen instellen of verwijderen. Via Tabelontwerp &rarr; Randen.</td>
+        </tr>
+        <tr>
+          <td><strong>Arcering</strong></td>
+          <td>Achtergrondkleur van een cel of rij instellen. Via Tabelontwerp &rarr; Arcering.</td>
+        </tr>
+        <tr>
+          <td><strong>Tekst uitlijnen in cel</strong></td>
+          <td>Tekst links, gecentreerd of rechts uitlijnen binnen een cel; ook verticaal (boven, midden, onder). Via Indeling.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub-heading">Afdrukken in Word</h3>
+
+    <table class="data-tabel">
+      <thead>
+        <tr>
+          <th>Instelling</th>
+          <th>Uitleg</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Aantal exemplaren</strong></td>
+          <td>Hoeveel kopie&euml;n je afdrukt.</td>
+        </tr>
+        <tr>
+          <td><strong>Sortering</strong></td>
+          <td>Bij meerdere exemplaren: gesorteerd = 1-2-3 / 1-2-3; niet gesorteerd = 1-1-1 / 2-2-2 / 3-3-3.</td>
+        </tr>
+        <tr>
+          <td><strong>Enkelzijdig / dubbelzijdig</strong></td>
+          <td>Afdrukken op &eacute;&eacute;n of beide zijden van het papier.</td>
+        </tr>
+        <tr>
+          <td><strong>Kleur / zwart-wit</strong></td>
+          <td>Kleurenafdruk of zwart-witafdruk kiezen.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub-heading">Opslaan als PDF</h3>
+
+    <p>Een Word-document opslaan als PDF: <em>Bestand</em> &rarr; <em>Opslaan als</em> &rarr; kies <strong>PDF (*.pdf)</strong> als bestandstype &rarr; <em>Opslaan</em>.</p>
+
+    <div class="stelling">
+      <span class="st-label">Tip</span>
+      <p class="st-body">Een PDF-bestand kan door iedereen worden geopend en ziet er op elk apparaat hetzelfde uit. Gebruik PDF voor documenten die je indient of deelt &mdash; zo voorkom je opmaakproblemen.</p>
+    </div>
+
+    <h3 class="sub-heading">Handige sneltoetsen in Word</h3>
+
+    <table class="shortcut-tabel">
+      <tbody>
+        <tr><td>Ctrl + B</td><td>Vet (bold)</td></tr>
+        <tr><td>Ctrl + I</td><td>Cursief (italic)</td></tr>
+        <tr><td>Ctrl + U</td><td>Onderstrepen</td></tr>
+        <tr><td>Ctrl + Z</td><td>Ongedaan maken (undo)</td></tr>
+        <tr><td>Ctrl + Y</td><td>Opnieuw uitvoeren (redo)</td></tr>
+        <tr><td>Ctrl + C</td><td>Kopi&euml;ren</td></tr>
+        <tr><td>Ctrl + X</td><td>Knippen</td></tr>
+        <tr><td>Ctrl + V</td><td>Plakken</td></tr>
+        <tr><td>Ctrl + S</td><td>Opslaan</td></tr>
+        <tr><td>Ctrl + P</td><td>Afdrukken</td></tr>
+      </tbody>
+    </table>
+
+  </section>
+
+  <!-- ============================================================
+       SECTIE 4 — EXCEL
+  ============================================================ -->
+  <section class="section-block" id="s4">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Excel (rekenblad)</h2>
+    </div>
+
+    <p>Microsoft Excel is een <strong>spreadsheetprogramma</strong> (rekenblad): software om gegevens te organiseren, berekeningen te maken en grafieken te maken. Het examen test herkenning van de interface en formules.</p>
+
+    <h3 class="sub-heading">Structuurelementen van Excel</h3>
+
+    <table class="data-tabel">
+      <thead>
+        <tr>
+          <th>Element</th>
+          <th>Uitleg</th>
+          <th>Voorbeeld</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Cel</strong></td>
+          <td>Het vakje waar je gegevens invoert. De basisunit van Excel.</td>
+          <td>Het vakje op rij 1, kolom A</td>
+        </tr>
+        <tr>
+          <td><strong>Celadres</strong></td>
+          <td>De naam van een cel = kolomletter + rijnummer.</td>
+          <td>A1, B3, C12, D25</td>
+        </tr>
+        <tr>
+          <td><strong>Bereik</strong></td>
+          <td>Een groep aaneengesloten cellen, aangeduid met dubbele punt.</td>
+          <td>A1:D5 = alle cellen van A1 tot D5</td>
+        </tr>
+        <tr>
+          <td><strong>Rij</strong></td>
+          <td>Horizontale reeks cellen. Genummerd met cijfers: 1, 2, 3&hellip;</td>
+          <td>Rij 3 = de derde horizontale rij</td>
+        </tr>
+        <tr>
+          <td><strong>Kolom</strong></td>
+          <td>Verticale reeks cellen. Genummerd met letters: A, B, C&hellip;</td>
+          <td>Kolom B = de tweede verticale kolom</td>
+        </tr>
+        <tr>
+          <td><strong>Werkblad</strong></td>
+          <td>Eén tabblad in een Excel-bestand. Onderaan het scherm zichtbaar.</td>
+          <td>&ldquo;Blad1&rdquo;, &ldquo;Blad2&rdquo;</td>
+        </tr>
+        <tr>
+          <td><strong>Werkmap</strong></td>
+          <td>Het volledige Excel-bestand (*.xlsx) dat alle werkbladen bevat.</td>
+          <td>budget_2026.xlsx</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub-heading">Opmaak in Excel</h3>
+
+    <table class="data-tabel">
+      <thead>
+        <tr>
+          <th>Opmaak</th>
+          <th>Uitleg</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Lettertype en -grootte</strong></td>
+          <td>Stijl en grootte van de tekst in een cel, net als in Word.</td>
+        </tr>
+        <tr>
+          <td><strong>Randen</strong></td>
+          <td>Lijnen rondom of tussen cellen toevoegen. Via het tabblad <em>Start</em> &rarr; Randen.</td>
+        </tr>
+        <tr>
+          <td><strong>Opvulkleur</strong></td>
+          <td>Achtergrondkleur van een cel (bijv. koprij markeren met een kleur).</td>
+        </tr>
+        <tr>
+          <td><strong>Uitlijning</strong></td>
+          <td>Tekst links, midden of rechts uitlijnen in de cel.</td>
+        </tr>
+        <tr>
+          <td><strong>Rijhoogte</strong></td>
+          <td>De hoogte van een rij aanpassen: rechtermuisklik op rijnummer &rarr; <em>Rijhoogte</em>.</td>
+        </tr>
+        <tr>
+          <td><strong>Kolombreedte</strong></td>
+          <td>De breedte van een kolom aanpassen: rechtermuisklik op kolomletter &rarr; <em>Kolombreedte</em>.</td>
+        </tr>
+        <tr>
+          <td><strong>Samenvoegen</strong></td>
+          <td>Meerdere cellen samenvoegen tot &eacute;&eacute;n grote cel. Via <em>Start</em> &rarr; <em>Samenvoegen en centreren</em>.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub-heading">Getalnotaties</h3>
+
+    <p>Excel kan getallen op verschillende manieren weergeven. Je stelt dit in via <em>Start</em> &rarr; groep <em>Getal</em>, of rechtermuisklik &rarr; <em>Celeigenschappen</em>.</p>
+
+    <table class="data-tabel">
+      <thead>
+        <tr>
+          <th>Notatie</th>
+          <th>Voorbeeld</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Valuta</strong></td>
+          <td>&euro;&nbsp;1.234,56 &mdash; getal met euroteken en twee decimalen</td>
+        </tr>
+        <tr>
+          <td><strong>Percentage</strong></td>
+          <td>25% &mdash; het getal 0,25 wordt weergegeven als 25%</td>
+        </tr>
+        <tr>
+          <td><strong>Decimalen</strong></td>
+          <td>Aantal cijfers na de komma instellen (bijv. 3,14 vs. 3,142)</td>
+        </tr>
+        <tr>
+          <td><strong>Datum</strong></td>
+          <td>30/05/2026 of 30 mei 2026 &mdash; verscheidene opmaken mogelijk</td>
+        </tr>
+        <tr>
+          <td><strong>Tijd</strong></td>
+          <td>14:30 of 14:30:00</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub-heading">Formules en operatoren</h3>
+
+    <div class="waarschuwing-kader">
+      Elke formule in Excel begint met een <strong>=</strong> (gelijkteken). Zonder dit teken behandelt Excel de invoer als tekst, niet als berekening.
+    </div>
+
+    <table class="data-tabel">
+      <thead>
+        <tr>
+          <th>Operator</th>
+          <th>Betekenis</th>
+          <th>Voorbeeld</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>+</strong></td>
+          <td>Optellen</td>
+          <td>=A1+B1</td>
+        </tr>
+        <tr>
+          <td><strong>&minus;</strong></td>
+          <td>Aftrekken</td>
+          <td>=A1-B1</td>
+        </tr>
+        <tr>
+          <td><strong>*</strong></td>
+          <td>Vermenigvuldigen</td>
+          <td>=A1*B1</td>
+        </tr>
+        <tr>
+          <td><strong>/</strong></td>
+          <td>Delen</td>
+          <td>=A1/B1</td>
+        </tr>
+        <tr>
+          <td><strong>( )</strong></td>
+          <td>Haakjes voor volgorde van bewerkingen</td>
+          <td>=(A1+B1)*C1</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="formule">
+      <span class="formule-naam">SOM-formule</span>
+      <span class="formule-tekst">=SOM(A1:A10)</span>
+      <p style="color:rgba(250,246,239,0.75);font-size:0.9rem;margin-top:0.75rem;margin-bottom:0;">Telt alle waarden in het bereik A1 tot en met A10 op. Handig voor totaalkolommen.</p>
+    </div>
+
+    <div class="stelling">
+      <span class="st-label">Let op &mdash; Volgorde van bewerkingen</span>
+      <p class="st-body">In Excel geldt dezelfde volgorde als in wiskunde: eerst vermenigvuldigen en delen (*,/), dan optellen en aftrekken (+,&minus;). Gebruik haakjes om die volgorde te wijzigen.<br>
+      <code>=3+4*2</code> geeft 11 (niet 14).<br>
+      <code>=(3+4)*2</code> geeft 14.</p>
+    </div>
+
+    <h3 class="sub-heading">Handige sneltoetsen in Excel</h3>
+
+    <table class="shortcut-tabel">
+      <tbody>
+        <tr><td>Ctrl + Home</td><td>Ga naar cel A1</td></tr>
+        <tr><td>Ctrl + End</td><td>Ga naar de laatste gebruikte cel</td></tr>
+        <tr><td>F2</td><td>Cel bewerken</td></tr>
+        <tr><td>Delete</td><td>Celinhoud wissen</td></tr>
+        <tr><td>Ctrl + Z</td><td>Ongedaan maken</td></tr>
+        <tr><td>Ctrl + S</td><td>Opslaan</td></tr>
+      </tbody>
+    </table>
+
+  </section>
+
+  <!-- ============================================================
+       SECTIE 5 — POWERPOINT
+  ============================================================ -->
+  <section class="section-block" id="s5">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">PowerPoint (presentatiesoftware)</h2>
+    </div>
+
+    <p>Microsoft PowerPoint is <strong>presentatiesoftware</strong>: je maakt er dia&rsquo;s mee die je kunt projecteren tijdens een presentatie. Elk bestand heet een <strong>presentatie</strong> en bestaat uit meerdere <strong>dia&rsquo;s</strong>.</p>
+
+    <h3 class="sub-heading">Werken met dia&rsquo;s</h3>
+
+    <table class="data-tabel">
+      <thead>
+        <tr>
+          <th>Handeling</th>
+          <th>Hoe doe je het?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Nieuwe dia invoegen</strong></td>
+          <td>Tabblad <em>Start</em> of <em>Invoegen</em> &rarr; <em>Nieuwe dia</em>, of rechtermuisklik op een dia in het paneel &rarr; <em>Dia invoegen</em>.</td>
+        </tr>
+        <tr>
+          <td><strong>Dia verwijderen</strong></td>
+          <td>Rechtermuisklik op de dia in het paneel &rarr; <em>Dia verwijderen</em>.</td>
+        </tr>
+        <tr>
+          <td><strong>Dia dupliceren</strong></td>
+          <td>Rechtermuisklik op de dia &rarr; <em>Dia dupliceren</em>: maakt een identieke kopie.</td>
+        </tr>
+        <tr>
+          <td><strong>Dia verplaatsen</strong></td>
+          <td>Klik en sleep de dia in het paneel naar de gewenste positie.</td>
+        </tr>
+        <tr>
+          <td><strong>Overgangen</strong></td>
+          <td>Animatie van de ene naar de andere dia (bijv. vervagen, doorschuiven). Via tabblad <em>Overgangen</em>.</td>
+        </tr>
+        <tr>
+          <td><strong>Animaties</strong></td>
+          <td>Bewegingen van objecten <em>op</em> een dia (bijv. tekst die invliegt, opsommingspunten die een voor een verschijnen). Via tabblad <em>Animaties</em>.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="begrip-kader">
+      <strong>Verschil: overgang vs. animatie</strong>
+      Een <em>overgang</em> is het effect tussen twee dia&rsquo;s (hoe de ene dia weggaat en de andere verschijnt). Een <em>animatie</em> is een effect van een object <em>op</em> de dia zelf (bijv. een tekstvak dat na een klik inschuift).
+    </div>
+
+    <h3 class="sub-heading">Objecten op een dia</h3>
+
+    <table class="data-tabel">
+      <thead>
+        <tr>
+          <th>Object</th>
+          <th>Hoe invoegen</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Tekstvak</strong></td>
+          <td>Tabblad <em>Invoegen</em> &rarr; <em>Tekstvak</em> &rarr; klik en sleep op de dia om het vak te tekenen &rarr; type de tekst.</td>
+        </tr>
+        <tr>
+          <td><strong>Vormen</strong></td>
+          <td>Tabblad <em>Invoegen</em> &rarr; <em>Vormen</em> &rarr; kies een vorm (rechthoek, cirkel, pijl&hellip;).</td>
+        </tr>
+        <tr>
+          <td><strong>Afbeelding</strong></td>
+          <td>Tabblad <em>Invoegen</em> &rarr; <em>Afbeelding</em> &rarr; kies een bestand van je computer.</td>
+        </tr>
+        <tr>
+          <td><strong>Tabel</strong></td>
+          <td>Tabblad <em>Invoegen</em> &rarr; <em>Tabel</em> &rarr; kies het aantal rijen en kolommen.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub-heading">De diavoorstelling starten</h3>
+
+    <table class="shortcut-tabel">
+      <tbody>
+        <tr><td>F5</td><td>Presentatie starten vanaf de eerste dia</td></tr>
+        <tr><td>Shift + F5</td><td>Presentatie starten vanaf de huidige dia</td></tr>
+        <tr><td>Escape</td><td>Presentatie stoppen</td></tr>
+        <tr><td>Pijl rechts / spatiebalk</td><td>Volgende dia of animatie</td></tr>
+        <tr><td>Pijl links</td><td>Vorige dia</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub-heading">Tips voor een goede presentatie</h3>
+
+    <ul class="werkwijze-list">
+      <li>
+        <span class="wl-kleur" style="background:var(--terracotta);"></span>
+        <div><strong>Niet te veel tekst per dia.</strong> Maximaal 5&ndash;6 korte regels. Gebruik steekwoorden, geen volledige zinnen.</div>
+      </li>
+      <li>
+        <span class="wl-kleur" style="background:var(--darkblue);"></span>
+        <div><strong>Consistente stijl.</strong> Gebruik dezelfde kleuren en lettertypen doorheen de presentatie. Een thema helpt daarmee.</div>
+      </li>
+      <li>
+        <span class="wl-kleur" style="background:var(--oker);"></span>
+        <div><strong>Gebruik afbeeldingen.</strong> Een goede afbeelding vervangt honderd woorden. Kies relevante, duidelijke beelden.</div>
+      </li>
+      <li>
+        <span class="wl-kleur" style="background:var(--gold);"></span>
+        <div><strong>Oefen.</strong> Ken je presentatie van buiten. Lees niet gewoon voor van de dia &mdash; dat is saai en weinig overtuigend.</div>
+      </li>
+    </ul>
+
+  </section>
+
+  <!-- ============================================================
+       SECTIE 6 — REGELS VAN DE DIGITALE WERELD
+  ============================================================ -->
+  <section class="section-block" id="s6">
+    <div class="section-heading">
+      <span class="section-num">6</span>
+      <h2 class="section-title">Regels van de digitale wereld</h2>
+    </div>
+
+    <p>Digitale vaardigheden gaan niet alleen over programma&rsquo;s kennen. Ze gaan ook over <strong>veilig, eerlijk en verantwoordelijk</strong> omgaan met technologie en met andere mensen online.</p>
+
+    <h3 class="sub-heading">Cyberpesten en -intimidatie</h3>
+
+    <div class="begrip-kader">
+      <strong>Begrip &mdash; Cyberpesten</strong>
+      Systematisch pesten via digitale kanalen: haatberichten sturen, iemand buitensluiten uit groepschats, nepprofielen aanmaken, foto&rsquo;s verspreiden zonder toestemming&hellip; Het kan elke dag en overal plaatsvinden, ook buiten schooluren.
+    </div>
+
+    <div class="begrip-kader">
+      <strong>Begrip &mdash; Online intimidatie</strong>
+      Bedreigende, beledigende of seksueel getinte berichten sturen aan iemand. Dit is strafbaar naar Belgisch recht.
+    </div>
+
+    <div class="schema-kader">
+      <h4>Wat doe je als je gepest of ge&iuml;ntimideerd wordt online?</h4>
+      <ol style="padding-left:1.4rem;font-size:0.95rem;line-height:2;color:var(--text-mid);">
+        <li><strong>Blokkeer</strong> de pestkop op het platform.</li>
+        <li><strong>Sla bewijzen op</strong>: maak screenshots van de berichten (met datum en afzender zichtbaar).</li>
+        <li><strong>Meld</strong> het aan een ouder, leerkracht of vertrouwenspersoon.</li>
+        <li><strong>Dien aangifte</strong> in bij de politie als de berichten bedreigend of crimineel zijn.</li>
+        <li>Contacteer het platform (Instagram, TikTok&hellip;) om het account te rapporteren.</li>
+      </ol>
+    </div>
+
+    <h3 class="sub-heading">Veilige wachtwoorden</h3>
+
+    <p>Een sterk wachtwoord beschermt je accounts. Zwakke wachtwoorden zijn een van de meest voorkomende oorzaken van gehackte accounts.</p>
+
+    <ul class="werkwijze-list">
+      <li>
+        <span class="wl-kleur" style="background:var(--terracotta);"></span>
+        <div>Minimaal <strong>8 tekens</strong> (bij voorkeur 12 of meer).</div>
+      </li>
+      <li>
+        <span class="wl-kleur" style="background:var(--darkblue);"></span>
+        <div>Mix van <strong>hoofdletters, kleine letters, cijfers en symbolen</strong> (bijv. ! @ # $).</div>
+      </li>
+      <li>
+        <span class="wl-kleur" style="background:var(--oker);"></span>
+        <div>Gebruik <strong>geen geboortedata, namen of woorden</strong> die makkelijk te raden zijn.</div>
+      </li>
+      <li>
+        <span class="wl-kleur" style="background:var(--gold);"></span>
+        <div>Gebruik een <strong>uniek wachtwoord per account</strong>. Als één account gehackt wordt, zijn de anderen veilig.</div>
+      </li>
+      <li>
+        <span class="wl-kleur" style="background:#5B8C5A;"></span>
+        <div>Gebruik <strong>tweestapsverificatie (2FA)</strong>: na je wachtwoord moet je ook een code invoeren die je via sms of app ontvangt.</div>
+      </li>
+    </ul>
+
+    <h3 class="sub-heading">Nepnieuws herkennen</h3>
+
+    <div class="begrip-kader">
+      <strong>Begrip &mdash; Nepnieuws (fake news)</strong>
+      Bewust verspreide foutieve of misleidende informatie, vaak met als doel mensen te misleiden, angst te zaaien of politieke doelen te bereiken. Nepnieuws verspreidt zich snel via sociale media.
+    </div>
+
+    <div class="schema-kader">
+      <h4>Checklist: Is dit nepnieuws?</h4>
+      <ul style="list-style:none;padding:0;font-size:0.95rem;line-height:2.1;color:var(--text-mid);">
+        <li>&#9745; <strong>Controleer de bron:</strong> wie schrijft dit? Is dit een betrouwbare nieuwssite of een anonieme pagina?</li>
+        <li>&#9745; <strong>Zoek het bericht op</strong> via andere, betrouwbare bronnen (bijv. VRT Nieuws, De Standaard, BBC).</li>
+        <li>&#9745; <strong>Let op emotionele taal:</strong> overdreven titels, angst- of woede-uitspraken zijn een waarschuwingsteken.</li>
+        <li>&#9745; <strong>Controleer de datum:</strong> is het recent? Oud nieuws wordt soms opnieuw gedeeld alsof het nieuw is.</li>
+        <li>&#9745; <strong>Raadpleeg factchecksites:</strong> Knack.be/factcheck, deCheckers.be</li>
+      </ul>
+    </div>
+
+    <h3 class="sub-heading">Privacy online</h3>
+
+    <ul class="werkwijze-list">
+      <li>
+        <span class="wl-kleur" style="background:var(--terracotta);"></span>
+        <div><strong>Deel geen priv&eacute;-informatie</strong> online: adres, telefoonnummer, bankgegevens, wachtwoorden.</div>
+      </li>
+      <li>
+        <span class="wl-kleur" style="background:var(--darkblue);"></span>
+        <div><strong>Controleer je privacyinstellingen</strong> op sociale media: wie kan jouw profiel, foto&rsquo;s en berichten zien?</div>
+      </li>
+      <li>
+        <span class="wl-kleur" style="background:var(--oker);"></span>
+        <div><strong>Denk voor je post:</strong> iets wat je online plaatst kan voor altijd blijven, zelfs als je het later verwijdert.</div>
+      </li>
+      <li>
+        <span class="wl-kleur" style="background:var(--gold);"></span>
+        <div><strong>GDPR:</strong> de Europese privacywetgeving geeft jou het recht te weten welke gegevens bedrijven over jou bewaren (<em>recht op inzage</em>) en die te laten verwijderen (<em>recht op vergetelheid</em>).</div>
+      </li>
+    </ul>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Zoek op je eigen sociale mediaprofiel: welke informatie over jou is zichtbaar voor anderen? Controleer dan de privacyinstellingen en beslis bewust wat je deelt. Wat zou een vreemde nu kunnen te weten komen over jou?</p>
+    </div>
+
+  </section>
+
+  <!-- CLOSING QUOTE -->
+  <div class="closing-quote" role="note" aria-label="Slotcitaat">
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p class="cq-text">Technologie is een gereedschap. Jij beslist hoe je het gebruikt &mdash; slim of onzorgvuldig, creatief of destructief. Digitale vaardigheden betekenen ook: <em>nadenken voor je klikt.</em></p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <span class="cq-attribution">Samenleving &amp; Economie &nbsp;&middot;&nbsp; Eerste Graad A-stroom</span>
+  </div>
+
+</div><!-- end page-wrapper -->
+
+<!-- ============================================================
+     EXERCISES
+============================================================ -->
+<section class="exercises-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Formele e-mail schrijven</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);">Je wil een formele e-mail sturen aan je leerkracht om een afwezigheid te melden. Schrijf de volledige structuur van de e-mail:</p>
+      <ol>
+        <li>Aan: (vul een fictief e-mailadres in)</li>
+        <li>Onderwerp: (schrijf een passende onderwerpregel)</li>
+        <li>Aanhef: (formele begroeting)</li>
+        <li>Inhoud: (meld je afwezigheid, geef een korte reden, vraag wat je hebt gemist)</li>
+        <li>Slotgroet en ondertekening</li>
+      </ol>
+      <p class="ex-tip">Tip: gebruik geen afkortingen of emoji in een formele e-mail. Gebruik &ldquo;Geachte mevrouw/meneer [naam]&rdquo; als aanhef.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Excel-formules schrijven</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);">In een Excel-werkblad heb je de volgende waarden: A1 = 150, A2 = 200, A3 = 75. Schrijf de formule om:</p>
+      <ol>
+        <li>A1 en A2 op te tellen.</li>
+        <li>Het gemiddelde van A1 t.e.m. A3 te berekenen. (Hint: gemiddelde = som gedeeld door aantal)</li>
+        <li>A1 te vermenigvuldigen met 3 en daarna A2 af te trekken.</li>
+      </ol>
+      <p class="ex-tip">Vergeet niet: elke formule in Excel begint met =</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Werken met Word</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);">Je maakt een Word-document. Beschrijf stap voor stap wat je doet om:</p>
+      <ol>
+        <li>De tekst van je titel te centreren.</li>
+        <li>De regelafstand te veranderen naar 1,5.</li>
+        <li>Het document op te slaan als PDF.</li>
+      </ol>
+      <p class="ex-tip">Vermeld telkens het juiste tabblad of menu in Word: <em>Start</em>, <em>Lay-out</em>, <em>Bestand</em>&hellip;</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 4</p>
+      <p class="ex-name">Nepnieuws herkennen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);">Hoe herken je nepnieuws? Noem drie concrete controlestappen die je onderneemt als je twijfelt aan een bericht op sociale media.</p>
+      <p class="ex-tip">Denk aan: de bron, andere bronnen raadplegen, de taal van het bericht, de datum, factchecksites.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 5</p>
+      <p class="ex-name">Cyberpesten &mdash; Wat doe jij?</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);">Je ontvangt op Instagram haatberichten van een anonieme persoon. Wat zijn drie concrete stappen die je onderneemt?</p>
+      <p class="ex-tip">Denk aan: bewijzen, blokkeren, melden aan volwassenen, aangifte&hellip;</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 6</p>
+      <p class="ex-name">PowerPoint &mdash; Bestandsbeheer</p>
+      <ol>
+        <li>Wat is het verschil tussen een <em>overgang</em> en een <em>animatie</em> in PowerPoint?</li>
+        <li>Hoe start je een diavoorstelling vanaf de <em>huidige</em> dia?</li>
+        <li>In de Windows Verkenner wil je drie losse bestanden selecteren die niet naast elkaar staan. Welke toets gebruik je?</li>
+        <li>Leg het verschil uit tussen <em>uploaden</em> en <em>downloaden</em>. Geef een voorbeeld van elk.</li>
+      </ol>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SUMMARY
+============================================================ -->
+<section class="summary-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>E-mail structuur:</strong> Aan / CC / BCC / onderwerp / aanhef / inhoud / slotgroet / ondertekening / bijlage. Formeel = geen afkortingen, geen emoji.</li>
+      <li><strong>Netiquette:</strong> correcte taal, geen caps lock, geen spam, priv&eacute; van anderen respecteren, voorzichtig met humor.</li>
+      <li><strong>Bestandsbeheer:</strong> aanmaken, selecteren (Ctrl-klik / Shift-klik / Ctrl+A), verplaatsen (Ctrl+X / Ctrl+V), kopi&euml;ren (Ctrl+C / Ctrl+V), hernoemen (F2), verwijderen (Delete).</li>
+      <li><strong>Cloudopslag:</strong> OneDrive (Microsoft, geïntegreerd in Windows 10), Google Drive &mdash; bestanden overal bereikbaar.</li>
+      <li><strong>Word &mdash; tekenopmaak:</strong> lettertype, lettergrootte, vet (Ctrl+B), cursief (Ctrl+I), onderstrepen (Ctrl+U), kleur, markeerkleur, superscript, subscript, doorhalen.</li>
+      <li><strong>Word &mdash; alineaopmaak:</strong> regelafstand, uitlijning, inspringen, opsomming. Paginaopmaak: marges, afdrukstand. Kop/voettekst, tabellen, PDF opslaan.</li>
+      <li><strong>Excel:</strong> cel, celadres (bijv. B3), bereik (bijv. A1:D5), rij, kolom, werkblad, werkmap. Formules beginnen altijd met =.</li>
+      <li><strong>Excel &mdash; operatoren:</strong> + optellen, &minus; aftrekken, * vermenigvuldigen, / delen, ( ) haakjes. SOM-formule: =SOM(A1:A10).</li>
+      <li><strong>PowerPoint:</strong> dia&rsquo;s invoegen/verwijderen/dupliceren, overgangen (tussen dia&rsquo;s), animaties (op dia). Diavoorstelling: F5 (begin) of Shift+F5 (huidige dia).</li>
+      <li><strong>Digitale veiligheid:</strong> cyberpesten &rarr; blokkeer, bewaar bewijs, meld. Sterk wachtwoord: 8+ tekens, mix, uniek per account, 2FA. Nepnieuws: controleer bron, zoek andere bronnen, raadpleeg factchecksites. Privacy: deel geen priv&eacute;gegevens, GDPR geeft recht op inzage en verwijdering.</li>
+    </ul>
+  </div>
+</section>
+
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">Naar boven &#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

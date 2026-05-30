@@ -1,0 +1,1654 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H6 — À table ! | Frans 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     ILLUSTRATIE PLACEHOLDERS
+  ============================================================ */
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+    cursor: default;
+    transition: background var(--transition);
+  }
+
+  .illustratie:hover { background: #EDE7D8; }
+
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     CLOSING QUOTE
+  ============================================================ */
+  .closing-quote {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0D1E38 100%);
+    border-radius: var(--border-radius);
+    padding: 3rem 3rem 2.5rem;
+    margin: 3.5rem 0 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.5rem; left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .closing-quote .cq-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--gold);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 1.2rem;
+  }
+
+  .closing-quote .cq-attribution {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(212,160,23,0.6);
+  }
+
+  .closing-quote .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .closing-quote .ornament-line::before,
+  .closing-quote .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.4), transparent);
+  }
+
+  .closing-quote .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.7;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .closing-quote { padding: 2rem 1.2rem 1.8rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     FRANS-SPECIFIC COMPONENTS
+  ============================================================ */
+
+  /* Tekst-fragment — authentic/literary reading text */
+  .tekst-fragment {
+    background: #FFFDF8;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 2rem 2.2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .tekst-fragment .tf-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--darkblue);
+    opacity: 0.6;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  .tekst-fragment .tf-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .tekst-fragment .tf-body {
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.8;
+  }
+
+  .tekst-fragment .tf-body p { margin-bottom: 0.8em; }
+  .tekst-fragment .tf-body p:last-child { margin-bottom: 0; }
+
+  .tekst-fragment .tf-vragen {
+    margin-top: 1.4rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--sand);
+  }
+
+  .tekst-fragment .tf-vragen-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.6rem;
+  }
+
+  .tekst-fragment .tf-vragen ol {
+    padding-left: 1.3rem;
+  }
+
+  .tekst-fragment .tf-vragen ol li {
+    font-size: 0.96rem;
+    color: var(--text-mid);
+    margin-bottom: 0.45rem;
+    line-height: 1.65;
+  }
+
+  /* Gesprek — dialogue block */
+  .gesprek {
+    background: #F4F8FF;
+    border: 1px solid rgba(26,43,74,0.15);
+    border-left: 4px solid var(--darkblue);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1.6rem 1.8rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .gesprek .gesp-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--darkblue);
+    opacity: 0.65;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .gesprek .gesp-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    display: block;
+    margin-bottom: 1.1rem;
+  }
+
+  .gesprek .gesp-line {
+    display: flex;
+    gap: 0.8rem;
+    margin-bottom: 0.65rem;
+    align-items: flex-start;
+    font-size: 0.97rem;
+    line-height: 1.65;
+  }
+
+  .gesprek .gesp-line:last-child { margin-bottom: 0; }
+
+  .gesprek .gesp-speaker {
+    font-weight: 700;
+    color: var(--darkblue);
+    min-width: 5.5rem;
+    flex-shrink: 0;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.88rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding-top: 0.15rem;
+  }
+
+  .gesprek .gesp-text {
+    color: var(--text-mid);
+  }
+
+  .gesprek .gesp-text em {
+    color: var(--text-light);
+    font-size: 0.88rem;
+  }
+
+  /* Grammatica-kader — grammar explanation box */
+  .grammatica-kader {
+    background: #EEF2F9;
+    border: 1px solid rgba(26,43,74,0.18);
+    border-radius: var(--border-radius);
+    padding: 1.8rem 2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .grammatica-kader .gram-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--darkblue);
+    opacity: 0.6;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .grammatica-kader .gram-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    display: block;
+    margin-bottom: 1.1rem;
+  }
+
+  .grammatica-kader .gram-rule {
+    background: white;
+    border-left: 3px solid var(--terracotta);
+    border-radius: 0 4px 4px 0;
+    padding: 0.65rem 1rem;
+    margin: 0.8rem 0;
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+  }
+
+  .grammatica-kader .gram-rule strong {
+    color: var(--terracotta);
+  }
+
+  .grammatica-kader table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.9rem 0;
+    font-size: 0.95rem;
+  }
+
+  .grammatica-kader table th {
+    background: var(--darkblue);
+    color: white;
+    padding: 0.45rem 0.85rem;
+    text-align: left;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    font-size: 0.83rem;
+  }
+
+  .grammatica-kader table td {
+    padding: 0.4rem 0.85rem;
+    border-bottom: 1px solid rgba(26,43,74,0.1);
+    color: var(--text-mid);
+  }
+
+  .grammatica-kader table tr:last-child td { border-bottom: none; }
+
+  .grammatica-kader table tr:nth-child(even) td {
+    background: rgba(26,43,74,0.04);
+  }
+
+  .grammatica-kader .gram-note {
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    margin-top: 0.8rem;
+    padding-top: 0.6rem;
+    border-top: 1px solid rgba(26,43,74,0.1);
+  }
+
+  /* Woordenschat-kader — vocabulary box */
+  .woordenschat-kader {
+    background: #FDF6EC;
+    border: 1px solid rgba(200,146,58,0.35);
+    border-top: 4px solid var(--oker);
+    border-radius: var(--border-radius);
+    padding: 1.6rem 1.8rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .woordenschat-kader .ws-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--oker);
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .woordenschat-kader .ws-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .woordenschat-kader .ws-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 0.4rem 1.2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .woordenschat-kader .ws-grid li {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    padding: 0.35rem 0.5rem;
+    border-radius: 3px;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    line-height: 1.5;
+  }
+
+  .woordenschat-kader .ws-grid li:hover {
+    background: rgba(200,146,58,0.1);
+  }
+
+  .woordenschat-kader .ws-grid li .fr {
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+
+  .woordenschat-kader .ws-grid li .nl {
+    font-size: 0.88rem;
+    color: var(--text-light);
+  }
+
+  .woordenschat-kader .ws-note {
+    margin-top: 1rem;
+    padding-top: 0.7rem;
+    border-top: 1px solid rgba(200,146,58,0.25);
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+  }
+
+  /* Recept — recipe instructional text */
+  .recept {
+    background: #F9F5F0;
+    border: 1px solid var(--sand);
+    border-radius: var(--border-radius);
+    padding: 1.8rem 2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .recept .rec-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--oker);
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .recept .rec-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  .recept .rec-intro {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    font-style: italic;
+    margin-bottom: 1.1rem;
+    display: block;
+  }
+
+  .recept .rec-sub {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--darkblue);
+    margin: 1rem 0 0.5rem;
+    display: block;
+  }
+
+  .recept ul, .recept ol {
+    padding-left: 1.3rem;
+  }
+
+  .recept ul li, .recept ol li {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    margin-bottom: 0.35rem;
+    line-height: 1.65;
+  }
+
+  .recept ol li strong {
+    color: var(--terracotta);
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <span class="label">Frans 1A</span>
+  <span class="label label-right">H6 &mdash; &Agrave; table&nbsp;!</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Frans &nbsp;&middot;&nbsp; 1A &nbsp;&middot;&nbsp; Eerste graad</div>
+  <h1>Hoofdstuk 6<br>&Agrave; table&nbsp;!</h1>
+  <p class="subtitle">Eten, drinken, bestellen &mdash; en de partitief in de praktijk</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- PROLOGUE -->
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Situation de d&eacute;part</span>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p>Het is zaterdag. Jij en je beste vriend(in) fietsen door de binnenstad. Plotseling ruik je de typische geur van verse frieten en gegrild vlees. Een terrasje lonkt. Je gaat zitten, pakt de menukaart en kijkt de ober aan &mdash; maar je weet niet goed wat je moet zeggen. <em>&laquo;&nbsp;Je voudrais&hellip;&nbsp;&raquo;</em> begin je. Gelukkig begint de ober te glimlachen. Dat is al een goed begin.</p>
+    <p>In dit hoofdstuk leer je de woorden en zinnen die je nodig hebt aan tafel, in een restaurant of aan de toonbank van een Belgische frituur. Je leert ook hoe je in het Frans omschrijft dat je <em>wat</em> van iets wil &mdash; precies dat doet de partitief.</p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 1 — LES REPAS
+  ============================================================ -->
+  <section class="section-block" id="repas">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Les repas &mdash; de maaltijden</h2>
+    </div>
+
+    <p>In Frankrijk en Belgi&euml; structureert de dag zich rond vier vaste eetmomenten. Elk heeft zijn eigen naam, tijdstip en typisch eten.</p>
+
+    <div class="woordenschat-kader">
+      <span class="ws-label">Woordenschat</span>
+      <span class="ws-title">Les quatre repas du jour</span>
+      <ul class="ws-grid">
+        <li><span class="fr">le petit-d&eacute;jeuner</span><span class="nl">het ontbijt</span></li>
+        <li><span class="fr">le d&eacute;jeuner</span><span class="nl">de lunch / het middagmaal</span></li>
+        <li><span class="fr">le go&ucirc;ter</span><span class="nl">de vieruurtje / tussendoortje</span></li>
+        <li><span class="fr">le d&icirc;ner</span><span class="nl">het avondeten</span></li>
+        <li><span class="fr">manger</span><span class="nl">eten</span></li>
+        <li><span class="fr">boire</span><span class="nl">drinken</span></li>
+        <li><span class="fr">avoir faim</span><span class="nl">honger hebben</span></li>
+        <li><span class="fr">avoir soif</span><span class="nl">dorst hebben</span></li>
+      </ul>
+    </div>
+
+    <h3 class="sub-heading">Cultuurcontext: wat eten Fransen en Belgen?</h3>
+
+    <p><strong>Le petit-d&eacute;jeuner</strong> (rond 7u&ndash;8u) is licht: een baguette of croissant met boter en confiture, eventueel een <em>pain au chocolat</em>. Je drinkt er koffie bij &mdash; of cacao voor kinderen. Fransen doppen hun croissant graag in de koffiekom.</p>
+
+    <p><strong>Le d&eacute;jeuner</strong> (rond 12u&ndash;13u) is de belangrijkste maaltijd van de dag. In Frankrijk is het gebruikelijk om een uur pauze te nemen. Een klassieke lunch bestaat uit een entr&eacute;e (soupe of salade), een plat principal (vlees of vis met groenten) en een dessert of fromage. In Belgi&euml; verschijnen hier ook <strong>frites belges</strong> regelmatig op het bord.</p>
+
+    <p><strong>Le go&ucirc;ter</strong> (rond 16u&ndash;17u) is een typisch moment voor kinderen: een boterham, een chocoladereep of een gaufre. Belgische kinderen zijn opgegroeid met de geur van vers gebakken <strong>gaufres de Li&egrave;ge</strong>. In Parijs staan kraampjes met gaufres op elke hoek.</p>
+
+    <p><strong>Le d&icirc;ner</strong> (rond 19u&ndash;20u) is in Belgi&euml; iets eenvoudiger dan in Frankrijk, maar ook hier zijn warme maaltijden de norm. Typisch Belgisch: <em>moules-frites</em>, gegratineerde witloof of stoofvlees met frieten. En als dessert? <strong>Chocolat belge</strong>, uiteraard.</p>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Vergelijk jouw eetgewoonten met die van een Franse of Belgische familie. Wat eet jij &lsquo;s ochtends? Is er een go&ucirc;ter in jouw gezin? Welke maaltijd is bij jou de belangrijkste van de dag?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 2 — LES ALIMENTS ET LES BOISSONS
+  ============================================================ -->
+  <section class="section-block" id="aliments">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Les aliments et les boissons</h2>
+    </div>
+
+    <p>Om over eten te kunnen praten, heb je een basiswoordenschat nodig. Let op het lidwoord bij elk woord: dat heb je later nodig voor de partitief!</p>
+
+    <div class="woordenschat-kader">
+      <span class="ws-label">Woordenschat</span>
+      <span class="ws-title">Les aliments &mdash; de voedingsmiddelen</span>
+      <ul class="ws-grid">
+        <li><span class="fr">le pain</span><span class="nl">het brood</span></li>
+        <li><span class="fr">le beurre</span><span class="nl">de boter</span></li>
+        <li><span class="fr">le fromage</span><span class="nl">de kaas</span></li>
+        <li><span class="fr">la viande</span><span class="nl">het vlees</span></li>
+        <li><span class="fr">le poulet</span><span class="nl">de kip</span></li>
+        <li><span class="fr">le poisson</span><span class="nl">de vis</span></li>
+        <li><span class="fr">les l&eacute;gumes</span><span class="nl">de groenten</span></li>
+        <li><span class="fr">les fruits</span><span class="nl">het fruit</span></li>
+        <li><span class="fr">les p&acirc;tes</span><span class="nl">de pasta</span></li>
+        <li><span class="fr">le riz</span><span class="nl">de rijst</span></li>
+        <li><span class="fr">les &oelig;ufs</span><span class="nl">de eieren</span></li>
+        <li><span class="fr">la salade</span><span class="nl">de sla / de salade</span></li>
+        <li><span class="fr">les pommes de terre</span><span class="nl">de aardappelen</span></li>
+        <li><span class="fr">la soupe</span><span class="nl">de soep</span></li>
+        <li><span class="fr">le g&acirc;teau</span><span class="nl">de taart / de cake</span></li>
+        <li><span class="fr">la tarte</span><span class="nl">de taart (open)</span></li>
+      </ul>
+    </div>
+
+    <div class="woordenschat-kader">
+      <span class="ws-label">Woordenschat</span>
+      <span class="ws-title">Les boissons &mdash; de dranken</span>
+      <ul class="ws-grid">
+        <li><span class="fr">l&rsquo;eau (f.)</span><span class="nl">het water</span></li>
+        <li><span class="fr">le jus d&rsquo;orange</span><span class="nl">het sinaasappelsap</span></li>
+        <li><span class="fr">le lait</span><span class="nl">de melk</span></li>
+        <li><span class="fr">le caf&eacute;</span><span class="nl">de koffie</span></li>
+        <li><span class="fr">le th&eacute;</span><span class="nl">de thee</span></li>
+        <li><span class="fr">la limonade</span><span class="nl">de limonade / het frisdrankje</span></li>
+        <li><span class="fr">le coca</span><span class="nl">de cola</span></li>
+        <li><span class="fr">le jus de pomme</span><span class="nl">het appelsap</span></li>
+      </ul>
+      <p class="ws-note">Let op: <em>l&rsquo;eau</em> is vrouwelijk (f&eacute;minin). Je schrijft dus <em>de l&rsquo;eau</em> (partitief), maar <em>j&rsquo;aime l&rsquo;eau</em> (def. lidwoord bij gevoelsuiting).</p>
+    </div>
+
+    <div class="illustratie" role="img" aria-label="Illustratie: een gedekte tafel met typische Franse maaltijdproducten">
+      <span class="ill-icon">&#127860;</span>
+      <p class="ill-caption"><em>[Illustratie: een gedekte tafel met baguette, fromage, frites en een glas water &mdash; typische ingredi&euml;nten van een Frans/Belgisch d&eacute;jeuner]</em></p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 3 — L'ARTICLE PARTITIF EN CONTEXTE
+  ============================================================ -->
+  <section class="section-block" id="partitif">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">L&rsquo;article partitif en contexte</h2>
+    </div>
+
+    <p>De partitief is een van de meest typische kenmerken van het Frans. Hij drukt uit dat je een <strong>onbepaalde hoeveelheid</strong> van iets neemt &mdash; een stukje van een groter geheel. In het Nederlands bestaat dit niet als apart lidwoord, maar je vertaalt het met &lsquo;wat&rsquo;, &lsquo;een beetje&rsquo; of helemaal niets.</p>
+
+    <div class="grammatica-kader">
+      <span class="gram-label">Grammatica</span>
+      <span class="gram-title">L&rsquo;article partitif &mdash; vormen en gebruik</span>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Geslacht / aantal</th>
+            <th>Partitief</th>
+            <th>Voorbeeld</th>
+            <th>Vertaling</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>masculin</td>
+            <td><strong>du</strong> (= de + le)</td>
+            <td><em>Je mange du pain.</em></td>
+            <td>Ik eet brood.</td>
+          </tr>
+          <tr>
+            <td>f&eacute;minin</td>
+            <td><strong>de la</strong></td>
+            <td><em>Je mange de la viande.</em></td>
+            <td>Ik eet vlees.</td>
+          </tr>
+          <tr>
+            <td>voor klinker / h muet</td>
+            <td><strong>de l&rsquo;</strong></td>
+            <td><em>Je bois de l&rsquo;eau.</em></td>
+            <td>Ik drink water.</td>
+          </tr>
+          <tr>
+            <td>pluriel</td>
+            <td><strong>des</strong></td>
+            <td><em>Je mange des l&eacute;gumes.</em></td>
+            <td>Ik eet groenten.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="gram-rule">
+        <strong>Partitief vs. onbepaald lidwoord:</strong><br>
+        &bull; <em>Je mange <strong>une</strong> pomme.</em> &rarr; ik eet &eacute;&eacute;n hele appel (telbaar, volledig object)<br>
+        &bull; <em>Je mange <strong>de la</strong> tarte.</em> &rarr; ik eet wat taart (niet-telbaar, een deel van het geheel)
+      </div>
+
+      <div class="gram-rule">
+        <strong>Na een negatie: altijd <em>de</em> (of <em>d&rsquo;</em>)!</strong><br>
+        &bull; <em>Je mange <strong>du</strong> poulet.</em> &rarr; <em>Je ne mange <strong>pas de</strong> poulet.</em><br>
+        &bull; <em>Je bois <strong>de l&rsquo;</strong>eau.</em> &rarr; <em>Je ne bois <strong>pas d&rsquo;</strong>eau.</em><br>
+        &bull; <em>Je mange <strong>des</strong> frites.</em> &rarr; <em>Je ne mange <strong>pas de</strong> frites.</em>
+      </div>
+
+      <div class="gram-rule">
+        <strong>Vergelijk met het bepaald lidwoord:</strong> gebruik het bepaald lidwoord (<em>le, la, les</em>) als je het over <em>de categorie</em> spreekt, niet over een hoeveelheid.<br>
+        &bull; <em>J&rsquo;aime <strong>le</strong> chocolat.</em> &rarr; Ik hou van chocolade (in het algemeen)<br>
+        &bull; <em>Je mange <strong>du</strong> chocolat.</em> &rarr; Ik eet (wat) chocolade (nu, op dit moment)
+      </div>
+
+      <p class="gram-note">Tip: bij twijfel, stel jezelf de vraag: spreek ik over een concrete hoeveelheid (<em>wat</em>)? Dan is het de partitief. Spreek ik over de categorie, voorkeur of afkeer? Dan is het het bepaald lidwoord.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 4 — EXPRIMER LES GOÛTS
+  ============================================================ -->
+  <section class="section-block" id="gouts">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Exprimer les go&ucirc;ts &mdash; voorkeuren uitdrukken</h2>
+    </div>
+
+    <p>Om te zeggen wat je lekker of niet lekker vindt, gebruik je vaste uitdrukkingen. Het cruciale punt: bij werkwoorden die een <strong>gevoel</strong> uitdrukken (aimer, adorer, pr&eacute;f&eacute;rer, d&eacute;tester) gebruik je het <strong>bepaald lidwoord</strong>, niet de partitief.</p>
+
+    <div class="grammatica-kader">
+      <span class="gram-label">Grammatica</span>
+      <span class="gram-title">Les verbes de go&ucirc;t + article d&eacute;fini</span>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Werkwoord</th>
+            <th>Betekenis</th>
+            <th>Voorbeeld</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>j&rsquo;aime</strong></td>
+            <td>ik hou van</td>
+            <td><em>J&rsquo;aime le fromage.</em></td>
+          </tr>
+          <tr>
+            <td><strong>j&rsquo;adore</strong></td>
+            <td>ik ben dol op</td>
+            <td><em>J&rsquo;adore le chocolat belge.</em></td>
+          </tr>
+          <tr>
+            <td><strong>je pr&eacute;f&egrave;re</strong></td>
+            <td>ik geef de voorkeur aan</td>
+            <td><em>Je pr&eacute;f&egrave;re les frites aux p&acirc;tes.</em></td>
+          </tr>
+          <tr>
+            <td><strong>je n&rsquo;aime pas</strong></td>
+            <td>ik hou niet van</td>
+            <td><em>Je n&rsquo;aime pas la soupe.</em></td>
+          </tr>
+          <tr>
+            <td><strong>je d&eacute;teste</strong></td>
+            <td>ik vind... vreselijk</td>
+            <td><em>Je d&eacute;teste les &oelig;ufs.</em></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="gram-rule">
+        <strong>De gouden regel:</strong><br>
+        <em>Aimer / adorer / pr&eacute;f&eacute;rer / d&eacute;tester</em> + <strong>artikel d&eacute;fini</strong> (le / la / les)<br>
+        <em>Manger / boire / prendre / avoir</em> + <strong>artikel partitif</strong> (du / de la / de l&rsquo; / des)
+      </div>
+
+      <div class="gram-rule">
+        <strong>Voorbeeldvergelijking:</strong><br>
+        &bull; <em>J&rsquo;aime <strong>le</strong> chocolat.</em> &mdash; Ik hou van chocolade. (gevoel, algemeen)<br>
+        &bull; <em>Je mange <strong>du</strong> chocolat.</em> &mdash; Ik eet chocolade. (handeling, hoeveelheid)<br><br>
+        &bull; <em>J&rsquo;adore <strong>les</strong> frites.</em> &mdash; Ik ben dol op frieten. (gevoel)<br>
+        &bull; <em>Je mange <strong>des</strong> frites.</em> &mdash; Ik eet frieten. (handeling)
+      </div>
+
+      <p class="gram-note">Onthoud: de partitief beantwoordt de vraag &lsquo;hoeveel / wat?&rsquo;, het bepaald lidwoord beantwoordt de vraag &lsquo;van wat houd je?&rsquo;</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 5 — AU RESTAURANT / À LA CANTINE
+  ============================================================ -->
+  <section class="section-block" id="restaurant">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Au restaurant &mdash; &Agrave; la cantine</h2>
+    </div>
+
+    <p>In een Frans of Belgisch restaurant wil je je kunnen redden. De volgende uitdrukkingen zijn essentieel, zowel als klant als als ober.</p>
+
+    <div class="woordenschat-kader">
+      <span class="ws-label">Woordenschat</span>
+      <span class="ws-title">Phrases utiles au restaurant</span>
+      <ul class="ws-grid">
+        <li><span class="fr">Je voudrais&hellip;</span><span class="nl">Ik zou graag willen&hellip;</span></li>
+        <li><span class="fr">Je prends&hellip;</span><span class="nl">Ik neem&hellip;</span></li>
+        <li><span class="fr">Pour moi,&hellip;</span><span class="nl">Voor mij,&hellip;</span></li>
+        <li><span class="fr">Avez-vous&hellip; ?</span><span class="nl">Heeft u&hellip; ?</span></li>
+        <li><span class="fr">Qu&rsquo;est-ce que vous recommandez ?</span><span class="nl">Wat raadt u aan?</span></li>
+        <li><span class="fr">C&rsquo;est combien ?</span><span class="nl">Hoeveel kost dat?</span></li>
+        <li><span class="fr">L&rsquo;addition, s&rsquo;il vous pla&icirc;t.</span><span class="nl">De rekening, alstublieft.</span></li>
+        <li><span class="fr">C&rsquo;est d&eacute;licieux !</span><span class="nl">Het is heerlijk!</span></li>
+        <li><span class="fr">C&rsquo;est trop sal&eacute;.</span><span class="nl">Het is te zout.</span></li>
+        <li><span class="fr">Je suis allergique &agrave;&hellip;</span><span class="nl">Ik ben allergisch voor&hellip;</span></li>
+        <li><span class="fr">Sans viande, s&rsquo;il vous pla&icirc;t.</span><span class="nl">Zonder vlees, alstublieft.</span></li>
+        <li><span class="fr">Bonne app&eacute;tit !</span><span class="nl">Smakelijk!</span></li>
+        <li><span class="fr">la carte / le menu</span><span class="nl">de menukaart / het menu</span></li>
+        <li><span class="fr">l&rsquo;entr&eacute;e (f.)</span><span class="nl">het voorgerecht</span></li>
+        <li><span class="fr">le plat principal</span><span class="nl">het hoofdgerecht</span></li>
+        <li><span class="fr">le dessert</span><span class="nl">het nagerecht</span></li>
+      </ul>
+    </div>
+
+    <div class="gesprek">
+      <span class="gesp-label">Dialogue</span>
+      <span class="gesp-title">Au restaurant &laquo;&nbsp;Le Petit Belge&nbsp;&raquo;</span>
+
+      <div class="gesp-line">
+        <span class="gesp-speaker">Serveur&nbsp;:</span>
+        <span class="gesp-text">Bonjour ! Vous avez choisi ?</span>
+      </div>
+      <div class="gesp-line">
+        <span class="gesp-speaker">Clara&nbsp;:</span>
+        <span class="gesp-text">Oui. Je voudrais de la soupe de l&eacute;gumes comme entr&eacute;e, s&rsquo;il vous pla&icirc;t.</span>
+      </div>
+      <div class="gesp-line">
+        <span class="gesp-speaker">Serveur&nbsp;:</span>
+        <span class="gesp-text">Tr&egrave;s bien. Et comme plat principal ?</span>
+      </div>
+      <div class="gesp-line">
+        <span class="gesp-speaker">Clara&nbsp;:</span>
+        <span class="gesp-text">Je prends des moules-frites. Avez-vous de la sauce mayonnaise ?</span>
+      </div>
+      <div class="gesp-line">
+        <span class="gesp-speaker">Serveur&nbsp;:</span>
+        <span class="gesp-text">Bien s&ucirc;r ! Et pour vous, monsieur ?</span>
+      </div>
+      <div class="gesp-line">
+        <span class="gesp-speaker">Lucas&nbsp;:</span>
+        <span class="gesp-text">Pour moi, du poulet r&ocirc;ti avec des pommes de terre, s&rsquo;il vous pla&icirc;t. Je ne mange pas de poisson.</span>
+      </div>
+      <div class="gesp-line">
+        <span class="gesp-speaker">Serveur&nbsp;:</span>
+        <span class="gesp-text">Pas de probl&egrave;me. Et comme boisson ?</span>
+      </div>
+      <div class="gesp-line">
+        <span class="gesp-speaker">Clara&nbsp;:</span>
+        <span class="gesp-text">De l&rsquo;eau min&eacute;rale pour moi.</span>
+      </div>
+      <div class="gesp-line">
+        <span class="gesp-speaker">Lucas&nbsp;:</span>
+        <span class="gesp-text">Et un jus d&rsquo;orange pour moi, s&rsquo;il vous pla&icirc;t.</span>
+      </div>
+      <div class="gesp-line">
+        <span class="gesp-speaker">Serveur&nbsp;:</span>
+        <span class="gesp-text">Parfait. Bonne app&eacute;tit !</span>
+      </div>
+      <div class="gesp-line" style="margin-top:1rem; padding-top:0.8rem; border-top: 1px solid rgba(26,43,74,0.1);">
+        <span class="gesp-speaker">Lucas&nbsp;:</span>
+        <span class="gesp-text">C&rsquo;&eacute;tait d&eacute;licieux ! L&rsquo;addition, s&rsquo;il vous pla&icirc;t.</span>
+      </div>
+      <div class="gesp-line">
+        <span class="gesp-speaker">Serveur&nbsp;:</span>
+        <span class="gesp-text">Voil&agrave;. &Ccedil;a fait trente-deux euros cinquante, s&rsquo;il vous pla&icirc;t.</span>
+      </div>
+      <div class="gesp-line">
+        <span class="gesp-speaker">Clara&nbsp;:</span>
+        <span class="gesp-text">Voici quarante euros. Gardez la monnaie !</span>
+      </div>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Zoek in het gesprek alle partitieve lidwoorden op (du, de la, de l&rsquo;, des). Waarom gebruikt Lucas &lsquo;<em>pas de poisson</em>&rsquo; en niet &lsquo;<em>pas du poisson</em>&rsquo;? Wat is de regel?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 6 — LES QUANTITÉS
+  ============================================================ -->
+  <section class="section-block" id="quantites">
+    <div class="section-heading">
+      <span class="section-num">6</span>
+      <h2 class="section-title">Les quantit&eacute;s &mdash; hoeveelheden</h2>
+    </div>
+
+    <p>Als je een exacte hoeveelheid noemt, gebruik je een <strong>uitdrukking van hoeveelheid</strong> gevolgd door <em>de</em> (of <em>d&rsquo;</em> voor klinkers) &mdash; <em>nooit</em> met een lidwoord erna.</p>
+
+    <div class="grammatica-kader">
+      <span class="gram-label">Grammatica</span>
+      <span class="gram-title">Les expressions de quantit&eacute; + de</span>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Uitdrukking</th>
+            <th>Vertaling</th>
+            <th>Voorbeeld</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>un kilo de</strong></td>
+            <td>een kilo</td>
+            <td><em>un kilo de pommes de terre</em></td>
+          </tr>
+          <tr>
+            <td><strong>un litre de</strong></td>
+            <td>een liter</td>
+            <td><em>un litre de lait</em></td>
+          </tr>
+          <tr>
+            <td><strong>une bouteille de</strong></td>
+            <td>een fles</td>
+            <td><em>une bouteille d&rsquo;eau</em></td>
+          </tr>
+          <tr>
+            <td><strong>une tranche de</strong></td>
+            <td>een snee / plak</td>
+            <td><em>une tranche de pain</em></td>
+          </tr>
+          <tr>
+            <td><strong>un morceau de</strong></td>
+            <td>een stuk</td>
+            <td><em>un morceau de fromage</em></td>
+          </tr>
+          <tr>
+            <td><strong>beaucoup de</strong></td>
+            <td>veel</td>
+            <td><em>beaucoup de l&eacute;gumes</em></td>
+          </tr>
+          <tr>
+            <td><strong>un peu de</strong></td>
+            <td>een beetje</td>
+            <td><em>un peu de sel</em></td>
+          </tr>
+          <tr>
+            <td><strong>assez de</strong></td>
+            <td>genoeg</td>
+            <td><em>assez de riz</em></td>
+          </tr>
+          <tr>
+            <td><strong>trop de</strong></td>
+            <td>te veel</td>
+            <td><em>trop de sucre</em></td>
+          </tr>
+          <tr>
+            <td><strong>pas assez de</strong></td>
+            <td>niet genoeg</td>
+            <td><em>pas assez de viande</em></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="gram-rule">
+        <strong>Regel:</strong> na een uitdrukking van hoeveelheid gebruik je altijd <em>de</em> (of <em>d&rsquo;</em>) zonder lidwoord.<br>
+        <em>Je voudrais <strong>un kilo de</strong> pommes. (<em>niet:</em> un kilo <del>des</del> pommes)</em>
+      </div>
+
+      <div class="gram-rule">
+        <strong>In de winkel:</strong><br>
+        &bull; <em>Je voudrais deux tranches de jambon.</em> &mdash; Ik wil twee sneetjes ham.<br>
+        &bull; <em>Donnez-moi un litre de jus d&rsquo;orange.</em> &mdash; Geef me een liter sinaasappelsap.<br>
+        &bull; <em>Il y a trop de sel dans cette soupe !</em> &mdash; Er is te veel zout in deze soep!
+      </div>
+
+      <p class="gram-note">Onthoud: <em>beaucoup de, un peu de, assez de, trop de</em> worden nooit gevolgd door een lidwoord &mdash; zelfs niet <em>des</em> of <em>du</em>.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 7 — TEKST: LA GASTRONOMIE BELGE
+  ============================================================ -->
+  <section class="section-block" id="gastronomie">
+    <div class="section-heading">
+      <span class="section-num">7</span>
+      <h2 class="section-title">Tekst: La gastronomie belge</h2>
+    </div>
+
+    <p>Lees de tekst aandachtig. Let op de partitieve lidwoorden en de hoeveelheidsuitdrukkingen. Beantwoord daarna de vragen.</p>
+
+    <div class="tekst-fragment">
+      <span class="tf-label">Tekst &mdash; informatief</span>
+      <span class="tf-title">La gastronomie belge : bien plus que des frites !</span>
+      <div class="tf-body">
+        <p>La Belgique est un petit pays, mais sa cuisine est grande. Quand on pense &agrave; la Belgique, on pense souvent aux frites. Et c&rsquo;est vrai : les Belges mangent beaucoup de frites, et ils les mangent bien. Une vraie frite belge est cuite deux fois dans de la graisse de boeuf et servie dans un cornet en papier, avec de la mayonnaise maison. La premi&egrave;re friture cuit la frite &agrave; basse temp&eacute;rature pour la rendre moelleuse &agrave; l&rsquo;int&eacute;rieur ; la deuxi&egrave;me la rend croustillante &agrave; l&rsquo;ext&eacute;rieur. C&rsquo;est un art.</p>
+        <p>Mais la Belgique, c&rsquo;est aussi <strong>le chocolat</strong>. Les chocolatiers belges comme Neuhaus, Godiva et Pierre Marcolini sont connus dans le monde entier. La Belgique produit plus d&rsquo;un quart de million de tonnes de chocolat par an ! On mange du chocolat au petit-d&eacute;jeuner, on offre des bo&icirc;tes de pralines pour les f&ecirc;tes, et les enfants re&ccedil;oivent du chocolat &agrave; Pa&ccedil;ues.</p>
+        <p>Un autre symbole belge est la <strong>gaufre</strong>. Il en existe deux grandes vari&eacute;t&eacute;s : la gaufre de Bruxelles, l&eacute;g&egrave;re et rectangulaire, et la gaufre de Li&egrave;ge, plus &eacute;paisse avec du sucre perlé. On les mange nature, avec de la cr&egrave;me ou du chocolat fondu.</p>
+        <p>La <strong>bi&egrave;re</strong> est aussi tr&egrave;s importante dans la culture belge. La Belgique compte plus de 300 brasseries et produit des bi&egrave;res de haute qualit&eacute;, comme la Chimay, la Leffe ou la Duvel. En 2016, la culture belge de la bi&egrave;re a &eacute;t&eacute; reconnue patrimoine culturel immat&eacute;riel par l&rsquo;UNESCO.</p>
+        <p>Et bien s&ucirc;r, il y a les <strong>moules-frites</strong>, le plat national par excellence. Des moules fra&icirc;ches, cuites dans du vin blanc avec des l&eacute;gumes et des herbes, servies avec des frites dorées et cr&oustillantes. Un vrai festin belge !</p>
+      </div>
+      <div class="tf-vragen">
+        <span class="tf-vragen-label">Begripsvragen</span>
+        <ol>
+          <li>Wat maakt een echte Belgische friet speciaal? Noem twee kenmerken uit de tekst.</li>
+          <li>Welke drie Belgische chocolademerken worden in de tekst vermeld?</li>
+          <li>Wat is het verschil tussen een gaufre de Bruxelles en een gaufre de Li&egrave;ge?</li>
+          <li>In welk jaar werd de Belgische biercultuur erkend door UNESCO? Wat betekent &lsquo;patrimoine culturel immat&eacute;riel&rsquo;?</li>
+          <li>Zoek in de tekst twee voorbeelden van de partitief (du, de la, de l&rsquo;, des). Schrijf de volledige zinnen over.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 8 — LA RECETTE
+  ============================================================ -->
+  <section class="section-block" id="recette">
+    <div class="section-heading">
+      <span class="section-num">8</span>
+      <h2 class="section-title">La recette &mdash; een recept lezen</h2>
+    </div>
+
+    <p>Een recept is een voorbeeld van een <strong>instructieve tekst</strong>: hij geeft stap voor stap aanwijzingen in de <strong>imperatief</strong> (gebiedende wijs). Let op de werkwoordvorm: <em>prenez, ajoutez, m&eacute;langez</em> &mdash; dit is de <em>vous</em>-imperatief (beleefdheidsvorm). De persoonsvorm verdwijnt.</p>
+
+    <div class="recept">
+      <span class="rec-label">Recept</span>
+      <span class="rec-title">La recette des cr&ecirc;pes</span>
+      <span class="rec-intro">Pour 8&ndash;10 cr&ecirc;pes &middot; Pr&eacute;paration&nbsp;: 10 min &middot; Cuisson&nbsp;: 20 min</span>
+
+      <span class="rec-sub">Ingr&eacute;dients</span>
+      <ul>
+        <li>250 g de farine</li>
+        <li>3 &oelig;ufs</li>
+        <li>500 ml de lait</li>
+        <li>un peu de beurre</li>
+        <li>une pincée de sel</li>
+        <li>du sucre vanillé (facultatif)</li>
+      </ul>
+
+      <span class="rec-sub">Pr&eacute;paration</span>
+      <ol>
+        <li><strong>Mettez</strong> la farine dans un grand bol. Ajoutez le sel.</li>
+        <li><strong>Faites</strong> un puits au centre et <strong>cassez</strong> les &oelig;ufs dedans.</li>
+        <li><strong>M&eacute;langez</strong> bien avec un fouet.</li>
+        <li><strong>Ajoutez</strong> le lait progressivement, en m&eacute;langeant sans arr&ecirc;t pour &eacute;viter les grumeaux.</li>
+        <li><strong>Laissez</strong> reposer la p&acirc;te pendant 30 minutes.</li>
+        <li><strong>Faites</strong> fondre un peu de beurre dans une po&ecirc;le.</li>
+        <li><strong>Versez</strong> une petite louche de p&acirc;te et <strong>faites</strong> cuire 1 &agrave; 2 minutes de chaque c&ocirc;t&eacute;.</li>
+        <li><strong>Servez</strong> avec du sucre, de la confiture ou du chocolat fondu.</li>
+      </ol>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128221;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Taaltip</span>
+        <span class="begrip-name">L&rsquo;imp&eacute;ratif</span>
+        <p class="begrip-def">In recepten en instructies gebruik je de imperatief (<em>vous</em>-vorm). De werkwoordsvorm is identiek aan de <em>vous</em>-stam van het tegenwoordige tijd, maar zonder het woord <em>vous</em>: <em>vous m&eacute;langez</em> &rarr; <em>M&eacute;langez !</em> &nbsp;&bull;&nbsp; <em>vous ajoutez</em> &rarr; <em>Ajoutez !</em> &nbsp;&bull;&nbsp; <em>vous prenez</em> &rarr; <em>Prenez !</em></p>
+      </div>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Zoek in het recept alle partitieve lidwoorden (du, de la, des) en hoeveelheidsuitdrukkingen (un peu de, 250 g de &hellip;). Kun je uitleggen waarom elk van die voorbeelden de partitief of een hoeveelheidsuitdrukking gebruikt en niet het bepaald lidwoord?</p>
+    </div>
+  </section>
+
+  <!-- CLOSING QUOTE -->
+  <div class="closing-quote" role="note" aria-label="Slotcitaat">
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p class="cq-text">&laquo;&nbsp;La table est le seul endroit o&ugrave; on ne s&rsquo;ennuie jamais pendant la premi&egrave;re heure.&nbsp;&raquo;</p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <span class="cq-attribution">Brillat-Savarin &nbsp;&middot;&nbsp; La Physiologie du go&ucirc;t, 1825</span>
+  </div>
+
+</div><!-- end page-wrapper -->
+
+<!-- ============================================================
+     EXERCISES
+============================================================ -->
+<section class="exercises-section" id="oefeningen">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <!-- Oefening 1 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Partitief of bepaald lidwoord?</p>
+      <p style="font-size:.96rem;color:var(--text-mid);margin-bottom:.7rem;">Vul het juiste lidwoord in: <em>du / de la / de l&rsquo; / des</em> of <em>le / la / les</em>.</p>
+      <ol>
+        <li>J&rsquo;adore _____ chocolat belge.</li>
+        <li>Je mange _____ fromage avec _____ pain.</li>
+        <li>Tu bois _____ eau ou _____ jus d&rsquo;orange ?</li>
+        <li>Elle d&eacute;teste _____ poisson, mais elle mange _____ poulet tous les jours.</li>
+        <li>Nous mangeons _____ frites avec _____ mayonnaise.</li>
+        <li>Ils pr&eacute;f&egrave;rent _____ p&acirc;tes aux _____ riz.</li>
+        <li>Il ne boit pas _____ caf&eacute;.</li>
+        <li>Je voudrais _____ soupe, s&rsquo;il vous pla&icirc;t.</li>
+      </ol>
+      <p class="ex-tip">Tip: vraag jezelf bij elke zin af: is dit een voorkeur/gevoel (bepaald lidwoord) of een handeling/hoeveelheid (partitief)?</p>
+    </div>
+
+    <!-- Oefening 2 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Rollenspel: au restaurant</p>
+      <p style="font-size:.96rem;color:var(--text-mid);margin-bottom:.7rem;">Schrijf een kort gesprek (8&ndash;10 lijnen) in een restaurant. Gebruik de zinnen uit het woordenschatkader (sectie 5). Verwerk minstens:</p>
+      <ul>
+        <li>&eacute;&eacute;n bestelling met <em>Je voudrais&hellip;</em></li>
+        <li>&eacute;&eacute;n vraag met <em>Avez-vous&hellip; ?</em></li>
+        <li>&eacute;&eacute;n zin met een partitief lidwoord</li>
+        <li>&eacute;&eacute;n negatieve zin (<em>Je ne mange pas de&hellip;</em>)</li>
+        <li>de rekening vragen</li>
+      </ul>
+      <p class="ex-tip">Tip: oefen het gesprek daarna luidop met een klasgenoot. Let op de uitspraak van <em>je voudrais</em> [zhuh voo-dreh].</p>
+    </div>
+
+    <!-- Oefening 3 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Gevoelens over eten &mdash; J&rsquo;aime / Je mange</p>
+      <p style="font-size:.96rem;color:var(--text-mid);margin-bottom:.7rem;">Schrijf voor elk voedingsmiddel twee zinnen: &eacute;&eacute;n met een gevoel (aimer/adorer/d&eacute;tester) en &eacute;&eacute;n met een handeling (manger/boire). Gebruik het juiste lidwoord!</p>
+      <ol>
+        <li>le chocolat</li>
+        <li>les l&eacute;gumes</li>
+        <li>le lait</li>
+        <li>la soupe</li>
+      </ol>
+      <p class="ex-tip">Voorbeeld: <em>J&rsquo;adore le chocolat. / Je mange du chocolat chaque soir.</em></p>
+    </div>
+
+    <!-- Oefening 4 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 4</p>
+      <p class="ex-name">Begrijpend lezen &mdash; La gastronomie belge</p>
+      <p style="font-size:.96rem;color:var(--text-mid);margin-bottom:.7rem;">Beantwoord de begripsvragen bij de tekst in sectie 7 in volledige zinnen in het Nederlands. Gebruik de tekst als referentie.</p>
+      <ol>
+        <li>Wat zijn de twee kenmerken van een echte Belgische friet?</li>
+        <li>Wat voor tekst is &lsquo;La gastronomie belge&rsquo;: narratief, descriptief, argumentatief of instructief? Motiveer je antwoord met &eacute;&eacute;n voorbeeld uit de tekst.</li>
+        <li>Zoek in de tekst het antwoord: hoeveel ton chocolade produceert Belgi&euml; per jaar?</li>
+      </ol>
+    </div>
+
+    <!-- Oefening 5 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 5</p>
+      <p class="ex-name">Les quantit&eacute;s &mdash; hoeveelheden invullen</p>
+      <p style="font-size:.96rem;color:var(--text-mid);margin-bottom:.7rem;">Vul de juiste hoeveelheidsuitdrukking + <em>de</em> in. Kies uit: <em>un kilo / une bouteille / une tranche / un morceau / beaucoup / un peu / trop / assez</em>.</p>
+      <ol>
+        <li>Je voudrais _____ _____ fromage, s&rsquo;il vous pla&icirc;t.</li>
+        <li>Achète _____ _____ pommes de terre au march&eacute;.</li>
+        <li>Il met _____ _____ sel &mdash; la soupe est immangeable !</li>
+        <li>Tu veux _____ _____ pain avec ton soupe ?</li>
+        <li>Nous avons _____ _____ l&eacute;gumes dans le frigo.</li>
+        <li>Il n&rsquo;y a pas _____ _____ riz pour tout le monde.</li>
+      </ol>
+      <p class="ex-tip">Let op: na hoeveelheidsuitdrukkingen gebruik je nooit een lidwoord: <em>un kilo de fromage</em>, niet <em>un kilo du fromage</em>.</p>
+    </div>
+
+    <!-- Oefening 6 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 6</p>
+      <p class="ex-name">Schrijf een kort menu</p>
+      <p style="font-size:.96rem;color:var(--text-mid);margin-bottom:.7rem;">Schrijf een menu voor je eigen restaurant. Kies een naam voor je restaurant en schrijf voor elke onderdeel van het menu &eacute;&eacute;n of twee gerechten in het Frans. Je mag creatief zijn!</p>
+      <ul>
+        <li><strong>Les entr&eacute;es</strong> (voorgerechten): twee keuzes</li>
+        <li><strong>Les plats principaux</strong> (hoofdgerechten): drie keuzes</li>
+        <li><strong>Les desserts</strong> (nagerechten): twee keuzes</li>
+        <li><strong>Les boissons</strong> (dranken): drie keuzes</li>
+      </ul>
+      <p style="font-size:.96rem;color:var(--text-mid);margin-top:.5rem;">Schrijf daarna &eacute;&eacute;n zin per gerecht waarom jij het aanraadt: gebruik <em>C&rsquo;est d&eacute;licieux !</em>, <em>Je recommande&hellip;</em> of <em>C&rsquo;est une sp&eacute;cialit&eacute; de la maison.</em></p>
+      <p class="ex-tip">Gebruik de woordenschat uit secties 2 en 5 als inspiratie.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SUMMARY
+============================================================ -->
+<section class="summary-section" id="samenvatting">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>Les quatre repas</strong>: le petit-d&eacute;jeuner, le d&eacute;jeuner, le go&ucirc;ter, le d&icirc;ner. Elke maaltijd heeft eigen gewoonten in de Franse en Belgische cultuur.</li>
+      <li><strong>Woordenschat aliments en boissons</strong>: ken het geslacht van elk woord &mdash; dat bepaalt welk partitief lidwoord je gebruikt.</li>
+      <li><strong>L&rsquo;article partitif</strong>: <em>du</em> (m.), <em>de la</em> (f.), <em>de l&rsquo;</em> (klinker/h muet), <em>des</em> (mv.). Gebruik het voor een onbepaalde hoeveelheid van iets. Na een negatie: altijd <em>de / d&rsquo;</em>.</li>
+      <li><strong>Partitief vs. bepaald lidwoord</strong>: bij werkwoorden van gevoel (aimer, adorer, pr&eacute;f&eacute;rer, d&eacute;tester) gebruik je het <em>bepaald</em> lidwoord. Bij manger/boire gebruik je de <em>partitief</em>.</li>
+      <li><strong>Au restaurant</strong>: <em>Je voudrais&hellip;, Je prends&hellip;, Avez-vous&hellip; ?, L&rsquo;addition, s&rsquo;il vous pla&icirc;t, C&rsquo;est combien ?</em></li>
+      <li><strong>Les quantit&eacute;s</strong>: hoeveelheidsuitdrukkingen (un kilo de, beaucoup de, un peu de, &hellip;) worden altijd gevolgd door <em>de</em> zonder lidwoord.</li>
+      <li><strong>La gastronomie belge</strong>: frites (dubbel gebakken in rundvet), chocolat (kwart miljoen ton/jaar), gaufres (Bruxelles en Li&egrave;ge), bi&egrave;res (UNESCO-patrimonium), moules-frites.</li>
+      <li><strong>L&rsquo;imp&eacute;ratif in recepten</strong>: de <em>vous</em>-imperatief geeft aanwijzingen zonder het onderwerp: <em>Ajoutez, M&eacute;langez, Prenez, Servez.</em></li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

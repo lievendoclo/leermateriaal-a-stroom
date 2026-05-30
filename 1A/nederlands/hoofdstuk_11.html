@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoofdstuk 11 — Hoe schrijf ik het goed? | Nederlands 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.25; }
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+    text-decoration: none;
+  }
+  .site-header .label-right { text-align: right; }
+
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image: radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+  .chapter-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+  .prologue .ornament-line .ornament-sym { color: var(--gold); font-size: 1.1rem; opacity: 0.8; }
+  .prologue p { font-style: italic; font-size: 1.05rem; line-height: 1.85; color: rgba(250,246,239,0.9); }
+  .prologue p + p { margin-top: 0.9em; }
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+  .begrip .begrip-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .begrip .begrip-body { flex: 1; }
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+  .begrip .begrip-def { font-size: 0.97rem; color: var(--text-mid); line-height: 1.65; margin: 0; }
+
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .denkvraag .dv-text { font-style: italic; font-size: 1rem; color: var(--text-mid); line-height: 1.7; }
+
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+  }
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ── VOORBEELDTEKST ── */
+  .voorbeeldtekst {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 2rem 2.2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .voorbeeldtekst .vt-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--darkblue);
+    opacity: 0.6;
+    margin-bottom: 0.4rem;
+    display: block;
+  }
+  .voorbeeldtekst .vt-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 0.3rem;
+  }
+  .voorbeeldtekst .vt-meta {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    margin-bottom: 1.2rem;
+    font-style: italic;
+  }
+  .voorbeeldtekst .vt-body p {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-bottom: 0.9em;
+  }
+  .voorbeeldtekst .vt-body p:last-child { margin-bottom: 0; }
+  .voorbeeldtekst .vt-source {
+    margin-top: 1rem;
+    font-size: 0.78rem;
+    color: var(--text-light);
+    border-top: 1px solid var(--sand);
+    padding-top: 0.6rem;
+    font-style: italic;
+  }
+
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+  .exercise-card ol, .exercise-card ul { padding-left: 1.4rem; margin-top: 0.5rem; }
+  .exercise-card li { margin-bottom: 0.45rem; font-size: 0.96rem; color: var(--text-mid); }
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+  .summary-section ul { list-style: none; padding: 0; }
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0; top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem; right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px; height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  .prose-text { max-width: 100%; }
+  .highlighted-para {
+    background: rgba(212,160,23,0.08);
+    border-left: 3px solid var(--gold);
+    padding: 0.8rem 1.1rem;
+    border-radius: 0 4px 4px 0;
+    margin: 1.2rem 0;
+    font-size: 0.97rem;
+    color: var(--text-mid);
+  }
+
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section, .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .voorbeeldtekst { padding: 1.4rem 1.2rem; }
+  }
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header" id="top">
+  <a class="label" href="index.html">Nederlands 1A</a>
+  <span class="label label-right">Hoofdstuk 11</span>
+</header>
+
+<div class="chapter-hero">
+  <div class="chapter-kicker">Nederlands &nbsp;·&nbsp; 1A &nbsp;·&nbsp; Eerste graad</div>
+  <h1>Hoofdstuk 11<br>Hoe schrijf ik het goed?</h1>
+  <p class="subtitle">De regels die jouw tekst netjes en begrijpelijk maken</p>
+</div>
+
+<div class="page-wrapper">
+
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Stel je voor &hellip;</span>
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+
+    <p>Thomas is veertien en zoekt een vakantiejob als kassier in de buurtwinkel. Hij heeft een goed verhaal: hij is stipt, vriendelijk en werkt graag met mensen. Hij neemt de tijd en schrijft een zorgvuldige sollicitatiemail. Zijn motivatie is oprecht, zijn ervaring klinkt overtuigend. Maar dan: <em>"ik werk al twee jaar als babysitter en heb dus al verantwoodelijkheid opgenomen. mijn school resultaten zijn goed en ik ben leergierieg."</em> De eigenaar leest niet verder. De mail gaat de prullenmand in.</p>
+
+    <p>Diezelfde week stuurt Lena, een klasgenote van Thomas met exact dezelfde kwaliteiten, haar eigen sollicitatiemail. Haar tekst is niet spectaculairder, maar elke zin klopt. Geen spelfouten, correcte leestekens, duidelijke alinea's. Twee dagen later krijgt ze een uitnodiging voor een gesprek.</p>
+
+    <p>Spelling lijkt klein. Maar voor een lezer die je niet kent, is jouw tekst het enige wat telt. Een spelfout zegt: <em>ik heb dit niet nagekeken.</em> En als je je sollicitatiebrief niet nakijkt, wat zeg je dan over hoe je zult omgaan met de kassa, de klanten, de verantwoordelijkheid?</p>
+
+    <p>Spelling en interpunctie zijn geen doel op zich. Ze zijn een teken van respect voor je lezer — en voor jezelf. In dit hoofdstuk leer je de belangrijkste regels, zodat jouw teksten altijd de eerste horde nemen.</p>
+
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+  </section>
+
+  <section class="section-block" id="s1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Klank en schriftbeeld</h2>
+    </div>
+    <div class="prose-text">
+      <p>Het Nederlands is een vrij <strong>fonetisch</strong> geschreven taal: je schrijft grotendeels wat je hoort. Maar "grotendeels" is niet "altijd". Er zijn regels die bepalen wanneer je een klank op welke manier opschrijft. De allerbelangrijkste regel gaat over <strong>korte en lange klanken</strong>.</p>
+
+      <p>Vergelijk de woorden <em>kat</em> en <em>kaat</em> (een Vlaamse naam), of <em>bot</em> en <em>boot</em>. Je hoort meteen het verschil: de klinker in <em>kat</em> en <em>bot</em> klinkt kort en krap; die in <em>kaat</em> en <em>boot</em> klinkt langer en open. Die tegenstelling — kort versus lang — bepaalt hoe we spellen.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Korte klank</span>
+        <p class="begrip-def">Een korte klank klinkt snel en gesloten. Voorbeelden: de <em>a</em> in <em>kat</em>, de <em>e</em> in <em>bed</em>, de <em>i</em> in <em>pit</em>, de <em>o</em> in <em>bot</em>, de <em>u</em> in <em>bus</em>. Een korte klank wordt in de spelling weergegeven door één klinker.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Lange klank</span>
+        <p class="begrip-def">Een lange klank klinkt open en aangehouden. Voorbeelden: de <em>aa</em> in <em>maan</em>, de <em>ee</em> in <em>been</em>, de <em>oo</em> in <em>boom</em>, de <em>uu</em> in <em>muur</em>. Een lange klank wordt geschreven als twee gelijke klinkers (in een gesloten lettergreep) of als één klinker (in een open lettergreep).</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>Of je een klank met één of twee letters schrijft, hangt af van de <strong>lettergreep</strong>. Een lettergreep is het kleinste ritmische stukje van een woord. <em>Ka-ten</em> heeft twee lettergrepen; <em>kaat</em> heeft er één.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Open lettergreep</span>
+        <p class="begrip-def">Een open lettergreep eindigt op een klinker: <em>lo-</em> in <em>lopen</em>, <em>ma-</em> in <em>maken</em>. In een open lettergreep schrijf je een lange klank met slechts één klinker.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Gesloten lettergreep</span>
+        <p class="begrip-def">Een gesloten lettergreep eindigt op een medeklinker: <em>bal-</em> in <em>ballen</em>, <em>bot</em> in <em>bot</em>. Een lange klank in een gesloten lettergreep schrijf je met twee gelijke klinkers (<em>baal</em>, <em>boot</em>).</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>Dit verklaart twee klassieke spellingvragen:</p>
+      <p><strong>Waarom schrijf je <em>lopen</em> en niet <em>loopen</em>?</strong> In <em>lo-pen</em> is <em>lo-</em> een open lettergreep. De lange <em>oo</em>-klank wordt in een open lettergreep geschreven als één letter: <em>o</em>. Schrijf je <em>loopen</em>, dan heb je een dubbele <em>oo</em> in een open lettergreep — dat mag niet.</p>
+      <p><strong>Waarom schrijf je <em>ballen</em> en niet <em>balen</em>?</strong> In <em>bal-len</em> is de eerste lettergreep <em>bal-</em>, een gesloten lettergreep met een korte <em>a</em>. Om die korte klank te bewaren bij het meervoud, verdubbel je de medeklinker: <em>bal → ballen</em>. Zou je <em>balen</em> schrijven, dan lees je de eerste lettergreep als open (<em>ba-</em>), en dus met een lange <em>a</em> — en dan klinkt het als <em>baal → balen</em> (klagen).</p>
+    </div>
+
+    <div class="illustratie">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Schema met twee kolommen: links gesloten lettergrepen (bal, bot, bed) met korte klinker en dubbelconsonant bij meervoud; rechts open lettergrepen (ba-len, lo-pen, ma-ken) met lange klinker in één letter. Pijlen tonen de overgang van enkelvoud naar meervoud of persoonsvorm.</p>
+    </div>
+  </section>
+
+  <section class="section-block" id="s2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Werkwoordspelling: de lastigste regels</h2>
+    </div>
+    <div class="prose-text">
+      <p>Werkwoordspelling is voor veel leerlingen het moeilijkste deel van de Nederlandse spelling. De twee grootste struikelblokken zijn het <strong>t-kje</strong> en het verschil tussen <strong>-d</strong> en <strong>-t</strong> aan het einde van werkwoordsvormen.</p>
+
+      <h3 style="font-family:'Playfair Display',serif; font-size:1.2rem; color:var(--darkblue); margin: 1.4rem 0 0.8rem;">Het t-kje: stam + t</h3>
+      <p>De persoonsvorm in de tegenwoordige tijd volgt een vaste regel. Je vertrekt altijd vanuit de <strong>stam</strong> van het werkwoord. De stam is de infinitief (de basisvorm) min de uitgang <em>-en</em>: <em>lopen → loop</em>, <em>werken → werk</em>, <em>leven → leef</em> (let op: v wordt f).</p>
+      <p>Daarna pas je de volgende regel toe:</p>
+      <ul style="padding-left:1.4rem; margin-bottom:1.1em;">
+        <li>Ik: stam zonder extra uitgang → <em>ik loop, ik werk</em></li>
+        <li>Jij/jij achter het werkwoord: stam zonder <em>t</em> → <em>loop jij?, werk jij?</em></li>
+        <li>Hij/zij/het, jij voor het werkwoord, u: stam + <em>t</em> → <em>hij loopt, zij werkt</em></li>
+        <li>Wij/jullie/zij: infinitief → <em>wij lopen, jullie werken</em></li>
+      </ul>
+      <p>Let op de omkeervraag: <em>Jij loopt</em> maar <em>Loop jij?</em> — zodra <em>jij</em> of <em>je</em> na het werkwoord komt, valt de <em>t</em> weg.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Persoonsvorm</span>
+        <p class="begrip-def">De persoonsvorm is de werkwoordsvorm die vervoegd is naar persoon (ik, jij, hij…) en tijd (tegenwoordig, verleden). De persoonsvorm is de kern van de hoofdzin.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Stam</span>
+        <p class="begrip-def">De stam van een werkwoord is de basisvorm min de uitgang <em>-en</em>. Voorbeeld: <em>werken → werk</em>, <em>rijden → rijd</em>, <em>leven → leef</em> (v → f), <em>reizen → reis</em> (z → s).</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <h3 style="font-family:'Playfair Display',serif; font-size:1.2rem; color:var(--darkblue); margin: 1.4rem 0 0.8rem;">Het voltooid deelwoord: 't kofschip</h3>
+      <p>Bij het voltooid deelwoord (gebruikt voor voltooide tijden: <em>ik heb gewerkt</em>) moet je weten of het eindigt op <em>-t</em> of op <em>-d</em>. De ezelsbruggetje <strong>'t kofschip</strong> (of de variant <strong>'t fokschaap</strong>) helpt je daarbij.</p>
+      <p>Kijk naar de <strong>laatste letter van de stam</strong>. Staat die letter in het woord <em>kofschip</em> (= k, f, s, ch, p)? Dan schrijf je het voltooid deelwoord met <em>-t</em>: <em>werken → gewerkt</em>, <em>stoppen → gestopt</em>. Staat die letter er niet in? Dan schrijf je met <em>-d</em>: <em>leven → geleefd</em>, <em>rijden → gereden</em>.</p>
+
+      <p><strong>Stap voor stap:</strong></p>
+      <ul style="padding-left:1.4rem; margin-bottom:1.1em;">
+        <li><em>werken</em>: stam = <em>werk</em>, laatste letter = <em>k</em> → staat in <em>kofschip</em> → <strong>gewerkt</strong></li>
+        <li><em>leven</em>: stam = <em>leef</em> (v → f), laatste letter = <em>f</em> → staat in <em>kofschip</em> → toch <strong>geleefd</strong>? Nee — je kijkt naar de originele stam vóór de v/f-omzetting: <em>leev</em>, dus <em>v</em> staat niet in <em>kofschip</em> → <strong>geleefd</strong></li>
+        <li><em>stoppen</em>: stam = <em>stop</em>, laatste letter = <em>p</em> → staat in <em>kofschip</em> → <strong>gestopt</strong></li>
+        <li><em>reizen</em>: stam = <em>reis</em> (z → s), maar de originele letter is <em>z</em>, staat niet in <em>kofschip</em> → <strong>gereisd</strong></li>
+      </ul>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Voltooid deelwoord</span>
+        <p class="begrip-def">Het voltooid deelwoord is de werkwoordsvorm die samen met een hulpwerkwoord de voltooide tijden vormt. Het begint met <em>ge-</em> en eindigt op <em>-t</em> of <em>-d</em>: <em>gelopen, gewerkt, geleefd</em>. De keuze tussen <em>-t</em> en <em>-d</em> hangt af van de laatste letter van de stam.</p>
+      </div>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">Schrijf je <em>hij antwoord</em> of <em>hij antwoordt</em>? En wat is het voltooid deelwoord van <em>antwoorden</em>? Doorloop de stappen: wat is de stam, welke letter eindigt de stam, staat die in <em>'t kofschip</em>?</p>
+    </div>
+  </section>
+
+  <section class="section-block" id="s3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Vast en veranderlijk woordbeeld</h2>
+    </div>
+    <div class="prose-text">
+      <p>Niet elk woord in het Nederlands volgt keurig de klankregels. Sommige woorden hebben een <strong>vast woordbeeld</strong>: ze worden altijd op dezelfde manier geschreven, ongeacht hoe ze klinken in een bepaalde context. Andere woorden hebben een <strong>veranderlijk woordbeeld</strong>: de spelling verandert mee met de grammaticale vorm.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Vast woordbeeld</span>
+        <p class="begrip-def">Een woord met een vast woordbeeld wordt altijd hetzelfde geschreven, ook al verandert de uitspraak door samentrekking of verbuiging. Je moet zulke woorden gewoon uit het hoofd kennen. Voorbeelden: <em>schijf</em> (niet <em>scheif</em>), <em>huis</em>, <em>wijs</em>, <em>ijs</em>.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Veranderlijk woordbeeld</span>
+        <p class="begrip-def">Een woord met een veranderlijk woordbeeld past zijn spelling aan op basis van de klankregels wanneer de vorm verandert. Voorbeelden: <em>maan → manen</em> (dubbele aa wordt enkele a in open lettergreep), <em>bad → bade</em>, <em>golf → golven</em> (f wordt v).</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>Bij woorden met een veranderlijk woordbeeld zie je twee typische verschijnselen:</p>
+      <ul style="padding-left:1.4rem; margin-bottom:1.1em;">
+        <li><strong>Klinkerverandering bij meervoud:</strong> <em>maan → manen</em>, <em>boom → bomen</em>, <em>fiets → fietsen</em></li>
+        <li><strong>Medeklinkerverandering (f/v en s/z):</strong> <em>golf → golven</em>, <em>brief → brieven</em>, <em>huis → huizen</em>, <em>roos → rozen</em></li>
+      </ul>
+      <p>Bij woorden met een vast woordbeeld schrijf je altijd hetzelfde, ook als de uitspraak anders zou suggereren. Je herkent ze doordat de klankregel er niet op van toepassing is.</p>
+
+      <p><strong>Korte oefening:</strong> Beslis bij elk van de volgende woorden of het een vast of veranderlijk woordbeeld heeft. Schrijf ook de meervoudsvorm:</p>
+      <ol style="padding-left:1.4rem; margin-bottom:1.1em;">
+        <li><em>tafel</em></li>
+        <li><em>roos</em></li>
+        <li><em>mes</em></li>
+        <li><em>dief</em></li>
+        <li><em>datum</em></li>
+        <li><em>been</em></li>
+        <li><em>huis</em></li>
+        <li><em>schip</em></li>
+        <li><em>brief</em></li>
+        <li><em>boek</em></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section-block" id="s4">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Diakritische tekens</h2>
+    </div>
+    <div class="prose-text">
+      <p>Diakritische tekens zijn kleine tekentjes die je bij een letter plaatst om de uitspraak of de lettergreepverdeling aan te geven. In het Nederlands gebruik je er drie: het <strong>trema</strong>, het <strong>koppelteken</strong> en de <strong>apostrof</strong>.</p>
+
+      <h3 style="font-family:'Playfair Display',serif; font-size:1.2rem; color:var(--darkblue); margin: 1.4rem 0 0.8rem;">Het trema ( ¨ )</h3>
+      <p>Een trema zijn twee puntjes boven een klinker. Je gebruikt het om aan te geven dat de klinker een nieuwe lettergreep begint, en dus niet samen met de vorige klinker één klank vormt.</p>
+      <p>Zonder trema zou je <em>geinteresseerd</em> kunnen lezen als <em>gein-te-res-seerd</em>. Met het trema weet je dat de <em>i</em> een nieuwe lettergreep begint: <em>ge-ïn-te-res-seerd</em>. Andere voorbeelden: <em>coördineren</em> (niet <em>coor-</em>), <em>zoölogie</em>, <em>reëel</em>, <em>naïef</em>.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Trema</span>
+        <p class="begrip-def">Het trema (¨) plaatst je boven een klinker om aan te geven dat die klinker een nieuwe, aparte lettergreep begint en niet samensmelt met de vorige klinker. Voorbeeld: <em>geïnteresseerd</em>, <em>coördineren</em>, <em>zoölogie</em>.</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <h3 style="font-family:'Playfair Display',serif; font-size:1.2rem; color:var(--darkblue); margin: 1.4rem 0 0.8rem;">Het koppelteken ( - )</h3>
+      <p>Het koppelteken gebruik je in een aantal specifieke gevallen:</p>
+      <ul style="padding-left:1.4rem; margin-bottom:1.1em;">
+        <li><strong>Samenstellingen waar verwarring kan ontstaan</strong>, bijvoorbeeld wanneer twee klinkers of dezelfde letters samenkomen: <em>auto-ongeluk</em>, <em>zee-egel</em></li>
+        <li><strong>Samenstellingen met een getal:</strong> <em>3-daagse reis</em>, <em>100-jarig jubileum</em></li>
+        <li><strong>Na bepaalde prefixen</strong> zoals <em>anti-, co-, ex-, non-, pro-</em>: <em>anti-agressie</em>, <em>ex-voorzitter</em>, <em>non-fictie</em></li>
+        <li><strong>Met een eigennaam als onderdeel van een samenstelling:</strong> <em>d-dag</em>, <em>Amsterdam-Noord</em>, <em>e-mail</em></li>
+      </ul>
+      <p>Let op: niet alle samenstellingen krijgen een koppelteken. <em>Voetbal</em>, <em>schooltas</em> en <em>fietspad</em> worden aaneengeschreven zonder koppelteken.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Koppelteken</span>
+        <p class="begrip-def">Het koppelteken (-) verbindt delen van een samenstelling wanneer samenvoegen onduidelijkheid of een vreemde lettercombinatie zou geven, bij getallen, na bepaalde prefixen en bij samenstellingen met een eigennaam. Voorbeelden: <em>e-mail</em>, <em>anti-agressie</em>, <em>d-dag</em>, <em>auto-ongeluk</em>.</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <h3 style="font-family:'Playfair Display',serif; font-size:1.2rem; color:var(--darkblue); margin: 1.4rem 0 0.8rem;">De apostrof ( ' )</h3>
+      <p>De apostrof gebruik je in drie gevallen:</p>
+      <ul style="padding-left:1.4rem; margin-bottom:1.1em;">
+        <li><strong>De bezitsvorm van eigennamen die eindigen op een klinker:</strong> <em>Anna's boek</em>, <em>Marie's fiets</em>, <em>Carlo's verjaardag</em>. Namen die eindigen op een medeklinker krijgen gewoon <em>-s</em> zonder apostrof: <em>Piets boek</em>, <em>Jans tas</em>.</li>
+        <li><strong>Samentrekkingen</strong> waarbij letters wegvallen: <em>'s morgens</em> (= des morgens), <em>'t jaar</em> (= het jaar)</li>
+        <li><strong>Het meervoud van afkortingen en symbolen:</strong> <em>cd's</em>, <em>sms'jes</em>, <em>abc'tje</em>. Let op: het meervoud van gewone woorden krijgt géén apostrof: <em>boeken</em>, niet <em>boeken's</em>.</li>
+      </ul>
+      <p><strong>Veelgemaakte fout:</strong> De groente-apostrof, ook wel <em>grocers' apostrophe</em> genoemd — waarbij mensen een apostrof zetten voor elke <em>-s</em>: <em>tomaten's</em>, <em>appel's</em>. Dat is fout. Gewone meervouden krijgen nooit een apostrof.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Apostrof</span>
+        <p class="begrip-def">De apostrof (') gebruik je voor de bezitsvorm van namen die eindigen op een klinker (<em>Anna's</em>), bij samentrekkingen waar letters zijn weggelaten, en bij het meervoud van afkortingen (<em>cd's</em>, <em>sms'jes</em>). Gewone meervouden van zelfstandige naamwoorden krijgen nooit een apostrof.</p>
+      </div>
+    </div>
+
+    <div class="illustratie">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Overzichtstabel met drie kolommen: Trema / Koppelteken / Apostrof. Elke kolom toont het teken, de gebruiksregel in één zin en twee voorbeeldwoorden. Fouten staan in rood doorgestreept naast de correcte spelling in groen.</p>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">Je ziet op een marktbord staan: <em>"Aardbeien's 2 euro per bak"</em> en <em>"Lena's zelfgemaakte confituur"</em>. Welke apostrof is correct en welke is fout? Leg uit waarom.</p>
+    </div>
+  </section>
+
+  <section class="section-block" id="s5">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Een tekst met fouten verbeteren</h2>
+    </div>
+    <div class="prose-text">
+      <p>Hieronder vind je een informele blogpost over een weekend aan de kust. De tekst bevat <strong>10 fouten</strong>: spelfouten, werkwoordsfouten, problemen met het trema of de apostrof, en ontbrekende of verkeerde leestekens. Lees de tekst aandachtig en probeer alle fouten te vinden en te verbeteren.</p>
+    </div>
+
+    <div class="voorbeeldtekst">
+      <span class="vt-label">Voorbeeldtekst · Informele blogpost</span>
+      <p class="vt-title">Een weekend aan de kust</p>
+      <p class="vt-meta">Blogpost met 10 opzettelijke fouten — vind ze allemaal!</p>
+      <div class="vt-body">
+        <p>Vorig weekend trokken we met ons gezin naar de kust. We vertrokken vroeg want mijn vader wou de file vermijden. Onderweg luisterde ik naar mijn favoriete podcast en at ik twee boterhammen op. Mijn zus sliep bijna de hele rit — typisch voor haar.</p>
+        <p>Toen we aankwamen was het bewolkt maar toch besloten we meteen naar het strand te gaan. Mijn neven waren er ook. Het waren Timo's vrienden en Nina's vriendinnetjes die allemaal zee-egel's hadden gevonden bij de vloedlijn. Ik vroeg of ik er ook één mocht meenemen maar mijn moeder zei nee.</p>
+        <p>s Avonds aten we friet op het terras. De eigenaar van het restaurant was vriendelijk en brengt ons zelfs gratis een extra portie saus. Daarna wandelden we langs de zeedijk. Het was koud, de wind woei hard maar we vonden het heerlijk. Mijn vader zei: "dit is beter dan welk vakantiepark ook."</p>
+        <p>Zondag ontbeet we rustig en reden daarna naar huis. Een kort weekend maar ik heb er echt van genooten. Volgend jaar wil ik er drie dagen blijven.</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p><strong>De 10 fouten en de correcties:</strong></p>
+      <ol style="padding-left:1.4rem; margin-bottom:1.1em;">
+        <li><em>We vertrokken vroeg want</em> → <em>We vertrokken vroeg, want</em> (komma voor nevenschikkend voegwoord dat een oorzaak introduceert na een inhoudelijk contrast)</li>
+        <li><em>zee-egel's</em> → <em>zee-egels</em> (gewone meervouden krijgen geen apostrof)</li>
+        <li><em>Toen we aankwamen was het</em> → <em>Toen we aankwamen, was het</em> (komma na bijzin die de hoofdzin voorafgaat)</li>
+        <li><em>s Avonds</em> → <em>'s Avonds</em> (apostrof bij samentrekking van <em>des avonds</em>)</li>
+        <li><em>brengt ons</em> → <em>bracht ons</em> (verleden tijd, niet tegenwoordige tijd; de rest staat in de verleden tijd)</li>
+        <li><em>Het was koud, de wind woei hard maar</em> → <em>Het was koud, de wind woei hard, maar</em> (komma voor <em>maar</em> als nevenschikkend voegwoord)</li>
+        <li><em>"dit is beter</em> → <em>"Dit is beter</em> (begin van een geciteerde zin krijgt een hoofdletter)</li>
+        <li><em>Zondag ontbeet we</em> → <em>Zondag ontbeten we</em> (verleden tijd meervoud van <em>ontbijten</em>: <em>ontbeten</em>, niet <em>ontbeet</em>)</li>
+        <li><em>genooten</em> → <em>genoten</em> (voltooid deelwoord van <em>genieten</em>: stam <em>geniet</em> → <em>t</em> staat in <em>'t kofschip</em>, maar de juiste vorm is <em>genoten</em> — sterke vervoeging; bovendien is de dubbele <em>oo</em> in open lettergreep fout)</li>
+        <li><em>Een kort weekend maar</em> → <em>Een kort weekend, maar</em> (komma voor <em>maar</em> als nevenschikkend voegwoord)</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section-block" id="s6">
+    <div class="section-heading">
+      <span class="section-num">6</span>
+      <h2 class="section-title">Interpunctie: de verkeerstekens van de taal</h2>
+    </div>
+    <div class="prose-text">
+      <p>Interpunctie zijn de leestekens die je gebruikt om zinnen en teksten te structureren. Net zoals verkeerstekens de bestuurder leiden op de weg, leiden leestekens de lezer door je tekst. Zonder interpunctie weet de lezer niet waar een gedachte begint of eindigt, wanneer hij moet pauzeren, en wanneer iets een vraag of uitroep is.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Interpunctie</span>
+        <p class="begrip-def">Interpunctie zijn alle leestekens die je gebruikt om tekst te structureren en de relaties tussen zinsdelen duidelijk te maken. De belangrijkste zijn: punt, komma, vraagteken, uitroepteken, dubbele punt en aanhalingstekens.</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <h3 style="font-family:'Playfair Display',serif; font-size:1.2rem; color:var(--darkblue); margin: 1.4rem 0 0.8rem;">Punt (.)</h3>
+      <p>De punt sluit een mededelende zin af. Na een punt volgt een hoofdletter. Gebruik geen punt na titels, kopjes of opsommingslijsten tenzij het volledige zinnen zijn.</p>
+      <p>Correct: <em>Het regent vandaag.</em> — Fout: <em>Het regent vandaag</em> (geen punt)</p>
+
+      <h3 style="font-family:'Playfair Display',serif; font-size:1.2rem; color:var(--darkblue); margin: 1.4rem 0 0.8rem;">Komma (,)</h3>
+      <p>De komma gebruik je in vier situaties:</p>
+      <ul style="padding-left:1.4rem; margin-bottom:1.1em;">
+        <li><strong>Opsomming:</strong> <em>Ik koop appels, peren, bananen en druiven.</em> (geen komma voor het laatste <em>en</em>)</li>
+        <li><strong>Na een bijzin die de hoofdzin voorafgaat:</strong> <em>Toen ik thuiskwam, lag mijn kat op de bank.</em></li>
+        <li><strong>Bij aanspreekvorm (directe aanrede):</strong> <em>Kom eens hier, Thomas.</em> / <em>Thomas, kom eens hier.</em></li>
+        <li><strong>Voor nevenschikkende voegwoorden</strong> als <em>maar, want, of, dus, toch</em> wanneer twee volwaardige zinnen worden verbonden: <em>Ik wilde gaan, maar het regende.</em></li>
+      </ul>
+
+      <h3 style="font-family:'Playfair Display',serif; font-size:1.2rem; color:var(--darkblue); margin: 1.4rem 0 0.8rem;">Vraagteken (?) en uitroepteken (!)</h3>
+      <p>Het vraagteken sluit een directe vraag af: <em>Wat doe jij hier?</em> Het uitroepteken sluit een uitroep, bevel of sterke emotie af: <em>Kom hier!</em>, <em>Wat een prachtige dag!</em> Gebruik uitroeptekens spaarzaam — te veel uitroeptekens verzwakken het effect.</p>
+
+      <h3 style="font-family:'Playfair Display',serif; font-size:1.2rem; color:var(--darkblue); margin: 1.4rem 0 0.8rem;">Dubbele punt (:)</h3>
+      <p>De dubbele punt kondigt iets aan: een opsomming, een verklaring of een citaat. Na een dubbele punt schrijf je met een kleine letter als het om een opsomming gaat, maar met een hoofdletter als een volledige zin of citaat volgt.</p>
+      <p>Voorbeeld: <em>Er zijn drie regels: altijd op tijd komen, je huiswerk maken en netjes schrijven.</em></p>
+
+      <h3 style="font-family:'Playfair Display',serif; font-size:1.2rem; color:var(--darkblue); margin: 1.4rem 0 0.8rem;">Aanhalingstekens (" " of ' ')</h3>
+      <p>Gebruik aanhalingstekens voor:</p>
+      <ul style="padding-left:1.4rem; margin-bottom:1.1em;">
+        <li><strong>Directe rede:</strong> <em>Ze zei: "Ik kom morgen niet."</em></li>
+        <li><strong>Titels van boeken, films, artikelen:</strong> <em>Ik heb "De avonden" gelezen.</em></li>
+        <li><strong>Ironisch gebruik:</strong> <em>Wat een "geweldig" idee.</em> (bedoeld als sarcasme)</li>
+      </ul>
+      <p>Let op de spatie: voor een aanhalingsteken staat een spatie, maar er staat geen spatie tussen het aanhalingsteken en de eerste letter van de geciteerde tekst.</p>
+
+      <h3 style="font-family:'Playfair Display',serif; font-size:1.2rem; color:var(--darkblue); margin: 1.4rem 0 0.8rem;">Spatie</h3>
+      <p>Veel mensen maken spatiëfouten. De basisregel: een leesteken staat <strong>direct</strong> na het woord ervoor (geen spatie), en daarna volgt één spatie. Veelgemaakte fouten: <em>Ik ga mee , morgen .</em> (spatie voor het leesteken) of <em>Ik ga mee,morgen.</em> (geen spatie na het leesteken).</p>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">Lees deze zin: <em>Mijn moeder zei dat ik op moest passen want de weg was glad maar ik reed toch snel</em>. Hoeveel komma's moet je toevoegen? Waar precies, en waarom?</p>
+    </div>
+  </section>
+
+  <section class="section-block" id="s7">
+    <div class="section-heading">
+      <span class="section-num">7</span>
+      <h2 class="section-title">Hoofdletters</h2>
+    </div>
+    <div class="prose-text">
+      <p>Het gebruik van hoofdletters in het Nederlands is strenger geregeld dan veel mensen denken — en het wijkt op een paar punten sterk af van het Engels.</p>
+
+      <p><strong>Wanneer schrijf je een hoofdletter?</strong></p>
+      <ul style="padding-left:1.4rem; margin-bottom:1.1em;">
+        <li>Aan het begin van een zin: <em>Het is mooi weer vandaag.</em></li>
+        <li>Bij eigennamen (namen van personen, dieren, plaatsen): <em>Lena, Brussel, de Schelde, Pluto</em></li>
+        <li>Bij namen van landen, regio's en steden: <em>België, Vlaanderen, Gent</em></li>
+        <li>Bij namen van talen en nationaliteiten: <em>Nederlands, Franstalig, Belgisch</em></li>
+        <li>Bij namen van instellingen en organisaties: <em>het Rode Kruis, de Universiteit Gent</em></li>
+        <li>Na een dubbele punt als een volledige geciteerde zin volgt: <em>Hij zei: "Ik kom niet."</em></li>
+      </ul>
+
+      <p><strong>Let op: deze schrijf je met een kleine letter in het Nederlands!</strong></p>
+      <ul style="padding-left:1.4rem; margin-bottom:1.1em;">
+        <li><strong>Seizoenen:</strong> <em>de zomer, in de herfst, komende winter</em> (niet: <em>de Zomer</em>)</li>
+        <li><strong>Dagen van de week:</strong> <em>maandag, vrijdag</em> (niet: <em>Maandag</em>)</li>
+        <li><strong>Maanden:</strong> <em>januari, oktober</em> (niet: <em>Januari</em>)</li>
+        <li><strong>Richtingen als algemeen begrip:</strong> <em>ik ga naar het noorden</em> (maar: <em>Noord-Europa</em> als eigennaam)</li>
+      </ul>
+
+      <p>Dit is een opvallend verschil met het Engels, waar <em>Monday, January</em> en <em>Spring</em> wel met een hoofdletter worden geschreven. In het Nederlands is dat dus anders.</p>
+
+      <p><strong>Oefening — zet de juiste hoofdletters:</strong></p>
+      <ol style="padding-left:1.4rem; margin-bottom:1.1em;">
+        <li>volgende maandag ga ik naar brussel.</li>
+        <li>in de zomer leer ik graag spaans.</li>
+        <li>de directeur van school heet mevrouw janssen.</li>
+        <li>mijn favoriete maand is april omdat de lente dan begint.</li>
+        <li>de vrede van gent werd in 1576 gesloten.</li>
+        <li>hij vroeg: "wanneer vertrekt de trein naar antwerpen?"</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="exercises-section" id="oefeningen">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Spelling: meervoud en vervoeging</p>
+      <p>Schrijf de juiste meervoudsvorm of de gevraagde werkwoordsvorm. Pas de spellingregels toe die je in dit hoofdstuk hebt geleerd.</p>
+      <ol>
+        <li><em>maan</em> → meervoud: ___</li>
+        <li><em>bad</em> → meervoud: ___</li>
+        <li><em>golf</em> → meervoud: ___</li>
+        <li><em>roos</em> → meervoud: ___</li>
+        <li><em>dief</em> → meervoud: ___</li>
+        <li><em>werken</em> → voltooid deelwoord: ___</li>
+        <li><em>leven</em> → voltooid deelwoord: ___</li>
+        <li><em>stoppen</em> → voltooid deelwoord: ___</li>
+        <li><em>reizen</em> → voltooid deelwoord: ___</li>
+        <li><em>lopen</em> → hij/zij (tegenwoordige tijd): ___</li>
+        <li><em>werken</em> → loop jij? (omkeervraag): ___</li>
+        <li><em>schrijven</em> → voltooid deelwoord: ___</li>
+        <li><em>lachen</em> → voltooid deelwoord: ___</li>
+        <li><em>huis</em> → meervoud: ___</li>
+        <li><em>been</em> → meervoud: ___</li>
+      </ol>
+      <p class="ex-tip">Tip: gebruik telkens de stappenregel: bepaal de stam, kijk naar de laatste letter, pas de klankregel of het t-kje toe.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Interpunctie toevoegen</p>
+      <p>De onderstaande tekst mist alle interpunctietekens. Voeg de juiste punt, komma, vraagteken, uitroepteken, dubbele punt of aanhalingstekens in op de juiste plaatsen. Schrijf de volledige gecorrigeerde tekst op.</p>
+      <div style="background:#F5F0E8; border-radius:4px; padding:1rem 1.2rem; margin:0.8rem 0; font-style:italic; font-size:0.95rem; color:var(--text-mid); line-height:1.8;">
+        Gisteren belde mijn vriendin Emma me op ze zei ik heb nieuws voor je we gaan naar Parijs ik was stomverbaasd want we hadden daar nooit eerder over gesproken zij legde uit dat haar ouders een verrassing hadden geregeld drie dagen hotel vluchten en alles inbegrepen ik vroeg wanneer vertrekken we ze antwoordde aanstaande vrijdag ik kon nauwelijks geloven wat ik hoorde wat een geweldig nieuws we moeten meteen pakken zei ik
+      </div>
+      <p class="ex-tip">Tip: let op de directe rede — die heeft aanhalingstekens én de juiste interpunctie ervóór en erna.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Fouten opsporen en verbeteren</p>
+      <p>De onderstaande alinea bevat <strong>8 fouten</strong>: spelfouten, werkwoordsfouten, fouten met diakritische tekens en hoofdletterfouten. Schrijf de alinea opnieuw, volledig gecorrigeerd, en noteer naast elke correctie welk type fout het was.</p>
+      <div style="background:#F5F0E8; border-radius:4px; padding:1rem 1.2rem; margin:0.8rem 0; font-style:italic; font-size:0.95rem; color:var(--text-mid); line-height:1.8;">
+        Vorige Zomer volgde ik een cursus coördineren bij een lokale school. Het was georgeniseerd door mevrouw Peters en haar collegas. We leerde er hoe je een project stap voor stap plannen kan. Op de eerste dag vroeg ze: "heeft iemand al ervaring met project management?" Ik steegte mijn hand op want ik had al aan een buurtproject meegeholpen. De cursus duurde vijf Weken en ik heb er heel veel uit geleerd.
+      </div>
+      <p class="ex-tip">Tip: lees de tekst minstens twee keer: een keer voor spelling en werkwoorden, een keer voor diakritische tekens en hoofdletters.</p>
+    </div>
+  </section>
+
+  <section class="summary-section" id="samenvatting">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>Klank en schriftbeeld:</strong> het Nederlands schrijft grotendeels fonetisch, maar korte en lange klanken bepalen of je één of twee klinkers schrijft — dit hangt af van open (lange klank, één letter) of gesloten lettergrepen (lange klank, twee letters).</li>
+      <li><strong>Werkwoordspelling:</strong> de stam + t-kje-regel bepaalt de persoonsvorm (let op de omkeervraag); het <em>'t kofschip</em>-ezelsbruggetje helpt je kiezen tussen <em>-t</em> en <em>-d</em> in het voltooid deelwoord.</li>
+      <li><strong>Vast en veranderlijk woordbeeld:</strong> woorden met een vast woordbeeld spel je altijd hetzelfde; woorden met een veranderlijk woordbeeld passen zich aan de klankregels aan bij meervoud of verbuiging — met ook mogelijke f/v- en s/z-wisseling.</li>
+      <li><strong>Diakritische tekens:</strong> het trema (¨) geeft aan dat een klinker een nieuwe lettergreep begint; het koppelteken (-) verbindt samenstellingen bij klinkerbotsing, getallen of prefixen; de apostrof (') gebruik je voor bezit bij namen op een klinker, samentrekkingen en het meervoud van afkortingen — nooit zomaar voor een gewone <em>-s</em>.</li>
+      <li><strong>Interpunctie:</strong> leestekens structureren je tekst; komma's gebruik je bij opsommingen, voor nevenschikkende voegwoorden, na een inleidende bijzin en bij directe aanrede; aanhalingstekens voor directe rede, titels en ironisch gebruik.</li>
+      <li><strong>Hoofdletters:</strong> gebruik een hoofdletter aan het begin van een zin en bij eigennamen (personen, plaatsen, talen, landen) — maar niet bij dagen, maanden of seizoenen in het Nederlands.</li>
+      <li><strong>Correctie en nakijken:</strong> lees je tekst altijd twee keer na — een keer voor inhoud, een keer puur voor spelling en leestekens. Eén spelfout kan de indruk die je tekst maakt volledig ondermijnen.</li>
+    </ul>
+  </section>
+
+</div>
+
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Terug naar boven">↑</button>
+<script>
+  const btn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => btn.classList.toggle('visible', window.scrollY > 400));
+</script>
+<script src="nav.js"></script>
+</body>
+</html>

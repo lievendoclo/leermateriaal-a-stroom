@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H1 — Se présenter | Frans 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     ILLUSTRATIE PLACEHOLDERS
+  ============================================================ */
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+    cursor: default;
+    transition: background var(--transition);
+  }
+
+  .illustratie:hover { background: #EDE7D8; }
+
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     CLOSING QUOTE
+  ============================================================ */
+  .closing-quote {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0D1E38 100%);
+    border-radius: var(--border-radius);
+    padding: 3rem 3rem 2.5rem;
+    margin: 3.5rem 0 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.5rem; left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .closing-quote .cq-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--gold);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 1.2rem;
+  }
+
+  .closing-quote .cq-attribution {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(212,160,23,0.6);
+  }
+
+  .closing-quote .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .closing-quote .ornament-line::before,
+  .closing-quote .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.4), transparent);
+  }
+
+  .closing-quote .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.7;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .closing-quote { padding: 2rem 1.2rem 1.8rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     FRANS-SPECIFIC COMPONENTS
+  ============================================================ */
+  .tekst-fragment { background:white; border:1px solid var(--sand); border-top:4px solid var(--terracotta); border-radius:var(--border-radius); padding:2rem 2.2rem; margin:2rem 0; box-shadow:var(--shadow-sm); }
+  .tekst-fragment .tf-label { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--terracotta); display:block; margin-bottom:0.3rem; }
+  .tekst-fragment .tf-title { font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:700; color:var(--darkblue); display:block; }
+  .tekst-fragment .tf-meta { font-size:0.82rem; color:var(--text-light); font-style:italic; display:block; margin-bottom:0.9rem; }
+  .tekst-fragment .tf-body { font-size:0.97rem; color:var(--text-mid); line-height:1.8; }
+  .tekst-fragment .tf-body p { margin-bottom:0.6rem; }
+  .tekst-fragment .tf-vraag { background:rgba(193,68,14,0.06); border-left:3px solid var(--terracotta); border-radius:0 4px 4px 0; padding:0.7rem 1rem; font-style:italic; margin-top:1rem; }
+  .tekst-fragment .tf-vraag::before { content:'💬 '; font-style:normal; }
+  .tekst-fragment .tf-source { font-size:0.78rem; color:var(--text-light); border-top:1px solid var(--sand); padding-top:0.6rem; font-style:italic; display:block; margin-top:1rem; }
+  .gesprek { background:var(--sand-light); border-radius:var(--border-radius); padding:1.5rem 1.8rem; margin:2rem 0; border:1px solid var(--sand); }
+  .gesprek .gesprek-label { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--oker); display:block; margin-bottom:1rem; }
+  .gesprek-lijn { display:flex; gap:0.75rem; align-items:flex-start; margin-bottom:0.6rem; }
+  .gesprek-spreker { font-weight:700; font-size:0.82rem; color:var(--darkblue); min-width:3.5rem; padding-top:0.1rem; flex-shrink:0; }
+  .gesprek-tekst { font-size:0.97rem; color:var(--text-dark); line-height:1.6; }
+  .gesprek-tekst em { color:var(--terracotta); font-style:normal; font-weight:600; }
+  .grammatica-kader { background:#EEF3FF; border-left:4px solid var(--darkblue); border-radius:0 var(--border-radius) var(--border-radius) 0; padding:1.2rem 1.5rem; margin:1.5rem 0; }
+  .grammatica-kader .gk-label { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--darkblue); opacity:0.7; display:block; margin-bottom:0.5rem; }
+  .grammatica-kader .gk-titel { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:700; color:var(--darkblue); margin-bottom:0.6rem; }
+  .grammatica-kader .gk-body { font-size:0.95rem; color:var(--text-dark); }
+  .grammatica-kader .gk-body table { width:100%; border-collapse:collapse; font-size:0.9rem; margin-top:0.5rem; }
+  .grammatica-kader .gk-body th { background:var(--darkblue); color:white; padding:0.35rem 0.75rem; text-align:left; font-size:0.82rem; }
+  .grammatica-kader .gk-body td { padding:0.3rem 0.75rem; border-bottom:1px solid rgba(26,43,74,0.1); }
+  .grammatica-kader .gk-body tr:last-child td { border-bottom:none; }
+  .woordenschat-kader { background:white; border:1px solid var(--sand); border-top:4px solid var(--oker); border-radius:var(--border-radius); padding:1.5rem 1.8rem; margin:1.5rem 0; box-shadow:var(--shadow-sm); }
+  .woordenschat-kader .wk-label { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--oker); display:block; margin-bottom:0.75rem; }
+  .woordenschat-kader .wk-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:0.4rem 1.5rem; }
+  .woordenschat-kader .wk-item { font-size:0.95rem; padding:0.25rem 0; border-bottom:1px solid var(--sand-light); }
+  .woordenschat-kader .wk-item .fr { font-weight:600; color:var(--darkblue); }
+  .woordenschat-kader .wk-item .nl { color:var(--text-light); font-size:0.88rem; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <span class="label">Frans 1A</span>
+  <span class="label label-right">H1 &mdash; Se pr&eacute;senter</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Frans &nbsp;&middot;&nbsp; 1A &nbsp;&middot;&nbsp; Eerste graad</div>
+  <h1>Hoofdstuk 1<br>Se pr&eacute;senter</h1>
+  <p class="subtitle">Jezelf en anderen voorstellen in het Frans</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- PROLOGUE -->
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Stel je voor &hellip;</span>
+
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+
+    <p>Je zit in de bus op weg naar een uitwisseling in Luik. Naast je komt een leerling zitten die je nog nooit hebt gezien. Ze kijkt jou aan, steekt haar hand uit en zegt: <em style="color:var(--gold);">&laquo; Bonjour, je m&rsquo;appelle Camille. Et toi ? &raquo;</em></p>
+
+    <p>Op dat moment heb je een keuze: zwijgen en een beetje schaapachtig kijken, of antwoorden. Een naam, een leeftijd, waar je woont &mdash; dat zijn de eerste bouwstenen van elke taal. En in het Frans zijn ze verrassend eenvoudig te leren.</p>
+
+    <p><strong style="color: var(--gold);">Dit hoofdstuk geeft je precies die bouwstenen. Na deze les kun jij jezelf voorstellen, iemand anders begroeten en een eerste gesprek beginnen &mdash; in het Frans.</strong></p>
+
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+  </section>
+
+  <!-- INTRO TEXT -->
+  <div class="prose-text">
+    <p>Jezelf voorstellen is de eerste stap in elke taal. In het Frans zeg je wie je bent, hoe oud je bent, waar je woont en waar je naartoe gaat. Maar er is &eacute;&eacute;n iets dat je meteen moet leren: Frans kent twee manieren om &lsquo;jij&rsquo; te zeggen. Gebruik je <strong>tu</strong> of <strong>vous</strong>? Die keuze hangt af van de situatie &mdash; en ze vertelt de andere persoon meteen hoe je de relatie ziet.</p>
+
+    <p>In dit hoofdstuk leer je de basiswoordenschat om jezelf voor te stellen, de persoonlijke voornaamwoorden, en de twee belangrijkste werkwoorden van het Frans: <em>&ecirc;tre</em> (zijn) en <em>avoir</em> (hebben). Je leert ook de nationaliteiten &mdash; een woordcategorie met een eigen spellingregel die je meteen moet kennen.</p>
+  </div>
+
+  <!-- ============================================================
+       SECTION 1: Bonjour ou Salut?
+  ============================================================ -->
+  <section class="section-block" id="s1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Bonjour ou Salut ?</h2>
+    </div>
+
+    <p>In het Frans bestaat er een duidelijk onderscheid tussen formele en informele situaties. Dat onderscheid zie je al terug in de begroeting: gebruik je <strong>Bonjour</strong> of <strong>Salut</strong>? En spreek je iemand aan met <strong>tu</strong> of <strong>vous</strong>?</p>
+
+    <p>De basisregel is eenvoudig:</p>
+    <ul style="padding-left:1.4rem; margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.4rem"><strong>Bonjour + vous</strong> &mdash; formeel: een leraar, een winkelier, een onbekende volwassene</li>
+      <li style="margin-bottom:0.4rem"><strong>Salut + tu</strong> &mdash; informeel: een vriend, een klasgenoot, iemand van je eigen leeftijd</li>
+    </ul>
+
+    <h3 class="sub-heading">Gesprek 1 &mdash; Formeel (vous)</h3>
+
+    <div class="gesprek">
+      <span class="gesprek-label">Dialoog &mdash; Formele ontmoeting</span>
+      <div class="gesprek-lijn">
+        <span class="gesprek-spreker">Lucas :</span>
+        <span class="gesprek-tekst"><em>Bonjour</em>, madame. Je <em>m&rsquo;appelle</em> Lucas Desmet.</span>
+      </div>
+      <div class="gesprek-lijn">
+        <span class="gesprek-spreker">Mme Roy :</span>
+        <span class="gesprek-tekst"><em>Bonjour</em>, Lucas. <em>Vous avez</em> quel &acirc;ge ?</span>
+      </div>
+      <div class="gesprek-lijn">
+        <span class="gesprek-spreker">Lucas :</span>
+        <span class="gesprek-tekst"><em>J&rsquo;ai</em> douze ans, madame.</span>
+      </div>
+      <div class="gesprek-lijn">
+        <span class="gesprek-spreker">Mme Roy :</span>
+        <span class="gesprek-tekst">Et <em>vous habitez</em> o&ugrave; ?</span>
+      </div>
+      <div class="gesprek-lijn">
+        <span class="gesprek-spreker">Lucas :</span>
+        <span class="gesprek-tekst"><em>J&rsquo;habite &agrave;</em> Gand.</span>
+      </div>
+      <div class="gesprek-lijn">
+        <span class="gesprek-spreker">Mme Roy :</span>
+        <span class="gesprek-tekst">Tr&egrave;s bien. Enchant&eacute;e, Lucas.</span>
+      </div>
+      <div class="gesprek-lijn">
+        <span class="gesprek-spreker">Lucas :</span>
+        <span class="gesprek-tekst">Enchant&eacute;, madame.</span>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Gesprek 2 &mdash; Informeel (tu)</h3>
+
+    <div class="gesprek">
+      <span class="gesprek-label">Dialoog &mdash; Informele ontmoeting tussen leeftijdsgenoten</span>
+      <div class="gesprek-lijn">
+        <span class="gesprek-spreker">Camille :</span>
+        <span class="gesprek-tekst"><em>Salut</em> ! Je <em>m&rsquo;appelle</em> Camille. Et <em>toi</em> ?</span>
+      </div>
+      <div class="gesprek-lijn">
+        <span class="gesprek-spreker">Lucas :</span>
+        <span class="gesprek-tekst"><em>Salut</em> ! Moi, c&rsquo;est Lucas. <em>Tu as</em> quel &acirc;ge ?</span>
+      </div>
+      <div class="gesprek-lijn">
+        <span class="gesprek-spreker">Camille :</span>
+        <span class="gesprek-tekst"><em>J&rsquo;ai</em> treize ans. Et <em>toi</em> ?</span>
+      </div>
+      <div class="gesprek-lijn">
+        <span class="gesprek-spreker">Lucas :</span>
+        <span class="gesprek-tekst">Moi, <em>j&rsquo;ai</em> douze ans. <em>Tu habites</em> o&ugrave; ?</span>
+      </div>
+      <div class="gesprek-lijn">
+        <span class="gesprek-spreker">Camille :</span>
+        <span class="gesprek-tekst"><em>J&rsquo;habite &agrave;</em> Li&egrave;ge. Et <em>toi</em>, <em>tu habites</em> o&ugrave; ?</span>
+      </div>
+      <div class="gesprek-lijn">
+        <span class="gesprek-spreker">Lucas :</span>
+        <span class="gesprek-tekst"><em>J&rsquo;habite &agrave;</em> Gand.</span>
+      </div>
+    </div>
+
+    <div class="grammatica-kader">
+      <span class="gk-label">Grammatica</span>
+      <div class="gk-titel">Tu of vous ? &mdash; De keuze tussen formeel en informeel</div>
+      <div class="gk-body">
+        <p>In het Frans is de keuze tussen <strong>tu</strong> en <strong>vous</strong> cruciaal. Je kiest op basis van de relatie en de context.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Situatie</th>
+              <th>Gebruik</th>
+              <th>Voorbeeld</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Vriend, klasgenoot, leeftijdsgenoot</td>
+              <td><strong>tu</strong> (informeel)</td>
+              <td><em>Tu t&rsquo;appelles comment ?</em></td>
+            </tr>
+            <tr>
+              <td>Leraar, onbekende volwassene, klant</td>
+              <td><strong>vous</strong> (formeel)</td>
+              <td><em>Vous vous appelez comment ?</em></td>
+            </tr>
+            <tr>
+              <td>Meerdere personen (altijd)</td>
+              <td><strong>vous</strong> (meervoud)</td>
+              <td><em>Vous habitez o&ugrave; ?</em></td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="margin-top:0.7rem;font-size:0.88rem;color:var(--text-light);">Let op: als je twijfelt, kies dan voor <strong>vous</strong>. Het is nooit beledigend om iemand formeel aan te spreken, maar het omgekeerde kan wel onbeleefd overkomen.</p>
+      </div>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">In welke situaties gebruik jij in het Nederlands een meer formele taal? Vergelijk dat met de tu/vous-regel in het Frans. Zijn er overeenkomsten?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 2: Je me présente
+  ============================================================ -->
+  <section class="section-block" id="s2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Je me pr&eacute;sente</h2>
+    </div>
+
+    <p>Om jezelf voor te stellen in het Frans, heb je een kleine set vaste uitdrukkingen nodig. Die zijn makkelijk te leren omdat ze een duidelijk patroon volgen. Hier zijn de belangrijkste:</p>
+
+    <div class="woordenschat-kader">
+      <span class="wk-label">Woordenschat &mdash; Jezelf voorstellen</span>
+      <div class="wk-grid">
+        <div class="wk-item">
+          <span class="fr">Je m&rsquo;appelle &hellip;</span>
+          <span class="nl">Ik heet &hellip;</span>
+        </div>
+        <div class="wk-item">
+          <span class="fr">Tu t&rsquo;appelles &hellip;</span>
+          <span class="nl">Jij heet &hellip;</span>
+        </div>
+        <div class="wk-item">
+          <span class="fr">Il / elle s&rsquo;appelle &hellip;</span>
+          <span class="nl">Hij / zij heet &hellip;</span>
+        </div>
+        <div class="wk-item">
+          <span class="fr">J&rsquo;ai &hellip; ans</span>
+          <span class="nl">Ik ben &hellip; jaar (oud)</span>
+        </div>
+        <div class="wk-item">
+          <span class="fr">J&rsquo;habite &agrave; &hellip;</span>
+          <span class="nl">Ik woon in &hellip;</span>
+        </div>
+        <div class="wk-item">
+          <span class="fr">Je suis belge / fran&ccedil;ais(e)</span>
+          <span class="nl">Ik ben Belg / Frans</span>
+        </div>
+        <div class="wk-item">
+          <span class="fr">Je vais &agrave; l&rsquo;&eacute;cole &hellip;</span>
+          <span class="nl">Ik ga naar school &hellip;</span>
+        </div>
+        <div class="wk-item">
+          <span class="fr">Je suis en premi&egrave;re ann&eacute;e</span>
+          <span class="nl">Ik zit in het eerste jaar</span>
+        </div>
+        <div class="wk-item">
+          <span class="fr">Enchanté(e)</span>
+          <span class="nl">Aangenaam (kennis te maken)</span>
+        </div>
+        <div class="wk-item">
+          <span class="fr">Comment tu t&rsquo;appelles ?</span>
+          <span class="nl">Hoe heet jij ?</span>
+        </div>
+        <div class="wk-item">
+          <span class="fr">Tu as quel &acirc;ge ?</span>
+          <span class="nl">Hoe oud ben jij ?</span>
+        </div>
+        <div class="wk-item">
+          <span class="fr">Tu habites o&ugrave; ?</span>
+          <span class="nl">Waar woon jij ?</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128161;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Opmerking</span>
+        <span class="begrip-name">J&rsquo;ai &hellip; ans &mdash; niet je suis &hellip; ans</span>
+        <p class="begrip-def">In het Frans zeg je letterlijk &laquo; ik heb 12 jaar &raquo; (<em>j&rsquo;ai 12 ans</em>), niet &laquo; ik ben 12 jaar &raquo;. Dit is een van de meest gemaakte fouten door Nederlandstalige leerlingen. Onthoud: voor leeftijd gebruik je altijd <strong>avoir</strong> (hebben), nooit <strong>&ecirc;tre</strong> (zijn).</p>
+      </div>
+    </div>
+
+    <p>Let ook op de uitspraak van <em>j&rsquo;ai</em>: dit klinkt als &lsquo;je&rsquo; (zoals het Engelse &lsquo;zhay&rsquo;). De <em>liaison</em> &mdash; het verbinden van woorden &mdash; is typisch voor Frans. In <em>j&rsquo;habite</em> valt de <em>e</em> van <em>je</em> weg voor de klinker van <em>habite</em>.</p>
+  </section>
+
+  <!-- ============================================================
+       SECTION 3: Les pronoms personnels sujets
+  ============================================================ -->
+  <section class="section-block" id="s3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Les pronoms personnels sujets</h2>
+    </div>
+
+    <p>De <strong>persoonlijke onderwerpsvoornaamwoorden</strong> (<em>les pronoms personnels sujets</em>) zijn de bouwstenen van elk Frans werkwoord. Je moet ze van buiten kennen, want ze bepalen welke werkwoordsvorm je gebruikt.</p>
+
+    <div class="grammatica-kader">
+      <span class="gk-label">Grammatica</span>
+      <div class="gk-titel">Les pronoms personnels sujets</div>
+      <div class="gk-body">
+        <table>
+          <thead>
+            <tr>
+              <th>Frans</th>
+              <th>Nederlands</th>
+              <th>Gebruik</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>je (j&rsquo;)</strong></td>
+              <td>ik</td>
+              <td>Altijd kleine letter, tenzij begin van zin; <em>j&rsquo;</em> voor klinker of stomme <em>h</em></td>
+            </tr>
+            <tr>
+              <td><strong>tu</strong></td>
+              <td>jij / u (informeel)</td>
+              <td>Informeel, enkelvoud; voor vrienden, leeftijdsgenoten</td>
+            </tr>
+            <tr>
+              <td><strong>il / elle</strong></td>
+              <td>hij / zij</td>
+              <td>Enkelvoud derde persoon; ook voor dingen: <em>il</em> of <em>elle</em> naargelang het geslacht</td>
+            </tr>
+            <tr>
+              <td><strong>on</strong></td>
+              <td>men / we (informeel)</td>
+              <td>In gesproken taal vaak gebruikt in plaats van <em>nous</em> voor &lsquo;wij&rsquo;</td>
+            </tr>
+            <tr>
+              <td><strong>nous</strong></td>
+              <td>wij / we</td>
+              <td>Meervoud eerste persoon; formeler dan <em>on</em></td>
+            </tr>
+            <tr>
+              <td><strong>vous</strong></td>
+              <td>jullie / u (formeel)</td>
+              <td>Meervoud tweede persoon &eacute;n beleefdheidsvorm enkelvoud</td>
+            </tr>
+            <tr>
+              <td><strong>ils / elles</strong></td>
+              <td>zij (meervoud)</td>
+              <td><em>Ils</em> voor mannelijk of gemengd; <em>elles</em> alleen voor vrouwelijk meervoud</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128276;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Let op</span>
+        <span class="begrip-name">On = wij in informeel Frans</span>
+        <p class="begrip-def">In gesproken Frans wordt <strong>on</strong> heel vaak gebruikt waar je <em>nous</em> zou verwachten. <em>&laquo; On va &agrave; l&rsquo;&eacute;cole. &raquo;</em> betekent in die context gewoon &laquo; We gaan naar school. &raquo; Het werkwoord staat altijd in de derde persoon enkelvoud. Dit is heel typisch voor spreektaal.</p>
+      </div>
+    </div>
+
+    <p>Merk op dat <em>ils</em> wordt gebruikt zodra er &eacute;&eacute;n mannelijke persoon in de groep zit, ook al zijn alle anderen vrouwelijk. Pas de laatste jaren verandert dit in sommige kringen, maar voor dit niveau gebruik je de klassieke regel.</p>
+  </section>
+
+  <!-- ============================================================
+       SECTION 4: Le verbe être
+  ============================================================ -->
+  <section class="section-block" id="s4">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Le verbe &ecirc;tre</h2>
+    </div>
+
+    <p>Het werkwoord <em><strong>&ecirc;tre</strong></em> (zijn) is het meest gebruikte werkwoord in het Frans. Je gebruikt het om nationaliteit, beroep, karaktereigenschappen en staat te beschrijven. Het is een <strong>onregelmatig werkwoord</strong>, dus je moet het van buiten leren.</p>
+
+    <div class="grammatica-kader">
+      <span class="gk-label">Grammatica &mdash; Werkwoord</span>
+      <div class="gk-titel">&Ecirc;tre &mdash; zijn (pr&eacute;sent)</div>
+      <div class="gk-body">
+        <table>
+          <thead>
+            <tr>
+              <th>Persoon</th>
+              <th>Vorm</th>
+              <th>Uitspraak</th>
+              <th>Voorbeeld</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>je</td>
+              <td><strong>suis</strong></td>
+              <td>[swi]</td>
+              <td><em>Je suis belge.</em> &mdash; Ik ben Belg.</td>
+            </tr>
+            <tr>
+              <td>tu</td>
+              <td><strong>es</strong></td>
+              <td>[&ecirc;]</td>
+              <td><em>Tu es fran&ccedil;ais ?</em> &mdash; Ben jij Frans?</td>
+            </tr>
+            <tr>
+              <td>il / elle / on</td>
+              <td><strong>est</strong></td>
+              <td>[&ecirc;]</td>
+              <td><em>Elle est professeure.</em> &mdash; Zij is lerares.</td>
+            </tr>
+            <tr>
+              <td>nous</td>
+              <td><strong>sommes</strong></td>
+              <td>[som]</td>
+              <td><em>Nous sommes &eacute;l&egrave;ves.</em> &mdash; Wij zijn leerlingen.</td>
+            </tr>
+            <tr>
+              <td>vous</td>
+              <td><strong>&ecirc;tes</strong></td>
+              <td>[&ecirc;t]</td>
+              <td><em>Vous &ecirc;tes belge ?</em> &mdash; Bent u Belg?</td>
+            </tr>
+            <tr>
+              <td>ils / elles</td>
+              <td><strong>sont</strong></td>
+              <td>[s&#245;]</td>
+              <td><em>Ils sont am&eacute;ricains.</em> &mdash; Zij zijn Amerikaans.</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="margin-top:0.7rem;">Gebruik <em>&ecirc;tre</em> voor: <strong>nationaliteit</strong> (<em>je suis belge</em>), <strong>beroep</strong> (<em>il est m&eacute;decin</em>), <strong>staat</strong> (<em>nous sommes contents</em>).</p>
+      </div>
+    </div>
+
+    <p>Een bijzonderheid: in het Frans gebruikt men <strong>geen lidwoord</strong> voor beroep of nationaliteit na <em>&ecirc;tre</em>. Je zegt <em>il est professeur</em>, niet <em>il est un professeur</em>. Dit is anders dan in het Nederlands.</p>
+
+    <div class="gesprek">
+      <span class="gesprek-label">Dialoog &mdash; &Ecirc;tre in gebruik</span>
+      <div class="gesprek-lijn">
+        <span class="gesprek-spreker">Theo :</span>
+        <span class="gesprek-tekst">Tu <em>es</em> d&rsquo;o&ugrave; ?</span>
+      </div>
+      <div class="gesprek-lijn">
+        <span class="gesprek-spreker">Sara :</span>
+        <span class="gesprek-tekst">Je <em>suis</em> belge. Et toi ?</span>
+      </div>
+      <div class="gesprek-lijn">
+        <span class="gesprek-spreker">Theo :</span>
+        <span class="gesprek-tekst">Moi, je <em>suis</em> fran&ccedil;ais. Mon p&egrave;re <em>est</em> espagnol.</span>
+      </div>
+      <div class="gesprek-lijn">
+        <span class="gesprek-spreker">Sara :</span>
+        <span class="gesprek-tekst">Wow ! Vous <em>&ecirc;tes</em> une famille internationale !</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 5: Le verbe avoir
+  ============================================================ -->
+  <section class="section-block" id="s5">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Le verbe avoir</h2>
+    </div>
+
+    <p>Het werkwoord <em><strong>avoir</strong></em> (hebben) is even onmisbaar als <em>&ecirc;tre</em>. Je gebruikt het voor bezit, maar ook &mdash; en dit is anders dan in het Nederlands &mdash; voor <strong>leeftijd</strong>. Zoals je in sectie 2 al leerde: <em>j&rsquo;ai 12 ans</em>, nooit <em>je suis 12 ans</em>.</p>
+
+    <div class="grammatica-kader">
+      <span class="gk-label">Grammatica &mdash; Werkwoord</span>
+      <div class="gk-titel">Avoir &mdash; hebben (pr&eacute;sent)</div>
+      <div class="gk-body">
+        <table>
+          <thead>
+            <tr>
+              <th>Persoon</th>
+              <th>Vorm</th>
+              <th>Uitspraak</th>
+              <th>Voorbeeld</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>je</td>
+              <td><strong>ai</strong></td>
+              <td>[&ecirc;]</td>
+              <td><em>J&rsquo;ai 12 ans.</em> &mdash; Ik ben 12 jaar.</td>
+            </tr>
+            <tr>
+              <td>tu</td>
+              <td><strong>as</strong></td>
+              <td>[a]</td>
+              <td><em>Tu as un fr&egrave;re ?</em> &mdash; Heb jij een broer?</td>
+            </tr>
+            <tr>
+              <td>il / elle / on</td>
+              <td><strong>a</strong></td>
+              <td>[a]</td>
+              <td><em>Elle a 13 ans.</em> &mdash; Zij is 13 jaar.</td>
+            </tr>
+            <tr>
+              <td>nous</td>
+              <td><strong>avons</strong></td>
+              <td>[av&#245;]</td>
+              <td><em>Nous avons un chien.</em> &mdash; Wij hebben een hond.</td>
+            </tr>
+            <tr>
+              <td>vous</td>
+              <td><strong>avez</strong></td>
+              <td>[ave]</td>
+              <td><em>Vous avez quel &acirc;ge ?</em> &mdash; Hoe oud bent u?</td>
+            </tr>
+            <tr>
+              <td>ils / elles</td>
+              <td><strong>ont</strong></td>
+              <td>[&#245;]</td>
+              <td><em>Ils ont 12 ans.</em> &mdash; Zij zijn 12 jaar.</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="margin-top:0.7rem;">Let op de uitspraak: de <em>s</em> van <em>ils ont</em> wordt uitgesproken als liaison: [ilz&#245;]. De negatieve vorm is <em>je n&rsquo;ai pas</em>, <em>tu n&rsquo;as pas</em>, etc.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9888;&#65039;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Veelgemaakte fout</span>
+        <span class="begrip-name">Leeftijd met avoir, niet met &ecirc;tre</span>
+        <p class="begrip-def">Nederlandstalige leerlingen zeggen vaak <em>&laquo; Je suis 12 ans &raquo;</em> &mdash; dat is fout. In het Frans gebruik je altijd <strong>avoir</strong> voor leeftijd: <em>J&rsquo;ai 12 ans.</em> Denk aan het verschil: in het Frans &lsquo;heb&rsquo; je een leeftijd, in het Nederlands &lsquo;ben&rsquo; je een leeftijd. Andere uitdrukkingen met avoir: <em>avoir faim</em> (honger hebben), <em>avoir chaud</em> (het warm hebben).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 6: Les nationalités
+  ============================================================ -->
+  <section class="section-block" id="s6">
+    <div class="section-heading">
+      <span class="section-num">6</span>
+      <h2 class="section-title">Les nationalit&eacute;s</h2>
+    </div>
+
+    <p>Nationaliteiten zijn in het Frans bijvoeglijke naamwoorden. Dat betekent twee dingen: ze passen zich aan naar het geslacht van de persoon, <em>en</em> ze beginnen in het Frans met een <strong>kleine letter</strong> &mdash; anders dan in het Nederlands of het Engels.</p>
+
+    <div class="woordenschat-kader">
+      <span class="wk-label">Woordenschat &mdash; Nationaliteiten (mannelijk / vrouwelijk)</span>
+      <div class="wk-grid">
+        <div class="wk-item">
+          <span class="fr">belge / belge</span>
+          <span class="nl">Belg / Belgische</span>
+        </div>
+        <div class="wk-item">
+          <span class="fr">fran&ccedil;ais / fran&ccedil;aise</span>
+          <span class="nl">Frans / Franse</span>
+        </div>
+        <div class="wk-item">
+          <span class="fr">n&eacute;erlandais / n&eacute;erlandaise</span>
+          <span class="nl">Nederlands / Nederlandse</span>
+        </div>
+        <div class="wk-item">
+          <span class="fr">allemand / allemande</span>
+          <span class="nl">Duits / Duitse</span>
+        </div>
+        <div class="wk-item">
+          <span class="fr">espagnol / espagnole</span>
+          <span class="nl">Spaans / Spaanse</span>
+        </div>
+        <div class="wk-item">
+          <span class="fr">italien / italienne</span>
+          <span class="nl">Italiaans / Italiaanse</span>
+        </div>
+        <div class="wk-item">
+          <span class="fr">anglais / anglaise</span>
+          <span class="nl">Engels / Engelse</span>
+        </div>
+        <div class="wk-item">
+          <span class="fr">am&eacute;ricain / am&eacute;ricaine</span>
+          <span class="nl">Amerikaans / Amerikaanse</span>
+        </div>
+        <div class="wk-item">
+          <span class="fr">portugais / portugaise</span>
+          <span class="nl">Portugees / Portugese</span>
+        </div>
+        <div class="wk-item">
+          <span class="fr">marocain / marocaine</span>
+          <span class="nl">Marokkaans / Marokkaanse</span>
+        </div>
+        <div class="wk-item">
+          <span class="fr">turc / turque</span>
+          <span class="nl">Turks / Turkse</span>
+        </div>
+        <div class="wk-item">
+          <span class="fr">chinois / chinoise</span>
+          <span class="nl">Chinees / Chinese</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="grammatica-kader">
+      <span class="gk-label">Grammatica &mdash; Woordvorming</span>
+      <div class="gk-titel">Accords des nationalit&eacute;s &mdash; Aanpassing van nationaliteiten aan het geslacht</div>
+      <div class="gk-body">
+        <p>Nationaliteiten zijn bijvoeglijke naamwoorden en volgen de regels voor geslachtsaanpassing:</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Regel</th>
+              <th>Mannelijk</th>
+              <th>Vrouwelijk</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Basisregel: + <em>e</em></td>
+              <td><em>fran&ccedil;ais</em></td>
+              <td><em>fran&ccedil;ais<strong>e</strong></em></td>
+            </tr>
+            <tr>
+              <td>Al eindigt op <em>e</em>: geen verandering</td>
+              <td><em>belge</em></td>
+              <td><em>belge</em></td>
+            </tr>
+            <tr>
+              <td>Verdubbeling eindmedeklinker + <em>e</em></td>
+              <td><em>italien</em></td>
+              <td><em>italien<strong>ne</strong></em></td>
+            </tr>
+            <tr>
+              <td>Onregelmatig</td>
+              <td><em>turc</em></td>
+              <td><em>tur<strong>que</strong></em></td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="margin-top:0.8rem;"><strong>Belangrijke regel:</strong> nationaliteiten als bijvoeglijk naamwoord beginnen altijd met een <strong>kleine letter</strong> in het Frans: <em>je suis belge</em>, <em>elle est fran&ccedil;aise</em>. Alleen als nationaliteit als zelfstandig naamwoord wordt gebruikt, schrijf je een hoofdletter: <em>un Belge</em>, <em>une Fran&ccedil;aise</em>.</p>
+      </div>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Kijk eens naar je klas. Hoeveel verschillende nationaliteiten zijn er vertegenwoordigd? Hoe zeg je die in het Frans? Zoek indien nodig op.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 7: Se présenter à l'écrit
+  ============================================================ -->
+  <section class="section-block" id="s7">
+    <div class="section-heading">
+      <span class="section-num">7</span>
+      <h2 class="section-title">Se pr&eacute;senter &agrave; l&rsquo;&eacute;crit</h2>
+    </div>
+
+    <p>Nu je de bouwstenen kent, leer je hoe je een volledige schriftelijke zelfpresentatie schrijft. Lees eerst deze brief van een Franse briefvriend. Merk op hoe hij alle structuren die je in dit hoofdstuk leerde, toepast.</p>
+
+    <div class="tekst-fragment">
+      <span class="tf-label">Tekst &mdash; Brief / e-mail</span>
+      <span class="tf-title">Lettre d&rsquo;un correspondant fran&ccedil;ais</span>
+      <span class="tf-meta">Nantes, le 15 septembre &nbsp;&middot;&nbsp; Niveau A1 &nbsp;&middot;&nbsp; Leerling: Lucas Moreau</span>
+      <div class="tf-body">
+        <p>Bonjour !</p>
+        <p>Je m&rsquo;appelle Lucas Moreau. J&rsquo;ai douze ans. J&rsquo;habite &agrave; Nantes, une grande ville dans l&rsquo;ouest de la France. Je suis fran&ccedil;ais, mais ma m&egrave;re est italienne. Je parle fran&ccedil;ais et un peu d&rsquo;italien &agrave; la maison.</p>
+        <p>Je vais au coll&egrave;ge Gustave Flaubert. Je suis en sixi&egrave;me &mdash; c&rsquo;est la premi&egrave;re ann&eacute;e du coll&egrave;ge. Ma classe s&rsquo;appelle 6B. Nous sommes vingt-huit &eacute;l&egrave;ves. Mon professeur de fran&ccedil;ais s&rsquo;appelle M. Durand. Il est sympa !</p>
+        <p>Et toi ? Tu t&rsquo;appelles comment ? Tu as quel &acirc;ge ? Tu habites o&ugrave; ? Tu es belge ?</p>
+        <p>Bonne journ&eacute;e !</p>
+        <p>Lucas</p>
+      </div>
+      <div class="tf-vraag">Beantwoord in het Frans: Hoe oud is Lucas? Waar woont hij? Wat is de nationaliteit van zijn moeder? Welke talen spreekt hij thuis?</div>
+      <span class="tf-source">Model tekst &mdash; lesdoel Se pr&eacute;senter &middot; Frans 1A &middot; A1-niveau</span>
+    </div>
+
+    <h3 class="sub-heading">Een antwoord schrijven</h3>
+
+    <p>Nu schrijf je zelf een vergelijkbare brief. Gebruik de volgende structuur als leidraad:</p>
+
+    <ol style="padding-left:1.4rem; margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.5rem"><strong>Begroeting:</strong> <em>Bonjour !</em> of <em>Salut !</em></li>
+      <li style="margin-bottom:0.5rem"><strong>Naam:</strong> <em>Je m&rsquo;appelle &hellip;</em></li>
+      <li style="margin-bottom:0.5rem"><strong>Leeftijd:</strong> <em>J&rsquo;ai &hellip; ans.</em></li>
+      <li style="margin-bottom:0.5rem"><strong>Woonplaats:</strong> <em>J&rsquo;habite &agrave; &hellip;</em></li>
+      <li style="margin-bottom:0.5rem"><strong>Nationaliteit:</strong> <em>Je suis &hellip;</em></li>
+      <li style="margin-bottom:0.5rem"><strong>School:</strong> <em>Je vais &agrave; l&rsquo;&eacute;cole &hellip;</em></li>
+      <li style="margin-bottom:0.5rem"><strong>Afsluiting:</strong> <em>Bonne journ&eacute;e ! / &Agrave; bient&ocirc;t !</em></li>
+    </ol>
+
+    <p>Een goede brief telt minstens vijf volledige zinnen. Gebruik alleen zinnen die je kent &mdash; geen woorden opzoeken en dan fout gebruiken is beter dan complexe fouten.</p>
+
+    <!-- CLOSING QUOTE -->
+    <div class="closing-quote" role="note" aria-label="Slotcitaat">
+      <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+      <p class="cq-text">Une langue, c&rsquo;est une fen&ecirc;tre sur le monde.</p>
+      <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+      <span class="cq-attribution">Frans 1A &nbsp;&middot;&nbsp; Se pr&eacute;senter</span>
+    </div>
+
+  </section>
+
+</div><!-- end page-wrapper -->
+
+<!-- ============================================================
+     EXERCISES
+============================================================ -->
+<section class="exercises-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <!-- OEFENING 1 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Conjugeer &ecirc;tre en avoir</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Vul de juiste vorm van <em>&ecirc;tre</em> of <em>avoir</em> in. Let goed op het onderwerp.</p>
+      <ol>
+        <li>Je &hellip; belge. (zijn)</li>
+        <li>Tu &hellip; quel &acirc;ge ? (hebben)</li>
+        <li>Il &hellip; fran&ccedil;ais. (zijn)</li>
+        <li>Nous &hellip; douze ans. (hebben)</li>
+        <li>Vous &hellip; professeur ? (zijn)</li>
+        <li>Elles &hellip; italiennes. (zijn)</li>
+        <li>On &hellip; un chien. (hebben)</li>
+        <li>J&rsquo;&hellip; treize ans. (hebben)</li>
+        <li>Ils &hellip; espagnols. (zijn)</li>
+        <li>Tu &hellip; une s&oelig;ur ? (hebben)</li>
+      </ol>
+      <p class="ex-tip">Tip: schrijf eerst welk werkwoord je nodig hebt (&ecirc;tre of avoir), dan de juiste persoonsvorm.</p>
+    </div>
+
+    <!-- OEFENING 2 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Nationaliteiten koppelen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Koppel de persoon aan de juiste nationaliteitsomschrijving. Let op het geslacht (mannelijk/vrouwelijk).</p>
+      <ol>
+        <li>Marco woont in Rome. Hij is &hellip;</li>
+        <li>Sophie woont in Lyon. Zij is &hellip;</li>
+        <li>Carlos woont in Madrid. Hij is &hellip;</li>
+        <li>Emma woont in Londen. Zij is &hellip;</li>
+        <li>Lena woont in Berlijn. Zij is &hellip;</li>
+        <li>Tom woont in Brussel. Hij is &hellip;</li>
+        <li>Pedro woont in Lisboa. Hij is &hellip;</li>
+        <li>Mei woont in Shanghai. Zij is &hellip;</li>
+      </ol>
+      <p class="ex-tip">Tip: kijk goed of het een man of vrouw is &mdash; dat bepaalt welke vorm je nodig hebt.</p>
+    </div>
+
+    <!-- OEFENING 3 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Schrijf je eigen voorstelling</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Schrijf een korte zelfpresentatie in het Frans (5 tot 7 zinnen). Gebruik de structuur uit sectie 7.</p>
+      <ul>
+        <li>Naam</li>
+        <li>Leeftijd (met <em>avoir</em> !)</li>
+        <li>Woonplaats</li>
+        <li>Nationaliteit (kleine letter !)</li>
+        <li>School en klas</li>
+        <li>Nog iets extra&rsquo;s naar keuze</li>
+      </ul>
+      <p class="ex-tip">Tip: gebruik alleen zinnen die je kent. Kwaliteit gaat boven kwantiteit.</p>
+    </div>
+
+    <!-- OEFENING 4 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 4</p>
+      <p class="ex-name">Tu of vous ?</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Kies voor elke situatie: gebruik je <em>tu</em> of <em>vous</em> ?</p>
+      <ol>
+        <li>Je spreekt je beste vriend aan.</li>
+        <li>Je vraagt de kassier in de supermarkt naar de prijs.</li>
+        <li>Je schrijft een e-mail naar je leraar Frans.</li>
+        <li>Je spreekt twee klasgenoten tegelijk aan.</li>
+        <li>Je stelt een vraag aan een onbekende dame op straat.</li>
+        <li>Je speelt een spelletje met je nichtje van 10 jaar.</li>
+        <li>Je belt met een arts voor een afspraak.</li>
+        <li>Je zegt hallo tegen de nieuwe leerling in je klas.</li>
+      </ol>
+    </div>
+
+    <!-- OEFENING 5 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 5</p>
+      <p class="ex-name">Van formeel naar informeel</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Schrijf de volgende formele zinnen om naar informele zinnen (vervang <em>vous</em> door <em>tu</em> en pas het werkwoord aan).</p>
+      <ol>
+        <li><em>Vous vous appelez comment ?</em></li>
+        <li><em>Vous avez quel &acirc;ge ?</em></li>
+        <li><em>Vous habitez o&ugrave; ?</em></li>
+        <li><em>Vous &ecirc;tes belge ?</em></li>
+        <li><em>Vous allez &agrave; quelle &eacute;cole ?</em></li>
+      </ol>
+      <p class="ex-tip">Tip: vervang <em>vous</em> door <em>tu</em> en zoek de bijbehorende werkwoordsvorm op in de grammaticakaders van dit hoofdstuk.</p>
+    </div>
+
+    <!-- OEFENING 6 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 6</p>
+      <p class="ex-name">Tekstbegrip &mdash; De brief van Lucas</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Lees de brief van Lucas Moreau in sectie 7 opnieuw. Beantwoord de volgende vragen in het <strong>Frans</strong>.</p>
+      <ol>
+        <li>Comment s&rsquo;appelle l&rsquo;&eacute;l&egrave;ve ?</li>
+        <li>Quel &acirc;ge a-t-il ?</li>
+        <li>O&ugrave; habite-t-il ?</li>
+        <li>Quelle est la nationalit&eacute; de sa m&egrave;re ?</li>
+        <li>Comment s&rsquo;appelle son coll&egrave;ge ?</li>
+        <li>Combien d&rsquo;&eacute;l&egrave;ves y a-t-il dans sa classe ?</li>
+      </ol>
+      <p class="ex-tip">Tip: schrijf volledige zinnen in het Frans. Gebruik de informatie uit de brief letterlijk als dat kan.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SUMMARY
+============================================================ -->
+<section class="summary-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+
+    <p style="color:rgba(250,246,239,0.75);font-size:0.95rem;margin-bottom:1.6rem;">Controleer of je de volgende punten beheerst. Kruis aan wat je al kent.</p>
+
+    <ul>
+      <li><strong>Tu vs vous:</strong> <em>tu</em> voor informele situaties (vrienden, leeftijdsgenoten), <em>vous</em> voor formele situaties (leraar, onbekende volwassene) of bij meerdere personen.</li>
+      <li><strong>Basiszinnen om je voor te stellen:</strong> <em>Je m&rsquo;appelle &hellip;</em> / <em>J&rsquo;ai &hellip; ans</em> / <em>J&rsquo;habite &agrave; &hellip;</em> / <em>Je suis &hellip;</em> / <em>Je vais &agrave; l&rsquo;&eacute;cole &hellip;</em></li>
+      <li><strong>Persoonlijke voornaamwoorden:</strong> <em>je, tu, il/elle/on, nous, vous, ils/elles</em>. Onthoud: <em>on</em> = informeel &lsquo;wij&rsquo; in spreektaal.</li>
+      <li><strong>Conjugatie &ecirc;tre:</strong> suis, es, est, sommes, &ecirc;tes, sont. Gebruik voor nationaliteit, beroep, staat.</li>
+      <li><strong>Conjugatie avoir:</strong> ai, as, a, avons, avez, ont. Gebruik voor bezit en leeftijd (<em>j&rsquo;ai 12 ans</em> &mdash; nooit <em>je suis 12 ans</em>).</li>
+      <li><strong>Nationaliteiten:</strong> passen zich aan aan het geslacht (mannelijk / vrouwelijk) en beginnen met een <strong>kleine letter</strong> als bijvoeglijk naamwoord.</li>
+      <li><strong>Schriftelijke voorstelling:</strong> minstens 5 zinnen, vaste structuur: begroeting &rarr; naam &rarr; leeftijd &rarr; woonplaats &rarr; nationaliteit &rarr; school &rarr; afsluiting.</li>
+    </ul>
+
+    <div style="margin-top:2rem;padding:1.2rem 1.5rem;background:rgba(212,160,23,0.1);border-radius:var(--border-radius);border:1px solid rgba(212,160,23,0.25);">
+      <p style="color:var(--gold);font-size:0.88rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:0.6rem;">Woordenschatcheck</p>
+      <p style="color:rgba(250,246,239,0.85);font-size:0.92rem;margin:0;">Ken jij de vertalingen van de twaalf woordenschatitems uit sectie 2 en de twaalf nationaliteiten uit sectie 6? Test jezelf: dek de Nederlandse kolom af en vertaal elke Franse uitdrukking.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

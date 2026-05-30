@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H15 — Vergelijkingen van de eerste graad | Wiskunde 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     ILLUSTRATIE PLACEHOLDERS
+  ============================================================ */
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+    cursor: default;
+    transition: background var(--transition);
+  }
+
+  .illustratie:hover { background: #EDE7D8; }
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     WISKUNDE-SPECIFIC COMPONENTS
+  ============================================================ */
+  .rekenvoorbeeld { background:white; border:1px solid var(--sand); border-top:4px solid var(--oker); border-radius:var(--border-radius); padding:1.8rem 2rem; margin:2rem 0; box-shadow:var(--shadow-sm); }
+  .rekenvoorbeeld .rv-label { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--oker); display:block; margin-bottom:0.35rem; }
+  .rekenvoorbeeld .rv-vraag { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:700; color:var(--darkblue); margin-bottom:1rem; line-height:1.4; }
+  .rv-stappen { list-style:none; padding:0; counter-reset:stap-teller; margin-bottom:1rem; }
+  .rv-stappen li { counter-increment:stap-teller; padding:0.6rem 0.8rem 0.6rem 3.2rem; position:relative; background:var(--creme); border-radius:4px; margin-bottom:0.4rem; font-size:0.97rem; }
+  .rv-stappen li::before { content:counter(stap-teller); position:absolute; left:0.6rem; top:50%; transform:translateY(-50%); background:var(--darkblue); color:white; width:1.7rem; height:1.7rem; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:700; }
+  .rv-antwoord { background:var(--darkblue); color:var(--gold); padding:0.75rem 1.1rem; border-radius:4px; font-weight:700; font-size:1rem; }
+  .stelling { background:#EEF3FF; border-left:4px solid var(--darkblue); border-radius:0 var(--border-radius) var(--border-radius) 0; padding:1.2rem 1.5rem; margin:1.5rem 0; }
+  .stelling .st-label { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--darkblue); opacity:0.7; display:block; margin-bottom:0.35rem; }
+  .stelling .st-body { font-size:0.97rem; color:var(--text-dark); }
+  .formule { background:var(--darkblue); border-radius:var(--border-radius); padding:1.4rem 1.8rem; text-align:center; margin:1.8rem 0; }
+  .formule math { color:white; font-size:1.2rem; }
+  .formule .formule-naam { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--gold); opacity:0.8; display:block; margin-bottom:0.5rem; }
+  .svg-container { margin:1.8rem 0; padding:1.5rem; background:white; border:1px solid var(--sand); border-radius:var(--border-radius); overflow-x:auto; text-align:center; }
+  .svg-container .svg-caption { font-size:0.85rem; color:var(--text-light); font-style:italic; display:block; margin-top:0.75rem; }
+
+  /* chapter-intro helper */
+  .chapter-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--oker);
+    margin: 3rem 0 0.5rem;
+  }
+  .chapter-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+  .chapter-intro {
+    font-size: 1.08rem;
+    color: var(--text-mid);
+    line-height: 1.8;
+    max-width: 720px;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  /* ============================================================
+     ALGORITME / STAPPEN BLOCK
+  ============================================================ */
+  .algoritme {
+    background: var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 1.8rem 2rem;
+    margin: 2rem 0;
+    color: var(--creme);
+  }
+  .algoritme .alg-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 1rem;
+  }
+  .algoritme ol {
+    padding-left: 0;
+    list-style: none;
+    counter-reset: alg-teller;
+  }
+  .algoritme ol li {
+    counter-increment: alg-teller;
+    padding: 0.55rem 0.8rem 0.55rem 3rem;
+    position: relative;
+    margin-bottom: 0.5rem;
+    font-size: 0.97rem;
+    color: rgba(250,246,239,0.92);
+    background: rgba(255,255,255,0.06);
+    border-radius: 4px;
+  }
+  .algoritme ol li::before {
+    content: counter(alg-teller);
+    position: absolute;
+    left: 0.55rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--gold);
+    color: var(--darkblue);
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+  .algoritme ol li strong { color: var(--gold-light); }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <span class="label">Wiskunde 1A</span>
+  <span class="label label-right">H15 &mdash; Vergelijkingen van de eerste graad</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Wiskunde &nbsp;&middot;&nbsp; 1A &nbsp;&middot;&nbsp; Eerste graad</div>
+  <h1>Vergelijkingen van<br>de eerste graad</h1>
+  <p class="subtitle">Oplossen, opstellen en interpreteren &mdash; de taal van de balans</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- CHAPTER INTRO -->
+  <div class="chapter-label">Hoofdstuk 15</div>
+  <h1 class="chapter-title">Vergelijkingen van de eerste graad</h1>
+  <p class="chapter-intro">Een vergelijking is een wiskundige zin die zegt dat twee uitdrukkingen gelijk zijn. Vergelijkingen van de eerste graad zijn de meest fundamentele &mdash; ze komen voor in &eacute;lke tak van de wiskunde en in talloze praktische situaties. In dit hoofdstuk leer je ze systematisch oplossen.</p>
+
+  <!-- ============================================================
+       SECTIE 1: WAT IS EEN VERGELIJKING?
+  ============================================================ -->
+  <section class="section-block" id="wat-is-een-vergelijking">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Wat is een vergelijking?</h2>
+    </div>
+
+    <p>In de wiskunde kom je twee soorten uitdrukkingen tegen: een <strong>uitdrukking</strong> die iets berekent (bv. <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2</mn><mi>x</mi><mo>+</mo><mn>1</mn></mrow></math>), en een <strong>vergelijking</strong> die twee uitdrukkingen gelijkstelt met behulp van het gelijkheidsteken. Een vergelijking bevat altijd een gelijkheidsteken en stelt een vraag: voor welke waarde van de onbekende klopt de gelijkheid?</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">=</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Vergelijking</span>
+        <p class="begrip-def">Een <strong>vergelijking</strong> is een wiskundige bewering van de vorm <em>linkerlid = rechterlid</em>, waarbij minstens &eacute;&eacute;n <strong>onbekende</strong> (meestal aangeduid met <em>x</em>) voorkomt. Een vergelijking van de <strong>eerste graad</strong> bevat de onbekende enkel tot de eerste macht &mdash; er zijn geen termen met <math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>x</mi><mn>2</mn></msup></math> of hogere machten.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">x</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Oplossing (wortel)</span>
+        <p class="begrip-def">De <strong>oplossing</strong> (of <strong>wortel</strong>) van een vergelijking is de waarde van de onbekende die het linkerlid en het rechterlid gelijk maakt. De verzameling van alle oplossingen heet de <strong>oplossingsverzameling</strong>. Een vergelijking van de eerste graad heeft precies &eacute;&eacute;n oplossing (tenzij de vergelijking ofwel altijd waar ofwel nooit waar is).</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Uitdrukking versus vergelijking</h3>
+
+    <p>Het onderscheid tussen een uitdrukking en een vergelijking is fundamenteel:</p>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.4rem;">
+      <li style="margin-bottom:0.6rem"><strong>Uitdrukking:</strong> <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2</mn><mi>x</mi><mo>+</mo><mn>1</mn></mrow></math> &nbsp;&mdash;&nbsp; bevat g&eacute;&eacute;n gelijkheidsteken, heeft geen oplossing, maar kan vereenvoudigd of berekend worden voor een gegeven waarde van <em>x</em>.</li>
+      <li><strong>Vergelijking:</strong> <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2</mn><mi>x</mi><mo>+</mo><mn>1</mn><mo>=</mo><mn>7</mn></mrow></math> &nbsp;&mdash;&nbsp; bevat w&eacute;l een gelijkheidsteken en stelt de vraag: voor welke waarde van <em>x</em> zijn beide leden gelijk?</li>
+    </ul>
+
+    <!-- Rekenvoorbeeld: controleer oplossing -->
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Controleer of <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo>=</mo><mn>3</mn></mrow></math> een oplossing is van de vergelijking <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2</mn><mi>x</mi><mo>+</mo><mn>1</mn><mo>=</mo><mn>7</mn></mrow></math>.</p>
+      <ul class="rv-stappen">
+        <li>Vul <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo>=</mo><mn>3</mn></mrow></math> in het linkerlid in:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2</mn><mo>&times;</mo><mn>3</mn><mo>+</mo><mn>1</mn><mo>=</mo><mn>6</mn><mo>+</mo><mn>1</mn><mo>=</mo><mn>7</mn></mrow></math>
+        </li>
+        <li>Vergelijk met het rechterlid: het linkerlid geeft 7, het rechterlid is ook 7.</li>
+        <li>Beide leden zijn gelijk: de vergelijking klopt. Dus <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo>=</mo><mn>3</mn></mrow></math> is een oplossing. &#10003;</li>
+      </ul>
+      <p class="rv-antwoord">De oplossingsverzameling is {3}.</p>
+    </div>
+
+    <h3 class="sub-heading">Gelijkwaardige vergelijkingen</h3>
+
+    <p>Twee vergelijkingen zijn <strong>gelijkwaardig</strong> als ze dezelfde oplossingsverzameling hebben. Wanneer je een vergelijking oplost, vervang je ze stap voor stap door eenvoudigere gelijkwaardige vergelijkingen, tot je uitkomt bij een vergelijking van de vorm <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo>=</mo></mrow></math> (getal). Elke toelaatbare bewerking bewaart de oplossing.</p>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Is <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo>=</mo><mn>5</mn></mrow></math> een oplossing van <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>4</mn><mi>x</mi><mo>&#8722;</mo><mn>3</mn><mo>=</mo><mn>17</mn></mrow></math>? Controleer door invullen. Wat zou je moeten doen als je alleen de vergelijking hebt en de oplossing nog niet kent?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 2: EENVOUDIGE VERGELIJKINGEN OPLOSSEN
+  ============================================================ -->
+  <section class="section-block" id="eenvoudige-vergelijkingen">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Eenvoudige vergelijkingen oplossen</h2>
+    </div>
+
+    <p>Het basisprincipe bij het oplossen van een vergelijking is de <strong>balans</strong>. Stel je een weegschaal voor: het linkerlid en het rechterlid liggen in evenwicht. Zolang je aan beide kanten <em>hetzelfde</em> doet, blijft de balans in evenwicht &mdash; en dus blijft de vergelijking kloppen. Dit is de kern van alle algebraïsche manipulatie.</p>
+
+    <p>De strategie is eenvoudig: breng alle termen met <em>x</em> naar het <strong>linkerlid</strong> en alle getallen naar het <strong>rechterlid</strong>. Uiteindelijk staat er dan <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo>=</mo></mrow></math> getal.</p>
+
+    <div class="stelling">
+      <span class="st-label">Stelling &mdash; Vier gelijkwaardige transformaties</span>
+      <div class="st-body">
+        <p>De volgende bewerkingen zetten een vergelijking om in een gelijkwaardige vergelijking (dezelfde oplossingsverzameling):</p>
+        <ol style="padding-left:1.4rem;margin-top:0.6rem;">
+          <li style="margin-bottom:0.4rem"><strong>Optellen:</strong> hetzelfde getal optellen bij beide leden.</li>
+          <li style="margin-bottom:0.4rem"><strong>Aftrekken:</strong> hetzelfde getal aftrekken van beide leden.</li>
+          <li style="margin-bottom:0.4rem"><strong>Vermenigvuldigen:</strong> beide leden vermenigvuldigen met hetzelfde getal <em>(&ne; 0)</em>.</li>
+          <li><strong>Delen:</strong> beide leden delen door hetzelfde getal <em>(&ne; 0)</em>.</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- SVG Balance scale -->
+    <div class="svg-container">
+      <svg viewBox="0 0 620 260" width="100%" style="max-width:620px" role="img" aria-labelledby="balance-title">
+        <title id="balance-title">Balansschaal die de vergelijking 3x&#8722;5=10 visualiseert. Na het optellen van 5 bij beide kanten worden beide schalen gelijkgetrokken tot 3x=15.</title>
+        <!-- ===== LINKS: voor de bewerking ===== -->
+        <!-- Sokkel / voet -->
+        <rect x="30" y="230" width="160" height="14" rx="4" fill="#1A2B4A"/>
+        <!-- Middenpen -->
+        <rect x="107" y="155" width="6" height="76" rx="2" fill="#1A2B4A"/>
+        <!-- Driehoek scharnier -->
+        <polygon points="110,155 97,175 123,175" fill="#C8923A"/>
+        <!-- Balk links -->
+        <rect x="40" y="150" width="140" height="7" rx="3" fill="#1A2B4A"/>
+        <!-- Linker schaal (koord + schaal) -->
+        <line x1="55" y1="157" x2="55" y2="185" stroke="#6B5F4A" stroke-width="2"/>
+        <line x1="55" y1="185" x2="85" y2="185" stroke="#6B5F4A" stroke-width="2"/>
+        <rect x="40" y="183" width="45" height="24" rx="3" fill="#FDF3E7" stroke="#C1440E" stroke-width="1.5"/>
+        <text x="62" y="199" font-family="'Source Sans 3', sans-serif" font-size="11" text-anchor="middle" fill="#C1440E" font-weight="700">3x&#8722;5</text>
+        <!-- Rechter schaal (koord + schaal) -->
+        <line x1="165" y1="157" x2="165" y2="185" stroke="#6B5F4A" stroke-width="2"/>
+        <line x1="140" y1="185" x2="165" y2="185" stroke="#6B5F4A" stroke-width="2"/>
+        <rect x="135" y="183" width="45" height="24" rx="3" fill="#EEF3FF" stroke="#1A2B4A" stroke-width="1.5"/>
+        <text x="157" y="199" font-family="'Source Sans 3', sans-serif" font-size="11" text-anchor="middle" fill="#1A2B4A" font-weight="700">10</text>
+        <!-- Label boven -->
+        <text x="110" y="142" font-family="'Playfair Display', serif" font-size="12" text-anchor="middle" fill="#1A2B4A" font-style="italic">3x &#8722; 5 = 10</text>
+
+        <!-- Pijl middenin -->
+        <text x="266" y="178" font-family="'Source Sans 3', sans-serif" font-size="13" text-anchor="middle" fill="#C8923A" font-weight="700">+5</text>
+        <text x="266" y="195" font-family="'Source Sans 3', sans-serif" font-size="10" text-anchor="middle" fill="#6B5F4A">aan beide kanten</text>
+        <line x1="240" y1="188" x2="292" y2="188" stroke="#C8923A" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <polygon points="292,188 284,183 284,193" fill="#C8923A"/>
+
+        <!-- ===== RECHTS: na de bewerking ===== -->
+        <!-- Sokkel / voet -->
+        <rect x="430" y="230" width="160" height="14" rx="4" fill="#1A2B4A"/>
+        <!-- Middenpen -->
+        <rect x="507" y="155" width="6" height="76" rx="2" fill="#1A2B4A"/>
+        <!-- Driehoek scharnier -->
+        <polygon points="510,155 497,175 523,175" fill="#C8923A"/>
+        <!-- Balk recht (waterpas = in balans) -->
+        <rect x="440" y="150" width="140" height="7" rx="3" fill="#1A2B4A"/>
+        <!-- Linker schaal -->
+        <line x1="455" y1="157" x2="455" y2="185" stroke="#6B5F4A" stroke-width="2"/>
+        <line x1="455" y1="185" x2="485" y2="185" stroke="#6B5F4A" stroke-width="2"/>
+        <rect x="440" y="183" width="45" height="24" rx="3" fill="#FDF3E7" stroke="#C1440E" stroke-width="1.5"/>
+        <text x="462" y="199" font-family="'Source Sans 3', sans-serif" font-size="11" text-anchor="middle" fill="#C1440E" font-weight="700">3x</text>
+        <!-- Rechter schaal -->
+        <line x1="565" y1="157" x2="565" y2="185" stroke="#6B5F4A" stroke-width="2"/>
+        <line x1="540" y1="185" x2="565" y2="185" stroke="#6B5F4A" stroke-width="2"/>
+        <rect x="535" y="183" width="45" height="24" rx="3" fill="#EEF3FF" stroke="#1A2B4A" stroke-width="1.5"/>
+        <text x="557" y="199" font-family="'Source Sans 3', sans-serif" font-size="11" text-anchor="middle" fill="#1A2B4A" font-weight="700">15</text>
+        <!-- Label boven -->
+        <text x="510" y="142" font-family="'Playfair Display', serif" font-size="12" text-anchor="middle" fill="#1A2B4A" font-style="italic">3x = 15</text>
+
+        <!-- Goldene stip in balans rechts -->
+        <circle cx="510" cy="153" r="5" fill="#D4A017"/>
+      </svg>
+      <span class="svg-caption">Door 5 op te tellen bij beide leden blijft de balans in evenwicht: 3<em>x</em> &#8722; 5 = 10 wordt 3<em>x</em> = 15. De gouden stip toont dat de schaal nu perfect in evenwicht is.</span>
+    </div>
+
+    <!-- Rekenvoorbeeld: 3x - 5 = 10 -->
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Los op: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>3</mn><mi>x</mi><mo>&#8722;</mo><mn>5</mn><mo>=</mo><mn>10</mn></mrow></math></p>
+      <ul class="rv-stappen">
+        <li>Tel 5 op bij beide leden om de constante naar rechts te brengen:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>3</mn><mi>x</mi><mo>&#8722;</mo><mn>5</mn><mo>+</mo><mn>5</mn><mo>=</mo><mn>10</mn><mo>+</mo><mn>5</mn></mrow></math>
+          &nbsp;&rArr;&nbsp;
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>3</mn><mi>x</mi><mo>=</mo><mn>15</mn></mrow></math>
+        </li>
+        <li>Deel beide leden door 3 om <em>x</em> te isoleren:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mfrac><mrow><mn>3</mn><mi>x</mi></mrow><mn>3</mn></mfrac><mo>=</mo><mfrac><mn>15</mn><mn>3</mn></mfrac></mrow></math>
+          &nbsp;&rArr;&nbsp;
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo>=</mo><mn>5</mn></mrow></math>
+        </li>
+        <li>Controleer: vul <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo>=</mo><mn>5</mn></mrow></math> in:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>3</mn><mo>&times;</mo><mn>5</mn><mo>&#8722;</mo><mn>5</mn><mo>=</mo><mn>15</mn><mo>&#8722;</mo><mn>5</mn><mo>=</mo><mn>10</mn></mrow></math> &#10003;
+        </li>
+      </ul>
+      <p class="rv-antwoord">Oplossingsverzameling: {5}</p>
+    </div>
+
+    <!-- Rekenvoorbeeld: -2x + 8 = 2 -->
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Los op: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo>&#8722;</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>8</mn><mo>=</mo><mn>2</mn></mrow></math></p>
+      <ul class="rv-stappen">
+        <li>Trek 8 af van beide leden:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo>&#8722;</mo><mn>2</mn><mi>x</mi><mo>=</mo><mn>2</mn><mo>&#8722;</mo><mn>8</mn><mo>=</mo><mo>&#8722;</mo><mn>6</mn></mrow></math>
+        </li>
+        <li>Deel beide leden door &#8722;2 (let op het teken!):
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo>=</mo><mfrac><mrow><mo>&#8722;</mo><mn>6</mn></mrow><mrow><mo>&#8722;</mo><mn>2</mn></mrow></mfrac><mo>=</mo><mn>3</mn></mrow></math>
+        </li>
+        <li>Controleer: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo>&#8722;</mo><mn>2</mn><mo>&times;</mo><mn>3</mn><mo>+</mo><mn>8</mn><mo>=</mo><mo>&#8722;</mo><mn>6</mn><mo>+</mo><mn>8</mn><mo>=</mo><mn>2</mn></mrow></math> &#10003;</li>
+      </ul>
+      <p class="rv-antwoord">Oplossingsverzameling: {3}</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Waarom mag je beide leden <em>niet</em> door nul delen? Wat zou er misgaan met de oplossing? Denk aan een voorbeeld zoals <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2</mn><mo>=</mo><mn>5</mn></mrow></math> na deling door 0.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 3: VERGELIJKINGEN MET HAAKJES EN BREUKEN
+  ============================================================ -->
+  <section class="section-block" id="haakjes-en-breuken">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Vergelijkingen met haakjes en breuken</h2>
+    </div>
+
+    <p>Veel vergelijkingen bevatten haakjes of breuken. Daarvoor werken we eerst de vergelijking uit voordat we de <em>x</em> isoleren. Door een gestructureerde aanpak te volgen, mak je de opgave altijd herleidbaar tot het eenvoudige geval van sectie 2.</p>
+
+    <h3 class="sub-heading">Stap 1: Expandeer haakjes</h3>
+    <p>Gebruik de distributieve eigenschap: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>a</mi><mo>(</mo><mi>b</mi><mo>+</mo><mi>c</mi><mo>)</mo><mo>=</mo><mi>a</mi><mi>b</mi><mo>+</mo><mi>a</mi><mi>c</mi></mrow></math>. Let op het teken als het getal voor het haakje negatief is.</p>
+
+    <h3 class="sub-heading">Stap 2: Maak gelijknamig (bij breuken)</h3>
+    <p>Vermenigvuldig alle termen van beide leden met het <strong>kleinste gemene veelvoud (kgv)</strong> van de noemers. Zo verdwijnen alle breuken en werk je verder met een gewone vergelijking.</p>
+
+    <!-- Rekenvoorbeeld: 2(x+3) = 4x - 2 -->
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Los op: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2</mn><mo>(</mo><mi>x</mi><mo>+</mo><mn>3</mn><mo>)</mo><mo>=</mo><mn>4</mn><mi>x</mi><mo>&#8722;</mo><mn>2</mn></mrow></math></p>
+      <ul class="rv-stappen">
+        <li>Expandeer het haakje:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2</mn><mi>x</mi><mo>+</mo><mn>6</mn><mo>=</mo><mn>4</mn><mi>x</mi><mo>&#8722;</mo><mn>2</mn></mrow></math>
+        </li>
+        <li>Trek <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2</mn><mi>x</mi></mrow></math> af van beide leden (x naar rechts verplaatsen):
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>6</mn><mo>=</mo><mn>2</mn><mi>x</mi><mo>&#8722;</mo><mn>2</mn></mrow></math>
+        </li>
+        <li>Tel 2 op bij beide leden:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>8</mn><mo>=</mo><mn>2</mn><mi>x</mi></mrow></math>
+        </li>
+        <li>Deel door 2:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo>=</mo><mn>4</mn></mrow></math>
+        </li>
+        <li>Controleer: links <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2</mn><mo>(</mo><mn>4</mn><mo>+</mo><mn>3</mn><mo>)</mo><mo>=</mo><mn>14</mn></mrow></math>, rechts <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>4</mn><mo>&times;</mo><mn>4</mn><mo>&#8722;</mo><mn>2</mn><mo>=</mo><mn>14</mn></mrow></math> &#10003;</li>
+      </ul>
+      <p class="rv-antwoord">Oplossingsverzameling: {4}</p>
+    </div>
+
+    <!-- Rekenvoorbeeld: 3(2x-1) - 2(x+4) = 7 -->
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Los op: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>3</mn><mo>(</mo><mn>2</mn><mi>x</mi><mo>&#8722;</mo><mn>1</mn><mo>)</mo><mo>&#8722;</mo><mn>2</mn><mo>(</mo><mi>x</mi><mo>+</mo><mn>4</mn><mo>)</mo><mo>=</mo><mn>7</mn></mrow></math></p>
+      <ul class="rv-stappen">
+        <li>Expandeer beide haakjes. Let op het min-teken voor het tweede haakje:<br>
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>6</mn><mi>x</mi><mo>&#8722;</mo><mn>3</mn><mo>&#8722;</mo><mn>2</mn><mi>x</mi><mo>&#8722;</mo><mn>8</mn><mo>=</mo><mn>7</mn></mrow></math>
+        </li>
+        <li>Combineer gelijksoortige termen:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo>(</mo><mn>6</mn><mi>x</mi><mo>&#8722;</mo><mn>2</mn><mi>x</mi><mo>)</mo><mo>+</mo><mo>(</mo><mo>&#8722;</mo><mn>3</mn><mo>&#8722;</mo><mn>8</mn><mo>)</mo><mo>=</mo><mn>7</mn></mrow></math>
+          &nbsp;&rArr;&nbsp;
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>4</mn><mi>x</mi><mo>&#8722;</mo><mn>11</mn><mo>=</mo><mn>7</mn></mrow></math>
+        </li>
+        <li>Tel 11 op bij beide leden:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>4</mn><mi>x</mi><mo>=</mo><mn>18</mn></mrow></math>
+        </li>
+        <li>Deel door 4:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo>=</mo><mfrac><mn>18</mn><mn>4</mn></mfrac><mo>=</mo><mfrac><mn>9</mn><mn>2</mn></mfrac><mo>=</mo><mn>4</mn><mo>,</mo><mn>5</mn></mrow></math>
+        </li>
+        <li>Controleer: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>3</mn><mo>(</mo><mn>2</mn><mo>&times;</mo><mn>4</mn><mo>,</mo><mn>5</mn><mo>&#8722;</mo><mn>1</mn><mo>)</mo><mo>&#8722;</mo><mn>2</mn><mo>(</mo><mn>4</mn><mo>,</mo><mn>5</mn><mo>+</mo><mn>4</mn><mo>)</mo><mo>=</mo><mn>3</mn><mo>&times;</mo><mn>8</mn><mo>&#8722;</mo><mn>2</mn><mo>&times;</mo><mn>8</mn><mo>,</mo><mn>5</mn><mo>=</mo><mn>24</mn><mo>&#8722;</mo><mn>17</mn><mo>=</mo><mn>7</mn></mrow></math> &#10003;</li>
+      </ul>
+      <p class="rv-antwoord">Oplossingsverzameling: {4,5}</p>
+    </div>
+
+    <!-- Rekenvoorbeeld: breuken x/3 + 2 = x/2 - 1 -->
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Los op: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mfrac><mi>x</mi><mn>3</mn></mfrac><mo>+</mo><mn>2</mn><mo>=</mo><mfrac><mi>x</mi><mn>2</mn></mfrac><mo>&#8722;</mo><mn>1</mn></mrow></math></p>
+      <ul class="rv-stappen">
+        <li>Bepaal het kgv van de noemers 3 en 2: kgv(3, 2) = 6. Vermenigvuldig elk term met 6:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>6</mn><mo>&times;</mo><mfrac><mi>x</mi><mn>3</mn></mfrac><mo>+</mo><mn>6</mn><mo>&times;</mo><mn>2</mn><mo>=</mo><mn>6</mn><mo>&times;</mo><mfrac><mi>x</mi><mn>2</mn></mfrac><mo>&#8722;</mo><mn>6</mn><mo>&times;</mo><mn>1</mn></mrow></math>
+        </li>
+        <li>Vereenvoudig:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2</mn><mi>x</mi><mo>+</mo><mn>12</mn><mo>=</mo><mn>3</mn><mi>x</mi><mo>&#8722;</mo><mn>6</mn></mrow></math>
+        </li>
+        <li>Trek <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2</mn><mi>x</mi></mrow></math> af van beide leden:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>12</mn><mo>=</mo><mi>x</mi><mo>&#8722;</mo><mn>6</mn></mrow></math>
+        </li>
+        <li>Tel 6 op bij beide leden:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo>=</mo><mn>18</mn></mrow></math>
+        </li>
+        <li>Controleer: links <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mfrac><mn>18</mn><mn>3</mn></mfrac><mo>+</mo><mn>2</mn><mo>=</mo><mn>6</mn><mo>+</mo><mn>2</mn><mo>=</mo><mn>8</mn></mrow></math>, rechts <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mfrac><mn>18</mn><mn>2</mn></mfrac><mo>&#8722;</mo><mn>1</mn><mo>=</mo><mn>9</mn><mo>&#8722;</mo><mn>1</mn><mo>=</mo><mn>8</mn></mrow></math> &#10003;</li>
+      </ul>
+      <p class="rv-antwoord">Oplossingsverzameling: {18}</p>
+    </div>
+
+    <div class="formule">
+      <span class="formule-naam">Systematische stappen voor vergelijkingen van de eerste graad</span>
+      <div style="text-align:left;color:white;font-size:0.97rem;line-height:2;">
+        <div><span style="color:#D4A017;font-weight:700;">1. Expandeer</span> &nbsp;&mdash;&nbsp; werk alle haakjes uit (distributief)</div>
+        <div><span style="color:#D4A017;font-weight:700;">2. Elimineer breuken</span> &nbsp;&mdash;&nbsp; vermenigvuldig met kgv van noemers</div>
+        <div><span style="color:#D4A017;font-weight:700;">3. Verzamel</span> &nbsp;&mdash;&nbsp; groepeer x-termen links, getallen rechts</div>
+        <div><span style="color:#D4A017;font-weight:700;">4. Isoleer</span> &nbsp;&mdash;&nbsp; combineer gelijksoortige termen aan elke kant</div>
+        <div><span style="color:#D4A017;font-weight:700;">5. Bereken</span> &nbsp;&mdash;&nbsp; deel beide leden door de co&euml;ffici&euml;nt van x</div>
+        <div><span style="color:#D4A017;font-weight:700;">6. Controleer</span> &nbsp;&mdash;&nbsp; vul de gevonden waarde altijd in om te verifi&euml;ren</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 4: VERGELIJKINGEN OPSTELLEN VANUIT EEN TEKST
+  ============================================================ -->
+  <section class="section-block" id="tekstproblemen">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Vergelijkingen opstellen vanuit een tekst</h2>
+    </div>
+
+    <p>Een van de krachtigste toepassingen van vergelijkingen is het oplossen van <strong>tekstproblemen</strong>. Je vertaalt een beschreven situatie in een wiskundige vergelijking, lost die op, en interpreteert het antwoord in de context van het probleem.</p>
+
+    <div class="stelling">
+      <span class="st-label">Aanpak &mdash; Tekstprobleem naar vergelijking</span>
+      <div class="st-body">
+        <ol style="padding-left:1.4rem;margin-top:0.4rem;">
+          <li style="margin-bottom:0.4rem"><strong>Kies een variabele:</strong> ken een letter toe aan de onbekende grootheid (bv. <em>x</em> = &hellip;).</li>
+          <li style="margin-bottom:0.4rem"><strong>Schrijf de vergelijking op:</strong> vertaal de tekst stap voor stap naar wiskundige symbolen.</li>
+          <li style="margin-bottom:0.4rem"><strong>Los op:</strong> gebruik de technieken van de vorige secties.</li>
+          <li><strong>Interpreteer:</strong> geef het antwoord terug in de context &mdash; vermeld de eenheid en controleer of het antwoord logisch is.</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Rekenvoorbeeld: Jana en Tom -->
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld &mdash; Spaargeld</span>
+      <p class="rv-vraag">Jana heeft 3 keer zoveel spaargeld als Tom. Samen hebben ze &euro;240. Hoeveel heeft elk?</p>
+      <ul class="rv-stappen">
+        <li><strong>Kies variabele:</strong> stel <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>T</mi></mrow></math> = het spaargeld van Tom (in &euro;). Dan heeft Jana <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>3</mn><mi>T</mi></mrow></math>.</li>
+        <li><strong>Stel vergelijking op:</strong> samen is <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>T</mi><mo>+</mo><mn>3</mn><mi>T</mi><mo>=</mo><mn>240</mn></mrow></math></li>
+        <li><strong>Los op:</strong> <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>4</mn><mi>T</mi><mo>=</mo><mn>240</mn></mrow></math> &rArr; <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>T</mi><mo>=</mo><mn>60</mn></mrow></math></li>
+        <li><strong>Bereken Jana:</strong> <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>3</mn><mo>&times;</mo><mn>60</mn><mo>=</mo><mn>180</mn></mrow></math></li>
+        <li><strong>Controleer:</strong> <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>60</mn><mo>+</mo><mn>180</mn><mo>=</mo><mn>240</mn></mrow></math> &#10003; en 180 = 3 &times; 60 &#10003;</li>
+      </ul>
+      <p class="rv-antwoord">Tom heeft &euro;60, Jana heeft &euro;180.</p>
+    </div>
+
+    <!-- Rekenvoorbeeld: rechthoek -->
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld &mdash; Rechthoek</span>
+      <p class="rv-vraag">De omtrek van een rechthoek is 46 cm. De lengte is 5 cm meer dan de breedte. Vind de afmetingen.</p>
+      <ul class="rv-stappen">
+        <li><strong>Kies variabele:</strong> stel <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>b</mi></math> = de breedte (in cm). Dan is de lengte <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>b</mi><mo>+</mo><mn>5</mn></mrow></math>.</li>
+        <li><strong>Omtrekformule:</strong> <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2</mn><mo>(</mo><mi>b</mi><mo>+</mo><mi>b</mi><mo>+</mo><mn>5</mn><mo>)</mo><mo>=</mo><mn>46</mn></mrow></math></li>
+        <li>Expandeer: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2</mn><mo>(</mo><mn>2</mn><mi>b</mi><mo>+</mo><mn>5</mn><mo>)</mo><mo>=</mo><mn>46</mn></mrow></math> &rArr; <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>4</mn><mi>b</mi><mo>+</mo><mn>10</mn><mo>=</mo><mn>46</mn></mrow></math></li>
+        <li>Trek 10 af: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>4</mn><mi>b</mi><mo>=</mo><mn>36</mn></mrow></math> &rArr; <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>b</mi><mo>=</mo><mn>9</mn></mrow></math> cm</li>
+        <li>Lengte: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>9</mn><mo>+</mo><mn>5</mn><mo>=</mo><mn>14</mn></mrow></math> cm. Controleer omtrek: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2</mn><mo>(</mo><mn>9</mn><mo>+</mo><mn>14</mn><mo>)</mo><mo>=</mo><mn>2</mn><mo>&times;</mo><mn>23</mn><mo>=</mo><mn>46</mn></mrow></math> &#10003;</li>
+      </ul>
+      <p class="rv-antwoord">Breedte = 9 cm, lengte = 14 cm.</p>
+    </div>
+
+    <!-- Rekenvoorbeeld: leeftijdsprobleem -->
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld &mdash; Leeftijden</span>
+      <p class="rv-vraag">Papa is nu 3 keer zo oud als zijn dochter. Over 10 jaar is hij 2 keer zo oud als zijn dochter. Hoe oud zijn ze nu?</p>
+      <ul class="rv-stappen">
+        <li><strong>Kies variabele:</strong> stel <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>d</mi></math> = de huidige leeftijd van de dochter. Dan is papa nu <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>3</mn><mi>d</mi></mrow></math> jaar oud.</li>
+        <li><strong>Over 10 jaar:</strong> dochter is <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>d</mi><mo>+</mo><mn>10</mn></mrow></math>, papa is <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>3</mn><mi>d</mi><mo>+</mo><mn>10</mn></mrow></math>. Conditie: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>3</mn><mi>d</mi><mo>+</mo><mn>10</mn><mo>=</mo><mn>2</mn><mo>(</mo><mi>d</mi><mo>+</mo><mn>10</mn><mo>)</mo></mrow></math></li>
+        <li>Expandeer: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>3</mn><mi>d</mi><mo>+</mo><mn>10</mn><mo>=</mo><mn>2</mn><mi>d</mi><mo>+</mo><mn>20</mn></mrow></math></li>
+        <li>Trek <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2</mn><mi>d</mi></mrow></math> af en trek 10 af van beide leden:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>d</mi><mo>=</mo><mn>10</mn></mrow></math>
+        </li>
+        <li>Papa is nu <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>3</mn><mo>&times;</mo><mn>10</mn><mo>=</mo><mn>30</mn></mrow></math> jaar. Controleer: over 10 jaar is papa 40, dochter 20: 40 = 2 &times; 20 &#10003;</li>
+      </ul>
+      <p class="rv-antwoord">De dochter is nu 10 jaar, papa is nu 30 jaar.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Bedenk zelf een eenvoudig probleem dat je met een vergelijking van de eerste graad kunt oplossen. Schrijf de vergelijking op en los ze op. Ruil je probleem met een klasgenoot en los dat van hem/haar op.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 5: STELSELS VAN VERGELIJKINGEN (INTRODUCTIE)
+  ============================================================ -->
+  <section class="section-block" id="stelsels">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Vergelijkingen met twee onbekenden</h2>
+    </div>
+
+    <p>Soms zijn er twee onbekende grootheden en zijn er ook twee vergelijkingen beschikbaar. Zo'n koppel van vergelijkingen heet een <strong>stelsel van vergelijkingen</strong>. We schrijven het als:</p>
+
+    <div class="formule">
+      <span class="formule-naam">Stelsel van twee vergelijkingen</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <mo>{</mo>
+          <mtable>
+            <mtr><mtd><msub><mi>v</mi><mn>1</mn></msub><mo>:</mo></mtd><mtd><mi>a</mi><mi>x</mi><mo>+</mo><mi>b</mi><mi>y</mi><mo>=</mo><mi>c</mi></mtd></mtr>
+            <mtr><mtd><msub><mi>v</mi><mn>2</mn></msub><mo>:</mo></mtd><mtd><mi>d</mi><mi>x</mi><mo>+</mo><mi>e</mi><mi>y</mi><mo>=</mo><mi>f</mi></mtd></mtr>
+          </mtable>
+        </mrow>
+      </math>
+    </div>
+
+    <p>De <strong>oplossing</strong> van een stelsel is het koppel (<em>x</em>, <em>y</em>) dat beide vergelijkingen tegelijk waar maakt. Grafisch is dit het snijpunt van twee rechten in een assenstelsel.</p>
+
+    <h3 class="sub-heading">Methode van substitutie</h3>
+
+    <p>Bij de <strong>methode van substitutie</strong> druk je &eacute;&eacute;n onbekende uit in de andere via &eacute;&eacute;n vergelijking, en vervangt dat dan in de andere vergelijking. Zo krijg je een vergelijking met slechts &eacute;&eacute;n onbekende, die je al kunt oplossen.</p>
+
+    <!-- Rekenvoorbeeld: x+y=10 en x-y=4 -->
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld &mdash; Substitutie</span>
+      <p class="rv-vraag">Los op: <math xmlns="http://www.w3.org/1998/Math/MathML"><mo>{</mo></math> <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo>+</mo><mi>y</mi><mo>=</mo><mn>10</mn></mrow></math> &nbsp; en &nbsp; <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo>&#8722;</mo><mi>y</mi><mo>=</mo><mn>4</mn></mrow></math></p>
+      <ul class="rv-stappen">
+        <li>Isoleer <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>x</mi></math> uit vergelijking 2:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo>=</mo><mi>y</mi><mo>+</mo><mn>4</mn></mrow></math>
+        </li>
+        <li>Substitueer in vergelijking 1:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo>(</mo><mi>y</mi><mo>+</mo><mn>4</mn><mo>)</mo><mo>+</mo><mi>y</mi><mo>=</mo><mn>10</mn></mrow></math>
+          &rArr;
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2</mn><mi>y</mi><mo>+</mo><mn>4</mn><mo>=</mo><mn>10</mn></mrow></math>
+        </li>
+        <li>Los op voor <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>y</mi></math>:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2</mn><mi>y</mi><mo>=</mo><mn>6</mn></mrow></math>
+          &rArr;
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>y</mi><mo>=</mo><mn>3</mn></mrow></math>
+        </li>
+        <li>Bereken <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>x</mi></math>:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo>=</mo><mi>y</mi><mo>+</mo><mn>4</mn><mo>=</mo><mn>3</mn><mo>+</mo><mn>4</mn><mo>=</mo><mn>7</mn></mrow></math>
+        </li>
+        <li>Controleer in beide vergelijkingen: 7 + 3 = 10 &#10003; en 7 &#8722; 3 = 4 &#10003;</li>
+      </ul>
+      <p class="rv-antwoord">Oplossing: x = 7, y = 3</p>
+    </div>
+
+    <!-- Rekenvoorbeeld: contextprobleem twee producten -->
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld &mdash; Twee producten kopen</span>
+      <p class="rv-vraag">Een notitieboekje kost &euro;2 meer dan een pen. Samen kosten 1 notitieboekje en 1 pen &euro;6,50. Wat kost elk?</p>
+      <ul class="rv-stappen">
+        <li><strong>Variabelen:</strong> stel <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math> = prijs pen (in &euro;). Dan is het notitieboekje <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo>+</mo><mn>2</mn></mrow></math>.</li>
+        <li><strong>Vergelijking:</strong>
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo>+</mo><mo>(</mo><mi>p</mi><mo>+</mo><mn>2</mn><mo>)</mo><mo>=</mo><mn>6</mn><mo>,</mo><mn>50</mn></mrow></math>
+          &rArr;
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2</mn><mi>p</mi><mo>+</mo><mn>2</mn><mo>=</mo><mn>6</mn><mo>,</mo><mn>50</mn></mrow></math>
+        </li>
+        <li>Los op:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2</mn><mi>p</mi><mo>=</mo><mn>4</mn><mo>,</mo><mn>50</mn></mrow></math>
+          &rArr;
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo>=</mo><mn>2</mn><mo>,</mo><mn>25</mn></mrow></math>
+        </li>
+        <li>Notitieboekje: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2</mn><mo>,</mo><mn>25</mn><mo>+</mo><mn>2</mn><mo>=</mo><mn>4</mn><mo>,</mo><mn>25</mn></mrow></math> &euro;</li>
+        <li>Controleer: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2</mn><mo>,</mo><mn>25</mn><mo>+</mo><mn>4</mn><mo>,</mo><mn>25</mn><mo>=</mo><mn>6</mn><mo>,</mo><mn>50</mn></mrow></math> &#10003;</li>
+      </ul>
+      <p class="rv-antwoord">Pen = &euro;2,25 &nbsp;|&nbsp; Notitieboekje = &euro;4,25</p>
+    </div>
+
+    <!-- SVG: twee rechten die snijden in (7,3) -->
+    <div class="svg-container">
+      <svg viewBox="0 0 500 400" width="100%" style="max-width:500px" role="img" aria-labelledby="graph-title">
+        <title id="graph-title">Assenstelsel met twee rechten x+y=10 (blauw) en x&#8722;y=4 (oker) die snijden in het punt (7,3), gemarkeerd met een gouden cirkel.</title>
+        <!-- Achtergrond raster -->
+        <rect x="60" y="20" width="400" height="340" fill="#FAFAFA" stroke="#E8DCC8" stroke-width="1"/>
+        <!-- Verticale rasterlijnen -->
+        <g stroke="#E8DCC8" stroke-width="0.8">
+          <line x1="100" y1="20" x2="100" y2="360"/>
+          <line x1="140" y1="20" x2="140" y2="360"/>
+          <line x1="180" y1="20" x2="180" y2="360"/>
+          <line x1="220" y1="20" x2="220" y2="360"/>
+          <line x1="260" y1="20" x2="260" y2="360"/>
+          <line x1="300" y1="20" x2="300" y2="360"/>
+          <line x1="340" y1="20" x2="340" y2="360"/>
+          <line x1="380" y1="20" x2="380" y2="360"/>
+          <line x1="420" y1="20" x2="420" y2="360"/>
+        </g>
+        <!-- Horizontale rasterlijnen -->
+        <g stroke="#E8DCC8" stroke-width="0.8">
+          <line x1="60" y1="60" x2="460" y2="60"/>
+          <line x1="60" y1="100" x2="460" y2="100"/>
+          <line x1="60" y1="140" x2="460" y2="140"/>
+          <line x1="60" y1="180" x2="460" y2="180"/>
+          <line x1="60" y1="220" x2="460" y2="220"/>
+          <line x1="60" y1="260" x2="460" y2="260"/>
+          <line x1="60" y1="300" x2="460" y2="300"/>
+          <line x1="60" y1="340" x2="460" y2="340"/>
+        </g>
+        <!-- Assen: oorsprong op (60+2*40, 20+8*40) = x=140 niet goed, maak: schaal 40px/eenheid -->
+        <!-- Coordinaten: oorsprong op x0=60, y0=360 (linksonder). Schaal: 40px per eenheid -->
+        <!-- Xas van x=60 tot x=460 (x-waarden 0..10), Yas van y=360 tot y=20 (y-waarden 0..8.5) -->
+        <!-- Assen -->
+        <line x1="60" y1="360" x2="460" y2="360" stroke="#1A2B4A" stroke-width="2"/>
+        <line x1="60" y1="360" x2="60" y2="20" stroke="#1A2B4A" stroke-width="2"/>
+        <!-- Pijlen -->
+        <polygon points="460,360 450,355 450,365" fill="#1A2B4A"/>
+        <polygon points="60,20 55,30 65,30" fill="#1A2B4A"/>
+        <!-- x-as labels (0..10) -->
+        <g font-family="'Source Sans 3', sans-serif" font-size="11" text-anchor="middle" fill="#6B5F4A">
+          <text x="60" y="375">0</text>
+          <text x="100" y="375">1</text>
+          <text x="140" y="375">2</text>
+          <text x="180" y="375">3</text>
+          <text x="220" y="375">4</text>
+          <text x="260" y="375">5</text>
+          <text x="300" y="375">6</text>
+          <text x="340" y="375">7</text>
+          <text x="380" y="375">8</text>
+          <text x="420" y="375">9</text>
+          <text x="460" y="375">10</text>
+          <text x="468" y="365" font-style="italic" fill="#1A2B4A">x</text>
+        </g>
+        <!-- y-as labels (0..8) -->
+        <g font-family="'Source Sans 3', sans-serif" font-size="11" text-anchor="end" fill="#6B5F4A">
+          <text x="52" y="364">0</text>
+          <text x="52" y="324">1</text>
+          <text x="52" y="284">2</text>
+          <text x="52" y="244">3</text>
+          <text x="52" y="204">4</text>
+          <text x="52" y="164">5</text>
+          <text x="52" y="124">6</text>
+          <text x="52" y="84">7</text>
+          <text x="52" y="44">8</text>
+          <text x="56" y="22" font-style="italic" fill="#1A2B4A">y</text>
+        </g>
+        <!-- Maatstrepen x-as -->
+        <g stroke="#1A2B4A" stroke-width="1.2">
+          <line x1="100" y1="357" x2="100" y2="363"/>
+          <line x1="140" y1="357" x2="140" y2="363"/>
+          <line x1="180" y1="357" x2="180" y2="363"/>
+          <line x1="220" y1="357" x2="220" y2="363"/>
+          <line x1="260" y1="357" x2="260" y2="363"/>
+          <line x1="300" y1="357" x2="300" y2="363"/>
+          <line x1="340" y1="357" x2="340" y2="363"/>
+          <line x1="380" y1="357" x2="380" y2="363"/>
+          <line x1="420" y1="357" x2="420" y2="363"/>
+        </g>
+        <!-- Maatstrepen y-as -->
+        <g stroke="#1A2B4A" stroke-width="1.2">
+          <line x1="57" y1="320" x2="63" y2="320"/>
+          <line x1="57" y1="280" x2="63" y2="280"/>
+          <line x1="57" y1="240" x2="63" y2="240"/>
+          <line x1="57" y1="200" x2="63" y2="200"/>
+          <line x1="57" y1="160" x2="63" y2="160"/>
+          <line x1="57" y1="120" x2="63" y2="120"/>
+          <line x1="57" y1="80" x2="63" y2="80"/>
+        </g>
+        <!--
+          Rechte 1: x + y = 10  =>  y = 10 - x
+            x=0: y=10, punt (60, 20+0)=(60,360-400)... herbereken:
+            Pixel: px = x0 + x*40 = 60 + x*40
+                   py = y0 - y*40 = 360 - y*40
+            x=0, y=10: (60, 360-400)=(60,-40) buiten scherm
+            x=2, y=8:  (140, 360-320)=(140, 40)
+            x=10, y=0: (460, 360)
+        -->
+        <line x1="140" y1="40" x2="460" y2="360" stroke="#1A2B4A" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- label rechte 1 -->
+        <text x="152" y="36" font-family="'Source Sans 3', sans-serif" font-size="12" fill="#1A2B4A" font-weight="700">x + y = 10</text>
+        <!--
+          Rechte 2: x - y = 4  =>  y = x - 4
+            x=4, y=0: (60+4*40, 360)=(220, 360)
+            x=9, y=5: (60+9*40, 360-5*40)=(420, 160)
+        -->
+        <line x1="220" y1="360" x2="460" y2="120" stroke="#C8923A" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- label rechte 2 -->
+        <text x="430" y="116" font-family="'Source Sans 3', sans-serif" font-size="12" fill="#C8923A" font-weight="700">x &#8722; y = 4</text>
+        <!--
+          Snijpunt: x=7, y=3
+          px = 60 + 7*40 = 340
+          py = 360 - 3*40 = 240
+        -->
+        <!-- Stippellijnen naar assen -->
+        <line x1="340" y1="240" x2="340" y2="360" stroke="#D4A017" stroke-width="1.2" stroke-dasharray="5,4"/>
+        <line x1="60" y1="240" x2="340" y2="240" stroke="#D4A017" stroke-width="1.2" stroke-dasharray="5,4"/>
+        <!-- Snijpunt cirkel -->
+        <circle cx="340" cy="240" r="8" fill="#D4A017" stroke="white" stroke-width="2"/>
+        <!-- Snijpunt label -->
+        <text x="352" y="232" font-family="'Source Sans 3', sans-serif" font-size="13" fill="#D4A017" font-weight="700">(7, 3)</text>
+      </svg>
+      <span class="svg-caption">Grafische voorstelling van het stelsel: de blauwe rechte <em>x + y = 10</em> en de oker rechte <em>x &#8722; y = 4</em> snijden elkaar in het punt (7, 3) &mdash; de gouden cirkel.</span>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Wat zou de grafische betekenis zijn als twee rechten evenwijdig zijn? Wat zou dat betekenen voor het stelsel van vergelijkingen? En wat als de twee rechten samenvallen?</p>
+    </div>
+  </section>
+
+</div><!-- end page-wrapper -->
+
+<!-- ============================================================
+     OEFENINGEN
+============================================================ -->
+<section class="exercises-section" id="oefeningen">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <!-- Oefening 1: controleer oplossing -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Oplossing verifi&euml;ren</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Controleer voor elke vergelijking of de gegeven waarde een oplossing is. Toon je berekening.</p>
+      <ol>
+        <li>Is <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo>=</mo><mn>4</mn></mrow></math> een oplossing van <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>5</mn><mi>x</mi><mo>&#8722;</mo><mn>3</mn><mo>=</mo><mn>17</mn></mrow></math>?</li>
+        <li>Is <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo>=</mo><mo>&#8722;</mo><mn>2</mn></mrow></math> een oplossing van <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>3</mn><mi>x</mi><mo>+</mo><mn>10</mn><mo>=</mo><mn>4</mn></mrow></math>?</li>
+        <li>Is <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo>=</mo><mn>6</mn></mrow></math> een oplossing van <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2</mn><mo>(</mo><mi>x</mi><mo>&#8722;</mo><mn>1</mn><mo>)</mo><mo>=</mo><mn>10</mn></mrow></math>?</li>
+      </ol>
+      <p class="ex-tip">Tip: vul de gegeven waarde in en bereken beide leden apart. Zijn ze gelijk? Dan is het een oplossing.</p>
+    </div>
+
+    <!-- Oefening 2: eenvoudige vergelijkingen -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Eenvoudige vergelijkingen oplossen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Los elke vergelijking op. Geef de oplossingsverzameling en controleer je antwoord.</p>
+      <ol>
+        <li><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo>+</mo><mn>9</mn><mo>=</mo><mn>15</mn></mrow></math></li>
+        <li><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>4</mn><mi>x</mi><mo>=</mo><mn>28</mn></mrow></math></li>
+        <li><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2</mn><mi>x</mi><mo>&#8722;</mo><mn>7</mn><mo>=</mo><mn>11</mn></mrow></math></li>
+        <li><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo>&#8722;</mo><mn>3</mn><mi>x</mi><mo>+</mo><mn>12</mn><mo>=</mo><mn>0</mn></mrow></math></li>
+        <li><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>5</mn><mi>x</mi><mo>+</mo><mn>3</mn><mo>=</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>18</mn></mrow></math></li>
+      </ol>
+      <p class="ex-tip">Tip: breng alle x-termen naar links en alle getallen naar rechts. Deel dan door de co&euml;ffici&euml;nt van x.</p>
+    </div>
+
+    <!-- Oefening 3: haakjes -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Vergelijkingen met haakjes</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Expandeer de haakjes en los dan op.</p>
+      <ol>
+        <li><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>3</mn><mo>(</mo><mi>x</mi><mo>+</mo><mn>4</mn><mo>)</mo><mo>=</mo><mn>21</mn></mrow></math></li>
+        <li><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2</mn><mo>(</mo><mi>x</mi><mo>&#8722;</mo><mn>3</mn><mo>)</mo><mo>+</mo><mn>5</mn><mo>=</mo><mn>11</mn></mrow></math></li>
+        <li><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>4</mn><mo>(</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>1</mn><mo>)</mo><mo>=</mo><mn>3</mn><mo>(</mo><mi>x</mi><mo>+</mo><mn>6</mn><mo>)</mo></mrow></math></li>
+        <li><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>5</mn><mo>(</mo><mi>x</mi><mo>&#8722;</mo><mn>2</mn><mo>)</mo><mo>&#8722;</mo><mn>3</mn><mo>(</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo>)</mo><mo>=</mo><mn>9</mn></mrow></math></li>
+      </ol>
+      <p class="ex-tip">Let op: als er een min-teken staat voor een haakje, verandert het teken van elke term erin. Bv. &#8722;3(x+1) = &#8722;3x &#8722; 3.</p>
+    </div>
+
+    <!-- Oefening 4: breuken -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 4</p>
+      <p class="ex-name">Vergelijkingen met breuken</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Vermenigvuldig eerst alle termen met het kgv van de noemers om de breuken te elimineren.</p>
+      <ol>
+        <li><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mfrac><mi>x</mi><mn>4</mn></mfrac><mo>=</mo><mn>3</mn></mrow></math></li>
+        <li><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mfrac><mi>x</mi><mn>2</mn></mfrac><mo>+</mo><mn>3</mn><mo>=</mo><mn>7</mn></mrow></math></li>
+        <li><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mfrac><mi>x</mi><mn>3</mn></mfrac><mo>&#8722;</mo><mfrac><mi>x</mi><mn>6</mn></mfrac><mo>=</mo><mn>2</mn></mrow></math></li>
+        <li><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mfrac><mrow><mn>2</mn><mi>x</mi><mo>+</mo><mn>1</mn></mrow><mn>3</mn></mfrac><mo>=</mo><mfrac><mrow><mi>x</mi><mo>&#8722;</mo><mn>2</mn></mrow><mn>2</mn></mfrac></mrow></math></li>
+      </ol>
+      <p class="ex-tip">Tip: bij oefening 4c is kgv(3,6) = 6. Vermenigvuldig elke term met 6 en vereenvoudig.</p>
+    </div>
+
+    <!-- Oefening 5: tekstprobleem -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 5</p>
+      <p class="ex-name">Tekstprobleem opstellen en oplossen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Stel telkens een vergelijking op, los op en geef het antwoord in een volledige zin.</p>
+      <ol>
+        <li>De som van drie opeenvolgende gehele getallen is 48. Wat zijn die getallen? (<em>Stel het kleinste getal = n.</em>)</li>
+        <li>Lien heeft twee keer zoveel stickerkaarten als Warre. Als Lien er 12 weggeeft aan Warre, hebben ze allebei evenveel. Hoeveel had elk in het begin?</li>
+        <li>Een trein rijdt met een gemiddelde snelheid van 90 km/u. Een auto rijdt gelijktijdig 60 km/u. De trein vertrekt 1 uur later dan de auto, maar hetzelfde traject. Na hoeveel uur haalt de trein de auto in?</li>
+      </ol>
+      <p class="ex-tip">Kies telkens zorgvuldig je variabele en schrijf op wat die voorstelt voordat je de vergelijking neerschrijft.</p>
+    </div>
+
+    <!-- Oefening 6: stelsel -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 6</p>
+      <p class="ex-name">Stelsel van twee vergelijkingen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Los elk stelsel op met de methode van substitutie. Controleer je antwoord in beide vergelijkingen.</p>
+      <ol>
+        <li>
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mo>{</mo></math>&nbsp;
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo>+</mo><mi>y</mi><mo>=</mo><mn>8</mn></mrow></math>&nbsp; en &nbsp;
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo>&#8722;</mo><mi>y</mi><mo>=</mo><mn>2</mn></mrow></math>
+        </li>
+        <li>
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mo>{</mo></math>&nbsp;
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>y</mi><mo>=</mo><mn>2</mn><mi>x</mi></mrow></math>&nbsp; en &nbsp;
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo>+</mo><mi>y</mi><mo>=</mo><mn>12</mn></mrow></math>
+        </li>
+        <li>In een klas zijn er 32 leerlingen. Er zijn 6 meer meisjes dan jongens. Hoeveel meisjes en hoeveel jongens zijn er? Stel een stelsel op en los op.</li>
+      </ol>
+      <p class="ex-tip">Bij substitutie: isoleer eerst een variabele in de eenvoudigste vergelijking, dan substitueer je in de andere. Schrijf telkens op wat je doet.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SAMENVATTING
+============================================================ -->
+<section class="summary-section" id="samenvatting">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+
+    <!-- Algoritme box -->
+    <div class="algoritme" style="margin-bottom:2.2rem;">
+      <span class="alg-label">Stappenplan &mdash; Vergelijking van de eerste graad oplossen</span>
+      <ol>
+        <li><strong>Expandeer</strong> alle haakjes met de distributieve eigenschap.</li>
+        <li><strong>Elimineer breuken</strong> door alles te vermenigvuldigen met het kgv van de noemers.</li>
+        <li><strong>Verzamel</strong> alle x-termen aan &eacute;&eacute;n kant (links) en getallen aan de andere kant (rechts).</li>
+        <li><strong>Combineer</strong> gelijksoortige termen aan elke kant.</li>
+        <li><strong>Deel</strong> beide leden door de co&euml;ffici&euml;nt van x.</li>
+        <li><strong>Controleer</strong> door de gevonden waarde in te vullen in de oorspronkelijke vergelijking.</li>
+      </ol>
+    </div>
+
+    <ul>
+      <li><strong>Een vergelijking</strong> van de eerste graad heeft de vorm <em>ax + b = c</em>, met de onbekende <em>x</em> slechts tot de eerste macht.</li>
+      <li><strong>De oplossing (wortel)</strong> is de waarde van <em>x</em> die beide leden gelijk maakt. De <strong>oplossingsverzameling</strong> bevat alle oplossingen (normaal precies &eacute;&eacute;n voor een vergelijking van de eerste graad).</li>
+      <li><strong>Gelijkwaardige bewerkingen</strong> bewaren de oplossing: optellen, aftrekken, vermenigvuldigen en delen van beide leden met hetzelfde getal (nooit door 0 delen!).</li>
+      <li><strong>Haakjes expanderen</strong> met het distributief principe: <em>a(b + c) = ab + ac</em>. Let extra goed op het teken als het getal voor het haakje negatief is.</li>
+      <li><strong>Breuken elimineer</strong> je door alle termen te vermenigvuldigen met het kgv van de noemers &mdash; zo werk je daarna met gehele getallen.</li>
+      <li><strong>Tekstproblemen:</strong> kies een variabele, stel de vergelijking op, los op, en interpreteer het antwoord in de context. Controleer altijd of het antwoord logisch is.</li>
+      <li><strong>Een stelsel</strong> van twee vergelijkingen met twee onbekenden heeft als oplossing het koppel (<em>x</em>, <em>y</em>) dat beide vergelijkingen tegelijk vervult. Grafisch is dit het <strong>snijpunt van twee rechten</strong>.</li>
+      <li><strong>Substitutie</strong> bij stelsels: isoleer een onbekende in &eacute;&eacute;n vergelijking en vervang die in de andere. Zo herleid je het stelsel tot &eacute;&eacute;n vergelijking met &eacute;&eacute;n onbekende.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

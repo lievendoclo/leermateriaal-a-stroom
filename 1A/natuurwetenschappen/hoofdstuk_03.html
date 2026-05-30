@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H3 — Stofomzettingen in het menselijk lichaam | Natuurwetenschappen 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --gold: #D4A017;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --terracotta-light: #D4561E;
+    --gold-light: #E8B82A;
+    --darkblue-light: #243B63;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     CLOSING QUOTE
+  ============================================================ */
+  .closing-quote {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0D1E38 100%);
+    border-radius: var(--border-radius);
+    padding: 3rem 3rem 2.5rem;
+    margin: 3.5rem 0 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.5rem; left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .closing-quote .cq-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--gold);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 1.2rem;
+  }
+
+  .closing-quote .cq-attribution {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(212,160,23,0.6);
+  }
+
+  .closing-quote .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .closing-quote .ornament-line::before,
+  .closing-quote .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.4), transparent);
+  }
+
+  .closing-quote .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.7;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .closing-quote { padding: 2rem 1.2rem 1.8rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     NATUURWETENSCHAPPEN-SPECIFIC COMPONENTS
+  ============================================================ */
+
+  /* ── EXPERIMENT KADER ───────────────────────────────── */
+  .experiment-kader { background: #FFF8F5; border-left: 4px solid var(--terracotta); border-radius: 0 var(--border-radius) var(--border-radius) 0; padding: 1.3rem 1.5rem; margin: 1.8rem 0; box-shadow: var(--shadow-sm); }
+  .experiment-kader .exp-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--terracotta); display: block; margin-bottom: 0.35rem; }
+  .experiment-kader .exp-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--darkblue); display: block; margin-bottom: 0.8rem; }
+  .experiment-kader .exp-stappen { list-style: none; padding: 0; counter-reset: stap-teller; }
+  .experiment-kader .exp-stappen li { counter-increment: stap-teller; padding: 0.5rem 0.8rem 0.5rem 3rem; position: relative; background: var(--creme); border-radius: 4px; margin-bottom: 0.4rem; font-size: 0.96rem; }
+  .experiment-kader .exp-stappen li::before { content: counter(stap-teller); position: absolute; left: 0.6rem; top: 50%; transform: translateY(-50%); background: var(--terracotta); color: white; width: 1.7rem; height: 1.7rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; }
+
+  /* ── WETENSCHAPS KADER ──────────────────────────────── */
+  .wetenschaps-kader { background: #EEF3FF; border-left: 4px solid var(--darkblue); border-radius: 0 var(--border-radius) var(--border-radius) 0; padding: 1.2rem 1.5rem; margin: 1.5rem 0; }
+  .wetenschaps-kader .wk-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--darkblue); opacity: 0.7; display: block; margin-bottom: 0.35rem; }
+  .wetenschaps-kader .wk-body { font-size: 0.97rem; color: var(--text-dark); }
+
+  /* ── FORMULE KADER ──────────────────────────────────── */
+  .formule-kader { background: var(--darkblue); border-radius: var(--border-radius); padding: 1.6rem 2rem; text-align: center; margin: 1.8rem 0; box-shadow: var(--shadow-md); }
+  .formule-kader .fk-naam { font-family: 'Source Sans 3', sans-serif; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--gold); opacity: 0.8; display: block; margin-bottom: 0.6rem; }
+  .formule-kader .fk-formule { color: white; font-size: 1.2rem; font-weight: 600; font-family: 'Playfair Display', serif; }
+  .formule-kader .fk-uitleg { margin-top: 0.9rem; font-size: 0.88rem; color: rgba(250,246,239,0.7); line-height: 1.6; }
+
+  /* ── TABEL WRAP ─────────────────────────────────────── */
+  .tabel-wrap { margin: 1.8rem 0; overflow-x: auto; border-radius: var(--border-radius); box-shadow: var(--shadow-sm); }
+  .tabel-wrap table { width: 100%; border-collapse: collapse; font-size: 0.96rem; }
+  .tabel-wrap th { background: var(--darkblue); color: var(--gold); padding: 0.75rem 1rem; text-align: left; font-family: 'Source Sans 3', sans-serif; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; }
+  .tabel-wrap td { padding: 0.65rem 1rem; border-bottom: 1px solid rgba(200,146,58,0.2); color: var(--text-mid); }
+  .tabel-wrap tr:last-child td { border-bottom: none; }
+  .tabel-wrap tr:nth-child(even) td { background: rgba(232,220,200,0.3); }
+
+  /* ── SVG CONTAINER ──────────────────────────────────── */
+  .svg-container { margin: 1.8rem 0; padding: 1.5rem; background: white; border: 1px solid var(--sand); border-radius: var(--border-radius); text-align: center; }
+  .svg-container .svg-caption { font-size: 0.85rem; color: var(--text-light); font-style: italic; display: block; margin-top: 0.75rem; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <span class="label">Natuurwetenschappen &nbsp;&middot;&nbsp; 1A</span>
+  <span class="label label-right">Eerste graad A-stroom</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Natuurwetenschappen &nbsp;&middot;&nbsp; 1A &nbsp;&middot;&nbsp; Biologie</div>
+  <h1>H3 &mdash; Stofomzettingen<br>In het menselijk lichaam</h1>
+  <p class="subtitle">Van hap tot energie: hoe je lichaam voedsel verwerkt, zuurstof opneemt en afvalstoffen afvoert</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- CHAPTER TITLE BLOCK -->
+  <div style="padding: 2.5rem 0 0.5rem;">
+    <div style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.2em;color:var(--oker);margin-bottom:0.5rem;">H3 &mdash; Biologie</div>
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;color:var(--darkblue);margin-bottom:1.2rem;line-height:1.2;">Stofomzettingen in het menselijk lichaam</h1>
+    <p style="font-size:1.08rem;color:var(--text-mid);line-height:1.8;max-width:720px;border-left:3px solid var(--oker);padding-left:1.2rem;">Je lichaam is een ongelofelijke machine. Terwijl je dit leest, verteren je darmen een maaltijd, pompt je hart bloed rond, halen je longen zuurstof binnen en zetten miljoenen cellen glucose om in energie. Al deze processen hangen nauw samen en vormen samen je <strong>stofwisseling</strong> &mdash; de som van alle chemische reacties in je lichaam.</p>
+  </div>
+
+  <!-- PROLOGUE -->
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Stel je voor &hellip;</span>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p>Je bijt in een boterham met kaas. Op dat moment begint een reis van bijna tien meter: van je mond tot aan je anus. Onderweg wordt de boterham afgebroken tot de kleinste bouwstenen &mdash; suikers, aminozuren, vetzuren &mdash; die één voor één door de wand van je darmen glippen en in je bloed terechtkomen.</p>
+    <p>Tegelijk snuift je neus lucht op. De zuurstof in die lucht reist via je luchtpijp naar je longen, glipt door de dunne wanden van tiny luchtblaasjes in je bloed, en wordt door je hart naar elke cel in je lichaam gepompt. In die cellen &mdash; in de mitochondriën, de energiecentrales &mdash; reageert die zuurstof met de glucose uit je boterham. Het resultaat: energie, koolstofdioxide en water.</p>
+    <p><strong style="color: var(--gold);">Stofomzettingen zijn het leven zelf. Zonder deze processen staat alles stil.</strong></p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 1 — Spijsvertering
+  ============================================================ -->
+  <section class="section-block" id="s1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Spijsvertering</h2>
+    </div>
+
+    <p>Je eet een boterham, een appel of een stuk vlees. Dat voedsel bestaat uit grote, complexe moleculen: <strong>zetmeel</strong> (een koolhydraat), <strong>eiwitten</strong> en <strong>vetten</strong>. Die moleculen zijn echter te groot om rechtstreeks door de wand van je darmen in je bloed op te nemen. De spijsvertering heeft één hoofddoel: die grote moleculen afbreken tot kleine bouwstenen die wél door de darmwand kunnen.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128218;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Spijsvertering</span>
+        <p class="begrip-def">Het proces waarbij grote voedingsmoleculen (zetmeel, vetten, eiwitten) worden afgebroken tot kleine moleculen (suikers, vetzuren, aminozuren) die door de darmwand in het bloed kunnen worden opgenomen.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Twee soorten vertering</h3>
+    <p>Spijsvertering verloopt op twee manieren die tegelijk plaatsvinden:</p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.6rem"><strong>Mechanische vertering:</strong> het voedsel wordt fysiek kleiner gemaakt door kauwen (in de mond) en mengen (in de maag). Er vinden geen chemische veranderingen plaats &mdash; het voedsel verandert van vorm maar niet van samenstelling.</li>
+      <li style="margin-bottom:0.6rem"><strong>Chemische vertering:</strong> <strong>enzymen</strong> breken de grote moleculen chemisch af. Een enzym is een eiwit dat een specifieke reactie versnelt. Amylase breekt zetmeel af, protease breekt eiwitten af, lipase breekt vetten af. Elk enzym werkt als een specifieke schaar die slechts één soort molecuul knipt.</li>
+    </ul>
+
+    <h3 class="sub-heading">De weg van het voedsel</h3>
+    <p>Het spijsverteringskanaal is eigenlijk één lange buis van mond tot anus, met gespecialiseerde organen langs de weg. Elk orgaan heeft een eigen rol.</p>
+
+    <!-- SVG: weg van het voedsel -->
+    <div class="svg-container">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 120" width="100%" aria-label="Weg van het voedsel: mond tot anus">
+        <defs>
+          <marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+            <path d="M0,0 L8,3 L0,6" fill="#C1440E" />
+          </marker>
+        </defs>
+        <!-- Connecting line -->
+        <line x1="50" y1="60" x2="650" y2="60" stroke="#C1440E" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arr)" />
+        <!-- Organ circles -->
+        <!-- Mond -->
+        <circle cx="50" cy="60" r="22" fill="#1A2B4A" />
+        <text x="50" y="55" font-family="'Source Sans 3',sans-serif" font-size="9" fill="white" text-anchor="middle" font-weight="700">Mond</text>
+        <text x="50" y="67" font-family="'Source Sans 3',sans-serif" font-size="7.5" fill="rgba(250,246,239,0.75)" text-anchor="middle">kauwen</text>
+        <text x="50" y="90" font-family="'Source Sans 3',sans-serif" font-size="8" fill="#6B5F4A" text-anchor="middle" font-style="italic">amylase</text>
+        <!-- Slokdarm -->
+        <circle cx="155" cy="60" r="22" fill="#243B63" />
+        <text x="155" y="55" font-family="'Source Sans 3',sans-serif" font-size="9" fill="white" text-anchor="middle" font-weight="700">Slok-</text>
+        <text x="155" y="66" font-family="'Source Sans 3',sans-serif" font-size="9" fill="white" text-anchor="middle" font-weight="700">darm</text>
+        <text x="155" y="90" font-family="'Source Sans 3',sans-serif" font-size="8" fill="#6B5F4A" text-anchor="middle" font-style="italic">transport</text>
+        <!-- Maag -->
+        <circle cx="260" cy="60" r="22" fill="#1A2B4A" />
+        <text x="260" y="55" font-family="'Source Sans 3',sans-serif" font-size="9" fill="white" text-anchor="middle" font-weight="700">Maag</text>
+        <text x="260" y="67" font-family="'Source Sans 3',sans-serif" font-size="7.5" fill="rgba(250,246,239,0.75)" text-anchor="middle">mengen</text>
+        <text x="260" y="90" font-family="'Source Sans 3',sans-serif" font-size="8" fill="#6B5F4A" text-anchor="middle" font-style="italic">maagzuur</text>
+        <!-- Dunne darm -->
+        <circle cx="390" cy="60" r="28" fill="#C1440E" />
+        <text x="390" y="53" font-family="'Source Sans 3',sans-serif" font-size="9" fill="white" text-anchor="middle" font-weight="700">Dunne</text>
+        <text x="390" y="64" font-family="'Source Sans 3',sans-serif" font-size="9" fill="white" text-anchor="middle" font-weight="700">darm</text>
+        <text x="390" y="75" font-family="'Source Sans 3',sans-serif" font-size="7.5" fill="rgba(250,246,239,0.85)" text-anchor="middle">opname</text>
+        <text x="390" y="100" font-family="'Source Sans 3',sans-serif" font-size="8" fill="#6B5F4A" text-anchor="middle" font-style="italic">enzymen + gal</text>
+        <!-- Dikke darm -->
+        <circle cx="520" cy="60" r="22" fill="#243B63" />
+        <text x="520" y="55" font-family="'Source Sans 3',sans-serif" font-size="9" fill="white" text-anchor="middle" font-weight="700">Dikke</text>
+        <text x="520" y="66" font-family="'Source Sans 3',sans-serif" font-size="9" fill="white" text-anchor="middle" font-weight="700">darm</text>
+        <text x="520" y="90" font-family="'Source Sans 3',sans-serif" font-size="8" fill="#6B5F4A" text-anchor="middle" font-style="italic">water</text>
+        <!-- Anus -->
+        <circle cx="625" cy="60" r="22" fill="#1A2B4A" />
+        <text x="625" y="55" font-family="'Source Sans 3',sans-serif" font-size="9" fill="white" text-anchor="middle" font-weight="700">Rectum</text>
+        <text x="625" y="67" font-family="'Source Sans 3',sans-serif" font-size="7.5" fill="rgba(250,246,239,0.75)" text-anchor="middle">/anus</text>
+        <text x="625" y="90" font-family="'Source Sans 3',sans-serif" font-size="8" fill="#6B5F4A" text-anchor="middle" font-style="italic">uitscheiding</text>
+        <!-- Titel -->
+        <text x="350" y="115" font-family="'Source Sans 3',sans-serif" font-size="8.5" fill="#6B5F4A" text-anchor="middle" font-style="italic">Grotere cirkel = belangrijker voor opname</text>
+      </svg>
+      <span class="svg-caption">De weg van het voedsel door het spijsverteringskanaal, van mond tot anus. De dunne darm (rood, groter weergegeven) is het centrale orgaan voor opname van voedingsstoffen.</span>
+    </div>
+
+    <h3 class="sub-heading">Mond</h3>
+    <p>In de mond beginnen beide vormen van vertering tegelijk. Je tanden en kiezen malen het voedsel fijn &mdash; dit is <strong>mechanische vertering</strong>. Tegelijk mengt speeksel zich met het voedsel. Speeksel bevat het enzym <strong>amylase</strong> dat zetmeel begint af te breken tot <strong>maltose</strong> (een kleinere suiker). Dat is waarom een stuk brood langer kauwen geleidelijk zoeter smaakt: de amylase doet haar werk.</p>
+    <p>De tong rolt het voedsel samen tot een bolletje, de <strong>bolus</strong>, en stuwt het naar de slokdarm.</p>
+
+    <h3 class="sub-heading">Slokdarm</h3>
+    <p>De slokdarm is een spierrijke buis van keel naar maag, ongeveer 25 cm lang. Er vindt hier geen vertering plaats &mdash; de slokdarm transporteert de bolus puur mechanisch door <strong>peristaltiek</strong>: golven van spiercontracties die het voedsel naar beneden duwen. Dit werkt zelfs als je ondersteboven eet, want het is een actief spiermechanisme, geen zwaartekracht.</p>
+
+    <h3 class="sub-heading">Maag</h3>
+    <p>In de maag wordt het voedsel grondig gemengd en chemisch aangevallen. De maagwand scheidt <strong>maagzuur</strong> (zoutzuur, HCl) uit, wat een sterk zuur milieu cre&euml;ert (pH &asymp; 2). Dit zure milieu heeft twee functies: het doodt de meeste bacteriën die met het voedsel binnenkomen, en het activeert het enzym <strong>pepsine</strong> (afkomstig van inactief pepsinogeen) dat eiwitten begint af te breken.</p>
+    <p>Na 2 tot 4 uur verlaat een vloeibare, zure massa &mdash; de <strong>chymus</strong> &mdash; de maag in de richting van de dunne darm. De maagwand beschermt zichzelf tegen het eigen maagzuur door een laagje slijm.</p>
+
+    <h3 class="sub-heading">Dunne darm</h3>
+    <p>De dunne darm is het belangrijkste orgaan voor zowel vertering als opname. Hier komen twee hulpstoffen aan te pas:</p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.6rem"><strong>Gal</strong>: aangemaakt door de <strong>lever</strong> en opgeslagen in de <strong>galblaas</strong>. Gal bevat geen enzymen maar <strong>galzouten</strong> die vetten emulgeren: ze breken grote vetdruppels op in kleine druppeltjes (zoals afwasmiddel). Dat vergroot het oppervlak voor de enzymen.</li>
+      <li style="margin-bottom:0.6rem"><strong>Pancreassap</strong>: van de alvleesklier (pancreas). Dit bevat een heel arsenaal enzymen: <strong>amylase</strong> (zetmeel verder afbreken), <strong>protease</strong> (eiwitten afbreken tot aminozuren) en <strong>lipase</strong> (vetten afbreken tot vetzuren + glycerol).</li>
+    </ul>
+    <p>De eindproducten van vertering &mdash; glucosemoleculen, aminozuren, vetzuren &mdash; worden opgenomen door de wand van de dunne darm. Die wand is bedekt met miljoenen <strong>darmvlokken</strong> (villi), kleine vinger-achtige uitsteeksels die het oppervlak enorm vergroten. Elk darmvlokje bevat bloedvaten en lymfevaten: suikers en aminozuren gaan naar het bloed, vetzuren grotendeels naar de lymfe.</p>
+
+    <div class="wetenschaps-kader">
+      <span class="wk-label">Wist je dat?</span>
+      <p class="wk-body">De dunne darm is bij een volwassen mens gemiddeld 6 &agrave; 7 meter lang! En de darmvlokken vergroten het oppervlak tot ongeveer <strong>200 m&sup2;</strong> &mdash; zo groot als een tennisbaan. Dat grote oppervlak zorgt ervoor dat voedingsstoffen razendsnel worden opgenomen.</p>
+    </div>
+
+    <h3 class="sub-heading">Dikke darm</h3>
+    <p>Wat de dunne darm niet opneemt, belandt in de dikke darm. Hier wordt geen voedsel meer verteerd. De dikke darm heeft een andere taak: <strong>wateropname</strong>. De vloeibare massa wordt ingedikt tot vaste of halfvaste ontlasting. Miljarden nuttige bacteriën in de dikke darm helpen bij de fermentatie van onverteerbare vezels en maken bepaalde vitamines aan (zoals vitamine K).</p>
+
+    <h3 class="sub-heading">Rectum en anus</h3>
+    <p>De ontlasting wordt tijdelijk opgeslagen in het rectum totdat ze via de anus naar buiten wordt uitgescheiden. Dit zijn afvalstoffen: oud slijmvlies, bacteriën, onverteerbare plantenresten (cellulose) en galresten die de ontlasting haar bruine kleur geven.</p>
+
+    <!-- Tabel: spijsverteringsorganen -->
+    <div class="tabel-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Orgaan</th>
+            <th>Mechanisch</th>
+            <th>Chemisch</th>
+            <th>Wat wordt afgebroken?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Mond</strong></td>
+            <td>Kauwen (tanden, kiezen)</td>
+            <td>Amylase (speeksel)</td>
+            <td>Zetmeel &rarr; maltose</td>
+          </tr>
+          <tr>
+            <td><strong>Slokdarm</strong></td>
+            <td>Peristaltiek (transport)</td>
+            <td>Geen</td>
+            <td>Niets &mdash; alleen transport</td>
+          </tr>
+          <tr>
+            <td><strong>Maag</strong></td>
+            <td>Mengen, kneden</td>
+            <td>Maagzuur + pepsine</td>
+            <td>Eiwitten (gedeeltelijk)</td>
+          </tr>
+          <tr>
+            <td><strong>Dunne darm</strong></td>
+            <td>Peristaltiek</td>
+            <td>Gal + pancreassap (amylase, protease, lipase)</td>
+            <td>Zetmeel, eiwitten, vetten &rarr; eindproducten; opname in bloed</td>
+          </tr>
+          <tr>
+            <td><strong>Dikke darm</strong></td>
+            <td>Peristaltiek</td>
+            <td>Bacteriën (fermentatie)</td>
+            <td>Water opname; vezels gedeeltelijk afgebroken</td>
+          </tr>
+          <tr>
+            <td><strong>Rectum / anus</strong></td>
+            <td>Uitscheiding</td>
+            <td>Geen</td>
+            <td>Uitwerpselen afgevoerd</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Iemand heeft zijn galblaas laten verwijderen (dat kan medisch). Gal wordt dan nog wel aangemaakt door de lever, maar niet meer opgeslagen. Welk effect verwacht je dit te hebben op de vertering van vetten? Welke voedingsmiddelen zouden problemen geven?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 2 — Ademhaling
+  ============================================================ -->
+  <section class="section-block" id="s2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Ademhaling (ventilatie)</h2>
+    </div>
+
+    <p>Let op: in dit hoofdstuk bedoelen we met &ldquo;ademhaling&rdquo; het in- en uitademen van lucht &mdash; ook wel <strong>ventilatie</strong> of <strong>longademhaling</strong> genoemd. Dat is iets anders dan <em>celademhaling</em> (zie sectie 5), waarbij glucose in de cellen wordt omgezet in energie. De longademhaling is het mechanisme dat zuurstof van buiten naar het bloed brengt en koolstofdioxide van het bloed naar buiten afvoert.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#128168;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Gaswisseling</span>
+        <p class="begrip-def">Het uitwisselen van O&#8322; en CO&#8322; tussen de alveoli (longblaasjes) en het bloed. O&#8322; diffundeert van de alveoli naar het bloed; CO&#8322; diffundeert van het bloed naar de alveoli. Dit transport verloopt via <strong>diffusie</strong>: stoffen bewegen van een hoge concentratie naar een lage concentratie.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Hoe adem je in?</h3>
+    <p>Ademhaling is een actief mechanisch proces. Bij <strong>inademing</strong> trekken de ademhalingsspieren samen: het <strong>middenrif</strong> (diafragma) gaat omlaag en de tussenribspieren trekken de ribben omhoog en omzij. Hierdoor vergroot de borstholte, de longen zetten mee uit en de luchtdruk in de longen daalt. Buitenlucht &mdash; met ca. 21% O&#8322; en slechts 0,04% CO&#8322; &mdash; stroomt naar binnen.</p>
+    <p>Bij <strong>uitademing</strong> ontspannen de spieren. Het middenrif gaat omhoog, de longen krimpen elastisch, en de luchtdruk stijgt. Lucht met veel meer CO&#8322; (ca. 4%) en minder O&#8322; (ca. 16%) wordt uitgestoten.</p>
+
+    <h3 class="sub-heading">De weg van de lucht</h3>
+    <p>Ingeademde lucht volgt een vaste route:</p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.5rem"><strong>Neusholte:</strong> lucht wordt gefilterd (neusharen), verwarmd en bevochtigd. Slijmvlies vangt stofdeeltjes en bacteriën.</li>
+      <li style="margin-bottom:0.5rem"><strong>Keel en strottenhoofd:</strong> kruispunt van luchtwegen en slokdarm. Het strotklepje (epiglottis) sluit de luchtpijp af tijdens het slikken.</li>
+      <li style="margin-bottom:0.5rem"><strong>Luchtpijp (trachea):</strong> een buis versterkt door kraakbeenringen. Trilhaarjes voeren slijm met gevangen deeltjes omhoog naar de keel.</li>
+      <li style="margin-bottom:0.5rem"><strong>Bronchi&euml;n:</strong> de luchtpijp splitst in twee bronchi&euml;n, &eacute;&eacute;n naar elke long. Die splitsen verder in steeds kleinere buisjes (bronchiolen).</li>
+      <li style="margin-bottom:0.5rem"><strong>Alveoli (longblaasjes):</strong> aan het uiteinde van de kleinste buisjes zitten de alveoli &mdash; minuscule luchtzakjes omringd door een dicht netwerk van haarvaten. Hier vindt de gaswisseling plaats.</li>
+    </ul>
+
+    <h3 class="sub-heading">Gaswisseling in de alveoli</h3>
+    <p>De alveoli zijn ingenieus gebouwd voor hun taak. Hun wand bestaat uit slechts &eacute;&eacute;n laag cellen &mdash; extreem dun. Vlak daarachter liggen haarvaten met een wand van eveneens &eacute;&eacute;n cel dik. O&#8322; hoeft dus maar twee cellen te passeren om van de lucht in het bloed te geraken.</p>
+    <p>Het transport verloopt via <strong>diffusie</strong>: O&#8322; zit in hoge concentratie in de alveoli en in lage concentratie in het bloed dat aankomt (dat zuurstof heeft verbruikt in de cellen). Daardoor diffundeert O&#8322; spontaan van alveolus naar bloed. Omgekeerd zit CO&#8322; in hoge concentratie in het aankomende bloed en in lage concentratie in de alveoli, dus CO&#8322; diffundeert van bloed naar alveolus.</p>
+    <p>Er zijn bij een volwassene ca. <strong>300 miljoen alveoli</strong> in de twee longen, met een totaal oppervlak van 50 tot 70 m&sup2; &mdash; vergelijkbaar met de helft van een badmintonveld. Dat enorme oppervlak maakt razendsnel gaswisseling mogelijk.</p>
+
+    <!-- Experiment kader -->
+    <div class="experiment-kader">
+      <span class="exp-label">Experiment</span>
+      <span class="exp-title">Hoeveel CO&#8322; adem je uit?</span>
+      <ol class="exp-stappen">
+        <li>Vul een maatcilinder volledig met water en plaats hem ondersteboven in een bak water (het water blijft erin door luchtdruk).</li>
+        <li>Steek een slang onder de omgekeerde cilinder en adem rustig &eacute;&eacute;n keer volledig uit in de slang. Het CO&#8322;-rijke uitgeademde gas verdringt het water in de cilinder.</li>
+        <li>Meet hoeveel water er verdrongen is &mdash; dat volume is je uitgeademde lucht. Noteer het in milliliter.</li>
+        <li>Herhaal de meting na 2 minuten stevig bewegen (ter plaatse lopen of squatten). Meet opnieuw het volume van &eacute;&eacute;n uitademing.</li>
+        <li>Vergelijk de resultaten: is het volume groter of kleiner na inspanning? Bespreek wat dit zegt over je ademhalingssysteem tijdens inspanning.</li>
+      </ol>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Waarom gaat je ademhaling sneller als je sport? Welk gas stijgt in je bloed tijdens inspanning, en welk gas daalt? Hoe reageert je lichaam hierop? Kun je een verband leggen met sectie 5 over celademhaling?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 3 — Bloedsomloop
+  ============================================================ -->
+  <section class="section-block" id="s3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Bloedsomloop</h2>
+    </div>
+
+    <p>Voedingsstoffen zijn opgenomen in het bloed via de darmwanden, en O&#8322; is opgenomen in het bloed via de longblaasjes. Maar hoe geraken die stoffen bij elke cel in je lichaam? Dat is de taak van de <strong>bloedsomloop</strong>: een gesloten systeem van buizen (bloedvaten) en een pomp (het hart) dat bloed door het volledige lichaam transporteert.</p>
+
+    <h3 class="sub-heading">Het hart</h3>
+    <p>Het hart is een holle spier, ongeveer zo groot als je vuist, die onophoudelijk pompt. Het is verdeeld in vier ruimten:</p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.5rem"><strong>Rechter boezem (atrium):</strong> ontvangt zuurstofarm bloed dat terugkeert uit het lichaam.</li>
+      <li style="margin-bottom:0.5rem"><strong>Rechter kamer (ventrikel):</strong> pompt zuurstofarm bloed naar de longen.</li>
+      <li style="margin-bottom:0.5rem"><strong>Linker boezem:</strong> ontvangt zuurstofrijk bloed dat terugkomt uit de longen.</li>
+      <li style="margin-bottom:0.5rem"><strong>Linker kamer:</strong> pompt zuurstofrijk bloed naar de rest van het lichaam. De wand van de linker kamer is dikker, want die moet een hogere druk opbouwen.</li>
+    </ul>
+    <p>Kleppen tussen de boezems en kamers, en aan het begin van de grote bloedvaten, zorgen ervoor dat het bloed maar in &eacute;&eacute;n richting stroomt. Het typische &ldquo;lub-dub&rdquo;-geluid van het hart zijn die kleppen die dichtklappen.</p>
+
+    <h3 class="sub-heading">Kleine bloedsomloop (longsomloop)</h3>
+    <p>Zuurstofarm bloed verlaat de rechter kamer via de <strong>longslagaders</strong> en gaat naar de longen. Daar vindt gaswisseling plaats in de alveoli: CO&#8322; wordt afgegeven, O&#8322; wordt opgenomen. Het zuurstofrijke bloed keert terug via de <strong>longaders</strong> naar de linker boezem van het hart. Dit circuit heet de <strong>kleine bloedsomloop</strong> of <em>longsomloop</em>.</p>
+
+    <h3 class="sub-heading">Grote bloedsomloop (lichaamssomloop)</h3>
+    <p>Vanuit de linker kamer stroomt het zuurstofrijke bloed via de <strong>aorta</strong> (de grootste slagader) naar alle organen en weefsels. In de <strong>haarvaten</strong> (capillairen) vindt de eigenlijke uitwisseling plaats: O&#8322; en glucose worden afgegeven aan de cellen; CO&#8322; en afvalstoffen worden opgenomen. Het zuurstofarm geworden bloed keert terug via de <strong>aders</strong> en de holle aders (<em>vena cava</em>) naar de rechter boezem. Dit is de <strong>grote bloedsomloop</strong> of <em>lichaamssomloop</em>.</p>
+
+    <!-- SVG: vereenvoudigde bloedsomloop -->
+    <div class="svg-container">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 200" width="100%" aria-label="Vereenvoudigde bloedsomloop">
+        <defs>
+          <marker id="arrR" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L7,3 L0,6" fill="#C1440E" />
+          </marker>
+          <marker id="arrB" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L7,3 L0,6" fill="#1A2B4A" />
+          </marker>
+        </defs>
+        <!-- Hart (midden) -->
+        <rect x="205" y="75" width="90" height="60" rx="8" fill="#C1440E" />
+        <text x="250" y="100" font-family="'Playfair Display',serif" font-size="11" fill="white" text-anchor="middle" font-weight="700">Hart</text>
+        <text x="222" y="115" font-family="'Source Sans 3',sans-serif" font-size="8" fill="rgba(255,255,255,0.8)" text-anchor="middle">L kamer</text>
+        <text x="278" y="115" font-family="'Source Sans 3',sans-serif" font-size="8" fill="rgba(255,255,255,0.8)" text-anchor="middle">R kamer</text>
+        <line x1="250" y1="82" x2="250" y2="128" stroke="rgba(255,255,255,0.4)" stroke-width="1" stroke-dasharray="3,2"/>
+
+        <!-- Longen (boven) -->
+        <rect x="170" y="15" width="160" height="42" rx="8" fill="#EEF3FF" stroke="#1A2B4A" stroke-width="1.5"/>
+        <text x="250" y="35" font-family="'Playfair Display',serif" font-size="11" fill="#1A2B4A" text-anchor="middle" font-weight="700">Longen</text>
+        <text x="250" y="49" font-family="'Source Sans 3',sans-serif" font-size="8.5" fill="#3D3425" text-anchor="middle">gaswisseling</text>
+
+        <!-- Rest van lichaam (onder) -->
+        <rect x="155" y="158" width="190" height="42" rx="8" fill="#FDF3E7" stroke="#C8923A" stroke-width="1.5"/>
+        <text x="250" y="178" font-family="'Playfair Display',serif" font-size="11" fill="#1A2B4A" text-anchor="middle" font-weight="700">Organen &amp; weefsels</text>
+        <text x="250" y="193" font-family="'Source Sans 3',sans-serif" font-size="8.5" fill="#3D3425" text-anchor="middle">uitwisseling via haarvaten</text>
+
+        <!-- Longslagader: hart rechts → longen rechts -->
+        <path d="M290,82 Q340,57 330,57" stroke="#1A2B4A" stroke-width="2" fill="none" marker-end="url(#arrB)"/>
+        <text x="345" y="62" font-family="'Source Sans 3',sans-serif" font-size="7.5" fill="#1A2B4A">longslag-</text>
+        <text x="345" y="72" font-family="'Source Sans 3',sans-serif" font-size="7.5" fill="#1A2B4A">ader (O&#8322;arm)</text>
+
+        <!-- Longader: longen links → hart links -->
+        <path d="M170,57 Q160,57 212,82" stroke="#C1440E" stroke-width="2" fill="none" marker-end="url(#arrR)"/>
+        <text x="100" y="55" font-family="'Source Sans 3',sans-serif" font-size="7.5" fill="#C1440E">longader</text>
+        <text x="100" y="65" font-family="'Source Sans 3',sans-serif" font-size="7.5" fill="#C1440E">(O&#8322;rijk)</text>
+
+        <!-- Aorta: hart links → lichaam links -->
+        <path d="M212,132 Q160,145 160,158" stroke="#C1440E" stroke-width="2" fill="none" marker-end="url(#arrR)"/>
+        <text x="90" y="145" font-family="'Source Sans 3',sans-serif" font-size="7.5" fill="#C1440E">aorta /</text>
+        <text x="90" y="155" font-family="'Source Sans 3',sans-serif" font-size="7.5" fill="#C1440E">slagaders (O&#8322;rijk)</text>
+
+        <!-- Holle ader: lichaam rechts → hart rechts -->
+        <path d="M345,158 Q345,145 288,132" stroke="#1A2B4A" stroke-width="2" fill="none" marker-end="url(#arrB)"/>
+        <text x="350" y="150" font-family="'Source Sans 3',sans-serif" font-size="7.5" fill="#1A2B4A">aders</text>
+        <text x="350" y="160" font-family="'Source Sans 3',sans-serif" font-size="7.5" fill="#1A2B4A">(O&#8322;arm)</text>
+      </svg>
+      <span class="svg-caption">Vereenvoudigde bloedsomloop: rood = zuurstofrijk bloed, donkerblauw = zuurstofarm bloed. Links in het hart = zuurstofrijk; rechts in het hart = zuurstofarm.</span>
+    </div>
+
+    <h3 class="sub-heading">De drie types bloedvaten</h3>
+    <p>Bloed stroomt door drie soorten bloedvaten, elk met een eigen bouw en functie:</p>
+
+    <div class="tabel-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Bloedvat</th>
+            <th>Richting</th>
+            <th>Wanddikte</th>
+            <th>Inhoud</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Slagader (arterie)</strong></td>
+            <td>Van het hart weg</td>
+            <td>Dik, elastisch en gespierd; weerstaat hoge druk</td>
+            <td>Meestal zuurstofrijk bloed (behalve longslagaders)</td>
+          </tr>
+          <tr>
+            <td><strong>Ader (vene)</strong></td>
+            <td>Naar het hart toe</td>
+            <td>Dunner; kleppen voorkomen terugstroom</td>
+            <td>Meestal zuurstofarm bloed (behalve longaders)</td>
+          </tr>
+          <tr>
+            <td><strong>Haarvat (capillair)</strong></td>
+            <td>Verbinding slagader &harr; ader</td>
+            <td>&Eacute;&eacute;n cel dik &mdash; extreem dun</td>
+            <td>Gemengd; uitwisseling van O&#8322;, CO&#8322;, glucose, afvalstoffen</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="wetenschaps-kader">
+      <span class="wk-label">Wist je dat?</span>
+      <p class="wk-body">Je hart klopt gemiddeld <strong>70 keer per minuut</strong> &mdash; dat is ruim <strong>100.000 keer per dag</strong> en bijna <strong>3 miljard keer in een leven</strong>. De totale lengte van alle bloedvaten in het menselijk lichaam bedraagt maar liefst 100.000 km &mdash; meer dan twee keer om de aarde!</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Als je een vinger prikt met een naald, bloeit die. Maar een snee die dieper gaat kan &ldquo;spuiten&rdquo;. Welk type bloedvat is doorgesneden in elk geval? Hoe kun je dat verklaren met de eigenschap van slagaders en haarvaten?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 4 — Uitscheiding
+  ============================================================ -->
+  <section class="section-block" id="s4">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Uitscheiding</h2>
+    </div>
+
+    <p>Bij alle stofwisselingsprocessen in je lichaam ontstaan afvalstoffen. Die kunnen giftig zijn als ze ophopen. Het lichaam heeft gespecialiseerde organen die die afvalstoffen opsporen en afvoeren. Dit heet <strong>uitscheiding</strong>.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9878;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Uitscheiding</span>
+        <p class="begrip-def">Het verwijderen van afvalstoffen uit het lichaam die ontstaan bij stofwisseling. Uitscheiding is niet hetzelfde als defecatie (ontlasting): ontlasting bestaat uit onverteerbare voedselresten, geen stofwisselingsafval.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Nieren</h3>
+    <p>De twee nieren zijn de centrale organen voor uitscheiding. Ze filteren het volledige bloedvolume (ca. 5 liter) meer dan 300 keer per dag. Elk uur verwerken de nieren zo'n 180 liter voorlopige urine, maar het grootste deel van het water en de nuttige stoffen (glucose, zouten) worden direct teruggezogen. Uiteindelijk produceren de nieren ca. 1 tot 2 liter echte urine per dag.</p>
+    <p>Urine bestaat uit water, <strong>ureum</strong> (een afvalproduct van eiwitafbraak), zouten en andere stofwisselingsafvallen. Via de urineleiders gaat de urine naar de <strong>blaas</strong>, die ze opslaat totdat ze wordt uitgescheiden via de urinebuis.</p>
+    <p>De nieren regelen ook de waterhuishouding (hoe geconcentreerd of verdund je bloed is) en de zuurgraad van het bloed &mdash; ze zijn dus veel meer dan een afvalfilter.</p>
+
+    <h3 class="sub-heading">Longen</h3>
+    <p>De longen zijn niet alleen voor ademhaling &mdash; ze zijn ook uitscheidingsorganen. Bij celademhaling (sectie 5) ontstaat CO&#8322; als afvalproduct. Dat CO&#8322; diffundeert vanuit de cellen in het bloed, wordt naar de longen vervoerd en diffundeert vanuit het bloed in de alveoli om uitgeademd te worden. Ook <strong>waterdamp</strong> wordt uitgeademd &mdash; zichtbaar als je in de kou ademt.</p>
+
+    <h3 class="sub-heading">Huid</h3>
+    <p>De huid scheidt via de <strong>zweetklieren</strong> zweet uit: een oplossing van water, zouten (NaCl) en kleine hoeveelheden ureum. Zweten heeft een dubbele functie: uitscheiding van afvalstoffen &eacute;n <strong>temperatuurregeling</strong>. Als zweet verdampt van je huid, neemt het warmte mee &mdash; je koelt af. Daarom zweef je meer bij inspanning of warmte.</p>
+
+    <div class="tabel-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Afvalstof</th>
+            <th>Uitscheidingsorgaan</th>
+            <th>Wijze van uitscheiding</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>CO&#8322;</strong></td>
+            <td>Longen</td>
+            <td>Diffusie van bloed naar alveoli &rarr; uitademing</td>
+          </tr>
+          <tr>
+            <td><strong>Ureum</strong></td>
+            <td>Nieren</td>
+            <td>Filtratie uit bloed &rarr; urine &rarr; blaas &rarr; uitscheiding</td>
+          </tr>
+          <tr>
+            <td><strong>Water + zouten</strong></td>
+            <td>Nieren &amp; huid</td>
+            <td>Urine (nieren) en zweet (zweetklieren in huid)</td>
+          </tr>
+          <tr>
+            <td><strong>Galzouten / bilirubine</strong></td>
+            <td>Lever &rarr; darmen</td>
+            <td>In gal afgegeven aan dunne darm &rarr; mee met ontlasting</td>
+          </tr>
+          <tr>
+            <td><strong>Waterdamp</strong></td>
+            <td>Longen</td>
+            <td>Verdamping via uitgeademde lucht</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Op een hete dag drink je meer water. Waarom? Koppel je antwoord aan de functies van de nieren en de huid. Wat zou er gebeuren als je te weinig drinkt?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 5 — Celademhaling
+  ============================================================ -->
+  <section class="section-block" id="s5">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Celademhaling</h2>
+    </div>
+
+    <p>Je hebt voedsel verteerd &mdash; glucose zit nu in je bloed. Je hebt zuurstof opgenomen via je longen &mdash; O&#8322; zit nu ook in je bloed. Je hart pompt beide naar elke cel in je lichaam. Nu gebeurt het echte werk: in de cellen worden glucose en zuurstof omgezet in energie. Dit proces heet <strong>celademhaling</strong>.</p>
+
+    <p>Je herinnert je misschien uit H1 dat elke cel mitochondri&euml;n bevat &mdash; de energiecentrales van de cel. In de mitochondri&euml;n vindt celademhaling plaats.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9889;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Celademhaling</span>
+        <p class="begrip-def">Het proces waarbij glucose en zuurstof in de mitochondri&euml;n worden omgezet in CO&#8322;, water en energie (ATP). Energie komt vrij in de vorm van ATP, de universele energiemunt van de cel.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">De reactievergelijking</h3>
+    <p>Celademhaling kan samengevat worden in &eacute;&eacute;n reactievergelijking:</p>
+
+    <div class="formule-kader">
+      <span class="fk-naam">Celademhaling &mdash; reactievergelijking</span>
+      <div class="fk-formule">
+        C&#8326;H&#8321;&#8322;O&#8326; + 6 O&#8322; &rarr; 6 CO&#8322; + 6 H&#8322;O + energie
+      </div>
+      <p class="fk-uitleg">
+        glucose + zuurstof &rarr; koolstofdioxide + water + energie (ATP)<br>
+        Locatie: mitochondri&euml;n in elke lichaamscel
+      </p>
+    </div>
+
+    <h3 class="sub-heading">Celademhaling en fotosynthese: elkaars spiegelbeeld</h3>
+    <p>Als je de reactievergelijking van celademhaling vergelijkt met die van fotosynthese (H2), zie je iets opvallends: het zijn precies elkaars omgekeerde!</p>
+
+    <div class="tabel-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Eigenschap</th>
+            <th>Fotosynthese</th>
+            <th>Celademhaling</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Reactie</strong></td>
+            <td>6 CO&#8322; + 6 H&#8322;O + licht &rarr; C&#8326;H&#8321;&#8322;O&#8326; + 6 O&#8322;</td>
+            <td>C&#8326;H&#8321;&#8322;O&#8326; + 6 O&#8322; &rarr; 6 CO&#8322; + 6 H&#8322;O + energie</td>
+          </tr>
+          <tr>
+            <td><strong>Grondstof</strong></td>
+            <td>CO&#8322; en H&#8322;O</td>
+            <td>Glucose en O&#8322;</td>
+          </tr>
+          <tr>
+            <td><strong>Eindproduct</strong></td>
+            <td>Glucose en O&#8322;</td>
+            <td>CO&#8322; en H&#8322;O</td>
+          </tr>
+          <tr>
+            <td><strong>Locatie in de cel</strong></td>
+            <td>Chloroplasten (in planten)</td>
+            <td>Mitochondri&euml;n (in alle cellen)</td>
+          </tr>
+          <tr>
+            <td><strong>Energie</strong></td>
+            <td>Lichtenergie wordt <em>opgeslagen</em></td>
+            <td>Energie wordt <em>vrijgemaakt</em> (ATP)</td>
+          </tr>
+          <tr>
+            <td><strong>Organismen</strong></td>
+            <td>Planten, algen, sommige bacteriën</td>
+            <td>Alle levende organismen</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Planten produceren 's ochtends glucose via fotosynthese. 's Nachts, als er geen licht is, verbranden ze die glucose via celademhaling. Planten en dieren zijn op die manier nauw met elkaar verbonden: wat de fotosynthese produceert (glucose, O&#8322;), verbruikt de celademhaling &mdash; en omgekeerd.</p>
+
+    <h3 class="sub-heading">Waarvoor gebruikt de cel de energie (ATP)?</h3>
+    <p>De vrijgekomen energie, opgeslagen in <strong>ATP</strong> (adenosinetrifosfaat), wordt gebruikt voor:</p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.5rem"><strong>Beweging:</strong> spieren samentrekken kost enorm veel energie. Elke stap, elke hartslag, elke ademhaling verbruikt ATP.</li>
+      <li style="margin-bottom:0.5rem"><strong>Groei en herstel:</strong> nieuwe cellen bouwen, wonden herstellen, eiwitten aanmaken &mdash; allemaal ATP-afhankelijk.</li>
+      <li style="margin-bottom:0.5rem"><strong>Transport:</strong> stoffen actief door celmembranen pompen kost energie.</li>
+      <li style="margin-bottom:0.5rem"><strong>Lichaamstemperatuur:</strong> mensen zijn warmbloedig. Een deel van de energie bij celademhaling vrijkomt als warmte &mdash; zo houden we onze lichaamstemperatuur op 37 &deg;C.</li>
+    </ul>
+
+    <h3 class="sub-heading">Aerobe en anaerobe celademhaling</h3>
+    <p>De reactievergelijking hierboven is die van <strong>aerobe celademhaling</strong> &mdash; celademhaling met zuurstof. Dit is de meest effici&euml;nte vorm en levert veel ATP. Maar soms, bij heel intense inspanning, kan het bloed niet snel genoeg O&#8322; aan de spieren leveren. Dan schakelen spiercellen over op een noodoplossing: <strong>anaerobe celademhaling</strong> (zonder zuurstof), ook <strong>melkzuurgisting</strong> genoemd.</p>
+
+    <div class="formule-kader">
+      <span class="fk-naam">Anaerobe celademhaling (melkzuurgisting)</span>
+      <div class="fk-formule">
+        C&#8326;H&#8321;&#8322;O&#8326; &rarr; 2 C&#8323;H&#8326;O&#8323; + energie
+      </div>
+      <p class="fk-uitleg">
+        glucose &rarr; melkzuur + (weinig) energie<br>
+        Levert &lt;10% van de ATP die aerobe ademhaling levert; melkzuur hoopt op in spieren
+      </p>
+    </div>
+
+    <p>Anaerobe ademhaling levert veel minder energie, maar gaat veel sneller. Het nadeel: melkzuur (lactaat) hoopt op in de spiercellen en veroorzaakt een zuurder milieu, wat leidt tot verminderde spierfunctie, een brandend gevoel en &mdash; als je lang genoeg stopt met de inspanning &mdash; spierpijn. De levercel zet melkzuur later, wanneer er wel weer voldoende O&#8322; beschikbaar is, om naar glucose.</p>
+
+    <div class="wetenschaps-kader">
+      <span class="wk-label">Wist je dat?</span>
+      <p class="wk-body"><strong>Melkzuur en spierpijn:</strong> als je spieren hard werken en er is onvoldoende O&#8322;, produceren ze melkzuur als bijproduct van anaerobe ademhaling. Dat melkzuur verlaagt de pH in de spiercel, wat de spiersamentrekking verstoort &mdash; je voelt je spieren &ldquo;branden&rdquo; en zwaarder worden. De spierpijn die je <em>nadien</em> voelt (24 tot 48 uur later) is overigens deels het gevolg van kleine scheurtjes in de spiervezel, niet louter van melkzuur.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Vergelijk de reactievergelijking van celademhaling met die van fotosynthese. Wat merk je? Hoe vullen deze twee processen elkaar aan in de natuur? Schrijf een korte alinea over de kringloop van koolstof tussen planten en dieren.</p>
+    </div>
+  </section>
+
+  <!-- CLOSING QUOTE -->
+  <div class="closing-quote" role="note" aria-label="Slotcitaat">
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p class="cq-text">Het lichaam is een samenwerkingsverband van triljoenen cellen, elk druk in de weer met hun eigen stofomzettingen &mdash; toch werkt het als &eacute;&eacute;n prachtig geheel.</p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <span class="cq-attribution">Natuurwetenschappen 1A &nbsp;&middot;&nbsp; Eerste Graad A-stroom</span>
+  </div>
+
+</div><!-- end page-wrapper -->
+
+<!-- ============================================================
+     EXERCISES
+============================================================ -->
+<section class="exercises-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <!-- Oefening 1 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Spijsvertering in volgorde</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.7rem;">Zet de volgende 8 gebeurtenissen in de juiste volgorde (1 = eerste, 8 = laatste). Schrijf ook bij elk het bijbehorende orgaan.</p>
+      <ul>
+        <li>Eiwitten worden afgebroken door pepsine.</li>
+        <li>Kauwen en mengen met speeksel in de mond.</li>
+        <li>Water wordt opgenomen in de dikke darm.</li>
+        <li>Glucose, aminozuren en vetzuren worden opgenomen via darmvlokken.</li>
+        <li>Gal emulgeert vetten uit de maag.</li>
+        <li>Peristaltiek vervoert de bolus van keel naar maag.</li>
+        <li>Ontlasting wordt uitgescheiden via de anus.</li>
+        <li>Amylase breekt zetmeel af tot maltose.</li>
+      </ul>
+      <p class="ex-tip">Tip: maak eerst de reis van mond tot anus met je vinger op de tabel in sectie 1. Noteer dan de volgorde.</p>
+    </div>
+
+    <!-- Oefening 2 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Gaswisseling in de longen</p>
+      <ol>
+        <li>Vul in: O&#8322; gaat van ___ naar ___. CO&#8322; gaat van ___ naar ___.</li>
+        <li>Welk principe zorgt voor dit transport? Omschrijf het in je eigen woorden.</li>
+        <li>Noem twee eigenschappen van de alveoli die de gaswisseling bijzonder effici&euml;nt maken.</li>
+        <li>Wat is het verschil tussen ingeademde lucht en uitgeademde lucht? Noem minstens twee verschillen.</li>
+        <li>Tijdens een wedstrijd gaat een zwemmer een tijdje onder water. Zijn CO&#8322;-gehalte in het bloed stijgt. Hoe reageert zijn lichaam hierop als hij boven water komt?</li>
+      </ol>
+    </div>
+
+    <!-- Oefening 3 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Bloedsomloop &mdash; schema tekenen en benoemen</p>
+      <ol>
+        <li>Teken een vereenvoudigd schema van de bloedsomloop met drie vakken: <em>Hart</em>, <em>Longen</em> en <em>Organen &amp; weefsels</em>. Teken pijlen die de richting van het bloed tonen.</li>
+        <li>Kleur de pijlen: rood voor zuurstofrijk bloed, blauw voor zuurstofarm bloed.</li>
+        <li>Label de volgende bloedvaten op je schema: aorta, longslagader, longader, holle ader.</li>
+        <li>Welke kant van het hart (links of rechts) pompt het zuurstofrijke bloed? Verklaar.</li>
+        <li>Waarom zijn de wanden van haarvaten zo dun? Koppel je antwoord aan hun functie.</li>
+      </ol>
+      <p class="ex-tip">Gebruik de SVG in sectie 3 als referentie, maar teken zelf &mdash; zo onthoud je het beter.</p>
+    </div>
+
+    <!-- Oefening 4 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 4</p>
+      <p class="ex-name">Celademhaling versus fotosynthese</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.7rem;">Vul de vergelijkingstabel volledig in. Schrijf bij elk vakje een duidelijk antwoord.</p>
+      <div class="tabel-wrap" style="margin:0.5rem 0 1rem;">
+        <table>
+          <thead>
+            <tr>
+              <th>Kenmerk</th>
+              <th>Celademhaling</th>
+              <th>Fotosynthese</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Grondstof(fen)</td>
+              <td style="color:var(--text-light);font-style:italic;">???</td>
+              <td style="color:var(--text-light);font-style:italic;">???</td>
+            </tr>
+            <tr>
+              <td>Eindproduct(en)</td>
+              <td style="color:var(--text-light);font-style:italic;">???</td>
+              <td style="color:var(--text-light);font-style:italic;">???</td>
+            </tr>
+            <tr>
+              <td>Locatie in de cel</td>
+              <td style="color:var(--text-light);font-style:italic;">???</td>
+              <td style="color:var(--text-light);font-style:italic;">???</td>
+            </tr>
+            <tr>
+              <td>Energie: productie of verbruik?</td>
+              <td style="color:var(--text-light);font-style:italic;">???</td>
+              <td style="color:var(--text-light);font-style:italic;">???</td>
+            </tr>
+            <tr>
+              <td>In welke organismen?</td>
+              <td style="color:var(--text-light);font-style:italic;">???</td>
+              <td style="color:var(--text-light);font-style:italic;">???</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <ol>
+        <li>Hoe vullen fotosynthese en celademhaling elkaar aan in de natuur? Gebruik de termen &ldquo;koolstofkringloop&rdquo; en &ldquo;zuurstofkringloop&rdquo; in je antwoord.</li>
+        <li>Een plant staat in een donkere kamer. Welk proces vindt nog wel plaats, en welk niet? Wat is het gevolg?</li>
+      </ol>
+    </div>
+
+    <!-- Oefening 5 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 5</p>
+      <p class="ex-name">Uitscheiding: welk orgaan doet wat?</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.7rem;">Koppel voor elk afvalproduct het uitscheidingsorgaan en de wijze van uitscheiding.</p>
+      <ol>
+        <li><strong>CO&#8322;</strong> &mdash; Via welk orgaan? Op welke manier (diffusie, filtratie, verdamping)?</li>
+        <li><strong>Ureum</strong> &mdash; Via welk orgaan? In welk uitscheidingsproduct?</li>
+        <li><strong>Zweet (water + zouten)</strong> &mdash; Via welk orgaan? Welke extra functie heeft dit uitscheidingsproduct?</li>
+        <li><strong>Galzouten / bilirubine</strong> &mdash; Via welk orgaan en welke weg verlaat dit het lichaam?</li>
+        <li><strong>Waterdamp</strong> &mdash; Via welk orgaan? Wanneer is dit zichtbaar?</li>
+        <li>Leg uit waarom defecatie (ontlasting uitscheiden) niet als uitscheiding wordt beschouwd. Wat is het verschil?</li>
+      </ol>
+    </div>
+
+    <!-- Oefening 6 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 6</p>
+      <p class="ex-name">Stofwisseling en sport: een holistische kijk</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.7rem;">Een leerling loopt een 10 km-wedstrijd. Beschrijf wat er gebeurt in elk van de vijf systemen. Schrijf voor elk systeem <em>minstens &eacute;&eacute;n volledige zin</em> die het verband uitlegt.</p>
+      <ol>
+        <li><strong>Spijsvertering:</strong> voor de wedstrijd at de leerling een bord pasta. Wat doet het lichaam met die koolhydraten, en wanneer geraken ze in de spieren?</li>
+        <li><strong>Ademhaling:</strong> tijdens het lopen verhoogt de ademhalingsfrequentie. Waarom? Welke gassen worden sneller uitgewisseld?</li>
+        <li><strong>Bloedsomloop:</strong> het hart klopt sneller. Welke stoffen worden er sneller rondgepompt, en waarheen?</li>
+        <li><strong>Celademhaling:</strong> de spiercellen verbranden glucose. Wat zijn de producten? Als het heel snel gaat, welk type ademhaling treedt op en wat zijn de gevolgen?</li>
+        <li><strong>Uitscheiding:</strong> na afloop is de leerling bezweet en heeft hij dorst. Welke afvalstoffen werden er uitgescheiden, en via welke organen?</li>
+      </ol>
+      <p class="ex-tip">Probeer de verbanden te leggen tussen de systemen: hoe hangen ze samen? Het bloed is de schakel tussen bijna alle processen.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="summary-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>Spijsvertering</strong> breekt grote voedingsmoleculen (zetmeel, eiwitten, vetten) af tot kleine eenheden (suikers, aminozuren, vetzuren) via mechanische vertering (kauwen, mengen) en chemische vertering (enzymen). De dunne darm is het centrale orgaan voor opname in het bloed; zijn 200 m&sup2; groot darmvlokkenoppervlak maakt razendsnel opname mogelijk.</li>
+      <li><strong>Ademhaling (ventilatie)</strong> zorgt voor de aanvoer van O&#8322; en de afvoer van CO&#8322;. In de alveoli (longblaasjes) vindt gaswisseling plaats via diffusie: O&#8322; diffundeert van alveolus naar bloed, CO&#8322; van bloed naar alveolus. Inademing is actief (middenrif omlaag, longen uitzetten), uitademing is passief.</li>
+      <li><strong>Bloedsomloop</strong> transporteert O&#8322;, glucose, CO&#8322; en afvalstoffen door het hele lichaam. Het hart heeft twee circuits: de kleine bloedsomloop (hart &harr; longen) en de grote bloedsomloop (hart &harr; organen). Slagaders voeren van het hart weg; aders voeren naar het hart; haarvaten zijn de dunste verbindingsvaten waar uitwisseling plaatsvindt.</li>
+      <li><strong>Uitscheiding</strong> verwijdert afvalstoffen van de stofwisseling: de nieren scheiden ureum uit als urine; de longen scheiden CO&#8322; en waterdamp uit; de huid scheidt zweet (water + zouten) uit via zweetklieren en helpt daarmee ook de lichaamstemperatuur te regelen.</li>
+      <li><strong>Celademhaling</strong> in de mitochondri&euml;n zet glucose + O&#8322; om in CO&#8322; + H&#8322;O + energie (ATP): C&#8326;H&#8321;&#8322;O&#8326; + 6 O&#8322; &rarr; 6 CO&#8322; + 6 H&#8322;O + energie. Bij zuurstoftekort schakelen cellen over op anaerobe ademhaling (melkzuurgisting), met melkzuur als bijproduct dat spierpijn veroorzaakt.</li>
+      <li><strong>Fotosynthese en celademhaling</strong> zijn elkaars spiegelbeeld: fotosynthese slaat lichtenergie op als glucose (CO&#8322; + H&#8322;O + licht &rarr; glucose + O&#8322;); celademhaling maakt die energie weer vrij. Samen vormen ze de koolstof- en zuurstofkringloop die al het leven op aarde in stand houdt.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

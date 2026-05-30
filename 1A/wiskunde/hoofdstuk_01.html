@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H1 — Getallen en getalverzamelingen | Wiskunde 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     ILLUSTRATIE PLACEHOLDERS
+  ============================================================ */
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+    cursor: default;
+    transition: background var(--transition);
+  }
+
+  .illustratie:hover { background: #EDE7D8; }
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     WISKUNDE-SPECIFIC COMPONENTS
+  ============================================================ */
+  .rekenvoorbeeld { background:white; border:1px solid var(--sand); border-top:4px solid var(--oker); border-radius:var(--border-radius); padding:1.8rem 2rem; margin:2rem 0; box-shadow:var(--shadow-sm); }
+  .rekenvoorbeeld .rv-label { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--oker); display:block; margin-bottom:0.35rem; }
+  .rekenvoorbeeld .rv-vraag { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:700; color:var(--darkblue); margin-bottom:1rem; line-height:1.4; }
+  .rv-stappen { list-style:none; padding:0; counter-reset:stap-teller; margin-bottom:1rem; }
+  .rv-stappen li { counter-increment:stap-teller; padding:0.6rem 0.8rem 0.6rem 3.2rem; position:relative; background:var(--creme); border-radius:4px; margin-bottom:0.4rem; font-size:0.97rem; }
+  .rv-stappen li::before { content:counter(stap-teller); position:absolute; left:0.6rem; top:50%; transform:translateY(-50%); background:var(--darkblue); color:white; width:1.7rem; height:1.7rem; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:700; }
+  .rv-antwoord { background:var(--darkblue); color:var(--gold); padding:0.75rem 1.1rem; border-radius:4px; font-weight:700; font-size:1rem; }
+  .stelling { background:#EEF3FF; border-left:4px solid var(--darkblue); border-radius:0 var(--border-radius) var(--border-radius) 0; padding:1.2rem 1.5rem; margin:1.5rem 0; }
+  .stelling .st-label { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--darkblue); opacity:0.7; display:block; margin-bottom:0.35rem; }
+  .stelling .st-body { font-size:0.97rem; color:var(--text-dark); }
+  .formule { background:var(--darkblue); border-radius:var(--border-radius); padding:1.4rem 1.8rem; text-align:center; margin:1.8rem 0; }
+  .formule math { color:white; font-size:1.2rem; }
+  .formule .formule-naam { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--gold); opacity:0.8; display:block; margin-bottom:0.5rem; }
+  .svg-container { margin:1.8rem 0; padding:1.5rem; background:white; border:1px solid var(--sand); border-radius:var(--border-radius); overflow-x:auto; text-align:center; }
+  .svg-container .svg-caption { font-size:0.85rem; color:var(--text-light); font-style:italic; display:block; margin-top:0.75rem; }
+
+  /* chapter-intro helper */
+  .chapter-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--oker);
+    margin: 3rem 0 0.5rem;
+  }
+  .chapter-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+  .chapter-intro {
+    font-size: 1.08rem;
+    color: var(--text-mid);
+    line-height: 1.8;
+    max-width: 720px;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <span class="label">Wiskunde 1A</span>
+  <span class="label label-right">H1 &mdash; Getallen en getalverzamelingen</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Wiskunde &nbsp;&middot;&nbsp; 1A &nbsp;&middot;&nbsp; Eerste graad</div>
+  <h1>Getallen en<br>getalverzamelingen</h1>
+  <p class="subtitle">Van tellen tot de getallenas &mdash; de bouwstenen van alle wiskunde</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- CHAPTER INTRO -->
+  <div class="chapter-label">Hoofdstuk 1</div>
+  <h1 class="chapter-title">Getallen en getalverzamelingen</h1>
+  <p class="chapter-intro">Getallen zijn de bouwstenen van de wiskunde. In dit hoofdstuk leer je de verschillende soorten getallen kennen, hoe ze geordend worden op een getallenas, en welke verzamelingen wiskundigen gebruiken om over getallen te praten.</p>
+
+  <!-- ============================================================
+       SECTIE 1: SOORTEN GETALLEN
+  ============================================================ -->
+  <section class="section-block" id="soorten-getallen">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Soorten getallen</h2>
+    </div>
+
+    <p>Wiskundigen ordenen getallen in <strong>verzamelingen</strong> op basis van hun eigenschappen. Elke verzameling heeft een eigen symbool en een eigen naam. Het is belangrijk dat je deze verzamelingen kent, want ze vormen de taal waarmee wiskundigen over getallen praten.</p>
+
+    <h3 class="sub-heading">De natuurlijke getallen &#8469;</h3>
+
+    <p>De meest eenvoudige getallen zijn de <strong>natuurlijke getallen</strong>. Dit zijn de getallen die je gebruikt om te tellen: 0, 1, 2, 3, 4, &hellip; Ze beginnen bij nul en gaan oneindig ver door. Het symbool voor de verzameling van alle natuurlijke getallen is &#8469; (een dubbele N, afgeleid van het woord <em>Natuur</em>).</p>
+
+    <div class="formule">
+      <span class="formule-naam">Definitie &mdash; Natuurlijke getallen</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <mi>&#8469;</mi>
+          <mo>=</mo>
+          <mo>{</mo>
+          <mn>0</mn>
+          <mo>,</mo>
+          <mn>1</mn>
+          <mo>,</mo>
+          <mn>2</mn>
+          <mo>,</mo>
+          <mn>3</mn>
+          <mo>,</mo>
+          <mn>4</mn>
+          <mo>,</mo>
+          <mo>&hellip;</mo>
+          <mo>}</mo>
+        </mrow>
+      </math>
+    </div>
+
+    <p>Je gebruikt natuurlijke getallen elke dag: het aantal leerlingen in de klas, het nummer van je huis, de score van een voetbalwedstrijd. Nul is ook een natuurlijk getal: als een team geen doelpunten scoort, is de score 0 &mdash; dat is een echte waarde, geen afwezigheid van een waarde.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#8469;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Natuurlijke getallen &#8469;</span>
+        <p class="begrip-def">De verzameling van alle niet-negatieve gehele getallen: 0, 1, 2, 3, &hellip; Natuurlijke getallen zijn altijd groter dan of gelijk aan nul en hebben nooit een decimaal of breukgedeelte.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">De gehele getallen &#8484;</h3>
+
+    <p>Soms zijn getallen kleiner dan nul: de temperatuur in de winter, een schuldpositie op een bankrekening, de verdieping &minus;1 in een ondergrondse parking. Hiervoor breiden we de verzameling uit met de <strong>negatieve gehele getallen</strong>. De verzameling van alle <strong>gehele getallen</strong> wordt aangeduid met &#8484; (een dubbele Z, van het Duitse woord <em>Zahlen</em>, wat &ldquo;getallen&rdquo; betekent).</p>
+
+    <div class="formule">
+      <span class="formule-naam">Definitie &mdash; Gehele getallen</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <mi>&#8484;</mi>
+          <mo>=</mo>
+          <mo>{</mo>
+          <mo>&hellip;</mo>
+          <mo>,</mo>
+          <mo>&#8722;</mo><mn>3</mn>
+          <mo>,</mo>
+          <mo>&#8722;</mo><mn>2</mn>
+          <mo>,</mo>
+          <mo>&#8722;</mo><mn>1</mn>
+          <mo>,</mo>
+          <mn>0</mn>
+          <mo>,</mo>
+          <mn>1</mn>
+          <mo>,</mo>
+          <mn>2</mn>
+          <mo>,</mo>
+          <mn>3</mn>
+          <mo>,</mo>
+          <mo>&hellip;</mo>
+          <mo>}</mo>
+        </mrow>
+      </math>
+    </div>
+
+    <p>Elk natuurlijk getal is ook een geheel getal, maar niet omgekeerd: &minus;5 is een geheel getal, maar géén natuurlijk getal. De gehele getallen lopen oneindig ver in beide richtingen.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#8484;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Gehele getallen &#8484;</span>
+        <p class="begrip-def">De verzameling van alle gehele getallen, inclusief de negatieve: &hellip;, &minus;3, &minus;2, &minus;1, 0, 1, 2, 3, &hellip; Gehele getallen hebben nooit een decimaal of breukgedeelte.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">De rationale getallen &#8474;</h3>
+
+    <p>Wanneer je twee gehele getallen deelt, krijg je niet altijd een geheel getal. Als je een pizza in vier gelijke stukken snijdt en er drie eet, heb je
+    <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>3</mn><mn>4</mn></mfrac></math>
+    van de pizza gegeten. Getallen die geschreven kunnen worden als een breuk
+    <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mi>p</mi><mi>q</mi></mfrac></math>
+    waarbij <em>p</em> en <em>q</em> gehele getallen zijn en <em>q</em> &ne; 0, noemen we <strong>rationale getallen</strong>. Het symbool is &#8474; (van het Latijnse <em>quotiens</em>, wat &ldquo;quoti&euml;nt&rdquo; betekent).</p>
+
+    <div class="formule">
+      <span class="formule-naam">Definitie &mdash; Rationale getallen</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <mi>&#8474;</mi>
+          <mo>=</mo>
+          <mo>{</mo>
+          <mfrac><mi>p</mi><mi>q</mi></mfrac>
+          <mo>|</mo>
+          <mi>p</mi>
+          <mo>&#8712;</mo>
+          <mi>&#8484;</mi>
+          <mo>,</mo>
+          <mi>q</mi>
+          <mo>&#8712;</mo>
+          <mi>&#8484;</mi>
+          <mo>,</mo>
+          <mi>q</mi>
+          <mo>&#8800;</mo>
+          <mn>0</mn>
+          <mo>}</mo>
+        </mrow>
+      </math>
+    </div>
+
+    <p>Voorbeelden van rationale getallen:
+    <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>1</mn><mn>2</mn></mfrac></math>,
+    <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>3</mn><mn>4</mn></mfrac></math>,
+    <math xmlns="http://www.w3.org/1998/Math/MathML"><mo>&#8722;</mo><mfrac><mn>7</mn><mn>3</mn></mfrac></math>,
+    0,75 (want 0,75 =
+    <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>3</mn><mn>4</mn></mfrac></math>),
+    en zelfs 5 (want 5 =
+    <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>5</mn><mn>1</mn></mfrac></math>).
+    Alle gehele getallen zijn dus ook rationale getallen.</p>
+
+    <h3 class="sub-heading">De re&euml;le getallen &#8477;</h3>
+
+    <p>Er bestaan getallen die <em>niet</em> als een breuk van twee gehele getallen geschreven kunnen worden. Zo is de zijde van een vierkant met oppervlakte 2 gelijk aan &#8730;2 &asymp; 1,41421356&hellip; &mdash; een getal met oneindig veel decimalen die geen patroon herhalen. Ook het beroemde getal &pi; &asymp; 3,14159265&hellip; is zo&rsquo;n getal. Deze noemen we <strong>irrationale getallen</strong>. Samen met de rationale getallen vormen ze de verzameling van alle <strong>re&euml;le getallen</strong> &#8477;.</p>
+
+    <p>In dit hoofdstuk werken we hoofdzakelijk met de naturlijke, gehele en rationale getallen. De re&euml;le getallen komen in latere hoofdstukken uitgebreider aan bod.</p>
+
+    <!-- STELLING: de inclusierelatie -->
+    <div class="stelling">
+      <span class="st-label">Stelling &mdash; Inclusierelatie tussen getalverzamelingen</span>
+      <p class="st-body">
+        Elke getalverzameling is <strong>een deelverzameling</strong> van de volgende, grotere verzameling:<br><br>
+        <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline">
+          <mrow>
+            <mi>&#8469;</mi>
+            <mo>&#8834;</mo>
+            <mi>&#8484;</mi>
+            <mo>&#8834;</mo>
+            <mi>&#8474;</mi>
+            <mo>&#8834;</mo>
+            <mi>&#8477;</mi>
+          </mrow>
+        </math><br><br>
+        Dit betekent: elk natuurlijk getal is ook een geheel getal, elk geheel getal is ook een rationaal getal, en elk rationaal getal is ook een re&euml;el getal.
+      </p>
+    </div>
+
+    <!-- SVG VENN DIAGRAM -->
+    <div class="svg-container">
+      <svg viewBox="0 0 520 280" width="100%" style="max-width:520px" role="img" aria-labelledby="venn-title">
+        <title id="venn-title">Venn-diagram van getalverzamelingen: N binnen Z binnen Q binnen R</title>
+        <!-- R — buitenste ovaal -->
+        <ellipse cx="260" cy="140" rx="245" ry="128" fill="#EEF3FF" stroke="#1A2B4A" stroke-width="2"/>
+        <!-- Q — tweede ovaal -->
+        <ellipse cx="256" cy="142" rx="190" ry="98" fill="#FDF3E7" stroke="#C8923A" stroke-width="2"/>
+        <!-- Z — derde ovaal -->
+        <ellipse cx="252" cy="144" rx="135" ry="70" fill="#FAF6EF" stroke="#C1440E" stroke-width="2"/>
+        <!-- N — binnenste ovaal -->
+        <ellipse cx="248" cy="148" rx="82" ry="44" fill="#FBF0D0" stroke="#D4A017" stroke-width="2"/>
+        <!-- Labels -->
+        <text x="480" y="56" font-family="'Playfair Display', serif" font-size="18" font-weight="700" fill="#1A2B4A" text-anchor="middle">&#8477;</text>
+        <text x="430" y="92" font-family="'Playfair Display', serif" font-size="16" font-weight="700" fill="#C8923A" text-anchor="middle">&#8474;</text>
+        <text x="370" y="122" font-family="'Playfair Display', serif" font-size="15" font-weight="700" fill="#C1440E" text-anchor="middle">&#8484;</text>
+        <text x="248" y="152" font-family="'Playfair Display', serif" font-size="14" font-weight="700" fill="#1A2B4A" text-anchor="middle">&#8469;</text>
+        <!-- Small example labels -->
+        <text x="36" y="148" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#1A2B4A" opacity="0.65">&pi;, &#8730;2</text>
+        <text x="90" y="108" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#C8923A" opacity="0.8">&#8722;&#189;, &#190;</text>
+        <text x="160" y="185" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#C1440E" opacity="0.8">&#8722;3, &#8722;1</text>
+        <text x="234" y="175" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#1A2B4A" opacity="0.75">0, 4</text>
+      </svg>
+      <span class="svg-caption">Venn-diagram: elke binnenste verzameling is een deelverzameling van de buitenste. Re&euml;le getallen zoals &pi; en &#8730;2 zijn irrationaal en vallen buiten &#8474;.</span>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Zoek drie voorbeelden in je dagelijks leven van elk type getal: een situatie waar je een natuurlijk getal gebruikt, een geheel getal (eventueel negatief), en een rationaal getal (breuk of kommagetal). Bespreek met je buur.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 2: DE GETALLENAS
+  ============================================================ -->
+  <section class="section-block" id="getallenas">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">De getallenas</h2>
+    </div>
+
+    <p>Om getallen visueel voor te stellen en te vergelijken, gebruiken wiskundigen een <strong>getallenas</strong>: een rechte lijn waarop elk reëel getal &eacute;&eacute;n vaste positie heeft. Links liggen de kleinere getallen, rechts de grotere. Het middelpunt is altijd <strong>nul</strong>, ook wel het <strong>oorsprong</strong> of de <strong>nulpunt</strong> van de as genoemd.</p>
+
+    <p>Hoe werkt dat in de praktijk? Je kiest een vaste eenheidslengte (bv. 1 cm per eenheid), plaatst nul in het midden, en markeert daarna alle gehele getallen op gelijke afstand. Breuken en kommagetallen komen tussen de gehele getallen te staan.</p>
+
+    <!-- SVG GETALLENAS -5 TOT +5 -->
+    <div class="svg-container">
+      <svg viewBox="0 0 560 80" width="100%" style="max-width:560px" role="img" aria-labelledby="as-title">
+        <title id="as-title">Getallenas van &minus;5 tot +5 met maatstrepen en labels</title>
+        <!-- Hoofdas -->
+        <line x1="30" y1="38" x2="530" y2="38" stroke="#1A2B4A" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- Pijlen links en rechts -->
+        <polygon points="28,38 38,33 38,43" fill="#1A2B4A"/>
+        <polygon points="532,38 522,33 522,43" fill="#1A2B4A"/>
+        <!-- Maatstrepen en labels: -5 t/m +5 -->
+        <!-- interval: (530-30)/10 = 50px per eenheid, beginpunt bij x=30+50=80 voor -4 ... nul op x=280 -->
+        <!-- -5: x=30 ... nee, x=30+0*50=30 voor de pijl, en de 11 streepjes bij x = 30+n*50 voor n=0..10 (of als floating: start=-5 at 55) -->
+        <!-- Laat as lopen van x=55 (-5) t/m x=505 (+5), met 50px/eenheid, nul op x=280 -->
+        <!-- Streepjes bij x = 280 + k*45 voor k=-5..5 (45px per eenheid) -->
+        <!-- Herdefinieer: nul=280, schaal=45 -->
+        <g font-family="'Source Sans 3', sans-serif" font-size="13" text-anchor="middle" fill="#1A2B4A">
+          <!-- k = -5 -->
+          <line x1="55" y1="30" x2="55" y2="46" stroke="#1A2B4A" stroke-width="1.8"/>
+          <text x="55" y="62">&#8722;5</text>
+          <!-- k = -4 -->
+          <line x1="100" y1="30" x2="100" y2="46" stroke="#1A2B4A" stroke-width="1.8"/>
+          <text x="100" y="62">&#8722;4</text>
+          <!-- k = -3 -->
+          <line x1="145" y1="30" x2="145" y2="46" stroke="#1A2B4A" stroke-width="1.8"/>
+          <text x="145" y="62">&#8722;3</text>
+          <!-- k = -2 -->
+          <line x1="190" y1="30" x2="190" y2="46" stroke="#1A2B4A" stroke-width="1.8"/>
+          <text x="190" y="62">&#8722;2</text>
+          <!-- k = -1 -->
+          <line x1="235" y1="30" x2="235" y2="46" stroke="#1A2B4A" stroke-width="1.8"/>
+          <text x="235" y="62">&#8722;1</text>
+          <!-- k = 0 -->
+          <line x1="280" y1="26" x2="280" y2="50" stroke="#C1440E" stroke-width="2.5"/>
+          <circle cx="280" cy="38" r="5" fill="#C1440E"/>
+          <text x="280" y="66" fill="#C1440E" font-weight="700">0</text>
+          <!-- k = 1 -->
+          <line x1="325" y1="30" x2="325" y2="46" stroke="#1A2B4A" stroke-width="1.8"/>
+          <text x="325" y="62">1</text>
+          <!-- k = 2 -->
+          <line x1="370" y1="30" x2="370" y2="46" stroke="#1A2B4A" stroke-width="1.8"/>
+          <text x="370" y="62">2</text>
+          <!-- k = 3 -->
+          <line x1="415" y1="30" x2="415" y2="46" stroke="#1A2B4A" stroke-width="1.8"/>
+          <text x="415" y="62">3</text>
+          <!-- k = 4 -->
+          <line x1="460" y1="30" x2="460" y2="46" stroke="#1A2B4A" stroke-width="1.8"/>
+          <text x="460" y="62">4</text>
+          <!-- k = 5 -->
+          <line x1="505" y1="30" x2="505" y2="46" stroke="#1A2B4A" stroke-width="1.8"/>
+          <text x="505" y="62">5</text>
+        </g>
+      </svg>
+      <span class="svg-caption">De getallenas met gehele getallen van &minus;5 tot +5. Het nulpunt (rood) is het middelpunt. Pijlen geven aan dat de as in beide richtingen doorgaat.</span>
+    </div>
+
+    <h3 class="sub-heading">Absolute waarde</h3>
+
+    <p>De <strong>absolute waarde</strong> van een getal is de <em>afstand</em> van dat getal tot nul op de getallenas. Afstanden zijn altijd positief of nul, nooit negatief. We noteren de absolute waarde met twee verticale strepen: |<em>x</em>|.</p>
+
+    <div class="stelling">
+      <span class="st-label">Definitie &mdash; Absolute waarde</span>
+      <p class="st-body">
+        De absolute waarde van een getal <em>x</em> is de afstand van <em>x</em> tot nul:<br><br>
+        <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline">
+          <mrow>
+            <mo>|</mo><mi>x</mi><mo>|</mo>
+            <mo>=</mo>
+            <mi>x</mi>
+          </mrow>
+        </math> &nbsp; als <em>x</em> &ge; 0 &nbsp;&nbsp;&nbsp;
+        <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline">
+          <mrow>
+            <mo>|</mo><mi>x</mi><mo>|</mo>
+            <mo>=</mo>
+            <mo>&#8722;</mo><mi>x</mi>
+          </mrow>
+        </math> &nbsp; als <em>x</em> &lt; 0
+      </p>
+    </div>
+
+    <p>Voorbeelden:</p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.4rem">
+        <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo>|</mo><mo>&#8722;</mo><mn>3</mn><mo>|</mo><mo>=</mo><mn>3</mn></mrow></math>
+        &nbsp;&mdash; want &minus;3 ligt 3 eenheden van nul verwijderd
+      </li>
+      <li style="margin-bottom:0.4rem">
+        <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo>|</mo><mn>5</mn><mo>|</mo><mo>=</mo><mn>5</mn></mrow></math>
+        &nbsp;&mdash; want 5 ligt 5 eenheden van nul verwijderd
+      </li>
+      <li>
+        <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo>|</mo><mn>0</mn><mo>|</mo><mo>=</mo><mn>0</mn></mrow></math>
+        &nbsp;&mdash; want 0 heeft afstand nul tot zichzelf
+      </li>
+    </ul>
+
+    <!-- REKENVOORBEELD: absolute waarde vergelijken -->
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Welk getal heeft de grootste absolute waarde: &minus;7 of 4?</p>
+      <ul class="rv-stappen">
+        <li>Bepaal de absolute waarde van &minus;7:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo>|</mo><mo>&#8722;</mo><mn>7</mn><mo>|</mo><mo>=</mo><mn>7</mn></mrow></math>
+        </li>
+        <li>Bepaal de absolute waarde van 4:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo>|</mo><mn>4</mn><mo>|</mo><mo>=</mo><mn>4</mn></mrow></math>
+        </li>
+        <li>Vergelijk de twee absolute waarden: 7 &gt; 4, dus &minus;7 heeft de grootste absolute waarde.</li>
+      </ul>
+      <p class="rv-antwoord">Antwoord: &minus;7 heeft de grootste absolute waarde, namelijk 7.</p>
+    </div>
+
+    <p>Let op het verschil: &minus;7 is kleiner dan 4 (want &minus;7 ligt verder links op de getallenas), maar de absolute waarde van &minus;7 is g&oacute;&oacute;ter dan de absolute waarde van 4. Absolute waarde en grootte zijn twee verschillende begrippen.</p>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 3: GETALLEN VERGELIJKEN EN ORDENEN
+  ============================================================ -->
+  <section class="section-block" id="vergelijken">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Getallen vergelijken en ordenen</h2>
+    </div>
+
+    <p>Om te zeggen dat het ene getal groter of kleiner is dan een ander, gebruiken wiskundigen speciale vergelijkingssymbolen. Je hebt er vier:</p>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.4rem;">
+      <li style="margin-bottom:0.5rem"><strong>&lt;</strong> &nbsp; &ldquo;is kleiner dan&rdquo; &nbsp;&mdash;&nbsp; bv. 3 &lt; 7</li>
+      <li style="margin-bottom:0.5rem"><strong>&gt;</strong> &nbsp; &ldquo;is groter dan&rdquo; &nbsp;&mdash;&nbsp; bv. 7 &gt; 3</li>
+      <li style="margin-bottom:0.5rem"><strong>&le;</strong> &nbsp; &ldquo;is kleiner dan of gelijk aan&rdquo; &nbsp;&mdash;&nbsp; bv. 3 &le; 3 en 3 &le; 7</li>
+      <li><strong>&ge;</strong> &nbsp; &ldquo;is groter dan of gelijk aan&rdquo; &nbsp;&mdash;&nbsp; bv. 7 &ge; 7 en 7 &ge; 3</li>
+    </ul>
+
+    <p>Op de getallenas geldt altijd: een getal dat <strong>meer naar rechts</strong> staat is gr&oacute;ter; een getal dat <strong>meer naar links</strong> staat is kleiner. Dit geldt ook voor negatieve getallen, en dat is iets wat vergissingen uitlokt: &minus;2 is <em>groter</em> dan &minus;5, want &minus;2 staat rechts van &minus;5 op de getallenas.</p>
+
+    <div class="stelling">
+      <span class="st-label">Stelling &mdash; Negatieve getallen vergelijken</span>
+      <p class="st-body">
+        Voor negatieve getallen geldt: hoe groter het getal <em>na het minteken</em>, hoe <strong>kleiner</strong> het getal zelf.<br><br>
+        Voorbeeld: &minus;8 &lt; &minus;3 &lt; &minus;1 &lt; 0 &lt; 2 &lt; 5<br><br>
+        Stelregel: gebruik de getallenas &mdash; links is kleiner, rechts is groter.
+      </p>
+    </div>
+
+    <!-- REKENVOORBEELD: ordenen -->
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Orden de volgende getallen van klein naar groot: &minus;3, 7, &minus;1, 0, &minus;8, 2.</p>
+      <ul class="rv-stappen">
+        <li>Teken een (mentale) getallenas en zoek de positie van elk getal: &minus;8 ligt het meest links, dan &minus;3, dan &minus;1, dan 0, dan 2, dan 7 het meest rechts.</li>
+        <li>Lees de volgorde af van links naar rechts (= van klein naar groot).</li>
+        <li>Schrijf de volgorde op.</li>
+      </ul>
+      <p class="rv-antwoord">Antwoord: &minus;8 &lt; &minus;3 &lt; &minus;1 &lt; 0 &lt; 2 &lt; 7</p>
+    </div>
+
+    <!-- SVG: getallenas met de 6 punten -->
+    <div class="svg-container">
+      <svg viewBox="0 0 560 90" width="100%" style="max-width:560px" role="img" aria-labelledby="as2-title">
+        <title id="as2-title">Getallenas met de zes punten &minus;8, &minus;3, &minus;1, 0, 2, 7 aangeduid als gekleurde cirkels</title>
+        <!-- As van -9 tot +8, nul op x=280, schaal=28px/eenheid -->
+        <!-- Nul op x=280; schaal=28; -9: x=280-9*28=280-252=28; +8: x=280+8*28=280+224=504 -->
+        <line x1="22" y1="38" x2="518" y2="38" stroke="#1A2B4A" stroke-width="2" stroke-linecap="round"/>
+        <polygon points="20,38 30,33 30,43" fill="#1A2B4A"/>
+        <polygon points="520,38 510,33 510,43" fill="#1A2B4A"/>
+        <!-- Maatstrepen -9 t/m +8 -->
+        <g font-family="'Source Sans 3', sans-serif" font-size="11" text-anchor="middle" fill="#1A2B4A">
+          <!-- -9 -->
+          <line x1="28" y1="33" x2="28" y2="43" stroke="#1A2B4A" stroke-width="1.2" opacity="0.4"/>
+          <!-- -8 gemarkeerd -->
+          <line x1="56" y1="30" x2="56" y2="46" stroke="#C8923A" stroke-width="2"/>
+          <circle cx="56" cy="38" r="6" fill="#C8923A"/>
+          <text x="56" y="62" fill="#C8923A" font-weight="700">&#8722;8</text>
+          <!-- -7 -->
+          <line x1="84" y1="33" x2="84" y2="43" stroke="#1A2B4A" stroke-width="1.2" opacity="0.4"/>
+          <text x="84" y="58" opacity="0.4">&#8722;7</text>
+          <!-- -6 -->
+          <line x1="112" y1="33" x2="112" y2="43" stroke="#1A2B4A" stroke-width="1.2" opacity="0.4"/>
+          <text x="112" y="58" opacity="0.4">&#8722;6</text>
+          <!-- -5 -->
+          <line x1="140" y1="33" x2="140" y2="43" stroke="#1A2B4A" stroke-width="1.2" opacity="0.4"/>
+          <text x="140" y="58" opacity="0.4">&#8722;5</text>
+          <!-- -4 -->
+          <line x1="168" y1="33" x2="168" y2="43" stroke="#1A2B4A" stroke-width="1.2" opacity="0.4"/>
+          <text x="168" y="58" opacity="0.4">&#8722;4</text>
+          <!-- -3 gemarkeerd -->
+          <line x1="196" y1="30" x2="196" y2="46" stroke="#D4A017" stroke-width="2"/>
+          <circle cx="196" cy="38" r="6" fill="#D4A017"/>
+          <text x="196" y="62" fill="#D4A017" font-weight="700">&#8722;3</text>
+          <!-- -2 -->
+          <line x1="224" y1="33" x2="224" y2="43" stroke="#1A2B4A" stroke-width="1.2" opacity="0.4"/>
+          <text x="224" y="58" opacity="0.4">&#8722;2</text>
+          <!-- -1 gemarkeerd -->
+          <line x1="252" y1="30" x2="252" y2="46" stroke="#1A2B4A" stroke-width="2"/>
+          <circle cx="252" cy="38" r="6" fill="#243B63"/>
+          <text x="252" y="62" fill="#243B63" font-weight="700">&#8722;1</text>
+          <!-- 0 gemarkeerd -->
+          <line x1="280" y1="30" x2="280" y2="46" stroke="#C1440E" stroke-width="2.5"/>
+          <circle cx="280" cy="38" r="6" fill="#C1440E"/>
+          <text x="280" y="64" fill="#C1440E" font-weight="700">0</text>
+          <!-- 1 -->
+          <line x1="308" y1="33" x2="308" y2="43" stroke="#1A2B4A" stroke-width="1.2" opacity="0.4"/>
+          <text x="308" y="58" opacity="0.4">1</text>
+          <!-- 2 gemarkeerd -->
+          <line x1="336" y1="30" x2="336" y2="46" stroke="#1A2B4A" stroke-width="2"/>
+          <circle cx="336" cy="38" r="6" fill="#1A2B4A" opacity="0.75"/>
+          <text x="336" y="62" fill="#1A2B4A" font-weight="700">2</text>
+          <!-- 3 -->
+          <line x1="364" y1="33" x2="364" y2="43" stroke="#1A2B4A" stroke-width="1.2" opacity="0.4"/>
+          <text x="364" y="58" opacity="0.4">3</text>
+          <!-- 4 -->
+          <line x1="392" y1="33" x2="392" y2="43" stroke="#1A2B4A" stroke-width="1.2" opacity="0.4"/>
+          <text x="392" y="58" opacity="0.4">4</text>
+          <!-- 5 -->
+          <line x1="420" y1="33" x2="420" y2="43" stroke="#1A2B4A" stroke-width="1.2" opacity="0.4"/>
+          <text x="420" y="58" opacity="0.4">5</text>
+          <!-- 6 -->
+          <line x1="448" y1="33" x2="448" y2="43" stroke="#1A2B4A" stroke-width="1.2" opacity="0.4"/>
+          <text x="448" y="58" opacity="0.4">6</text>
+          <!-- 7 gemarkeerd -->
+          <line x1="476" y1="30" x2="476" y2="46" stroke="#C8923A" stroke-width="2"/>
+          <circle cx="476" cy="38" r="6" fill="#C8923A"/>
+          <text x="476" y="62" fill="#C8923A" font-weight="700">7</text>
+          <!-- 8 -->
+          <line x1="504" y1="33" x2="504" y2="43" stroke="#1A2B4A" stroke-width="1.2" opacity="0.4"/>
+          <text x="504" y="58" opacity="0.4">8</text>
+        </g>
+      </svg>
+      <span class="svg-caption">De zes getallen &minus;8, &minus;3, &minus;1, 0, 2 en 7 aangeduid op de getallenas. Van links naar rechts gelezen geeft de volgorde van klein naar groot.</span>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Kun jij uitleggen waarom &minus;100 kleiner is dan &minus;1, ook al is 100 veel groter dan 1? Gebruik de getallenas om je redenering te verduidelijken.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 4: TEGENGESTELDEN EN OMGEKEERDEN
+  ============================================================ -->
+  <section class="section-block" id="tegengestelden">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Rekenen met tegengestelden en omgekeerden</h2>
+    </div>
+
+    <p>Twee begrippen die je heel vaak tegenkomt in de wiskunde zijn het <strong>tegengestelde</strong> en het <strong>omgekeerde</strong> (ook wel het <em>tegenovergestelde</em> of de <em>inverse</em> genoemd) van een getal. Ze zijn heel verschillend, maar worden soms door elkaar gehaald. Het is belangrijk om het onderscheid goed te kennen.</p>
+
+    <h3 class="sub-heading">Het tegengestelde van een getal</h3>
+
+    <p>Het <strong>tegengestelde</strong> van een getal <em>a</em> is het getal &minus;<em>a</em>. Op de getallenas ligt het tegengestelde van <em>a</em> even ver van nul verwijderd als <em>a</em> zelf, maar aan de <em>andere kant</em>. De som van een getal en zijn tegengestelde is altijd nul.</p>
+
+    <div class="stelling">
+      <span class="st-label">Eigenschap &mdash; Tegengestelde</span>
+      <p class="st-body">
+        Voor elk getal <em>a</em> geldt:<br><br>
+        <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline">
+          <mrow>
+            <mi>a</mi>
+            <mo>+</mo>
+            <mo>(</mo>
+            <mo>&#8722;</mo>
+            <mi>a</mi>
+            <mo>)</mo>
+            <mo>=</mo>
+            <mn>0</mn>
+          </mrow>
+        </math><br><br>
+        Voorbeelden: 5 + (&minus;5) = 0 &nbsp;|&nbsp; (&minus;3) + 3 = 0 &nbsp;|&nbsp; 0 + 0 = 0
+      </p>
+    </div>
+
+    <p>Het tegengestelde van een positief getal is negatief, en omgekeerd. Het tegengestelde van nul is nul zelf.</p>
+
+    <h3 class="sub-heading">Het omgekeerde (reciproke) van een getal</h3>
+
+    <p>Het <strong>omgekeerde</strong> of de <strong>reciproke</strong> van een getal <em>a</em> (met <em>a</em> &ne; 0) is
+    <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>1</mn><mi>a</mi></mfrac></math>.
+    Het product van een getal en zijn omgekeerde is altijd 1. Je vindt het omgekeerde van een breuk door teller en noemer te verwisselen.</p>
+
+    <div class="stelling">
+      <span class="st-label">Eigenschap &mdash; Omgekeerde (reciproke)</span>
+      <p class="st-body">
+        Voor elk getal <em>a</em> &ne; 0 geldt:<br><br>
+        <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline">
+          <mrow>
+            <mi>a</mi>
+            <mo>&times;</mo>
+            <mfrac><mn>1</mn><mi>a</mi></mfrac>
+            <mo>=</mo>
+            <mn>1</mn>
+          </mrow>
+        </math><br><br>
+        Voorbeelden: 4 &times; &frac14; = 1 &nbsp;|&nbsp;
+        <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>3</mn><mn>5</mn></mfrac></math>
+        &times;
+        <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>5</mn><mn>3</mn></mfrac></math>
+        = 1
+      </p>
+    </div>
+
+    <!-- REKENVOORBEELD: tegengestelde en omgekeerde van 4 en -3/5 -->
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Bepaal het tegengestelde en het omgekeerde van 4 en van
+        <math xmlns="http://www.w3.org/1998/Math/MathML"><mo>&#8722;</mo><mfrac><mn>3</mn><mn>5</mn></mfrac></math>.
+      </p>
+      <ul class="rv-stappen">
+        <li>
+          <strong>Tegengestelde van 4:</strong> &nbsp;
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo>&#8722;</mo><mn>4</mn></mrow></math>
+          &nbsp; (want 4 + (&minus;4) = 0)
+        </li>
+        <li>
+          <strong>Omgekeerde van 4:</strong> &nbsp;
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>1</mn><mn>4</mn></mfrac></math>
+          &nbsp; (want 4 &times; &frac14; = 1)
+        </li>
+        <li>
+          <strong>Tegengestelde van
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mo>&#8722;</mo><mfrac><mn>3</mn><mn>5</mn></mfrac></math>:</strong>
+          &nbsp;
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>3</mn><mn>5</mn></mfrac></math>
+          &nbsp; (want &minus;&#8540; + &#8540; = 0, of hier: &minus;&frac35; + &frac35; = 0)
+        </li>
+        <li>
+          <strong>Omgekeerde van
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mo>&#8722;</mo><mfrac><mn>3</mn><mn>5</mn></mfrac></math>:</strong>
+          &nbsp; wissel teller en noemer:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mo>&#8722;</mo><mfrac><mn>5</mn><mn>3</mn></mfrac></math>
+          &nbsp; (want
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mo>&#8722;</mo><mfrac><mn>3</mn><mn>5</mn></mfrac></math>
+          &times;
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mo>&#8722;</mo><mfrac><mn>5</mn><mn>3</mn></mfrac></math>
+          = 1)
+        </li>
+      </ul>
+      <p class="rv-antwoord">
+        Van 4: tegengestelde = &minus;4, omgekeerde =
+        <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>1</mn><mn>4</mn></mfrac></math>.
+        Van
+        <math xmlns="http://www.w3.org/1998/Math/MathML"><mo>&#8722;</mo><mfrac><mn>3</mn><mn>5</mn></mfrac></math>:
+        tegengestelde =
+        <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>3</mn><mn>5</mn></mfrac></math>,
+        omgekeerde =
+        <math xmlns="http://www.w3.org/1998/Math/MathML"><mo>&#8722;</mo><mfrac><mn>5</mn><mn>3</mn></mfrac></math>.
+      </p>
+    </div>
+
+    <p>Merk op: het omgekeerde van een negatief getal is ook negatief. Het tekengedrag blijft bewaard bij het nemen van de reciproke.</p>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Welk getal is zijn eigen tegengestelde? Welk getal is zijn eigen omgekeerde? Kan &eacute;&eacute;n getal zowel zijn eigen tegengestelde als zijn eigen omgekeerde zijn?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 5: GETALVERZAMELINGEN
+  ============================================================ -->
+  <section class="section-block" id="getalverzamelingen">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Getalverzamelingen</h2>
+    </div>
+
+    <p>Een <strong>verzameling</strong> is een groep van objecten &mdash; in de wiskunde meestal getallen &mdash; die duidelijk gedefinieerd zijn. We schrijven een verzameling tussen accolades en noemen de elementen op (of geven een beschrijvende regel).</p>
+
+    <h3 class="sub-heading">Notatie en symbolen</h3>
+
+    <p>De basisnotaties die je moet kennen:</p>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.4rem;">
+      <li style="margin-bottom:0.5rem"><strong>{ &hellip; }</strong> &nbsp; accolades geven een verzameling aan, bv. A = {1, 2, 3, 4}</li>
+      <li style="margin-bottom:0.5rem"><strong>&#8712;</strong> &nbsp; &ldquo;is een element van&rdquo;, bv. 3 &#8712; A</li>
+      <li style="margin-bottom:0.5rem"><strong>&#8713;</strong> &nbsp; &ldquo;is geen element van&rdquo;, bv. 5 &#8713; A</li>
+      <li style="margin-bottom:0.5rem"><strong>&#8834;</strong> &nbsp; &ldquo;is een deelverzameling van&rdquo;, bv. {1, 2} &#8834; A</li>
+      <li><strong>&#8709;</strong> &nbsp; de lege verzameling &mdash; een verzameling zonder elementen</li>
+    </ul>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#8712;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Element en lidmaatschap</span>
+        <p class="begrip-def">Als <em>a</em> een element is van verzameling <em>A</em>, schrijven we <em>a</em> &#8712; <em>A</em>. Als <em>a</em> geen element is van <em>A</em>, schrijven we <em>a</em> &#8713; <em>A</em>. Elke verzameling bepaalt precies welke elementen erin zitten.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Voorbeelden van verzamelingen</h3>
+
+    <p>Stel A = {2, 4, 6, 8} (de even getallen van 2 tot en met 8). Dan geldt:</p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.4rem">4 &#8712; A &nbsp; (4 zit in de verzameling)</li>
+      <li style="margin-bottom:0.4rem">7 &#8713; A &nbsp; (7 zit niet in de verzameling)</li>
+      <li style="margin-bottom:0.4rem">{2, 6} &#8834; A &nbsp; (de deelverzameling {2, 6} zit helemaal in A)</li>
+      <li>{1, 2} &#8836; A &nbsp; (1 zit niet in A, dus {1, 2} is geen deelverzameling van A)</li>
+    </ul>
+
+    <h3 class="sub-heading">Doorsnede, unie en complement</h3>
+
+    <p>Wanneer je twee verzamelingen hebt, kun je er nieuwe uit maken:</p>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.4rem;">
+      <li style="margin-bottom:0.6rem"><strong>Doorsnede A &#8745; B</strong>: de elementen die in zowel A als B zitten.</li>
+      <li style="margin-bottom:0.6rem"><strong>Unie A &#8746; B</strong>: alle elementen die in A of B (of beide) zitten.</li>
+      <li><strong>Complement A&prime;</strong> (of C&#7491;A): de elementen van het universum die <em>niet</em> in A zitten.</li>
+    </ul>
+
+    <p>Voorbeeld: stel A = {1, 2, 3, 4} en B = {3, 4, 5, 6}.<br>
+    Dan is A &#8745; B = {3, 4} en A &#8746; B = {1, 2, 3, 4, 5, 6}.</p>
+
+    <!-- SVG VENN DIAGRAM A EN B -->
+    <div class="svg-container">
+      <svg viewBox="0 0 500 220" width="100%" style="max-width:500px" role="img" aria-labelledby="venn2-title">
+        <title id="venn2-title">Venn-diagram van verzamelingen A = {1,2,3,4} en B = {3,4,5,6} met doorsnede {3,4}</title>
+        <!-- Rechthoek universum -->
+        <rect x="10" y="10" width="480" height="200" rx="8" fill="#F2EAD8" stroke="#C8923A" stroke-width="1.5"/>
+        <text x="468" y="30" font-family="'Source Sans 3', sans-serif" font-size="13" fill="#6B5F4A" text-anchor="end" font-style="italic">U</text>
+        <!-- Cirkel A (links, gedeeltelijk overlappend) -->
+        <ellipse cx="185" cy="110" rx="140" ry="85" fill="#EEF3FF" fill-opacity="0.85" stroke="#1A2B4A" stroke-width="2"/>
+        <!-- Cirkel B (rechts, gedeeltelijk overlappend) -->
+        <ellipse cx="315" cy="110" rx="140" ry="85" fill="#FDF3E7" fill-opacity="0.85" stroke="#C8923A" stroke-width="2"/>
+        <!-- Labels cirkels -->
+        <text x="120" y="78" font-family="'Playfair Display', serif" font-size="20" font-weight="700" fill="#1A2B4A">A</text>
+        <text x="368" y="78" font-family="'Playfair Display', serif" font-size="20" font-weight="700" fill="#C8923A">B</text>
+        <!-- Alleen-A elementen -->
+        <text x="138" y="106" font-family="'Source Sans 3', sans-serif" font-size="15" fill="#1A2B4A" text-anchor="middle">1</text>
+        <text x="165" y="132" font-family="'Source Sans 3', sans-serif" font-size="15" fill="#1A2B4A" text-anchor="middle">2</text>
+        <!-- Doorsnede elementen -->
+        <text x="248" y="100" font-family="'Source Sans 3', sans-serif" font-size="15" fill="#1A2B4A" font-weight="700" text-anchor="middle">3</text>
+        <text x="248" y="126" font-family="'Source Sans 3', sans-serif" font-size="15" fill="#1A2B4A" font-weight="700" text-anchor="middle">4</text>
+        <!-- Doorsnede label -->
+        <text x="248" y="148" font-family="'Source Sans 3', sans-serif" font-size="10" fill="#1A2B4A" text-anchor="middle" opacity="0.6">A &#8745; B</text>
+        <!-- Alleen-B elementen -->
+        <text x="340" y="106" font-family="'Source Sans 3', sans-serif" font-size="15" fill="#C8923A" text-anchor="middle">5</text>
+        <text x="360" y="132" font-family="'Source Sans 3', sans-serif" font-size="15" fill="#C8923A" text-anchor="middle">6</text>
+      </svg>
+      <span class="svg-caption">Venn-diagram: A = {1, 2, 3, 4} en B = {3, 4, 5, 6}. De doorsnede A &#8745; B = {3, 4} ligt in het overlappende gebied.</span>
+    </div>
+
+    <p>De Venn-diagramtechniek helpt je om verbanden tussen verzamelingen visueel te maken. Ze worden ook in andere vakken gebruikt: denk aan overlapping van eigenschappen in biologie of taalanalyse.</p>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Stel C = {priemgetallen kleiner dan 10} = {2, 3, 5, 7} en D = {oneven getallen kleiner dan 10} = {1, 3, 5, 7, 9}. Bepaal C &#8745; D en C &#8746; D. Welke elementen zitten uitsluitend in D?</p>
+    </div>
+  </section>
+
+</div><!-- end page-wrapper -->
+
+<!-- ============================================================
+     OEFENINGEN
+============================================================ -->
+<section class="exercises-section" id="oefeningen">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <!-- Oefening 1 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Soorten getallen herkennen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Geef voor elk van de volgende getallen aan tot welke verzameling(en) het behoort: &#8469;, &#8484;, &#8474; of &#8477;. Meerdere antwoorden zijn mogelijk (onthoud: &#8469; &#8834; &#8484; &#8834; &#8474; &#8834; &#8477;).</p>
+      <ol>
+        <li>7</li>
+        <li>&minus;4</li>
+        <li>
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>2</mn><mn>3</mn></mfrac></math>
+        </li>
+        <li>0</li>
+        <li>&minus;0,5</li>
+        <li>&#8730;5</li>
+      </ol>
+      <p class="ex-tip">Tip: begin bij de kleinste verzameling (&#8469;) en werk naar buiten. Als een getal een breuk is die niet vereenvoudigt tot een geheel getal, behoort het tot &#8474; maar niet tot &#8484;.</p>
+    </div>
+
+    <!-- Oefening 2 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Absolute waarde berekenen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Bereken de absolute waarde van elk getal.</p>
+      <ol>
+        <li>|&minus;9|</li>
+        <li>|6|</li>
+        <li>|&minus;0,4|</li>
+        <li>
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mo>|</mo><mo>&#8722;</mo><mfrac><mn>7</mn><mn>2</mn></mfrac><mo>|</mo></math>
+        </li>
+        <li>|0|</li>
+        <li>Welk van de getallen &minus;12 en 8 heeft de grootste absolute waarde? Verklaar.</li>
+      </ol>
+    </div>
+
+    <!-- Oefening 3 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Getallen ordenen op de getallenas</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Orden de volgende reeksen van klein naar groot. Schrijf je antwoord met de tekens &lt;.</p>
+      <ol>
+        <li>5, &minus;2, 0, &minus;7, 3, &minus;1</li>
+        <li>&minus;10, &minus;6, &minus;15, &minus;3, &minus;8</li>
+        <li>
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>1</mn><mn>2</mn></mfrac></math>,
+          &minus;1,
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>3</mn><mn>4</mn></mfrac></math>,
+          0, &minus;0,5
+        </li>
+      </ol>
+      <p class="ex-tip">Tip: teken zelf een (ruwe) getallenas en zet de getallen erop voor je de volgorde opschrijft.</p>
+    </div>
+
+    <!-- Oefening 4 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 4</p>
+      <p class="ex-name">Tegengestelden en omgekeerden</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Bepaal voor elk getal het tegengestelde en het omgekeerde (indien het bestaat).</p>
+      <ol>
+        <li>8</li>
+        <li>&minus;6</li>
+        <li>
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>2</mn><mn>7</mn></mfrac></math>
+        </li>
+        <li>
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mo>&#8722;</mo><mfrac><mn>5</mn><mn>4</mn></mfrac></math>
+        </li>
+        <li>1</li>
+        <li>0 (let op: bestaat het omgekeerde van 0? Waarom wel of niet?)</li>
+      </ol>
+    </div>
+
+    <!-- Oefening 5 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 5</p>
+      <p class="ex-name">Werken met getalverzamelingen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Gegeven: P = {1, 3, 5, 7, 9} en Q = {1, 2, 3, 4, 5}.</p>
+      <ol>
+        <li>Bepaal P &#8745; Q (de doorsnede).</li>
+        <li>Bepaal P &#8746; Q (de unie).</li>
+        <li>Is 4 &#8712; P? Verklaar.</li>
+        <li>Is {1, 5} &#8834; P? Verklaar.</li>
+        <li>Is {2, 3} &#8834; Q? Verklaar.</li>
+        <li>Noem twee elementen die wel in Q zitten maar niet in P.</li>
+      </ol>
+      <p class="ex-tip">Tip: schrijf alle elementen op en markeer welke in beide verzamelingen voorkomen.</p>
+    </div>
+
+    <!-- Oefening 6 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 6</p>
+      <p class="ex-name">Inzichtsvraag &mdash; gecombineerde toepassing</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Dit is een uitdagendere oefening die meerdere concepten combineert.</p>
+      <ol>
+        <li>Schrijf drie getallen op die tot &#8474; behoren maar niet tot &#8484;. Verklaar waarom ze niet tot &#8484; behoren.</li>
+        <li>
+          Stel a = &minus;4. Bereken:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mo>|</mo><mi>a</mi><mo>|</mo></math>,
+          het tegengestelde van <em>a</em>, en het omgekeerde van <em>a</em>.
+          Is het omgekeerde van <em>a</em> hetzelfde als het tegengestelde van <em>a</em>? Leg uit.
+        </li>
+        <li>Op een dag bedraagt de temperatuur &minus;3 &deg;C en de dag daarna &minus;8 &deg;C. Welke dag was het warmer? Welke temperatuur heeft de grootste absolute waarde? Verklaar het verschil tussen de twee vragen.</li>
+        <li>Bedenk zelf een verzameling A van vijf gehele getallen waarbij &#8745; {even getallen} = {&minus;2, 4}. Geef een mogelijke verzameling A.</li>
+      </ol>
+      <p class="ex-tip">Uitdaging: voor vraag 4 zijn meerdere antwoorden mogelijk. Bedenk er twee.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SAMENVATTING
+============================================================ -->
+<section class="summary-section" id="samenvatting">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>Natuurlijke getallen &#8469;</strong> = {0, 1, 2, 3, &hellip;} &mdash; de telgetallen, altijd groter dan of gelijk aan nul.</li>
+      <li><strong>Gehele getallen &#8484;</strong> = {&hellip;, &minus;3, &minus;2, &minus;1, 0, 1, 2, 3, &hellip;} &mdash; uitbreid met de negatieve getallen.</li>
+      <li><strong>Rationale getallen &#8474;</strong> zijn getallen die geschreven kunnen worden als breuk
+        <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mi>p</mi><mi>q</mi></mfrac></math>
+        met <em>p</em>, <em>q</em> &#8712; &#8484; en <em>q</em> &ne; 0.
+      </li>
+      <li><strong>Re&euml;le getallen &#8477;</strong> omvatten ook de irrationale getallen zoals &pi; en &#8730;2.</li>
+      <li>De <strong>inclusierelatie</strong> is: &#8469; &#8834; &#8484; &#8834; &#8474; &#8834; &#8477;.</li>
+      <li>Op de <strong>getallenas</strong> geldt: verder naar links = kleiner, verder naar rechts = groter.</li>
+      <li>De <strong>absolute waarde</strong> |<em>x</em>| is de afstand van <em>x</em> tot nul &mdash; altijd &ge; 0.</li>
+      <li>Het <strong>tegengestelde</strong> van <em>a</em> is &minus;<em>a</em>; hun som is 0: <em>a</em> + (&minus;<em>a</em>) = 0.</li>
+      <li>Het <strong>omgekeerde (reciproke)</strong> van <em>a</em> (&ne; 0) is
+        <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>1</mn><mi>a</mi></mfrac></math>;
+        hun product is 1.
+      </li>
+      <li>Een <strong>verzameling</strong> is een groep van objecten; we gebruiken &#8712; (element van), &#8713; (geen element van) en &#8834; (deelverzameling van).</li>
+      <li><strong>Doorsnede A &#8745; B</strong>: elementen die in zowel A als B zitten. <strong>Unie A &#8746; B</strong>: alle elementen van A of B of beide.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

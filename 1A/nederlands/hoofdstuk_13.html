@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zinnen bouwen — Zinsdelen en zinssoorten | Nederlands 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.25; }
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+    text-decoration: none;
+  }
+  .site-header .label-right { text-align: right; }
+
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image: radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+  .chapter-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+  .prologue .ornament-line .ornament-sym { color: var(--gold); font-size: 1.1rem; opacity: 0.8; }
+  .prologue p { font-style: italic; font-size: 1.05rem; line-height: 1.85; color: rgba(250,246,239,0.9); }
+  .prologue p + p { margin-top: 0.9em; }
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+  .begrip .begrip-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .begrip .begrip-body { flex: 1; }
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+  .begrip .begrip-def { font-size: 0.97rem; color: var(--text-mid); line-height: 1.65; margin: 0; }
+
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .denkvraag .dv-text { font-style: italic; font-size: 1rem; color: var(--text-mid); line-height: 1.7; }
+
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+  }
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ── VOORBEELDTEKST ── */
+  .voorbeeldtekst {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 2rem 2.2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .voorbeeldtekst .vt-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--darkblue);
+    opacity: 0.6;
+    margin-bottom: 0.4rem;
+    display: block;
+  }
+  .voorbeeldtekst .vt-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 0.3rem;
+  }
+  .voorbeeldtekst .vt-meta {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    margin-bottom: 1.2rem;
+    font-style: italic;
+  }
+  .voorbeeldtekst .vt-body p {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-bottom: 0.9em;
+  }
+  .voorbeeldtekst .vt-body p:last-child { margin-bottom: 0; }
+  .voorbeeldtekst .vt-source {
+    margin-top: 1rem;
+    font-size: 0.78rem;
+    color: var(--text-light);
+    border-top: 1px solid var(--sand);
+    padding-top: 0.6rem;
+    font-style: italic;
+  }
+
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+  .exercise-card ol, .exercise-card ul { padding-left: 1.4rem; margin-top: 0.5rem; }
+  .exercise-card li { margin-bottom: 0.45rem; font-size: 0.96rem; color: var(--text-mid); }
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+  .summary-section ul { list-style: none; padding: 0; }
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0; top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem; right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px; height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  .prose-text { max-width: 100%; }
+  .highlighted-para {
+    background: rgba(212,160,23,0.08);
+    border-left: 3px solid var(--gold);
+    padding: 0.8rem 1.1rem;
+    border-radius: 0 4px 4px 0;
+    margin: 1.2rem 0;
+    font-size: 0.97rem;
+    color: var(--text-mid);
+  }
+
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section, .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .voorbeeldtekst { padding: 1.4rem 1.2rem; }
+  }
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header" id="top">
+  <a class="label" href="index.html">Nederlands 1A</a>
+  <span class="label label-right">Hoofdstuk 13</span>
+</header>
+
+<div class="chapter-hero">
+  <div class="chapter-kicker">Nederlands &nbsp;·&nbsp; 1A &nbsp;·&nbsp; Eerste graad</div>
+  <h1>Hoofdstuk 13<br>Zinnen bouwen</h1>
+  <p class="subtitle">Onderwerp, gezegde, voorwerp — de structuur achter elke zin</p>
+</div>
+
+<div class="page-wrapper">
+
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Stel je voor &hellip;</span>
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+
+    <p>Je leest de zin: <em>"De leraar geeft de leerlingen elke dag huiswerk."</em> Geen probleem. Je begrijpt hem meteen, je hoeft er niet bij na te denken. Maar stel je nu voor dat er een uitwisselingsleerling naast je zit — iemand die pas drie maanden Nederlands leert. Die vraagt: "Wie geeft er iets?" Makkelijk: de leraar. "Wat geeft hij precies?" Huiswerk. "Aan wie geeft hij dat?" Aan de leerlingen. "En wanneer?" Elke dag.</p>
+
+    <p>Plots zie je iets wat je altijd al wist, maar nooit bewust had opgemerkt: elk woord in die zin heeft een taak. De leraar doet iets. Huiswerk is wat hij doet. De leerlingen zijn degenen die het ontvangen. Elke dag zegt wanneer het gebeurt. Die taken hebben namen — en die namen leer je in dit hoofdstuk.</p>
+
+    <p>Zinsdelen zijn geen abstracte grammaticaregels. Ze zijn de werktuigen waarmee taal wordt gebouwd. Wie ze kent, begrijpt niet alleen wat zinnen zeggen — maar ook hoe ze dat doen. En wie begrijpt hoe een zin werkt, schrijft betere zinnen. Duidelijker. Sterker. Preciezer.</p>
+
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+  </section>
+
+  <section class="section-block" id="s1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Zinssoorten: vier manieren om een zin te gebruiken</h2>
+    </div>
+    <div class="prose-text">
+      <p>Een zin is altijd ergens voor bedoeld. Soms deel je iets mee. Soms stel je een vraag. Soms geef je een opdracht. Soms druk je een sterke emotie uit. Op basis van dat doel onderscheiden we vier zinssoorten.</p>
+
+      <p>De eerste zinssoort is de <strong>mededelende zin</strong>. Die deelt gewoon iets mee — een feit, een mening, een beschrijving. Hij eindigt op een punt. <em>De trein vertrekt om 8 uur.</em> Dat is alles: je geeft informatie. Het is de meest neutrale zinssoort en ook de meest gebruikte.</p>
+
+      <p>De tweede zinssoort is de <strong>vragende zin</strong>. Die eindigt op een vraagteken en vraagt om een antwoord of reactie. <em>Vertrekt de trein om 8 uur?</em> Let op de woordvolgorde: bij een ja/nee-vraag staat de persoonsvorm vooraan. Bij een vraagwoordzin begint de zin met een vraagwoord als <em>wie, wat, waar, wanneer, hoe</em>.</p>
+
+      <p>De derde zinssoort is de <strong>bevelende zin</strong>, ook wel imperatief of verzoekende zin genoemd. Je geeft een opdracht of een verzoek. <em>Stap nu in!</em> De werkwoordsvorm is de stam van het werkwoord — er staat geen apart onderwerp voor. Je lezer of luisteraar is het impliciete onderwerp.</p>
+
+      <p>De vierde zinssoort is de <strong>uitroepende zin</strong>. Die eindigt op een uitroepteken en drukt een sterke emotie uit: verbazing, enthousiasme, opluchting of schrik. <em>Wat een geweldige wedstrijd!</em> Uitroepende zinnen zijn expressief van aard.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📣</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Mededelende zin</span>
+        <p class="begrip-def">Een mededelende zin deelt iets mee en eindigt op een punt. Voorbeeld: <em>De trein vertrekt om 8 uur.</em></p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">❓</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Vragende zin</span>
+        <p class="begrip-def">Een vragende zin stelt een vraag en eindigt op een vraagteken. Voorbeeld: <em>Vertrekt de trein om 8 uur?</em></p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📢</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Bevelende zin</span>
+        <p class="begrip-def">Een bevelende zin geeft een opdracht of verzoek. De werkwoordsvorm is de stam. Voorbeeld: <em>Stap nu in!</em></p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">❗</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Uitroepende zin</span>
+        <p class="begrip-def">Een uitroepende zin drukt een sterke emotie uit en eindigt op een uitroepteken. Voorbeeld: <em>Wat een geweldige wedstrijd!</em></p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>Naast deze vier zinssoorten maken we ook een onderscheid op basis van inhoud: een zin kan <strong>bevestigend</strong> of <strong>ontkennend</strong> zijn. Een bevestigende zin zegt dat iets zo is. Een ontkennende zin zegt dat iets niet zo is — daarvoor gebruik je <em>niet</em> of <em>geen</em>.</p>
+
+      <p>Vergelijk: <em>Ik heb huiswerk.</em> (bevestigend) tegenover <em>Ik heb geen huiswerk.</em> (ontkennend met <em>geen</em> voor een zelfstandig naamwoord) en <em>Ik heb het huiswerk niet gemaakt.</em> (ontkennend met <em>niet</em>). Het verschil tussen <em>niet</em> en <em>geen</em>: gebruik <em>geen</em> voor een onbepaald zelfstandig naamwoord, en <em>niet</em> voor de rest.</p>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">De zin <em>"Zou je het raam willen sluiten?"</em> is grammaticaal een vraag, maar bedoeld als verzoek. Hoe noem je zo'n zin? Kun je nog andere voorbeelden bedenken waarbij de vorm en de bedoeling niet overeenkomen?</p>
+    </div>
+  </section>
+
+  <section class="section-block" id="s2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Enkelvoudige en samengestelde zinnen</h2>
+    </div>
+    <div class="prose-text">
+      <p>Sommige zinnen bestaan uit één idee, één werkwoordskern. Andere zinnen bestaan uit meerdere delen die aan elkaar verbonden zijn. Dat onderscheid bepaalt of een zin enkelvoudig of samengesteld is.</p>
+
+      <p>Een <strong>enkelvoudige zin</strong> bevat precies één persoonsvorm en één onderwerp. Alles draait rond die ene werkwoordskern. <em>De hond blaft luid.</em> Eén handeling, één uitvoerder, één zin.</p>
+
+      <p>Een <strong>samengestelde zin</strong> bestaat uit twee of meer deelzinnen die via een voegwoord aan elkaar gekoppeld zijn. Die koppeling kan op twee manieren gebeuren.</p>
+
+      <p>Bij <strong>nevenschikking</strong> zijn de twee deelzinnen gelijkwaardig. Geen van beide is ondergeschikt aan de andere. Ze staan naast elkaar, verbonden door een nevenschikkend voegwoord zoals <em>en, maar, of, want, dus</em>. Voorbeeld: <em>Ik lees een boek en zij schrijft een brief.</em> Beide zinsdelen kunnen ook zelfstandig als zin bestaan.</p>
+
+      <p>Bij <strong>onderschikking</strong> is één deelzin de hoofdzin en de andere de bijzin. De bijzin is ondergeschikt: ze kan niet zelfstandig staan zonder de rest. Een onderschikkend voegwoord verbindt ze: <em>omdat, dat, als, toen, hoewel, terwijl, nadat</em>. Voorbeeld: <em>Ik lees veel omdat ik het leuk vind.</em> De bijzin <em>omdat ik het leuk vind</em> heeft een eigen persoonsvorm, maar staat grammaticaal onder de hoofdzin.</p>
+
+      <p>Belangrijk: in een bijzin na een onderschikkend voegwoord staat de persoonsvorm <strong>achteraan</strong>. Vergelijk: <em>Ik vind het leuk</em> (hoofdzin, pv op tweede plaats) met <em>omdat ik het leuk <strong>vind</strong></em> (bijzin, pv achteraan).</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">🔗</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Enkelvoudige zin</span>
+        <p class="begrip-def">Een zin met precies één persoonsvorm en één onderwerp. Voorbeeld: <em>De hond blaft luid.</em></p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">🔗</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Nevenschikkende samengestelde zin</span>
+        <p class="begrip-def">Twee gelijkwaardige deelzinnen verbonden door een nevenschikkend voegwoord (en, maar, of, want, dus). Voorbeeld: <em>Ik lees en zij schrijft.</em></p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">🔗</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Onderschikkende samengestelde zin</span>
+        <p class="begrip-def">Een hoofdzin met een bijzin, verbonden door een onderschikkend voegwoord (omdat, dat, als, toen…). In de bijzin staat de persoonsvorm achteraan. Voorbeeld: <em>Ik lees omdat ik het leuk vind.</em></p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>Oefen je herkenning: zijn de onderstaande zinnen enkelvoudig of samengesteld? En bij samengesteld: nevenschikkend of onderschikkend?</p>
+      <ol style="padding-left:1.4rem; margin: 0.6rem 0 1rem;">
+        <li style="margin-bottom:0.4rem;"><em>Sara speelt gitaar.</em></li>
+        <li style="margin-bottom:0.4rem;"><em>Tom werkt hard, maar hij haalt toch slechte punten.</em></li>
+        <li style="margin-bottom:0.4rem;"><em>Ik weet dat hij gelijk heeft.</em></li>
+        <li style="margin-bottom:0.4rem;"><em>De kat sliep op de vensterbank terwijl het regende.</em></li>
+      </ol>
+      <p>Antwoorden: 1) enkelvoudig; 2) samengesteld, nevenschikkend (<em>maar</em>); 3) samengesteld, onderschikkend (<em>dat</em>); 4) samengesteld, onderschikkend (<em>terwijl</em>).</p>
+    </div>
+
+    <div class="illustratie">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Diagram: twee cirkels naast elkaar voor nevenschikking (DEELZIN 1 + en/maar/of + DEELZIN 2), en een grotere cirkel met een kleinere erin voor onderschikking (HOOFDZIN bevat BIJZIN). Pijlen tonen de woordvolgorde van de persoonsvorm.</p>
+    </div>
+  </section>
+
+  <section class="section-block" id="s3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">De persoonsvorm: het hart van de zin</h2>
+    </div>
+    <div class="prose-text">
+      <p>Elke zin heeft een kern: de persoonsvorm. De persoonsvorm is het vervoegde werkwoord — het werkwoord dat je aanpast aan het onderwerp en aan de tijd. Het is het stuk van de zin dat zegt <em>wanneer</em> iets gebeurt en <em>wie</em> het doet.</p>
+
+      <p>Hoe vind je de persoonsvorm? Gebruik de tijdstesttechniek: verander de tijd van de zin van tegenwoordige tijd naar verleden tijd, of omgekeerd. Het woord dat verandert, is de persoonsvorm.</p>
+
+      <p>Voorbeeld: <em>De kinderen spelen buiten.</em> Verander je naar verleden tijd: <em>De kinderen speelden buiten.</em> Het woord <em>spelen</em> werd <em>speelden</em> — dus <em>spelen</em> is de persoonsvorm. Bij samengestelde werkwoordstijden is de persoonsvorm het hulpwerkwoord dat verandert: in <em>Hij heeft gespeeld</em> is <em>heeft</em> de persoonsvorm (verleden tijd: <em>had</em>).</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">🔑</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Persoonsvorm (pv)</span>
+        <p class="begrip-def">Het vervoegde werkwoord in een zin. De persoonsvorm past zich aan naar het onderwerp (enkelvoud/meervoud, persoon) en naar de tijd (tegenwoordig/verleden). Zoek de pv door de tijd te veranderen: het woord dat verandert, is de pv.</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>Bekijk deze zes zinnen. De persoonsvorm is steeds <u>onderstreept</u>:</p>
+      <ol style="padding-left:1.4rem; margin:0.6rem 0 1rem;">
+        <li style="margin-bottom:0.5rem;">De leraar <u>geeft</u> elke dag huiswerk.</li>
+        <li style="margin-bottom:0.5rem;">Zij <u>las</u> een interessant boek over geschiedenis.</li>
+        <li style="margin-bottom:0.5rem;">Wij <u>hebben</u> de hele middag gevoetbald.</li>
+        <li style="margin-bottom:0.5rem;"><u>Regent</u> het al de hele dag?</li>
+        <li style="margin-bottom:0.5rem;">De honden <u>blaften</u> luid toen de bel ging.</li>
+        <li style="margin-bottom:0.5rem;">Morgen <u>vertrekt</u> de trein om zeven uur.</li>
+      </ol>
+      <p>Let op zin 4: bij een vraag staat de persoonsvorm vooraan. Let op zin 6: de persoonsvorm staat op de tweede positie, ook al begint de zin met een bijwoordelijke bepaling. Dat is de vaste wet van de Nederlandse hoofdzin: de persoonsvorm bezet altijd de tweede positie.</p>
+    </div>
+  </section>
+
+  <section class="section-block" id="s4">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Onderwerp en congruentie</h2>
+    </div>
+    <div class="prose-text">
+      <p>Nu je de persoonsvorm kunt vinden, kun je ook het onderwerp bepalen. Het onderwerp is het zinsdeel dat zegt wie of wat de handeling uitvoert — of bij een zijn-relatie: over wie of wat iets gezegd wordt.</p>
+
+      <p>De testvraag voor het onderwerp is simpel: stel je pv vooraan en vraag: <em>Wie of wat + pv?</em> Het antwoord is het onderwerp. Voorbeeld: <em>De leraar geeft huiswerk.</em> Testvraag: "Wie geeft?" Antwoord: "De leraar." Dus <em>de leraar</em> is het onderwerp.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">👤</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Onderwerp (ond)</span>
+        <p class="begrip-def">Het zinsdeel dat aangeeft wie of wat de handeling uitvoert of waarover iets gezegd wordt. Testvraag: <em>Wie of wat + persoonsvorm?</em></p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>Onderwerp en persoonsvorm zijn onlosmakelijk verbonden via <strong>congruentie</strong>: ze moeten overeenstemmen in getal (enkelvoud of meervoud) en persoon. Een enkelvoudig onderwerp vraagt een enkelvoudige persoonsvorm; een meervoudig onderwerp vraagt een meervoudige persoonsvorm.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">⚖️</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Congruentie</span>
+        <p class="begrip-def">De verplichte overeenkomst in getal en persoon tussen het onderwerp en de persoonsvorm. Enkelvoudig onderwerp = enkelvoudige pv; meervoudig onderwerp = meervoudige pv. Voorbeeld: <em>Het kind speelt</em> (enkelvoud) maar <em>De kinderen spelen</em> (meervoud).</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>Fouten tegen congruentie zijn veelvoorkomend. Hieronder staan vijf zinnen met een congruentieprobleem. Verbeter ze:</p>
+      <ol style="padding-left:1.4rem; margin:0.6rem 0 0.4rem;">
+        <li style="margin-bottom:0.5rem;"><em>De kinderen loopt naar school.</em> <strong style="color:var(--terracotta);">→</strong> <em>De kinderen lopen naar school.</em></li>
+        <li style="margin-bottom:0.5rem;"><em>Jij en ik gaat morgen naar de film.</em> <strong style="color:var(--terracotta);">→</strong> <em>Jij en ik gaan morgen naar de film.</em></li>
+        <li style="margin-bottom:0.5rem;"><em>Iedereen hebben het begrepen.</em> <strong style="color:var(--terracotta);">→</strong> <em>Iedereen heeft het begrepen.</em></li>
+        <li style="margin-bottom:0.5rem;"><em>Elk van de leerlingen krijgen een boek.</em> <strong style="color:var(--terracotta);">→</strong> <em>Elk van de leerlingen krijgt een boek.</em></li>
+        <li style="margin-bottom:0.5rem;"><em>De politie arresteren de dief.</em> <strong style="color:var(--terracotta);">→</strong> <em>De politie arresteert de dief.</em></li>
+      </ol>
+      <p>Let op: woorden als <em>iedereen, elk, niemand, alles</em> zijn enkelvoudig, ook al verwijzen ze naar meerdere personen. En een collectief woord als <em>de politie</em> of <em>het team</em> is grammaticaal enkelvoudig in het Nederlands.</p>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">In de zin <em>"Er lopen veel mensen op straat."</em> is het onderwerp niet meteen duidelijk. Probeer de testvraag toe te passen: wie of wat loopt? Wat denk je dat het onderwerp hier is — en waarom is die zin toch grammaticaal correct?</p>
+    </div>
+  </section>
+
+  <section class="section-block" id="s5">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Gezegde: doen-relatie en zijn-relatie</h2>
+    </div>
+    <div class="prose-text">
+      <p>Het gezegde is het gedeelte van de zin dat de persoonsvorm bevat en aangeeft wat er gebeurt — of hoe iets is. Er zijn twee soorten gezegde, en het verschil zit in het type relatie dat ze uitdrukken.</p>
+
+      <p>Het <strong>werkwoordelijk gezegde</strong> (afgekort: ww.gez) drukt een handeling of een gebeuren uit — een doen-relatie. Het bestaat uit de persoonsvorm en eventuele andere werkwoordsdelen, zoals een voltooid deelwoord of een infinitief. Voorbeelden: <em>Hij werkt.</em> (alleen pv) — <em>Hij heeft gewerkt.</em> (pv + voltooid deelwoord) — <em>Zij zal komen.</em> (pv + infinitief). Het werkwoordelijk gezegde zegt wat iemand doet of wat er gebeurt.</p>
+
+      <p>Het <strong>naamwoordelijk gezegde</strong> (afgekort: nw.gez) drukt een zijn-relatie uit: het zegt hoe iets of iemand <em>is</em>. Het bestaat uit een <strong>koppelwerkwoord</strong> (de persoonsvorm) en een <strong>naamwoordelijk deel</strong> (het adjectief, zelfstandig naamwoord of voornaamwoord dat iets zegt over het onderwerp). Voorbeelden: <em>Zij is blij.</em> (koppelwerkwoord <em>is</em> + naamwoordelijk deel <em>blij</em>) — <em>Het lijkt moeilijk.</em> — <em>Hij wordt dokter.</em></p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">⚡</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Werkwoordelijk gezegde (ww.gez)</span>
+        <p class="begrip-def">Het gezegde dat een handeling of een gebeuren uitdrukt (doen-relatie). Bestaat uit de persoonsvorm + eventuele andere werkwoordsdelen. Voorbeeld: <em>Hij heeft de wedstrijd gespeeld.</em></p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">🔵</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Naamwoordelijk gezegde (nw.gez)</span>
+        <p class="begrip-def">Het gezegde dat een zijn-relatie uitdrukt. Bestaat uit een koppelwerkwoord + naamwoordelijk deel. Voorbeeld: <em>Zij is heel enthousiast.</em></p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">🔑</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Koppelwerkwoord</span>
+        <p class="begrip-def">Een werkwoord dat het onderwerp verbindt met een eigenschap of hoedanigheid, zonder zelf een echte handeling uit te drukken. De meest gebruikte koppelwerkwoorden zijn: <em>zijn, worden, blijven, lijken, schijnen, heten, blijken</em>.</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>Een handige truc: vervang het werkwoord door <em>is</em> of <em>wordt</em>. Als de zin daarna nog steeds zinvol klinkt, heb je waarschijnlijk te maken met een naamwoordelijk gezegde. <em>Hij lijkt moe</em> → <em>Hij is moe</em>: ja, dat klopt — naamwoordelijk gezegde. <em>Hij loopt snel</em> → <em>Hij is snel</em>: dat betekent iets anders — dus werkwoordelijk gezegde.</p>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">In de zin <em>"Hij blijft thuis."</em> is <em>blijft</em> een koppelwerkwoord — maar in <em>"Hij blijft staan."</em> is het dat niet. Wat is het verschil? Probeer het zelf te bedenken voor je verder leest.</p>
+    </div>
+  </section>
+
+  <section class="section-block" id="s6">
+    <div class="section-heading">
+      <span class="section-num">6</span>
+      <h2 class="section-title">Voorwerpen en bijwoordelijke bepaling</h2>
+    </div>
+    <div class="prose-text">
+      <p>Nu we het onderwerp en het gezegde kennen, kunnen we kijken naar de overige zinsdelen: de voorwerpen en de bijwoordelijke bepaling. Die voegen informatie toe aan de kern van de zin.</p>
+
+      <p>Het <strong>lijdend voorwerp</strong> (lv) is het zinsdeel dat direct de handeling van het werkwoord ondergaat. Het antwoord op de vraag: <em>wie of wat + pv + onderwerp?</em> Voorbeeld: <em>De leraar geeft huiswerk.</em> Vraag: "Wat geeft de leraar?" Antwoord: "Huiswerk." Dus <em>huiswerk</em> is het lijdend voorwerp.</p>
+
+      <p>Het <strong>meewerkend voorwerp</strong> (mv) is het zinsdeel dat aangeeft aan wie of voor wie de handeling bestemd is. Testvraag: <em>aan wie of voor wie + pv + onderwerp + lv?</em> Voorbeeld: <em>De leraar geeft de leerlingen huiswerk.</em> Vraag: "Aan wie geeft de leraar huiswerk?" Antwoord: "Aan de leerlingen." Dus <em>de leerlingen</em> is het meewerkend voorwerp.</p>
+
+      <p>De <strong>bijwoordelijke bepaling</strong> (bwb) geeft extra informatie over de omstandigheden van de handeling: <em>wanneer, waar, hoe</em> of <em>waarom</em> iets gebeurt. Ze is niet essentieel voor de zin — je kunt haar weglaten zonder dat de zin grammaticaal fout wordt. Voorbeelden: <em>elke dag</em> (tijd), <em>in de klas</em> (plaats), <em>langzaam</em> (manier), <em>wegens ziekte</em> (reden).</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">➡️</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Lijdend voorwerp (lv)</span>
+        <p class="begrip-def">Het zinsdeel dat de handeling direct ondergaat. Testvraag: <em>Wie of wat + pv + onderwerp?</em> Voorbeeld: <em>Ik eet een appel.</em> → Wat eet ik? → <em>een appel</em> = lv.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">🤝</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Meewerkend voorwerp (mv)</span>
+        <p class="begrip-def">Het zinsdeel dat aangeeft aan wie of voor wie de handeling bestemd is. Testvraag: <em>Aan wie of voor wie?</em> Voorbeeld: <em>Ik geef mijn vriend een boek.</em> → Aan wie? → <em>mijn vriend</em> = mv.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📍</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Bijwoordelijke bepaling (bwb)</span>
+        <p class="begrip-def">Een facultatief zinsdeel dat informatie geeft over tijd, plaats, manier of reden. Het kan worden weggelaten zonder dat de zin fout wordt. Voorbeeld: <em>Hij loopt snel door het park.</em> → <em>snel</em> (manier) en <em>door het park</em> (plaats) zijn bijwoordelijke bepalingen.</p>
+      </div>
+    </div>
+
+    <div class="voorbeeldtekst">
+      <span class="vt-label">Voorbeeldtekst · Zinsontleding in context</span>
+      <p class="vt-title">Avondeten</p>
+      <p class="vt-meta">Een kort fragment met volledige zinsontleding</p>
+      <div class="vt-body">
+        <p>Mama kookt elke avond een heerlijke maaltijd voor het gezin. Ze snijdt groenten en vlees zorgvuldig in kleine stukjes. Daarna gooit ze alles in de pan. Papa zet de tafel terwijl de kinderen hun huiswerk afmaken. Om zes uur roept mama iedereen naar de keuken. Het eten ruikt heerlijk.</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p><strong>Zinsontleding van twee zinnen uit de tekst:</strong></p>
+
+      <p><strong>Zin 1:</strong> <em>Mama kookt elke avond een heerlijke maaltijd voor het gezin.</em></p>
+      <ul style="padding-left:1.4rem; margin:0.5rem 0 1.2rem;">
+        <li><strong>ond:</strong> Mama (wie kookt?)</li>
+        <li><strong>pv:</strong> kookt (tijdstest: <em>kookte</em>)</li>
+        <li><strong>ww.gez:</strong> kookt (doen-relatie, geen koppelwerkwoord)</li>
+        <li><strong>lv:</strong> een heerlijke maaltijd (wat kookt mama?)</li>
+        <li><strong>mv:</strong> voor het gezin (voor wie?)</li>
+        <li><strong>bwb:</strong> elke avond (wanneer?)</li>
+      </ul>
+
+      <p><strong>Zin 2:</strong> <em>Het eten ruikt heerlijk.</em></p>
+      <ul style="padding-left:1.4rem; margin:0.5rem 0 1rem;">
+        <li><strong>ond:</strong> Het eten (wat ruikt?)</li>
+        <li><strong>pv:</strong> ruikt (tijdstest: <em>rook</em>)</li>
+        <li><strong>nw.gez:</strong> ruikt heerlijk — koppelwerkwoord <em>ruikt</em> + naamwoordelijk deel <em>heerlijk</em> (zijn-relatie: het eten ís heerlijk van geur)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section-block" id="s7">
+    <div class="section-heading">
+      <span class="section-num">7</span>
+      <h2 class="section-title">Een volledig ontlede zin</h2>
+    </div>
+    <div class="prose-text">
+      <p>Nu passen we alles samen toe op een echte tekst. Lees het verslag hieronder en bestudeer daarna de uitgebreide zinsontleding.</p>
+    </div>
+
+    <div class="voorbeeldtekst">
+      <span class="vt-label">Voorbeeldtekst · Sportverslag</span>
+      <p class="vt-title">Club Brugge verslaat Anderlecht in spektakelwedstrijd</p>
+      <p class="vt-meta">Fictief voetbalverslag · stijl: sportjournalistiek</p>
+      <div class="vt-body">
+        <p>Club Brugge versloeg gisteren Anderlecht met 3-1 in het Jan Breydelstadion. De thuisploeg domineerde het hele eerste halfuur en creëerde meerdere grote kansen. Doelpuntenmaker Noa Lang gaf zijn teamgenoten voor de rust twee perfecte assists. De bezoekers vochten terug in de tweede helft, maar de sterke verdediging van Club gaf hen geen enkele kans. Coach Jan Smet prees na de wedstrijd zijn spelers voor hun discipline en teamwork. "Wij zijn heel trots op dit resultaat," zei hij tegen de pers. Het publiek applaudisseerde enthousiast voor het thuisteam bij het eindsignaal.</p>
+      </div>
+      <p class="vt-source">Fictief artikel, enkel bedoeld als oefenmateriaal voor zinsontleding.</p>
+    </div>
+
+    <div class="prose-text">
+      <p><strong>Volledige zinsontleding van drie zinnen:</strong></p>
+
+      <p><strong>Zin 1:</strong> <em>Club Brugge versloeg gisteren Anderlecht met 3-1 in het Jan Breydelstadion.</em></p>
+      <ul style="padding-left:1.4rem; margin:0.5rem 0 1.4rem;">
+        <li><strong>ond:</strong> Club Brugge (wie versloeg?)</li>
+        <li><strong>pv:</strong> versloeg (tijdstest: in tegenwoordige tijd <em>verslaat</em>)</li>
+        <li><strong>ww.gez:</strong> versloeg (doen-relatie: actieve handeling)</li>
+        <li><strong>lv:</strong> Anderlecht (wie versloeg Club Brugge? → Anderlecht)</li>
+        <li><strong>bwb (tijd):</strong> gisteren (wanneer?)</li>
+        <li><strong>bwb (manier):</strong> met 3-1 (hoe?)</li>
+        <li><strong>bwb (plaats):</strong> in het Jan Breydelstadion (waar?)</li>
+      </ul>
+
+      <p><strong>Zin 2:</strong> <em>Doelpuntenmaker Noa Lang gaf zijn teamgenoten voor de rust twee perfecte assists.</em></p>
+      <ul style="padding-left:1.4rem; margin:0.5rem 0 1.4rem;">
+        <li><strong>ond:</strong> Doelpuntenmaker Noa Lang (wie gaf?)</li>
+        <li><strong>pv:</strong> gaf (tijdstest: in tegenwoordige tijd <em>geeft</em>)</li>
+        <li><strong>ww.gez:</strong> gaf (doen-relatie)</li>
+        <li><strong>mv:</strong> zijn teamgenoten (aan wie gaf Noa Lang assists? → zijn teamgenoten)</li>
+        <li><strong>lv:</strong> twee perfecte assists (wat gaf hij?)</li>
+        <li><strong>bwb (tijd):</strong> voor de rust (wanneer?)</li>
+      </ul>
+
+      <p><strong>Zin 3:</strong> <em>Coach Jan Smet prees na de wedstrijd zijn spelers voor hun discipline en teamwork.</em></p>
+      <ul style="padding-left:1.4rem; margin:0.5rem 0 1rem;">
+        <li><strong>ond:</strong> Coach Jan Smet (wie prees?)</li>
+        <li><strong>pv:</strong> prees (tijdstest: in tegenwoordige tijd <em>prijst</em>)</li>
+        <li><strong>ww.gez:</strong> prees (doen-relatie)</li>
+        <li><strong>lv:</strong> zijn spelers (wie prees Coach Jan Smet? → zijn spelers)</li>
+        <li><strong>bwb (reden):</strong> voor hun discipline en teamwork (waarom/waarvoor?)</li>
+        <li><strong>bwb (tijd):</strong> na de wedstrijd (wanneer?)</li>
+      </ul>
+    </div>
+
+    <div class="highlighted-para">
+      <strong>Tip:</strong> Bij zinsontleding werk je altijd stap voor stap: zoek eerst de pv, dan het onderwerp, dan het gezegde, en ten slotte de overige zinsdelen. Sla nooit stappen over — elk zinsdeel dat je eerder vindt, helpt je de volgende te bepalen.
+    </div>
+  </section>
+
+  <section class="exercises-section" id="oefeningen">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Zinssoort en bevestigend/ontkennend</p>
+      <p>Geef voor elke zin: (a) de zinssoort (mededeling, vraag, bevel of uitroep) en (b) of de zin bevestigend of ontkennend is.</p>
+      <ol>
+        <li>De bus rijdt niet op zondag.</li>
+        <li>Wat een prachtig schilderij!</li>
+        <li>Leg je telefoon op tafel.</li>
+        <li>Heeft hij zijn huiswerk al gemaakt?</li>
+        <li>Wij gaan morgen naar het zwembad.</li>
+        <li>Zeg dat niet!</li>
+        <li>Waar woont jouw beste vriend?</li>
+        <li>Ze heeft geen zin in sport.</li>
+        <li>Luister goed naar de uitleg.</li>
+        <li>Wat een vervelende situatie is dit!</li>
+      </ol>
+      <p class="ex-tip">Tip: let op het leesteken aan het einde en de woordvolgorde. Bij een bevelende zin staat een werkwoordsstam vooraan zonder uitgedrukt onderwerp.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Onderwerp, persoonsvorm en type gezegde</p>
+      <p>Bepaal voor elke zin: het onderwerp (ond), de persoonsvorm (pv) en het type gezegde (werkwoordelijk of naamwoordelijk). Noteer ook het naamwoordelijk deel als het naamwoordelijk gezegde is.</p>
+      <ol>
+        <li>De kat slaapt op de bank.</li>
+        <li>Het resultaat lijkt veelbelovend.</li>
+        <li>Mijn broer heeft de hele pizza opgegeten.</li>
+        <li>De kinderen worden steeds groter.</li>
+        <li>Ze schreef een lang brief aan haar tante.</li>
+        <li>De situatie blijft gevaarlijk.</li>
+      </ol>
+      <p class="ex-tip">Tip: gebruik de tijdstest voor de pv en de vervangingstest met <em>is/wordt</em> voor het type gezegde.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Volledige zinsontleding</p>
+      <p>Ontleed de volgende zinnen volledig. Geef voor elk zinsdeel het label: ond, pv, ww.gez of nw.gez, lv, mv, bwb. Niet elke zin bevat alle zinsdelen.</p>
+      <ol>
+        <li>De bakker verkoopt elke ochtend verse broodjes aan zijn vaste klanten.</li>
+        <li>Gisteren gaf de dirigent het orkest een nieuwe partituur voor het concert.</li>
+        <li>Na de wedstrijd voelde de sporter zich heel moe en teleurgesteld.</li>
+        <li>Tijdens de zomervakantie stuurde mijn oma mij elke week een lange brief vanuit Spanje.</li>
+      </ol>
+      <p class="ex-tip">Tip: begin altijd met de pv (tijdstest), dan het onderwerp (wie/wat + pv?), dan het gezegde, dan lv, mv en bwb. Zin 3 heeft een naamwoordelijk gezegde — zoek het koppelwerkwoord en het naamwoordelijk deel. Zin 4 bevat meerdere bijwoordelijke bepalingen van verschillende soort.</p>
+    </div>
+  </section>
+
+  <section class="summary-section" id="samenvatting">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li>Er zijn <strong>vier zinssoorten</strong>: de mededelende zin (punt), de vragende zin (vraagteken), de bevelende zin (imperatief) en de uitroepende zin (uitroepteken). Daarnaast zijn zinnen <strong>bevestigend</strong> of <strong>ontkennend</strong> (met <em>niet</em> of <em>geen</em>).</li>
+      <li>Een <strong>enkelvoudige zin</strong> heeft één persoonsvorm; een <strong>samengestelde zin</strong> bevat meerdere deelzinnen verbonden door een voegwoord — <strong>nevenschikkend</strong> (gelijkwaardig) of <strong>onderschikkend</strong> (hoofd- en bijzin).</li>
+      <li>De <strong>persoonsvorm (pv)</strong> is het vervoegde werkwoord. Je vindt hem door de tijd te veranderen: het woord dat verandert, is de pv. In een Nederlandse hoofdzin staat de pv altijd op de tweede positie.</li>
+      <li>Het <strong>onderwerp (ond)</strong> is wie of wat de handeling uitvoert. Testvraag: <em>Wie of wat + pv?</em> Het onderwerp en de persoonsvorm moeten overeenstemmen in getal en persoon: dat heet <strong>congruentie</strong>.</li>
+      <li>Het <strong>werkwoordelijk gezegde (ww.gez)</strong> drukt een handeling uit (doen-relatie) en bestaat uit de pv + eventuele werkwoordsdelen. Het <strong>naamwoordelijk gezegde (nw.gez)</strong> drukt een zijn-relatie uit en bestaat uit een koppelwerkwoord + naamwoordelijk deel.</li>
+      <li>Het <strong>lijdend voorwerp (lv)</strong> ondergaat de handeling (<em>wie/wat + pv + ond?</em>); het <strong>meewerkend voorwerp (mv)</strong> is de begunstigde (<em>aan wie/voor wie?</em>).</li>
+      <li>De <strong>bijwoordelijke bepaling (bwb)</strong> geeft extra informatie over tijd, plaats, manier of reden en kan altijd worden weggelaten zonder dat de zin grammaticaal fout wordt.</li>
+    </ul>
+  </section>
+
+</div>
+
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Terug naar boven">↑</button>
+<script>
+  const btn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => btn.classList.toggle('visible', window.scrollY > 400));
+</script>
+<script src="nav.js"></script>
+</body>
+</html>

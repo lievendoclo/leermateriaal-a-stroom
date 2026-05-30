@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H2 — My Day at School | Engels 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --gold: #D4A017;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    /* Extended tokens used internally */
+    --terracotta-light: #D4561E;
+    --gold-light: #E8B82A;
+    --darkblue-light: #243B63;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     CLOSING QUOTE
+  ============================================================ */
+  .closing-quote {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0D1E38 100%);
+    border-radius: var(--border-radius);
+    padding: 3rem 3rem 2.5rem;
+    margin: 3.5rem 0 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.5rem; left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .closing-quote .cq-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--gold);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 1.2rem;
+  }
+
+  .closing-quote .cq-attribution {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(212,160,23,0.6);
+  }
+
+  .closing-quote .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .closing-quote .ornament-line::before,
+  .closing-quote .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.4), transparent);
+  }
+
+  .closing-quote .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.7;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .closing-quote { padding: 2rem 1.2rem 1.8rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     WISKUNDE-SPECIFIC COMPONENTS
+  ============================================================ */
+
+  /* ── REKENVOORBEELD ─────────────────────────────────── */
+  .rekenvoorbeeld {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--oker);
+    border-radius: var(--border-radius);
+    padding: 1.8rem 2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .rekenvoorbeeld .rv-label {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--oker); display: block; margin-bottom: 0.35rem;
+  }
+  .rekenvoorbeeld .rv-vraag {
+    font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700;
+    color: var(--darkblue); margin-bottom: 1rem; line-height: 1.4;
+  }
+  .rv-stappen { list-style: none; padding: 0; counter-reset: stap-teller; margin-bottom: 1rem; }
+  .rv-stappen li {
+    counter-increment: stap-teller;
+    padding: 0.6rem 0.8rem 0.6rem 3.2rem;
+    position: relative;
+    background: var(--creme);
+    border-radius: 4px;
+    margin-bottom: 0.4rem;
+    font-size: 0.97rem;
+  }
+  .rv-stappen li::before {
+    content: counter(stap-teller);
+    position: absolute; left: 0.6rem; top: 50%; transform: translateY(-50%);
+    background: var(--darkblue); color: white;
+    width: 1.7rem; height: 1.7rem; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; font-weight: 700;
+  }
+  .rv-antwoord {
+    background: var(--darkblue); color: var(--gold);
+    padding: 0.75rem 1.1rem; border-radius: 4px;
+    font-weight: 700; font-size: 1rem;
+  }
+  .rv-antwoord math { color: var(--gold); }
+
+  /* ── STELLING ───────────────────────────────────────── */
+  .stelling {
+    background: #EEF3FF;
+    border-left: 4px solid var(--darkblue);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1.2rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .stelling .st-label {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--darkblue); opacity: 0.7;
+    display: block; margin-bottom: 0.35rem;
+  }
+  .stelling .st-body { font-size: 0.97rem; color: var(--text-dark); }
+
+  /* ── FORMULE ────────────────────────────────────────── */
+  .formule {
+    background: var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 1.4rem 1.8rem;
+    text-align: center;
+    margin: 1.8rem 0;
+  }
+  .formule math { color: white; font-size: 1.2rem; }
+  .formule .formule-naam {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--gold); opacity: 0.8;
+    display: block; margin-bottom: 0.5rem;
+  }
+
+  /* ── SVG CONTAINER ──────────────────────────────────── */
+  .svg-container {
+    margin: 1.8rem 0;
+    padding: 1.5rem;
+    background: white;
+    border: 1px solid var(--sand);
+    border-radius: var(--border-radius);
+    overflow-x: auto;
+    text-align: center;
+  }
+  .svg-container .svg-caption {
+    font-size: 0.85rem; color: var(--text-light); font-style: italic;
+    display: block; margin-top: 0.75rem;
+  }
+
+  /* ── DOMEIN GRID ────────────────────────────────────── */
+  .domein-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+    margin: 1.8rem 0;
+  }
+  .domein-card {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 3px solid var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 1.2rem 1.3rem;
+    box-shadow: var(--shadow-sm);
+  }
+  .domein-card .dc-naam {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+  .domein-card .dc-hoofdstukken {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    font-style: italic;
+  }
+  .domein-card .dc-beschrijving {
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    margin-top: 0.5rem;
+    line-height: 1.55;
+  }
+
+  /* ── SYMBOLTABEL ────────────────────────────────────── */
+  .symbool-tabel {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    margin: 1.2rem 0;
+  }
+  .symbool-tabel th {
+    background: var(--darkblue);
+    color: white;
+    padding: 0.5rem 1rem;
+    text-align: left;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    font-size: 0.83rem;
+  }
+  .symbool-tabel td {
+    padding: 0.45rem 1rem;
+    border-bottom: 1px solid var(--sand);
+    color: var(--text-mid);
+  }
+  .symbool-tabel tr:last-child td { border-bottom: none; }
+  .symbool-tabel tr:nth-child(even) td { background: var(--sand-light); }
+  .symbool-tabel .sym { font-size: 1.1rem; font-weight: 700; color: var(--darkblue); }
+
+  /* ── WERKWIJZE LIST ─────────────────────────────────── */
+  .werkwijze-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.2rem 0;
+  }
+  .werkwijze-list li {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 0.8rem 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 0.5rem;
+    background: var(--sand-light);
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.55;
+  }
+  .werkwijze-list li .wl-kleur {
+    flex-shrink: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-top: 0.42rem;
+  }
+  .werkwijze-list li strong { color: var(--darkblue); }
+
+  /* ============================================================
+     ENGELS-SPECIFIC COMPONENTS
+  ============================================================ */
+  .vocab-kader { background:linear-gradient(135deg,rgba(212,160,23,.08),rgba(200,146,58,.08)); border:1px solid rgba(212,160,23,.35); border-left:4px solid var(--gold); border-radius:var(--border-radius); padding:1.25rem 1.5rem; margin:1.5rem 0; }
+  .vocab-kader h4 { color:var(--gold); font-family:'Playfair Display',serif; font-size:1rem; margin-bottom:.75rem; }
+  .vocab-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:.4rem .75rem; }
+  .vocab-item { display:flex; gap:.5rem; padding:.3rem 0; border-bottom:1px solid rgba(212,160,23,.15); font-size:.95rem; }
+  .vocab-en { font-weight:700; color:var(--text-dark); min-width:120px; }
+  .vocab-nl { color:var(--text-light); font-style:italic; }
+  .grammar-kader { background:linear-gradient(135deg,rgba(26,43,74,.06),rgba(26,43,74,.02)); border:1px solid rgba(26,43,74,.2); border-left:4px solid var(--darkblue); border-radius:var(--border-radius); padding:1.25rem 1.5rem; margin:1.5rem 0; }
+  .grammar-kader h4 { color:var(--darkblue); font-family:'Playfair Display',serif; font-size:1rem; margin-bottom:.75rem; }
+  .grammar-regel { background:var(--darkblue); color:white; padding:.45rem 1rem; border-radius:4px; font-size:.95rem; margin:.6rem 0; display:block; }
+  .grammar-tabel { width:100%; border-collapse:collapse; margin:.75rem 0; font-size:.93rem; }
+  .grammar-tabel th { background:var(--darkblue); color:var(--gold); padding:.5rem .9rem; text-align:left; font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; }
+  .grammar-tabel td { padding:.5rem .9rem; border-bottom:1px solid var(--sand); }
+  .grammar-tabel tr:nth-child(even) td { background:rgba(232,220,200,.25); }
+  .example-kader { background:var(--sand-light); border-left:3px solid var(--oker); border-radius:0 var(--border-radius) var(--border-radius) 0; padding:.9rem 1.2rem; margin:.75rem 0; }
+  .example-en { font-weight:600; font-style:italic; color:var(--text-dark); display:block; }
+  .example-nl { color:var(--text-light); font-size:.9rem; display:block; margin-top:.1rem; }
+  .tip-kader { background:linear-gradient(135deg,rgba(193,68,14,.08),rgba(193,68,14,.04)); border:1px solid rgba(193,68,14,.25); border-left:4px solid var(--terracotta); border-radius:var(--border-radius); padding:1.25rem 1.5rem; margin:1.5rem 0; }
+  .tip-kader::before { content:'Tip'; display:block; font-size:.75rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--terracotta); margin-bottom:.5rem; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <span class="label">Engels</span>
+  <span class="label label-right">H2 &middot; Eerste Graad A-stroom</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Eenheid 2 &nbsp;&middot;&nbsp; Dagelijks leven &amp; School</div>
+  <h1>My Day at School</h1>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- SECTION 1 — Woordenschat: Dagelijkse bezigheden -->
+  <section class="section-block" id="s1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Woordenschat: Dagelijkse bezigheden</h2>
+    </div>
+
+    <p>In deze sectie leer je de meest voorkomende uitdrukkingen voor dagelijkse activiteiten. Door deze woordenschat te kennen, kan je vertellen wat je elke dag doet.</p>
+
+    <div class="vocab-kader">
+      <h4>My Daily Routine</h4>
+      <div class="vocab-grid">
+        <div class="vocab-item"><span class="vocab-en">wake up</span><span class="vocab-nl">opstaan</span></div>
+        <div class="vocab-item"><span class="vocab-en">have breakfast</span><span class="vocab-nl">ontbijten</span></div>
+        <div class="vocab-item"><span class="vocab-en">brush teeth</span><span class="vocab-nl">tanden poetsen</span></div>
+        <div class="vocab-item"><span class="vocab-en">get dressed</span><span class="vocab-nl">je aankleden</span></div>
+        <div class="vocab-item"><span class="vocab-en">go to school</span><span class="vocab-nl">naar school gaan</span></div>
+        <div class="vocab-item"><span class="vocab-en">arrive at school</span><span class="vocab-nl">op school aankomen</span></div>
+        <div class="vocab-item"><span class="vocab-en">have lunch</span><span class="vocab-nl">middageten</span></div>
+        <div class="vocab-item"><span class="vocab-en">go home</span><span class="vocab-nl">naar huis gaan</span></div>
+        <div class="vocab-item"><span class="vocab-en">do homework</span><span class="vocab-nl">huiswerk maken</span></div>
+        <div class="vocab-item"><span class="vocab-en">have dinner</span><span class="vocab-nl">avondeten</span></div>
+        <div class="vocab-item"><span class="vocab-en">watch TV</span><span class="vocab-nl">tv kijken</span></div>
+        <div class="vocab-item"><span class="vocab-en">read</span><span class="vocab-nl">lezen</span></div>
+        <div class="vocab-item"><span class="vocab-en">go to bed</span><span class="vocab-nl">naar bed gaan</span></div>
+        <div class="vocab-item"><span class="vocab-en">sleep</span><span class="vocab-nl">slapen</span></div>
+        <div class="vocab-item"><span class="vocab-en">play</span><span class="vocab-nl">spelen</span></div>
+        <div class="vocab-item"><span class="vocab-en">take a shower</span><span class="vocab-nl">douchen</span></div>
+        <div class="vocab-item"><span class="vocab-en">walk</span><span class="vocab-nl">wandelen/lopen</span></div>
+        <div class="vocab-item"><span class="vocab-en">cycle</span><span class="vocab-nl">fietsen</span></div>
+        <div class="vocab-item"><span class="vocab-en">meet friends</span><span class="vocab-nl">vrienden ontmoeten</span></div>
+        <div class="vocab-item"><span class="vocab-en">use the phone</span><span class="vocab-nl">de telefoon gebruiken</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2 — Woordenschat: School en onderwijs -->
+  <section class="section-block" id="s2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Woordenschat: School en onderwijs</h2>
+    </div>
+
+    <p>Hieronder vind je de belangrijkste woorden over school, vakken en de klas. Je leert ook de instructietaal die je leraar gebruikt.</p>
+
+    <div class="vocab-kader">
+      <h4>At School</h4>
+      <div class="vocab-grid">
+        <div class="vocab-item"><span class="vocab-en">subject</span><span class="vocab-nl">vak</span></div>
+        <div class="vocab-item"><span class="vocab-en">maths</span><span class="vocab-nl">wiskunde</span></div>
+        <div class="vocab-item"><span class="vocab-en">science</span><span class="vocab-nl">wetenschappen</span></div>
+        <div class="vocab-item"><span class="vocab-en">history</span><span class="vocab-nl">geschiedenis</span></div>
+        <div class="vocab-item"><span class="vocab-en">geography</span><span class="vocab-nl">aardrijkskunde</span></div>
+        <div class="vocab-item"><span class="vocab-en">French</span><span class="vocab-nl">Frans</span></div>
+        <div class="vocab-item"><span class="vocab-en">English</span><span class="vocab-nl">Engels</span></div>
+        <div class="vocab-item"><span class="vocab-en">Dutch</span><span class="vocab-nl">Nederlands</span></div>
+        <div class="vocab-item"><span class="vocab-en">PE (physical education)</span><span class="vocab-nl">lichamelijke opvoeding</span></div>
+        <div class="vocab-item"><span class="vocab-en">art</span><span class="vocab-nl">tekenen/kunst</span></div>
+        <div class="vocab-item"><span class="vocab-en">music</span><span class="vocab-nl">muziek</span></div>
+        <div class="vocab-item"><span class="vocab-en">homework</span><span class="vocab-nl">huiswerk</span></div>
+        <div class="vocab-item"><span class="vocab-en">test</span><span class="vocab-nl">test/toets</span></div>
+        <div class="vocab-item"><span class="vocab-en">exam</span><span class="vocab-nl">examen</span></div>
+        <div class="vocab-item"><span class="vocab-en">grade</span><span class="vocab-nl">punt/cijfer</span></div>
+        <div class="vocab-item"><span class="vocab-en">classroom</span><span class="vocab-nl">klaslokaal</span></div>
+        <div class="vocab-item"><span class="vocab-en">teacher</span><span class="vocab-nl">leraar/lerares</span></div>
+        <div class="vocab-item"><span class="vocab-en">timetable</span><span class="vocab-nl">lesrooster</span></div>
+        <div class="vocab-item"><span class="vocab-en">break</span><span class="vocab-nl">pauze</span></div>
+        <div class="vocab-item"><span class="vocab-en">canteen</span><span class="vocab-nl">kantine/refter</span></div>
+      </div>
+    </div>
+
+    <div class="vocab-kader">
+      <h4>Classroom Instructions</h4>
+      <div class="vocab-grid">
+        <div class="vocab-item"><span class="vocab-en">Listen!</span><span class="vocab-nl">Luister!</span></div>
+        <div class="vocab-item"><span class="vocab-en">Look!</span><span class="vocab-nl">Kijk!</span></div>
+        <div class="vocab-item"><span class="vocab-en">Read!</span><span class="vocab-nl">Lees!</span></div>
+        <div class="vocab-item"><span class="vocab-en">Write!</span><span class="vocab-nl">Schrijf!</span></div>
+        <div class="vocab-item"><span class="vocab-en">Open your book!</span><span class="vocab-nl">Open je boek!</span></div>
+        <div class="vocab-item"><span class="vocab-en">Close your book!</span><span class="vocab-nl">Sluit je boek!</span></div>
+        <div class="vocab-item"><span class="vocab-en">Repeat!</span><span class="vocab-nl">Herhaal!</span></div>
+        <div class="vocab-item"><span class="vocab-en">Translate!</span><span class="vocab-nl">Vertaal!</span></div>
+        <div class="vocab-item"><span class="vocab-en">Answer the question!</span><span class="vocab-nl">Beantwoord de vraag!</span></div>
+        <div class="vocab-item"><span class="vocab-en">Work in pairs!</span><span class="vocab-nl">Werk in duo&rsquo;s!</span></div>
+        <div class="vocab-item"><span class="vocab-en">I don&rsquo;t understand.</span><span class="vocab-nl">Ik begrijp het niet.</span></div>
+        <div class="vocab-item"><span class="vocab-en">Can you repeat, please?</span><span class="vocab-nl">Kun je herhalen, alsjeblieft?</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3 — Grammatica: Present Simple -->
+  <section class="section-block" id="s3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Grammatica: Present Simple</h2>
+    </div>
+
+    <div class="grammar-kader">
+      <h4>Present Simple &mdash; Tegenwoordige tijd</h4>
+
+      <p>De <strong>present simple</strong> gebruik je voor:</p>
+      <ul style="padding-left:1.4rem;margin:.5rem 0 1rem;">
+        <li>gewoonten en routines (dingen die je regelmatig doet)</li>
+        <li>feiten en algemene waarheden</li>
+      </ul>
+      <p><strong>Signaalwoorden:</strong> <em>always, usually, often, sometimes, never, every day</em></p>
+
+      <h3 class="sub-heading">Bevestigend (Affirmative)</h3>
+      <table class="grammar-tabel">
+        <thead>
+          <tr>
+            <th>Persoon</th>
+            <th>Werkwoord: work</th>
+            <th>Werkwoord: go</th>
+            <th>Werkwoord: study</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>I</td><td>work</td><td>go</td><td>study</td></tr>
+          <tr><td>You</td><td>work</td><td>go</td><td>study</td></tr>
+          <tr><td>He/She/It</td><td>work<strong>s</strong></td><td>go<strong>es</strong></td><td>studi<strong>es</strong></td></tr>
+          <tr><td>We/You/They</td><td>work</td><td>go</td><td>study</td></tr>
+        </tbody>
+      </table>
+
+      <p><strong>Spellingregels voor de 3e persoon enkelvoud (-s):</strong></p>
+      <ul style="padding-left:1.4rem;margin:.5rem 0 1rem;font-size:.95rem;">
+        <li>Gewone werkwoorden &rarr; voeg <strong>-s</strong> toe: <em>work &rarr; works</em></li>
+        <li>Eindigt op <strong>-s, -sh, -ch, -x, -o</strong> &rarr; voeg <strong>-es</strong> toe: <em>go &rarr; goes, watch &rarr; watches</em></li>
+        <li>Eindigt op <strong>medeklinker + y</strong> &rarr; verander <strong>y</strong> in <strong>ies</strong>: <em>study &rarr; studies</em></li>
+      </ul>
+
+      <h3 class="sub-heading">Ontkennend (Negative)</h3>
+      <span class="grammar-regel">I / You / We / They + do not (don&rsquo;t) + infinitive</span>
+      <span class="grammar-regel">He / She / It + does not (doesn&rsquo;t) + infinitive</span>
+
+      <h3 class="sub-heading">Vraagzin (Question)</h3>
+      <span class="grammar-regel">Do + I / you / we / they + infinitive + ?</span>
+      <span class="grammar-regel">Does + he / she / it + infinitive + ?</span>
+    </div>
+
+    <div class="example-kader">
+      <span class="example-en">I go to school every day. She doesn&rsquo;t go on Sundays.</span>
+      <span class="example-nl">Ik ga elke dag naar school. Ze gaat niet op zondag.</span>
+    </div>
+    <div class="example-kader">
+      <span class="example-en">Do you study English? &mdash; Yes, I do.</span>
+      <span class="example-nl">Studeer jij Engels? &mdash; Ja, dat doe ik.</span>
+    </div>
+    <div class="example-kader">
+      <span class="example-en">Does he play football? &mdash; No, he doesn&rsquo;t.</span>
+      <span class="example-nl">Speelt hij voetbal? &mdash; Nee, dat doet hij niet.</span>
+    </div>
+
+    <div class="tip-kader">
+      Onthoud: bij <strong>he/she/it</strong> krijgt het werkwoord een <strong>-s</strong> in de bevestigende zin, maar na <strong>does/doesn&rsquo;t</strong> gebruik je de basisvorm (infinitive): <em>she goes</em>, but <em>she doesn&rsquo;t go</em> (NIET: <em>doesn&rsquo;t goes</em>).
+    </div>
+  </section>
+
+  <!-- SECTION 4 — Grammatica: Frequentieadverbia -->
+  <section class="section-block" id="s4">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Grammatica: Frequentieadverbia</h2>
+    </div>
+
+    <div class="grammar-kader">
+      <h4>Adverbs of Frequency &mdash; Hoe vaak?</h4>
+
+      <table class="grammar-tabel">
+        <thead>
+          <tr>
+            <th>Adverbium</th>
+            <th>Betekenis</th>
+            <th>Frequentie</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>always</strong></td><td>altijd</td><td>100%</td></tr>
+          <tr><td><strong>usually</strong></td><td>gewoonlijk</td><td>80&ndash;90%</td></tr>
+          <tr><td><strong>often</strong></td><td>vaak</td><td>60&ndash;70%</td></tr>
+          <tr><td><strong>sometimes</strong></td><td>soms</td><td>30&ndash;50%</td></tr>
+          <tr><td><strong>rarely / seldom</strong></td><td>zelden</td><td>10&ndash;20%</td></tr>
+          <tr><td><strong>never</strong></td><td>nooit</td><td>0%</td></tr>
+        </tbody>
+      </table>
+
+      <p><strong>Plaatsingsregel:</strong> het frequentieadverbium staat <strong>tussen</strong> het subject en het hoofdwerkwoord, maar <strong>na</strong> <em>to be</em>.</p>
+      <span class="grammar-regel">Subject + frequency adverb + main verb</span>
+      <span class="grammar-regel">Subject + to be + frequency adverb</span>
+    </div>
+
+    <div class="example-kader">
+      <span class="example-en">I always brush my teeth before school.</span>
+      <span class="example-nl">Ik poets altijd mijn tanden voor school.</span>
+    </div>
+    <div class="example-kader">
+      <span class="example-en">She is never late.</span>
+      <span class="example-nl">Ze is nooit te laat.</span>
+    </div>
+    <div class="example-kader">
+      <span class="example-en">We sometimes eat in the canteen.</span>
+      <span class="example-nl">We eten soms in de kantine.</span>
+    </div>
+  </section>
+
+  <!-- SECTION 5 — Telling the Time -->
+  <section class="section-block" id="s5">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Telling the Time</h2>
+    </div>
+
+    <p>Hieronder vind je de uitdrukkingen die je nodig hebt om te vragen en te zeggen hoe laat het is in het Engels.</p>
+
+    <div class="vocab-kader">
+      <h4>What time is it?</h4>
+      <div class="vocab-grid">
+        <div class="vocab-item"><span class="vocab-en">What time is it?</span><span class="vocab-nl">Hoe laat is het?</span></div>
+        <div class="vocab-item"><span class="vocab-en">It&rsquo;s (three) o&rsquo;clock.</span><span class="vocab-nl">Het is (drie) uur.</span></div>
+        <div class="vocab-item"><span class="vocab-en">It&rsquo;s half past (two).</span><span class="vocab-nl">Het is half (drie).</span></div>
+        <div class="vocab-item"><span class="vocab-en">It&rsquo;s quarter past (four).</span><span class="vocab-nl">Het is kwart over (vier).</span></div>
+        <div class="vocab-item"><span class="vocab-en">It&rsquo;s quarter to (six).</span><span class="vocab-nl">Het is kwart voor (zes).</span></div>
+        <div class="vocab-item"><span class="vocab-en">It&rsquo;s (ten) past (eight).</span><span class="vocab-nl">Het is (tien) over (acht).</span></div>
+        <div class="vocab-item"><span class="vocab-en">It&rsquo;s (five) to (nine).</span><span class="vocab-nl">Het is (vijf) voor (negen).</span></div>
+        <div class="vocab-item"><span class="vocab-en">at noon</span><span class="vocab-nl">&rsquo;s middags om twaalf uur</span></div>
+        <div class="vocab-item"><span class="vocab-en">at midnight</span><span class="vocab-nl">&rsquo;s nachts om twaalf uur</span></div>
+        <div class="vocab-item"><span class="vocab-en">in the morning</span><span class="vocab-nl">&rsquo;s ochtends</span></div>
+        <div class="vocab-item"><span class="vocab-en">in the afternoon</span><span class="vocab-nl">&rsquo;s middags</span></div>
+        <div class="vocab-item"><span class="vocab-en">in the evening</span><span class="vocab-nl">&rsquo;s avonds</span></div>
+      </div>
+    </div>
+
+    <div class="tip-kader">
+      In het Engels gebruik je <strong>&lsquo;at&rsquo;</strong> voor uren: <em>&lsquo;at 3 o&rsquo;clock&rsquo;</em>, <em>&lsquo;at half past two&rsquo;</em>. Gebruik <strong>&lsquo;in&rsquo;</strong> voor delen van de dag: <em>&lsquo;in the morning&rsquo;</em>, <em>&lsquo;in the evening&rsquo;</em>.
+    </div>
+  </section>
+
+</div><!-- end page-wrapper -->
+
+<!-- EXERCISES -->
+<section class="exercises-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Vervoeg het werkwoord (present simple)</p>
+      <ol>
+        <li>He ___ (go) to school at 8.</li>
+        <li>She ___ (study) every day.</li>
+        <li>They ___ (not/watch) TV.</li>
+        <li>___ you ___ (like) maths?</li>
+      </ol>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Maak ontkennende zinnen</p>
+      <ol>
+        <li>&ldquo;I go to bed early.&rdquo; &rarr; &ldquo;I ___.&rdquo;</li>
+        <li>&ldquo;She plays football.&rdquo; &rarr; &ldquo;She ___.&rdquo;</li>
+      </ol>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Schrijf vraagzinnen bij deze antwoorden</p>
+      <ol>
+        <li>&ldquo;Yes, I do homework every evening.&rdquo;</li>
+        <li>&ldquo;No, she doesn&rsquo;t like PE.&rdquo;</li>
+      </ol>
+      <p class="ex-tip">Tip: begin elke vraagzin met Do of Does.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 4</p>
+      <p class="ex-name">Voeg het juiste frequentieadverbium toe</p>
+      <ol>
+        <li>Ik ga altijd naar school. &rarr; I ___ go to school. (always)</li>
+        <li>Hij eet soms in de kantine. &rarr; He ___ eats in the canteen. (sometimes)</li>
+        <li>Wij zijn nooit te laat. &rarr; We are ___ late. (never)</li>
+      </ol>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 5</p>
+      <p class="ex-name">Zeg en schrijf de klok</p>
+      <ol>
+        <li>3:15</li>
+        <li>7:30</li>
+        <li>9:45</li>
+        <li>11:00</li>
+        <li>6:20</li>
+      </ol>
+      <p class="ex-tip">Tip: gebruik o&rsquo;clock, half past, quarter past en quarter to.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 6</p>
+      <p class="ex-name">Schrijf over je schooldag</p>
+      <p style="font-size:.96rem;color:var(--text-mid);margin-bottom:.5rem;">Schrijf een tekst van 60&ndash;80 woorden over je schooldag. Gebruik de present simple en minstens 3 frequentieadverbia.</p>
+      <p class="ex-tip">Tip: beschrijf wat je doet &rsquo;s ochtends, op school en &rsquo;s avonds. Begin zinnen met I always&hellip; / I usually&hellip; / I sometimes&hellip;</p>
+    </div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="summary-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>Present simple</strong>: gewoonte/routine/feit &rarr; I/you/we/they work; he/she/it work<strong>s</strong></li>
+      <li><strong>Ontkenning</strong>: don&rsquo;t / doesn&rsquo;t + infinitive</li>
+      <li><strong>Vragen</strong>: Do / Does + subject + infinitive?</li>
+      <li>Na <strong>does/doesn&rsquo;t</strong>: altijd de basisvorm (infinitive) &mdash; nooit een extra -s</li>
+      <li><strong>Frequentieadverbia</strong> staan tussen subject en werkwoord, maar <em>na</em> to be</li>
+      <li><strong>Telling the time</strong>: o&rsquo;clock, half past, quarter past/to &mdash; gebruik &lsquo;at&rsquo; voor uren, &lsquo;in&rsquo; voor dagdelen</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoofdstuk 4 — Slim notities nemen | Nederlands 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.25; }
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+    text-decoration: none;
+  }
+  .site-header .label-right { text-align: right; }
+
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image: radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+  .chapter-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+  .prologue .ornament-line .ornament-sym { color: var(--gold); font-size: 1.1rem; opacity: 0.8; }
+  .prologue p { font-style: italic; font-size: 1.05rem; line-height: 1.85; color: rgba(250,246,239,0.9); }
+  .prologue p + p { margin-top: 0.9em; }
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+  .begrip .begrip-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .begrip .begrip-body { flex: 1; }
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+  .begrip .begrip-def { font-size: 0.97rem; color: var(--text-mid); line-height: 1.65; margin: 0; }
+
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .denkvraag .dv-text { font-style: italic; font-size: 1rem; color: var(--text-mid); line-height: 1.7; }
+
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+  }
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ── VOORBEELDTEKST ── */
+  .voorbeeldtekst {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 2rem 2.2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .voorbeeldtekst .vt-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--darkblue);
+    opacity: 0.6;
+    margin-bottom: 0.4rem;
+    display: block;
+  }
+  .voorbeeldtekst .vt-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 0.3rem;
+  }
+  .voorbeeldtekst .vt-meta {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    margin-bottom: 1.2rem;
+    font-style: italic;
+  }
+  .voorbeeldtekst .vt-body p {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-bottom: 0.9em;
+  }
+  .voorbeeldtekst .vt-body p:last-child { margin-bottom: 0; }
+  .voorbeeldtekst .vt-source {
+    margin-top: 1rem;
+    font-size: 0.78rem;
+    color: var(--text-light);
+    border-top: 1px solid var(--sand);
+    padding-top: 0.6rem;
+    font-style: italic;
+  }
+
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+  .exercise-card ol, .exercise-card ul { padding-left: 1.4rem; margin-top: 0.5rem; }
+  .exercise-card li { margin-bottom: 0.45rem; font-size: 0.96rem; color: var(--text-mid); }
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+  .summary-section ul { list-style: none; padding: 0; }
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0; top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem; right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px; height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  .prose-text { max-width: 100%; }
+  .highlighted-para {
+    background: rgba(212,160,23,0.08);
+    border-left: 3px solid var(--gold);
+    padding: 0.8rem 1.1rem;
+    border-radius: 0 4px 4px 0;
+    margin: 1.2rem 0;
+    font-size: 0.97rem;
+    color: var(--text-mid);
+  }
+
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section, .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .voorbeeldtekst { padding: 1.4rem 1.2rem; }
+  }
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ── EXTRA STIJLEN VOOR DIT HOOFDSTUK ── */
+
+  .voorbeeld-blok {
+    background: var(--sand-light);
+    border-radius: var(--border-radius);
+    padding: 1.4rem 1.6rem;
+    margin: 1.4rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .voorbeeld-blok .vb-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--oker);
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  .voorbeeld-blok .vb-row {
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  .voorbeeld-blok .vb-col {
+    flex: 1;
+    min-width: 200px;
+  }
+  .voorbeeld-blok .vb-col-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-light);
+    margin-bottom: 0.3rem;
+  }
+  .voorbeeld-blok .vb-col p {
+    font-size: 0.95rem;
+    color: var(--text-mid);
+    margin: 0;
+  }
+  .voorbeeld-blok .vb-arrow {
+    font-size: 1.5rem;
+    color: var(--terracotta);
+    align-self: center;
+    flex-shrink: 0;
+  }
+
+  .notities-lineair {
+    background: white;
+    border: 1px solid var(--sand);
+    border-radius: var(--border-radius);
+    padding: 1.4rem 1.6rem;
+    margin: 1rem 0;
+  }
+  .notities-lineair .nl-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--darkblue);
+    opacity: 0.6;
+    margin-bottom: 0.7rem;
+    display: block;
+  }
+  .notities-lineair ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .notities-lineair ul li {
+    font-size: 0.95rem;
+    color: var(--text-mid);
+    padding: 0.2rem 0 0.2rem 1rem;
+    border-left: 2px solid rgba(193,68,14,0.2);
+    margin-bottom: 0.4rem;
+  }
+  .notities-lineair ul li.indent-1 { margin-left: 1.4rem; border-left-color: rgba(200,146,58,0.35); }
+  .notities-lineair ul li.indent-2 { margin-left: 2.8rem; border-left-color: rgba(212,160,23,0.35); font-size: 0.9rem; }
+
+  .notities-tabel {
+    background: white;
+    border: 1px solid var(--sand);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    margin: 1rem 0;
+  }
+  .notities-tabel .nt-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--darkblue);
+    opacity: 0.6;
+    padding: 0.7rem 1.2rem 0.4rem;
+    display: block;
+  }
+  .notities-tabel .nt-header {
+    display: flex;
+    background: var(--darkblue);
+    color: var(--gold);
+  }
+  .notities-tabel .nt-header .nt-col {
+    flex: 1;
+    padding: 0.55rem 1.2rem;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+  .notities-tabel .nt-row {
+    display: flex;
+    border-top: 1px solid var(--sand);
+  }
+  .notities-tabel .nt-row:nth-child(even) { background: var(--sand-light); }
+  .notities-tabel .nt-row .nt-col {
+    flex: 1;
+    padding: 0.5rem 1.2rem;
+    font-size: 0.93rem;
+    color: var(--text-mid);
+    line-height: 1.55;
+  }
+  .notities-tabel .nt-row .nt-col:first-child {
+    border-right: 1px solid var(--sand);
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+
+  .afkortingen-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 1rem 0;
+  }
+  .afkortingen-grid .afk-item {
+    background: white;
+    border: 1px solid var(--sand);
+    border-radius: 4px;
+    padding: 0.45rem 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+  .afkortingen-grid .afk-sym {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    min-width: 1.6rem;
+    text-align: center;
+  }
+  .afkortingen-grid .afk-text {
+    font-size: 0.87rem;
+    color: var(--text-mid);
+  }
+
+  .signaalwoorden-zin {
+    background: white;
+    border: 1px solid var(--sand);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 1.2rem 0;
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.85;
+  }
+  .signaalwoorden-zin .sw-mark {
+    background: rgba(212,160,23,0.25);
+    border-radius: 3px;
+    padding: 0 3px;
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+  .signaalwoorden-zin .vw-mark {
+    background: rgba(193,68,14,0.12);
+    border-radius: 3px;
+    padding: 0 3px;
+    font-weight: 600;
+    color: var(--terracotta);
+  }
+  .signaalwoorden-legenda {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 0.7rem;
+    font-size: 0.85rem;
+    color: var(--text-mid);
+  }
+  .signaalwoorden-legenda .leg-item { display: flex; align-items: center; gap: 0.35rem; }
+  .signaalwoorden-legenda .leg-swatch {
+    width: 14px; height: 14px; border-radius: 3px; flex-shrink: 0;
+  }
+
+  .schema-overzicht {
+    display: flex;
+    gap: 1.1rem;
+    flex-wrap: wrap;
+    margin: 1.4rem 0;
+  }
+  .schema-kaart {
+    flex: 1;
+    min-width: 180px;
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 3px solid var(--oker);
+    border-radius: var(--border-radius);
+    padding: 1.1rem 1.2rem;
+    box-shadow: var(--shadow-sm);
+  }
+  .schema-kaart .sk-naam {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 0.5rem;
+  }
+  .schema-kaart .sk-wanneer {
+    font-size: 0.85rem;
+    color: var(--text-mid);
+    margin-bottom: 0.5rem;
+    font-style: italic;
+  }
+  .schema-kaart ul {
+    padding-left: 1.1rem;
+    margin: 0;
+  }
+  .schema-kaart ul li {
+    font-size: 0.87rem;
+    color: var(--text-mid);
+    margin-bottom: 0.3rem;
+  }
+
+  .oorzaken-gevolgen-tabel {
+    background: white;
+    border: 1px solid var(--sand);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    margin: 1rem 0;
+  }
+  .oorzaken-gevolgen-tabel .ogt-header {
+    display: flex;
+    background: var(--darkblue);
+  }
+  .oorzaken-gevolgen-tabel .ogt-header .ogt-col {
+    flex: 1;
+    padding: 0.55rem 1.2rem;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .oorzaken-gevolgen-tabel .ogt-row {
+    display: flex;
+    border-top: 1px solid var(--sand);
+    min-height: 2.5rem;
+    background: var(--sand-light);
+  }
+  .oorzaken-gevolgen-tabel .ogt-row .ogt-col {
+    flex: 1;
+    padding: 0.5rem 1.2rem;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    font-style: italic;
+  }
+  .oorzaken-gevolgen-tabel .ogt-row .ogt-col:first-child {
+    border-right: 1px solid var(--sand);
+  }
+
+  .interview-blok {
+    background: var(--sand-light);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.7rem;
+    margin: 1.2rem 0;
+    border: 1px solid var(--sand);
+  }
+  .interview-blok .ib-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--oker);
+    margin-bottom: 0.6rem;
+    display: block;
+  }
+  .interview-blok p {
+    font-size: 0.96rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header" id="top">
+  <a class="label" href="index.html">Nederlands 1A</a>
+  <span class="label label-right">Hoofdstuk 4</span>
+</header>
+
+<div class="chapter-hero">
+  <div class="chapter-kicker">Nederlands &nbsp;·&nbsp; 1A &nbsp;·&nbsp; Eerste graad</div>
+  <h1>Hoofdstuk 4<br>Slim notities nemen</h1>
+  <p class="subtitle">Hoe onthoud je wat belangrijk is — zonder alles over te schrijven</p>
+</div>
+
+<div class="page-wrapper">
+
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Stel je voor &hellip;</span>
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+
+    <p>De klas is donker. Op het scherm zie je beelden van het Amazonewoud: reusachtige bomen, roze rivierdolfijnen, jaguar die door het onderhout sluipt. De documentaire duurt vijfenveertig minuten. Jij kijkt aandachtig — echt waar. Je vindt het zelfs interessant.</p>
+
+    <p>Dan gaat het licht weer aan. De leraar zegt: "Schrijf de vijf belangrijkste dingen op die je net hebt gezien." Je pakt je pen. Je stares naar je blanco blad. Het Amazonewoord was toch iets met biodiversiteit? En ontbossing? Of was dat de volgende les?</p>
+
+    <p>Je klasgenoot naast je legt haar blad plat op tafel. Jij werpt een snelle blik. Het staat vol: streepjes, pijltjes, een kringetje in het midden met "waterkringloop" erin, lijntjes die vertakken, afkortingen die je bijna niet kunt lezen. Dezelfde documentaire. Hetzelfde uur. Een compleet ander resultaat.</p>
+
+    <p>Het verschil zit niet in hoe slim je bent, en ook niet in hoeveel aandacht je had. Het zit in één vaardigheid: <em>slim notities nemen</em>. Dat is geen talent — het is een techniek. En die techniek leer jij in dit hoofdstuk.</p>
+
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+  </section>
+
+  <!-- SECTIE 1 -->
+  <section class="section-block" id="s1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Waarom notities nemen?</h2>
+    </div>
+    <div class="prose-text">
+      <p>Je werkgeheugen — het deel van je hersenen dat informatie tijdelijk vasthoudt terwijl je iets aan het doen bent — is beperkt. Je kunt er ongeveer zeven losse stukjes informatie tegelijk in kwijt. Dat klinkt misschien veel, maar een documentaire van drie kwartier gooit er honderden informatiepuntjes over je heen: namen, feiten, cijfers, verbanden, beelden. Zonder hulpmiddelen verdwijnt het meeste daarvan al binnen een uur.</p>
+
+      <p>Notities zijn dat hulpmiddel. Maar er is meer: het <em>act van schrijven</em> zelf helpt je om informatie beter te onthouden. Wanneer je iets noteert, dwing je jezelf om een keuze te maken — wat is hier echt belangrijk? Die selectie is al een vorm van verwerking. Je hersenen coderen de informatie dieper dan wanneer je alleen maar passief luistert of kijkt.</p>
+
+      <p>Belangrijk: notities zijn geen transcript. Je hoeft niet alles op te schrijven, want dan ben je bezig met kopiëren, niet met denken. Notities zijn een <em>gereedschap</em> — ze helpen je om later een vraag te beantwoorden, een samenvatting te schrijven of een toets voor te bereiden. Stel jezelf dus altijd de vraag: <em>Waarvoor gebruik ik deze notities straks?</em> Dat bepaalt hoe uitgebreid en hoe gedetailleerd je schrijft.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Notities</span>
+        <p class="begrip-def">Notities zijn korte aantekeningen die de belangrijkste informatie uit een tekst of luisterfragment vastleggen, zodat je ze later kunt gebruiken — bijvoorbeeld om een samenvatting te maken, een vraag te beantwoorden of je voor te bereiden op een toets.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTIE 2 -->
+  <section class="section-block" id="s2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Telegramstijl en afkortingen</h2>
+    </div>
+    <div class="prose-text">
+      <p>Als je probeert elke zin volledig op te schrijven, loop je altijd achter. De spreker of de tekst gaat verder terwijl jij nog met de vorige zin bezig bent. De oplossing is <strong>telegramstijl</strong>: je laat alles weg wat niet strikt noodzakelijk is voor de betekenis, en behoudt alleen de inhoudelijke kern.</p>
+
+      <p>Wat laat je weg? Lidwoorden (de, het, een), werkwoordvervoegingen, hulpwerkwoorden en andere verbindingswoorden die de zin vloeiend maken maar geen nieuwe informatie toevoegen. Wat houd je? Zelfstandige naamwoorden, sterke werkwoorden en getallen of feiten die echt informatief zijn.</p>
+
+      <p>Naast telegramstijl gebruik je ook <strong>afkortingen en symbolen</strong>. Die zijn persoonlijk — je kiest zelf wat je gebruikt — maar een aantal zijn zo algemeen dat ze bijna iedereen begrijpt:</p>
+    </div>
+
+    <div class="afkortingen-grid">
+      <div class="afk-item"><span class="afk-sym">→</span><span class="afk-text">leidt tot / daarna</span></div>
+      <div class="afk-item"><span class="afk-sym">↑</span><span class="afk-text">stijgt / neemt toe</span></div>
+      <div class="afk-item"><span class="afk-sym">↓</span><span class="afk-text">daalt / neemt af</span></div>
+      <div class="afk-item"><span class="afk-sym">≠</span><span class="afk-text">verschilt van / niet gelijk</span></div>
+      <div class="afk-item"><span class="afk-sym">=</span><span class="afk-text">is / betekent / gelijk aan</span></div>
+      <div class="afk-item"><span class="afk-sym">+</span><span class="afk-text">en ook / plus / meer</span></div>
+      <div class="afk-item"><span class="afk-sym">bv.</span><span class="afk-text">bijvoorbeeld</span></div>
+      <div class="afk-item"><span class="afk-sym">nl.</span><span class="afk-text">namelijk</span></div>
+      <div class="afk-item"><span class="afk-sym">tov.</span><span class="afk-text">ten opzichte van</span></div>
+      <div class="afk-item"><span class="afk-sym">vb.</span><span class="afk-text">voorbeeld</span></div>
+      <div class="afk-item"><span class="afk-sym">vgl.</span><span class="afk-text">vergelijk</span></div>
+      <div class="afk-item"><span class="afk-sym">ca.</span><span class="afk-text">circa / ongeveer</span></div>
+    </div>
+
+    <p>Je kunt ook eigen afkortingen verzinnen voor woorden die je vaak tegenkomt in een vak. In biologie schrijf je misschien "fots." voor fotosynthese, of "temp." voor temperatuur. Zolang je zelf weet wat het betekent, is het een prima afkorting.</p>
+
+    <div class="voorbeeld-blok">
+      <span class="vb-label">Voorbeeld — voor &amp; na telegramstijl</span>
+      <div class="vb-row">
+        <div class="vb-col">
+          <div class="vb-col-label">Volledige zin</div>
+          <p>"De temperatuur van de oceanen is de afgelopen honderd jaar met gemiddeld één komma twee graden Celsius gestegen, voornamelijk door de uitstoot van broeikasgassen."</p>
+        </div>
+        <div class="vb-arrow">→</div>
+        <div class="vb-col">
+          <div class="vb-col-label">Telegramstijl</div>
+          <p>Temp. oceanen ↑ +1,2°C / 100 jaar → broeikasgassen</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">✏️</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Telegramstijl</span>
+        <p class="begrip-def">Telegramstijl is een verkorte schrijfwijze waarbij je alleen de essentiële woorden noteert — zelfstandige naamwoorden, werkwoorden en kernfeiten — en lidwoorden, hulpwerkwoorden en andere verbindende elementen weglaat. Het doel is snel schrijven zonder belangrijke informatie te verliezen.</p>
+      </div>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">Schrijf de volgende zin om in telegramstijl: "Elke dag verdwijnen er door ontbossing in het Amazonewoud ongeveer duizend voetbalvelden aan regenwoud, wat ernstige gevolgen heeft voor de biodiversiteit." Welke woorden laat je weg? Welke symbolen gebruik je?</p>
+    </div>
+  </section>
+
+  <!-- SECTIE 3 -->
+  <section class="section-block" id="s3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Sleutelwoorden en kernzinnen</h2>
+    </div>
+    <div class="prose-text">
+      <p>Goede notities beginnen met het herkennen van wat echt belangrijk is. Niet alle woorden in een tekst wegen even zwaar. Sommige woorden dragen de kern van de boodschap — dat zijn <strong>sleutelwoorden</strong>. Andere zinnen vatten een heel stuk samen — dat zijn <strong>kernzinnen</strong>.</p>
+
+      <p><strong>Hoe herken je sleutelwoorden?</strong> Sleutelwoorden zijn bijna altijd zelfstandige naamwoorden of werkwoorden die het onderwerp raken. Ze komen vaak voor in titels en tussentitels. Ze worden regelmatig herhaald in de tekst. Ze worden soms vetgedrukt of cursief gezet door de schrijver. En ze zijn de woorden waarover de tekst het eigenlijk heeft — als je ze weglaat, begrijp je de tekst niet meer.</p>
+
+      <p><strong>Hoe herken je kernzinnen?</strong> In een goed geschreven tekst staat de belangrijkste informatie van een alinea vaak in de eerste of laatste zin. De eerste zin introduceert het onderwerp van de alinea, de laatste zin trekt vaak een conclusie. Als je van elke alinea alleen de eerste of laatste zin leest, heb je al een ruw beeld van de tekst. Die zinnen zijn de kernzinnen.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">🔑</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Sleutelwoord</span>
+        <p class="begrip-def">Een sleutelwoord is een woord dat de kern van een tekst of alinea uitdrukt. Sleutelwoorden zijn meestal zelfstandige naamwoorden, komen vaak meerdere keren voor en staan regelmatig in de titel of tussentitels van een tekst.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📌</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Kernzin</span>
+        <p class="begrip-def">Een kernzin is de zin in een alinea die de belangrijkste informatie bevat. De kernzin staat vaak aan het begin of het einde van een alinea en vat de hoofdgedachte van die alinea samen.</p>
+      </div>
+    </div>
+
+    <div class="highlighted-para">
+      <strong>Tip:</strong> Lees eerst de hele tekst vluchtig door. Omcirkel daarna de woorden die je meerdere keren tegenkomt of die in de titel staan. Die zijn vrijwel zeker sleutelwoorden.
+    </div>
+  </section>
+
+  <!-- SECTIE 4 — VOORBEELDTEKST + UITGEWERKT VOORBEELD -->
+  <section class="section-block" id="s4">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Notities in verschillende vormen</h2>
+    </div>
+    <div class="prose-text">
+      <p>Notities kun je op verschillende manieren ordenen. De vorm die je kiest, hangt af van wat je ermee wilt doen en van het soort tekst. Hieronder lees je een informatieve tekst over de waterkringloop. Daarna zie je drie manieren om er notities bij te nemen.</p>
+    </div>
+
+    <div class="voorbeeldtekst">
+      <span class="vt-label">Voorbeeldtekst · Informatieve tekst</span>
+      <p class="vt-title">De waterkringloop</p>
+      <p class="vt-meta">Informatieve tekst voor leerlingen van de eerste graad</p>
+      <div class="vt-body">
+        <p>Water is voortdurend in beweging op aarde. De waterkringloop beschrijft hoe water steeds opnieuw dezelfde reis maakt: van de zee naar de lucht, van de lucht naar het land en van het land terug naar de zee. Deze cyclus heeft geen begin en geen einde.</p>
+        <p>Alles start met <strong>verdamping</strong>. De zon verwarmt het oppervlaktewater van oceanen, meren en rivieren. Daardoor verandert vloeibaar water in waterdamp, die omhoog stijgt in de atmosfeer. Ook planten dragen bij aan verdamping: via hun bladeren geven ze waterdamp af aan de lucht. Dit proces heet <strong>transpiratie</strong>.</p>
+        <p>Hoog in de atmosfeer koelt de waterdamp af en verandert ze terug in kleine waterdruppeltjes. Die druppeltjes vormen samen <strong>wolken</strong>. Wanneer de druppeltjes groot genoeg worden, vallen ze naar beneden als <strong>neerslag</strong>: regen, hagel of sneeuw, afhankelijk van de temperatuur.</p>
+        <p>Het water dat op het land valt, volgt verschillende wegen. Een deel stroomt via rivieren en beken terug naar de zee — dat is de <strong>oppervlakkige afstroming</strong>. Een ander deel sijpelt door de bodem naar dieper liggende waterlagen, het <strong>grondwater</strong>. Van daaruit kan het via bronnen en putten opnieuw aan de oppervlakte komen.</p>
+        <p>De waterkringloop is essentieel voor alle leven op aarde. Hij zorgt voor het transport van zoet water naar het land, regelt het klimaat en houdt de watervoorraden op peil. Door klimaatverandering raakt de kringloop echter uit balans: sommige gebieden krijgen meer overstromingen, andere krijgen langere droogteperiodes.</p>
+      </div>
+      <p class="vt-source">Educatieve tekst, gebaseerd op gangbare schoolleerstof over de hydrologische cyclus.</p>
+    </div>
+
+    <div class="prose-text">
+      <p>Nu volgen drie uitgewerkte voorbeelden van hoe je notities bij deze tekst kunt nemen.</p>
+    </div>
+
+    <div class="notities-lineair">
+      <span class="nl-label">Notitievorm 1 — Lineaire notities met afkortingen</span>
+      <ul>
+        <li><strong>Waterkringloop</strong> = water steeds opnieuw dezelfde reis</li>
+        <li class="indent-1">Zee → lucht → land → zee (cyclus, geen begin/einde)</li>
+        <li><strong>Verdamping</strong>: zon verwarmt oppervlaktewater → waterdamp ↑</li>
+        <li class="indent-1">+ transpiratie (planten geven waterdamp af)</li>
+        <li><strong>Condensatie</strong>: hoog in atmosfeer → waterdamp koelt af → wolken</li>
+        <li class="indent-1">Wolken → neerslag (regen / hagel / sneeuw, afh. temp.)</li>
+        <li><strong>Water op land</strong> → 2 wegen:</li>
+        <li class="indent-2">1. oppervlakkige afstroming → rivieren → zee</li>
+        <li class="indent-2">2. grondwater (sijpelt door bodem, → bronnen/putten)</li>
+        <li><strong>Belang</strong>: transport zoet water + klimaatregeling</li>
+        <li class="indent-1">Klimaatverandering → verstoring: meer overstromingen ≠ meer droogte</li>
+      </ul>
+    </div>
+
+    <div class="notities-tabel">
+      <span class="nt-label">Notitievorm 2 — Tweekolommige tabel</span>
+      <div class="nt-header">
+        <div class="nt-col">Fase / Begrip</div>
+        <div class="nt-col">Wat gebeurt er?</div>
+      </div>
+      <div class="nt-row">
+        <div class="nt-col">Verdamping</div>
+        <div class="nt-col">Zon verwarmt water → waterdamp stijgt op</div>
+      </div>
+      <div class="nt-row">
+        <div class="nt-col">Transpiratie</div>
+        <div class="nt-col">Planten geven waterdamp af via bladeren</div>
+      </div>
+      <div class="nt-row">
+        <div class="nt-col">Condensatie</div>
+        <div class="nt-col">Waterdamp koelt af → wolken vormen zich</div>
+      </div>
+      <div class="nt-row">
+        <div class="nt-col">Neerslag</div>
+        <div class="nt-col">Druppels vallen → regen, hagel of sneeuw</div>
+      </div>
+      <div class="nt-row">
+        <div class="nt-col">Afstroming</div>
+        <div class="nt-col">Water stroomt via rivieren terug naar zee</div>
+      </div>
+      <div class="nt-row">
+        <div class="nt-col">Grondwater</div>
+        <div class="nt-col">Water sijpelt door bodem, komt op via bronnen</div>
+      </div>
+      <div class="nt-row">
+        <div class="nt-col">Klimaatverandering</div>
+        <div class="nt-col">Verstoort kringloop → overstromingen én droogte</div>
+      </div>
+    </div>
+
+    <div class="illustratie">
+      <span class="ill-icon">🗺️</span>
+      <p class="ill-caption">Notitievorm 3 — Mindmap. In het midden: "Waterkringloop". Vier hoofdtakken: "Verdamping" (met subtakken: zon, transpiratie), "Condensatie &amp; Wolken", "Neerslag" (regen / hagel / sneeuw) en "Terugkeer" (met subtakken: oppervlakkige afstroming, grondwater). Een vijfde tak: "Belang" met de subtakken: zoet water, klimaat, bedreigd door klimaatverandering.</p>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">Welke van de drie notitievormen werkt het beste voor jou, en waarom? Wanneer zou je eerder een tabel gebruiken dan een mindmap? Denk aan een situatie in een ander vak — biologie, geschiedenis, aardrijkskunde — en bedenk welke vorm daar het handigst is.</p>
+    </div>
+  </section>
+
+  <!-- SECTIE 5 -->
+  <section class="section-block" id="s5">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Structuuraanduiders herkennen</h2>
+    </div>
+    <div class="prose-text">
+      <p>Wanneer je notities neemt, wil je niet alleen de feiten vastleggen, maar ook de <em>structuur</em> van de tekst begrijpen: wat is oorzaak en wat is gevolg? Wat volgt op wat? Wat staat in contrast met wat? Daarvoor bestaan <strong>structuuraanduiders</strong> — woorden die je vertellen hoe zinnen en alinea's met elkaar verbonden zijn.</p>
+
+      <p>Er zijn twee soorten structuuraanduiders: verwijswoorden en signaalwoorden.</p>
+
+      <p><strong>Verwijswoorden</strong> verwijzen terug naar iets wat eerder in de tekst werd genoemd. Ze vervangen een woord of zin die al eens stond, zodat je die niet telkens hoeft te herhalen. Typische verwijswoorden zijn: <em>hij, zij, het, die, dat, deze, hun, daar, daardoor, daarbij, er</em>. Als je een verwijswoord tegenkomt en je weet niet waarnaar het verwijst, ga dan even terug in de tekst — dan begrijp je de zin pas echt.</p>
+
+      <p><strong>Signaalwoorden</strong> geven aan hoe twee ideeën of zinnen zich tot elkaar verhouden. Ze signaleren een verband: oorzaak, gevolg, contrast, opsomming of conclusie. Voorbeelden: <em>maar, want, dus, hoewel, omdat, ten eerste, ten tweede, tot slot, bovendien, toch, integendeel, als gevolg daarvan</em>. In je notities kun je deze verbanden ook noteren met symbolen: → voor oorzaak-gevolg, ≠ voor contrast, + voor aanvulling.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">🔁</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Verwijswoord</span>
+        <p class="begrip-def">Een verwijswoord is een woord dat terugwijst naar iets wat eerder in de tekst is genoemd. Het vervangt een zelfstandig naamwoord of een hele zin. Voorbeelden: hij, zij, het, die, dat, deze, hun, daardoor, er.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">🚦</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Signaalwoord</span>
+        <p class="begrip-def">Een signaalwoord geeft aan hoe twee zinnen of ideeën met elkaar verbonden zijn: als oorzaak, gevolg, contrast, opsomming of conclusie. Voorbeelden: maar, want, dus, hoewel, omdat, ten eerste, ten tweede, tot slot, bovendien.</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>Lees de volgende vijf zinnen. Zoek de verwijswoorden (in rood) en signaalwoorden (in geel):</p>
+    </div>
+
+    <div class="signaalwoorden-zin">
+      <p>Regenwouden zijn de longen van de aarde. <span class="vw-mark">Ze</span> produceren een groot deel van de zuurstof die wij inademen. <span class="sw-mark">Bovendien</span> zijn <span class="vw-mark">ze</span> thuis voor miljoenen diersoorten. <span class="sw-mark">Toch</span> worden <span class="vw-mark">deze</span> bossen elk jaar op grote schaal gekapt. <span class="sw-mark">Daardoor</span> — <span class="sw-mark">want</span> <span class="vw-mark">dat</span> is het directe gevolg — neemt de biodiversiteit wereldwijd snel af.</p>
+      <div class="signaalwoorden-legenda">
+        <div class="leg-item"><div class="leg-swatch" style="background:rgba(193,68,14,0.18);border-radius:3px;"></div> Verwijswoord</div>
+        <div class="leg-item"><div class="leg-swatch" style="background:rgba(212,160,23,0.35);border-radius:3px;"></div> Signaalwoord</div>
+      </div>
+    </div>
+
+    <div class="illustratie">
+      <span class="ill-icon">🔗</span>
+      <p class="ill-caption">Schema met twee kolommen. Links: "Verwijswoorden" met een pijl die terugwijst — hij, zij, het, die, dat, deze, hun, daardoor, er. Rechts: "Signaalwoorden" met vijf subgroepen: Oorzaak (want, omdat), Gevolg (dus, daardoor), Contrast (maar, hoewel, toch), Opsomming (ten eerste, bovendien, ook), Conclusie (tot slot, kortom).</p>
+    </div>
+  </section>
+
+  <!-- SECTIE 6 -->
+  <section class="section-block" id="s6">
+    <div class="section-heading">
+      <span class="section-num">6</span>
+      <h2 class="section-title">Schema's en tabellen maken</h2>
+    </div>
+    <div class="prose-text">
+      <p>Je hebt al gezien dat notities lineair, als tabel of als mindmap kunnen. Maar wanneer kies je welke vorm? Elke vorm heeft zijn sterktes, en als je de goede kiest, begrijp je de stof ook beter.</p>
+    </div>
+
+    <div class="schema-overzicht">
+      <div class="schema-kaart">
+        <div class="sk-naam">Lineaire notities</div>
+        <div class="sk-wanneer">Wanneer gebruik je dit?</div>
+        <ul>
+          <li>Bij een lopende tekst of uitleg</li>
+          <li>Als de volgorde belangrijk is</li>
+          <li>Voor verhalen of tijdlijnen</li>
+          <li>Als je snel iets moet noteren</li>
+        </ul>
+      </div>
+      <div class="schema-kaart">
+        <div class="sk-naam">Tabel</div>
+        <div class="sk-wanneer">Wanneer gebruik je dit?</div>
+        <ul>
+          <li>Om dingen te vergelijken</li>
+          <li>Bij oorzaak en gevolg</li>
+          <li>Als je twee of meer categorieën hebt</li>
+          <li>Bij voor- en nadelen</li>
+        </ul>
+      </div>
+      <div class="schema-kaart">
+        <div class="sk-naam">Mindmap</div>
+        <div class="sk-wanneer">Wanneer gebruik je dit?</div>
+        <ul>
+          <li>Bij een breed onderwerp met subtopics</li>
+          <li>Om verbanden te zien</li>
+          <li>Voor brainstormen of samenvatten</li>
+          <li>Als de structuur niet lineair is</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p><strong>Praktische tips voor een goede tabel:</strong> Schrijf altijd duidelijke kolomtitels. Zet in elke cel maar één gegeven of idee. Gebruik telegramstijl — volledige zinnen zijn niet nodig. Zorg dat je tabel genoeg ruimte heeft zodat je later nog iets kunt toevoegen.</p>
+
+      <p><strong>Praktische tips voor een mindmap:</strong> Begin met het centrale begrip in het midden. Zet de hoofdtakken er omheen — dat zijn de grote subtopics. Voeg daarna de details toe als kleinere aftakkingen. Gebruik kleuren of pictogrammen om de takken van elkaar te onderscheiden. Schrijf zo kort mogelijk op elke tak — één of twee woorden zijn genoeg.</p>
+
+      <p><strong>Praktische tips voor lineaire notities:</strong> Gebruik inspringing om hoofdpunten en deelpunten te onderscheiden. Begin elk punt met een streepje of een opsommingteken. Schrijf in telegramstijl. Zet symbolen (→, ↑, ≠) in de plaats van uitgeschreven verbanden.</p>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">Je krijgt straks een les over de Eerste Wereldoorlog. Welke notitievorm kies je: lineaire notities, een tabel of een mindmap? En wat als de leraar wil dat je daarna de oorzaken en gevolgen kunt opnoemen — verandert dat je keuze?</p>
+    </div>
+  </section>
+
+  <!-- OEFENINGEN -->
+  <section class="exercises-section" id="oefeningen">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Notities nemen bij een tekst: pizza</p>
+      <p>Lees de onderstaande tekst aandachtig. Schrijf daarna notities in telegramstijl en geef drie sleutelwoorden aan.</p>
+
+      <div class="voorbeeldtekst" style="margin-top:1rem;">
+        <span class="vt-label">Tekst bij oefening 1 · Informatieve tekst</span>
+        <p class="vt-title">De geschiedenis van de pizza</p>
+        <div class="vt-body">
+          <p>Pizza is vandaag een van de populairste gerechten ter wereld, maar de oorsprong ervan gaat veel verder terug dan de meeste mensen denken. Al in de oudheid bakten mensen flatbreads — platte broden — die ze belegden met olijfolie, kruiden en groenten. De Grieken, Romeinen en Egyptenaren kenden allemaal varianten van dit gerecht.</p>
+          <p>De moderne pizza zoals wij die kennen, ontstond in Napels, een stad in Zuid-Italië, ergens in de achttiende of vroege negentiende eeuw. Napels was destijds een drukke havenstad waar veel arme arbeiders woonden. Zij hadden nood aan goedkoop, snel en voedend eten. Straatverkopers boden platbroden aan belegd met tomaat — een ingrediënt dat na de ontdekking van Amerika in Europa was binnengekomen. Die combinatie bleek een schot in de roos.</p>
+          <p>In 1889 maakte de pizzabakker Raffaele Esposito een bijzondere pizza ter ere van het bezoek van koningin Margherita van Italië. Hij gebruikte mozzarella, tomaat en basilicum — de kleuren van de Italiaanse vlag. Die pizza kreeg de naam Margherita en bestaat tot op de dag van vandaag.</p>
+          <p>Via Italiaanse emigranten verspreidde de pizza zich in de twintigste eeuw over de hele wereld. In de jaren vijftig en zestig werden de eerste pizzeria's geopend in de Verenigde Staten. Vandaag eet men pizza op elk continent en in elke mogelijke variant.</p>
+        </div>
+      </div>
+
+      <ol style="margin-top:1rem;">
+        <li>Schrijf bij elke alinea één notitie in telegramstijl. Gebruik minstens drie van de afkortingen of symbolen uit sectie 2.</li>
+        <li>Geef drie sleutelwoorden aan uit de tekst en leg uit waarom je die hebt gekozen.</li>
+        <li>Welke notitievorm — lineair, tabel of mindmap — zou het beste passen bij deze tekst? Motiveer je keuze in één of twee zinnen.</li>
+      </ol>
+      <p class="ex-tip">Tip: lees eerst de hele tekst door voordat je begint met noteren. Onderstreep of omcirkel al lezend wat je belangrijk vindt.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Tabel maken: oorzaken en gevolgen van klimaatverandering</p>
+      <p>Hieronder staan tien zinnen over klimaatverandering. Lees ze en maak een tabel met twee kolommen: <strong>Oorzaken</strong> en <strong>Gevolgen</strong>. Sorteer elke zin in de juiste kolom.</p>
+
+      <ol>
+        <li>De uitstoot van CO₂ door auto's en fabrieken warmt de atmosfeer op.</li>
+        <li>Gletsjers in de Alpen en op de Noord- en Zuidpool smelten in een steeds sneller tempo.</li>
+        <li>Door het verbranden van fossiele brandstoffen komen broeikasgassen vrij.</li>
+        <li>Laaggelegen kustgebieden en eilanden lopen het risico onder water te lopen.</li>
+        <li>Ontbossing vermindert de hoeveelheid bomen die CO₂ kunnen opnemen.</li>
+        <li>Extreme weersomstandigheden zoals hittegolven en zware stormen komen vaker voor.</li>
+        <li>De intensieve veeteelt produceert grote hoeveelheden methaan, een krachtig broeikasgas.</li>
+        <li>Veel diersoorten zien hun leefgebied krimpen en zijn bedreigd met uitsterving.</li>
+        <li>Het gebruik van steenkool voor elektriciteitsproductie stoot grote hoeveelheden CO₂ uit.</li>
+        <li>De zeespiegel is de afgelopen eeuw met gemiddeld twintig centimeter gestegen.</li>
+      </ol>
+
+      <div class="oorzaken-gevolgen-tabel" style="margin-top:1rem;">
+        <div class="ogt-header">
+          <div class="ogt-col">Oorzaken</div>
+          <div class="ogt-col">Gevolgen</div>
+        </div>
+        <div class="ogt-row">
+          <div class="ogt-col">Schrijf hier de oorzaken ...</div>
+          <div class="ogt-col">Schrijf hier de gevolgen ...</div>
+        </div>
+        <div class="ogt-row"><div class="ogt-col"></div><div class="ogt-col"></div></div>
+        <div class="ogt-row"><div class="ogt-col"></div><div class="ogt-col"></div></div>
+        <div class="ogt-row"><div class="ogt-col"></div><div class="ogt-col"></div></div>
+        <div class="ogt-row"><div class="ogt-col"></div><div class="ogt-col"></div></div>
+      </div>
+
+      <p class="ex-tip">Tip: sommige zinnen bevatten zowel een oorzaak als een gevolg — kijk goed wat het hoofdpunt van elke zin is.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Notities nemen en gebruiken: het interview</p>
+      <p>Lees het volgende interviewfragment aandachtig. Neem notities terwijl je leest — alsof je het beluistert en later vragen moet beantwoorden. Gebruik telegramstijl en minstens één symbool. Beantwoord daarna de drie vragen op basis van je notities (niet door opnieuw de tekst te lezen).</p>
+
+      <div class="interview-blok">
+        <span class="ib-label">Interviewfragment · Luister- en leestekst</span>
+        <p>Interviewer: "Lena, jij bent dertien jaar en organiseert al twee jaar een maandelijkse zwerfvuilactie in je buurt. Hoe ben je daarmee begonnen?"</p>
+        <p>Lena: "Op een dag fietste ik langs de vijver en zag ik hoeveel plastic er in het water dreef. Ik was echt boos. Thuis heb ik mijn ouders overtuigd om mee te helpen, en de eerste keer waren we met drie mensen. Nu komen er soms twintig vrijwilligers opdagen."</p>
+        <p>Interviewer: "Wat heb je de afgelopen twee jaar verzameld?"</p>
+        <p>Lena: "In totaal ruim tweehonderd vuilniszakken afval. Mostly plastic flessen, blikjes en sigarettenpeuken. Dat laatste verraste me het meest — mensen beseffen niet dat sigarettenpeuken microplastics bevatten die in het water terechtkomen."</p>
+        <p>Interviewer: "Wat wil je bereiken voor de toekomst?"</p>
+        <p>Lena: "Ik wil scholen in de regio overtuigen om mee te doen. Als elke school één keer per jaar een opruimdag organiseert, zou dat al een enorm verschil maken. Ik heb al contact gehad met twee scholen en die staan positief tegenover het idee."</p>
+      </div>
+
+      <ol style="margin-top:1rem;">
+        <li>Neem notities bij het interviewfragment in telegramstijl. Gebruik minstens één symbool (→, ↑, ≠, = of +).</li>
+        <li>Beantwoord op basis van je notities: hoe is Lena's actie begonnen?</li>
+        <li>Beantwoord op basis van je notities: wat heeft Lena de afgelopen twee jaar al bereikt?</li>
+        <li>Beantwoord op basis van je notities: wat zijn Lena's plannen voor de toekomst?</li>
+      </ol>
+      <p class="ex-tip">Tip: probeer vraag 2, 3 en 4 te beantwoorden zonder de tekst opnieuw te lezen. Zo test je of je notities goed genoeg zijn om op terug te vallen.</p>
+    </div>
+  </section>
+
+  <!-- SAMENVATTING -->
+  <section class="summary-section" id="samenvatting">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>Notities</strong> zijn geen transcripts maar gereedschappen: je noteert alleen wat je later nodig hebt om een vraag te beantwoorden of een samenvatting te schrijven.</li>
+      <li><strong>Telegramstijl</strong> helpt je snel schrijven: laat lidwoorden en hulpwerkwoorden weg, gebruik afkortingen en symbolen (→, ↑, ↓, ≠, =) en houd alleen de inhoudelijke kern over.</li>
+      <li><strong>Sleutelwoorden</strong> zijn de kernwoorden van een tekst — vaak zelfstandige naamwoorden, regelmatig herhaald, soms vetgedrukt of in titels. <strong>Kernzinnen</strong> staan meestal aan het begin of einde van een alinea en vatten de hoofdgedachte samen.</li>
+      <li><strong>Structuuraanduiders</strong> helpen je de structuur van een tekst begrijpen: verwijswoorden (hij, zij, die, dat, deze) verwijzen terug naar eerder genoemde informatie, signaalwoorden (maar, want, dus, hoewel, ten eerste) geven verbanden aan.</li>
+      <li>Kies de juiste <strong>notitievorm</strong>: lineaire notities bij lopende teksten en volgorde, een tabel bij vergelijkingen en oorzaak-gevolg, een mindmap bij brede onderwerpen met vertakkingen.</li>
+      <li>Goede notities maak je door <strong>actief te selecteren</strong>: lees eerst de tekst vluchtig door, zoek de sleutelwoorden en kernzinnen, en noteer daarna in telegramstijl met structuur — zo onthoud je meer met minder moeite.</li>
+    </ul>
+  </section>
+
+</div>
+
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Terug naar boven">↑</button>
+<script>
+  const btn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => btn.classList.toggle('visible', window.scrollY > 400));
+</script>
+<script src="nav.js"></script>
+</body>
+</html>

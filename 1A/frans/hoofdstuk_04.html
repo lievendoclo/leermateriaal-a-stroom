@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H4 — Au quotidien | Frans 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     ILLUSTRATIE PLACEHOLDERS
+  ============================================================ */
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+    cursor: default;
+    transition: background var(--transition);
+  }
+
+  .illustratie:hover { background: #EDE7D8; }
+
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '\2713';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     CLOSING QUOTE
+  ============================================================ */
+  .closing-quote {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0D1E38 100%);
+    border-radius: var(--border-radius);
+    padding: 3rem 3rem 2.5rem;
+    margin: 3.5rem 0 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.5rem; left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .closing-quote .cq-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--gold);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 1.2rem;
+  }
+
+  .closing-quote .cq-attribution {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(212,160,23,0.6);
+  }
+
+  .closing-quote .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .closing-quote .ornament-line::before,
+  .closing-quote .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.4), transparent);
+  }
+
+  .closing-quote .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.7;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .closing-quote { padding: 2rem 1.2rem 1.8rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     FRANS-SPECIFIC COMPONENTS
+  ============================================================ */
+
+  /* Tekst fragment — reading/listening text with comprehension */
+  .tekst-fragment {
+    background: #FFFFFF;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 2rem 2.2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .tekst-fragment .tf-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--darkblue);
+    opacity: 0.6;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  .tekst-fragment .tf-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    display: block;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--sand);
+  }
+
+  .tekst-fragment .tf-body p {
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.8;
+    margin-bottom: 0.75em;
+  }
+
+  .tekst-fragment .tf-body p:last-child { margin-bottom: 0; }
+
+  .tekst-fragment .tf-vragen {
+    margin-top: 1.4rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--sand);
+  }
+
+  .tekst-fragment .tf-vragen-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.6rem;
+  }
+
+  .tekst-fragment .tf-vragen ol {
+    padding-left: 1.3rem;
+  }
+
+  .tekst-fragment .tf-vragen ol li {
+    font-size: 0.95rem;
+    color: var(--text-mid);
+    margin-bottom: 0.4rem;
+    line-height: 1.65;
+  }
+
+  /* Gesprek — dialogue component */
+  .gesprek {
+    background: var(--sand-light);
+    border-radius: var(--border-radius);
+    padding: 1.8rem 2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .gesprek .gesp-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--oker);
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .gesprek .gesp-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    display: block;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid rgba(200,146,58,0.3);
+  }
+
+  .gesprek .beurt {
+    display: flex;
+    gap: 0.8rem;
+    margin-bottom: 0.85rem;
+    align-items: flex-start;
+  }
+
+  .gesprek .beurt:last-child { margin-bottom: 0; }
+
+  .gesprek .spreker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    min-width: 4.5rem;
+    padding-top: 0.15rem;
+    flex-shrink: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .gesprek .zin {
+    font-size: 0.98rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+    flex: 1;
+  }
+
+  .gesprek .zin em {
+    color: var(--darkblue);
+    font-style: italic;
+  }
+
+  .gesprek .gesp-noot {
+    margin-top: 1.1rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid rgba(200,146,58,0.25);
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+  }
+
+  /* Grammatica kader — grammar explanation box */
+  .grammatica-kader {
+    background: #EEF2F8;
+    border: 1px solid rgba(26,43,74,0.18);
+    border-left: 5px solid var(--darkblue);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1.6rem 1.8rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .grammatica-kader .gram-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--darkblue);
+    opacity: 0.65;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .grammatica-kader .gram-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    display: block;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  .grammatica-kader .gram-body {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+  }
+
+  .grammatica-kader .gram-body p { margin-bottom: 0.75em; }
+  .grammatica-kader .gram-body p:last-child { margin-bottom: 0; }
+
+  /* Conjugation table inside grammatica-kader */
+  .conj-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.8rem 0 1rem;
+    font-size: 0.95rem;
+  }
+
+  .conj-table th {
+    background: var(--darkblue);
+    color: white;
+    padding: 0.4rem 0.85rem;
+    text-align: left;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+  }
+
+  .conj-table td {
+    padding: 0.35rem 0.85rem;
+    border-bottom: 1px solid rgba(26,43,74,0.1);
+    color: var(--text-mid);
+  }
+
+  .conj-table tr:last-child td { border-bottom: none; }
+  .conj-table tr:nth-child(even) td { background: rgba(26,43,74,0.04); }
+
+  .conj-table td:first-child {
+    font-weight: 600;
+    color: var(--darkblue);
+    white-space: nowrap;
+  }
+
+  /* Multi-column conjugation layout */
+  .conj-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 0.8rem 0;
+  }
+
+  .conj-block {
+    background: rgba(26,43,74,0.04);
+    border-radius: 4px;
+    padding: 0.8rem 1rem;
+  }
+
+  .conj-block .conj-verb-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--darkblue);
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  .conj-block .conj-row {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--text-mid);
+  }
+
+  .conj-block .conj-row .pron {
+    font-weight: 600;
+    color: var(--darkblue);
+    min-width: 4.5rem;
+    flex-shrink: 0;
+  }
+
+  /* Woordenschat kader — vocabulary box */
+  .woordenschat-kader {
+    background: #FDF8F0;
+    border: 1px solid rgba(200,146,58,0.3);
+    border-left: 5px solid var(--oker);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1.6rem 1.8rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .woordenschat-kader .ws-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--oker);
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .woordenschat-kader .ws-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    display: block;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(200,146,58,0.25);
+  }
+
+  .ws-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 0.4rem 1.2rem;
+    margin: 0.5rem 0;
+  }
+
+  .ws-item {
+    display: flex;
+    gap: 0.6rem;
+    align-items: baseline;
+    font-size: 0.95rem;
+    padding: 0.25rem 0;
+    border-bottom: 1px solid rgba(200,146,58,0.12);
+    color: var(--text-mid);
+  }
+
+  .ws-item .fr {
+    font-weight: 600;
+    color: var(--darkblue);
+    flex-shrink: 0;
+  }
+
+  .ws-item .nl {
+    color: var(--text-light);
+    font-style: italic;
+    font-size: 0.9rem;
+  }
+
+  .ws-sub-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--oker);
+    display: block;
+    margin: 1.1rem 0 0.4rem;
+  }
+
+  /* Negation / pattern highlight */
+  .gram-pattern {
+    background: rgba(26,43,74,0.06);
+    border-left: 3px solid var(--darkblue);
+    border-radius: 0 4px 4px 0;
+    padding: 0.55rem 1rem;
+    margin: 0.6rem 0;
+    font-family: 'Source Sans 3', monospace;
+    font-size: 0.95rem;
+    color: var(--darkblue);
+  }
+
+  .gram-example {
+    padding: 0.3rem 0;
+    font-size: 0.94rem;
+    color: var(--text-mid);
+  }
+
+  .gram-example .fr-ex {
+    font-style: italic;
+    color: var(--darkblue);
+    font-weight: 600;
+  }
+
+  .gram-example .nl-ex {
+    color: var(--text-light);
+    font-size: 0.88rem;
+  }
+
+  /* Frequency adverb highlight strip */
+  .freq-strip {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin: 0.8rem 0;
+  }
+
+  .freq-pill {
+    background: var(--darkblue);
+    color: var(--gold);
+    border-radius: 3rem;
+    padding: 0.25rem 0.85rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+
+  /* Note / tip box */
+  .nota {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1rem 1.3rem;
+    margin: 1.2rem 0;
+    font-size: 0.95rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  .nota strong { color: var(--terracotta); }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <span class="label">Frans 1A</span>
+  <span class="label label-right">H4 &mdash; Au quotidien</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Frans &nbsp;&middot;&nbsp; 1A &nbsp;&middot;&nbsp; Eerste graad</div>
+  <h1>Hoofdstuk 4<br>Au quotidien</h1>
+  <p class="subtitle">Praten over je dagelijkse routine, reflexieve werkwoorden en de ontkenning</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- PROLOGUE -->
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Om te beginnen &hellip;</span>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p>Elke dag doe je dezelfde dingen, maar hoe zeg je dat in het Frans? Je staat op, je wast je, je gaat naar school &mdash; simpele handelingen, maar cruciaal om over je leven te kunnen praten. In dit hoofdstuk leer je de reflexieve werkwoorden die je nodig hebt om je dag te beschrijven, en ontdek je hoe je frequentie en ontkenning uitdrukt in het Frans.</p>
+    <p>Na dit hoofdstuk kun jij vertellen hoe jouw typische schooldag eruitziet &mdash; en begrijp je ook wanneer een Franssprekende vriend hetzelfde doet.</p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 1 — MA JOURNÉE TYPIQUE (VOCABULARY)
+  ============================================================ -->
+  <section class="section-block" id="journee">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Ma journ&eacute;e typique</h2>
+    </div>
+
+    <p>Om je dagelijkse routine te beschrijven, heb je twee soorten woorden nodig: de <strong>dagelijkse handelingen</strong> (wat je doet) en de <strong>tijdsuitdrukkingen</strong> (wanneer je het doet). Leer ze samen zodat je meteen volledige zinnen kunt maken.</p>
+
+    <div class="woordenschat-kader">
+      <span class="ws-label">Woordenschat</span>
+      <span class="ws-title">Les activit&eacute;s quotidiennes &mdash; dagelijkse bezigheden</span>
+
+      <span class="ws-sub-label">Le matin &mdash; 's ochtends</span>
+      <div class="ws-grid">
+        <div class="ws-item"><span class="fr">se r&eacute;veiller</span><span class="nl">wakker worden</span></div>
+        <div class="ws-item"><span class="fr">se lever</span><span class="nl">opstaan</span></div>
+        <div class="ws-item"><span class="fr">se laver</span><span class="nl">zich wassen</span></div>
+        <div class="ws-item"><span class="fr">se doucher</span><span class="nl">douchen</span></div>
+        <div class="ws-item"><span class="fr">se brosser les dents</span><span class="nl">tanden poetsen</span></div>
+        <div class="ws-item"><span class="fr">s'habiller</span><span class="nl">zich aankleden</span></div>
+        <div class="ws-item"><span class="fr">prendre le petit-d&eacute;jeuner</span><span class="nl">ontbijten</span></div>
+        <div class="ws-item"><span class="fr">aller &agrave; l'&eacute;cole</span><span class="nl">naar school gaan</span></div>
+      </div>
+
+      <span class="ws-sub-label">L'apr&egrave;s-midi &amp; le soir &mdash; 's middags &amp; 's avonds</span>
+      <div class="ws-grid">
+        <div class="ws-item"><span class="fr">d&eacute;jeuner</span><span class="nl">lunchen, middagmaal eten</span></div>
+        <div class="ws-item"><span class="fr">rentrer (chez soi)</span><span class="nl">naar huis terugkeren</span></div>
+        <div class="ws-item"><span class="fr">faire les devoirs</span><span class="nl">huiswerk maken</span></div>
+        <div class="ws-item"><span class="fr">d&icirc;ner</span><span class="nl">avondeten</span></div>
+        <div class="ws-item"><span class="fr">regarder la t&eacute;l&eacute;</span><span class="nl">tv kijken</span></div>
+        <div class="ws-item"><span class="fr">se coucher</span><span class="nl">naar bed gaan</span></div>
+        <div class="ws-item"><span class="fr">s'endormir</span><span class="nl">in slaap vallen</span></div>
+      </div>
+
+      <span class="ws-sub-label">Expressions de temps &mdash; tijdsuitdrukkingen</span>
+      <div class="ws-grid">
+        <div class="ws-item"><span class="fr">le matin</span><span class="nl">'s ochtends</span></div>
+        <div class="ws-item"><span class="fr">l'apr&egrave;s-midi</span><span class="nl">'s middags</span></div>
+        <div class="ws-item"><span class="fr">le soir</span><span class="nl">'s avonds</span></div>
+        <div class="ws-item"><span class="fr">la nuit</span><span class="nl">'s nachts</span></div>
+        <div class="ws-item"><span class="fr">d'abord</span><span class="nl">eerst, allereerst</span></div>
+        <div class="ws-item"><span class="fr">ensuite</span><span class="nl">daarna, vervolgens</span></div>
+        <div class="ws-item"><span class="fr">puis</span><span class="nl">dan, daarna</span></div>
+        <div class="ws-item"><span class="fr">enfin</span><span class="nl">ten slotte</span></div>
+        <div class="ws-item"><span class="fr">apr&egrave;s</span><span class="nl">na, daarna</span></div>
+        <div class="ws-item"><span class="fr">avant</span><span class="nl">v&oacute;&oacute;r, vroeger</span></div>
+      </div>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Schrijf je eigen ochtend op in het Frans met de tijdsuitdrukkingen <em>d'abord, ensuite, puis</em> en <em>enfin</em>. Gebruik minstens vier activiteiten.</p>
+    </div>
+
+  </section>
+
+  <!-- ============================================================
+       SECTION 2 — LES VERBES PRONOMINAUX
+  ============================================================ -->
+  <section class="section-block" id="pronominaux">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Les verbes pronominaux (r&eacute;fl&eacute;chis)</h2>
+    </div>
+
+    <p>Een <strong>reflexief werkwoord</strong> (un verbe pronominal) is een werkwoord waarbij de handeling terugvalt op het onderwerp: de persoon doet iets met zichzelf. In het Frans herken je ze aan het voornaamwoord <em>se</em> v&oacute;&oacute;r de infinitief: <em>se lever, se laver, s'habiller</em>.</p>
+
+    <p>Bij het vervoegen verander je <em>se</em> in het juiste reflexieve voornaamwoord dat past bij het onderwerp.</p>
+
+    <div class="grammatica-kader">
+      <span class="gram-label">Grammatica</span>
+      <span class="gram-title">Vervoeging van <em>se lever</em> (opstaan) &mdash; present</span>
+
+      <div class="gram-body">
+        <table class="conj-table">
+          <thead>
+            <tr>
+              <th>Onderwerp</th>
+              <th>Refl. vnw.</th>
+              <th>Vorm</th>
+              <th>Betekenis</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>je</td><td>me</td><td><em>je me l&egrave;ve</em></td><td>ik sta op</td></tr>
+            <tr><td>tu</td><td>te</td><td><em>tu te l&egrave;ves</em></td><td>jij staat op</td></tr>
+            <tr><td>il / elle / on</td><td>se</td><td><em>il/elle se l&egrave;ve</em></td><td>hij/zij staat op</td></tr>
+            <tr><td>nous</td><td>nous</td><td><em>nous nous levons</em></td><td>wij staan op</td></tr>
+            <tr><td>vous</td><td>vous</td><td><em>vous vous levez</em></td><td>u/jullie staat/staan op</td></tr>
+            <tr><td>ils / elles</td><td>se</td><td><em>ils/elles se l&egrave;vent</em></td><td>zij staan op</td></tr>
+          </tbody>
+        </table>
+
+        <p>Let op de <strong>klemtoonverschuiving</strong>: in <em>lever</em> krijgen de vormen met een stille stam een accent grave op de <em>e</em>: <em>je me l<strong>&egrave;</strong>ve, tu te l<strong>&egrave;</strong>ves, il se l<strong>&egrave;</strong>ve, ils se l<strong>&egrave;</strong>vent</em>. De nous- en vous-vormen houden de gewone <em>e</em> zonder accent: <em>nous levons, vous levez</em>.</p>
+
+        <p><strong>Elisie</strong> &mdash; wanneer het reflexieve voornaamwoord v&oacute;&oacute;r een klinker of stomme <em>h</em> staat, vervalt de klinker:</p>
+        <div class="gram-pattern">me &rarr; m' &nbsp;&nbsp;|&nbsp;&nbsp; te &rarr; t' &nbsp;&nbsp;|&nbsp;&nbsp; se &rarr; s'</div>
+        <div class="gram-example">
+          <span class="fr-ex">je m'habille</span> <span class="nl-ex">(niet: je me habille)</span><br>
+          <span class="fr-ex">tu t'endors</span> <span class="nl-ex">(niet: tu te endors)</span><br>
+          <span class="fr-ex">il s'appelle Thomas</span> <span class="nl-ex">(niet: il se appelle)</span>
+        </div>
+
+        <p style="margin-top:0.8rem;">Andere veelgebruikte reflexieve werkwoorden volgen hetzelfde patroon. Oefen ze door telkens het reflexieve voornaamwoord aan te passen aan het onderwerp.</p>
+      </div>
+    </div>
+
+    <div class="nota">
+      <strong>Tip:</strong> Bij een vraag of ontkenning staat het reflexieve voornaamwoord <em>v&oacute;&oacute;r</em> het werkwoord: <em>Je ne me lève pas t&ocirc;t. &mdash; Est-ce qu'il se lève t&ocirc;t ?</em>
+    </div>
+
+  </section>
+
+  <!-- ============================================================
+       SECTION 3 — LES VERBES IRRÉGULIERS FRÉQUENTS
+  ============================================================ -->
+  <section class="section-block" id="irreguliers">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Les verbes irr&eacute;guliers fr&eacute;quents</h2>
+    </div>
+
+    <p>Vier werkwoorden komen zo vaak voor in het Frans dat je ze uit het hoofd moet kennen: <strong>aller, faire, prendre</strong> en <strong>venir</strong>. Ze zijn onregelmatig &mdash; hun vormen volgen geen vast patroon &mdash; maar juist daarom zijn ze zo belangrijk. Je gebruikt ze elke dag.</p>
+
+    <div class="grammatica-kader">
+      <span class="gram-label">Grammatica</span>
+      <span class="gram-title">Vervoegingstabel &mdash; onregelmatige werkwoorden (present)</span>
+
+      <div class="gram-body">
+        <div class="conj-grid">
+
+          <div class="conj-block">
+            <span class="conj-verb-name">aller &mdash; gaan</span>
+            <div class="conj-row"><span class="pron">je</span><span>vais</span></div>
+            <div class="conj-row"><span class="pron">tu</span><span>vas</span></div>
+            <div class="conj-row"><span class="pron">il/elle</span><span>va</span></div>
+            <div class="conj-row"><span class="pron">nous</span><span>allons</span></div>
+            <div class="conj-row"><span class="pron">vous</span><span>allez</span></div>
+            <div class="conj-row"><span class="pron">ils/elles</span><span>vont</span></div>
+          </div>
+
+          <div class="conj-block">
+            <span class="conj-verb-name">faire &mdash; maken / doen</span>
+            <div class="conj-row"><span class="pron">je</span><span>fais</span></div>
+            <div class="conj-row"><span class="pron">tu</span><span>fais</span></div>
+            <div class="conj-row"><span class="pron">il/elle</span><span>fait</span></div>
+            <div class="conj-row"><span class="pron">nous</span><span>faisons</span></div>
+            <div class="conj-row"><span class="pron">vous</span><span>faites</span></div>
+            <div class="conj-row"><span class="pron">ils/elles</span><span>font</span></div>
+          </div>
+
+          <div class="conj-block">
+            <span class="conj-verb-name">prendre &mdash; nemen</span>
+            <div class="conj-row"><span class="pron">je</span><span>prends</span></div>
+            <div class="conj-row"><span class="pron">tu</span><span>prends</span></div>
+            <div class="conj-row"><span class="pron">il/elle</span><span>prend</span></div>
+            <div class="conj-row"><span class="pron">nous</span><span>prenons</span></div>
+            <div class="conj-row"><span class="pron">vous</span><span>prenez</span></div>
+            <div class="conj-row"><span class="pron">ils/elles</span><span>prennent</span></div>
+          </div>
+
+          <div class="conj-block">
+            <span class="conj-verb-name">venir &mdash; komen</span>
+            <div class="conj-row"><span class="pron">je</span><span>viens</span></div>
+            <div class="conj-row"><span class="pron">tu</span><span>viens</span></div>
+            <div class="conj-row"><span class="pron">il/elle</span><span>vient</span></div>
+            <div class="conj-row"><span class="pron">nous</span><span>venons</span></div>
+            <div class="conj-row"><span class="pron">vous</span><span>venez</span></div>
+            <div class="conj-row"><span class="pron">ils/elles</span><span>viennent</span></div>
+          </div>
+
+        </div>
+
+        <p style="margin-top:1rem;"><strong>Samengestelde werkwoorden</strong> volgen hetzelfde patroon als het basiswerkwoord: <em>comprendre</em> (begrijpen) vervoegt als <em>prendre</em>; <em>revenir</em> (terugkomen) en <em>devenir</em> (worden) als <em>venir</em>.</p>
+
+        <div class="gram-example" style="margin-top:0.6rem;">
+          <span class="fr-ex">Je vais &agrave; l'&eacute;cole &agrave; pied.</span> <span class="nl-ex">&mdash; Ik ga te voet naar school.</span><br>
+          <span class="fr-ex">Elle fait ses devoirs le soir.</span> <span class="nl-ex">&mdash; Ze maakt haar huiswerk 's avonds.</span><br>
+          <span class="fr-ex">Nous prenons le bus.</span> <span class="nl-ex">&mdash; Wij nemen de bus.</span><br>
+          <span class="fr-ex">Ils viennent de Bruxelles.</span> <span class="nl-ex">&mdash; Ze komen uit Brussel.</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ============================================================
+       SECTION 4 — EXPRIMER LA FRÉQUENCE
+  ============================================================ -->
+  <section class="section-block" id="frequence">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Exprimer la fr&eacute;quence</h2>
+    </div>
+
+    <p>Om te zeggen hoe vaak je iets doet, gebruik je <strong>frequentiebijwoorden</strong>. Ze staan in het Frans <strong>na het werkwoord</strong> &mdash; dat is anders dan in het Nederlands, waar ze ook v&oacute;&oacute;r het werkwoord kunnen staan.</p>
+
+    <div class="woordenschat-kader">
+      <span class="ws-label">Woordenschat</span>
+      <span class="ws-title">La fr&eacute;quence &mdash; frequentie</span>
+
+      <div class="freq-strip" style="margin-bottom:0.8rem;">
+        <span class="freq-pill">toujours</span>
+        <span class="freq-pill">souvent</span>
+        <span class="freq-pill">parfois</span>
+        <span class="freq-pill">rarement</span>
+        <span class="freq-pill">jamais</span>
+      </div>
+
+      <div class="ws-grid">
+        <div class="ws-item"><span class="fr">toujours</span><span class="nl">altijd</span></div>
+        <div class="ws-item"><span class="fr">souvent</span><span class="nl">vaak</span></div>
+        <div class="ws-item"><span class="fr">parfois / quelquefois</span><span class="nl">soms, af en toe</span></div>
+        <div class="ws-item"><span class="fr">rarement</span><span class="nl">zelden, zelden</span></div>
+        <div class="ws-item"><span class="fr">(ne&hellip;) jamais</span><span class="nl">nooit</span></div>
+        <div class="ws-item"><span class="fr">tous les jours</span><span class="nl">elke dag</span></div>
+        <div class="ws-item"><span class="fr">toutes les semaines</span><span class="nl">elke week</span></div>
+        <div class="ws-item"><span class="fr">de temps en temps</span><span class="nl">van tijd tot tijd</span></div>
+      </div>
+
+      <span class="ws-sub-label">Positie in de zin</span>
+      <p style="font-size:0.95rem;color:var(--text-mid);margin:0.4rem 0 0.6rem;">Het frequentiebijwoord staat <strong>na het vervoegde werkwoord</strong>:</p>
+      <div class="gram-example">
+        <span class="fr-ex">Je me lève <u>toujours</u> &agrave; sept heures.</span> <span class="nl-ex">&mdash; Ik sta altijd om zeven uur op.</span><br>
+        <span class="fr-ex">Elle fait <u>souvent</u> du sport le soir.</span> <span class="nl-ex">&mdash; Ze sport vaak 's avonds.</span><br>
+        <span class="fr-ex">Nous prenons <u>parfois</u> le train.</span> <span class="nl-ex">&mdash; We nemen soms de trein.</span><br>
+        <span class="fr-ex">Il ne mange <u>jamais</u> &agrave; la cantine.</span> <span class="nl-ex">&mdash; Hij eet nooit in de kantine.</span>
+      </div>
+    </div>
+
+    <div class="nota">
+      <strong>Let op:</strong> <em>jamais</em> is op zichzelf een bijwoord (= nooit), maar in een ontkenning gebruik je altijd <em>ne&hellip;jamais</em>: <em>Je ne mange <strong>jamais</strong> de soupe.</em> Meer over ontkenning in de volgende sectie.
+    </div>
+
+  </section>
+
+  <!-- ============================================================
+       SECTION 5 — LA NÉGATION
+  ============================================================ -->
+  <section class="section-block" id="negation">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">La n&eacute;gation</h2>
+    </div>
+
+    <p>In het Frans omring je het vervoegde werkwoord met <strong>twee woorden</strong> om een zin negatief te maken. Het eerste woord is bijna altijd <em>ne</em> (of <em>n'</em> v&oacute;&oacute;r een klinker of stomme h), het tweede woord geeft de aard van de ontkenning aan.</p>
+
+    <div class="grammatica-kader">
+      <span class="gram-label">Grammatica</span>
+      <span class="gram-title">De ontkenning &mdash; la n&eacute;gation</span>
+
+      <div class="gram-body">
+        <table class="conj-table">
+          <thead>
+            <tr>
+              <th>Ontkenning</th>
+              <th>Betekenis</th>
+              <th>Voorbeeldzin</th>
+              <th>Vertaling</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><em>ne&hellip;pas</em></td>
+              <td>niet</td>
+              <td><em>Je ne me lève pas t&ocirc;t.</em></td>
+              <td>Ik sta niet vroeg op.</td>
+            </tr>
+            <tr>
+              <td><em>ne&hellip;jamais</em></td>
+              <td>nooit</td>
+              <td><em>Il ne fait jamais ses devoirs.</em></td>
+              <td>Hij maakt nooit zijn huiswerk.</td>
+            </tr>
+            <tr>
+              <td><em>ne&hellip;plus</em></td>
+              <td>niet meer</td>
+              <td><em>Elle ne prend plus le bus.</em></td>
+              <td>Ze neemt de bus niet meer.</td>
+            </tr>
+            <tr>
+              <td><em>ne&hellip;rien</em></td>
+              <td>niets</td>
+              <td><em>Je ne mange rien le matin.</em></td>
+              <td>Ik eet niets 's ochtends.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p><strong>Schema:</strong></p>
+        <div class="gram-pattern">onderwerp + ne (n') + werkwoord + pas / jamais / plus / rien + rest van de zin</div>
+
+        <p><strong>Elisie van <em>ne</em>:</strong> v&oacute;&oacute;r een klinker of stomme <em>h</em> wordt <em>ne</em> tot <em>n'</em>:</p>
+        <div class="gram-example">
+          <span class="fr-ex">Je n'aime pas me lever t&ocirc;t.</span> <span class="nl-ex">&mdash; Ik houd er niet van vroeg op te staan.</span><br>
+          <span class="fr-ex">Elle n'habite plus ici.</span> <span class="nl-ex">&mdash; Ze woont hier niet meer.</span>
+        </div>
+
+        <p style="margin-top:0.9rem;"><strong>Reflexieve werkwoorden + ontkenning:</strong> de ontkenning staat rondom het reflexieve voornaamwoord + werkwoord als geheel:</p>
+        <div class="gram-pattern">je <strong>ne</strong> me lève <strong>pas</strong> &nbsp;&mdash;&nbsp; tu <strong>ne</strong> te couches <strong>jamais</strong> &nbsp;&mdash;&nbsp; il <strong>ne</strong> s'habille <strong>plus</strong></div>
+
+        <p style="margin-top:0.9rem;"><strong>Gesproken Frans:</strong> in informele, gesproken taal laat men het <em>ne</em> heel vaak weg. Je zult dus horen: <em>Je sais pas, C'est pas vrai, Il fait jamais ses devoirs.</em> In schrijftaal en op school gebruik je altijd het volledige <em>ne&hellip;</em></p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ============================================================
+       SECTION 6 — TEKST: LA JOURNÉE DE THOMAS
+  ============================================================ -->
+  <section class="section-block" id="tekst">
+    <div class="section-heading">
+      <span class="section-num">6</span>
+      <h2 class="section-title">Tekst: La journ&eacute;e de Thomas</h2>
+    </div>
+
+    <p>Lees de tekst aandachtig. Let op de reflexieve werkwoorden, de onregelmatige werkwoorden en de tijdsuitdrukkingen. Beantwoord daarna de begripsvragen.</p>
+
+    <div class="tekst-fragment">
+      <span class="tf-label">Tekst &mdash; Frans 1A</span>
+      <span class="tf-title">La journ&eacute;e de Thomas</span>
+      <div class="tf-body">
+        <p>Thomas habite &agrave; Li&egrave;ge, en Belgique. Il a treize ans et il va au coll&egrave;ge Saint-Laurent. Voici sa journ&eacute;e typique.</p>
+        <p>Le matin, Thomas se r&eacute;veille &agrave; six heures et demie. Il ne se l&egrave;ve pas tout de suite &mdash; il reste cinq minutes dans son lit. Ensuite, il se lève et il va dans la salle de bains. Il se douche rapidement et il se brosse les dents. Puis il s'habille : il met son pantalon noir et son pull bleu.</p>
+        <p>Apr&egrave;s, Thomas prend le petit-d&eacute;jeuner avec sa famille. Il mange des tartines avec du beurre et il boit un grand verre de jus d'orange. Son p&egrave;re prend toujours un caf&eacute;, mais Thomas ne boit jamais de caf&eacute; &mdash; il trouve &ccedil;a trop amer.</p>
+        <p>&Agrave; sept heures vingt, il part de chez lui. Il va &agrave; l'&eacute;cole en bus avec son ami Mehdi. Le trajet dure environ vingt minutes. Ils parlent souvent de football pendant le trajet.</p>
+        <p>L'apr&egrave;s-midi, Thomas rentre chez lui &agrave; seize heures. Il fait d'abord ses devoirs pendant une heure. Il ne regarde pas la t&eacute;l&eacute; avant de finir ses devoirs &mdash; sa m&egrave;re ne l'accepte pas. Ensuite il d&icirc;ne avec sa famille. Le soir, il se couche g&eacute;n&eacute;ralement &agrave; vingt-deux heures. Il s'endort vite parce qu'il est toujours fatigu&eacute; apr&egrave;s sa longue journ&eacute;e.</p>
+      </div>
+      <div class="tf-vragen">
+        <span class="tf-vragen-label">Begripsvragen &mdash; Questions de compr&eacute;hension</span>
+        <ol>
+          <li>Om hoe laat wordt Thomas wakker? Staat hij onmiddellijk op?</li>
+          <li>Wat doet Thomas in de badkamer (noem twee handelingen)?</li>
+          <li>Wat eet en drinkt Thomas bij het ontbijt?</li>
+          <li>Hoe gaat Thomas naar school? Met wie?</li>
+          <li>Waarom kijkt Thomas geen tv v&oacute;&oacute;r het avondeten?</li>
+          <li>Zoek in de tekst twee zinnen met een reflexief werkwoord in de ontkenning. Schrijf ze over.</li>
+          <li>Zoek drie frequentiebijwoorden in de tekst en schrijf ze op met hun betekenis.</li>
+        </ol>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ============================================================
+       SECTION 7 — GESPREK
+  ============================================================ -->
+  <section class="section-block" id="gesprek">
+    <div class="section-heading">
+      <span class="section-num">7</span>
+      <h2 class="section-title">Gesprek: Et toi, qu&rsquo;est-ce que tu fais le matin&nbsp;?</h2>
+    </div>
+
+    <p>Lees het gesprek hardop met een klasgenoot. Let op hoe de leerlingen over hun ochtend praten met reflexieve werkwoorden en frequentiebijwoorden.</p>
+
+    <div class="gesprek">
+      <span class="gesp-label">Gesprek &mdash; dialogue</span>
+      <span class="gesp-title">Et toi, qu&rsquo;est-ce que tu fais le matin&nbsp;?</span>
+
+      <div class="beurt">
+        <span class="spreker">Inaya</span>
+        <span class="zin">Thomas, tu te lèves &agrave; quelle heure le matin&nbsp;?</span>
+      </div>
+      <div class="beurt">
+        <span class="spreker">Thomas</span>
+        <span class="zin">Je me l&egrave;ve &agrave; six heures et demie. Et toi&nbsp;?</span>
+      </div>
+      <div class="beurt">
+        <span class="spreker">Inaya</span>
+        <span class="zin">Moi, je me l&egrave;ve toujours &agrave; sept heures moins le quart. Je ne me lève jamais avant sept heures, c'est impossible&nbsp;!</span>
+      </div>
+      <div class="beurt">
+        <span class="spreker">Thomas</span>
+        <span class="zin">Tu te douches le matin aussi&nbsp;?</span>
+      </div>
+      <div class="beurt">
+        <span class="spreker">Inaya</span>
+        <span class="zin">Non, moi je me douche le soir. Le matin je me lave juste la figure et je m'habille vite. Je n'ai pas le temps&nbsp;!</span>
+      </div>
+      <div class="beurt">
+        <span class="spreker">Thomas</span>
+        <span class="zin">Tu prends le petit-d&eacute;jeuner&nbsp;?</span>
+      </div>
+      <div class="beurt">
+        <span class="spreker">Inaya</span>
+        <span class="zin">Oui, toujours. Je mange souvent des c&eacute;r&eacute;ales avec du lait. Parfois je prends aussi une banane. Et toi&nbsp;?</span>
+      </div>
+      <div class="beurt">
+        <span class="spreker">Thomas</span>
+        <span class="zin">Je prends des tartines. Je bois toujours du jus d'orange mais je ne bois jamais de caf&eacute;.</span>
+      </div>
+      <div class="beurt">
+        <span class="spreker">Inaya</span>
+        <span class="zin">Moi non plus&nbsp;! Comment tu viens &agrave; l'&eacute;cole&nbsp;?</span>
+      </div>
+      <div class="beurt">
+        <span class="spreker">Thomas</span>
+        <span class="zin">Je prends le bus avec Mehdi. Et toi&nbsp;?</span>
+      </div>
+      <div class="beurt">
+        <span class="spreker">Inaya</span>
+        <span class="zin">Je viens souvent &agrave; v&eacute;lo quand il fait beau. Mais quand il pleut, ma m&egrave;re me conduit en voiture.</span>
+      </div>
+      <div class="beurt">
+        <span class="spreker">Thomas</span>
+        <span class="zin">Super&nbsp;! Tu as de la chance. Moi, le bus c'est toujours le bus, m&ecirc;me sous la pluie&nbsp;!</span>
+      </div>
+
+      <p class="gesp-noot">Let op: <em>Moi non plus</em> = ik ook niet (bevestiging van een negatieve zin). &mdash; <em>Moi aussi</em> = ik ook (bevestiging van een positieve zin).</p>
+    </div>
+
+  </section>
+
+  <!-- ============================================================
+       SECTION 8 — LES TRANSPORTS SCOLAIRES
+  ============================================================ -->
+  <section class="section-block" id="transports">
+    <div class="section-heading">
+      <span class="section-num">8</span>
+      <h2 class="section-title">Les transports scolaires</h2>
+    </div>
+
+    <p>Hoe kom jij naar school? In het Frans gebruik je het voorzetsel <strong><em>&agrave;</em></strong> voor verplaatsingen te voet of per fiets, en <strong><em>en</em></strong> voor vervoermiddelen met een motor. Eén uitzondering: <em>en taxi</em> maar <em>&agrave; v&eacute;lo</em>.</p>
+
+    <div class="woordenschat-kader">
+      <span class="ws-label">Woordenschat</span>
+      <span class="ws-title">Les transports pour aller &agrave; l&rsquo;&eacute;cole &mdash; vervoer naar school</span>
+
+      <div class="ws-grid">
+        <div class="ws-item"><span class="fr">&agrave; pied</span><span class="nl">te voet</span></div>
+        <div class="ws-item"><span class="fr">&agrave; v&eacute;lo</span><span class="nl">met de fiets</span></div>
+        <div class="ws-item"><span class="fr">en bus</span><span class="nl">met de bus</span></div>
+        <div class="ws-item"><span class="fr">en voiture</span><span class="nl">met de auto</span></div>
+        <div class="ws-item"><span class="fr">en train</span><span class="nl">met de trein</span></div>
+        <div class="ws-item"><span class="fr">en m&eacute;tro</span><span class="nl">met de metro</span></div>
+        <div class="ws-item"><span class="fr">en tram</span><span class="nl">met de tram</span></div>
+        <div class="ws-item"><span class="fr">en taxi</span><span class="nl">met de taxi</span></div>
+      </div>
+
+      <span class="ws-sub-label">Zinnen met vervoer</span>
+      <div class="gram-example" style="margin-top:0.4rem;">
+        <span class="fr-ex">Je vais &agrave; l'&eacute;cole &agrave; pied.</span> <span class="nl-ex">&mdash; Ik ga te voet naar school.</span><br>
+        <span class="fr-ex">Elle prend le bus tous les matins.</span> <span class="nl-ex">&mdash; Ze neemt elke ochtend de bus.</span><br>
+        <span class="fr-ex">Nous venons &agrave; l'&eacute;cole en voiture.</span> <span class="nl-ex">&mdash; Wij komen met de auto naar school.</span><br>
+        <span class="fr-ex">Il ne prend jamais le train.</span> <span class="nl-ex">&mdash; Hij neemt nooit de trein.</span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- CLOSING QUOTE -->
+  <div class="closing-quote" role="note" aria-label="Slotcitaat">
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p class="cq-text"><em>La routine n&rsquo;est pas l&rsquo;ennemi de la libert&eacute; &mdash; c&rsquo;est ce qui nous lib&egrave;re pour les choses importantes.</em></p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <span class="cq-attribution">Frans 1A &nbsp;&middot;&nbsp; H4 &mdash; Au quotidien</span>
+  </div>
+
+</div><!-- end page-wrapper -->
+
+<!-- ============================================================
+     OEFENINGEN
+============================================================ -->
+<section class="exercises-section" id="oefeningen">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <!-- Oefening 1 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Vervoeg de reflexieve werkwoorden</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Vul het juiste reflexieve voornaamwoord in en vervoeg het werkwoord.</p>
+      <ol>
+        <li>Le matin, je ________ (se lever) &agrave; sept heures.</li>
+        <li>Ma s&oelig;ur ________ (se doucher) toujours avant moi.</li>
+        <li>Nous ________ (se brosser) les dents apr&egrave;s le repas.</li>
+        <li>Vous ________ (s'habiller) vite le matin&nbsp;?</li>
+        <li>Mes fr&egrave;res ________ (se coucher) tard le vendredi.</li>
+        <li>Est-ce que tu ________ (se r&eacute;veiller) facilement&nbsp;?</li>
+      </ol>
+      <p class="ex-tip">Tip: pas de elisie toe wanneer het werkwoord begint met een klinker of stomme h: <em>je m'habille, il s'endort</em>.</p>
+    </div>
+
+    <!-- Oefening 2 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Frequentiebijwoorden invullen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Kies het juiste frequentiebijwoord (<em>toujours, souvent, parfois, rarement, jamais</em>) op basis van het percentage.</p>
+      <ol>
+        <li>Thomas prend le bus &agrave; l'&eacute;cole (100%)&nbsp;: il prend ________ le bus.</li>
+        <li>Inaya mange de la soupe (5%)&nbsp;: elle mange ________ de la soupe.</li>
+        <li>Mon p&egrave;re boit du caf&eacute; (0%)&nbsp;: il ne boit ________ de caf&eacute;.</li>
+        <li>Je fais du sport (4 jours sur 7)&nbsp;: je fais ________ du sport.</li>
+        <li>Ma m&egrave;re lit le journal (2 jours sur 7)&nbsp;: elle lit ________ le journal.</li>
+      </ol>
+    </div>
+
+    <!-- Oefening 3 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Zinnen in de ontkenning zetten</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Maak de zinnen negatief met de ontkenning tussen haakjes.</p>
+      <ol>
+        <li>Je mange le matin. (ne&hellip;pas)</li>
+        <li>Elle se lève t&ocirc;t. (ne&hellip;jamais)</li>
+        <li>Ils prennent le train. (ne&hellip;plus)</li>
+        <li>Tu fais tes devoirs. (ne&hellip;rien)</li>
+        <li>Nous allons &agrave; la cantine. (ne&hellip;jamais)</li>
+        <li>Il s'habille vite. (ne&hellip;pas)</li>
+      </ol>
+      <p class="ex-tip">Tip: bij reflexieve werkwoorden staat de ontkenning rondom het geheel van reflexief voornaamwoord + werkwoord.</p>
+    </div>
+
+    <!-- Oefening 4 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 4</p>
+      <p class="ex-name">Dagactiviteiten in de juiste volgorde</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Zet de volgende activiteiten in een logische chronologische volgorde voor een schooldag. Schrijf ook de bijbehorende tijdsuitdrukking (<em>d'abord, ensuite, puis, enfin</em>) erbij.</p>
+      <ol type="a">
+        <li>se coucher</li>
+        <li>prendre le petit-d&eacute;jeuner</li>
+        <li>se r&eacute;veiller</li>
+        <li>faire les devoirs</li>
+        <li>aller &agrave; l'&eacute;cole</li>
+        <li>se lever</li>
+        <li>d&icirc;ner</li>
+        <li>rentrer chez soi</li>
+        <li>s'habiller</li>
+        <li>d&eacute;jeuner</li>
+      </ol>
+      <p class="ex-tip">Schrijf de volgorde op als volledige zinnen met <em>je</em> als onderwerp, bv. <em>D'abord, je me r&eacute;veille&hellip;</em></p>
+    </div>
+
+    <!-- Oefening 5 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 5</p>
+      <p class="ex-name">Begripsvragen bij de tekst</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Beantwoord de volgende vragen over &laquo;&nbsp;La journ&eacute;e de Thomas&nbsp;&raquo; in volledige Franse zinnen.</p>
+      <ol>
+        <li>O&ugrave; habite Thomas et quel &acirc;ge a-t-il&nbsp;?</li>
+        <li>&Agrave; quelle heure est-ce qu'il part de chez lui&nbsp;?</li>
+        <li>Comment va-t-il &agrave; l'&eacute;cole et avec qui&nbsp;?</li>
+        <li>Pourquoi Thomas ne boit-il jamais de caf&eacute;&nbsp;?</li>
+        <li>Qu'est-ce qu'il fait avant de regarder la t&eacute;l&eacute;&nbsp;?</li>
+        <li>&Agrave; quelle heure se couche-t-il&nbsp;?</li>
+      </ol>
+    </div>
+
+    <!-- Oefening 6 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 6</p>
+      <p class="ex-name">Beschrijf je eigen dagelijkse routine</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Schrijf een tekst van 8 tot 10 zinnen over jouw typische schooldag. Gebruik:</p>
+      <ul>
+        <li>minstens <strong>vijf reflexieve werkwoorden</strong> in de goede vorm</li>
+        <li>minstens <strong>drie tijdsuitdrukkingen</strong> (<em>d'abord, ensuite, puis, enfin</em>)</li>
+        <li>minstens <strong>twee frequentiebijwoorden</strong></li>
+        <li>&eacute;&eacute;n <strong>negatieve zin</strong> (ne&hellip;pas, ne&hellip;jamais, ne&hellip;plus of ne&hellip;rien)</li>
+        <li>het vervoer dat je gebruikt om naar school te gaan</li>
+      </ul>
+      <p class="ex-tip">Begin zo: <em>Le matin, je me r&eacute;veille &agrave; [uur]&hellip;</em> Je mag ook het model van Thomas volgen als inspiratie.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SAMENVATTING
+============================================================ -->
+<section class="summary-section" id="samenvatting">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting &mdash; Ce que tu as appris</h2>
+    <ul>
+      <li><strong>Dagelijkse routine:</strong> je kent de reflexieve werkwoorden voor de dagelijkse handelingen (<em>se r&eacute;veiller, se lever, se laver, s'habiller, se coucher</em>&hellip;) en de tijdsuitdrukkingen (<em>d'abord, ensuite, puis, enfin</em>).</li>
+      <li><strong>Reflexieve werkwoorden:</strong> je vervoegt <em>se lever</em> correct in alle personen. Het reflexieve voornaamwoord (<em>me, te, se, nous, vous, se</em>) past zich aan het onderwerp aan en staat v&oacute;&oacute;r het werkwoord. V&oacute;&oacute;r een klinker of stomme h: elisie (<em>m', t', s'</em>).</li>
+      <li><strong>Onregelmatige werkwoorden:</strong> je kent de volledige vervoeging van <em>aller, faire, prendre</em> en <em>venir</em> uit het hoofd &mdash; dit zijn verplichte basisvormen.</li>
+      <li><strong>Frequentie:</strong> je gebruikt <em>toujours, souvent, parfois, rarement</em> en <em>(ne&hellip;) jamais</em> correct. Frequentiebijwoorden staan na het vervoegde werkwoord.</li>
+      <li><strong>Ontkenning:</strong> je maakt zinnen negatief met <em>ne&hellip;pas, ne&hellip;jamais, ne&hellip;plus</em> en <em>ne&hellip;rien</em>. De twee ontkenningswoorden omringen het vervoegde werkwoord. V&oacute;&oacute;r klinker: <em>n'</em>. In gesproken Frans valt <em>ne</em> vaak weg, maar schrijftaal vereist altijd het volledige patroon.</li>
+      <li><strong>Vervoer naar school:</strong> je gebruikt <em>&agrave; pied, &agrave; v&eacute;lo, en bus, en voiture, en train, en m&eacute;tro</em> correct in combinatie met <em>aller, prendre</em> en <em>venir</em>.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

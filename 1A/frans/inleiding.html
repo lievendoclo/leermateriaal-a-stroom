@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inleiding — Bienvenue ! Waarom leer je Frans? | Frans 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+    text-decoration: none;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     ILLUSTRATIE PLACEHOLDERS
+  ============================================================ */
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+    cursor: default;
+    transition: background var(--transition);
+  }
+
+  .illustratie:hover { background: #EDE7D8; }
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     HIGHLIGHTED PARAGRAPH / TIP
+  ============================================================ */
+  .highlighted-para {
+    background: rgba(212,160,23,0.08);
+    border-left: 3px solid var(--gold);
+    padding: 0.8rem 1.1rem;
+    border-radius: 0 4px 4px 0;
+    margin: 1.2rem 0;
+    font-size: 0.97rem;
+    color: var(--text-mid);
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '&#10003;';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     CLOSING QUOTE
+  ============================================================ */
+  .closing-quote {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0D1E38 100%);
+    border-radius: var(--border-radius);
+    padding: 3rem 3rem 2.5rem;
+    margin: 3.5rem 0 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.5rem; left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .closing-quote .cq-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--gold);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 1.2rem;
+  }
+
+  .closing-quote .cq-attribution {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(212,160,23,0.6);
+  }
+
+  .closing-quote .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .closing-quote .ornament-line::before,
+  .closing-quote .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.4), transparent);
+  }
+
+  .closing-quote .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.7;
+  }
+
+  /* ============================================================
+     PROSE TEXT
+  ============================================================ */
+  .prose-text { max-width: 100%; }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .closing-quote { padding: 2rem 1.2rem 1.8rem; }
+    .tekst-fragment,
+    .gesprek,
+    .grammatica-kader,
+    .woordenschat-kader { padding: 1.2rem 1rem; }
+    .gesprek-lijn { flex-direction: column; gap: 0.2rem; }
+    .woordenschat-kader .wk-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     FRANS-SPECIFIC COMPONENTS
+  ============================================================ */
+
+  /* ── TEKST-FRAGMENT (reading/listening text) ─────────── */
+  .tekst-fragment {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--terracotta);
+    border-radius: var(--border-radius);
+    padding: 2rem 2.2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .tekst-fragment .tf-label { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--terracotta); display:block; margin-bottom:0.3rem; }
+  .tekst-fragment .tf-title { font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:700; color:var(--darkblue); display:block; }
+  .tekst-fragment .tf-meta { font-size:0.82rem; color:var(--text-light); font-style:italic; display:block; margin-bottom:0.9rem; }
+  .tekst-fragment .tf-body { font-size:0.97rem; color:var(--text-mid); line-height:1.8; }
+  .tekst-fragment .tf-body p { margin-bottom:0.6rem; }
+  .tekst-fragment .tf-vraag { background:rgba(193,68,14,0.06); border-left:3px solid var(--terracotta); border-radius:0 4px 4px 0; padding:0.7rem 1rem; font-style:italic; margin-top:1rem; }
+  .tekst-fragment .tf-vraag::before { content:'&#128172; '; font-style:normal; }
+  .tekst-fragment .tf-source { font-size:0.78rem; color:var(--text-light); border-top:1px solid var(--sand); padding-top:0.6rem; font-style:italic; display:block; margin-top:1rem; }
+
+  /* ── GESPREK (dialogue) ───────────────────────────────── */
+  .gesprek {
+    background: var(--sand-light);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.8rem;
+    margin: 2rem 0;
+    border: 1px solid var(--sand);
+  }
+  .gesprek .gesprek-label { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--oker); display:block; margin-bottom:1rem; }
+  .gesprek-lijn { display:flex; gap:0.75rem; align-items:flex-start; margin-bottom:0.6rem; }
+  .gesprek-spreker { font-weight:700; font-size:0.82rem; color:var(--darkblue); min-width:3.5rem; padding-top:0.1rem; flex-shrink:0; }
+  .gesprek-tekst { font-size:0.97rem; color:var(--text-dark); line-height:1.6; }
+  .gesprek-tekst em { color:var(--terracotta); font-style:normal; font-weight:600; }
+
+  /* ── GRAMMATICA-KADER ─────────────────────────────────── */
+  .grammatica-kader {
+    background: #EEF3FF;
+    border-left: 4px solid var(--darkblue);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1.2rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .grammatica-kader .gk-label { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--darkblue); opacity:0.7; display:block; margin-bottom:0.5rem; }
+  .grammatica-kader .gk-titel { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:700; color:var(--darkblue); margin-bottom:0.6rem; }
+  .grammatica-kader .gk-body { font-size:0.95rem; color:var(--text-dark); }
+  .grammatica-kader .gk-body table { width:100%; border-collapse:collapse; font-size:0.9rem; margin-top:0.5rem; }
+  .grammatica-kader .gk-body th { background:var(--darkblue); color:white; padding:0.35rem 0.75rem; text-align:left; font-size:0.82rem; }
+  .grammatica-kader .gk-body td { padding:0.3rem 0.75rem; border-bottom:1px solid rgba(26,43,74,0.1); }
+  .grammatica-kader .gk-body tr:last-child td { border-bottom:none; }
+
+  /* ── WOORDENSCHAT-KADER ───────────────────────────────── */
+  .woordenschat-kader {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--oker);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.8rem;
+    margin: 1.5rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .woordenschat-kader .wk-label { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--oker); display:block; margin-bottom:0.75rem; }
+  .woordenschat-kader .wk-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:0.4rem 1.5rem; }
+  .woordenschat-kader .wk-item { font-size:0.95rem; padding:0.25rem 0; border-bottom:1px solid var(--sand-light); }
+  .woordenschat-kader .wk-item .fr { font-weight:600; color:var(--darkblue); }
+  .woordenschat-kader .wk-item .nl { color:var(--text-light); font-size:0.88rem; }
+
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <span class="label">Frans 1A</span>
+  <span class="label label-right">Inleiding</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Frans &nbsp;&middot;&nbsp; 1A &nbsp;&middot;&nbsp; Eerste graad</div>
+  <h1>Inleiding<br>Bienvenue ! Waarom leer je Frans?</h1>
+  <p class="subtitle">Frans opent deuren &mdash; in Brussel, Parijs, en over de hele wereld</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- PROLOGUE -->
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Stel je voor &hellip;</span>
+
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+
+    <p>Je staat op het perron van het Centraal Station in Brussel. Het is vroeg, het is druk, en net naast je staat een man met een koffer die je aanspreekt. Hij spreekt geen Nederlands. Hij spreekt Frans. <em>&laquo;&thinsp;Excusez-moi, o&ugrave; est le m&eacute;tro ?&thinsp;&raquo;</em> Je weet niet precies wat je moet antwoorden &mdash; maar je herkent het woord <em>m&eacute;tro</em>. Je wijst. Hij glimlacht. <em>&laquo;&thinsp;Merci !&thinsp;&raquo;</em></p>
+
+    <p>Dat kleine moment &mdash; dat ge&euml;ffen &mdash; is taal. Niet perfect, niet vloeiend, maar werkzaam. Verbindend. En precies dat is wat je dit jaar leert: niet alle woordjes van het Frans uit je hoofd stampen, maar de taal <em>gebruiken</em> in situaties die er toe doen.</p>
+
+    <p>Brussel is tweetalig. Belgi&euml; heeft vier taalgebieden. En buiten onze grenzen spreken meer dan 300 miljoen mensen Frans als eerste of tweede taal. Wie Frans leert, heeft een sleutel in handen.</p>
+
+    <p><strong style="color: var(--gold);">Dit boek is die sleutel.</strong></p>
+
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+  </section>
+
+  <!-- SECTION 1: Waarom Frans? -->
+  <section class="section-block" id="s1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Waarom Frans?</h2>
+    </div>
+
+    <div class="prose-text">
+      <h3 class="sub-heading">Frans in Belgi&euml;</h3>
+
+      <p>Belgi&euml; is een land met drie offici&euml;le talen: <strong>Nederlands</strong>, <strong>Frans</strong> en <strong>Duits</strong>. De Franstalige gemeenschap &mdash; de F&eacute;d&eacute;ration Wallonie-Bruxelles &mdash; omvat het hele Waalse Gewest en het overwegend Franstalige Brussels Hoofdstedelijk Gewest. Meer dan 40% van de Belgen spreekt Frans als moedertaal. Brussel, de hoofdstad van ons land &eacute;n van de Europese Unie, functioneert dagelijks in beide landstalen.</p>
+
+      <p>Dat heeft concrete gevolgen voor jou. Als je later werkt in een Belgisch bedrijf met vestigingen in Brussel of Walloni&euml;, vergadert je mogelijk in het Frans. Als je solliciteert voor een overheidsfunctie, is kennis van de andere landstaal vaak een vereiste. Als je klanten bedient in een toeristische sector, zal een groot deel van hen Frans spreken.</p>
+
+      <div class="begrip">
+        <span class="begrip-icon">&#127467;&#127479;</span>
+        <div class="begrip-body">
+          <span class="begrip-term">Begrip</span>
+          <span class="begrip-name">Franstalig Belgi&euml;</span>
+          <p class="begrip-def">De Franstalige gemeenschap van Belgi&euml; omvat het Waalse Gewest (uitgezonderd de Duitstalige gemeenschap) en het Brussels Hoofdstedelijk Gewest. Samen tellen ze ongeveer 4,5 miljoen inwoners. Steden als Li&egrave;ge, Charleroi, Namen en Luik zijn belangrijke Waalse centra.</p>
+        </div>
+      </div>
+
+      <h3 class="sub-heading">Frans als wereldtaal</h3>
+
+      <p>Frans is een van de zes offici&euml;le talen van de Verenigde Naties. Het wordt gesproken als offici&euml;le taal in 29 landen, op vijf continenten: van Canada tot Senegal, van Marokko tot Haïti, van Zwitserland tot de Republiek Congo. De totale Frankofone gemeenschap &mdash; de <em>Francophonie</em> &mdash; telt meer dan 300 miljoen sprekers.</p>
+
+      <p>In de diplomatie heeft Frans een lange traditie als lingua franca. In internationale organisaties zoals de NAVO, het Internationaal Rode Kruis en de Europese Commissie speelt het Frans nog steeds een prominente rol naast het Engels. Wie Frans spreekt, kan communiceren in een netwerk dat de hele wereld bestrijkt.</p>
+
+      <h3 class="sub-heading">Frans in de beroepswereld</h3>
+
+      <p>In heel wat sectoren is Frans een concreet voordeel op de arbeidsmarkt. Denk aan: de <strong>zorgsector</strong> (contact met Franstalige pati&euml;nten), <strong>toerisme en horeca</strong> (gasten bedienen), <strong>handel en logistiek</strong> (leveranciers en klanten in Walloni&euml; en Noord-Frankrijk), <strong>overheid en Europa</strong> (ambtenaren, beleidsmedewerkers, tolken), <strong>mode, koken en cultuur</strong> (internationaal befaamd Franstalig erfgoed).</p>
+
+      <p>Onderzoek van de Vlaamse overheid toont keer op keer aan dat tweetaligheid &mdash; Nederlands en Frans &mdash; het arbeidsmarktprofiel van Vlaamse jongeren aanzienlijk versterkt. Wie Frans kent, wordt niet alleen breder inzetbaar, maar verdient statistisch ook meer.</p>
+
+      <h3 class="sub-heading">Frans als toegang tot cultuur</h3>
+
+      <p>Frans is de taal van Victor Hugo, Simone de Beauvoir, Albert Camus en Aim&eacute; C&eacute;saire. Van de impressionistische schilders en de nouvelle vague in de cinema. Van Astrid en Kuifje, want Georges R&eacute;mi &mdash; Herg&eacute; &mdash; schreef zijn avonturen in het Frans. Van Jacques Brel, Stromae en Angèle, die Belgische muziek tot wereldfaam brachten. Wie Frans leert, leert niet alleen een taal &mdash; je opent een venster op een rijke culturele wereld.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Heb jij al eens Frans gebruikt buiten de klas? Op vakantie, in een winkel, in een lied? Hoe voelde dat? Wat werkte, wat werkte niet? Bespreek kort met je buurman of buurvrouw.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 2: Het ERK: wat betekent A2? -->
+  <section class="section-block" id="s2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Het ERK: wat betekent A2?</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>In Europa wordt taalvaardigheid gemeten via het <strong>Europees Referentiekader voor Talen</strong> (ERK), in het Frans <em>CECRL</em> &mdash; <em>Cadre europ&eacute;en commun de r&eacute;f&eacute;rence pour les langues</em>. Dit kader verdeelt taalkennis in zes niveaus.</p>
+    </div>
+
+    <div class="grammatica-kader">
+      <span class="gk-label">Kader &mdash; ERK-niveaus</span>
+      <p class="gk-titel">De zes niveaus van het Europees Referentiekader</p>
+      <div class="gk-body">
+        <table>
+          <tr>
+            <th>Niveau</th>
+            <th>Naam</th>
+            <th>Omschrijving</th>
+          </tr>
+          <tr>
+            <td><strong>A1</strong></td>
+            <td>Doorbraak</td>
+            <td>Eenvoudigste basistaal: jezelf voorstellen, getallen, kleuren</td>
+          </tr>
+          <tr>
+            <td><strong>A2</strong></td>
+            <td>Overleving</td>
+            <td>Alledaagse situaties, eenvoudige gesprekken, basisinformatie geven</td>
+          </tr>
+          <tr>
+            <td><strong>B1</strong></td>
+            <td>Drempel</td>
+            <td>Zelfstandig communiceren over vertrouwde onderwerpen</td>
+          </tr>
+          <tr>
+            <td><strong>B2</strong></td>
+            <td>Vantage</td>
+            <td>Vlotte communicatie met moedertaalsprekers, eigen standpunten</td>
+          </tr>
+          <tr>
+            <td><strong>C1</strong></td>
+            <td>Effectieve vaardigheid</td>
+            <td>Hoog niveau, nuances begrijpen, complexe teksten produceren</td>
+          </tr>
+          <tr>
+            <td><strong>C2</strong></td>
+            <td>Meesterschap</td>
+            <td>Nagenoeg moedertaalniveau</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <h3 class="sub-heading">Wat kan je op A2?</h3>
+
+      <p>Niveau A2 heet ook het <strong>overlevingsniveau</strong>. Op dit niveau kun je jezelf redden in alledaagse situaties: jezelf voorstellen, informatie vragen en geven, boodschappen doen, de weg vragen, een afspraak maken. Je begrijpt eenvoudige teksten over bekende onderwerpen en korte, duidelijk uitgesproken boodschappen.</p>
+
+      <p>Concreet betekent A2 dat je:</p>
+      <ul style="padding-left:1.4rem; margin: 0.5rem 0 1rem;">
+        <li style="margin-bottom:0.4rem">eenvoudige <strong>gesprekken</strong> kunt voeren over jezelf, je familie, je dagelijks leven en je omgeving;</li>
+        <li style="margin-bottom:0.4rem">korte <strong>teksten</strong> begrijpt over vertrouwde onderwerpen (menukaarten, aankondigingen, eenvoudige briefjes);</li>
+        <li style="margin-bottom:0.4rem">eenvoudige <strong>schriftelijke boodschappen</strong> kunt sturen (een sms, een kort formulier invullen);</li>
+        <li style="margin-bottom:0.4rem">met <strong>luistermateriaal</strong> basisinformatie herkent als de spreker langzaam en duidelijk spreekt.</li>
+      </ul>
+
+      <h3 class="sub-heading">De vijf deelaspecten van taalvaardigheid</h3>
+
+      <p>Op het examen en in je leerproces werk je altijd aan vijf deelaspecten. Het ERK omschrijft ze als volgt:</p>
+    </div>
+
+    <div class="grammatica-kader">
+      <span class="gk-label">Kader &mdash; Taalvaardigheidsdomeinen</span>
+      <p class="gk-titel">De vijf domeinen van A2-Frans</p>
+      <div class="gk-body">
+        <table>
+          <tr>
+            <th>Domein</th>
+            <th>Wat doe je?</th>
+            <th>Voorbeeld op A2</th>
+          </tr>
+          <tr>
+            <td><strong>Lezen</strong></td>
+            <td>Geschreven tekst begrijpen</td>
+            <td>Een menukaart, een sms, een eenvoudige aankondiging lezen</td>
+          </tr>
+          <tr>
+            <td><strong>Luisteren</strong></td>
+            <td>Gesproken taal begrijpen</td>
+            <td>Begrijpen wat iemand over zichzelf vertelt</td>
+          </tr>
+          <tr>
+            <td><strong>Schrijven</strong></td>
+            <td>Teksten produceren</td>
+            <td>Een kort berichtje schrijven, een formulier invullen</td>
+          </tr>
+          <tr>
+            <td><strong>Spreken</strong></td>
+            <td>Monoloog produceren</td>
+            <td>Jezelf voorstellen, je dagelijks leven beschrijven</td>
+          </tr>
+          <tr>
+            <td><strong>Interactie</strong></td>
+            <td>Gesprek voeren</td>
+            <td>Boodschappen doen, de weg vragen, een afspraak maken</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>In dit boek komen alle vijf domeinen aan bod. Elk hoofdstuk bevat teksten om te lezen, gesprekken om te luisteren en na te spelen, schrijfopdrachten en spreekoefeningen. Het is niet genoeg om theorie te kennen &mdash; je moet de taal <em>gebruiken</em> om ze echt te leren.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Kijk naar de vijf domeinen in de tabel. Welk domein lijkt je het makkelijkst om te leren? Welk het moeilijkst? En weet je al waarom?</p>
+    </div>
+  </section>
+
+  <!-- SECTION 3: De vijf domeinen van dit boek -->
+  <section class="section-block" id="s3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">De vijf domeinen van dit boek</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Dit boek is opgebouwd rond vijf grote thematische domeinen. Elk domein omvat drie hoofdstukken en bouwt voort op het vorige. De thema's zijn gekozen omdat ze herkenbaar zijn voor jou als vijftienjarige &mdash; en tegelijk authentiek Frans taalgebruik bevatten.</p>
+    </div>
+
+    <div class="illustratie">
+      <span class="ill-icon">&#128218;</span>
+      <p class="ill-caption">Overzichtschema met vijf gekleurde blokken: Kennismaken (H1&ndash;3), Dagelijks leven (H4&ndash;6), Vrije tijd (H7&ndash;9), De wereld verkennen (H10&ndash;12), Taal en communicatie (H13&ndash;15). Elk blok heeft een klein icoon.</p>
+    </div>
+
+    <div class="prose-text">
+      <h3 class="sub-heading">Domein 1 &mdash; Kennismaken (Hoofdstukken 1&ndash;3)</h3>
+      <p>Je start met het begin: jezelf en anderen voorstellen. Je leert namen en nationaliteiten noemen, vragen stellen over leeftijd, woonplaats en gezin, en eenvoudige gesprekjes voeren op een eerste ontmoeting. Je maakt kennis met de klassen in je school, de mensen in je omgeving en de stad of het dorp waar je woont. Grammaticaal: de tegenwoordige tijd van <em>&ecirc;tre</em> en <em>avoir</em>, lidwoorden, telwoorden tot 100, en de basisvraagwoorden.</p>
+
+      <h3 class="sub-heading">Domein 2 &mdash; Dagelijks leven (Hoofdstukken 4&ndash;6)</h3>
+      <p>Het alledaagse leven staat centraal: de schooldag, maaltijden, winkelen, het huis en de buurt. Je leert over uren en tijdsaanduidingen, je dagelijks schema beschrijven, boodschappen doen en prijzen begrijpen. Grammaticaal: de tegenwoordige tijd van regelmatige werkwoorden op <em>-er</em>, ontkenning met <em>ne&hellip;pas</em>, de <em>articles partitifs</em>, en hoeveelheden uitdrukken.</p>
+
+      <h3 class="sub-heading">Domein 3 &mdash; Vrije tijd (Hoofdstukken 7&ndash;9)</h3>
+      <p>Sport, hobby&rsquo;s, vrijetijdsbesteding en plannen maken. Je leert praten over wat je graag doet, afspraken maken, activiteiten voorstellen en antwoorden op uitnodigingen. Je maakt kennis met de meest bekende muziek-, film- en sporttermen in het Frans. Grammaticaal: werkwoorden op <em>-ir</em> en <em>-re</em>, het gebruik van <em>aimer</em> + infinitief, voorzetsels van plaats en richting, en de nabije toekomst (<em>aller</em> + infinitief).</p>
+
+      <h3 class="sub-heading">Domein 4 &mdash; De wereld verkennen (Hoofdstukken 10&ndash;12)</h3>
+      <p>Je verruimt je blik: reizen, landen en culturen, het weer, toerisme in Franstalig Belgi&euml; en andere Frankofone landen. Je leert vervoermiddelen benoemen, een reis plannen, informatie zoeken en eenvoudige beschrijvingen geven van plaatsen en landschappen. Grammaticaal: het verleden (<em>pass&eacute; compos&eacute;</em> met <em>avoir</em>), adjectiefbuiging, en vraagzinnen met inversie.</p>
+
+      <h3 class="sub-heading">Domein 5 &mdash; Taal en communicatie (Hoofdstukken 13&ndash;15)</h3>
+      <p>In het laatste domein reflecteer je op taal zelf: hoe schrijf je een brief of e-mail in het Frans, hoe zoek je informatie op in Franstalige bronnen, hoe versta je een Franstalig nieuwtje? Je werkt met authentieke korte teksten &mdash; tweets, reclameboodschappen, krantenkoppen &mdash; en je bouwt je schrijfvaardigheid uit. Grammaticaal: herhaling en verdieping van alle aangeleerde structuren.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Welk domein lijkt jou het interessantst? En welk lijkt je het meest nuttig voor later? Zijn dat hetzelfde, of niet?</p>
+    </div>
+  </section>
+
+  <!-- SECTION 4: Hoe gebruik je dit boek? -->
+  <section class="section-block" id="s4">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Hoe gebruik je dit boek?</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Elk hoofdstuk volgt dezelfde opbouw. Zo weet je altijd wat je kunt verwachten en kun je je leerproces goed organiseren. Je zult in dit boek zes terugkerende componenten tegenkomen.</p>
+
+      <h3 class="sub-heading">Tekst-fragment</h3>
+      <p>Een Tekst-fragment is een korte lees- of luistertekst in het Frans. Het bevat altijd een label (wat voor tekst het is), een titel, eventueel een bronvermelding, en een vraag om over na te denken. Zo ziet een Tekst-fragment eruit:</p>
+    </div>
+
+    <div class="tekst-fragment">
+      <span class="tf-label">Tekst-fragment &mdash; Informatieve tekst</span>
+      <span class="tf-title">La Belgique, pays des trois langues</span>
+      <span class="tf-meta">Niveau A2 &nbsp;&middot;&nbsp; Bron: leestekst</span>
+      <div class="tf-body">
+        <p>La Belgique est un petit pays au c&oelig;ur de l&rsquo;Europe. Il y a trois langues officielles : le n&eacute;erlandais, le fran&ccedil;ais et l&rsquo;allemand. La majorit&eacute; des Belges parle n&eacute;erlandais au nord, dans la r&eacute;gion flamande. Au sud, dans la r&eacute;gion wallonne, les gens parlent fran&ccedil;ais. &Agrave; Bruxelles, la capitale, les deux langues sont officielles.</p>
+        <p>Le fran&ccedil;ais est aussi une langue internationale. Plus de trois cents millions de personnes parlent fran&ccedil;ais dans le monde : en France, en Afrique, au Canada et dans beaucoup d&rsquo;autres pays.</p>
+      </div>
+      <p class="tf-vraag">Combien de personnes parlent fran&ccedil;ais dans le monde ? Relisez le texte et trouvez la r&eacute;ponse.</p>
+      <span class="tf-source">Bron: aangepaste leestekst voor A2-leerders (Frans 1A)</span>
+    </div>
+
+    <div class="prose-text">
+      <h3 class="sub-heading">Gesprek</h3>
+      <p>Een Gesprek is een dialoog tussen twee of meer personen. Je leest de dialoog eerst stilletjes, daarna speel je hem na met een klasgenoot. De woorden in het <strong style="color:var(--terracotta);">rood</strong> zijn kernwoorden of uitdrukkingen die je onthoudt. Hieronder zie je een voorbeeld &mdash; het soort gesprek dat je al na de eerste les kunt naspelen:</p>
+    </div>
+
+    <div class="gesprek">
+      <span class="gesprek-label">Gesprek &mdash; Eerste ontmoeting &middot; Niveau A1&ndash;A2</span>
+      <div class="gesprek-lijn">
+        <span class="gesprek-spreker">L&eacute;a&nbsp;:</span>
+        <span class="gesprek-tekst"><em>Bonjour !</em> Je m&rsquo;appelle L&eacute;a. Et toi ?</span>
+      </div>
+      <div class="gesprek-lijn">
+        <span class="gesprek-spreker">Tom&nbsp;:</span>
+        <span class="gesprek-tekst">Salut ! Moi, c&rsquo;est Tom.</span>
+      </div>
+      <div class="gesprek-lijn">
+        <span class="gesprek-spreker">L&eacute;a&nbsp;:</span>
+        <span class="gesprek-tekst">Tu habites <em>o&ugrave;</em> ?</span>
+      </div>
+      <div class="gesprek-lijn">
+        <span class="gesprek-spreker">Tom&nbsp;:</span>
+        <span class="gesprek-tekst">J&rsquo;habite <em>&agrave; Bruxelles</em>. Et toi ?</span>
+      </div>
+      <div class="gesprek-lijn">
+        <span class="gesprek-spreker">L&eacute;a&nbsp;:</span>
+        <span class="gesprek-tekst">Moi, j&rsquo;habite <em>&agrave; Li&egrave;ge</em>. C&rsquo;est loin !</span>
+      </div>
+      <div class="gesprek-lijn">
+        <span class="gesprek-spreker">Tom&nbsp;:</span>
+        <span class="gesprek-tekst">Oui, mais c&rsquo;est une belle ville !</span>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <h3 class="sub-heading">Grammatica-kader</h3>
+      <p>Een Grammatica-kader legt een grammaticaregel uit, altijd met een tabel of voorbeeldzinnen. Het is blauw van kleur zodat je het snel terugvindt. De regels zijn beknopt en praktisch &mdash; geen lange verklaringen, maar precies wat je nodig hebt om de oefening te maken.</p>
+
+      <h3 class="sub-heading">Woordenschat-kader</h3>
+      <p>Een Woordenschat-kader geeft een lijst van nieuwe woorden die in het hoofdstuk aan bod komen, altijd met de Nederlandse vertaling. Je kunt ze gebruiken als woordenschatlijst om te studeren.</p>
+    </div>
+
+    <div class="woordenschat-kader">
+      <span class="wk-label">Woordenschat &mdash; Kennismaken</span>
+      <div class="wk-grid">
+        <div class="wk-item"><span class="fr">bonjour</span> <span class="nl">goedendag</span></div>
+        <div class="wk-item"><span class="fr">salut</span> <span class="nl">hoi / dag</span></div>
+        <div class="wk-item"><span class="fr">je m&rsquo;appelle</span> <span class="nl">ik heet</span></div>
+        <div class="wk-item"><span class="fr">comment tu t&rsquo;appelles ?</span> <span class="nl">hoe heet jij?</span></div>
+        <div class="wk-item"><span class="fr">j&rsquo;habite &agrave;</span> <span class="nl">ik woon in</span></div>
+        <div class="wk-item"><span class="fr">o&ugrave; est-ce que tu habites ?</span> <span class="nl">waar woon jij?</span></div>
+        <div class="wk-item"><span class="fr">quel &acirc;ge as-tu ?</span> <span class="nl">hoe oud ben jij?</span></div>
+        <div class="wk-item"><span class="fr">j&rsquo;ai quinze ans</span> <span class="nl">ik ben vijftien jaar</span></div>
+        <div class="wk-item"><span class="fr">enchant&eacute;(e)</span> <span class="nl">aangenaam</span></div>
+        <div class="wk-item"><span class="fr">au revoir</span> <span class="nl">tot ziens</span></div>
+        <div class="wk-item"><span class="fr">merci</span> <span class="nl">dankjewel</span></div>
+        <div class="wk-item"><span class="fr">s&rsquo;il vous pla&icirc;t</span> <span class="nl">alstublieft</span></div>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <h3 class="sub-heading">Oefening en Tip</h3>
+      <p>Aan het einde van elk hoofdstuk vind je een reeks oefeningen. Die zijn genummerd en lopen van makkelijker naar moeilijker. Een <strong>Tip</strong>-box (zoals hieronder) geeft je een extra strategie of herinnering mee.</p>
+    </div>
+
+    <div class="highlighted-para">
+      <strong>Tip:</strong> Leer Frans niet alleen door het te lezen &mdash; spreek het hardop uit! Zelfs alleen thuis, voor de spiegel. Hoe meer je de klanken maakt, hoe gemakkelijker ze worden.
+    </div>
+  </section>
+
+  <!-- SECTION 5: Uitspraak en klanken -->
+  <section class="section-block" id="s5">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Uitspraak en klanken</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Frans klinkt heel anders dan Nederlands. Dat merk je meteen als je een Franstalige hoort spreken. De klanken zijn vloeiender, er zijn nasale klinkers die we in het Nederlands niet kennen, en veel letters worden niet uitgesproken. Wees niet ontmoedigd: met wat oefening gaat het snel beter.</p>
+
+      <h3 class="sub-heading">Nasale klinkers</h3>
+
+      <p>De meest kenmerkende klanken van het Frans zijn de <strong>nasale klinkers</strong>. Bij een nasale klinker stroomt de lucht deels door de neus, waardoor de klank een typisch &ldquo;nasaal&rdquo; timbre krijgt. Er zijn vier nasale klanken in het Frans:</p>
+    </div>
+
+    <div class="grammatica-kader">
+      <span class="gk-label">Kader &mdash; Uitspraak</span>
+      <p class="gk-titel">De vier nasale klinkers</p>
+      <div class="gk-body">
+        <table>
+          <tr>
+            <th>Spelling</th>
+            <th>Klank</th>
+            <th>Voorbeeld</th>
+            <th>Betekenis</th>
+          </tr>
+          <tr>
+            <td><strong>an / am / en / em</strong></td>
+            <td>[&atilde;]</td>
+            <td><em>France, enfant</em></td>
+            <td>Frankrijk, kind</td>
+          </tr>
+          <tr>
+            <td><strong>in / im / ain / aim / ein</strong></td>
+            <td>[&tilde;&epsilon;]</td>
+            <td><em>vin, main</em></td>
+            <td>wijn, hand</td>
+          </tr>
+          <tr>
+            <td><strong>on / om</strong></td>
+            <td>[&otilde;]</td>
+            <td><em>bon, maison</em></td>
+            <td>goed, huis</td>
+          </tr>
+          <tr>
+            <td><strong>un / um</strong></td>
+            <td>[&tilde;&oelig;]</td>
+            <td><em>un, brun</em></td>
+            <td>een, bruin</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p><strong>Belangrijk:</strong> als een nasale klinker gevolgd wordt door een tweede <em>n</em> of <em>m</em>, of door een klinker, klinkt hij <em>niet</em> nasaal meer. Vergelijk: <em>bon</em> [&otilde;] (goed) maar <em>bonne</em> [b&otimes;n] (goed, vrouwelijk); <em>an</em> [&atilde;] maar <em>anniversaire</em> begint gewoon met [a].</p>
+
+      <h3 class="sub-heading">De Franse r</h3>
+
+      <p>De Franse <em>r</em> is een <strong>keelklank</strong> (uvulaire <em>r</em>), gevormd achter in de keel, heel anders dan de Nederlandse tongpunt-r. Je produceert hem door een beetje te gorgelen &mdash; de lucht trilt langs het huigje. Probeer het: zeg &ldquo;Paris&rdquo;, &ldquo;rouge&rdquo;, &ldquo;fr&egrave;re&rdquo;. Het kost even oefening, maar je kunt het leren.</p>
+
+      <h3 class="sub-heading">Stomme letters en liaison</h3>
+
+      <p>In het Frans worden veel letters <strong>niet uitgesproken</strong>. De meest voorkomende gevallen:</p>
+
+      <ul style="padding-left:1.4rem; margin:0.5rem 0 1rem;">
+        <li style="margin-bottom:0.4rem">De meeste <strong>eindmedeklinkers</strong> zijn stom: <em>grand</em> (groot) klinkt als &ldquo;grã&rdquo;, <em>Paris</em> als &ldquo;Pari&rdquo;.</li>
+        <li style="margin-bottom:0.4rem">Het stomme <strong>-e</strong> aan het woordeinde: <em>grande</em> klinkt anders dan <em>grand</em> &mdash; de <em>d</em> wordt hoorbaar.</li>
+        <li style="margin-bottom:0.4rem">De letter <strong>h</strong> is bijna altijd stom: <em>homme</em> (man) klinkt als &ldquo;om&rdquo;.</li>
+      </ul>
+
+      <p>De <strong>liaison</strong> is het verschijnsel waarbij een normaal stom eindmedeklinker toch uitgesproken wordt als het volgende woord met een klinker begint. Zo klinkt <em>les amis</em> (de vrienden) als &ldquo;l&eacute;zami&rdquo; &mdash; de <em>s</em> van <em>les</em> wordt uitgesproken als [z]. Liaison is verplicht bij lidwoorden + zelfstandig naamwoord (<em>les enfants</em>), persoonlijk voornaamwoord + werkwoord (<em>nous avons</em>) en na bepaalde voorzetsels (<em>en Espagne</em>).</p>
+    </div>
+
+    <div class="highlighted-para">
+      <strong>Uitspraaktip:</strong> Luister zo veel mogelijk naar gesproken Frans: Franse muziek, korte YouTube-filmpjes, de serie <em>Louvre</em> of andere Belgische of Franse producties. Je hersenen leren klanken herkennen v&oacute;&oacute;rdat je ze bewust kunt reproduceren. Zelfs vijf minuten luisteren per dag maakt een verschil.
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Luister naar de zin: <em>&laquo; Les enfants habitent en France. &raquo;</em> (De kinderen wonen in Frankrijk.) Probeer hem na te zeggen. Welke letters hoor je niet? Waar zit de liaison?</p>
+    </div>
+  </section>
+
+  <!-- SECTION 6: Leerstrategieën -->
+  <section class="section-block" id="s6">
+    <div class="section-heading">
+      <span class="section-num">6</span>
+      <h2 class="section-title">Leerstrategieën</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Frans leren doe je niet alleen door les te volgen. Onderzoek naar tweedetaalverwerving toont aan dat de effectiefste leerders actief zijn: ze gebruiken strategieën om woordenschat te verankeren, teksten te begrijpen en spreken niet bang zijn fouten te maken. Hieronder vind je de voornaamste strategieën die jou dit jaar helpen.</p>
+
+      <h3 class="sub-heading">Woordenschat leren met fiches</h3>
+
+      <p>Woordenschatkennis is de ruggengraat van taalvaardigheid. Een beproefd systeem is de <strong>woordenschatfiche</strong> (of digitale equivalent, zoals de app Anki of Quizlet). Schrijf op de voorkant het Franse woord, op de achterkant de Nederlandse betekenis &eacute;n een voorbeeldzin. Leer niet alleen de vertaling, maar ook hoe het woord <em>werkt</em> in een zin.</p>
+
+      <p>Spreek de woorden hardop uit terwijl je ze leert. Koppel elk nieuw woord aan een beeld, gevoel of verhaal. Ons geheugen werkt associatief: hoe rijker de context, hoe beter je onthoudt.</p>
+
+      <p>Herhaling is essentieel. Het <strong>gespreid herhalingsprincipe</strong> zegt: herhaal nieuwe woorden na &eacute;&eacute;n dag, dan na drie dagen, dan na een week, dan na een maand. Zo gaan woorden van je kortetermijngeheugen naar je langetermijngeheugen.</p>
+
+      <h3 class="sub-heading">Leesstrategieën</h3>
+
+      <p>Wanneer je een Franse tekst leest die je niet helemaal begrijpt, raak dan niet in paniek. Gebruik <strong>contextaanwijzingen</strong>: kijk naar de afbeeldingen, de titel, de opbouw van de tekst. Herken je woorden die lijken op Nederlands of Engels? Frans, Nederlands, Engels en Duits zijn verwante Indo-Europese talen &mdash; er zijn veel cognaten (<em>similaires</em>, <em>famille</em>, <em>excellent</em>).</p>
+
+      <p>Lees eerst de tekst <strong>globaal</strong>: wat is het onderwerp? Wat zijn de sleutelwoorden? Daarna pas ga je detail voor detail. Sla onbekende woorden niet meteen op in het woordenboek &mdash; probeer eerst de betekenis te raden. Dikwijls hoef je niet elk woord te kennen om de tekst te begrijpen.</p>
+
+      <h3 class="sub-heading">Luisterstrategieën</h3>
+
+      <p>Gesproken Frans is snel en vloeiend. Woorden lopen in elkaar over (liaison, elisie). Beginners voelen dat ze &ldquo;niets verstaan&rdquo; &mdash; maar dat gevoel is normaal en tijdelijk. Train jezelf om eerst het <strong>globale begrip</strong> na te streven: wat is het onderwerp? Wie spreekt? In welke situatie? Die grote lijnen begrijpen is al heel waardevol.</p>
+
+      <p>Luister meerdere keren. De eerste keer: globaal begrijpen. De tweede keer: details opvangen. De derde keer: specifieke woorden of uitdrukkingen noteren. Gebruik ondertitels alleen als laatste redmiddel &mdash; als je te snel naar ondertitels grijpt, train je je ogen in plaats van je oren.</p>
+
+      <h3 class="sub-heading">Spreektips: wees niet bang voor fouten</h3>
+
+      <p>De grootste rem op taalvaardigheid is <strong>spreekangst</strong>: de vrees voor fouten. Maar fouten zijn geen probleem &mdash; ze zijn bewijs dat je bezig bent. Elk kind dat zijn moedertaal leert, maakt duizenden fouten voor het vlot spreekt. Tweedetaalleerders ook.</p>
+
+      <p>Enkele concrete tips: begin zinnen als je ze niet perfect kunt afmaken. Gebruik formulezinnen als ijsbrekers: <em>Je pense que&hellip;</em> (Ik denk dat&hellip;), <em>C&rsquo;est-&agrave;-dire&hellip;</em> (Dat wil zeggen&hellip;), <em>Pardon, je ne comprends pas&hellip;</em> (Sorry, ik begrijp het niet&hellip;). Vraag uitleg of herhaling: dat is geen teken van zwakte, maar van communicatief inzicht.</p>
+
+      <h3 class="sub-heading">Het woordenboek gebruiken</h3>
+
+      <p>Een woordenboek is een gereedschap, geen spiekbriefje. Gebruik het <em>nadat</em> je zelf geprobeerd hebt de betekenis te raden. Kijk niet alleen naar de vertaling, maar ook naar de woordsoort (is het een zelfstandig naamwoord? Een werkwoord?), het geslacht (mannelijk of vrouwelijk?), en de voorbeeldzinnen.</p>
+
+      <p>Een goede gratis online optie is <strong>WordReference.com</strong> &mdash; die geeft niet alleen de vertaling, maar ook uitdrukkingen en forumgesprekken over twijfelgevallen. Voor uitgebreide grammatica en stijladvies is de officiële website van de <em>Acad&eacute;mie fran&ccedil;aise</em> (academie-francaise.fr) een betrouwbare bron.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Welke van de bovenstaande leerstrategieën gebruik je al? En welke ga je dit jaar uitproberen? Schrijf er &eacute;&eacute;n op die je vandaag al kunt toepassen.</p>
+    </div>
+  </section>
+
+  <!-- CLOSING QUOTE -->
+  <div class="closing-quote" role="note" aria-label="Slotcitaat">
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p class="cq-text">Une langue diff&eacute;rente, c&rsquo;est une vision diff&eacute;rente de la vie.</p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <span class="cq-attribution">Federico Fellini &nbsp;&middot;&nbsp; Frans 1A &nbsp;&middot;&nbsp; Eerste Graad A-stroom</span>
+  </div>
+
+  <div style="margin-top: 2.5rem;">
+    <p style="font-size: 1.05rem; color: var(--text-mid); font-style: italic; text-align: center;">Prêt(e) ? Alors, on commence. Bonne chance !</p>
+  </div>
+
+</div><!-- end page-wrapper -->
+
+<!-- EXERCISES -->
+<section class="exercises-section" id="oefeningen">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <!-- Oefening 1 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Waarom leer jij Frans? &mdash; Zelfreflectie</p>
+      <p>Beantwoord de volgende vragen in volledige zinnen:</p>
+      <ol>
+        <li>Noem twee concrete situaties in je eigen leven (nu of later) waarbij kennis van het Frans nuttig kan zijn.</li>
+        <li>Heb je al eens Frans gebruikt buiten de klas? Beschrijf de situatie in twee &agrave; drie zinnen.</li>
+        <li>Wat is jouw grootste uitdaging bij het leren van Frans? (uitspraak, woordenschat, spreken, luisteren&hellip;) Leg kort uit.</li>
+        <li>Schrijf &eacute;&eacute;n doel dat je voor jezelf stelt voor dit schooljaar Frans &mdash; zo concreet mogelijk.</li>
+      </ol>
+      <p class="ex-tip">Tip: Bewaar deze antwoorden. Aan het einde van het jaar lees je ze opnieuw &mdash; en je zult merken hoeveel je gegroeid bent.</p>
+    </div>
+
+    <!-- Oefening 2 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Woordenschat koppelen &mdash; Frans &ndash; Nederlands</p>
+      <p>Verbind het Franse woord (links) met de correcte Nederlandse vertaling (rechts). Schrijf de combinaties op.</p>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.3rem 2rem; margin:0.8rem 0; font-size:0.96rem;">
+        <div><strong>Frans</strong></div><div><strong>Nederlands</strong></div>
+        <div>1. bonjour</div><div>a. dankjewel</div>
+        <div>2. j&rsquo;habite &agrave;</div><div>b. goedendag</div>
+        <div>3. merci</div><div>c. ik woon in</div>
+        <div>4. au revoir</div><div>d. hoe oud ben jij?</div>
+        <div>5. quel &acirc;ge as-tu ?</div><div>e. tot ziens</div>
+        <div>6. je m&rsquo;appelle</div><div>f. ik heet</div>
+        <div>7. enchant&eacute;(e)</div><div>g. alstublieft</div>
+        <div>8. s&rsquo;il vous pla&icirc;t</div><div>h. aangenaam</div>
+      </div>
+      <p>Maak daarna drie volledige Franse zinnen met woorden uit de lijst hierboven.</p>
+      <p class="ex-tip">Tip: Kijk de woorden eerst niet op &mdash; probeer ze uit je hoofd. Daarna controleer je met het Woordenschat-kader in sectie 4.</p>
+    </div>
+
+    <!-- Oefening 3 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Dialoog oefenen &mdash; Eerste ontmoeting</p>
+      <p>Werk met een klasgenoot. Speel het gesprek uit sectie 4 na, maar vervang de namen en woonplaatsen door je eigen gegevens. Voeg daarna &eacute;&eacute;n of twee extra vragen toe uit de lijst hieronder:</p>
+      <ul>
+        <li><em>Tu as des fr&egrave;res et s&oelig;urs ?</em> &nbsp;&mdash;&nbsp; Heb jij broers en zussen?</li>
+        <li><em>Tu parles quelles langues ?</em> &nbsp;&mdash;&nbsp; Welke talen spreek jij?</li>
+        <li><em>Tu aimes le sport ?</em> &nbsp;&mdash;&nbsp; Hou jij van sport?</li>
+        <li><em>Tu as un animal &agrave; la maison ?</em> &nbsp;&mdash;&nbsp; Heb jij een huisdier?</li>
+      </ul>
+      <p>Speel het gesprek minstens twee keer: &eacute;&eacute;n keer lees je mee van het blad, de tweede keer probeer je uit het hoofd.</p>
+      <p class="ex-tip">Tip: Let op de uitspraak van de nasale klinkers: <em>bonjour</em>, <em>enchant&eacute;</em>, <em>bien</em>. Zeg ze hardop, ook al voelt het vreemd.</p>
+    </div>
+
+    <!-- Oefening 4 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 4</p>
+      <p class="ex-name">ERK-zelfbeoordeling &mdash; Waar sta ik nu?</p>
+      <p>Vink aan wat jij al kunt in het Frans. Wees eerlijk &mdash; dit is geen toets, maar een startpunt.</p>
+      <ul>
+        <li>&#9744;&nbsp; Ik kan mezelf voorstellen (naam, leeftijd, woonplaats).</li>
+        <li>&#9744;&nbsp; Ik kan iemand vragen hoe hij/zij heet.</li>
+        <li>&#9744;&nbsp; Ik kan tellen van 1 tot 20 in het Frans.</li>
+        <li>&#9744;&nbsp; Ik begrijp de woorden <em>bonjour</em>, <em>merci</em>, <em>au revoir</em>.</li>
+        <li>&#9744;&nbsp; Ik kan een eenvoudige zin schrijven in het Frans.</li>
+        <li>&#9744;&nbsp; Ik ken het verschil tussen <em>tu</em> en <em>vous</em>.</li>
+        <li>&#9744;&nbsp; Ik begrijp gesproken Frans als iemand langzaam en duidelijk spreekt.</li>
+        <li>&#9744;&nbsp; Ik kan een korte Franse tekst van vijf zinnen begrijpen.</li>
+      </ul>
+      <p>Tel je aanvinkjes. Hoe meer je er hebt, hoe meer basiskennis je al meebrengt. Schrijf ook op: wat wil jij aan het einde van het schooljaar &eacute;xtra kunnen aanvinken?</p>
+      <p class="ex-tip">Tip: Aan het einde van het schooljaar maak je deze lijst opnieuw. Het is een mooie manier om je vooruitgang te zien.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="summary-section" id="samenvatting">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>Frans</strong> is een offici&euml;le taal van Belgi&euml; en een wereldtaal met meer dan 300 miljoen sprekers op vijf continenten. Voor Belgische jongeren is het een belangrijke troef op de arbeidsmarkt.</li>
+      <li>Het <strong>Europees Referentiekader (ERK)</strong> verdeelt taalvaardigheid in zes niveaus van A1 tot C2. Dit boek leidt je naar <strong>niveau A2</strong>: het overlevingsniveau, waarbij je alledaagse situaties zelfstandig kunt afhandelen.</li>
+      <li>Taalvaardigheid bestaat uit vijf domeinen: <strong>lezen, luisteren, schrijven, spreken en interactie</strong>. Alle vijf komen elk hoofdstuk aan bod.</li>
+      <li>Dit boek is opgebouwd in vijf thematische domeinen: <strong>Kennismaken</strong> (H1&ndash;3), <strong>Dagelijks leven</strong> (H4&ndash;6), <strong>Vrije tijd</strong> (H7&ndash;9), <strong>De wereld verkennen</strong> (H10&ndash;12) en <strong>Taal en communicatie</strong> (H13&ndash;15).</li>
+      <li>De centrale componenten zijn: <strong>Tekst-fragment</strong> (leestekst), <strong>Gesprek</strong> (dialoog), <strong>Grammatica-kader</strong> (grammaticaregel), <strong>Woordenschat-kader</strong> (woordenlijst), <strong>Oefening</strong> en <strong>Tip</strong>.</li>
+      <li>Frans heeft specifieke klanken die in het Nederlands niet voorkomen: <strong>nasale klinkers</strong> (an, en, in, on, un), de <strong>keelklank r</strong>, <strong>stomme eindmedeklinkers</strong> en het verschijnsel van de <strong>liaison</strong>.</li>
+      <li>Effectief Frans leren vraagt <strong>actieve strategieën</strong>: woordenschatfiches met gespreid herhalen, lezen via contextaanwijzingen, globaal luisteren voor detail, en spreken zonder angst voor fouten.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

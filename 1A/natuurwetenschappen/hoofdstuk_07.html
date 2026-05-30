@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H7 — Mengsels en zuivere stoffen | Natuurwetenschappen 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --gold: #D4A017;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --terracotta-light: #D4561E;
+    --gold-light: #E8B82A;
+    --darkblue-light: #243B63;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     CLOSING QUOTE
+  ============================================================ */
+  .closing-quote {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0D1E38 100%);
+    border-radius: var(--border-radius);
+    padding: 3rem 3rem 2.5rem;
+    margin: 3.5rem 0 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.5rem; left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .closing-quote .cq-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--gold);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 1.2rem;
+  }
+
+  .closing-quote .cq-attribution {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(212,160,23,0.6);
+  }
+
+  .closing-quote .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .closing-quote .ornament-line::before,
+  .closing-quote .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.4), transparent);
+  }
+
+  .closing-quote .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.7;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .closing-quote { padding: 2rem 1.2rem 1.8rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     NATUURWETENSCHAPPEN-SPECIFIC COMPONENTS
+  ============================================================ */
+
+  /* ── EXPERIMENT KADER ───────────────────────────────── */
+  .experiment-kader { background: #FFF8F5; border-left: 4px solid var(--terracotta); border-radius: 0 var(--border-radius) var(--border-radius) 0; padding: 1.3rem 1.5rem; margin: 1.8rem 0; box-shadow: var(--shadow-sm); }
+  .experiment-kader .exp-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--terracotta); display: block; margin-bottom: 0.35rem; }
+  .experiment-kader .exp-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--darkblue); display: block; margin-bottom: 0.8rem; }
+  .experiment-kader .exp-stappen { list-style: none; padding: 0; counter-reset: stap-teller; }
+  .experiment-kader .exp-stappen li { counter-increment: stap-teller; padding: 0.5rem 0.8rem 0.5rem 3rem; position: relative; background: var(--creme); border-radius: 4px; margin-bottom: 0.4rem; font-size: 0.96rem; }
+  .experiment-kader .exp-stappen li::before { content: counter(stap-teller); position: absolute; left: 0.6rem; top: 50%; transform: translateY(-50%); background: var(--terracotta); color: white; width: 1.7rem; height: 1.7rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; }
+
+  /* ── WETENSCHAPS KADER ──────────────────────────────── */
+  .wetenschaps-kader { background: #EEF3FF; border-left: 4px solid var(--darkblue); border-radius: 0 var(--border-radius) var(--border-radius) 0; padding: 1.2rem 1.5rem; margin: 1.5rem 0; }
+  .wetenschaps-kader .wk-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--darkblue); opacity: 0.7; display: block; margin-bottom: 0.35rem; }
+  .wetenschaps-kader .wk-body { font-size: 0.97rem; color: var(--text-dark); }
+
+  /* ── TABEL WRAP ─────────────────────────────────────── */
+  .tabel-wrap { margin: 1.8rem 0; overflow-x: auto; border-radius: var(--border-radius); box-shadow: var(--shadow-sm); }
+  .tabel-wrap table { width: 100%; border-collapse: collapse; font-size: 0.96rem; }
+  .tabel-wrap th { background: var(--darkblue); color: var(--gold); padding: 0.75rem 1rem; text-align: left; font-family: 'Source Sans 3', sans-serif; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; }
+  .tabel-wrap td { padding: 0.65rem 1rem; border-bottom: 1px solid rgba(200,146,58,0.2); color: var(--text-mid); }
+  .tabel-wrap tr:last-child td { border-bottom: none; }
+  .tabel-wrap tr:nth-child(even) td { background: rgba(232,220,200,0.3); }
+
+  /* ── SVG CONTAINER ──────────────────────────────────── */
+  .svg-container { margin: 1.8rem 0; padding: 1.5rem; background: white; border: 1px solid var(--sand); border-radius: var(--border-radius); text-align: center; }
+  .svg-container .svg-caption { font-size: 0.85rem; color: var(--text-light); font-style: italic; display: block; margin-top: 0.75rem; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <span class="label">Natuurwetenschappen 1A</span>
+  <span class="label label-right">Eerste graad A-stroom</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Natuurwetenschappen &nbsp;&middot;&nbsp; 1A &nbsp;&middot;&nbsp; Chemie</div>
+  <h1>H7 &mdash; Mengsels<br>En zuivere stoffen</h1>
+  <p class="subtitle">Vrijwel alles om je heen is een mengsel &mdash; leer hoe je stoffen van elkaar scheidt</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- CHAPTER TITLE BLOCK -->
+  <div style="padding: 2.5rem 0 0.5rem;">
+    <div style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.2em;color:var(--oker);margin-bottom:0.5rem;">H7 &mdash; Chemie</div>
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;color:var(--darkblue);margin-bottom:1.2rem;line-height:1.2;">Mengsels en zuivere stoffen</h1>
+    <p style="font-size:1.08rem;color:var(--text-mid);line-height:1.8;max-width:720px;border-left:3px solid var(--oker);padding-left:1.2rem;">Het glas water dat je 's ochtends drinkt, de lucht die je inademt, de aarde in de tuin &mdash; bijna niets om je heen is &ldquo;puur&rdquo;. Bijna alles is een mengsel van meerdere stoffen. In dit hoofdstuk leer je het verschil tussen zuivere stoffen en mengsels, hoe je mengsels herkent en &mdash; het belangrijkste &mdash; hoe scheikundigen ze van elkaar scheiden.</p>
+  </div>
+
+  <!-- PROLOGUE -->
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Stel je voor &hellip;</span>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p>Je bent op vakantie aan zee en kijkt naar de golven. Het zeewater glinstert, smaakt zout, en je weet dat er vissen, algen en microscopische organismen in zitten. Je drinkt er zeker niet van. Maar aan de andere kant van de wereld zijn er installaties zo groot als fabrieken die elke dag miljarden liters zeewater omzetten in drinkwater &mdash; alleen door het te verhitten, de damp op te vangen en te laten afkoelen. Ze maken gebruik van precies de principes die jij dit hoofdstuk leert.</p>
+    <p>Of denk aan een andere situatie: je hebt zand laten vallen in een emmer water. Hoe krijg je het zand er weer uit? Eenvoudig &mdash; je giet het door een zeef. Maar wat als het zout is dat je kwijt wil? Dan werkt een zeef niet, want zout lost op. Je hebt een andere aanpak nodig. En wat als je ijzerdeeltjes wil scheiden van zand? Dan gebruik je een magneet.</p>
+    <p><strong style="color: var(--gold);">Elke mengsel vraagt om de juiste scheidingstechniek. Dat inzicht is de kern van dit hoofdstuk &mdash; en van een groot deel van de industri&euml;le chemie.</strong></p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 1 — ZUIVERE STOFFEN
+  ============================================================ -->
+  <section class="section-block" id="s1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Zuivere stoffen</h2>
+    </div>
+
+    <p>Wanneer scheikundigen spreken over een <strong>zuivere stof</strong>, bedoelen ze een stof die bestaat uit slechts &eacute;&eacute;n soort deeltjes. Alle deeltjes in die stof zijn identiek &mdash; ze zijn allemaal van hetzelfde type, hebben dezelfde bouw, en gedragen zich op dezelfde manier. Dat klinkt simpel, maar het heeft enorme gevolgen voor hoe zo&rsquo;n stof zich gedraagt.</p>
+
+    <h3 class="sub-heading">Voorbeelden van zuivere stoffen</h3>
+    <p>Zuivere stoffen kan je tegenkomen in alle drie de aggregatietoestanden &mdash; vast, vloeibaar of gasvormig:</p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.5rem"><strong>Gedestilleerd water (H&#8322;O):</strong> uitsluitend watermoleculen, geen opgeloste mineralen of zouten &mdash; gebruikt in labo&rsquo;s en strijkijzers.</li>
+      <li style="margin-bottom:0.5rem"><strong>Zuiver ijzer (Fe):</strong> enkel ijzeratomen, geen koolstof of andere elementen &mdash; zachter en minder sterk dan staal, dat een mengsel is.</li>
+      <li style="margin-bottom:0.5rem"><strong>Keukenzout (NaCl):</strong> een regelmatig kristalrooster van natrium- en chloorionen, altijd in verhouding 1:1.</li>
+      <li style="margin-bottom:0.5rem"><strong>Zuurstof (O&#8322;):</strong> een zuiver gas opgebouwd uit zuurstofmoleculen &mdash; de fles zuurstof die een duiker draagt is zo puur mogelijk.</li>
+      <li style="margin-bottom:0.5rem"><strong>Goud (Au):</strong> 24-karaatsgoud is vrijwel zuiver; sieraden zijn een legering (mengsel) van goud met koper of zilver.</li>
+    </ul>
+
+    <h3 class="sub-heading">Eigenschappen van zuivere stoffen</h3>
+    <p>Wat zuivere stoffen zo bijzonder maakt, zijn hun vaste, reproduceerbare eigenschappen. Wetenschappers over de hele wereld meten dezelfde waarden voor dezelfde zuivere stof:</p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.5rem"><strong>Vast smelt- en kookpunt:</strong> water smelt altijd bij 0&deg;C (onder normale druk) en kookt altijd bij 100&deg;C. Die waarden zijn zo betrouwbaar dat de Celsius-schaal er op gebouwd is.</li>
+      <li style="margin-bottom:0.5rem"><strong>Vaste massadichtheid:</strong> bij dezelfde temperatuur heeft een zuivere stof altijd dezelfde dichtheid. Water heeft bij 4&deg;C een dichtheid van precies 1,000 g/cm&sup3;.</li>
+      <li style="margin-bottom:0.5rem"><strong>Reproduceerbare chemische eigenschappen:</strong> zuiver ijzer roest altijd op dezelfde manier, zuiver natrium reageert altijd heftig met water, zuiver goud reageert nauwelijks met iets.</li>
+    </ul>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9679;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Zuivere stof</span>
+        <p class="begrip-def">Een zuivere stof is een stof die bestaat uit slechts &eacute;&eacute;n soort deeltjes (atomen, moleculen of ionen) en daardoor vaste, reproduceerbare fysische en chemische eigenschappen heeft, zoals een scherp smeltpunt en een constante dichtheid.</p>
+      </div>
+    </div>
+
+    <!-- SVG: deeltjesmodel zuivere stof -->
+    <div class="svg-container">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 160" width="100%" aria-label="Deeltjesmodel van een zuivere stof">
+        <!-- Omkadering -->
+        <rect x="30" y="20" width="260" height="120" rx="6" fill="#F5F0FF" stroke="#1A2B4A" stroke-width="1.5"/>
+        <text x="160" y="14" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#1A2B4A" text-anchor="middle" font-weight="700">ZUIVERE STOF &mdash; &eacute;&eacute;n soort deeltjes</text>
+        <!-- Identieke deeltjes (blauw) in regelmatige opstelling -->
+        <circle cx="70"  cy="55"  r="14" fill="#1A2B4A" opacity="0.85"/>
+        <circle cx="110" cy="55"  r="14" fill="#1A2B4A" opacity="0.85"/>
+        <circle cx="150" cy="55"  r="14" fill="#1A2B4A" opacity="0.85"/>
+        <circle cx="190" cy="55"  r="14" fill="#1A2B4A" opacity="0.85"/>
+        <circle cx="230" cy="55"  r="14" fill="#1A2B4A" opacity="0.85"/>
+        <circle cx="270" cy="55"  r="14" fill="#1A2B4A" opacity="0.85"/>
+        <circle cx="70"  cy="100" r="14" fill="#1A2B4A" opacity="0.85"/>
+        <circle cx="110" cy="100" r="14" fill="#1A2B4A" opacity="0.85"/>
+        <circle cx="150" cy="100" r="14" fill="#1A2B4A" opacity="0.85"/>
+        <circle cx="190" cy="100" r="14" fill="#1A2B4A" opacity="0.85"/>
+        <circle cx="230" cy="100" r="14" fill="#1A2B4A" opacity="0.85"/>
+        <circle cx="270" cy="100" r="14" fill="#1A2B4A" opacity="0.85"/>
+      </svg>
+      <span class="svg-caption">Deeltjesmodel van een zuivere stof: alle deeltjes zijn identiek (zelfde kleur, zelfde grootte). Voorbeeld: zuiver water bestaat uitsluitend uit H&#8322;O-moleculen.</span>
+    </div>
+
+    <div class="wetenschaps-kader">
+      <span class="wk-label">&#128270; Wist je dat?</span>
+      <p class="wk-body">Absoluut zuivere stoffen bestaan bijna niet in de natuur. Zelfs &ldquo;zuiver&rdquo; drinkwater bevat kleine hoeveelheden opgeloste mineralen &mdash; en dat is zelfs nuttig, want die mineralen zijn goed voor je gezondheid. Laboratoriumwater (bidestillaat) is duizenden keren gezuiverder dan drinkwater: het is twee keer gedestilleerd om alle onzuiverheden te verwijderen. Toch bevat ook bidestillaat sporen van opgelost CO&#8322; uit de lucht. Absolute zuiverheid is een ideaal, geen realiteit.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 2 — MENGSELS
+  ============================================================ -->
+  <section class="section-block" id="s2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Mengsels</h2>
+    </div>
+
+    <p>Een <strong>mengsel</strong> bestaat uit twee of meer stoffen die door elkaar gemengd zijn, maar <em>niet</em> chemisch met elkaar verbonden zijn. Dat laatste is cruciaal: bij een mengsel behoudt elke component zijn eigen eigenschappen. Als je zout oplost in water, verdwijnt het zout niet &mdash; het is er nog steeds, maar je kunt het niet zien. Je kunt het zout terugwinnen door het water te laten verdampen.</p>
+    <p>Dit verschilt fundamenteel van een chemische reactie, waarbij stoffen chemisch reageren en nieuwe stoffen vormen die je niet meer eenvoudig kunt scheiden. Wanneer ijzer roest, reageert het met zuurstof en wordt ijzeroxide (roest) gevormd &mdash; dat is een nieuwe stof, geen mengsel meer.</p>
+
+    <h3 class="sub-heading">Voorbeelden van mengsels</h3>
+    <p>Bijna alles om je heen is een mengsel:</p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.5rem"><strong>Lucht:</strong> een mengsel van stikstof (N&#8322;, ca. 78%), zuurstof (O&#8322;, ca. 21%), argon, CO&#8322; en andere gassen.</li>
+      <li style="margin-bottom:0.5rem"><strong>Zeewater:</strong> water met daarin opgelost zout (NaCl), magnesiumchloride, kaliumchloride en tientallen andere stoffen.</li>
+      <li style="margin-bottom:0.5rem"><strong>Melk:</strong> water, vetten, eiwitten (caseïne), lactose en mineralen &mdash; een emulsie van vetdruppeltjes in water.</li>
+      <li style="margin-bottom:0.5rem"><strong>Bloed:</strong> plasma (grotendeels water) met daarin rode en witte bloedcellen, bloedplaatjes, eiwitten en opgeloste stoffen.</li>
+      <li style="margin-bottom:0.5rem"><strong>Beton:</strong> cement, zand, grind en water &mdash; een heterogeen mengsel dat na uitharding hard wordt.</li>
+      <li style="margin-bottom:0.5rem"><strong>Staal:</strong> een legering van ijzer met een kleine hoeveelheid koolstof (0,02&ndash;2,1%) &mdash; een homogeen mengsel in vaste toestand.</li>
+    </ul>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9679;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Mengsel</span>
+        <p class="begrip-def">Een mengsel is een stof opgebouwd uit twee of meer componenten die <em>niet</em> chemisch met elkaar verbonden zijn. Elke component behoudt zijn eigen eigenschappen en kan in principe opnieuw gescheiden worden met fysische methodes.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Homogeen en heterogeen</h3>
+    <p>Mengsels worden ingedeeld in twee grote groepen, afhankelijk van of je de componenten kunt onderscheiden:</p>
+
+    <p><strong>Homogeen mengsel:</strong> de componenten zijn zo gelijkmatig verdeeld dat je ze niet met het blote oog kunt onderscheiden. Het mengsel ziet er overal hetzelfde uit &mdash; het heeft een uniforme samenstelling. Voorbeelden: suikerwater (je ziet alleen helder water, geen suikerkristallen), lucht (je ziet geen afzonderlijke gasmoleculen), en staal (een legering die er overal hetzelfde uitziet).</p>
+
+    <p><strong>Heterogeen mengsel:</strong> de componenten zijn zichtbaar gescheiden of ongelijkmatig verdeeld. Je kunt ze onderscheiden met het blote oog of onder een microscoop. Voorbeelden: zand gemengd met grind (je ziet duidelijk twee soorten), olie gemengd met water (twee lagen), granola (je ziet afzonderlijke vlokken, noten en rozijnen).</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9679;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Homogeen mengsel</span>
+        <p class="begrip-def">Een mengsel waarbij alle componenten gelijkmatig verdeeld zijn en niet afzonderlijk zichtbaar zijn, ook niet met een microscoop. De samenstelling is overal in het mengsel hetzelfde.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9679;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Heterogeen mengsel</span>
+        <p class="begrip-def">Een mengsel waarbij de componenten zichtbaar gescheiden zijn of ongelijkmatig verdeeld, zodat je met het blote oog of onder een microscoop de afzonderlijke componenten kunt onderscheiden.</p>
+      </div>
+    </div>
+
+    <!-- SVG: deeltjesmodel homogeen vs heterogeen -->
+    <div class="svg-container">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 180" width="100%" aria-label="Deeltjesmodel homogeen en heterogeen mengsel">
+        <!-- HOMOGEEN links -->
+        <rect x="20" y="30" width="240" height="130" rx="6" fill="#F0F5FF" stroke="#1A2B4A" stroke-width="1.5"/>
+        <text x="140" y="22" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#1A2B4A" text-anchor="middle" font-weight="700">HOMOGEEN MENGSEL</text>
+        <!-- Gemengde blauwe en oranje deeltjes door elkaar -->
+        <circle cx="50"  cy="60"  r="12" fill="#1A2B4A" opacity="0.85"/>
+        <circle cx="85"  cy="55"  r="12" fill="#C8923A" opacity="0.85"/>
+        <circle cx="120" cy="65"  r="12" fill="#1A2B4A" opacity="0.85"/>
+        <circle cx="155" cy="58"  r="12" fill="#C8923A" opacity="0.85"/>
+        <circle cx="190" cy="62"  r="12" fill="#1A2B4A" opacity="0.85"/>
+        <circle cx="225" cy="57"  r="12" fill="#C8923A" opacity="0.85"/>
+        <circle cx="50"  cy="100" r="12" fill="#C8923A" opacity="0.85"/>
+        <circle cx="85"  cy="105" r="12" fill="#1A2B4A" opacity="0.85"/>
+        <circle cx="120" cy="98"  r="12" fill="#C8923A" opacity="0.85"/>
+        <circle cx="155" cy="104" r="12" fill="#1A2B4A" opacity="0.85"/>
+        <circle cx="190" cy="99"  r="12" fill="#C8923A" opacity="0.85"/>
+        <circle cx="225" cy="103" r="12" fill="#1A2B4A" opacity="0.85"/>
+        <circle cx="60"  cy="142" r="12" fill="#1A2B4A" opacity="0.85"/>
+        <circle cx="100" cy="140" r="12" fill="#C8923A" opacity="0.85"/>
+        <circle cx="140" cy="144" r="12" fill="#1A2B4A" opacity="0.85"/>
+        <circle cx="180" cy="141" r="12" fill="#C8923A" opacity="0.85"/>
+        <circle cx="220" cy="143" r="12" fill="#1A2B4A" opacity="0.85"/>
+
+        <!-- HETEROGEEN rechts -->
+        <rect x="300" y="30" width="240" height="130" rx="6" fill="#FFF5F0" stroke="#C1440E" stroke-width="1.5"/>
+        <text x="420" y="22" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#C1440E" text-anchor="middle" font-weight="700">HETEROGEEN MENGSEL</text>
+        <!-- Scheidingslijn -->
+        <line x1="300" y1="115" x2="540" y2="115" stroke="#E8DCC8" stroke-width="2" stroke-dasharray="6,3"/>
+        <!-- Bovenste laag: blauwe deeltjes -->
+        <circle cx="330" cy="60"  r="12" fill="#1A2B4A" opacity="0.85"/>
+        <circle cx="365" cy="55"  r="12" fill="#1A2B4A" opacity="0.85"/>
+        <circle cx="400" cy="63"  r="12" fill="#1A2B4A" opacity="0.85"/>
+        <circle cx="435" cy="58"  r="12" fill="#1A2B4A" opacity="0.85"/>
+        <circle cx="470" cy="61"  r="12" fill="#1A2B4A" opacity="0.85"/>
+        <circle cx="505" cy="56"  r="12" fill="#1A2B4A" opacity="0.85"/>
+        <circle cx="340" cy="96"  r="12" fill="#1A2B4A" opacity="0.85"/>
+        <circle cx="380" cy="93"  r="12" fill="#1A2B4A" opacity="0.85"/>
+        <circle cx="420" cy="97"  r="12" fill="#1A2B4A" opacity="0.85"/>
+        <circle cx="460" cy="94"  r="12" fill="#1A2B4A" opacity="0.85"/>
+        <circle cx="500" cy="96"  r="12" fill="#1A2B4A" opacity="0.85"/>
+        <!-- Onderste laag: oranje deeltjes -->
+        <circle cx="330" cy="135" r="12" fill="#C8923A" opacity="0.85"/>
+        <circle cx="365" cy="140" r="12" fill="#C8923A" opacity="0.85"/>
+        <circle cx="400" cy="136" r="12" fill="#C8923A" opacity="0.85"/>
+        <circle cx="435" cy="141" r="12" fill="#C8923A" opacity="0.85"/>
+        <circle cx="470" cy="137" r="12" fill="#C8923A" opacity="0.85"/>
+        <circle cx="505" cy="142" r="12" fill="#C8923A" opacity="0.85"/>
+
+        <!-- Labels lagen -->
+        <text x="420" y="112" font-family="'Source Sans 3',sans-serif" font-size="9" fill="#6B5F4A" text-anchor="middle" font-style="italic">component A (bovenste laag)</text>
+        <text x="420" y="162" font-family="'Source Sans 3',sans-serif" font-size="9" fill="#6B5F4A" text-anchor="middle" font-style="italic">component B (onderste laag)</text>
+      </svg>
+      <span class="svg-caption">Links: homogeen mengsel &mdash; twee soorten deeltjes (blauw en oranje) zijn gelijkmatig door elkaar verdeeld. Rechts: heterogeen mengsel &mdash; de twee soorten deeltjes vormen zichtbaar gescheiden lagen (zoals olie boven water).</span>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Is rook een homogeen of heterogeen mengsel? Wat met sinaasappelsap met pulp? Motiveer je antwoord door na te denken over wat je kunt zien en of de samenstelling overal hetzelfde is. Kun je ook aan grenssituaties denken waarbij de grens tussen homogeen en heterogeen vaag wordt?</p>
+    </div>
+
+    <div class="tabel-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Mengsel</th>
+            <th>Homogeen of heterogeen</th>
+            <th>Componenten</th>
+            <th>Mogelijke scheidingstechniek</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Lucht</td>
+            <td>Homogeen</td>
+            <td>N&#8322;, O&#8322;, Ar, CO&#8322;, ...</td>
+            <td>Fractionele destillatie</td>
+          </tr>
+          <tr>
+            <td>Zeewater</td>
+            <td>Homogeen</td>
+            <td>Water, NaCl, MgCl&#8322;, ...</td>
+            <td>Destillatie, indampen</td>
+          </tr>
+          <tr>
+            <td>Zand + grind</td>
+            <td>Heterogeen</td>
+            <td>Zandkorrels, grindstukken</td>
+            <td>Zeven</td>
+          </tr>
+          <tr>
+            <td>Olie + water</td>
+            <td>Heterogeen</td>
+            <td>Olie, water</td>
+            <td>Decanteren, scheidetrechter</td>
+          </tr>
+          <tr>
+            <td>Modderwater</td>
+            <td>Heterogeen</td>
+            <td>Water, zanddeeltjes, klei</td>
+            <td>Filtreren, bezinken</td>
+          </tr>
+          <tr>
+            <td>Staal</td>
+            <td>Homogeen</td>
+            <td>IJzer, koolstof</td>
+            <td>Moeilijk te scheiden</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 3 — ZUIVERE STOF VS. MENGSEL VERGELEKEN
+  ============================================================ -->
+  <section class="section-block" id="s3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Zuivere stof versus mengsel</h2>
+    </div>
+
+    <p>Nu je beide begrippen kent, is het nuttig ze systematisch naast elkaar te leggen. Het <strong>deeltjesmodel</strong> is daarvoor het beste hulpmiddel: denk altijd aan wat er op microscopisch niveau gebeurt.</p>
+
+    <h3 class="sub-heading">Het deeltjesmodel</h3>
+    <p>In het deeltjesmodel stel je stoffen voor als opgebouwd uit kleine bolvormige deeltjes:</p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.5rem"><strong>Zuivere stof:</strong> &eacute;&eacute;n soort deeltjes, allemaal identiek. Ze kunnen dicht op elkaar zitten (vast), van elkaar bewegen (vloeibaar) of vrij rondvliegen (gas), maar het zijn altijd dezelfde deeltjes.</li>
+      <li style="margin-bottom:0.5rem"><strong>Mengsel:</strong> meerdere soorten deeltjes door elkaar. Elke component behoudt zijn eigen eigenschappen. De deeltjes van component A reageren niet chemisch met de deeltjes van component B.</li>
+    </ul>
+
+    <h3 class="sub-heading">Smelt- en kookpunt als meetmiddel</h3>
+    <p>Een praktisch gevolg van dit verschil is dat <strong>zuivere stoffen een scherp smelt- en kookpunt</strong> hebben, terwijl mengsels dat niet hebben. Water smelt precies bij 0&deg;C &mdash; niet bij &minus;0,5&deg;C of +0,3&deg;C. Dat is zo nauwkeurig dat chemici dit gebruiken om de zuiverheid van een stof te controleren: als het smeltpunt van je preparaat lager is dan verwacht, of als het over een breed temperatuurbereik smelt, dan zit er een onzuiverheid in.</p>
+    <p>Zeewater bevriest niet bij 0&deg;C maar bij ongeveer &minus;1,8&deg;C, afhankelijk van de zoutconcentratie. Hoe meer zout er opgelost is, hoe lager het vriespunt. Dat is ook waarom strooizout op de weg het ijs laat smelten: het verlaagt het vriespunt van water zodat het bij &minus;5&deg;C niet meer bevriest.</p>
+
+    <div class="tabel-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Eigenschap</th>
+            <th>Zuivere stof</th>
+            <th>Mengsel</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Soorten deeltjes</td>
+            <td>&Eacute;&eacute;n soort</td>
+            <td>Twee of meer soorten</td>
+          </tr>
+          <tr>
+            <td>Smeltpunt</td>
+            <td>Scherp, vast</td>
+            <td>Geen scherp smeltpunt, afhankelijk van samenstelling</td>
+          </tr>
+          <tr>
+            <td>Kookpunt</td>
+            <td>Scherp, vast</td>
+            <td>Geen scherp kookpunt, afhankelijk van samenstelling</td>
+          </tr>
+          <tr>
+            <td>Dichtheid</td>
+            <td>Vast bij bepaalde T</td>
+            <td>Afhankelijk van samenstelling</td>
+          </tr>
+          <tr>
+            <td>Scheidbaar?</td>
+            <td>Niet scheidbaar in componenten (het IS al &eacute;&eacute;n component)</td>
+            <td>Ja, via fysische methodes</td>
+          </tr>
+          <tr>
+            <td>Voorbeelden</td>
+            <td>Water, ijzer, zout, goud, zuurstof</td>
+            <td>Lucht, zeewater, melk, staal, bloed</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 4 — SCHEIDINGSTECHNIEKEN
+  ============================================================ -->
+  <section class="section-block" id="s4">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Scheidingstechnieken</h2>
+    </div>
+
+    <p>Omdat de componenten van een mengsel hun eigen eigenschappen behouden, kunnen we gebruik maken van die <em>verschillen in eigenschappen</em> om ze van elkaar te scheiden. Elke scheidingstechniek benut &eacute;&eacute;n of meer eigenschappen die de componenten van elkaar onderscheiden: deeltjesgrootte, dichtheid, kookpunt, oplosbaarheid, magnetisch gedrag &hellip;</p>
+
+    <!-- ── FILTREREN ── -->
+    <h3 class="sub-heading">Filtreren</h3>
+    <p>Filtreren scheidt een <strong>onoplosbaar vast stof</strong> van een vloeistof. Je giet het mengsel door filtreerpapier. De vloeistof (het <em>filtraat</em>) stroomt door de kleine poriën in het filtreerpapier heen. De vaste deeltjes zijn te groot om door te gaan en blijven achter op het filter (het <em>residu</em>).</p>
+    <p><strong>Principe:</strong> de deeltjes van de vaste stof zijn groter dan de poriën van het filtreerpapier. Opgeloste stoffen gaan wél door het filter: je kunt zout water <em>niet</em> filtreren om het zout te verwijderen, want de zoutionen zijn veel kleiner dan de poriën.</p>
+    <p><strong>Praktijkvoorbeelden:</strong> koffie zetten (de koffieprop blijft achter, de vloeistof druppelt door), drinkwaterzuivering (grote deeltjes worden tegengehouden), een theezakje.</p>
+
+    <div class="experiment-kader">
+      <span class="exp-label">&#9878; Experiment</span>
+      <span class="exp-title">Filtreren in het labo</span>
+      <ol class="exp-stappen">
+        <li>Maak een trechter klaar en vouw een rondje filtreerpapier in een kegel: vouw het eerst dubbel, dan nog eens dubbel, en open &eacute;&eacute;n laag zodat je een kegel krijgt. Leg de kegel in de trechter.</li>
+        <li>Bevochtig het filtreerpapier licht met gedestilleerd water zodat het goed in de trechter past en geen luchtbellen bevat.</li>
+        <li>Zet de trechter op een statief boven een bekerglas. Giet het mengsel van modderwater (of zand + water) voorzichtig langs een glazen roerstaafje in de trechter &mdash; nooit direct, anders scheurt het papier.</li>
+        <li>Wacht tot het filtraat volledig doorgelopen is. Forceer nooit &mdash; druk op het filter beschadigt de poriën.</li>
+        <li>Bekijk het filtraat. Het is helder (vrij van vaste deeltjes). Bekijk het residu op het filter. Laat het drogen en weeg het om te schatten hoeveel vast materiaal er in het mengsel zat.</li>
+      </ol>
+    </div>
+
+    <!-- ── BEZINKEN / CENTRIFUGEREN ── -->
+    <h3 class="sub-heading">Bezinken en centrifugeren</h3>
+    <p>Bij <strong>bezinken</strong> laat je een heterogeen mengsel gewoon rustig staan. Zwaardere deeltjes zakken naar de bodem door de zwaartekracht. Na voldoende tijd zie je een bezinksel (sediment) onderaan en een heldere vloeistof (supernatant) bovenaan.</p>
+    <p><strong>Centrifugeren</strong> doet hetzelfde, maar dan veel sneller door het mengsel snel te laten ronddraaien. De centrifugaalkracht drukt de zware deeltjes naar buiten en naar de bodem van de buisjes. Een laboratoriumcentrifuge kan tot 10.000 toeren per minuut halen en scheidt in minuten wat anders uren bezinken zou duren.</p>
+    <p><strong>Praktijkvoorbeelden:</strong> zand in water laten bezinken voor je het water aftapt; bloedanalyse in het ziekenhuis (bloedcellen zakken naar de bodem, plasma blijft bovenaan &mdash; of centrifuge versnelt dit proces); melkvet afromen bij de productie van magere melk.</p>
+
+    <!-- ── INDAMPEN ── -->
+    <h3 class="sub-heading">Indampen (evaporatie)</h3>
+    <p>Bij <strong>indampen</strong> verhit je een oplossing totdat de vloeistof volledig of gedeeltelijk verdampt. De opgeloste vaste stof kan niet meeverdampen en blijft achter. Je scheidt zo een opgeloste stof van het oplosmiddel door het oplosmiddel weg te verdampen.</p>
+    <p><strong>Principe:</strong> de opgeloste stof heeft een veel hogere kooktemperatuur dan het oplosmiddel. Terwijl het water (kookpunt 100&deg;C) al lang verdampt, blijft het zout (smeltpunt 801&deg;C) rustig als kristallen achter.</p>
+    <p><strong>Praktijkvoorbeelden:</strong> zeezout winnen door zeewater te laten verdampen in grote ondiepe bekkens (zoutpannen aan de kust); zoet water produceren door zeewater in te dampen en de damp op te vangen.</p>
+
+    <div class="experiment-kader">
+      <span class="exp-label">&#9878; Experiment</span>
+      <span class="exp-title">Zout uit zeewater winnen</span>
+      <ol class="exp-stappen">
+        <li>Los een eetlepel keukenzout op in 100 mL water in een verdampingsschaal. Roer goed totdat geen korrels meer zichtbaar zijn &mdash; je hebt nu een homogeen mengsel.</li>
+        <li>Zet de verdampingsschaal op een driepoot boven een bunsenbrander (of verwarm op een elektrische kookplaat). Verwarm langzaam.</li>
+        <li>Laat het water langzaam verdampen. Blijf erbij en roer af en toe zodat er geen spatten ontstaan. Zodra je witte kristallen ziet verschijnen, zet je het vuur lager.</li>
+        <li>Zet de brander uit wanneer bijna al het water verdwenen is &mdash; als de schaal helemaal droog kookt, kunnen de kristallen te heet worden en gaan sputteren.</li>
+        <li>Laat afkoelen en bekijk de zoutkristallen die zijn achtergebleven. Zijn er ook gekleurd deeltjes te zien? Die zijn afkomstig van onzuiverheden in het keukenzout (bijv. jodium dat is toegevoegd).</li>
+      </ol>
+    </div>
+
+    <!-- ── DESTILLEREN ── -->
+    <h3 class="sub-heading">Destilleren</h3>
+    <p>Destillatie scheidt vloeistoffen die <strong>verschillende kookpunten</strong> hebben. Je verhit het mengsel totdat de laagst kokende vloeistof verdampt. Die damp wordt via een koeler geleid, waar hij afkoelt en terugvloeit als zuivere vloeistof. De component met het hoogste kookpunt blijft achter in de kolf.</p>
+    <p><strong>Principe:</strong> bij een bepaalde temperatuur kookt component A wel maar component B nog niet. Door de temperatuur nauwkeurig te regelen, kun je de componenten achtereenvolgend opvangen. Bij <em>fractionele destillatie</em> (met een kolom) kunnen zelfs mengsels met dicht bij elkaar liggende kookpunten gescheiden worden.</p>
+    <p><strong>Praktijkvoorbeelden:</strong> desalinatie van zeewater (water verdampt, zout blijft); alcohol destilleren bij de productie van sterke drank (alcohol kookt bij 78&deg;C, water bij 100&deg;C); parfum maken (etherische oli&euml;n via stoordestillatie); raffinage van aardolie in fractietorens (benzine, diesel, stookolie &mdash; elk een andere temperatuurfractie).</p>
+
+    <div class="wetenschaps-kader">
+      <span class="wk-label">&#127758; Wetenschapsfeit</span>
+      <p class="wk-body">Drinkwater uit zeewater &mdash; desalinatie-installaties in het Midden-Oosten destilleren dagelijks miljarden liters zeewater tot drinkwater. Saudi-Arabi&euml; haalt meer dan 70% van zijn drinkwater zo! De grootste installaties bevinden zich in Jubail en Jeddah en hebben een capaciteit van meer dan 1 miljoen kubieke meter per dag. De enorme hoeveelheid energie die nodig is voor het verwarmen maakt dit een dure technologie die minder geschikt is voor arme landen &mdash; tenzij ze overstappen op omgekeerde osmose, een modernere methode die membraanfiltratie gebruikt in plaats van verhitting.</p>
+    </div>
+
+    <!-- ── MAGNETISCH SCHEIDEN ── -->
+    <h3 class="sub-heading">Magnetisch scheiden</h3>
+    <p>Sommige materialen worden aangetrokken door een magneet &mdash; we noemen ze <strong>ferromagnetisch</strong>. Dat zijn voornamelijk ijzer (Fe), nikkel (Ni) en kobalt (Co), en legeringen die deze metalen bevatten. Niet-magnetische stoffen zoals zand, aluminium of plastic worden niet aangetrokken.</p>
+    <p>Door een magneet door of over een mengsel te bewegen, trekken de ijzerdeeltjes aan en de rest blijft liggen. Na verwijdering van de magneet vallen de ijzerdeeltjes los.</p>
+    <p><strong>Praktijkvoorbeelden:</strong> ijzervijlsel scheiden van zand in het labo; metaalrecycling (grote magneten scheiden staal en ijzer van ander afval op een recyclageplein); veiligheid in de voedingsindustrie (magneten detecteren en verwijderen metaaldeeltjes in voedingsproducten).</p>
+
+    <!-- ── CHROMATOGRAFIE ── -->
+    <h3 class="sub-heading">Chromatografie</h3>
+    <p>Chromatografie scheidt stoffen op basis van hun <strong>verschillende beweegsnelheid</strong> door een dragermateriaal (de stationaire fase). Een oplosmiddel (de mobiele fase) trekt door het dragermateriaal en neemt de te scheiden stoffen mee. Stoffen die sterker hechten aan het dragermateriaal bewegen trager; stoffen die minder hechten bewegen sneller.</p>
+    <p>Het resultaat is een &ldquo;chromatogram&rdquo;: de stoffen zijn als afzonderlijke vlekken of banden gescheiden op het papier of materiaal.</p>
+    <p><strong>Praktijkvoorbeelden:</strong> inktkleuren scheiden (zwarte inkt bestaat vaak uit een mengsel van blauwe, gele en rode pigmenten); dopingcontrole bij sporters (complexe mengsels van stoffen in urine worden gescheiden en geïdentificeerd); kwaliteitscontrole van geneesmiddelen.</p>
+
+    <div class="experiment-kader">
+      <span class="exp-label">&#9878; Experiment</span>
+      <span class="exp-title">Inktkleuren scheiden met chromatografie</span>
+      <ol class="exp-stappen">
+        <li>Knip een strook chromatografiepapier (of filtreerpapier) van ca. 3 cm breed en 15 cm lang. Teken met potlood (niet met inkt!) een horizontale lijn op 2 cm van de onderkant.</li>
+        <li>Zet op die potloodlijn een kleine, geconcentreerde stip met een gekleurde stift (waterbasis). Laat drogen en zet een tweede stip op dezelfde plek voor een intensere kleur.</li>
+        <li>Giet een kleine laag water in een bekerglas &mdash; slechts &plusmn; 0,5 cm hoog, zodat de stip niet ondergedompeld raakt. Hang het papier in het bekerglas zodat alleen het onderste randje in het water staat. De stip moet boven het water blijven.</li>
+        <li>Bedek het bekerglas en laat het oplosmiddel opstijgen. Kijk hoe het front omhoog kruipt en de kleuren meeneemt. Sommige kleuren bewegen sneller dan andere.</li>
+        <li>Haal het papier eruit als het oplosmiddel bijna de bovenkant bereikt heeft. Markeer onmiddellijk de grens van het oplosmiddelfront met een potloodlijn. Laat drogen en analyseer welke kleuren je inkt bevat.</li>
+      </ol>
+    </div>
+
+    <!-- ── DECANTEREN ── -->
+    <h3 class="sub-heading">Decanteren</h3>
+    <p>Decanteren is de eenvoudigste scheidingstechniek: je <strong>giet voorzichtig de bovenste vloeistof af</strong> nadat de zwaardere component naar de bodem gezakt is (door bezinking) of wanneer twee niet-mengbare vloeistoffen van elkaar gescheiden zijn in lagen.</p>
+    <p>Het werkt alleen als de twee componenten duidelijk gescheiden zijn en niet gemengd raken bij het schenken. In een laboratorium gebruikt men daarvoor soms een <em>scheidetrechter</em>: een trechtervormige glazen fles met een kraantje onderaan, zodat je de onderste laag kunt aflaten zonder de bovenste laag te storen.</p>
+    <p><strong>Praktijkvoorbeelden:</strong> olie en water scheiden (olie is minder dicht en drijft boven); wijnproductie (het bezinksel op de bodem van de fles is wijnsteentartraat &mdash; door voorzichtig over te schenken verwijder je het); afgieten van kookwater van groenten.</p>
+
+    <!-- Grote vergelijkingstabel -->
+    <h3 class="sub-heading">Overzicht scheidingstechnieken</h3>
+    <div class="tabel-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Techniek</th>
+            <th>Principe</th>
+            <th>Wat scheidt het</th>
+            <th>Praktijkvoorbeeld</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Filtreren</strong></td>
+            <td>Deeltjesgrootte: vaste stof te groot voor filterporiën</td>
+            <td>Onoplosbaar vast stof van vloeistof</td>
+            <td>Koffiezetten, drinkwaterzuivering</td>
+          </tr>
+          <tr>
+            <td><strong>Bezinken</strong></td>
+            <td>Zwaartekracht: zwaardere deeltjes zinken</td>
+            <td>Zware vaste deeltjes van vloeistof</td>
+            <td>Zand bezinken in water</td>
+          </tr>
+          <tr>
+            <td><strong>Centrifugeren</strong></td>
+            <td>Centrifugaalkracht: snelle rotatie versnelt bezinking</td>
+            <td>Zware deeltjes van vloeistof (snel)</td>
+            <td>Bloedanalyse, melkafromen</td>
+          </tr>
+          <tr>
+            <td><strong>Indampen</strong></td>
+            <td>Vloeistof verdampt, vaste stof blijft</td>
+            <td>Opgeloste stof van oplosmiddel</td>
+            <td>Zeezout winnen, zoutpannen</td>
+          </tr>
+          <tr>
+            <td><strong>Destilleren</strong></td>
+            <td>Verschil in kookpunt: dampen selectief opvangen</td>
+            <td>Vloeistoffen met verschillend kookpunt</td>
+            <td>Drinkwater uit zeewater, alcohol</td>
+          </tr>
+          <tr>
+            <td><strong>Magnetisch scheiden</strong></td>
+            <td>Ferromagnetisme: magneet trekt ijzer/nikkel aan</td>
+            <td>Magnetische van niet-magnetische stoffen</td>
+            <td>IJzervijlsel uit zand, metaalrecycling</td>
+          </tr>
+          <tr>
+            <td><strong>Chromatografie</strong></td>
+            <td>Verschil in hechting/beweegsnelheid op drager</td>
+            <td>Opgeloste stoffen met verschillende eigenschappen</td>
+            <td>Inktkleuren, dopingcontrole</td>
+          </tr>
+          <tr>
+            <td><strong>Decanteren</strong></td>
+            <td>Dichtheidsverschil: lagen vormen zich vanzelf</td>
+            <td>Niet-mengbare vloeistoffen of bezinksel</td>
+            <td>Olie en water, wijnbereiding</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 5 — OPLOSSINGEN EN CONCENTRATIE
+  ============================================================ -->
+  <section class="section-block" id="s5">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Oplossingen en concentratie</h2>
+    </div>
+
+    <p>Een bijzonder type homogeen mengsel is de <strong>oplossing</strong>. Je maakt een oplossing wanneer je een stof (de <em>opgeloste stof</em> of <em>solute</em>) oplost in een vloeistof (het <em>oplosmiddel</em> of <em>solvent</em>). De opgeloste stof verspreidt zich volledig en gelijkmatig doorheen het oplosmiddel &mdash; vandaar dat het resultaat een homogeen mengsel is.</p>
+    <p>Het meest bekende voorbeeld is suiker of zout oplossen in water. De kristallen verdwijnen uit het zicht, maar de stof is er nog steeds &mdash; je proeft het. De deeltjes zijn zo klein geworden (individuele ionen of moleculen) dat ze niet meer zichtbaar zijn en niet door filtreerpapier worden tegengehouden.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9679;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Oplossing</span>
+        <p class="begrip-def">Een oplossing is een homogeen mengsel van een opgeloste stof (solute) in een oplosmiddel (solvent). De opgeloste stof is op moleculair of ionisch niveau verdeeld door het oplosmiddel.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Verzadigde oplossingen</h3>
+    <p>Je kunt niet onbeperkt veel van een stof oplossen in een gegeven hoeveelheid oplosmiddel. Op een bepaald moment is het oplosmiddel <em>vol</em> &mdash; het kan geen extra stof meer opnemen. We spreken dan van een <strong>verzadigde oplossing</strong>. Als je dan nog meer stof toevoegt, zal die niet meer oplossen en als vaste stof op de bodem blijven liggen.</p>
+    <p>De hoeveelheid stof die je maximaal kunt oplossen, noemen we de <strong>oplosbaarheid</strong>. De oplosbaarheid hangt af van drie factoren:</p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.5rem"><strong>Temperatuur:</strong> bij hogere temperatuur lossen de meeste vaste stoffen beter op (denk aan suiker in heet thee vs. koud water). Gassen lossen juist slechter op bij hogere temperatuur (CO&#8322; ontsnapt sneller uit warme frisdrank).</li>
+      <li style="margin-bottom:0.5rem"><strong>Aard van de opgeloste stof:</strong> suiker lost gemakkelijk op in water, maar ijzer lost niet op. Polaire stoffen lossen goed op in polaire oplosmiddelen; apolaire stoffen in apolaire.</li>
+      <li style="margin-bottom:0.5rem"><strong>Aard van het oplosmiddel:</strong> zout lost goed op in water maar niet in benzine. Vet lost goed op in benzine maar niet in water.</li>
+    </ul>
+
+    <h3 class="sub-heading">&ldquo;Like dissolves like&rdquo;</h3>
+    <p>Scheikundigen kennen de vuistregel: <em>like dissolves like</em> &mdash; gelijksoortige stoffen lossen in gelijksoortige stoffen op. <strong>Polaire stoffen</strong> (zoals water, ethanol, suiker, zout) lossen op in polaire oplosmiddelen. <strong>Apolaire stoffen</strong> (zoals vetten, olie, was, rubberlijm) lossen op in apolaire oplosmiddelen (benzine, aceton, ether).</p>
+    <p>Dat is ook waarom je een vlek van boter <em>niet</em> weg krijgt met water alleen &mdash; boter is apolair, water is polair. Met een vaatwasser of afwasmiddel lukt het wel, omdat afwasmiddel speciale moleculen bevat die aan &eacute;&eacute;n kant polair zijn en aan de andere kant apolair, zodat ze zowel met water als met vet kunnen wisselwerken.</p>
+
+    <h3 class="sub-heading">Concentratie</h3>
+    <p>Twee zoutoplossingen kunnen er allebei helder uitzien maar toch heel anders smaken. De ene kan veel zout bevatten per liter, de andere weinig. Dat verschil drukken we uit met <strong>concentratie</strong>: de hoeveelheid opgeloste stof per eenheid van oplosmiddel of oplossing.</p>
+    <p>We zeggen: een oplossing is <em>geconcentreerd</em> als er veel opgeloste stof per liter aanwezig is, en <em>verdund</em> als er weinig is. Een geconcentreerde zoutoplossing smaakt erg zout; een verdunde amper. In hoofdstuk 8 (dichtheid en concentratie) leer je hoe je dit precies kunt berekenen.</p>
+
+    <div class="wetenschaps-kader">
+      <span class="wk-label">&#127758; Wetenschapsfeit</span>
+      <p class="wk-body">De Dode Zee op de grens van Isra&euml;l en Jordani&euml; heeft een zoutconcentratie van circa 30% &mdash; terwijl normaal zeewater slechts 3,5% zout bevat. Door die hoge dichtheid drijf je er automatisch op het water zonder te zwemmen &mdash; het water &ldquo;draagt&rdquo; je gewoon. Maar als je de zee induikt, moet je je ogen onmiddellijk spoelen, want het zout brandt heftig. Vissen overleven er niet; maar bepaalde zoutminnende bacteriën (halofyten) gedijen er uitstekend en geven het water soms een roze kleur.</p>
+    </div>
+  </section>
+
+</div><!-- end page-wrapper -->
+
+<!-- ============================================================
+     EXERCISES
+============================================================ -->
+<section class="exercises-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Zuivere stof of mengsel?</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.7rem;">Classificeer elk van de volgende stoffen als <em>zuivere stof</em> of <em>mengsel</em>. Als het een mengsel is, voeg je ook toe of het homogeen of heterogeen is.</p>
+      <ol>
+        <li>Gedestilleerd water</li>
+        <li>Melk</li>
+        <li>Zuiver koper (Cu)</li>
+        <li>Luft</li>
+        <li>Granitsteen (bestaande uit kwarts, veldspaat en glimmer)</li>
+        <li>Ethanol (pure alcohol)</li>
+        <li>Limonade (frisdrankje)</li>
+        <li>Zuiver goud (24 karaat)</li>
+        <li>Brons (legering van koper en tin)</li>
+        <li>Modderwater (klei en slib in water)</li>
+      </ol>
+      <p class="ex-tip">Tip: denk aan het deeltjesmodel. Bestaat de stof uit &eacute;&eacute;n soort deeltjes, of zijn er meerdere soorten aanwezig?</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Scheidingstechniek kiezen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.7rem;">Kies voor elk mengsel de meest geschikte scheidingstechniek en geef een korte motivering waarom deze techniek werkt voor dit specifieke mengsel.</p>
+      <ol>
+        <li>IJzervijlsel gemengd met zand</li>
+        <li>Zout opgelost in water (je wil het zout terugwinnen)</li>
+        <li>Alcohol en water (kookpunt alcohol: 78&deg;C, water: 100&deg;C)</li>
+        <li>Zand gemengd met water (je wil helder water)</li>
+        <li>Zwarte inkt van een viltstift</li>
+        <li>Bloed (je wil de bloedcellen scheiden van het plasma)</li>
+      </ol>
+      <p class="ex-tip">Tip: kijk naar de eigenschapstabel van scheidingstechnieken &mdash; welke eigenschap verschilt er tussen de twee componenten?</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Deeltjesmodel tekenen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.7rem;">Teken voor elk van de volgende situaties een eenvoudig deeltjesmodel. Gebruik twee verschillende symbolen (bijv. een gesloten cirkel en een open cirkel) voor twee soorten deeltjes.</p>
+      <ol>
+        <li>Zuiver water &mdash; toon de deeltjes in vloeibare toestand</li>
+        <li>Zout opgelost in water &mdash; een homogeen mengsel, beide soorten deeltjes gelijkmatig verdeeld</li>
+        <li>Zand gemengd met grind &mdash; een heterogeen mengsel, de deeltjes zijn duidelijk van een verschillende grootte en zijn ongelijkmatig verdeeld</li>
+      </ol>
+      <p>Voeg bij elke tekening een korte uitleg toe: wat stelt elk symbool voor, en waarom heb je de deeltjes zo gerangschikt?</p>
+      <p class="ex-tip">Tip: bij een vaste stof staan de deeltjes dicht op elkaar en zijn ze geordend; bij een vloeistof staan ze ook dicht op elkaar maar bewegen ze vrijer.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 4</p>
+      <p class="ex-name">Filtreproef analyseren</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.7rem;">Een leerling filtreert modderwater door filtreerpapier. Beantwoord de volgende vragen:</p>
+      <ol>
+        <li>Wat blijft er achter op het filtreerpapier (het residu) en wat gaat er door (het filtraat)?</li>
+        <li>Ziet het filtraat er helder uit na het filtreren? Verklaar waarom wel of niet.</li>
+        <li>Betekent &ldquo;helder&rdquo; filtraat ook dat het water veilig is om te drinken? Leg uit welke stoffen er eventueel nog in het filtraat aanwezig kunnen zijn die er door filtreren <em>niet</em> uitgehaald worden.</li>
+        <li>Welke bijkomende stap(pen) zou je moeten uitvoeren om het gefilterd water echt drinkbaar te maken?</li>
+      </ol>
+      <p class="ex-tip">Denk aan wat filtreerpapier wel en niet tegenhoudt, en aan wat er eventueel opgelost in het water zit.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 5</p>
+      <p class="ex-name">Destillatie begrijpen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.7rem;">Hieronder worden de onderdelen van een eenvoudige destillatie-opstelling beschreven. Leg bij elk onderdeel uit wat de functie is en wat er precies mee gebeurt tijdens de destillatie van zeewater.</p>
+      <ol>
+        <li><strong>De destillatiekolf</strong> (ronde glazen kolf onderaan): hier zit het mengsel (zeewater). Wat gebeurt hier tijdens verhitting?</li>
+        <li><strong>De thermometer</strong> (bevestigd in de bovenkant van de kolf): waarvoor dient deze, en welke temperatuur verwacht je te lezen als het water kookt?</li>
+        <li><strong>De koeler (condensor)</strong> (een buis omgeven door koud water): wat gebeurt er met de damp als die door de koeler gaat?</li>
+        <li><strong>Het opvangbekerglas</strong> (aan het einde van de koeler): wat verzamel je hier, en waarom is dit zuiverder dan het originele zeewater?</li>
+        <li>Na afloop van de destillatie bekijk je de destillatiekolf: wat is daarin achtergebleven, en waarom is dat zo?</li>
+      </ol>
+      <p class="ex-tip">Gebruik het principe: destillatie scheidt vloeistoffen op basis van verschillend kookpunt. Water kookt bij 100&deg;C, zout pas bij 801&deg;C (smeltpunt).</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SUMMARY
+============================================================ -->
+<section class="summary-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>Zuivere stoffen</strong> bestaan uit &eacute;&eacute;n soort deeltjes en hebben vaste, reproduceerbare eigenschappen: een scherp smeltpunt, een scherp kookpunt en een constante dichtheid. Voorbeelden: gedestilleerd water, zuiver ijzer, keukenzout, zuurstof.</li>
+      <li><strong>Mengsels</strong> bestaan uit twee of meer componenten die niet chemisch verbonden zijn. Elke component behoudt zijn eigenschappen en kan opnieuw worden afgescheiden. We onderscheiden homogene mengsels (componenten niet zichtbaar, bijv. lucht, suikerwater) en heterogene mengsels (componenten zichtbaar, bijv. zand + water, olie + water).</li>
+      <li>De <strong>scheidingstechnieken</strong> benutten steeds een eigenschap die de twee componenten van elkaar onderscheidt: filtreren (deeltjesgrootte), bezinken/centrifugeren (dichtheid), indampen (vluchtigheid), destilleren (kookpunt), magnetisch scheiden (ferromagnetisme), chromatografie (hechting aan drager), decanteren (dichtheid van niet-mengbare vloeistoffen).</li>
+      <li><strong>Oplossingen</strong> zijn homogene mengsels van een opgeloste stof in een oplosmiddel. De oplosbaarheid hangt af van temperatuur, de aard van de opgeloste stof en het oplosmiddel. De vuistregel &ldquo;like dissolves like&rdquo; voorspelt welke stoffen in welke oplosmiddelen lossen.</li>
+      <li>Het <strong>deeltjesmodel</strong> is het sleutelgereedschap om het verschil tussen zuivere stoffen en mengsels te begrijpen: bij een zuivere stof zijn alle deeltjes identiek; bij een mengsel zijn er meerdere soorten deeltjes aanwezig die elk hun eigen eigenschappen behouden.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

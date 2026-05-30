@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H9 — Energie en energieomzettingen | Natuurwetenschappen 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --gold: #D4A017;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    /* Extended tokens used internally */
+    --terracotta-light: #D4561E;
+    --gold-light: #E8B82A;
+    --darkblue-light: #243B63;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     CLOSING QUOTE
+  ============================================================ */
+  .closing-quote {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0D1E38 100%);
+    border-radius: var(--border-radius);
+    padding: 3rem 3rem 2.5rem;
+    margin: 3.5rem 0 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.5rem; left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .closing-quote .cq-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--gold);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 1.2rem;
+  }
+
+  .closing-quote .cq-attribution {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(212,160,23,0.6);
+  }
+
+  .closing-quote .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .closing-quote .ornament-line::before,
+  .closing-quote .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.4), transparent);
+  }
+
+  .closing-quote .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.7;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .closing-quote { padding: 2rem 1.2rem 1.8rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     NATUURWETENSCHAPPEN-SPECIFIC COMPONENTS
+  ============================================================ */
+
+  /* ── EXPERIMENT KADER ───────────────────────────────────── */
+  .experiment-kader { background: #FFF8F5; border-left: 4px solid var(--terracotta); border-radius: 0 var(--border-radius) var(--border-radius) 0; padding: 1.3rem 1.5rem; margin: 1.8rem 0; box-shadow: var(--shadow-sm); }
+  .experiment-kader .exp-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--terracotta); display: block; margin-bottom: 0.35rem; }
+  .experiment-kader .exp-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--darkblue); display: block; margin-bottom: 0.8rem; }
+  .experiment-kader .exp-stappen { list-style: none; padding: 0; counter-reset: stap-teller; }
+  .experiment-kader .exp-stappen li { counter-increment: stap-teller; padding: 0.5rem 0.8rem 0.5rem 3rem; position: relative; background: var(--creme); border-radius: 4px; margin-bottom: 0.4rem; font-size: 0.96rem; }
+  .experiment-kader .exp-stappen li::before { content: counter(stap-teller); position: absolute; left: 0.6rem; top: 50%; transform: translateY(-50%); background: var(--terracotta); color: white; width: 1.7rem; height: 1.7rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; }
+
+  /* ── WETENSCHAPS KADER ──────────────────────────────────── */
+  .wetenschaps-kader { background: #EEF3FF; border-left: 4px solid var(--darkblue); border-radius: 0 var(--border-radius) var(--border-radius) 0; padding: 1.2rem 1.5rem; margin: 1.5rem 0; }
+  .wetenschaps-kader .wk-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--darkblue); opacity: 0.7; display: block; margin-bottom: 0.35rem; }
+  .wetenschaps-kader .wk-body { font-size: 0.97rem; color: var(--text-dark); }
+
+  /* ── TABEL WRAP ─────────────────────────────────────────── */
+  .tabel-wrap { margin: 1.8rem 0; overflow-x: auto; border-radius: var(--border-radius); box-shadow: var(--shadow-sm); }
+  .tabel-wrap table { width: 100%; border-collapse: collapse; font-size: 0.96rem; }
+  .tabel-wrap th { background: var(--darkblue); color: var(--gold); padding: 0.75rem 1rem; text-align: left; font-family: 'Source Sans 3', sans-serif; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; }
+  .tabel-wrap td { padding: 0.65rem 1rem; border-bottom: 1px solid rgba(200,146,58,0.2); color: var(--text-mid); }
+  .tabel-wrap tr:last-child td { border-bottom: none; }
+  .tabel-wrap tr:nth-child(even) td { background: rgba(232,220,200,0.3); }
+
+  /* ── SVG CONTAINER ──────────────────────────────────────── */
+  .svg-container { margin: 1.8rem 0; padding: 1.5rem; background: white; border: 1px solid var(--sand); border-radius: var(--border-radius); text-align: center; }
+  .svg-container .svg-caption { font-size: 0.85rem; color: var(--text-light); font-style: italic; display: block; margin-top: 0.75rem; }
+
+  /* ── ENERGIEOMZETTING ARROW DIAGRAM ────────────────────── */
+  .omzetting-diagram {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    background: white;
+    border: 1px solid var(--sand);
+    border-radius: var(--border-radius);
+    padding: 1rem 1.4rem;
+    margin: 1rem 0;
+    font-size: 0.93rem;
+  }
+  .omzetting-diagram .en-box {
+    background: var(--darkblue);
+    color: var(--gold);
+    border-radius: 4px;
+    padding: 0.35rem 0.8rem;
+    font-weight: 700;
+    font-size: 0.88rem;
+    white-space: nowrap;
+  }
+  .omzetting-diagram .en-box.verlies {
+    background: #7A1A00;
+    color: #FFCFBB;
+  }
+  .omzetting-diagram .en-arrow {
+    color: var(--oker);
+    font-size: 1.3rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .omzetting-diagram .en-label {
+    font-size: 0.78rem;
+    color: var(--text-light);
+    font-style: italic;
+    flex-basis: 100%;
+    margin-top: 0.2rem;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <span class="label">Natuurwetenschappen &nbsp;&middot;&nbsp; 1A</span>
+  <span class="label label-right">Eerste graad A-stroom</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Natuurwetenschappen &nbsp;&middot;&nbsp; 1A &nbsp;&middot;&nbsp; Fysica</div>
+  <h1>H9 &mdash; Energie<br>En energieomzettingen</h1>
+  <p class="subtitle">Energie kan niet worden vernietigd &mdash; alleen omgezet. Van zonlicht tot spierkracht.</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- CHAPTER TITLE BLOCK -->
+  <div style="padding: 2.5rem 0 0.5rem;">
+    <div class="chapter-label" style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.2em;color:var(--oker);margin-bottom:0.5rem;">H9 &mdash; Fysica</div>
+    <h1 class="chapter-title" style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;color:var(--darkblue);margin-bottom:1.2rem;line-height:1.2;">Energie en energieomzettingen</h1>
+    <p class="chapter-intro" style="font-size:1.08rem;color:var(--text-mid);line-height:1.8;max-width:720px;border-left:3px solid var(--oker);padding-left:1.2rem;">Alles wat beweegt, warm wordt, gloeit of groeit, verbruikt energie. Maar wat <em>is</em> energie precies? En waarom gaat ze nooit echt verloren, ook al lijkt het er soms op? In dit hoofdstuk verkennen we de zeven energievormen, leren we hoe energie van de ene vorm naar de andere wordt omgezet, en begrijpen we waarom effici&euml;ntie zo belangrijk is in een wereld die kampt met klimaatverandering.</p>
+  </div>
+
+  <!-- PROLOGUE -->
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Stel je voor &hellip;</span>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p>Je staat op een ochtend op. De wekker heeft geluid gemaakt &mdash; elektrische energie werd geluid. Je douchet met warm water &mdash; iemand heeft gas verbrand om dat water te verwarmen. Je eet een boterham &mdash; in de granen zit chemische energie, opgeslagen door de tarweplant die maandenlang zonlicht opving. Je stapt op de fiets en trapt naar school. Je spieren verbranden glucose en zetten die om in spierbewegingen. Je banden draaien. Je arriveert warm en lichtjes buiten adem.</p>
+    <p>Gedurende dat ene ochtenduur passeerden er minstens tien verschillende energieomzettingen. Geen enkele energievorm is verdwenen &mdash; alles werd alleen maar omgezet. Dat is de diepste wet van de natuurkunde: <strong style="color:var(--gold);">energie kan niet worden geschapen of vernietigd, alleen van vorm veranderd.</strong></p>
+    <p>In dit hoofdstuk leer je die wet begrijpen, toepassen en gebruiken om de wereld om je heen te verklaren.</p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 1 — WAT IS ENERGIE?
+  ============================================================ -->
+  <section class="section-block" id="s1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Wat is energie?</h2>
+    </div>
+
+    <p>Energie is een van de meest fundamentele begrippen in de wetenschappen. Je kunt het niet vastpakken, niet zien, niet ruiken. Toch is energie overal aanwezig en is alles wat er in het universum gebeurt, het gevolg van energieoverdracht of energieomzetting.</p>
+
+    <p>De wetenschappelijke definitie van energie klinkt simpel maar is diepzinnig:</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9889;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Energie</span>
+        <p class="begrip-def">Energie is de capaciteit om <strong>arbeid te verrichten</strong> of een systeem te veranderen. Arbeid wordt verricht wanneer een kracht een voorwerp over een afstand verplaatst. Energie is niet zichtbaar, maar we herkennen het aan de <em>effecten</em> die het veroorzaakt: beweging, warmte, licht, geluid, groei.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Energie is onzichtbaar, maar de effecten zijn dat niet</h3>
+    <p>Je ziet energie nooit direct, maar je ziet wel wat ze doet. Een steen die valt, beweegt &mdash; dat is kinetische energie aan het werk. Een verwarmingselement gloeit oranje en warmt een kamer op &mdash; dat is elektrische energie die wordt omgezet in thermische energie en lichtenergie. Een plant groeit naar het licht &mdash; dat is stralingsenergie die chemische energie opbouwt.</p>
+
+    <p>Telkens als er iets <em>verandert</em> in de natuur, is energie de oorzaak of het gevolg. Zonder energieoverdracht is er geen verandering mogelijk. Dat is een van de diepste inzichten van de moderne fysica.</p>
+
+    <h3 class="sub-heading">De eenheid van energie: de Joule</h3>
+    <p>De internationale standaardeenheid voor energie is de <strong>Joule</strong>, afgekort <strong>J</strong>, vernoemd naar de Britse natuurkundige James Prescott Joule (1818&ndash;1889). Hij bewees experimenteel dat warmte en mechanische arbeid hetzelfde zijn: verschillende vormen van dezelfde grootheid.</p>
+
+    <div class="tabel-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Eenheid</th>
+            <th>Afkorting</th>
+            <th>Omrekening</th>
+            <th>Gebruik</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Joule</td>
+            <td><strong>J</strong></td>
+            <td>Basisunit</td>
+            <td>Alle wetenschappelijke contexten</td>
+          </tr>
+          <tr>
+            <td>Kilojoule</td>
+            <td><strong>kJ</strong></td>
+            <td>1 kJ = 1 000 J</td>
+            <td>Voedingsenergie, scheikunde</td>
+          </tr>
+          <tr>
+            <td>Kilocalorie</td>
+            <td><strong>kcal</strong></td>
+            <td>1 kcal = 4 184 J</td>
+            <td>Voedingswaarde op verpakkingen</td>
+          </tr>
+          <tr>
+            <td>Kilowattuur</td>
+            <td><strong>kWh</strong></td>
+            <td>1 kWh = 3 600 000 J</td>
+            <td>Elektriciteitsrekening, energiemeter</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Die grote getallen tonen meteen hoe weinig een Joule is op menselijke schaal. Een appel valt van een tafel en raakt de grond: dat kost ruwweg 1 joule. Je dagelijkse voedselinname bedraagt zo'n 8 000 000 joule (8 000 kJ of 2 000 kcal). En de elektriciteitsrekening van een gemiddeld Belgisch gezin meet verbruik in honderdtallen kWh per maand.</p>
+
+    <div class="wetenschaps-kader">
+      <span class="wk-label">Wet van de Thermodynamica</span>
+      <p class="wk-body"><strong>De eerste wet van de thermodynamica:</strong> energie kan niet worden gecre&euml;erd of vernietigd &mdash; alleen omgezet. De totale hoeveelheid energie in het heelal is constant. Dit is een van de meest fundamenteel bewezen wetten in de hele wetenschap: in meer dan 150 jaar experimenteel onderzoek is er nooit een uitzondering gevonden.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Als energie nooit verloren gaat, waarom moet je dan elke dag eten? Wat gebeurt er met de energie in je voedsel? Bespreek met je buurman of buurvrouw.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 2 — ENERGIEVORMEN
+  ============================================================ -->
+  <section class="section-block" id="s2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Energievormen</h2>
+    </div>
+
+    <p>Energie bestaat in zeven hoofdvormen. Elke vorm heeft zijn eigen eigenschappen, zijn eigen bronnen en zijn eigen toepassingen. In de natuur en de techniek worden deze vormen voortdurend in elkaar omgezet.</p>
+
+    <!-- 1. THERMISCHE ENERGIE -->
+    <h3 class="sub-heading">1. Thermische energie (warmte-energie)</h3>
+    <p>Thermische energie is de energie van de beweging van deeltjes (atomen en moleculen) in een stof. Hoe warmer een stof is, hoe sneller de deeltjes bewegen en hoe meer thermische energie de stof bevat. Zelfs een &ldquo;koude&rdquo; stof heeft thermische energie &mdash; alleen minder dan een warme stof. De absolute nulpuntstemperatuur (&minus;273 &deg;C) is het enige punt waar alle deeltjesbeweging ophoudt.</p>
+    <p><strong>Voorbeelden:</strong> warm water in een thermos, de warmte van een centrale verwarming, je eigen lichaamstemperatuur (37 &deg;C), de stoom boven een kopje thee, de gloeihitte van een smidse.</p>
+
+    <!-- 2. ELEKTRISCHE ENERGIE -->
+    <h3 class="sub-heading">2. Elektrische energie</h3>
+    <p>Elektrische energie is de energie van bewegende elektrische ladingen &mdash; met andere woorden, de energie die gepaard gaat met elektrische stroom. Elektronen die door een geleider stromen, dragen energie mee. Die energie kan nuttig worden aangewend: een motor laten draaien, een lamp laten gloeien, of een gsm opladen.</p>
+    <p><strong>Voorbeelden:</strong> het elektriciteitsnet in je huis (230 V wisselstroom), de batterij in je fiets of auto, bliksem tijdens een onweer (een massale elektrische ontlading), de accu van een smartphone.</p>
+
+    <!-- 3. POTENTI&Euml;LE ENERGIE -->
+    <h3 class="sub-heading">3. Potenti&euml;le energie</h3>
+    <p>Potenti&euml;le energie is opgeslagen energie die vrijkomt wanneer er een verandering plaatsvindt. Er zijn twee belangrijke types:</p>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1rem;">
+      <li style="margin-bottom:0.6rem"><strong>Gravitationele potenti&euml;le energie:</strong> energie door de hoogte van een voorwerp boven de grond. Een opgetild voorwerp heeft meer gravitationele potenti&euml;le energie dan hetzelfde voorwerp op de grond. Hoe hoger en hoe zwaarder het voorwerp, hoe meer energie. Voorbeelden: een steen bovenaan een heuvel, water in een stuwmeer, een ingeademde long die longen samentrekt, een pijl op een boog getild.</li>
+      <li><strong>Elastische potenti&euml;le energie:</strong> energie opgeslagen in een vervormd (uitgerekt of samengedrukt) voorwerp. Wanneer het voorwerp terugveert naar zijn oorspronkelijke vorm, wordt die energie vrijgegeven. Voorbeelden: een samengedrukte veer, een gespannen boogpees, een opgewonden uurwerkveer, een trampoline die samengedrukt is onder je gewicht.</li>
+    </ul>
+
+    <!-- 4. KINETISCHE ENERGIE -->
+    <h3 class="sub-heading">4. Kinetische energie (bewegingsenergie)</h3>
+    <p>Kinetische energie is de energie die een voorwerp bezit omdat het beweegt. Hoe sneller een voorwerp beweegt en hoe zwaarder het is, hoe meer kinetische energie het heeft. Dit verklaart waarom een vrachtwagen op snelweg veel meer remkracht nodig heeft dan een fiets bij dezelfde snelheid, en waarom een kogel zo gevaarlijk is ondanks zijn kleine massa: zijn enorme snelheid geeft hem een grote kinetische energie.</p>
+    <p><strong>Voorbeelden:</strong> een rijdende auto, een vliegende voetbal, stromend rivierwater, de wind die door de bomen waait, een ronddraaiend windmolenwiek, een hardlopende atleet.</p>
+
+    <!-- 5. STRALINGSENERGIE -->
+    <h3 class="sub-heading">5. Stralingsenergie (lichtenergie)</h3>
+    <p>Stralingsenergie is de energie van elektromagnetische golven. Die golven hoeven geen materie nodig om zich voort te planten &mdash; ze kunnen door het vacuüm van de ruimte reizen. Licht is de meest bekende vorm van straling, maar het elektromagnetisch spectrum omvat ook vormen die je niet kunt zien: radiogolven, infrarood (warmtestraling), ultraviolet, r&ouml;ntgenstralen en gammastraling.</p>
+    <p><strong>Voorbeelden:</strong> zonlicht dat je huid warmt, een laser die een barcode inleest, r&ouml;ntgenstralen bij de tandarts, microgolven in een magnetron, infraroodstraling van een elektrisch verwarmingselement, radiogolven van een gsm-toren.</p>
+
+    <!-- 6. CHEMISCHE ENERGIE -->
+    <h3 class="sub-heading">6. Chemische energie</h3>
+    <p>Chemische energie is de energie opgeslagen in de chemische bindingen tussen atomen in moleculen. Wanneer er een chemische reactie plaatsvindt &mdash; zoals verbranding of spijsvertering &mdash; worden bindingen verbroken en nieuwe gevormd. Als de nieuwe bindingen minder energie bevatten dan de oude, komt de rest vrij als warmte of licht.</p>
+    <p><strong>Voorbeelden:</strong> benzine en diesel in een motor, glucose in voedsel dat je lichaam verbrandt, de chemische reactie in een batterijcel, hout dat verbrandt in een open haard, explosievenchemie, de fotosynthese die zonlicht omzet in glucose.</p>
+
+    <!-- 7. KERNENERGIE -->
+    <h3 class="sub-heading">7. Kernenergie (nucleaire energie)</h3>
+    <p>Kernenergie is de energie opgeslagen in de kern van atomen, in de bindingen tussen protonen en neutronen. Die energie is enorm: een kilogram uranium-235 bevat evenveel energie als drie miljoen kilogram steenkool. Er zijn twee manieren om kernenergie vrij te maken: <strong>fissie</strong> (splijting van zware kernen, zoals in een kerncentrale) en <strong>fusie</strong> (samenvoeging van lichte kernen, zoals in de zon).</p>
+    <p><strong>Voorbeelden:</strong> een kerncentrale die elektriciteit produceert via fissie van uranium (zoals de kerncentrale van Doel in Belgi&euml;), de zon die door fusie van waterstof licht en warmte uitstraalt, een atoombom, radioactief verval.</p>
+
+    <!-- GROTE TABEL -->
+    <h3 class="sub-heading">Overzichtstabel: de zeven energievormen</h3>
+    <div class="tabel-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Energievorm</th>
+            <th>Omschrijving</th>
+            <th>Eenheden</th>
+            <th>Voorbeelden</th>
+            <th>Omzetbaar naar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Thermische energie</strong></td>
+            <td>Bewegingsenergie van deeltjes; gemeten als temperatuur</td>
+            <td>J, kJ, kcal</td>
+            <td>Warm water, verwarmingsradiator, menselijk lichaam</td>
+            <td>Elektrisch (stoomturbine), kinetisch</td>
+          </tr>
+          <tr>
+            <td><strong>Elektrische energie</strong></td>
+            <td>Energie van bewegende elektrische ladingen (stroom)</td>
+            <td>J, kWh, W&middot;s</td>
+            <td>Elektriciteitsnet, batterij, bliksem</td>
+            <td>Thermisch, kinetisch, licht, chemisch</td>
+          </tr>
+          <tr>
+            <td><strong>Gravitationele potentiële energie</strong></td>
+            <td>Energie door hoogteverschil in een zwaartekrachtveld</td>
+            <td>J, kJ</td>
+            <td>Stuwmeer, opgetild gewicht, val van een steen</td>
+            <td>Kinetisch, elektrisch (waterkracht)</td>
+          </tr>
+          <tr>
+            <td><strong>Elastische potentiële energie</strong></td>
+            <td>Energie in een vervormd elastisch voorwerp</td>
+            <td>J, kJ</td>
+            <td>Veer, boogpees, trampoline</td>
+            <td>Kinetisch, thermisch</td>
+          </tr>
+          <tr>
+            <td><strong>Kinetische energie</strong></td>
+            <td>Energie van bewegende massa</td>
+            <td>J, kJ</td>
+            <td>Rijdende auto, vliegende bal, stromend water</td>
+            <td>Thermisch, elektrisch, potentieel</td>
+          </tr>
+          <tr>
+            <td><strong>Stralingsenergie</strong></td>
+            <td>Energie van elektromagnetische golven</td>
+            <td>J, eV, W/m²</td>
+            <td>Zonlicht, laser, r&ouml;ntgenstralen, microgolven</td>
+            <td>Thermisch, elektrisch (zonnepaneel), chemisch</td>
+          </tr>
+          <tr>
+            <td><strong>Chemische energie</strong></td>
+            <td>Energie in chemische bindingen van moleculen</td>
+            <td>J, kJ/mol, kcal</td>
+            <td>Benzine, voedsel, batterij, explosief</td>
+            <td>Thermisch, kinetisch, elektrisch, licht</td>
+          </tr>
+          <tr>
+            <td><strong>Kernenergie</strong></td>
+            <td>Energie in bindingen van atoomkernen (fissie/fusie)</td>
+            <td>J, eV, MeV</td>
+            <td>Kerncentrale, zon, radioactief verval</td>
+            <td>Thermisch, elektrisch, stralingsenergie</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SVG: NETWERK VAN ENERGIEVORMEN -->
+    <div class="svg-container">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" width="100%" aria-label="Netwerk van energieomzettingen tussen de zeven energievormen">
+        <defs>
+          <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0,0 8,3 0,6" fill="#C8923A" opacity="0.7"/>
+          </marker>
+        </defs>
+
+        <!-- Background -->
+        <rect width="600" height="420" fill="white" rx="6"/>
+
+        <!-- Verbindingslijnen (selectie van meest voorkomende omzettingen) -->
+        <!-- Chemisch <-> Thermisch -->
+        <line x1="140" y1="100" x2="300" y2="210" stroke="#C8923A" stroke-width="1.5" stroke-dasharray="6,3" opacity="0.5" marker-end="url(#arr)"/>
+        <!-- Chemisch <-> Kinetisch -->
+        <line x1="150" y1="110" x2="190" y2="295" stroke="#C8923A" stroke-width="1.5" stroke-dasharray="6,3" opacity="0.5" marker-end="url(#arr)"/>
+        <!-- Thermisch <-> Elektrisch -->
+        <line x1="320" y1="210" x2="460" y2="110" stroke="#C8923A" stroke-width="1.5" stroke-dasharray="6,3" opacity="0.5" marker-end="url(#arr)"/>
+        <!-- Potentieel <-> Kinetisch -->
+        <line x1="480" y1="295" x2="210" y2="305" stroke="#C8923A" stroke-width="1.5" stroke-dasharray="6,3" opacity="0.5" marker-end="url(#arr)"/>
+        <!-- Straling <-> Chemisch -->
+        <line x1="300" y1="40" x2="135" y2="90" stroke="#C8923A" stroke-width="1.5" stroke-dasharray="6,3" opacity="0.5" marker-end="url(#arr)"/>
+        <!-- Straling <-> Elektrisch -->
+        <line x1="320" y1="45" x2="455" y2="100" stroke="#C8923A" stroke-width="1.5" stroke-dasharray="6,3" opacity="0.5" marker-end="url(#arr)"/>
+        <!-- Kern <-> Thermisch -->
+        <line x1="300" y1="380" x2="300" y2="225" stroke="#C8923A" stroke-width="1.5" stroke-dasharray="6,3" opacity="0.5" marker-end="url(#arr)"/>
+        <!-- Elektrisch <-> Kinetisch -->
+        <line x1="460" y1="125" x2="485" y2="280" stroke="#C8923A" stroke-width="1.5" stroke-dasharray="6,3" opacity="0.5" marker-end="url(#arr)"/>
+
+        <!-- Nodes -->
+        <!-- Straling (top center) -->
+        <ellipse cx="300" cy="42" rx="72" ry="26" fill="#1A2B4A"/>
+        <text x="300" y="38" text-anchor="middle" fill="#D4A017" font-family="'Source Sans 3',sans-serif" font-size="10" font-weight="700">STRALINGSENERGIE</text>
+        <text x="300" y="52" text-anchor="middle" fill="#D4A017" font-family="'Source Sans 3',sans-serif" font-size="9" opacity="0.7">(licht, UV, infrarood)</text>
+
+        <!-- Chemisch (top left) -->
+        <ellipse cx="130" cy="98" rx="66" ry="25" fill="#1A2B4A"/>
+        <text x="130" y="94" text-anchor="middle" fill="#D4A017" font-family="'Source Sans 3',sans-serif" font-size="10" font-weight="700">CHEMISCHE</text>
+        <text x="130" y="108" text-anchor="middle" fill="#D4A017" font-family="'Source Sans 3',sans-serif" font-size="9" opacity="0.7">energie</text>
+
+        <!-- Elektrisch (top right) -->
+        <ellipse cx="468" cy="112" rx="66" ry="25" fill="#1A2B4A"/>
+        <text x="468" y="108" text-anchor="middle" fill="#D4A017" font-family="'Source Sans 3',sans-serif" font-size="10" font-weight="700">ELEKTRISCHE</text>
+        <text x="468" y="122" text-anchor="middle" fill="#D4A017" font-family="'Source Sans 3',sans-serif" font-size="9" opacity="0.7">energie</text>
+
+        <!-- Thermisch (center) -->
+        <ellipse cx="300" cy="213" rx="72" ry="27" fill="#C1440E"/>
+        <text x="300" y="209" text-anchor="middle" fill="white" font-family="'Source Sans 3',sans-serif" font-size="10" font-weight="700">THERMISCHE</text>
+        <text x="300" y="222" text-anchor="middle" fill="white" font-family="'Source Sans 3',sans-serif" font-size="9" opacity="0.85">energie (warmte)</text>
+
+        <!-- Kinetisch (bottom left) -->
+        <ellipse cx="190" cy="305" rx="66" ry="25" fill="#1A2B4A"/>
+        <text x="190" y="301" text-anchor="middle" fill="#D4A017" font-family="'Source Sans 3',sans-serif" font-size="10" font-weight="700">KINETISCHE</text>
+        <text x="190" y="315" text-anchor="middle" fill="#D4A017" font-family="'Source Sans 3',sans-serif" font-size="9" opacity="0.7">energie</text>
+
+        <!-- Potentieel (bottom right) -->
+        <ellipse cx="468" cy="305" rx="66" ry="25" fill="#1A2B4A"/>
+        <text x="468" y="295" text-anchor="middle" fill="#D4A017" font-family="'Source Sans 3',sans-serif" font-size="10" font-weight="700">POTENTI&Euml;LE</text>
+        <text x="468" y="308" text-anchor="middle" fill="#D4A017" font-family="'Source Sans 3',sans-serif" font-size="9" opacity="0.7">energie</text>
+        <text x="468" y="320" text-anchor="middle" fill="#D4A017" font-family="'Source Sans 3',sans-serif" font-size="9" opacity="0.7">(grav. + elastisch)</text>
+
+        <!-- Kernenergie (bottom center) -->
+        <ellipse cx="300" cy="383" rx="66" ry="25" fill="#1A2B4A"/>
+        <text x="300" y="379" text-anchor="middle" fill="#D4A017" font-family="'Source Sans 3',sans-serif" font-size="10" font-weight="700">KERNENERGIE</text>
+        <text x="300" y="393" text-anchor="middle" fill="#D4A017" font-family="'Source Sans 3',sans-serif" font-size="9" opacity="0.7">(fissie &amp; fusie)</text>
+      </svg>
+      <span class="svg-caption">De zeven energievormen. De stippellijnen geven veelvoorkomende omzettingen aan. Thermische energie (warmte, rood) is het eindpunt van bijna elke omzetting.</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 3 — ENERGIEOMZETTINGEN
+  ============================================================ -->
+  <section class="section-block" id="s3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Energieomzettingen</h2>
+    </div>
+
+    <p>Energie kan van de ene vorm in de andere worden omgezet. Dit is de basis van hoe al onze technologie werkt: een generator zet mechanische energie om in elektrische energie, een lamp zet elektrische energie om in licht, een spier zet chemische energie om in beweging. Elke keer als je een apparaat aanzet, start je een keten van energieomzettingen.</p>
+
+    <div class="wetenschaps-kader">
+      <span class="wk-label">Wet van behoud van energie</span>
+      <p class="wk-body"><strong>De totale energie v&oacute;&oacute;r een omzetting is altijd gelijk aan de totale energie erna.</strong> Energie verdwijnt nooit &mdash; maar de nuttige energie (de energie die we doelgericht kunnen gebruiken) neemt wel af, omdat een deel altijd als warmte verloren gaat aan de omgeving. Die warmte is niet weg, maar ze is niet meer nuttig inzetbaar.</p>
+    </div>
+
+    <h3 class="sub-heading">Veelvoorkomende energieomzettingen</h3>
+
+    <!-- Lamp -->
+    <p><strong>Gloeilamp</strong></p>
+    <div class="omzetting-diagram">
+      <span class="en-box">Elektrische energie</span>
+      <span class="en-arrow">&#8594;</span>
+      <span class="en-box">Lichtenergie (10%)</span>
+      <span class="en-arrow">+</span>
+      <span class="en-box verlies">Warmte-energie (90%)</span>
+      <span class="en-label">De gloeidraad wordt zo heet dat hij gloeit. De meeste energie gaat echter verloren als warmte.</span>
+    </div>
+
+    <!-- LED-lamp -->
+    <p><strong>LED-lamp</strong></p>
+    <div class="omzetting-diagram">
+      <span class="en-box">Elektrische energie</span>
+      <span class="en-arrow">&#8594;</span>
+      <span class="en-box">Lichtenergie (90%)</span>
+      <span class="en-arrow">+</span>
+      <span class="en-box verlies">Warmte-energie (10%)</span>
+      <span class="en-label">Halfgeleiders zetten elektrische energie rechtstreeks om in licht, met veel minder warmteverlies.</span>
+    </div>
+
+    <!-- Auto-motor -->
+    <p><strong>Auto met benzinemotor</strong></p>
+    <div class="omzetting-diagram">
+      <span class="en-box">Chemische energie (benzine)</span>
+      <span class="en-arrow">&#8594;</span>
+      <span class="en-box">Kinetische energie (25%)</span>
+      <span class="en-arrow">+</span>
+      <span class="en-box verlies">Warmte (70%) + Geluid (5%)</span>
+      <span class="en-label">Verbranding drijft zuigers aan. Grote warmteverliezen via uitlaat en motorkoeling.</span>
+    </div>
+
+    <!-- Zonnepaneel -->
+    <p><strong>Zonnepaneel (fotovolta&iuml;sch)</strong></p>
+    <div class="omzetting-diagram">
+      <span class="en-box">Stralingsenergie (zonlicht)</span>
+      <span class="en-arrow">&#8594;</span>
+      <span class="en-box">Elektrische energie (20%)</span>
+      <span class="en-arrow">+</span>
+      <span class="en-box verlies">Warmte-energie (80%)</span>
+      <span class="en-label">Siliciumcellen zetten fotons om in elektriciteit. Niet alle fotonen hebben de juiste energie.</span>
+    </div>
+
+    <!-- Waterkrachtcentrale -->
+    <p><strong>Waterkrachtcentrale</strong></p>
+    <div class="omzetting-diagram">
+      <span class="en-box">Gravitationele potenti&euml;le energie</span>
+      <span class="en-arrow">&#8594;</span>
+      <span class="en-box">Kinetische energie (water)</span>
+      <span class="en-arrow">&#8594;</span>
+      <span class="en-box">Elektrische energie (90%)</span>
+      <span class="en-arrow">+</span>
+      <span class="en-box verlies">Warmte (10%)</span>
+      <span class="en-label">Water valt uit het stuwmeer, drijft turbines aan die een generator aandrijven. Zeer effici&euml;nt!</span>
+    </div>
+
+    <!-- Mens eet brood -->
+    <p><strong>Mens eet brood en stapt op de fiets</strong></p>
+    <div class="omzetting-diagram">
+      <span class="en-box">Chemische energie (glucose)</span>
+      <span class="en-arrow">&#8594;</span>
+      <span class="en-box">Kinetische energie (spieren)</span>
+      <span class="en-arrow">+</span>
+      <span class="en-box verlies">Thermische energie (lichaamsw.)</span>
+      <span class="en-label">Cellen verbranden glucose met zuurstof. Het lichaam is slechts ~25% effici&euml;nt als spiermotor.</span>
+    </div>
+
+    <!-- Bunsenbrander -->
+    <p><strong>Bunsenbrander (laboratorium)</strong></p>
+    <div class="omzetting-diagram">
+      <span class="en-box">Chemische energie (gas)</span>
+      <span class="en-arrow">&#8594;</span>
+      <span class="en-box">Thermische energie</span>
+      <span class="en-arrow">+</span>
+      <span class="en-box">Lichtenergie (vlam)</span>
+      <span class="en-label">Verbranding van methaangas produceert voornamelijk warmte, zichtbaar als de blauwe vlam.</span>
+    </div>
+
+    <!-- EXPERIMENT -->
+    <div class="experiment-kader">
+      <span class="exp-label">Proef</span>
+      <span class="exp-title">Energieomzettingen observeren &mdash; lamp en stuiterbal</span>
+      <ol class="exp-stappen">
+        <li>Zet een gloeilamp aan en houd (na 1 minuut) je hand op 5 cm van de lamp. Noteer wat je voelt. Doe hetzelfde met een LED-lamp van gelijke lichtopbrengst.</li>
+        <li>Vergelijk de warmte die je voelt bij de gloeilamp en de LED-lamp. Welke lamp verliest meer energie als warmte?</li>
+        <li>Bereken (of schat): als de gloeilamp 100 W verbruikt en 10% nuttig licht geeft, hoeveel watt gaat dan verloren als warmte? Doe hetzelfde voor de LED (10 W, 90% licht).</li>
+        <li>Laat een stuiterbal vallen van 1 meter hoogte. Meet hoe hoog hij terugstuitert. Noteer dit voor drie opeenvolgende stuiters.</li>
+        <li>Verklaar de afname in stuiterhoogte aan de hand van energieomzettingen: welke energie gaat bij elke stuiter verloren, en waarheen?</li>
+      </ol>
+    </div>
+
+    <!-- SVG: Waterkrachtcentrale -->
+    <div class="svg-container">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 200" width="100%" aria-label="Energieomzetting in een waterkrachtcentrale">
+        <defs>
+          <marker id="arr2" markerWidth="9" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0,0 9,3.5 0,7" fill="#1A2B4A"/>
+          </marker>
+        </defs>
+        <rect width="580" height="200" fill="white" rx="4"/>
+
+        <!-- Stap 1: Stuwmeer -->
+        <rect x="20" y="40" width="100" height="120" rx="4" fill="#1A2B4A"/>
+        <text x="70" y="85" text-anchor="middle" fill="#D4A017" font-family="'Source Sans 3',sans-serif" font-size="10" font-weight="700">GRAVITATIONELE</text>
+        <text x="70" y="99" text-anchor="middle" fill="#D4A017" font-family="'Source Sans 3',sans-serif" font-size="10" font-weight="700">POTENTI&Euml;LE</text>
+        <text x="70" y="113" text-anchor="middle" fill="#D4A017" font-family="'Source Sans 3',sans-serif" font-size="10" font-weight="700">ENERGIE</text>
+        <text x="70" y="132" text-anchor="middle" fill="white" font-family="'Source Sans 3',sans-serif" font-size="9" opacity="0.75">Stuwmeer</text>
+        <text x="70" y="145" text-anchor="middle" fill="white" font-family="'Source Sans 3',sans-serif" font-size="9" opacity="0.75">hoog water</text>
+
+        <!-- Pijl 1 -->
+        <line x1="122" y1="100" x2="168" y2="100" stroke="#1A2B4A" stroke-width="2.5" marker-end="url(#arr2)"/>
+
+        <!-- Stap 2: Kinetisch -->
+        <rect x="170" y="40" width="100" height="120" rx="4" fill="#1A2B4A"/>
+        <text x="220" y="93" text-anchor="middle" fill="#D4A017" font-family="'Source Sans 3',sans-serif" font-size="10" font-weight="700">KINETISCHE</text>
+        <text x="220" y="107" text-anchor="middle" fill="#D4A017" font-family="'Source Sans 3',sans-serif" font-size="10" font-weight="700">ENERGIE</text>
+        <text x="220" y="130" text-anchor="middle" fill="white" font-family="'Source Sans 3',sans-serif" font-size="9" opacity="0.75">Vallend water</text>
+        <text x="220" y="143" text-anchor="middle" fill="white" font-family="'Source Sans 3',sans-serif" font-size="9" opacity="0.75">drijft turbine aan</text>
+
+        <!-- Pijl 2 -->
+        <line x1="272" y1="100" x2="318" y2="100" stroke="#1A2B4A" stroke-width="2.5" marker-end="url(#arr2)"/>
+
+        <!-- Stap 3: Elektrisch -->
+        <rect x="320" y="40" width="100" height="120" rx="4" fill="#C1440E"/>
+        <text x="370" y="93" text-anchor="middle" fill="white" font-family="'Source Sans 3',sans-serif" font-size="10" font-weight="700">ELEKTRISCHE</text>
+        <text x="370" y="107" text-anchor="middle" fill="white" font-family="'Source Sans 3',sans-serif" font-size="10" font-weight="700">ENERGIE</text>
+        <text x="370" y="130" text-anchor="middle" fill="white" font-family="'Source Sans 3',sans-serif" font-size="9" opacity="0.85">Generator (~90%)</text>
+        <text x="370" y="143" text-anchor="middle" fill="white" font-family="'Source Sans 3',sans-serif" font-size="9" opacity="0.85">nuttig</text>
+
+        <!-- Pijl 3 -->
+        <line x1="422" y1="100" x2="468" y2="100" stroke="#1A2B4A" stroke-width="2.5" marker-end="url(#arr2)"/>
+
+        <!-- Stap 4: Verlies -->
+        <rect x="470" y="40" width="90" height="120" rx="4" fill="#7A1A00"/>
+        <text x="515" y="93" text-anchor="middle" fill="#FFCFBB" font-family="'Source Sans 3',sans-serif" font-size="10" font-weight="700">WARMTE</text>
+        <text x="515" y="107" text-anchor="middle" fill="#FFCFBB" font-family="'Source Sans 3',sans-serif" font-size="10">VERLIES</text>
+        <text x="515" y="130" text-anchor="middle" fill="#FFCFBB" font-family="'Source Sans 3',sans-serif" font-size="9" opacity="0.85">Wrijving,</text>
+        <text x="515" y="143" text-anchor="middle" fill="#FFCFBB" font-family="'Source Sans 3',sans-serif" font-size="9" opacity="0.85">turbulentie (~10%)</text>
+      </svg>
+      <span class="svg-caption">Energieomzetting in een waterkrachtcentrale: gravitationele potenti&euml;le energie &rarr; kinetische energie &rarr; elektrische energie. Met circa 90% rendement is dit een van de meest effici&euml;nte energieomzettingen die we kennen.</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 4 — ENERGIEVERLIES ALS WARMTE
+  ============================================================ -->
+  <section class="section-block" id="s4">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Energieverlies en rendement</h2>
+    </div>
+
+    <p>Bij elke energieomzetting gaat een deel van de nuttige energie verloren als warmte aan de omgeving. Die warmte is niet <em>weg</em> &mdash; maar ze is zo verspreid in de omgeving dat we ze niet meer nuttig kunnen gebruiken. Dit is precies waarom je steeds opnieuw moet tanken, eten, opladen en bijverwarmen: de nuttige energie raakt op, ook al is de totale energie constant.</p>
+
+    <p>Dit verlies drukt men uit als <strong>rendement</strong>:</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#9881;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Rendement</span>
+        <p class="begrip-def">Het rendement is de verhouding tussen de <strong>nuttige energie die een apparaat afgeeft</strong> en de <strong>totale energie die het ingaat</strong>. Het wordt uitgedrukt als een percentage.
+        <br><br>
+        <strong>Rendement (&eta;) = (nuttige energie / ingevoerde energie) &times; 100%</strong>
+        <br><br>
+        Een rendement van 100% is theoretisch onmogelijk door warmteverliezen. Hoe hoger het rendement, hoe effici&euml;nter het apparaat.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Rendement van veelgebruikte apparaten</h3>
+    <div class="tabel-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Apparaat</th>
+            <th>Ingevoerde energie</th>
+            <th>Nuttige energie</th>
+            <th>Verlies als warmte</th>
+            <th>Rendement</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>LED-lamp</strong></td>
+            <td>10 W elektrisch</td>
+            <td>9 W licht</td>
+            <td>1 W warmte</td>
+            <td><strong style="color:#1A2B4A;">90%</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Gloeilamp</strong></td>
+            <td>100 W elektrisch</td>
+            <td>10 W licht</td>
+            <td>90 W warmte</td>
+            <td><strong style="color:#C1440E;">10%</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Waterkrachtcentrale</strong></td>
+            <td>100% potentieel</td>
+            <td>~90% elektrisch</td>
+            <td>~10% warmte</td>
+            <td><strong style="color:#1A2B4A;">88&ndash;92%</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Elektrische motor (industrieel)</strong></td>
+            <td>100% elektrisch</td>
+            <td>~92% kinetisch</td>
+            <td>~8% warmte</td>
+            <td><strong style="color:#1A2B4A;">90&ndash;95%</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Menselijk lichaam (spier)</strong></td>
+            <td>100% chemisch</td>
+            <td>~25% kinetisch</td>
+            <td>~75% lichaamsw.</td>
+            <td><strong style="color:#C8923A;">~25%</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Benzinemotor (auto)</strong></td>
+            <td>100% chemisch</td>
+            <td>~25% kinetisch</td>
+            <td>~75% warmte</td>
+            <td><strong style="color:#C1440E;">20&ndash;30%</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Zonnepaneel (standaard)</strong></td>
+            <td>100% stralingsenergie</td>
+            <td>~20% elektrisch</td>
+            <td>~80% warmte</td>
+            <td><strong style="color:#C8923A;">15&ndash;22%</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Stoomturbine (thermische centrale)</strong></td>
+            <td>100% thermisch</td>
+            <td>~35% elektrisch</td>
+            <td>~65% warmte</td>
+            <td><strong style="color:#C8923A;">30&ndash;40%</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub-heading">Rendement berekenen: een voorbeeld</h3>
+    <p>Een elektrische motor verbruikt 500 J aan elektrische energie en levert 375 J aan mechanische arbeid (beweging). Hoeveel energie gaat verloren en wat is het rendement?</p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.4rem">Nuttige energie = 375 J</li>
+      <li style="margin-bottom:0.4rem">Ingevoerde energie = 500 J</li>
+      <li style="margin-bottom:0.4rem">Verlies = 500 &minus; 375 = <strong>125 J als warmte</strong></li>
+      <li>Rendement = (375 / 500) &times; 100% = <strong>75%</strong></li>
+    </ul>
+
+    <div class="wetenschaps-kader">
+      <span class="wk-label">Wist je dit?</span>
+      <p class="wk-body">LED-lampen zijn meer dan 10&times; effici&euml;nter dan klassieke gloeilampen. Als Belgi&euml; alle gloeilampen zou vervangen door LED, bespaart het land jaarlijks naar schatting 1,5 TWh (1,5 miljard kWh) elektriciteit &mdash; genoeg om een stad van 100 000 inwoners een volledig jaar van stroom te voorzien. Dat vertaalt zich ook in een enorme reductie van CO&#8322;-uitstoot, aangezien een groot deel van onze elektriciteit nog steeds afkomstig is van fossiele brandstoffen of kernenergie.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Waarom zijn alle levende wezens &ldquo;warm&rdquo; &mdash; of in het geval van warmbloedige dieren: constant warm? Waar komt die warmte vandaan? Denk aan de energieomzettingen in je eigen lichaam. Kan een levend wezen ooit &ldquo;koud&rdquo; zijn, dat wil zeggen: geen warmte produceren?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 5 — DUURZAME EN NIET-DUURZAME ENERGIE
+  ============================================================ -->
+  <section class="section-block" id="s5">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Duurzame en niet-duurzame energie</h2>
+    </div>
+
+    <p>De manier waarop mensen energie opwekken, heeft grote gevolgen voor het klimaat en de toekomst van onze planeet. Niet alle energiebronnen zijn gelijkwaardig: sommige raken op, andere niet. Sommige stoten schadelijke gassen uit, andere nauwelijks. Dit onderscheid is cruciaal in de energietransitie van de 21e eeuw.</p>
+
+    <h3 class="sub-heading">Niet-duurzame energiebronnen: fossiele brandstoffen</h3>
+    <p>Fossiele brandstoffen &mdash; <strong>steenkool</strong>, <strong>aardolie</strong> en <strong>aardgas</strong> &mdash; zijn gevormd uit organisch materiaal dat miljoenen jaren geleden leefde en door hitte en druk werd omgezet in koolstofrijke stoffen. Ze bevatten enorm veel chemische energie en waren de motor achter de Industriele Revolutie van de 19e en 20e eeuw.</p>
+
+    <p>Het probleem is drieledig:</p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.5rem"><strong>Eindige voorraden:</strong> fossiele brandstoffen zijn er in beperkte hoeveelheden. Ze nemen miljoenen jaren om te vormen, maar we verbranden ze in een paar eeuwen.</li>
+      <li style="margin-bottom:0.5rem"><strong>CO&#8322;-uitstoot:</strong> verbranding van fossiele brandstoffen stoot koolstofdioxide (CO&#8322;) uit &mdash; een broeikasgas dat de aarde opwarmt.</li>
+      <li><strong>Klimaatverandering:</strong> de stijgende concentratie CO&#8322; in de atmosfeer leidt tot hogere temperaturen, extremere weersomstandigheden, stijging van de zeespiegel en verlies van biodiversiteit.</li>
+    </ul>
+
+    <h3 class="sub-heading">Duurzame energiebronnen</h3>
+    <p>Duurzame (hernieuwbare) energiebronnen zijn bronnen die niet uitputten en geen (of weinig) CO&#8322; uitstoten. Ze zijn rechtstreeks of onrechtstreeks afkomstig van de zon of de zwaartekracht.</p>
+
+    <div class="tabel-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Bron</th>
+            <th>Energieomzetting</th>
+            <th>Technologie</th>
+            <th>Voordelen</th>
+            <th>Nadelen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Zonne-energie</strong></td>
+            <td>Stralingsenergie &rarr; elektrisch / thermisch</td>
+            <td>Zonnepanelen (PV), zonneboilers</td>
+            <td>Onuitputtelijk, geen uitstoot, overal inzetbaar</td>
+            <td>Wisselvallig (nacht, bewolking), laag rendement (~20%)</td>
+          </tr>
+          <tr>
+            <td><strong>Windenergie</strong></td>
+            <td>Kinetische energie (wind) &rarr; elektrisch</td>
+            <td>Windturbines (land en offshore)</td>
+            <td>Geen uitstoot, relatief hoog rendement, groot potentieel aan kust</td>
+            <td>Niet constant, geluidshinder, impact op vogels</td>
+          </tr>
+          <tr>
+            <td><strong>Waterkrachtenergie</strong></td>
+            <td>Potenti&euml;le energie (stuwmeer) &rarr; kinetisch &rarr; elektrisch</td>
+            <td>Stuwdammen, stroomturbines</td>
+            <td>Hoog rendement (~90%), regelbaar, opslagcapaciteit</td>
+            <td>Beperkte geschikte locaties, impact op ecosystemen</td>
+          </tr>
+          <tr>
+            <td><strong>Getijdenenergie</strong></td>
+            <td>Kinetische/potenti&euml;le energie van getijden &rarr; elektrisch</td>
+            <td>Getijdenturbines, getijdendam</td>
+            <td>Voorspelbaar (maan), geen uitstoot</td>
+            <td>Hoge installatiekosten, beperkt tot kustregio's</td>
+          </tr>
+          <tr>
+            <td><strong>Biomassaenergie</strong></td>
+            <td>Chemische energie (organisch materiaal) &rarr; thermisch/elektrisch</td>
+            <td>Verbranding houtpellets, vergisting</td>
+            <td>CO&#8322;-neutraal als duurzaam geoogst, regelbaar</td>
+            <td>Landgebruik, niet altijd duurzaam, luchtvervuiling</td>
+          </tr>
+          <tr>
+            <td><strong>Geothermische energie</strong></td>
+            <td>Thermische energie (aardkern) &rarr; elektrisch/warmte</td>
+            <td>Aardwarmtepompen, geothermische centrales</td>
+            <td>Constant, geen uitstoot, lang levensduur</td>
+            <td>Beperkt tot geologisch actieve zones, diepe boringen</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub-heading">Energiemix in Belgi&euml;</h3>
+    <p>Belgi&euml; heeft een relatief diverse energiemix. Het land beschikt over een significante nucleaire capaciteit (kerncentrale Doel en Tihange), maar heeft besloten om de kerncentrales geleidelijk te sluiten of te verlengen. Ondertussen groeit het aandeel hernieuwbare energie snel, met name wind op zee (de Belgische Noordzee) en zonnepanelen op daken. Aardgas wordt gebruikt als &ldquo;brugbrandstof&rdquo; in turbinecentrales die snel kunnen opstarten wanneer zon en wind tekortschieten.</p>
+
+    <p>De geografische ligging van Belgi&euml; biedt kansen: de Noordzeekust heeft een van de hoogste windenergiedichtheden van Europa, en het vlakke land en milde klimaat zijn gunstig voor zonnepanelen, al is de instraling lager dan in Zuid-Europa.</p>
+
+    <!-- SVG: Energiemix Belgi&euml; schematisch -->
+    <div class="svg-container">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 130" width="100%" aria-label="Vereenvoudigde energiemix van België">
+        <rect width="560" height="130" fill="white" rx="4"/>
+        <text x="280" y="20" text-anchor="middle" font-family="'Source Sans 3',sans-serif" font-size="12" font-weight="700" fill="#1A2B4A">Vereenvoudigde elektriciteitsmix Belgi&euml; (indicatief)</text>
+
+        <!-- Bars -->
+        <!-- Kernenergie ~39% -->
+        <rect x="30" y="35" width="218" height="34" rx="3" fill="#1A2B4A"/>
+        <text x="139" y="57" text-anchor="middle" fill="#D4A017" font-family="'Source Sans 3',sans-serif" font-size="10" font-weight="700">Kernenergie ~39%</text>
+
+        <!-- Gas ~22% -->
+        <rect x="252" y="35" width="123" height="34" rx="3" fill="#C8923A"/>
+        <text x="313" y="57" text-anchor="middle" fill="white" font-family="'Source Sans 3',sans-serif" font-size="10" font-weight="700">Gas ~22%</text>
+
+        <!-- Wind ~17% -->
+        <rect x="379" y="35" width="95" height="34" rx="3" fill="#2E6B3E"/>
+        <text x="426" y="57" text-anchor="middle" fill="white" font-family="'Source Sans 3',sans-serif" font-size="10" font-weight="700">Wind ~17%</text>
+
+        <!-- Zon ~9% -->
+        <rect x="478" y="35" width="52" height="34" rx="3" fill="#D4A017"/>
+        <text x="504" y="57" text-anchor="middle" fill="white" font-family="'Source Sans 3',sans-serif" font-size="9" font-weight="700">Zon ~9%</text>
+
+        <!-- Overig -->
+        <text x="30" y="98" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#6B5F4A">Overig (waterkracht, biomassa, import): ~13% &nbsp;|&nbsp; Doel: 100% hernieuwbaar voor 2050</text>
+      </svg>
+      <span class="svg-caption">Indicatieve elektriciteitsmix van Belgi&euml; (circa 2024). De mix wisselt sterk per seizoen en weersomstandigheid. Kernenergie domineert nog steeds, maar wind- en zonne-energie groeien snel.</span>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Welke energiebron is het meest geschikt voor Belgi&euml;? Motiveer je antwoord aan de hand van geografische en klimatologische factoren. Denk aan: kustlijn (wind), bewolkingsgraad (zon), rivieren (waterkracht), bevolkingsdichtheid (ruimte voor installaties). Vergelijk met een land als Noorwegen of Spanje.</p>
+    </div>
+  </section>
+
+  <!-- CLOSING QUOTE -->
+  <div class="closing-quote" role="note" aria-label="Slotcitaat">
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p class="cq-text">Energie is de munteenheid van het universum. Alles wat er gebeurt &mdash; van het ontkiemen van een zaadje tot het exploderen van een ster &mdash; is een transactie in die munteenheid.</p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <span class="cq-attribution">Natuurwetenschappen 1A &nbsp;&middot;&nbsp; Eerste Graad A-stroom</span>
+  </div>
+
+</div><!-- end page-wrapper -->
+
+<!-- EXERCISES -->
+<section class="exercises-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <!-- Oefening 1 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Energievormen herkennen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.7rem;">Benoem voor elk van de onderstaande situaties de energievorm of energievormen die aanwezig zijn. Kies telkens uit: thermisch, elektrisch, gravitationeel potenti&euml;el, elastisch potenti&euml;el, kinetisch, stralings- of chemische energie.</p>
+      <ol>
+        <li>Een gespannen veer in een speelgoedauto, klaar om los te schieten.</li>
+        <li>Een stromende rivier op weg naar de zee, 200 meter lager.</li>
+        <li>Een lichtstraal van de zon die door het raam komt.</li>
+        <li>Warm eten in een pot op het vuur.</li>
+        <li>Een rijdende trein die een station nadert.</li>
+        <li>Een scheikundige reactie in een brandstofcel die waterstof en zuurstof combineert.</li>
+        <li>Een helikopter die stil in de lucht hangt op 500 meter hoogte.</li>
+        <li>Een opgeladen smartphone die in je zak zit (maar niet actief gebruikt wordt).</li>
+      </ol>
+      <p class="ex-tip">Tip: sommige situaties bevatten meerdere energievormen tegelijk.</p>
+    </div>
+
+    <!-- Oefening 2 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Energieomzettingen koppelen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.7rem;">Beschrijf voor elk apparaat of systeem de volledige keten van energieomzettingen. Vermeld zowel de nuttige uitvoer als het warmteverlies.</p>
+      <ol>
+        <li>Een elektrische gitaarversterker (van stopcontact tot geluid).</li>
+        <li>Een kaars die brandt.</li>
+        <li>Een windturbine die elektriciteit opwekt.</li>
+        <li>Een fotosynthetiserende plant.</li>
+        <li>Een smartphone die een filmpje afspeelt en tegelijk oplaadt.</li>
+        <li>Een boog en pijl: van gespannen boogpees tot pijl in het doelwit.</li>
+        <li>Een stoomlocomotief (historisch).</li>
+        <li>Een zonneboiler die water verwarmt.</li>
+      </ol>
+      <p class="ex-tip">Gebruik de notatie: Energie A &rarr; Energie B + Warmteverlies.</p>
+    </div>
+
+    <!-- Oefening 3 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Rendement berekenen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.7rem;">Los de volgende berekeningen op. Toon steeds je rekenwerk.</p>
+      <ol>
+        <li>Een elektrische motor ontvangt 800 J elektrische energie en levert 600 J mechanische arbeid.
+          <ul style="margin-top:0.3rem;">
+            <li>a) Bereken het rendement van de motor.</li>
+            <li>b) Hoeveel energie gaat verloren als warmte?</li>
+            <li>c) Hoe zou je de motor effici&euml;nter kunnen maken?</li>
+          </ul>
+        </li>
+        <li>Een zonnepaneel ontvangt 5 000 J aan zonlichtenergie per minuut en produceert 900 J elektrische energie. Bereken het rendement.</li>
+        <li>Een gloeilamp verbruikt 60 W en geeft 6 W nuttig licht. Bereken het rendement en de warmte die per seconde vrijkomt.</li>
+        <li>Een waterkrachtcentrale heeft een rendement van 88%. Als er per seconde 250 000 J aan potenti&euml;le energie beschikbaar is, hoeveel elektrische energie wordt dan per seconde geproduceerd?</li>
+      </ol>
+      <p class="ex-tip">Formule: Rendement (&eta;) = (nuttige energie &divide; ingevoerde energie) &times; 100%</p>
+    </div>
+
+    <!-- Oefening 4 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 4</p>
+      <p class="ex-name">Energieketen volgen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.7rem;">Volg de volledige energieketen van de zon tot een persoon die met de fiets naar het werk rijdt. Beschrijf elke omzetting stap voor stap.</p>
+      <ol>
+        <li>Noem de energievorm in de kern van de zon (kernfusie).</li>
+        <li>Hoe bereikt de energie van de zon de aarde?</li>
+        <li>Een graanplant vangt zonlicht op en maakt glucose via fotosynthese. Welke omzetting is dit?</li>
+        <li>De mens eet brood (gemaakt van graan). Welke energievorm neemt hij op?</li>
+        <li>De mens stapt op zijn fiets en trapt. Welke omzettingen vinden er dan plaats in zijn lichaam en in de fiets?</li>
+        <li>Door luchtweerstand en bandenwrijving vertraagt de fiets als de fietser stopt met trappen. Welke energievormen zijn hierbij betrokken?</li>
+        <li>Teken de volledige keten als een schema met pijlen.</li>
+      </ol>
+      <p class="ex-tip">Hint: er zijn minstens 5 verschillende energievormen betrokken in deze keten.</p>
+    </div>
+
+    <!-- Oefening 5 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 5</p>
+      <p class="ex-name">Duurzame energie vergelijken voor Belgi&euml;</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.7rem;">Vergelijk windenergie en zonne-energie voor gebruik in Belgi&euml;. Gebruik de informatie uit het hoofdstuk en je eigen kennis.</p>
+      <ol>
+        <li>Welke energieomzetting vindt er plaats in een windturbine? En in een zonnepaneel?</li>
+        <li>Geef twee voordelen en twee nadelen van windenergie voor Belgi&euml;.</li>
+        <li>Geef twee voordelen en twee nadelen van zonne-energie voor Belgi&euml;.</li>
+        <li>Belgi&euml; heeft een kustlijn van ongeveer 67 km. Hoe is die geografische factor relevant voor de keuze tussen wind en zon?</li>
+        <li>Beide bronnen zijn intermitterend (niet altijd beschikbaar). Hoe kan men dit probleem oplossen? Noem minstens twee oplossingen.</li>
+        <li>Welke bron zou jij persoonlijk prioriteit geven voor Belgi&euml;? Motiveer je keuze in 3 tot 5 zinnen.</li>
+      </ol>
+      <p class="ex-tip">Tip: denk ook aan de Belgische bewolkingsgraad (gemiddeld 50&ndash;60% bewolkt), de ligging aan de Noordzee en de hoge bevolkingsdichtheid (geen grote onbewoonde gebieden voor windparken op land).</p>
+    </div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="summary-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>Energie</strong> is de capaciteit om arbeid te verrichten of verandering te veroorzaken. Ze is niet zichtbaar, maar altijd herkenbaar aan haar effecten: beweging, warmte, licht en geluid. De SI-eenheid is de <strong>Joule (J)</strong>; in het dagelijks leven worden ook kcal en kWh gebruikt.</li>
+      <li>Er bestaan <strong>zeven hoofdvormen van energie</strong>: thermisch, elektrisch, gravitationeel potenti&euml;el, elastisch potenti&euml;el, kinetisch, stralings- en chemische energie &mdash; plus kernenergie als achtste vorm. Elke vorm heeft eigen eigenschappen en toepassingen.</li>
+      <li>De <strong>eerste wet van de thermodynamica</strong> (wet van behoud van energie) stelt dat energie nooit verdwijnt, maar enkel van vorm verandert. Elke omzetting gaat gepaard met <strong>warmteverlies</strong>: een deel van de nuttige energie wordt als niet-bruikbare warmte afgegeven aan de omgeving.</li>
+      <li>Het <strong>rendement</strong> (&eta;) drukt uit hoe effici&euml;nt een apparaat energie omzet: rendement = (nuttige energie / ingevoerde energie) &times; 100%. LED-lampen (~90%) zijn veel effici&euml;nter dan gloeilampen (~10%); waterkrachtcentrales (~90%) zijn effici&euml;nter dan benzinenmotoren (~25%).</li>
+      <li><strong>Duurzame energiebronnen</strong> (zon, wind, water, getijden, biomassa, geothermie) zijn hernieuwbaar en stoten weinig of geen CO&#8322; uit, in tegenstelling tot <strong>fossiele brandstoffen</strong> (steenkool, olie, gas) die eindig zijn en de klimaatverandering versnellen. De energietransitie naar 100% hernieuwbaar is de grootste wetenschappelijke en maatschappelijke uitdaging van de 21e eeuw.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

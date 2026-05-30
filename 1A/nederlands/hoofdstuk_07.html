@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoofdstuk 7 — Stap voor stap uitleggen | Nederlands 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.25; }
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+    text-decoration: none;
+  }
+  .site-header .label-right { text-align: right; }
+
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image: radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+  .chapter-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+  .prologue .ornament-line .ornament-sym { color: var(--gold); font-size: 1.1rem; opacity: 0.8; }
+  .prologue p { font-style: italic; font-size: 1.05rem; line-height: 1.85; color: rgba(250,246,239,0.9); }
+  .prologue p + p { margin-top: 0.9em; }
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+  .begrip .begrip-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .begrip .begrip-body { flex: 1; }
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+  .begrip .begrip-def { font-size: 0.97rem; color: var(--text-mid); line-height: 1.65; margin: 0; }
+
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .denkvraag .dv-text { font-style: italic; font-size: 1rem; color: var(--text-mid); line-height: 1.7; }
+
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+  }
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ── VOORBEELDTEKST ── */
+  .voorbeeldtekst {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 2rem 2.2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .voorbeeldtekst .vt-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--darkblue);
+    opacity: 0.6;
+    margin-bottom: 0.4rem;
+    display: block;
+  }
+  .voorbeeldtekst .vt-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 0.3rem;
+  }
+  .voorbeeldtekst .vt-meta {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    margin-bottom: 1.2rem;
+    font-style: italic;
+  }
+  .voorbeeldtekst .vt-body p {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-bottom: 0.9em;
+  }
+  .voorbeeldtekst .vt-body p:last-child { margin-bottom: 0; }
+  .voorbeeldtekst .vt-source {
+    margin-top: 1rem;
+    font-size: 0.78rem;
+    color: var(--text-light);
+    border-top: 1px solid var(--sand);
+    padding-top: 0.6rem;
+    font-style: italic;
+  }
+
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+  .exercise-card ol, .exercise-card ul { padding-left: 1.4rem; margin-top: 0.5rem; }
+  .exercise-card li { margin-bottom: 0.45rem; font-size: 0.96rem; color: var(--text-mid); }
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+  .summary-section ul { list-style: none; padding: 0; }
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0; top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem; right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px; height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  .prose-text { max-width: 100%; }
+  .highlighted-para {
+    background: rgba(212,160,23,0.08);
+    border-left: 3px solid var(--gold);
+    padding: 0.8rem 1.1rem;
+    border-radius: 0 4px 4px 0;
+    margin: 1.2rem 0;
+    font-size: 0.97rem;
+    color: var(--text-mid);
+  }
+
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section, .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .voorbeeldtekst { padding: 1.4rem 1.2rem; }
+  }
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header" id="top">
+  <a class="label" href="index.html">Nederlands 1A</a>
+  <span class="label label-right">Hoofdstuk 7</span>
+</header>
+
+<div class="chapter-hero">
+  <div class="chapter-kicker">Nederlands &nbsp;·&nbsp; 1A &nbsp;·&nbsp; Eerste graad</div>
+  <h1>Hoofdstuk 7<br>Stap voor stap uitleggen</h1>
+  <p class="subtitle">Recepten, spelregels en handleidingen — hoe schrijf je iets dat echt werkt?</p>
+</div>
+
+<div class="page-wrapper">
+
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Stel je voor &hellip;</span>
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+
+    <p>Het is zaterdagmiddag. Yasmine wil pannenkoeken maken voor haar kleine broertje. Ze zoekt een recept op via haar telefoon en vindt er eentje met honderd positieve reacties. Ze begint vol vertrouwen. Maar al na de eerste stap loopt het mis: het recept zegt "meng alles goed door elkaar", zonder te zeggen in welke volgorde je de ingrediënten toevoegt. De bloem klontert. Dan staat er plots "laat het beslag rusten" — maar hoe lang? En waarop? In de koelkast of erbuiten? Ze gaat verder. Het resultaat: één aangebakken, halfgare pannenkoek die in de pan blijft kleven. De rest gooit ze weg.</p>
+
+    <p>Ondertussen belt haar vriendin Dina. Die maakte dezelfde pannenkoeken — perfect gelukt. Haar geheim? Het recept van haar oma, dat al twintig jaar in een oud schriftje staat. <em>"Eerst het ei en de melk goed kloppen. Dan pas de bloem er geleidelijk bij zeven, al roerend. Bak op middelhoog vuur, één minuut per kant."</em> Simpel, duidelijk, stap voor stap.</p>
+
+    <p>Wat maakte het verschil? Niet de ingrediënten — die waren hetzelfde. Niet het talent — Yasmine kookt graag. Het verschil zat in de tekst. Het ene recept veronderstelde te veel, sloeg stappen over en gaf te weinig uitleg. Het andere nam de lezer bij de hand. Dat is precies waar dit hoofdstuk over gaat: hoe schrijf je een instructieve tekst die <em>echt werkt</em>?</p>
+
+    <div class="ornament-line"><span class="ornament-sym">✦</span></div>
+  </section>
+
+  <section class="section-block" id="s1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Wat is een instructieve tekst?</h2>
+    </div>
+    <div class="prose-text">
+      <p>Je wordt elke dag omringd door instructieve teksten, ook al merk je het niet altijd. Een instructieve tekst is een tekst die iemand uitlegt <em>hoe</em> je iets moet doen. Het doel is niet informeren om te informeren, maar mensen in staat stellen een taak uit te voeren.</p>
+
+      <p>Denk maar aan een paar voorbeelden uit je dagelijks leven: de gebruiksaanwijzing van een nieuwe koptelefoon, de spelregels van een bordspel, het recept dat je tante je stuurde, de instructies op een pakje rijst, de uitleg van je wiskundeleraar hoe je een vergelijking oplost, of de tips die je op een website vindt om beter te slapen. Al die teksten hebben één ding gemeen: ze willen dat je iets <em>doet</em>.</p>
+
+      <p>Een instructieve tekst kan heel verschillende vormen aannemen. Soms is het een lang document met tientallen stappen, zoals een handleiding voor software. Soms is het één zin: "Schud voor gebruik." Wat de vorm ook is, de kern blijft altijd hetzelfde: de lezer moet na het lezen weten hoe hij iets moet aanpakken.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Instructieve tekst</span>
+        <p class="begrip-def">Een instructieve tekst legt uit hoe je een bepaalde handeling uitvoert of een taak voltooit. De tekst is gericht op het doen: de lezer moet na het lezen iets kunnen uitvoeren. Voorbeelden zijn recepten, handleidingen, spelregels, stappenplannen, bijsluiters en tips.</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>Goede instructieve teksten hebben een aantal vaste kenmerken. Ten eerste gebruiken ze werkwoorden in de gebiedende wijs (ook wel de imperatief genoemd): "Meng", "Klik", "Zet". Die werkwoordsvorm geeft direct een opdracht. Ten tweede volgt de tekst een logische volgorde — je kunt geen stap 3 uitvoeren als stap 2 nog niet klaar is. Ten derde zijn de stappen duidelijk genummerd of gesorteerd, zodat je nooit de draad kwijtraakt. En ten vierde gebruikt een goede instructieve tekst begrijpelijke, concrete woorden — geen vage omschrijvingen, maar exacte aanduidingen.</p>
+    </div>
+  </section>
+
+  <section class="section-block" id="s2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Een recept analyseren</h2>
+    </div>
+    <div class="prose-text">
+      <p>Een recept is een van de bekendste vormen van de instructieve tekst. Lees het recept hieronder eens aandachtig. Let daarna op hoe de taal in elkaar zit.</p>
+    </div>
+
+    <div class="voorbeeldtekst">
+      <span class="vt-label">Voorbeeldtekst 1 · Recept</span>
+      <p class="vt-title">Speculaaskoekjes</p>
+      <p class="vt-meta">Voor ongeveer 30 koekjes &mdash; bereidingstijd: 20 minuten + 30 minuten koelen + 15 minuten bakken</p>
+      <div class="vt-body">
+        <p><strong>Ingrediënten:</strong><br>
+        200 g bloem &mdash; 100 g boter (op kamertemperatuur) &mdash; 80 g bruine basterdsuiker &mdash; 1 ei &mdash; 1 theelepel speculaaskruiden &mdash; een snufje zout &mdash; een snufje bakpoeder</p>
+
+        <p><strong>Bereidingswijze:</strong></p>
+        <p><strong>1.</strong> Meng de boter en de suiker in een kom tot een luchtige massa. Klop daarna het ei erdoor.</p>
+        <p><strong>2.</strong> Voeg de bloem, de speculaaskruiden, het zout en het bakpoeder toe. Kneed alles tot een soepel deeg.</p>
+        <p><strong>3.</strong> Wikkel het deeg in plasticfolie en leg het minstens 30 minuten in de koelkast.</p>
+        <p><strong>4.</strong> Verwarm de oven voor op 175 graden Celsius. Bekleed een bakplaat met bakpapier.</p>
+        <p><strong>5.</strong> Rol het deeg uit op een bebloemd werkvlak tot een dikte van ongeveer 4 mm. Steek er koekjes uit met een koekjesvorm of een glas.</p>
+        <p><strong>6.</strong> Leg de koekjes op de bakplaat en bak ze 12 tot 15 minuten goudbruin.</p>
+        <p><strong>7.</strong> Haal de koekjes uit de oven en laat ze volledig afkoelen op een rooster voor je ze proeft.</p>
+      </div>
+      <p class="vt-source">Zelfgeschreven voorbeeldrecept voor didactische doeleinden.</p>
+    </div>
+
+    <div class="prose-text">
+      <p>Analyseer dit recept nu eens stap voor stap. Wat maakt het goed?</p>
+      <p>Kijk eerst naar de werkwoorden: <em>Meng</em>, <em>klop</em>, <em>voeg toe</em>, <em>kneed</em>, <em>wikkel</em>, <em>leg</em>, <em>verwarm</em>, <em>bekleed</em>, <em>rol uit</em>, <em>steek uit</em>, <em>bak</em>, <em>haal</em>, <em>laat afkoelen</em>. Elk werkwoord staat in de gebiedende wijs. Er staat niet "je moet de boter mengen" of "de boter wordt gemengt" — nee, het is direct en helder: <em>Meng</em>. Dat bespaart woorden en verwarring.</p>
+      <p>Kijk daarna naar de volgorde. Je kunt stap 4 (oven voorverwarmen) niet doen voor stap 3 (deeg koelen), want dan is de oven al heet voordat het deeg klaar is. De volgorde is bewust gekozen. Ten slotte: elk detail is erbij — de temperatuur, de dikte van het deeg, de baktijd. Niets wordt overgelaten aan de fantasie van de lezer.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Imperatief (gebiedende wijs)</span>
+        <p class="begrip-def">De imperatief is de werkwoordsvorm die een opdracht, verzoek of instructie geeft. Je vormt de imperatief door de stam van het werkwoord te gebruiken zonder uitgang. Voorbeelden: "Mix" (van mixen), "Voeg toe" (van toevoegen), "Bak" (van bakken). In instructieve teksten gebruik je de imperatief om de lezer rechtstreeks aan te spreken en aan te zetten tot actie.</p>
+      </div>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">Stel dat stap 3 en stap 4 omgewisseld waren. Wat zou er dan gebeuren? Waarom is de volgorde in een recept niet zomaar te veranderen? Kun je een ander voorbeeld bedenken waarbij de volgorde van belang is?</p>
+    </div>
+  </section>
+
+  <section class="section-block" id="s3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">De gebiedende wijs</h2>
+    </div>
+    <div class="prose-text">
+      <p>In instructieve teksten is de imperatief je belangrijkste werkwoord. Het is goed om te weten hoe je die correct vormt, want een verkeerd werkwoord klinkt vreemd of geeft verwarring.</p>
+
+      <p>De regel is eenvoudig: de imperatief is gelijk aan de <strong>stam</strong> van het werkwoord. De stam vind je door de <em>-en</em> van de infinitief (het hele werkwoord) weg te halen. Soms pas je de spelling nog iets aan om aan de Nederlandse spellingregels te voldoen.</p>
+    </div>
+
+    <div class="highlighted-para">
+      <strong>De regel:</strong> infinitief &rarr; haal <em>-en</em> weg &rarr; pas spelling aan indien nodig &rarr; imperatief
+    </div>
+
+    <div class="prose-text">
+      <p>Hier zijn vijf voorbeelden om het te oefenen:</p>
+
+      <p><strong>1. mengen &rarr; meng</strong><br>
+      Haal <em>-en</em> weg van "mengen" en je krijgt "meng". Klopt de spelling? Ja. <em>"Meng de bloem met de boter."</em></p>
+
+      <p><strong>2. klikken &rarr; klik</strong><br>
+      Haal <em>-en</em> weg van "klikken" en je krijgt "klikk". Dubbele <em>k</em> voor een klinker: je houdt er één. Dus: "klik". <em>"Klik op de groene knop."</em></p>
+
+      <p><strong>3. zetten &rarr; zet</strong><br>
+      Haal <em>-en</em> weg van "zetten" en je krijgt "zett". Dubbele <em>t</em>: hou er één. Dus: "zet". <em>"Zet de telefoon op stil."</em></p>
+
+      <p><strong>4. openen &rarr; open</strong><br>
+      Haal <em>-en</em> weg van "openen" en je krijgt "open". Let op de lange <em>o</em>: schrijf "open", niet "opn". <em>"Open het bestand."</em></p>
+
+      <p><strong>5. toevoegen &rarr; voeg toe</strong><br>
+      Bij een scheidbaar werkwoord zet je het voorzetsel achteraan. <em>"Voeg de suiker toe."</em></p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Veelgemaakte fouten</span>
+        <span class="begrip-name">Fouten met de imperatief</span>
+        <p class="begrip-def">Schrijf niet: "Je moet de bloem mengen" of "De bloem wordt gemengt." Dat zijn geen imperatieven. De imperatief is kort en direct. Schrijf ook niet "mengt" met een <em>-t</em> — de imperatief heeft geen <em>-t</em> uitgang, ook niet als het onderwerp "jij" is.</p>
+      </div>
+    </div>
+
+    <div class="illustratie">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Illustratie: een tabel met twee kolommen. Links staan vijf infinitief-vormen (mengen, klikken, zetten, openen, toevoegen). Pijl naar rechts. Rechts staan de correcte imperatieven (meng, klik, zet, open, voeg toe) in een andere kleur. Onderaan een rode balk met "Let op: geen -t!" en een voorbeeld van de fout.</p>
+    </div>
+  </section>
+
+  <section class="section-block" id="s4">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Een stappenplan maken</h2>
+    </div>
+    <div class="prose-text">
+      <p>Naast recepten kom je in het dagelijks leven ook stappenplannen tegen. Een stappenplan legt uit hoe je een taak voltooit, van begin tot eind, in de juiste volgorde. Denk aan een instructie voor het instellen van een nieuwe telefoon, of uitleg over hoe je je schoolaccount aanmaakt.</p>
+
+      <p>De volgorde is bij een stappenplan cruciaal. Als stap 5 voor stap 2 staat, loop je vast. Soms is de fout meteen duidelijk — je kunt een account niet aanmaken als de wifi nog niet aan staat. Maar soms zijn de gevolgen subtieler: je doet iets dat later ongedaan gemaakt moet worden, of je hebt een resultaat nodig uit een eerdere stap dat er nog niet is.</p>
+
+      <p>Een handig hulpmiddel bij stappenplannen zijn de <strong>volgoordewoorden</strong>. Die helpen de lezer begrijpen waar hij zich in het proces bevindt en wat er nog moet komen.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Volgoordewoorden</span>
+        <p class="begrip-def">Volgoordewoorden zijn woorden en uitdrukkingen die de volgorde van handelingen aangeven. Ze helpen de lezer de structuur van een instructieve tekst te begrijpen. Voorbeelden: <em>eerst, dan, vervolgens, daarna, daarna, ten slotte, tot slot, als laatste, wanneer dat klaar is, zodra</em>.</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>Hieronder vind je een voorbeeld van een instructie die <em>niet</em> werkt. De stappen zijn door elkaar gegooid. Jouw taak: zet ze in de juiste volgorde.</p>
+    </div>
+
+    <div class="voorbeeldtekst">
+      <span class="vt-label">Voorbeeldtekst 2 · Slecht geordend stappenplan</span>
+      <p class="vt-title">Je nieuwe telefoon instellen</p>
+      <p class="vt-meta">Instructie met verkeerde volgorde — herschrijf de stappen in de juiste volgorde</p>
+      <div class="vt-body">
+        <p><strong>Stap A.</strong> Download de apps die je nodig hebt via de appwinkel.</p>
+        <p><strong>Stap B.</strong> Stel je gezichtsherkenning of vingerafdruk in bij Instellingen &gt; Beveiliging.</p>
+        <p><strong>Stap C.</strong> Zet de telefoon aan door de aan/uit-knop vijf seconden ingedrukt te houden.</p>
+        <p><strong>Stap D.</strong> Meld je aan met je Google- of Apple-account, of maak een nieuw account aan.</p>
+        <p><strong>Stap E.</strong> Verbind je telefoon met het wifi-netwerk thuis.</p>
+        <p><strong>Stap F.</strong> Kies je taal en regio in het welkomstscherm.</p>
+        <p><strong>Stap G.</strong> Verplaats je contacten en foto's via de back-upfunctie van je oude telefoon.</p>
+      </div>
+      <p class="vt-source">Zelfgeschreven voorbeeldtekst voor didactische doeleinden.</p>
+    </div>
+
+    <div class="prose-text">
+      <p>Welke volgorde is logisch? Denk na: wat moet je eerst hebben voordat je de volgende stap kunt zetten? Je kunt pas apps downloaden (A) als je met wifi verbonden bent (E). Je kunt pas inloggen (D) als je taal hebt gekozen (F). En je kunt pas iets instellen als de telefoon aanstaat (C). Werk de juiste volgorde uit: C &rarr; F &rarr; E &rarr; D &rarr; B &rarr; A &rarr; G.</p>
+      <p>Herschrijf dit stappenplan daarna met genummerde stappen en voeg minstens drie volgoordewoorden toe: <em>eerst, vervolgens, daarna, ten slotte</em> …</p>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">Stel dat je een jongere leerling van 8 jaar dezelfde instructie zou geven. Wat zou je anders doen? Welke stappen zou je verder uitleggen? Welke woorden zou je vereenvoudigen?</p>
+    </div>
+  </section>
+
+  <section class="section-block" id="s5">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Tips geven</h2>
+    </div>
+    <div class="prose-text">
+      <p>Een tip is iets anders dan een stap in een stappenplan. Een stap is verplicht: als je hem overslaat, mislukt de taak. Een tip is een extra raad, een slimme kortweg, of een waarschuwing voor een veelgemaakte fout. Je kunt een tip gebruiken of niet — maar als je hem volgt, doe je het waarschijnlijk beter of gemakkelijker.</p>
+
+      <p>Tips gebruik je ook in andere situaties dan handleidingen. Denk aan een lijst met "tips voor je eerste schooldag", "tips voor een goed slaap" of "tips voor het leren voor een examen". In die gevallen staat de tip niet in een vaste volgorde — elke tip staat op zichzelf.</p>
+
+      <p>Qua taal zijn tips iets zachter dan directe stappen. In plaats van "Doe dit!" zeg je vaker "Zorg ervoor dat je dit doet" of "Probeer om …". Je gebruikt dan ook wel eens voorwaardelijk taalgebruik: "Als je … dan …". Dat maakt tips minder dwingend en meer als een vriendelijk advies.</p>
+    </div>
+
+    <div class="voorbeeldtekst">
+      <span class="vt-label">Voorbeeldtekst 3 · Tips</span>
+      <p class="vt-title">5 tips om je eerste week in het middelbaar te overleven</p>
+      <p class="vt-meta">Advies voor eerstejaars &mdash; informeel register</p>
+      <div class="vt-body">
+        <p><strong>1. Leg je tas de avond voordien klaar.</strong> Zorg ervoor dat al je boeken en schriften voor de volgende dag erin zitten. Zo vermijd je 's ochtends in paniek alles bij elkaar te zoeken.</p>
+        <p><strong>2. Leer de weg naar je lokalen.</strong> Loop op de eerste dag al even de route langs je klassen. Als je het lokaal een keer gevonden hebt, onthoud je het veel beter.</p>
+        <p><strong>3. Schrijf alles op, ook als je denkt dat je het onthoudt.</strong> Je agenda is je beste vriend. Noteer huiswerk, toetsen en afspraken zodra je ze hoort — niet "straks".</p>
+        <p><strong>4. Praat met iemand die je nog niet kent.</strong> Probeer elke dag minstens één gesprek te starten met een klasgenoot die je nog niet zo goed kent. Je zult verrast zijn hoe snel je vrienden maakt.</p>
+        <p><strong>5. Slaap genoeg.</strong> Het klinkt saai, maar als je moe bent, onthoud je minder en raak je sneller gestresseerd. Ga op tijd slapen, zeker in de eerste weken.</p>
+      </div>
+      <p class="vt-source">Zelfgeschreven voorbeeldtekst voor didactische doeleinden.</p>
+    </div>
+
+    <div class="prose-text">
+      <p>Merk op hoe de taal in dit lijstje werkt. Elke tip begint met een imperatief ("Leg", "Leer", "Schrijf", "Praat", "Slaap"). Maar daarna volgt telkens een zin die uitlegt <em>waarom</em> of <em>hoe</em> — dat maakt een tip anders dan een losse stap. De toon is direct maar vriendelijk: niet "Je moet" of "Je bent verplicht", maar gewoon een concrete raad. Ook wordt er soms voorwaardelijk taalgebruik gebruikt: "Als je moe bent, …".</p>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">Vergelijk tip 3 met een stap in een stappenplan. Wat is het verschil? Zou je "Schrijf alles op" als verplichte stap kunnen formuleren? Hoe zou die er dan uitzien?</p>
+    </div>
+  </section>
+
+  <section class="section-block" id="s6">
+    <div class="section-heading">
+      <span class="section-num">6</span>
+      <h2 class="section-title">Een handleiding schrijven</h2>
+    </div>
+    <div class="prose-text">
+      <p>Een volledige handleiding gaat verder dan een recept of een lijstje tips. Ze heeft een vaste structuur die de lezer helpt van begin tot eind. Als je een handleiding schrijft — voor een spel, een knutselopdracht, een computerprogramma of wat dan ook — gebruik je de volgende opbouw.</p>
+
+      <p><strong>1. Doel</strong> — Begin altijd met een korte beschrijving van wat de lezer gaat bereiken. Dit geeft context: de lezer weet waarom hij de moeite doet. Voorbeeld: "Met deze handleiding leer je hoe je een origamivogel vouwt."</p>
+
+      <p><strong>2. Materiaal of voorbereiding</strong> — Lijst alles op wat de lezer nodig heeft voordat hij begint. Dit voorkomt dat hij halverwege vast komt te zitten omdat er iets ontbreekt. Wees concreet: "Een vierkant vel papier van 20 bij 20 cm" is beter dan "papier".</p>
+
+      <p><strong>3. Stappen</strong> — Dit is het hart van de handleiding. Schrijf elke stap op een aparte regel, gebruik de imperatief, werk in logische volgorde en zorg dat elke stap volledig is. Als een stap moeilijk is, voeg dan een korte uitleg of een voorbeeld toe.</p>
+
+      <p><strong>4. Tips en waarschuwingen</strong> — Voeg op het einde (of ook tussendoor, als het relevant is) extra tips toe. Gebruik ook waarschuwingen als er iets fout kan gaan of als er gevaar is. Maak die zichtbaar met trefwoorden zoals <em>Let op!</em> of <em>Waarschuwing!</em></p>
+
+      <p>Die vier onderdelen zorgen samen voor een instructieve tekst die volledig en correct is — de twee kernvereisten van een goede handleiding. <em>Volledig</em> betekent dat geen enkele noodzakelijke stap ontbreekt. <em>Correct</em> betekent dat de informatie klopt en de volgorde logisch is.</p>
+    </div>
+
+    <div class="highlighted-para">
+      <strong>Structuur van een handleiding:</strong> doel &rarr; materiaal/voorbereiding &rarr; stappen (genummerd, imperatief) &rarr; tips en waarschuwingen
+    </div>
+
+    <div class="illustratie">
+      <span class="ill-icon">🖼️</span>
+      <p class="ill-caption">Illustratie: een pagina-schets van een handleiding opgedeeld in vier gekleurde zones. Zone 1 (bovenaan, donkerblauw): "Doel" met een pijl naar rechts die "wat ga je bereiken?" zegt. Zone 2 (lichtblauw): "Materiaal" met een checklist-icoon. Zone 3 (grootste zone, wit): "Stappen 1–n" met drie genummerde regels en een imperatiefwerkwoord in het vet. Zone 4 (onderkant, geel): "Tips &amp; waarschuwingen" met een uitroepteken-icoon.</p>
+    </div>
+
+    <div class="denkvraag">
+      <div class="dv-header">💬 Denkvraag</div>
+      <p class="dv-text">Denk aan een activiteit die jij goed kent — een sport, een spel, een hobby. Welk onderdeel van een handleiding zou voor die activiteit het langst zijn: het materiaal, de stappen, of de tips? Waarom?</p>
+    </div>
+  </section>
+
+  <section class="exercises-section" id="oefeningen">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Een gebrekkige instructie herschrijven</p>
+      <p>Hieronder staat een instructie voor het vouwen van een papiervliegtuig. De tekst heeft drie grote problemen: sommige stappen ontbreken, de volgorde klopt niet, en de werkwoorden staan niet in de gebiedende wijs. Herschrijf de instructie met genummerde stappen, correcte imperatieven en een logische volgorde.</p>
+      <ul>
+        <li>"Het papier wordt in de lengte gevouwen door jou."</li>
+        <li>"Dan moet je de punten van de bovenste laag naar het midden vouwen."</li>
+        <li>"Het vliegtuig kan worden gegooid."</li>
+        <li>"De bovenste hoeken worden naar de middenplooi gevouwen."</li>
+        <li>"Er wordt een A4-vel papier gebruikt."</li>
+      </ul>
+      <p>Voeg ook minstens twee volgoordewoorden toe (<em>eerst, vervolgens, daarna, ten slotte</em>) en een korte waarschuwing of tip.</p>
+      <p class="ex-tip">Tip: begin met het noemen van het materiaal. Zorg dat elke stap begint met een imperatief werkwoord.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Schrijf zelf een recept of speluitleg</p>
+      <p>Kies één van de twee opties:</p>
+      <ol>
+        <li><strong>Recept:</strong> Schrijf een recept voor een eenvoudig gerecht dat je zelf kunt maken — een smoothie, een boterham met beleg, een salade, een warme chocolademelk. Zet de ingrediënten in een aparte lijst. Schrijf daarna minstens 5 genummerde stappen in de gebiedende wijs.</li>
+        <li><strong>Spelregels:</strong> Kies een spel dat je goed kent (kaartspel, bordspel, buitenspel) en schrijf de regels uit voor iemand die het nog nooit gespeeld heeft. Leg het doel van het spel uit, het materiaal, en de regels in logische volgorde.</li>
+      </ol>
+      <p>Je tekst moet minstens 5 imperatiefwerkwoorden bevatten en minstens 3 volgoordewoorden.</p>
+      <p class="ex-tip">Tip: stel je voor dat je schrijft voor iemand die het nog nooit gedaan heeft. Laat niets weg dat voor jou vanzelfsprekend lijkt.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Schrijf een "5 tips voor …"-lijst</p>
+      <p>Schrijf een lijst van 5 tips over een onderwerp dat jij zelf kiest. Kies iets waarover jij echt iets weet — een hobby, een sport, een vak op school, een situatie die je kent. Enkele ideeën: "5 tips om beter te worden in tekenen", "5 tips voor wie voor het eerst gaat kamperen", "5 tips voor een goed gesprek met je ouders", "5 tips voor wie nergens zin in heeft".</p>
+      <p>Vereisten voor je tekst:</p>
+      <ul>
+        <li>Elke tip begint met een imperatief werkwoord.</li>
+        <li>Elke tip heeft minstens één uitlegzin erna (waarom is dit een goede tip?).</li>
+        <li>Minstens één tip gebruikt voorwaardelijk taalgebruik ("Als je …, dan …").</li>
+        <li>De toon is vriendelijk en past bij je doelgroep (jongeren van jouw leeftijd).</li>
+      </ul>
+      <p class="ex-tip">Tip: goede tips zijn concreet en bruikbaar. "Doe je best" is geen tip — "Schrijf elke avond 10 minuten in een schrift" wel.</p>
+    </div>
+  </section>
+
+  <section class="summary-section" id="samenvatting">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>Een instructieve tekst</strong> legt uit hoe je iets doet. Het doel is dat de lezer een taak kan uitvoeren. Voorbeelden zijn recepten, handleidingen, spelregels, stappenplannen, bijsluiters en tips.</li>
+      <li>Het kenmerkende werkwoord van een instructieve tekst is de <strong>imperatief (gebiedende wijs)</strong>: je vormt die door de stam van het werkwoord te gebruiken, zonder uitgang. Schrijf "Meng", niet "Je moet mengen" en niet "mengt".</li>
+      <li><strong>Logische volgorde</strong> is onmisbaar: als stappen door elkaar staan, mislukt de taak. Controleer altijd of elke stap mogelijk is zonder de vorige stap te hebben uitgevoerd.</li>
+      <li><strong>Volgoordewoorden</strong> zoals <em>eerst, vervolgens, daarna</em> en <em>ten slotte</em> helpen de lezer zijn weg te vinden in de tekst en begrijpen waar hij zich in het proces bevindt.</li>
+      <li><strong>Tips</strong> zijn zachter dan verplichte stappen. Ze gebruiken ook imperatieven, maar leggen altijd uit waarom. Ze kunnen voorwaardelijk taalgebruik bevatten: "Als je …, dan …".</li>
+      <li>Een volledige <strong>handleiding</strong> heeft vier onderdelen: doel, materiaal/voorbereiding, genummerde stappen en tips/waarschuwingen. Een goede instructieve tekst is altijd <em>volledig</em> (geen stap vergeten) en <em>correct</em> (juiste volgorde, juiste informatie).</li>
+    </ul>
+  </section>
+
+</div>
+
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Terug naar boven">↑</button>
+<script>
+  const btn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => btn.classList.toggle('visible', window.scrollY > 400));
+</script>
+<script src="nav.js"></script>
+</body>
+</html>

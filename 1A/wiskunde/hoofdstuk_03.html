@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H3 — Breuken | Wiskunde 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-light: #D4561E;
+    --gold: #D4A017;
+    --gold-light: #E8B82A;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --darkblue-light: #243B63;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     ILLUSTRATIE PLACEHOLDERS
+  ============================================================ */
+  .illustratie {
+    border: 2px dashed #C0B49A;
+    background: #F5F0E8;
+    border-radius: var(--border-radius);
+    padding: 2.2rem 1.5rem;
+    margin: 1.8rem 0;
+    text-align: center;
+    cursor: default;
+    transition: background var(--transition);
+  }
+
+  .illustratie:hover { background: #EDE7D8; }
+  .illustratie .ill-icon { font-size: 2.8rem; display: block; margin-bottom: 0.7rem; opacity: 0.55; }
+  .illustratie .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #8A7A65;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     WISKUNDE-SPECIFIC COMPONENTS
+  ============================================================ */
+  .rekenvoorbeeld { background:white; border:1px solid var(--sand); border-top:4px solid var(--oker); border-radius:var(--border-radius); padding:1.8rem 2rem; margin:2rem 0; box-shadow:var(--shadow-sm); }
+  .rekenvoorbeeld .rv-label { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--oker); display:block; margin-bottom:0.35rem; }
+  .rekenvoorbeeld .rv-vraag { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:700; color:var(--darkblue); margin-bottom:1rem; line-height:1.4; }
+  .rv-stappen { list-style:none; padding:0; counter-reset:stap-teller; margin-bottom:1rem; }
+  .rv-stappen li { counter-increment:stap-teller; padding:0.6rem 0.8rem 0.6rem 3.2rem; position:relative; background:var(--creme); border-radius:4px; margin-bottom:0.4rem; font-size:0.97rem; }
+  .rv-stappen li::before { content:counter(stap-teller); position:absolute; left:0.6rem; top:50%; transform:translateY(-50%); background:var(--darkblue); color:white; width:1.7rem; height:1.7rem; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:700; }
+  .rv-antwoord { background:var(--darkblue); color:var(--gold); padding:0.75rem 1.1rem; border-radius:4px; font-weight:700; font-size:1rem; }
+  .stelling { background:#EEF3FF; border-left:4px solid var(--darkblue); border-radius:0 var(--border-radius) var(--border-radius) 0; padding:1.2rem 1.5rem; margin:1.5rem 0; }
+  .stelling .st-label { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--darkblue); opacity:0.7; display:block; margin-bottom:0.35rem; }
+  .stelling .st-body { font-size:0.97rem; color:var(--text-dark); }
+  .formule { background:var(--darkblue); border-radius:var(--border-radius); padding:1.4rem 1.8rem; text-align:center; margin:1.8rem 0; }
+  .formule math { color:white; font-size:1.2rem; }
+  .formule .formule-naam { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--gold); opacity:0.8; display:block; margin-bottom:0.5rem; }
+  .svg-container { margin:1.8rem 0; padding:1.5rem; background:white; border:1px solid var(--sand); border-radius:var(--border-radius); overflow-x:auto; text-align:center; }
+  .svg-container .svg-caption { font-size:0.85rem; color:var(--text-light); font-style:italic; display:block; margin-top:0.75rem; }
+
+  /* chapter-intro helper */
+  .chapter-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--oker);
+    margin: 3rem 0 0.5rem;
+  }
+  .chapter-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+  .chapter-intro {
+    font-size: 1.08rem;
+    color: var(--text-mid);
+    line-height: 1.8;
+    max-width: 720px;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <span class="label">Wiskunde 1A</span>
+  <span class="label label-right">H3 &mdash; Breuken</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Wiskunde &nbsp;&middot;&nbsp; 1A &nbsp;&middot;&nbsp; Eerste graad</div>
+  <h1>Breuken</h1>
+  <p class="subtitle">Van pizza-stukken tot kortingen &mdash; breuken beschrijven delen van een geheel</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- CHAPTER INTRO -->
+  <div class="chapter-label">Hoofdstuk 3</div>
+  <h1 class="chapter-title">Breuken</h1>
+  <p class="chapter-intro">Een breuk schrijft een deel van een geheel. Van het verdelen van een pizza tot het berekenen van kortingen en snelheden &mdash; breuken zijn overal. In dit hoofdstuk leer je breuken vereenvoudigen, vergelijken en alle vier de basisbewerkingen ermee uitvoeren.</p>
+
+  <!-- ============================================================
+       SECTIE 1: WAT IS EEN BREUK?
+  ============================================================ -->
+  <section class="section-block" id="wat-is-een-breuk">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Wat is een breuk?</h2>
+    </div>
+
+    <p>Een <strong>breuk</strong> is een manier om een deel van een geheel uit te drukken. Als je een pizza in 5 gelijke stukken snijdt en er 3 opeet, heb je
+    <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>3</mn><mn>5</mn></mfrac></math>
+    van de pizza gegeten. De breuk bestaat uit twee getallen, gescheiden door een breukstreep.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#8260;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Teller en noemer</span>
+        <p class="begrip-def">In een breuk
+        <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mi>p</mi><mi>q</mi></mfrac></math>
+        heet het getal boven de breukstreep de <strong>teller</strong> (<em>p</em>) en het getal onder de breukstreep de <strong>noemer</strong> (<em>q</em>). De teller zegt hoeveel delen er genomen worden; de noemer zegt in hoeveel gelijke delen het geheel verdeeld is.</p>
+      </div>
+    </div>
+
+    <!-- SVG: rechthoek verdeeld in 5 delen, 3 ingekleurd -->
+    <div class="svg-container">
+      <svg viewBox="0 0 320 80" width="100%" style="max-width:320px" role="img" aria-labelledby="breuk-rect-title">
+        <title id="breuk-rect-title">Rechthoek verdeeld in 5 gelijke delen, waarvan 3 zijn ingekleurd — dit stelt de breuk 3/5 voor</title>
+        <!-- 5 delen, breedte per deel = 56px, met 8px padding links -->
+        <!-- Ingekleurde delen (1, 2, 3) -->
+        <rect x="8"   y="12" width="56" height="56" fill="#D4A017" stroke="#1A2B4A" stroke-width="2" rx="3"/>
+        <rect x="64"  y="12" width="56" height="56" fill="#D4A017" stroke="#1A2B4A" stroke-width="2" rx="3"/>
+        <rect x="120" y="12" width="56" height="56" fill="#D4A017" stroke="#1A2B4A" stroke-width="2" rx="3"/>
+        <!-- Lege delen (4, 5) -->
+        <rect x="176" y="12" width="56" height="56" fill="#FAF6EF" stroke="#1A2B4A" stroke-width="2" rx="3"/>
+        <rect x="232" y="12" width="56" height="56" fill="#FAF6EF" stroke="#1A2B4A" stroke-width="2" rx="3"/>
+        <!-- Label -->
+        <text x="296" y="44" font-family="'Playfair Display', serif" font-size="22" font-weight="700" fill="#1A2B4A" text-anchor="middle" dominant-baseline="middle">3/5</text>
+      </svg>
+      <span class="svg-caption">Een rechthoek verdeeld in 5 gelijke delen. De 3 gouden delen stellen de teller voor; de noemer is 5 (het totale aantal delen).</span>
+    </div>
+
+    <h3 class="sub-heading">Soorten breuken</h3>
+
+    <p>Wiskundigen onderscheiden drie soorten breuken, afhankelijk van de verhouding tussen teller en noemer:</p>
+
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.4rem;">
+      <li style="margin-bottom:0.6rem"><strong>Gewone breuk</strong>: de teller is kleiner dan de noemer, dus de breuk stelt een getal kleiner dan 1 voor. Voorbeeld:
+      <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>3</mn><mn>5</mn></mfrac></math>,
+      <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>2</mn><mn>7</mn></mfrac></math>.</li>
+      <li style="margin-bottom:0.6rem"><strong>Oneigenlijke breuk</strong>: de teller is groter dan of gelijk aan de noemer. De waarde is groter dan of gelijk aan 1. Voorbeeld:
+      <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>7</mn><mn>3</mn></mfrac></math>,
+      <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>9</mn><mn>4</mn></mfrac></math>.</li>
+      <li><strong>Gemengd getal</strong>: een combinatie van een geheel getal en een gewone breuk. Voorbeeld: 2&#x2153; (spreek uit: &ldquo;twee en &eacute;&eacute;n derde&rdquo;), 3&#xBE;.</li>
+    </ul>
+
+    <div class="stelling">
+      <span class="st-label">Basisregel &mdash; De noemer is nooit nul</span>
+      <p class="st-body">
+        De noemer <em>q</em> van een breuk
+        <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mi>p</mi><mi>q</mi></mfrac></math>
+        mag <strong>nooit gelijk zijn aan nul</strong>. Delen door nul is immers ongedefinieerd in de wiskunde: er bestaat geen getal waaraan je nul kunt vermenigvuldigen om een getal verschillend van nul te krijgen. We schrijven altijd: <em>q</em> &ne; 0.
+      </p>
+    </div>
+
+    <h3 class="sub-heading">Omzetten: gemengd getal &harr; oneigenlijke breuk</h3>
+
+    <p>Een <strong>gemengd getal</strong> en een <strong>oneigenlijke breuk</strong> stellen dezelfde waarde voor, maar zijn anders geschreven. Je kunt ze altijd omzetten.</p>
+
+    <p><strong>Van gemengd getal naar oneigenlijke breuk:</strong> vermenigvuldig het gehele gedeelte met de noemer en tel de teller erbij op. De noemer blijft gelijk.</p>
+
+    <p>Voorbeeld: <math xmlns="http://www.w3.org/1998/Math/MathML"><mn>2</mn><mfrac><mn>1</mn><mn>3</mn></mfrac></math> &rarr; noemer is 3; <math xmlns="http://www.w3.org/1998/Math/MathML"><mn>2</mn><mo>&#xD7;</mo><mn>3</mn><mo>+</mo><mn>1</mn><mo>=</mo><mn>7</mn></math>, dus <math xmlns="http://www.w3.org/1998/Math/MathML"><mn>2</mn><mfrac><mn>1</mn><mn>3</mn></mfrac><mo>=</mo><mfrac><mn>7</mn><mn>3</mn></mfrac></math>.</p>
+
+    <p><strong>Van oneigenlijke breuk naar gemengd getal:</strong> deel de teller door de noemer. Het quotient is het gehele deel; de rest wordt de nieuwe teller, de noemer blijft gelijk.</p>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Zet het gemengde getal 3&#xBE; om naar een oneigenlijke breuk.</p>
+      <ul class="rv-stappen">
+        <li>Lees het gemengde getal: het gehele deel is 3, de breuk is <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>3</mn><mn>4</mn></mfrac></math>. De noemer is 4.</li>
+        <li>Vermenigvuldig het gehele deel met de noemer: <math xmlns="http://www.w3.org/1998/Math/MathML"><mn>3</mn><mo>&#xD7;</mo><mn>4</mn><mo>=</mo><mn>12</mn></math>.</li>
+        <li>Tel de oorspronkelijke teller erbij op: <math xmlns="http://www.w3.org/1998/Math/MathML"><mn>12</mn><mo>+</mo><mn>3</mn><mo>=</mo><mn>15</mn></math>.</li>
+        <li>Schrijf het resultaat als breuk met de originele noemer: <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>15</mn><mn>4</mn></mfrac></math>.</li>
+      </ul>
+      <p class="rv-antwoord">3&#xBE; = <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>15</mn><mn>4</mn></mfrac></math></p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Je hebt
+      <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>9</mn><mn>4</mn></mfrac></math>
+      van een pizza. Kun je dit als gemengd getal schrijven? Hoeveel hele pizza&rsquo;s en hoeveel stukken heb je?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 2: VEREENVOUDIGEN EN GELIJKNAMIG MAKEN
+  ============================================================ -->
+  <section class="section-block" id="vereenvoudigen">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Vereenvoudigen en gelijknamig maken</h2>
+    </div>
+
+    <h3 class="sub-heading">Breuken vereenvoudigen</h3>
+
+    <p>Twee breuken zijn <strong>gelijkwaardig</strong> als ze dezelfde waarde voorstellen, ook al zien ze er anders uit:
+    <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>2</mn><mn>4</mn></mfrac></math>,
+    <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>3</mn><mn>6</mn></mfrac></math>
+    en
+    <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>1</mn><mn>2</mn></mfrac></math>
+    zijn allemaal gelijk. Een breuk <strong>vereenvoudigen</strong> betekent teller en noemer allebei delen door hun <strong>grootste gemene deler (GGD)</strong>, zodat je de eenvoudigste schrijfwijze bekomt.</p>
+
+    <div class="stelling">
+      <span class="st-label">Stelling &mdash; Eenvoudigste vorm</span>
+      <p class="st-body">
+        Een breuk
+        <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mi>p</mi><mi>q</mi></mfrac></math>
+        is in haar <strong>eenvoudigste vorm</strong> (of <em>onherleidbare breuk</em>) als de grootste gemene deler van <em>p</em> en <em>q</em> gelijk is aan 1: GGD(<em>p</em>, <em>q</em>) = 1. Teller en noemer hebben dan geen gemeenschappelijke delers meer behalve 1.
+      </p>
+    </div>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Vereenvoudig de breuk
+      <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>18</mn><mn>24</mn></mfrac></math>
+      tot haar eenvoudigste vorm.</p>
+      <ul class="rv-stappen">
+        <li>Zoek de delers van 18: 1, 2, 3, 6, 9, 18.</li>
+        <li>Zoek de delers van 24: 1, 2, 3, 4, 6, 8, 12, 24.</li>
+        <li>Bepaal de grootste gemene deler: GGD(18, 24) = 6.</li>
+        <li>Deel zowel teller als noemer door 6:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>18</mn><mn>24</mn></mfrac><mo>=</mo><mfrac><mrow><mn>18</mn><mo>&#xF7;</mo><mn>6</mn></mrow><mrow><mn>24</mn><mo>&#xF7;</mo><mn>6</mn></mrow></mfrac><mo>=</mo><mfrac><mn>3</mn><mn>4</mn></mfrac></math>.
+        </li>
+        <li>Controleer: GGD(3, 4) = 1 &rarr; de breuk is volledig vereenvoudigd.</li>
+      </ul>
+      <p class="rv-antwoord"><math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>18</mn><mn>24</mn></mfrac><mo>=</mo><mfrac><mn>3</mn><mn>4</mn></mfrac></math></p>
+    </div>
+
+    <h3 class="sub-heading">De equivalentieregel</h3>
+
+    <p>Je mag teller en noemer van een breuk allebei vermenigvuldigen met hetzelfde getal <em>k</em> (&ne; 0) zonder de waarde te veranderen. Dit principe gebruik je ook in omgekeerde richting bij het vereenvoudigen.</p>
+
+    <div class="formule">
+      <span class="formule-naam">Equivalentieregel voor breuken</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mfrac><mi>p</mi><mi>q</mi></mfrac>
+        <mo>=</mo>
+        <mfrac>
+          <mrow><mi>p</mi><mo>&#xB7;</mo><mi>k</mi></mrow>
+          <mrow><mi>q</mi><mo>&#xB7;</mo><mi>k</mi></mrow>
+        </mfrac>
+        <mspace width="1em"/>
+        <mtext>(met&#160;</mtext><mi>k</mi><mo>&#x2260;</mo><mn>0</mn><mtext>)</mtext>
+      </math>
+    </div>
+
+    <h3 class="sub-heading">Gelijknamig maken</h3>
+
+    <p>Om breuken met verschillende noemers op te tellen, af te trekken of te vergelijken, moeten ze eerst <strong>gelijknamig</strong> gemaakt worden: ze moeten dezelfde noemer krijgen. Die gemeenschappelijke noemer is het <strong>kleinste gemene veelvoud (KGV)</strong> van de twee noemers.</p>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Maak
+      <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>2</mn><mn>3</mn></mfrac></math>
+      en
+      <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>3</mn><mn>4</mn></mfrac></math>
+      gelijknamig.</p>
+      <ul class="rv-stappen">
+        <li>Bepaal het KGV van de noemers 3 en 4. Veelvouden van 3: 3, 6, 9, <strong>12</strong>, &hellip; &nbsp;| Veelvouden van 4: 4, 8, <strong>12</strong>, &hellip; &nbsp; KGV(3, 4) = 12.</li>
+        <li>Zet
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>2</mn><mn>3</mn></mfrac></math>
+          om naar noemer 12: vermenigvuldig teller en noemer met 4:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mrow><mn>2</mn><mo>&#xB7;</mo><mn>4</mn></mrow><mrow><mn>3</mn><mo>&#xB7;</mo><mn>4</mn></mrow></mfrac><mo>=</mo><mfrac><mn>8</mn><mn>12</mn></mfrac></math>.
+        </li>
+        <li>Zet
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>3</mn><mn>4</mn></mfrac></math>
+          om naar noemer 12: vermenigvuldig teller en noemer met 3:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mrow><mn>3</mn><mo>&#xB7;</mo><mn>3</mn></mrow><mrow><mn>4</mn><mo>&#xB7;</mo><mn>3</mn></mrow></mfrac><mo>=</mo><mfrac><mn>9</mn><mn>12</mn></mfrac></math>.
+        </li>
+      </ul>
+      <p class="rv-antwoord"><math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>2</mn><mn>3</mn></mfrac><mo>=</mo><mfrac><mn>8</mn><mn>12</mn></mfrac></math> &nbsp; en &nbsp; <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>3</mn><mn>4</mn></mfrac><mo>=</mo><mfrac><mn>9</mn><mn>12</mn></mfrac></math></p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 3: BREUKEN VERGELIJKEN
+  ============================================================ -->
+  <section class="section-block" id="vergelijken">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">Breuken vergelijken</h2>
+    </div>
+
+    <p>Om te weten welke van twee breuken groter is, gebruik je &eacute;&eacute;n van twee methoden. Beide leiden tot hetzelfde antwoord.</p>
+
+    <h3 class="sub-heading">Methode 1: Gelijknamig maken en tellers vergelijken</h3>
+
+    <p>Zet de breuken om naar dezelfde noemer (het KGV). Daarna is de breuk met de grootste teller ook de grootste breuk. Dit is de meest betrouwbare methode en werkt voor alle breuken.</p>
+
+    <h3 class="sub-heading">Methode 2: Kruislings vermenigvuldigen</h3>
+
+    <p>Voor twee breuken
+    <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mi>a</mi><mi>b</mi></mfrac></math>
+    en
+    <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mi>c</mi><mi>d</mi></mfrac></math>
+    (met positieve noemers) kun je ook kruislings vermenigvuldigen: bereken <em>a</em>&nbsp;&times;&nbsp;<em>d</em> en <em>b</em>&nbsp;&times;&nbsp;<em>c</em>. Als <em>a</em>&nbsp;&times;&nbsp;<em>d</em> &gt; <em>b</em>&nbsp;&times;&nbsp;<em>c</em>, dan is
+    <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mi>a</mi><mi>b</mi></mfrac></math>
+    de grootste.</p>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Welke breuk is groter:
+      <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>3</mn><mn>5</mn></mfrac></math>
+      of
+      <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>5</mn><mn>8</mn></mfrac></math>?
+      </p>
+      <ul class="rv-stappen">
+        <li><strong>Methode 1</strong> &mdash; KGV(5, 8) = 40. Zet om:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>3</mn><mn>5</mn></mfrac><mo>=</mo><mfrac><mn>24</mn><mn>40</mn></mfrac></math>
+          en
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>5</mn><mn>8</mn></mfrac><mo>=</mo><mfrac><mn>25</mn><mn>40</mn></mfrac></math>.
+        </li>
+        <li>Vergelijk tellers: 24 &lt; 25, dus
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>3</mn><mn>5</mn></mfrac><mo>&lt;</mo><mfrac><mn>5</mn><mn>8</mn></mfrac></math>.
+        </li>
+        <li><strong>Methode 2</strong> (controle) &mdash; Kruislings: 3&nbsp;&times;&nbsp;8 = 24 en 5&nbsp;&times;&nbsp;5 = 25. Omdat 24 &lt; 25, is
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>3</mn><mn>5</mn></mfrac></math>
+          kleiner dan
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>5</mn><mn>8</mn></mfrac></math>.
+          Beide methoden geven hetzelfde resultaat.
+        </li>
+      </ul>
+      <p class="rv-antwoord"><math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>5</mn><mn>8</mn></mfrac></math> is groter dan <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>3</mn><mn>5</mn></mfrac></math>.</p>
+    </div>
+
+    <!-- SVG: twee balkdiagrammen voor 3/5 en 5/8 -->
+    <div class="svg-container">
+      <svg viewBox="0 0 480 140" width="100%" style="max-width:480px" role="img" aria-labelledby="vergelijk-title">
+        <title id="vergelijk-title">Twee balkdiagrammen naast elkaar: links toont 3/5 in goud, rechts toont 5/8 in terracotta, zodat de visuele grootte vergeleken kan worden</title>
+        <!-- Labels boven balken -->
+        <text x="110" y="18" font-family="'Playfair Display', serif" font-size="15" font-weight="700" fill="#1A2B4A" text-anchor="middle">3/5</text>
+        <text x="350" y="18" font-family="'Playfair Display', serif" font-size="15" font-weight="700" fill="#1A2B4A" text-anchor="middle">5/8</text>
+        <!-- Balk 3/5: 5 delen van elk 40px breed, beginpunt x=10 -->
+        <!-- Ingekleurd (3 delen) -->
+        <rect x="10"  y="28" width="40" height="42" fill="#D4A017" stroke="#1A2B4A" stroke-width="1.5" rx="2"/>
+        <rect x="50"  y="28" width="40" height="42" fill="#D4A017" stroke="#1A2B4A" stroke-width="1.5" rx="2"/>
+        <rect x="90"  y="28" width="40" height="42" fill="#D4A017" stroke="#1A2B4A" stroke-width="1.5" rx="2"/>
+        <!-- Leeg (2 delen) -->
+        <rect x="130" y="28" width="40" height="42" fill="#FAF6EF" stroke="#1A2B4A" stroke-width="1.5" rx="2"/>
+        <rect x="170" y="28" width="40" height="42" fill="#FAF6EF" stroke="#1A2B4A" stroke-width="1.5" rx="2"/>
+        <!-- Breukwaarde label onder -->
+        <text x="110" y="86" font-family="'Source Sans 3', sans-serif" font-size="12" fill="#D4A017" text-anchor="middle" font-weight="700">3 van 5 = 60%</text>
+
+        <!-- Balk 5/8: 8 delen van elk 28px breed, beginpunt x=250 -->
+        <!-- Ingekleurd (5 delen) -->
+        <rect x="250" y="28" width="28" height="42" fill="#C1440E" stroke="#1A2B4A" stroke-width="1.5" rx="2"/>
+        <rect x="278" y="28" width="28" height="42" fill="#C1440E" stroke="#1A2B4A" stroke-width="1.5" rx="2"/>
+        <rect x="306" y="28" width="28" height="42" fill="#C1440E" stroke="#1A2B4A" stroke-width="1.5" rx="2"/>
+        <rect x="334" y="28" width="28" height="42" fill="#C1440E" stroke="#1A2B4A" stroke-width="1.5" rx="2"/>
+        <rect x="362" y="28" width="28" height="42" fill="#C1440E" stroke="#1A2B4A" stroke-width="1.5" rx="2"/>
+        <!-- Leeg (3 delen) -->
+        <rect x="390" y="28" width="28" height="42" fill="#FAF6EF" stroke="#1A2B4A" stroke-width="1.5" rx="2"/>
+        <rect x="418" y="28" width="28" height="42" fill="#FAF6EF" stroke="#1A2B4A" stroke-width="1.5" rx="2"/>
+        <rect x="446" y="28" width="28" height="42" fill="#FAF6EF" stroke="#1A2B4A" stroke-width="1.5" rx="2"/>
+        <!-- Breukwaarde label onder -->
+        <text x="350" y="86" font-family="'Source Sans 3', sans-serif" font-size="12" fill="#C1440E" text-anchor="middle" font-weight="700">5 van 8 = 62,5%</text>
+
+        <!-- Vergelijkingspijl en tekst -->
+        <text x="228" y="55" font-family="'Playfair Display', serif" font-size="22" font-weight="700" fill="#1A2B4A" text-anchor="middle">&lt;</text>
+        <text x="228" y="75" font-family="'Source Sans 3', sans-serif" font-size="10" fill="#6B5F4A" text-anchor="middle">kleiner</text>
+
+        <!-- Onderschrift -->
+        <text x="240" y="115" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#6B5F4A" text-anchor="middle">3/5 &lt; 5/8 — de terracotta balk is iets langer dan de gouden balk</text>
+      </svg>
+      <span class="svg-caption">Visuele vergelijking van 3/5 (goud) en 5/8 (terracotta). Beide balken hebben dezelfde totale lengte. De iets langere terracotta balk toont dat 5/8 &gt; 3/5.</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 4: OPTELLEN EN AFTREKKEN VAN BREUKEN
+  ============================================================ -->
+  <section class="section-block" id="optellen-aftrekken">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Optellen en aftrekken van breuken</h2>
+    </div>
+
+    <p>Breuken optellen en aftrekken is mogelijk wanneer ze <strong>gelijknamig</strong> zijn &mdash; dezelfde noemer hebben. Je telt dan enkel de tellers op of trekt ze af; de noemer blijft gelijk. Hebben de breuken verschillende noemers, dan maak je ze eerst gelijknamig met het KGV.</p>
+
+    <div class="formule">
+      <span class="formule-naam">Optelling en aftrekking van breuken</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mfrac><mi>a</mi><mi>n</mi></mfrac>
+        <mo>+</mo>
+        <mfrac><mi>b</mi><mi>n</mi></mfrac>
+        <mo>=</mo>
+        <mfrac><mrow><mi>a</mi><mo>+</mo><mi>b</mi></mrow><mi>n</mi></mfrac>
+        <mspace width="2em"/>
+        <mtext>en</mtext>
+        <mspace width="2em"/>
+        <mfrac><mi>a</mi><mi>n</mi></mfrac>
+        <mo>&#8722;</mo>
+        <mfrac><mi>b</mi><mi>n</mi></mfrac>
+        <mo>=</mo>
+        <mfrac><mrow><mi>a</mi><mo>&#8722;</mo><mi>b</mi></mrow><mi>n</mi></mfrac>
+      </math>
+    </div>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Bereken
+      <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>2</mn><mn>3</mn></mfrac><mo>+</mo><mfrac><mn>3</mn><mn>4</mn></mfrac></math>.</p>
+      <ul class="rv-stappen">
+        <li>De noemers zijn 3 en 4. KGV(3, 4) = 12. Maak gelijknamig:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>2</mn><mn>3</mn></mfrac><mo>=</mo><mfrac><mn>8</mn><mn>12</mn></mfrac></math>
+          en
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>3</mn><mn>4</mn></mfrac><mo>=</mo><mfrac><mn>9</mn><mn>12</mn></mfrac></math>.
+        </li>
+        <li>Tel de tellers op, noemer blijft 12:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>8</mn><mn>12</mn></mfrac><mo>+</mo><mfrac><mn>9</mn><mn>12</mn></mfrac><mo>=</mo><mfrac><mn>17</mn><mn>12</mn></mfrac></math>.
+        </li>
+        <li>Vereenvoudig: GGD(17, 12) = 1 &rarr; de breuk is al vereenvoudigd. Zet om naar gemengd getal:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>17</mn><mn>12</mn></mfrac><mo>=</mo><mn>1</mn><mfrac><mn>5</mn><mn>12</mn></mfrac></math>
+          (want 17 = 1 &times; 12 + 5).
+        </li>
+      </ul>
+      <p class="rv-antwoord"><math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>2</mn><mn>3</mn></mfrac><mo>+</mo><mfrac><mn>3</mn><mn>4</mn></mfrac><mo>=</mo><mfrac><mn>17</mn><mn>12</mn></mfrac><mo>=</mo><mn>1</mn><mfrac><mn>5</mn><mn>12</mn></mfrac></math></p>
+    </div>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Bereken
+      <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>5</mn><mn>6</mn></mfrac><mo>&#8722;</mo><mfrac><mn>1</mn><mn>4</mn></mfrac></math>.</p>
+      <ul class="rv-stappen">
+        <li>KGV(6, 4) = 12. Maak gelijknamig:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>5</mn><mn>6</mn></mfrac><mo>=</mo><mfrac><mn>10</mn><mn>12</mn></mfrac></math>
+          en
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>1</mn><mn>4</mn></mfrac><mo>=</mo><mfrac><mn>3</mn><mn>12</mn></mfrac></math>.
+        </li>
+        <li>Trek de tellers af, noemer blijft 12:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>10</mn><mn>12</mn></mfrac><mo>&#8722;</mo><mfrac><mn>3</mn><mn>12</mn></mfrac><mo>=</mo><mfrac><mn>7</mn><mn>12</mn></mfrac></math>.
+        </li>
+        <li>GGD(7, 12) = 1 &rarr; al in eenvoudigste vorm.</li>
+      </ul>
+      <p class="rv-antwoord"><math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>5</mn><mn>6</mn></mfrac><mo>&#8722;</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mo>=</mo><mfrac><mn>7</mn><mn>12</mn></mfrac></math></p>
+    </div>
+
+    <h3 class="sub-heading">Optellen met gemengde getallen</h3>
+
+    <p>Bij gemengde getallen is het het eenvoudigst om ze eerst om te zetten naar oneigenlijke breuken, daarna gelijknamig te maken, op te tellen, en het resultaat eventueel terug te zetten naar een gemengd getal.</p>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Bereken
+      <math xmlns="http://www.w3.org/1998/Math/MathML"><mn>2</mn><mfrac><mn>1</mn><mn>3</mn></mfrac><mo>+</mo><mn>1</mn><mfrac><mn>3</mn><mn>4</mn></mfrac></math>.</p>
+      <ul class="rv-stappen">
+        <li>Zet om naar oneigenlijke breuken:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mn>2</mn><mfrac><mn>1</mn><mn>3</mn></mfrac><mo>=</mo><mfrac><mn>7</mn><mn>3</mn></mfrac></math>
+          (want 2&times;3+1=7) en
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn><mfrac><mn>3</mn><mn>4</mn></mfrac><mo>=</mo><mfrac><mn>7</mn><mn>4</mn></mfrac></math>
+          (want 1&times;4+3=7).
+        </li>
+        <li>KGV(3, 4) = 12. Maak gelijknamig:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>7</mn><mn>3</mn></mfrac><mo>=</mo><mfrac><mn>28</mn><mn>12</mn></mfrac></math>
+          en
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>7</mn><mn>4</mn></mfrac><mo>=</mo><mfrac><mn>21</mn><mn>12</mn></mfrac></math>.
+        </li>
+        <li>Tel op:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>28</mn><mn>12</mn></mfrac><mo>+</mo><mfrac><mn>21</mn><mn>12</mn></mfrac><mo>=</mo><mfrac><mn>49</mn><mn>12</mn></mfrac></math>.
+        </li>
+        <li>Zet om naar gemengd getal: 49 &divide; 12 = 4 rest 1, dus
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>49</mn><mn>12</mn></mfrac><mo>=</mo><mn>4</mn><mfrac><mn>1</mn><mn>12</mn></mfrac></math>.
+        </li>
+      </ul>
+      <p class="rv-antwoord"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>2</mn><mfrac><mn>1</mn><mn>3</mn></mfrac><mo>+</mo><mn>1</mn><mfrac><mn>3</mn><mn>4</mn></mfrac><mo>=</mo><mn>4</mn><mfrac><mn>1</mn><mn>12</mn></mfrac></math></p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Je eet
+      <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>1</mn><mn>4</mn></mfrac></math>
+      van een taart &rsquo;s ochtends en
+      <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>1</mn><mn>3</mn></mfrac></math>
+      &rsquo;s middags. Hoeveel van de taart heb je gegeten? Is er nog genoeg voor iemand anders die ook
+      <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>1</mn><mn>3</mn></mfrac></math>
+      wil?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 5: VERMENIGVULDIGEN EN DELEN VAN BREUKEN
+  ============================================================ -->
+  <section class="section-block" id="vermenigvuldigen-delen">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Vermenigvuldigen en delen van breuken</h2>
+    </div>
+
+    <h3 class="sub-heading">Breuken vermenigvuldigen</h3>
+
+    <p>Twee breuken vermenigvuldigen is eenvoudig: vermenigvuldig de tellers met elkaar en de noemers met elkaar. Het resultaat vereenvoudig je daarna zo ver mogelijk. Je kunt ook <strong>voor</strong> de vermenigvuldiging al vereenvoudigen door kruislings te delen &mdash; dat maakt de berekening overzichtelijker.</p>
+
+    <div class="stelling">
+      <span class="st-label">Rekenregel &mdash; Product van breuken</span>
+      <p class="st-body">
+        <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline">
+          <mfrac><mi>p</mi><mi>q</mi></mfrac>
+          <mo>&#xD7;</mo>
+          <mfrac><mi>r</mi><mi>s</mi></mfrac>
+          <mo>=</mo>
+          <mfrac><mrow><mi>p</mi><mo>&#xB7;</mo><mi>r</mi></mrow><mrow><mi>q</mi><mo>&#xB7;</mo><mi>s</mi></mrow></mfrac>
+        </math>
+        &nbsp; (met <em>q</em> &ne; 0 en <em>s</em> &ne; 0)
+      </p>
+    </div>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Bereken
+      <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>2</mn><mn>3</mn></mfrac><mo>&#xD7;</mo><mfrac><mn>3</mn><mn>4</mn></mfrac></math>.</p>
+      <ul class="rv-stappen">
+        <li><strong>Werkwijze A (standaard):</strong> Vermenigvuldig tellers en noemers:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mrow><mn>2</mn><mo>&#xB7;</mo><mn>3</mn></mrow><mrow><mn>3</mn><mo>&#xB7;</mo><mn>4</mn></mrow></mfrac><mo>=</mo><mfrac><mn>6</mn><mn>12</mn></mfrac></math>.
+          Vereenvoudig: GGD(6,12)=6 &rarr;
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>6</mn><mn>12</mn></mfrac><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac></math>.
+        </li>
+        <li><strong>Werkwijze B (kruisvereenvoudiging):</strong> Merk op dat 2 en 4 deelbaar zijn door 2, en 3 en 3 deelbaar zijn door 3. Vereenvoudig eerst:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mrow><mn>2</mn><mo>/</mo><mn>2</mn></mrow><mrow><mn>4</mn><mo>/</mo><mn>2</mn></mrow></mfrac></math>
+          en
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mrow><mn>3</mn><mo>/</mo><mn>3</mn></mrow><mrow><mn>3</mn><mo>/</mo><mn>3</mn></mrow></mfrac></math>
+          geeft
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>&#xD7;</mo><mfrac><mn>1</mn><mn>1</mn></mfrac><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac></math>.
+          Sneller en minder rekenkans op vergissingen.
+        </li>
+      </ul>
+      <p class="rv-antwoord"><math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>2</mn><mn>3</mn></mfrac><mo>&#xD7;</mo><mfrac><mn>3</mn><mn>4</mn></mfrac><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac></math></p>
+    </div>
+
+    <h3 class="sub-heading">Breuken delen</h3>
+
+    <p>Delen door een breuk is hetzelfde als vermenigvuldigen met het <strong>omgekeerde</strong> (de reciproke) van die breuk. Je verwisselt teller en noemer van de deler en maakt er een vermenigvuldiging van.</p>
+
+    <div class="stelling">
+      <span class="st-label">Rekenregel &mdash; Quoti&euml;nt van breuken</span>
+      <p class="st-body">
+        <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline">
+          <mfrac><mi>p</mi><mi>q</mi></mfrac>
+          <mo>&#xF7;</mo>
+          <mfrac><mi>r</mi><mi>s</mi></mfrac>
+          <mo>=</mo>
+          <mfrac><mi>p</mi><mi>q</mi></mfrac>
+          <mo>&#xD7;</mo>
+          <mfrac><mi>s</mi><mi>r</mi></mfrac>
+          <mo>=</mo>
+          <mfrac><mrow><mi>p</mi><mo>&#xB7;</mo><mi>s</mi></mrow><mrow><mi>q</mi><mo>&#xB7;</mo><mi>r</mi></mrow></mfrac>
+        </math>
+        &nbsp; (met <em>q</em>, <em>r</em>, <em>s</em> &ne; 0)
+      </p>
+    </div>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Bereken
+      <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>3</mn><mn>4</mn></mfrac><mo>&#xF7;</mo><mfrac><mn>2</mn><mn>5</mn></mfrac></math>.</p>
+      <ul class="rv-stappen">
+        <li>Vervang de deling door een vermenigvuldiging met het omgekeerde van
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>2</mn><mn>5</mn></mfrac></math>:
+          het omgekeerde is
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>5</mn><mn>2</mn></mfrac></math>.
+        </li>
+        <li>Reken uit:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>3</mn><mn>4</mn></mfrac><mo>&#xD7;</mo><mfrac><mn>5</mn><mn>2</mn></mfrac><mo>=</mo><mfrac><mrow><mn>3</mn><mo>&#xB7;</mo><mn>5</mn></mrow><mrow><mn>4</mn><mo>&#xB7;</mo><mn>2</mn></mrow></mfrac><mo>=</mo><mfrac><mn>15</mn><mn>8</mn></mfrac></math>.
+        </li>
+        <li>Zet om naar gemengd getal: 15 &divide; 8 = 1 rest 7, dus
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>15</mn><mn>8</mn></mfrac><mo>=</mo><mn>1</mn><mfrac><mn>7</mn><mn>8</mn></mfrac></math>.
+        </li>
+      </ul>
+      <p class="rv-antwoord"><math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>3</mn><mn>4</mn></mfrac><mo>&#xF7;</mo><mfrac><mn>2</mn><mn>5</mn></mfrac><mo>=</mo><mfrac><mn>15</mn><mn>8</mn></mfrac><mo>=</mo><mn>1</mn><mfrac><mn>7</mn><mn>8</mn></mfrac></math></p>
+    </div>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld &mdash; Toepassingsopgave</span>
+      <p class="rv-vraag">Een strook stof is
+      <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>3</mn><mn>4</mn></mfrac></math>
+      meter lang. Je snijdt er stukjes van
+      <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>3</mn><mn>8</mn></mfrac></math>
+      meter af. Hoeveel stukjes krijg je?</p>
+      <ul class="rv-stappen">
+        <li>De vraag is: hoeveel keer past
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>3</mn><mn>8</mn></mfrac></math>
+          in
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>3</mn><mn>4</mn></mfrac></math>?
+          Dit is een deling:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>3</mn><mn>4</mn></mfrac><mo>&#xF7;</mo><mfrac><mn>3</mn><mn>8</mn></mfrac></math>.
+        </li>
+        <li>Vervang door vermenigvuldiging met het omgekeerde:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>3</mn><mn>4</mn></mfrac><mo>&#xD7;</mo><mfrac><mn>8</mn><mn>3</mn></mfrac></math>.
+        </li>
+        <li>Kruisvereenvoudiging: 3 en 3 schrappen, 8 en 4 &rarr; 2:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>1</mn><mn>1</mn></mfrac><mo>&#xD7;</mo><mfrac><mn>2</mn><mn>1</mn></mfrac><mo>=</mo><mn>2</mn></math>.
+        </li>
+      </ul>
+      <p class="rv-antwoord">Je krijgt 2 stukjes van
+      <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>3</mn><mn>8</mn></mfrac></math>
+      meter.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTIE 6: BREUKEN EN DECIMALE GETALLEN
+  ============================================================ -->
+  <section class="section-block" id="decimalen">
+    <div class="section-heading">
+      <span class="section-num">6</span>
+      <h2 class="section-title">Breuken en decimale getallen</h2>
+    </div>
+
+    <p>Breuken en decimale getallen zijn twee schrijfwijzen van dezelfde rationale getallen. Je kunt altijd van de ene schrijfwijze naar de andere overstappen.</p>
+
+    <h3 class="sub-heading">Van breuk naar decimaal getal</h3>
+
+    <p>Om een breuk om te zetten naar een decimaal getal, deel je de teller door de noemer. Je kunt dit uitvoeren via staartdeling of met een rekenmachine.</p>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Zet
+      <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>5</mn><mn>8</mn></mfrac></math>
+      om naar een decimaal getal.</p>
+      <ul class="rv-stappen">
+        <li>Deel de teller door de noemer: 5 &divide; 8.</li>
+        <li>8 past 0 keer in 5, dus we werken met kommagetallen. 50 &divide; 8 = 6 rest 2 &rarr; eerste decimaal is 6.</li>
+        <li>20 &divide; 8 = 2 rest 4 &rarr; tweede decimaal is 2.</li>
+        <li>40 &divide; 8 = 5 rest 0 &rarr; derde decimaal is 5. Rest is 0, klaar.</li>
+        <li>Resultaat: 0,625.</li>
+      </ul>
+      <p class="rv-antwoord"><math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>5</mn><mn>8</mn></mfrac></math> = 0,625</p>
+    </div>
+
+    <h3 class="sub-heading">Van eindigend decimaal getal naar breuk</h3>
+
+    <p>Een eindigend decimaal getal zet je om door de decimalen te schrijven als een breuk met een macht van 10 als noemer. Vervolgens vereenvoudig je de breuk.</p>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Zet 0,36 om naar een breuk in eenvoudigste vorm.</p>
+      <ul class="rv-stappen">
+        <li>0,36 heeft 2 decimalen, dus de noemer is 100:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mn>0,36</mn><mo>=</mo><mfrac><mn>36</mn><mn>100</mn></mfrac></math>.
+        </li>
+        <li>Bepaal GGD(36, 100). Delers van 36: 1, 2, 3, 4, 6, 9, 12, 18, 36. Delers van 100: 1, 2, 4, 5, 10, 20, 25, 50, 100. GGD = 4.</li>
+        <li>Deel teller en noemer door 4:
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>36</mn><mn>100</mn></mfrac><mo>=</mo><mfrac><mn>9</mn><mn>25</mn></mfrac></math>.
+        </li>
+        <li>GGD(9, 25) = 1 &rarr; al in eenvoudigste vorm.</li>
+      </ul>
+      <p class="rv-antwoord">0,36 = <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>9</mn><mn>25</mn></mfrac></math></p>
+    </div>
+
+    <h3 class="sub-heading">Periodieke decimale getallen</h3>
+
+    <p>Niet elke breuk geeft een eindigend decimaal getal. Sommige breuken geven een <strong>periodiek decimaal getal</strong>: een decimaal getal waarbij een groep cijfers zich oneindig herhaalt. We noteren dit met een streepje boven de herhalende groep.</p>
+
+    <p>Voorbeeld:
+    <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>1</mn><mn>3</mn></mfrac></math>
+    = 0,333&hellip; = 0,&#x0305;3&#x0305; &nbsp;(de 3 herhaalt zich oneindig). Ook
+    <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>1</mn><mn>7</mn></mfrac></math>
+    = 0,142857142857&hellip; is een periodiekstal met periode 142857. In dit hoofdstuk focussen we op eindige decimalen; periodieke decimalen komen later uitgebreider aan bod.</p>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Kun jij zonder rekenmachine bepalen of
+      <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>3</mn><mn>4</mn></mfrac></math>
+      of 0,72 groter is? Welke strategie gebruik je? Zet ze om naar dezelfde schrijfwijze en vergelijk.</p>
+    </div>
+  </section>
+
+</div><!-- end page-wrapper -->
+
+<!-- ============================================================
+     OEFENINGEN
+============================================================ -->
+<section class="exercises-section" id="oefeningen">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <!-- Oefening 1 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Omzetten: gemengde getallen en oneigenlijke breuken</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Zet om van gemengd getal naar oneigenlijke breuk, of omgekeerd.</p>
+      <ol>
+        <li>Zet om naar oneigenlijke breuk: &nbsp;
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mn>2</mn><mfrac><mn>3</mn><mn>5</mn></mfrac></math>
+        </li>
+        <li>Zet om naar oneigenlijke breuk: &nbsp;
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mn>4</mn><mfrac><mn>1</mn><mn>6</mn></mfrac></math>
+        </li>
+        <li>Zet om naar gemengd getal: &nbsp;
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>11</mn><mn>4</mn></mfrac></math>
+        </li>
+        <li>Zet om naar gemengd getal: &nbsp;
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>23</mn><mn>6</mn></mfrac></math>
+        </li>
+        <li>Zet om naar oneigenlijke breuk: &nbsp;
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mn>5</mn><mfrac><mn>2</mn><mn>3</mn></mfrac></math>
+        </li>
+        <li>Zet om naar gemengd getal: &nbsp;
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>19</mn><mn>5</mn></mfrac></math>
+        </li>
+      </ol>
+      <p class="ex-tip">Tip: bij gemengd &rarr; oneigenlijk: (geheel &times; noemer + teller) / noemer. Bij oneigenlijk &rarr; gemengd: deel teller door noemer; quoti&euml;nt is het gehele deel, rest is de nieuwe teller.</p>
+    </div>
+
+    <!-- Oefening 2 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Breuken vereenvoudigen met de GGD</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Vereenvoudig elke breuk tot haar eenvoudigste vorm. Noteer ook de GGD die je gebruikt hebt.</p>
+      <ol>
+        <li>
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>12</mn><mn>16</mn></mfrac></math>
+        </li>
+        <li>
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>15</mn><mn>35</mn></mfrac></math>
+        </li>
+        <li>
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>36</mn><mn>48</mn></mfrac></math>
+        </li>
+        <li>
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>42</mn><mn>56</mn></mfrac></math>
+        </li>
+        <li>
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>100</mn><mn>250</mn></mfrac></math>
+        </li>
+        <li>
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>7</mn><mn>11</mn></mfrac></math>
+          &nbsp;&mdash; is deze breuk al in eenvoudigste vorm? Verklaar.
+        </li>
+      </ol>
+      <p class="ex-tip">Tip: controleer altijd je antwoord door GGD(nieuwe teller, nieuwe noemer) = 1 te verifi&euml;ren.</p>
+    </div>
+
+    <!-- Oefening 3 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Breuken optellen met verschillende noemers</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Bereken en vereenvoudig zo ver mogelijk. Schrijf tussenresultaten op.</p>
+      <ol>
+        <li>
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>1</mn><mn>4</mn></mfrac><mo>+</mo><mfrac><mn>1</mn><mn>6</mn></mfrac></math>
+        </li>
+        <li>
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>3</mn><mn>5</mn></mfrac><mo>+</mo><mfrac><mn>2</mn><mn>3</mn></mfrac></math>
+        </li>
+        <li>
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>5</mn><mn>8</mn></mfrac><mo>+</mo><mfrac><mn>3</mn><mn>4</mn></mfrac></math>
+        </li>
+        <li>
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>7</mn><mn>10</mn></mfrac><mo>+</mo><mfrac><mn>1</mn><mn>4</mn></mfrac></math>
+        </li>
+        <li>
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>2</mn><mn>9</mn></mfrac><mo>+</mo><mfrac><mn>1</mn><mn>6</mn></mfrac><mo>+</mo><mfrac><mn>1</mn><mn>3</mn></mfrac></math>
+          &nbsp;(drie breuken &mdash; uitdaging!)
+        </li>
+      </ol>
+      <p class="ex-tip">Tip: bepaal eerst het KGV van de noemers v&oacute;&oacute;r je omzet. Bij drie breuken neem je het KGV van alle drie de noemers tegelijk.</p>
+    </div>
+
+    <!-- Oefening 4 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 4</p>
+      <p class="ex-name">Gemengde getallen aftrekken</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Bereken. Zet gemengde getallen eerst om naar oneigenlijke breuken.</p>
+      <ol>
+        <li>
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mn>3</mn><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>&#8722;</mo><mn>1</mn><mfrac><mn>1</mn><mn>4</mn></mfrac></math>
+        </li>
+        <li>
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mn>4</mn><mfrac><mn>2</mn><mn>3</mn></mfrac><mo>&#8722;</mo><mn>2</mn><mfrac><mn>1</mn><mn>5</mn></mfrac></math>
+        </li>
+        <li>
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mn>5</mn><mfrac><mn>3</mn><mn>4</mn></mfrac><mo>&#8722;</mo><mn>2</mn><mfrac><mn>5</mn><mn>6</mn></mfrac></math>
+        </li>
+        <li>
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mn>6</mn><mfrac><mn>1</mn><mn>3</mn></mfrac><mo>&#8722;</mo><mn>3</mn><mfrac><mn>3</mn><mn>4</mn></mfrac></math>
+        </li>
+      </ol>
+      <p class="ex-tip">Tip: als de breuk van het tweede getal groter is dan die van het eerste na gelijknamig maken, is het handig om eerst om te zetten naar oneigenlijke breuken.</p>
+    </div>
+
+    <!-- Oefening 5 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 5</p>
+      <p class="ex-name">Breuken vermenigvuldigen en delen</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Bereken en vereenvoudig. Gebruik kruisvereenvoudiging waar mogelijk.</p>
+      <ol>
+        <li>
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>3</mn><mn>5</mn></mfrac><mo>&#xD7;</mo><mfrac><mn>5</mn><mn>9</mn></mfrac></math>
+        </li>
+        <li>
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>4</mn><mn>7</mn></mfrac><mo>&#xD7;</mo><mfrac><mn>14</mn><mn>8</mn></mfrac></math>
+        </li>
+        <li>
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>5</mn><mn>6</mn></mfrac><mo>&#xF7;</mo><mfrac><mn>5</mn><mn>12</mn></mfrac></math>
+        </li>
+        <li>
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>7</mn><mn>8</mn></mfrac><mo>&#xF7;</mo><mfrac><mn>7</mn><mn>4</mn></mfrac></math>
+        </li>
+        <li>
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mn>2</mn><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>&#xD7;</mo><mn>1</mn><mfrac><mn>1</mn><mn>5</mn></mfrac></math>
+          &nbsp;(met gemengde getallen)
+        </li>
+        <li>
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mn>3</mn><mfrac><mn>1</mn><mn>3</mn></mfrac><mo>&#xF7;</mo><mn>1</mn><mfrac><mn>2</mn><mn>3</mn></mfrac></math>
+          &nbsp;(met gemengde getallen)
+        </li>
+      </ol>
+      <p class="ex-tip">Tip: bij deling altijd eerst &ldquo;omdraaien en vermenigvuldigen&rdquo;. Bij gemengde getallen eerst omzetten naar oneigenlijke breuken.</p>
+    </div>
+
+    <!-- Oefening 6 -->
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 6</p>
+      <p class="ex-name">Toepassingsopgave &mdash; Recept voor een andere portie</p>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Een recept voor <strong>4 personen</strong> vraagt de volgende hoeveelheden:</p>
+      <ul>
+        <li>
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>3</mn><mn>4</mn></mfrac></math>
+          kg bloem
+        </li>
+        <li>
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>1</mn><mn>2</mn></mfrac></math>
+          liter melk
+        </li>
+        <li>
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn><mfrac><mn>1</mn><mn>4</mn></mfrac></math>
+          dl olijfolie
+        </li>
+        <li>
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>2</mn><mn>3</mn></mfrac></math>
+          eetlepel zout
+        </li>
+      </ul>
+      <p style="font-size:0.96rem;color:var(--text-mid);margin-bottom:0.6rem;">Je wilt het recept maken voor <strong>6 personen</strong>. Bereken elke benodigde hoeveelheid. (De factor is 6/4 = 3/2.)</p>
+      <ol>
+        <li>Hoeveel kg bloem heb je nodig?</li>
+        <li>Hoeveel liter melk heb je nodig?</li>
+        <li>Hoeveel dl olijfolie heb je nodig?</li>
+        <li>Hoeveel eetlepels zout heb je nodig?</li>
+        <li>Bonusvraag: je hebt thuis nog
+          <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>7</mn><mn>8</mn></mfrac></math>
+          kg bloem. Heb je genoeg? Hoeveel houdt je over (of hoeveel kom je tekort)?
+        </li>
+      </ol>
+      <p class="ex-tip">Tip: vermenigvuldig elk ingredient met
+      <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>3</mn><mn>2</mn></mfrac></math>
+      (= de verhouding 6/4 vereenvoudigd). Vereenvoudig de antwoorden en schrijf ze eventueel als gemengde getallen.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SAMENVATTING
+============================================================ -->
+<section class="summary-section" id="samenvatting">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li>Een <strong>breuk</strong>
+        <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mi>p</mi><mi>q</mi></mfrac></math>
+        heeft een <strong>teller</strong> <em>p</em> (aantal genomen delen) en een <strong>noemer</strong> <em>q</em> (totale delen). De noemer is <strong>nooit nul</strong>.
+      </li>
+      <li>Een <strong>gewone breuk</strong> heeft teller &lt; noemer; een <strong>oneigenlijke breuk</strong> heeft teller &ge; noemer; een <strong>gemengd getal</strong> combineert een geheel getal met een gewone breuk.</li>
+      <li>Gemengd &rarr; oneigenlijk: (geheel &times; noemer + teller) / noemer. Oneigenlijk &rarr; gemengd: deel teller door noemer, gebruik quotient en rest.</li>
+      <li><strong>Vereenvoudigen</strong>: deel teller en noemer door hun GGD. Een breuk is in eenvoudigste vorm als GGD(teller, noemer) = 1.</li>
+      <li><strong>Gelijknamig maken</strong>: gebruik het KGV van de noemers als gemeenschappelijke noemer; pas de tellers aan met de equivalentieregel.</li>
+      <li><strong>Vergelijken</strong>: maak gelijknamig en vergelijk tellers, of gebruik kruisvermenigvuldiging.</li>
+      <li><strong>Optellen/aftrekken</strong>: breuken moeten gelijknamige noemers hebben; dan tel je enkel de tellers op of af: <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mi>a</mi><mi>n</mi></mfrac><mo>&#177;</mo><mfrac><mi>b</mi><mi>n</mi></mfrac><mo>=</mo><mfrac><mrow><mi>a</mi><mo>&#177;</mo><mi>b</mi></mrow><mi>n</mi></mfrac></math>.</li>
+      <li><strong>Vermenigvuldigen</strong>: teller &times; teller en noemer &times; noemer: <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mi>p</mi><mi>q</mi></mfrac><mo>&#xD7;</mo><mfrac><mi>r</mi><mi>s</mi></mfrac><mo>=</mo><mfrac><mrow><mi>p</mi><mo>&#xB7;</mo><mi>r</mi></mrow><mrow><mi>q</mi><mo>&#xB7;</mo><mi>s</mi></mrow></mfrac></math>. Kruisvereenvoudiging vooraf maakt de berekening eenvoudiger.</li>
+      <li><strong>Delen</strong>: vermenigvuldig met het omgekeerde van de deler: <math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mi>p</mi><mi>q</mi></mfrac><mo>&#xF7;</mo><mfrac><mi>r</mi><mi>s</mi></mfrac><mo>=</mo><mfrac><mi>p</mi><mi>q</mi></mfrac><mo>&#xD7;</mo><mfrac><mi>s</mi><mi>r</mi></mfrac></math>.</li>
+      <li><strong>Breuk naar decimaal</strong>: deel de teller door de noemer (staartdeling). Sommige breuken geven een eindigend decimaal, andere een periodiekstal.</li>
+      <li><strong>Decimaal naar breuk</strong>: schrijf het decimaal als teller met een macht van 10 als noemer, daarna vereenvoudigen.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

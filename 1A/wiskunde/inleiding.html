@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inleiding — Waarom leer je wiskunde? | Wiskunde 1A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terracotta: #C1440E;
+    --gold: #D4A017;
+    --oker: #C8923A;
+    --darkblue: #1A2B4A;
+    --creme: #FAF6EF;
+    --sand: #E8DCC8;
+    --sand-light: #F2EAD8;
+    --text-dark: #1E1A14;
+    --text-mid: #3D3425;
+    --text-light: #6B5F4A;
+    /* Extended tokens used internally */
+    --terracotta-light: #D4561E;
+    --gold-light: #E8B82A;
+    --darkblue-light: #243B63;
+    --border-radius: 6px;
+    --shadow-sm: 0 2px 6px rgba(26,43,74,0.10);
+    --shadow-md: 0 4px 16px rgba(26,43,74,0.13);
+    --transition: 0.2s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-dark);
+    background: var(--creme);
+  }
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 1.1em; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 700; color: var(--text-dark); }
+  em { font-style: italic; }
+
+  /* ============================================================
+     SITE HEADER / NAV BAR
+  ============================================================ */
+  .site-header {
+    background: var(--darkblue);
+    color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  .site-header .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .site-header .label-right { text-align: right; }
+
+  /* ============================================================
+     CHAPTER HERO
+  ============================================================ */
+  .chapter-hero {
+    background-color: var(--darkblue);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(212,160,23,0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+    padding: 5rem 2.5rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--oker), var(--terracotta));
+  }
+
+  .chapter-hero .chapter-kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .chapter-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: #FFFDF8;
+    max-width: 820px;
+    margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .chapter-hero .subtitle {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     MAIN LAYOUT
+  ============================================================ */
+  .page-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ============================================================
+     PROLOGUE
+  ============================================================ */
+  .prologue {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0F1B30 100%);
+    color: var(--creme);
+    margin: 3rem 0;
+    padding: 3.5rem 3rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow-md);
+  }
+
+  .prologue .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .prologue .ornament-line::before,
+  .prologue .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5), transparent);
+  }
+
+  .prologue .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  .prologue p {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .prologue p + p { margin-top: 0.9em; }
+
+  .prologue .prologue-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* ============================================================
+     SECTION WRAPPERS
+  ============================================================ */
+  .section-block {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(200,146,58,0.2);
+  }
+
+  .section-block:last-of-type { border-bottom: none; }
+
+  .section-alt {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(200,146,58,0.15);
+    border-bottom: 1px solid rgba(200,146,58,0.15);
+  }
+
+  /* ============================================================
+     SECTION HEADING
+  ============================================================ */
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(193,68,14,0.15);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    line-height: 1;
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--darkblue);
+  }
+
+  .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid rgba(26,43,74,0.12);
+  }
+
+  /* ============================================================
+     BEGRIP / DEFINITION BOXES
+  ============================================================ */
+  .begrip {
+    background: #FDF3E7;
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1rem 1.2rem 1rem 1.1rem;
+    margin: 1.4rem 0;
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .begrip .begrip-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .begrip .begrip-body { flex: 1; }
+
+  .begrip .begrip-term {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .begrip .begrip-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .begrip .begrip-def {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ============================================================
+     DENKVRAGEN
+  ============================================================ */
+  .denkvraag {
+    background: #FBF0D0;
+    border: 1.5px solid rgba(212,160,23,0.5);
+    border-radius: var(--border-radius);
+    padding: 1.3rem 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .denkvraag .dv-header {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .denkvraag .dv-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     EXERCISES
+  ============================================================ */
+  .exercises-section {
+    background: var(--sand-light);
+    margin: 0 -1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .exercises-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    margin-bottom: 2rem;
+  }
+
+  .exercise-card {
+    background: var(--creme);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--oker);
+  }
+
+  .exercise-card .ex-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+  }
+
+  .exercise-card .ex-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-bottom: 0.9rem;
+  }
+
+  .exercise-card ol, .exercise-card ul {
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .exercise-card li {
+    margin-bottom: 0.45rem;
+    font-size: 0.96rem;
+    color: var(--text-mid);
+  }
+
+  .exercise-card .ex-tip {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid rgba(200,146,58,0.2);
+    padding-top: 0.6rem;
+  }
+
+  /* ============================================================
+     SUMMARY
+  ============================================================ */
+  .summary-section {
+    background: linear-gradient(160deg, var(--darkblue) 0%, #0F1B30 100%);
+    margin: 0 -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: var(--creme);
+  }
+
+  .summary-section .sum-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212,160,23,0.3);
+  }
+
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .summary-section ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(250,246,239,0.9);
+  }
+
+  .summary-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .summary-section ul li strong { color: var(--gold); font-weight: 700; }
+
+  /* ============================================================
+     BACK TO TOP BUTTON
+  ============================================================ */
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--darkblue);
+    color: var(--gold);
+    border: 2px solid rgba(212,160,23,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 200;
+  }
+
+  #back-to-top:hover { background: var(--darkblue-light); transform: translateY(-3px); }
+  #back-to-top.visible { display: flex; }
+
+  /* ============================================================
+     CLOSING QUOTE
+  ============================================================ */
+  .closing-quote {
+    background: linear-gradient(160deg, #1A2B4A 0%, #0D1E38 100%);
+    border-radius: var(--border-radius);
+    padding: 3rem 3rem 2.5rem;
+    margin: 3.5rem 0 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.5rem; left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .closing-quote .cq-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--gold);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 1.2rem;
+  }
+
+  .closing-quote .cq-attribution {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(212,160,23,0.6);
+  }
+
+  .closing-quote .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .closing-quote .ornament-line::before,
+  .closing-quote .ornament-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.4), transparent);
+  }
+
+  .closing-quote .ornament-line .ornament-sym {
+    color: var(--gold);
+    font-size: 1.1rem;
+    opacity: 0.7;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 600px) {
+    .site-header { padding: 0.5rem 1rem; }
+    .chapter-hero { padding: 3.5rem 1rem 3rem; }
+    .page-wrapper { padding: 0 1rem 4rem; }
+    .prologue { padding: 2rem 1.2rem; }
+    .section-num { font-size: 2.2rem; }
+    .exercises-section,
+    .summary-section { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .section-alt { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .closing-quote { padding: 2rem 1.2rem 1.8rem; }
+  }
+
+  @media (min-width: 860px) {
+    .page-wrapper { padding-left: 2rem; padding-right: 2rem; }
+  }
+
+  /* ============================================================
+     WISKUNDE-SPECIFIC COMPONENTS
+  ============================================================ */
+
+  /* ── REKENVOORBEELD ─────────────────────────────────── */
+  .rekenvoorbeeld {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 4px solid var(--oker);
+    border-radius: var(--border-radius);
+    padding: 1.8rem 2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .rekenvoorbeeld .rv-label {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--oker); display: block; margin-bottom: 0.35rem;
+  }
+  .rekenvoorbeeld .rv-vraag {
+    font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700;
+    color: var(--darkblue); margin-bottom: 1rem; line-height: 1.4;
+  }
+  .rv-stappen { list-style: none; padding: 0; counter-reset: stap-teller; margin-bottom: 1rem; }
+  .rv-stappen li {
+    counter-increment: stap-teller;
+    padding: 0.6rem 0.8rem 0.6rem 3.2rem;
+    position: relative;
+    background: var(--creme);
+    border-radius: 4px;
+    margin-bottom: 0.4rem;
+    font-size: 0.97rem;
+  }
+  .rv-stappen li::before {
+    content: counter(stap-teller);
+    position: absolute; left: 0.6rem; top: 50%; transform: translateY(-50%);
+    background: var(--darkblue); color: white;
+    width: 1.7rem; height: 1.7rem; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; font-weight: 700;
+  }
+  .rv-antwoord {
+    background: var(--darkblue); color: var(--gold);
+    padding: 0.75rem 1.1rem; border-radius: 4px;
+    font-weight: 700; font-size: 1rem;
+  }
+  .rv-antwoord math { color: var(--gold); }
+
+  /* ── STELLING ───────────────────────────────────────── */
+  .stelling {
+    background: #EEF3FF;
+    border-left: 4px solid var(--darkblue);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1.2rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .stelling .st-label {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--darkblue); opacity: 0.7;
+    display: block; margin-bottom: 0.35rem;
+  }
+  .stelling .st-body { font-size: 0.97rem; color: var(--text-dark); }
+
+  /* ── FORMULE ────────────────────────────────────────── */
+  .formule {
+    background: var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 1.4rem 1.8rem;
+    text-align: center;
+    margin: 1.8rem 0;
+  }
+  .formule math { color: white; font-size: 1.2rem; }
+  .formule .formule-naam {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--gold); opacity: 0.8;
+    display: block; margin-bottom: 0.5rem;
+  }
+
+  /* ── SVG CONTAINER ──────────────────────────────────── */
+  .svg-container {
+    margin: 1.8rem 0;
+    padding: 1.5rem;
+    background: white;
+    border: 1px solid var(--sand);
+    border-radius: var(--border-radius);
+    overflow-x: auto;
+    text-align: center;
+  }
+  .svg-container .svg-caption {
+    font-size: 0.85rem; color: var(--text-light); font-style: italic;
+    display: block; margin-top: 0.75rem;
+  }
+
+  /* ── DOMEIN GRID ────────────────────────────────────── */
+  .domein-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+    margin: 1.8rem 0;
+  }
+  .domein-card {
+    background: white;
+    border: 1px solid var(--sand);
+    border-top: 3px solid var(--darkblue);
+    border-radius: var(--border-radius);
+    padding: 1.2rem 1.3rem;
+    box-shadow: var(--shadow-sm);
+  }
+  .domein-card .dc-naam {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--darkblue);
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+  .domein-card .dc-hoofdstukken {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    font-style: italic;
+  }
+  .domein-card .dc-beschrijving {
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    margin-top: 0.5rem;
+    line-height: 1.55;
+  }
+
+  /* ── SYMBOLTABEL ────────────────────────────────────── */
+  .symbool-tabel {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    margin: 1.2rem 0;
+  }
+  .symbool-tabel th {
+    background: var(--darkblue);
+    color: white;
+    padding: 0.5rem 1rem;
+    text-align: left;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    font-size: 0.83rem;
+  }
+  .symbool-tabel td {
+    padding: 0.45rem 1rem;
+    border-bottom: 1px solid var(--sand);
+    color: var(--text-mid);
+  }
+  .symbool-tabel tr:last-child td { border-bottom: none; }
+  .symbool-tabel tr:nth-child(even) td { background: var(--sand-light); }
+  .symbool-tabel .sym { font-size: 1.1rem; font-weight: 700; color: var(--darkblue); }
+
+  /* ── WERKWIJZE LIST ─────────────────────────────────── */
+  .werkwijze-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.2rem 0;
+  }
+  .werkwijze-list li {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 0.8rem 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 0.5rem;
+    background: var(--sand-light);
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.55;
+  }
+  .werkwijze-list li .wl-kleur {
+    flex-shrink: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-top: 0.42rem;
+  }
+  .werkwijze-list li strong { color: var(--darkblue); }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+============================================================ -->
+<header class="site-header" id="top">
+  <span class="label">Wiskunde 1A</span>
+  <span class="label label-right">Inleiding</span>
+</header>
+
+<!-- ============================================================
+     CHAPTER HERO
+============================================================ -->
+<div class="chapter-hero">
+  <div class="chapter-kicker">Wiskunde &nbsp;&middot;&nbsp; 1A &nbsp;&middot;&nbsp; Eerste graad</div>
+  <h1>Inleiding<br>Waarom leer je wiskunde?</h1>
+  <p class="subtitle">Van de getallenlijn tot GPS-algoritmen &mdash; wiskunde is de taal van de werkelijkheid</p>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<div class="page-wrapper">
+
+  <!-- CHAPTER TITLE BLOCK -->
+  <div style="padding: 2.5rem 0 0.5rem;">
+    <div class="chapter-label" style="font-family:'Source Sans 3',sans-serif;font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.2em;color:var(--oker);margin-bottom:0.5rem;">Inleiding</div>
+    <h1 class="chapter-title" style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;color:var(--darkblue);margin-bottom:1.2rem;line-height:1.2;">Waarom leer je wiskunde?</h1>
+    <p class="chapter-intro" style="font-size:1.08rem;color:var(--text-mid);line-height:1.8;max-width:720px;border-left:3px solid var(--oker);padding-left:1.2rem;">Wiskunde is overal. In de architectuur van een gebouw, de route van een GPS, de kansen in een dobbelspel en de codering van je smartphone. In dit vak leer je niet alleen rekenen &mdash; je leert logisch en precies denken.</p>
+  </div>
+
+  <!-- PROLOGUE -->
+  <section class="prologue" id="proloog">
+    <span class="prologue-label">Stel je voor &hellip;</span>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p>Je bent tien jaar oud en je speelt een computerspel. Elke keer als jouw karakter springt, berekent de computer precies hoe hoog en hoe ver. Als je scoort, telt het spel je punten op. Als je een level haalt, vergelijkt het jouw tijd met het wereldrecord. Zonder wiskunde &mdash; zonder optellen, vermenigvuldigen, meten van tijd, berekenen van snelheid &mdash; zou dat spel simpelweg niet bestaan.</p>
+    <p>Of denk aan de bouwer die een brug ontwerpt. Die moet weten hoeveel gewicht de brug kan dragen. Of aan de arts die een medicijndosis berekent op basis van het lichaamsgewicht van de pati&euml;nt. Of aan de muzikant die begrijpt waarom bepaalde noten samen klinken: dat is wiskunde in de verhouding van trillingen.</p>
+    <p><strong style="color: var(--gold);">Wiskunde is niet een schoolvak dat je afwerkt en vergeet. Het is een manier van denken die je de rest van je leven meedraagt.</strong></p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+  </section>
+
+  <!-- SECTION 1 — Wat is wiskunde? -->
+  <section class="section-block" id="s1">
+    <div class="section-heading">
+      <span class="section-num">1</span>
+      <h2 class="section-title">Wat is wiskunde?</h2>
+    </div>
+
+    <p>Veel leerlingen denken dat wiskunde hetzelfde is als rekenen: cijfers optellen, delen, de tafels kennen. Rekenen is inderdaad een deel van wiskunde &mdash; maar het is slechts het begin. Wiskunde is eigenlijk iets veel groters: het is een <strong>taal</strong>.</p>
+
+    <h3 class="sub-heading">Wiskunde als taal</h3>
+    <p>Een gewone taal zoals het Nederlands is handig, maar ook vaag. Als iemand zegt &ldquo;het huis is groot&rdquo;, weet je nog niet precies hoe groot. Wiskunde lost dat op: in plaats van &ldquo;groot&rdquo; zeg je &ldquo;oppervlakte = 120 m&sup2;&rdquo;. Die uitdrukking is <strong>nauwkeurig</strong> &mdash; iedereen ter wereld begrijpt precies wat er bedoeld wordt, of je nu Nederlandstalig bent of niet.</p>
+    <p>Dat maakt wiskunde ook <strong>universeel</strong>. Een vergelijking geschreven in Brussel wordt op dezelfde manier gelezen in Tokio, Cairo of Buenos Aires. De symbolen en regels zijn overal hetzelfde. En omdat de regels van wiskunde gebouwd zijn op logica, zijn ze ook <strong>onveranderlijk</strong>: wat gisteren klopte, klopt morgen ook nog.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#8721;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Wiskunde</span>
+        <p class="begrip-def">Wiskunde is de wetenschap die zich bezighoudt met getallen, structuren, vormen, ruimte en verandering. Ze gebruikt nauwkeurige taal en logisch redeneren om uitspraken te doen die altijd en overal geldig zijn.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Rekenen versus redeneren</h3>
+    <p><strong>Rekenen</strong> is een vaardigheid: je voert een bewerking uit. Je berekent dat 7 &times; 8 = 56, of dat 15% van 80 gelijk is aan 12. Dat is nuttig en noodzakelijk. Maar <strong>wiskunde</strong> gaat verder: je vraagt jezelf af <em>waarom</em> iets klopt, je zoekt naar patronen, je bewijst dat een stelling waar is voor alle mogelijke gevallen, niet alleen voor de gevallen die je hebt uitgerekend.</p>
+    <p>Een voorbeeld: je kunt controleren dat 1 + 3 = 4, dat 1 + 3 + 5 = 9, dat 1 + 3 + 5 + 7 = 16. Je ziet een patroon: de som van de eerste <em>n</em> oneven getallen is altijd <em>n</em>&sup2;. Dat <em>bewijzen</em> voor alle waarden van <em>n</em> &mdash; niet alleen voor de getallen die je hebt bekeken &mdash; d&aacute;t is wiskunde.</p>
+
+    <div class="stelling">
+      <span class="st-label">Stelling</span>
+      <p class="st-body">De som van de eerste <em>n</em> oneven getallen is gelijk aan <em>n</em>&sup2;. Bijvoorbeeld: 1 + 3 + 5 + 7 + 9 = 5&sup2; = 25.</p>
+    </div>
+
+    <h3 class="sub-heading">Wiskunde in de wereld om je heen</h3>
+    <p>Wiskunde verbergt zich in allerlei domeinen die je al kent:</p>
+    <ul style="padding-left:1.4rem;margin:0.5rem 0 1.2rem;">
+      <li style="margin-bottom:0.5rem"><strong>Architectuur:</strong> de hoeken van een dak, de draagkracht van een balk, de verhouding van een raam &mdash; alles is berekend. De Grieken ontdekten al dat bepaalde verhoudingen (&ldquo;de gulden snede&rdquo;) esthetisch aantrekkelijk zijn.</li>
+      <li style="margin-bottom:0.5rem"><strong>Muziek:</strong> een octaaf is een verdubbeling van de trillingsfrekwentie. Een akkoord klinkt goed als de verhoudingen van de tonen eenvoudige breuken zijn (1/2, 2/3, 3/4).</li>
+      <li style="margin-bottom:0.5rem"><strong>Sport:</strong> een voetballer berekent (intuïtief) de baan van een bal. Een wielrenner rijdt een optimale lijn in een bocht. Sportstatistieken &mdash; hoeveel doelpunten per match, welk percentage vrije trappen succesvol is &mdash; zijn pure statistiek.</li>
+      <li style="margin-bottom:0.5rem"><strong>Technologie:</strong> een GPS berekent in milliseconden je exacte positie door afstanden naar meerdere satellieten te vergelijken. Je smartphone codeert berichten met priemgetallen. Elk scherm bestaat uit miljoenen pixels waarvan de kleur als getal is opgeslagen.</li>
+    </ul>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Kijk rond in je klas of thuis. Kies drie voorwerpen en bedenk welke wiskundige begrippen daarin verborgen zitten. Denk aan vormen, afmetingen, verhoudingen, hoeveelheden. Bespreek je antwoorden met een klasgenoot.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 2 — Hoe gebruik je dit boek? -->
+  <section class="section-block" id="s2">
+    <div class="section-heading">
+      <span class="section-num">2</span>
+      <h2 class="section-title">Hoe gebruik je dit boek?</h2>
+    </div>
+
+    <p>Dit boek is opgebouwd uit verschillende soorten blokken. Elk type blok heeft een duidelijke visuele stijl zodat je in &eacute;&eacute;n oogopslag ziet wat je voor je hebt. Hieronder een overzicht:</p>
+
+    <ul class="werkwijze-list">
+      <li>
+        <span class="wl-kleur" style="background:var(--terracotta);"></span>
+        <div><strong>Theorie (blauw kader):</strong> Definities en regels die je moet kennen. Dit is de basis. Lees dit altijd aandachtig; het zijn de bouwstenen voor de rest van het hoofdstuk.</div>
+      </li>
+      <li>
+        <span class="wl-kleur" style="background:var(--oker);"></span>
+        <div><strong>Rekenvoorbeeld (oker kader):</strong> Een uitgewerkte stap-voor-stap oefening. Je ziet hoe je een probleem aanpakt van vraag tot antwoord. Volg elke stap en zorg dat je begrijpt <em>waarom</em> elke stap zo is.</div>
+      </li>
+      <li>
+        <span class="wl-kleur" style="background:var(--darkblue);"></span>
+        <div><strong>Stelling (blauwe rand links):</strong> Een wiskundige eigenschap of bewering die altijd geldt. Stellingen zijn vaak de kern van een wiskundig idee; ze verbinden begrippen met elkaar.</div>
+      </li>
+      <li>
+        <span class="wl-kleur" style="background:#1A2B4A;"></span>
+        <div><strong>Formule (donkerblauwe blok):</strong> De sleutelformule van een onderwerp, duidelijk afgezonderd zodat je hem gemakkelijk terugvindt. Leer formules niet blind van buiten &mdash; begrijp wat elke letter betekent.</div>
+      </li>
+      <li>
+        <span class="wl-kleur" style="background:var(--gold);"></span>
+        <div><strong>Denkvraag (gele rand):</strong> Een open vraag om even bij stil te staan. Er is niet altijd &eacute;&eacute;n juist antwoord. Ze helpen je de verbinding te maken tussen theorie en je eigen ervaringen.</div>
+      </li>
+    </ul>
+
+    <div class="stelling">
+      <span class="st-label">Tip</span>
+      <p class="st-body"><strong>Toon altijd je werk.</strong> In wiskunde is het proces minstens zo belangrijk als het antwoord. Schrijf elke stap op, ook als je het in je hoofd kunt berekenen. Zo vind je fouten sneller, en de leerkracht ziet waar het misging als je antwoord niet klopt.</p>
+    </div>
+
+    <p>Aan het einde van elk hoofdstuk vind je <strong>oefeningen</strong> in drie niveaus: basisoefeningen die de theorie rechtstreeks toepassen, toepassingsoefeningen die je laten nadenken, en uitdagingsoefeningen voor wie verder wil gaan. En er is telkens een <strong>samenvatting</strong> met de kernpunten op een rij.</p>
+  </section>
+
+  <!-- SECTION 3 — De vijf domeinen -->
+  <section class="section-block" id="s3">
+    <div class="section-heading">
+      <span class="section-num">3</span>
+      <h2 class="section-title">De vijf domeinen van dit boek</h2>
+    </div>
+
+    <p>Dit boek is georganiseerd in vijf grote domeinen. Elk domein stelt andere vragen en vraagt andere denkvaardigheden. Samen vormen ze een compleet beeld van de wiskunde van het eerste jaar.</p>
+
+    <div class="domein-grid">
+      <div class="domein-card">
+        <span class="dc-naam">Rekenen</span>
+        <span class="dc-hoofdstukken">H1 &ndash; H6</span>
+        <p class="dc-beschrijving">Getallen, bewerkingen, breuken, machten, priemgetallen, procenten en verhoudingen. De stevige basis waarop alles rust.</p>
+      </div>
+      <div class="domein-card">
+        <span class="dc-naam">Meetkunde</span>
+        <span class="dc-hoofdstukken">H7 &ndash; H12</span>
+        <p class="dc-beschrijving">Hoeken, driehoeken, vierhoeken, cirkels, ruimtelijke figuren, omtrek, oppervlakte en inhoud. Wiskunde in de ruimte.</p>
+      </div>
+      <div class="domein-card">
+        <span class="dc-naam">Algebra</span>
+        <span class="dc-hoofdstukken">H13 &ndash; H15</span>
+        <p class="dc-beschrijving">Co&ouml;rdinaten, letters als getallen, evenredigheid, formules en vergelijkingen. De taal achter de patronen.</p>
+      </div>
+      <div class="domein-card">
+        <span class="dc-naam">Statistiek</span>
+        <span class="dc-hoofdstukken">H16</span>
+        <p class="dc-beschrijving">Gegevens verzamelen, ordenen, weergeven en interpreteren. Hoe maak je zin van grote hoeveelheden informatie?</p>
+      </div>
+      <div class="domein-card">
+        <span class="dc-naam">Logica</span>
+        <span class="dc-hoofdstukken">H17</span>
+        <p class="dc-beschrijving">Verzamelingen, redeneren en bewijzen. Hoe bouw je een waterdicht wiskundig argument op?</p>
+      </div>
+    </div>
+
+    <p>Je zult merken dat de domeinen met elkaar verbonden zijn. Rekenen is de basis voor algebra; meetkunde gebruikt formules; statistiek verwerkt getallenreeksen. Wiskunde is geen reeks losse onderwerpen &mdash; het is &eacute;&eacute;n samenhangend geheel.</p>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Welk domein verwacht je het moeilijkst te vinden, en welk het makkelijkst? Schrijf je antwoord op en bewaar het. Bekijk het opnieuw aan het einde van het schooljaar. Ben je verrast?</p>
+    </div>
+  </section>
+
+  <!-- SECTION 4 — Rekenhulpmiddelen -->
+  <section class="section-block" id="s4">
+    <div class="section-heading">
+      <span class="section-num">4</span>
+      <h2 class="section-title">Rekenhulpmiddelen</h2>
+    </div>
+
+    <p>Een veelgestelde vraag: &ldquo;Mag ik een rekenmachine gebruiken?&rdquo; Het antwoord hangt af van het soort taak. Hier zijn de richtlijnen die in dit boek gehanteerd worden:</p>
+
+    <h3 class="sub-heading">Hoofdrekenen: altijd oefenen</h3>
+    <p>De basisbewerkingen &mdash; optellen, aftrekken, de tafels tot 10, eenvoudig delen &mdash; moet je vlot en zonder hulpmiddel kunnen uitvoeren. Dat is niet zo omdat rekenmachines verboden zijn, maar omdat hoofdrekenen je <strong>getallenzin</strong> ontwikkelt: een intuïtief gevoel voor of een antwoord klopt. Iemand met een goede getallenzin merkt onmiddellijk op dat een antwoord &ldquo;veel te groot&rdquo; of &ldquo;negatief terwijl het positief had moeten zijn&rdquo; is.</p>
+
+    <h3 class="sub-heading">Rekenmachine: gereedschap, geen vervanging</h3>
+    <p>Bij complexere berekeningen &mdash; meerdere decimalen, grote getallen, wortels &mdash; mag een rekenmachine worden gebruikt als dat bij de opdracht vermeld staat. Gebruik hem als een <em>gereedschap</em>, niet als een vervanging voor nadenken. Typ nooit zomaar een formule in zonder eerst na te denken over wat je berekent en wat een redelijk antwoord zou zijn.</p>
+
+    <div class="stelling">
+      <span class="st-label">Gouden Regel</span>
+      <p class="st-body"><strong>Schat eerst, bereken dan, controleer daarna.</strong> Bepaal voor elke berekening bij benadering wat het antwoord zou moeten zijn. Na de berekening controleer je of je antwoord in de buurt ligt van je schatting. Zo voorkom je grove fouten door een tikfout of een verkeerde formule.</p>
+    </div>
+
+    <h3 class="sub-heading">Schattingen en afronden</h3>
+    <p>Schatten is een serieuze wiskundige vaardigheid. Als je weet dat 1 kg appels &euro;&nbsp;2,30 kost, en je wil weten hoeveel 3,7 kg kost, dan is een snelle schatting: &ldquo;bijna 4 kg, dus bijna 4 &times; 2,30 = 9,20 &euro;&rdquo;. Het exacte antwoord is 8,51 &euro;. Je schatting was te hoog, maar de grootte klopt: je verwacht geen antwoord van 85 cent of 85 euro. Dat soort <strong>grootte-orde gevoel</strong> is onmisbaar.</p>
+
+    <p>Afronden doet men op een afgesproken aantal decimalen of significante cijfers. In het dagelijks leven rond je meestal af op centen (&euro;&nbsp;8,51), terwijl een ingenieur misschien werkt met drie significante cijfers (8,51 m).</p>
+  </section>
+
+  <!-- SECTION 5 — Wiskundige symbolen -->
+  <section class="section-block" id="s5">
+    <div class="section-heading">
+      <span class="section-num">5</span>
+      <h2 class="section-title">Wiskundige symbolen die je al kent</h2>
+    </div>
+
+    <p>Wiskunde heeft een eigen woordenschat van symbolen. Je kent er al veel, ook al wist je misschien niet altijd wat ze precies betekenen. Hier is een overzicht van de meest fundamentele symbolen die in dit boek voortdurend terugkomen:</p>
+
+    <table class="symbool-tabel">
+      <thead>
+        <tr>
+          <th>Symbool</th>
+          <th>Naam</th>
+          <th>Betekenis &amp; voorbeeld</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="sym">+</td>
+          <td>Plus (optelling)</td>
+          <td>5 + 3 = 8 &mdash; de som van twee getallen</td>
+        </tr>
+        <tr>
+          <td class="sym">&minus;</td>
+          <td>Min (aftrekking)</td>
+          <td>9 &minus; 4 = 5 &mdash; het verschil van twee getallen</td>
+        </tr>
+        <tr>
+          <td class="sym">&times;</td>
+          <td>Maal (vermenigvuldiging)</td>
+          <td>3 &times; 4 = 12 &mdash; ook geschreven als 3 &middot; 4 of 3(4)</td>
+        </tr>
+        <tr>
+          <td class="sym">&divide;</td>
+          <td>Gedeeld door (deling)</td>
+          <td>12 &divide; 4 = 3 &mdash; ook geschreven als <sup>12</sup>&frasl;<sub>4</sub></td>
+        </tr>
+        <tr>
+          <td class="sym">=</td>
+          <td>Is gelijk aan</td>
+          <td>Links en rechts hebben dezelfde waarde: 2 + 3 = 5</td>
+        </tr>
+        <tr>
+          <td class="sym">&ne;</td>
+          <td>Is niet gelijk aan</td>
+          <td>7 &ne; 8 &mdash; de twee kanten zijn <em>niet</em> gelijk</td>
+        </tr>
+        <tr>
+          <td class="sym">&lt;</td>
+          <td>Is kleiner dan</td>
+          <td>3 &lt; 7 &mdash; 3 ligt links van 7 op de getallenlijn</td>
+        </tr>
+        <tr>
+          <td class="sym">&gt;</td>
+          <td>Is groter dan</td>
+          <td>10 &gt; 2 &mdash; 10 ligt rechts van 2 op de getallenlijn</td>
+        </tr>
+        <tr>
+          <td class="sym">&le;</td>
+          <td>Is kleiner dan of gelijk aan</td>
+          <td>x &le; 5 &mdash; x is 5 of kleiner</td>
+        </tr>
+        <tr>
+          <td class="sym">&ge;</td>
+          <td>Is groter dan of gelijk aan</td>
+          <td>n &ge; 0 &mdash; n is 0 of groter (niet negatief)</td>
+        </tr>
+        <tr>
+          <td class="sym">x&sup2;</td>
+          <td>Kwadraat</td>
+          <td>4&sup2; = 4 &times; 4 = 16 &mdash; een getal met zichzelf vermenigvuldigen</td>
+        </tr>
+        <tr>
+          <td class="sym">&radic;</td>
+          <td>Vierkantswortel</td>
+          <td>&radic;25 = 5 &mdash; welk getal geeft 25 als je het kwadrateert?</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>In de komende hoofdstukken leer je nog veel meer symbolen kennen. Maar deze twaalf zijn het fundament. Je kunt er niet omheen: ze komen in <em>elk</em> hoofdstuk terug.</p>
+
+    <h3 class="sub-heading">Rekenvoorbeeld: notaties lezen</h3>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Lees de volgende wiskundige notatie en verklaar elke stap:<br>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <mrow>
+            <msqrt><mn>36</mn></msqrt>
+            <mo>&le;</mo>
+            <msup><mn>3</mn><mn>2</mn></msup>
+            <mo>&#8743;</mo>
+            <msup><mn>3</mn><mn>2</mn></msup>
+            <mo>&ne;</mo>
+            <mn>6</mn>
+          </mrow>
+        </math>
+      </p>
+      <ol class="rv-stappen">
+        <li>Bereken de vierkantswortel: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msqrt><mn>36</mn></msqrt><mo>=</mo><mn>6</mn></mrow></math> want 6 &times; 6 = 36.</li>
+        <li>Bereken het kwadraat: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mn>3</mn><mn>2</mn></msup><mo>=</mo><mn>9</mn></mrow></math> want 3 &times; 3 = 9.</li>
+        <li>Controleer de ongelijkheid: is 6 &le; 9? Ja, want 6 is kleiner dan 9.</li>
+        <li>Controleer de ongelijkheid met &ne;: is 9 &ne; 6? Ja, want 9 en 6 zijn verschillende getallen.</li>
+      </ol>
+      <p class="rv-antwoord">
+        Beide uitspraken kloppen: <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>6</mn><mo>&le;</mo><mn>9</mn></mrow></math> is waar en <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>9</mn><mo>&ne;</mo><mn>6</mn></mrow></math> is waar.
+      </p>
+    </div>
+
+    <p>En een basistransformatie die je al heel vroeg tegenkomt: vermenigvuldiging lezen als herhaalde optelling.</p>
+
+    <div class="formule">
+      <span class="formule-naam">Vermenigvuldiging als herhaalde optelling</span>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <mn>3</mn><mo>&times;</mo><mn>4</mn>
+          <mo>=</mo>
+          <mn>4</mn><mo>+</mo><mn>4</mn><mo>+</mo><mn>4</mn>
+          <mo>=</mo>
+          <mn>12</mn>
+        </mrow>
+      </math>
+    </div>
+
+    <h3 class="sub-heading">De getallenlijn: ordening zichtbaar gemaakt</h3>
+    <p>De getallenlijn is een van de meest fundamentele wiskundige voorstellingen. Ze toont hoe getallen geordend zijn: hoe verder naar rechts, hoe groter. Hieronder zie je een getallenlijn van &minus;5 tot en met +5. De nul is het middelpunt; links ervan staan de negatieve gehele getallen, rechts de positieve.</p>
+
+    <div class="svg-container">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 90" width="100%" aria-label="Getallenlijn van -5 tot 5">
+        <!-- Pijl lijn -->
+        <defs>
+          <marker id="arrowL" markerWidth="8" markerHeight="8" refX="0" refY="3" orient="auto">
+            <path d="M8,0 L0,3 L8,6" fill="none" stroke="#1A2B4A" stroke-width="1.5"/>
+          </marker>
+          <marker id="arrowR" markerWidth="8" markerHeight="8" refX="8" refY="3" orient="auto">
+            <path d="M0,0 L8,3 L0,6" fill="none" stroke="#1A2B4A" stroke-width="1.5"/>
+          </marker>
+        </defs>
+        <!-- Hoofdlijn -->
+        <line x1="28" y1="45" x2="532" y2="45" stroke="#1A2B4A" stroke-width="2" marker-start="url(#arrowL)" marker-end="url(#arrowR)"/>
+        <!-- Streepjes en labels: -5 tot +5 -->
+        <!-- Positie: nul ligt op x=280, elke eenheid is 46px breed -->
+        <g font-family="'Source Sans 3', sans-serif" font-size="13" fill="#1A2B4A" text-anchor="middle">
+          <!-- -5 -->
+          <line x1="50"  y1="38" x2="50"  y2="52" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="50"  y="68">&minus;5</text>
+          <!-- -4 -->
+          <line x1="96"  y1="38" x2="96"  y2="52" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="96"  y="68">&minus;4</text>
+          <!-- -3 -->
+          <line x1="142" y1="38" x2="142" y2="52" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="142" y="68">&minus;3</text>
+          <!-- -2 -->
+          <line x1="188" y1="38" x2="188" y2="52" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="188" y="68">&minus;2</text>
+          <!-- -1 -->
+          <line x1="234" y1="38" x2="234" y2="52" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="234" y="68">&minus;1</text>
+          <!-- 0 (accentuated) -->
+          <line x1="280" y1="34" x2="280" y2="56" stroke="#C1440E" stroke-width="2.5"/>
+          <text x="280" y="72" font-weight="700" fill="#C1440E">0</text>
+          <!-- +1 -->
+          <line x1="326" y1="38" x2="326" y2="52" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="326" y="68">1</text>
+          <!-- +2 -->
+          <line x1="372" y1="38" x2="372" y2="52" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="372" y="68">2</text>
+          <!-- +3 -->
+          <line x1="418" y1="38" x2="418" y2="52" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="418" y="68">3</text>
+          <!-- +4 -->
+          <line x1="464" y1="38" x2="464" y2="52" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="464" y="68">4</text>
+          <!-- +5 -->
+          <line x1="510" y1="38" x2="510" y2="52" stroke="#1A2B4A" stroke-width="1.5"/>
+          <text x="510" y="68">5</text>
+        </g>
+        <!-- Negatief/positief labels -->
+        <text x="165" y="22" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#6B5F4A" font-style="italic" text-anchor="middle">negatieve getallen</text>
+        <text x="395" y="22" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#6B5F4A" font-style="italic" text-anchor="middle">positieve getallen</text>
+        <!-- Pijlen naar labels -->
+        <line x1="165" y1="25" x2="165" y2="36" stroke="#6B5F4A" stroke-width="1" stroke-dasharray="3,2"/>
+        <line x1="395" y1="25" x2="395" y2="36" stroke="#6B5F4A" stroke-width="1" stroke-dasharray="3,2"/>
+      </svg>
+      <span class="svg-caption">De getallenlijn van &minus;5 tot +5. De nul (rood) is het middelpunt. Getallen rechts van nul zijn positief, links van nul zijn negatief. Hoe verder naar rechts, hoe groter.</span>
+    </div>
+
+    <div class="stelling">
+      <span class="st-label">Stelling &mdash; Ordening op de getallenlijn</span>
+      <p class="st-body">Voor twee willekeurige gehele getallen <em>a</em> en <em>b</em> geldt: <em>a</em> &lt; <em>b</em> precies dan als <em>a</em> links van <em>b</em> op de getallenlijn ligt. Dus: &minus;3 &lt; &minus;1, want &minus;3 ligt links van &minus;1.</p>
+    </div>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld</span>
+      <p class="rv-vraag">Rangschik de volgende getallen van klein naar groot:<br>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <mrow><mn>4</mn><mo>,</mo><mo>&#8722;</mo><mn>2</mn><mo>,</mo><mn>0</mn><mo>,</mo><mo>&#8722;</mo><mn>5</mn><mo>,</mo><mn>3</mn></mrow>
+        </math>
+      </p>
+      <ol class="rv-stappen">
+        <li>Plaats de getallen op de getallenlijn (of denk je de lijn voor). Negatieve getallen liggen links van nul, positieve rechts.</li>
+        <li>Van links naar rechts lees je de volgorde: &minus;5, &minus;2, 0, 3, 4.</li>
+        <li>Schrijf de ongelijkheden op als controle:
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <mrow><mo>&#8722;</mo><mn>5</mn><mo>&lt;</mo><mo>&#8722;</mo><mn>2</mn><mo>&lt;</mo><mn>0</mn><mo>&lt;</mo><mn>3</mn><mo>&lt;</mo><mn>4</mn></mrow>
+          </math>.
+        </li>
+      </ol>
+      <p class="rv-antwoord">
+        Van klein naar groot:
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <mrow><mo>&#8722;</mo><mn>5</mn><mo>,</mo><mo>&#160;</mo><mo>&#8722;</mo><mn>2</mn><mo>,</mo><mo>&#160;</mo><mn>0</mn><mo>,</mo><mo>&#160;</mo><mn>3</mn><mo>,</mo><mo>&#160;</mo><mn>4</mn></mrow>
+        </math>
+      </p>
+    </div>
+  </section>
+
+  <!-- CLOSING QUOTE -->
+  <div class="closing-quote" role="note" aria-label="Slotcitaat">
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <p class="cq-text">Wiskunde is niet iets wat je doet totdat je het juiste antwoord hebt gevonden &mdash; het is iets wat je doet totdat je het <em>begrijpt</em>.</p>
+    <div class="ornament-line"><span class="ornament-sym">&#10022;</span></div>
+    <span class="cq-attribution">Wiskunde 1A &nbsp;&middot;&nbsp; Eerste Graad A-stroom</span>
+  </div>
+
+  <div style="margin-top: 2.5rem;">
+    <p style="font-size: 1.05rem; color: var(--text-mid); font-style: italic; text-align: center;">Pen klaar. We beginnen te tellen.</p>
+  </div>
+
+</div><!-- end page-wrapper -->
+
+<!-- EXERCISES -->
+<section class="exercises-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="exercises-heading">Oefeningen</h2>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 1</p>
+      <p class="ex-name">Wiskunde om je heen</p>
+      <ol>
+        <li>Noem drie situaties uit je dagelijks leven waarbij je bewust of onbewust wiskunde gebruikt. Omschrijf elke situatie in &eacute;&eacute;n zin.</li>
+        <li>Welk domein (rekenen, meetkunde, algebra, statistiek of logica) hoort bij elk van jouw drie voorbeelden?</li>
+        <li>Leg in je eigen woorden het verschil uit tussen &ldquo;rekenen&rdquo; en &ldquo;wiskunde&rdquo;. Gebruik een concreet voorbeeld.</li>
+      </ol>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 2</p>
+      <p class="ex-name">Symbolen lezen en schrijven</p>
+      <ol>
+        <li>Schrijf de volgende zinnen als wiskundige notatie:<br>
+          a) &ldquo;zeven is kleiner dan twaalf&rdquo;<br>
+          b) &ldquo;acht is niet gelijk aan negen&rdquo;<br>
+          c) &ldquo;x is groter dan of gelijk aan nul&rdquo;
+        </li>
+        <li>Bereken zonder rekenmachine en schrijf elke stap: &radic;49, 5&sup2;, 2&sup3;.</li>
+        <li>Schrijf de getallen &minus;7, 3, &minus;1, 0, 5, &minus;4 in volgorde van klein naar groot. Gebruik de &lt;-tekens tussen de getallen.</li>
+      </ol>
+      <p class="ex-tip">Tip: gebruik de getallenlijn als hulpmiddel voor deelvraag 3.</p>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Oefening 3</p>
+      <p class="ex-name">Schatten en controleren</p>
+      <ol>
+        <li>Schat eerst, bereken dan exact:<br>
+          a) 19 &times; 21 &nbsp;&nbsp; b) 98 + 103 + 97 &nbsp;&nbsp; c) 400 &divide; 8
+        </li>
+        <li>Een leerling berekent: 3 &times; 4 + 2 = 18. Klopt dit? Zo niet, corrigeer de berekening en leg uit wat er misging.</li>
+        <li>Je koopt 4 schriften van &euro;&nbsp;1,95 elk en 2 pennen van &euro;&nbsp;0,80 elk. Schat het totale bedrag eerst af, bereken het dan precies. Hoe dicht zat je schatting?</li>
+      </ol>
+    </div>
+
+    <div class="exercise-card">
+      <p class="ex-title">Uitdaging</p>
+      <p class="ex-name">Het patroon van oneven getallen</p>
+      <ol>
+        <li>Bereken: 1 = ?, 1+3 = ?, 1+3+5 = ?, 1+3+5+7 = ?, 1+3+5+7+9 = ?</li>
+        <li>Welk patroon zie je in de antwoorden?</li>
+        <li>Wat verwacht je dat 1+3+5+7+9+11+13+15+17+19 oplevert? Controleer je antwoord door te berekenen.</li>
+        <li>(Bonusvraag) Hoe zou je dit patroon uitleggen aan iemand die het nog nooit heeft gezien?</li>
+      </ol>
+      <p class="ex-tip">Dit patroon werd al vermeld in de inleiding. Kijk of je de stelling kunt terugvinden en gebruiken.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="summary-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;">
+    <h2 class="sum-heading">Samenvatting</h2>
+    <ul>
+      <li><strong>Wiskunde</strong> is meer dan rekenen: het is een universele, nauwkeurige en onveranderlijke taal voor het beschrijven en verklaren van patronen, structuren en verhoudingen.</li>
+      <li>Het verschil tussen <strong>rekenen</strong> (een bewerking uitvoeren) en <strong>wiskundig redeneren</strong> (een patroon ontdekken en bewijzen) is fundamenteel voor dit vak.</li>
+      <li>Dit boek is opgebouwd uit vijf domeinen: <strong>Rekenen</strong> (H1&ndash;6), <strong>Meetkunde</strong> (H7&ndash;12), <strong>Algebra</strong> (H13&ndash;15), <strong>Statistiek</strong> (H16) en <strong>Logica</strong> (H17).</li>
+      <li>Gebruik <strong>rekenmachines als hulpmiddel</strong>, niet als vervanging voor inzicht. Oefen hoofdrekenen en getallenzin apart.</li>
+      <li>De <strong>gouden regel</strong>: schat eerst, bereken dan, controleer daarna. Toon altijd je werk.</li>
+      <li>De <strong>twaalf basissymbolen</strong> (+, &minus;, &times;, &divide;, =, &ne;, &lt;, &gt;, &le;, &ge;, kwadraat, wortel) komen in elk hoofdstuk terug en moeten feilloos herkend worden.</li>
+      <li>De <strong>getallenlijn</strong> is een visueel hulpmiddel om getallen te ordenen: hoe verder naar rechts, hoe groter.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>
