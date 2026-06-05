@@ -387,6 +387,62 @@
     line-height: 1.55;
   }
 
+  /* Real images variant — used when a Wikimedia Commons / CC image replaces a placeholder */
+  figure.illustratie-image {
+    border: 1px solid #E1D9C5;
+    background: #FAF7F0;
+    border-radius: var(--border-radius);
+    padding: 1.2rem 1.2rem 0.9rem;
+    margin: 1.8rem 0;
+    text-align: center;
+  }
+  figure.illustratie-image .ill-images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  figure.illustratie-image .ill-images img {
+    max-width: 100%;
+    height: auto;
+    flex: 1 1 280px;
+    max-height: 420px;
+    object-fit: contain;
+    border-radius: 4px;
+    background: #fff;
+  }
+  figure.illustratie-image .ill-img-single {
+    max-width: 100%;
+    height: auto;
+    max-height: 520px;
+    object-fit: contain;
+    border-radius: 4px;
+    background: #fff;
+    display: block;
+    margin: 0 auto;
+  }
+  figure.illustratie-image .ill-caption {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: var(--text-mid);
+    max-width: 620px;
+    margin: 0.9rem auto 0.3rem;
+    line-height: 1.55;
+  }
+  figure.illustratie-image .ill-credit {
+    font-size: 0.72rem;
+    color: var(--text-light);
+    margin: 0.3rem auto 0;
+    max-width: 620px;
+    line-height: 1.4;
+  }
+  figure.illustratie-image .ill-credit a {
+    color: var(--text-light);
+    text-decoration: underline;
+    text-decoration-style: dotted;
+  }
+
   /* ============================================================
      INTERACTIVE TIMELINE — 7 PERIODS
   ============================================================ */
@@ -991,11 +1047,6 @@
       <p>In dit boek zoom je in op de eerste drie periodes: de prehistorie, het oude nabije oosten en de klassieke oudheid. Samen beslaan ze het grootste deel van de menselijke geschiedenis — van de allereerste mensachtigen tot de val van het Romeinse Rijk. Dat is meer dan drie miljoen jaar. Het is bijna onvoorstelbaar. En toch: aan het einde van dit boek zal jij er je weg in vinden.</p>
     </div>
 
-    <div class="illustratie" role="img" aria-label="Illustratie: tijdlijn met zeven periodes">
-      <span class="ill-icon">🖼️</span>
-      <p class="ill-caption">Horizontale tijdlijn met de zeven westerse historische periodes van links (prehistorie, ca. 3,3 miljoen jaar geleden) naar rechts (hedendaagse tijd, heden). Elke periode heeft een eigen kleur. De periodes 1 t.e.m. 3 zijn extra uitgelicht. De tijdlijn is niet op schaal — anders zou de prehistorie het hele blad beslaan en de hedendaagse tijd nauwelijks zichtbaar zijn.</p>
-    </div>
-
     <div class="denkvraag" role="note">
       <div class="dv-header">💭 Denkvraag</div>
       <p class="dv-text">Bekijk de zeven periodes. Welke periode klinkt voor jou het interessantst? Waarom? Schrijf je antwoord op en bewaar het. Aan het einde van dit boek kun je kijken of je mening veranderd is.</p>
@@ -1156,11 +1207,6 @@
       <p>Het is ook goed om te weten dat niet iedereen ter wereld dezelfde tijdrekening gebruikt. De islamitische tijdrekening begint bij de Hidjra (de vlucht van de profeet Mohammed) in 622 n.Chr. De Joodse tijdrekening begint bij de veronderstelde schepping van de wereld, meer dan 5.000 jaar geleden. Wij gebruiken in dit boek de westerse tijdrekening — maar vergeet niet dat die ook een keuze is, geen absolute waarheid.</p>
     </div>
 
-    <div class="illustratie" role="img" aria-label="Illustratie: tijdlijn met nulpunt">
-      <span class="ill-icon">🖼️</span>
-      <p class="ill-caption">Tijdlijn met een centraal nulpunt. Links: v.Chr. met aantallen oplopend naar links (100 v.Chr., 500 v.Chr., 1000 v.Chr., 3000 v.Chr.). Rechts: n.Chr. met aantallen oplopend naar rechts (100, 476, 1000, 1789, 2026 n.Chr.). Boven de tijdlijn kleine icoontjes bij markante punten.</p>
-    </div>
-
     <h3 class="sub-heading">Chronologie en periode</h3>
 
     <div class="begrip">
@@ -1311,10 +1357,16 @@
       <p>Dat is waarom het schrift de grens markeert tussen de prehistorie en het oude nabije oosten. Niet omdat mensen voordien dom of oninteressant waren — integendeel, we zullen zien hoe indrukwekkend de prehistorische mens was. Maar met het schrift begon een nieuw hoofdstuk in de menselijke mogelijkheden.</p>
     </div>
 
-    <div class="illustratie" role="img" aria-label="Illustratie: kleitablet met spijkerschrift + kaart Mesopotamië">
-      <span class="ill-icon">🖼️</span>
-      <p class="ill-caption">Twee afbeeldingen naast elkaar. Links: een kleitablet met spijkerschrifttekens, met een vergroting van een detail. Rechts: een kaartje van Mesopotamië (het gebied tussen Tigris en Eufraat, in het huidige Irak en Syrië), met aanduiding van de vroegste plaatsen waar schrift werd gevonden.</p>
-    </div>
+    <figure class="illustratie-image" aria-label="Kleitablet met spijkerschrift en kaart van Mesopotamië">
+      <div class="ill-images">
+        <img src="afbeeldingen/hoofdstuk_01/kleitablet_akkadisch.jpg" alt="Klein kleitablet met spijkerschrift in het Akkadisch, ca. 2000 v.Chr., met telling van werkers en stenen.">
+        <img src="afbeeldingen/hoofdstuk_01/kaart_mesopotamie.jpg" alt="Kaart van Mesopotamië met de vroegste steden langs Tigris en Eufraat: Ur, Uruk, Larsa, Isin, Nippur, Babylon, Kish.">
+      </div>
+      <figcaption>
+        <p class="ill-caption">Links: een Akkadisch kleitablet uit ca. 2000 v.Chr. — een rekening van werkers en hun stenen. Rechts: kaart van zuidelijk Mesopotamië met de oudste steden langs Tigris en Eufraat, waaronder Uruk en Ur, waar het spijkerschrift voor het eerst opduikt.</p>
+        <p class="ill-credit">Kleitablet: <a href="https://commons.wikimedia.org/wiki/File:Cuneiform_Akkadian_clay_tablet_1.jpg">Letterform Archive</a> (Public Domain Mark 1.0). Kaart: <a href="https://commons.wikimedia.org/wiki/File:Meso2mil.JPG">Zunkir</a> (CC BY-SA 4.0). Via Wikimedia Commons.</p>
+      </figcaption>
+    </figure>
 
     <h3 class="sub-heading">Voorbeeld 2: De macht verschuift naar de Middellandse Zee</h3>
 
@@ -1325,10 +1377,13 @@
       <p>Die verschuiving van het machtscentrum van het Midden-Oosten naar de kusten van de Middellandse Zee is zo fundamenteel dat historici er een nieuwe periode door laten beginnen: de klassieke oudheid. Een nieuwe kamer in het gebouw van de geschiedenis.</p>
     </div>
 
-    <div class="illustratie" role="img" aria-label="Illustratie: kaart machtscentra Midden-Oosten en Middellandse Zee">
-      <span class="ill-icon">🖼️</span>
-      <p class="ill-caption">Kaart van de Middellandse Zee en het Midden-Oosten. Twee kleurzones: (1) het kerngebied van het oude nabije oosten (Mesopotamië en Egypte) en (2) het kerngebied van de klassieke oudheid (Griekenland en het Romeinse Rijk). Een pijl of verloop suggereert de verschuiving van het zwaartepunt.</p>
-    </div>
+    <figure class="illustratie-image" aria-label="Kaart van het oude nabije oosten omstreeks 2600 v.Chr.">
+      <img class="ill-img-single" src="afbeeldingen/hoofdstuk_01/kaart_oude_nabije_oosten.svg" alt="Kaart van het oude nabije oosten rond 2600 v.Chr.: Egypte, Sumer (Mesopotamië), Elam, Levant en de Middellandse Zee met Kreta.">
+      <figcaption>
+        <p class="ill-caption">Het kerngebied van het oude nabije oosten omstreeks 2600 v.Chr.: het Oude Rijk in Egypte (links onder), de Sumerische stadstaten in Mesopotamië (rechts), de Levant en het Egeïsche gebied (Kreta). Vanaf de 8ste eeuw v.Chr. verschuift het zwaartepunt naar Griekenland en — later — naar Rome.</p>
+        <p class="ill-credit">Kaart: <a href="https://commons.wikimedia.org/wiki/File:Ancient_Near_East_2600BC.svg">Enyavar</a> (CC BY-SA 4.0) via Wikimedia Commons.</p>
+      </figcaption>
+    </figure>
 
     <div class="denkvraag" role="note">
       <div class="dv-header">💭 Denkvraag</div>
@@ -1392,6 +1447,52 @@
     <div class="denkvraag" role="note">
       <div class="dv-header">💭 Denkvraag</div>
       <p class="dv-text">Stel dat je een historicus bent die de geschiedenis van de Azteken bestudeert. De Azteken leefden in Midden-Amerika en hadden geen contact met Europa of het Midden-Oosten. Welke problemen zou je tegenkomen als je hun geschiedenis probeert in te delen met de westerse zeven periodes? Wat zou je anders doen?</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 1.5
+  ============================================================ -->
+  <section class="section-block" id="s1-5">
+    <div class="section-heading">
+      <span class="section-num">1.5</span>
+      <h2 class="section-title">Welk jaar is het eigenlijk? Tijdrekeningen zijn een afspraak</h2>
+    </div>
+
+    <div class="prose-text">
+      <p>Vraag aan iemand op straat: "Welk jaar is het?" en je krijgt zonder twijfel het antwoord: 2026. Maar klopt dat wel? Het antwoord is verrassend: ja én nee. Het is 2026 — als je de westerse tijdrekening gebruikt. Maar er bestaan nog heel andere manieren om jaren te tellen, en op datzelfde moment leeft een groot deel van de wereldbevolking in een heel ander "jaar".</p>
+      <p>Dat komt omdat een tijdrekening geen natuurwet is, maar een <strong>afspraak</strong>. Mensen hebben ooit afgesproken: vanaf dít moment beginnen we te tellen. En elk volk, elke godsdienst en elke cultuur koos daarvoor een ander beginpunt — meestal een moment dat voor hén het allerbelangrijkst was.</p>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">📖</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Afspraak (in de tijdrekening)</span>
+        <p class="begrip-def">Een tijdrekening berust op een afspraak: een gekozen nulpunt waarvandaan men de jaren telt. Dat nulpunt is niet van nature gegeven, maar door mensen vastgelegd. Daarom kan eenzelfde moment in verschillende tijdrekeningen een ander jaartal hebben.</p>
+      </div>
+    </div>
+
+    <div class="prose-text">
+      <p>Bekijk maar eens hoe verschillende culturen hetzelfde "nu" benoemen:</p>
+      <ul>
+        <li>In de <strong>westerse tijdrekening</strong> is het 2026. Het nulpunt is de veronderstelde geboorte van Jezus Christus.</li>
+        <li>In de <strong>islamitische tijdrekening</strong> is het rond het jaar 1447. Het nulpunt is de Hidjra, de vlucht van de profeet Mohammed van Mekka naar Medina in 622 n.Chr.</li>
+        <li>In de <strong>Joodse tijdrekening</strong> is het rond het jaar 5786. Het nulpunt is de veronderstelde schepping van de wereld, meer dan vijfduizend jaar geleden.</li>
+        <li>In de <strong>Chinese tijdrekening</strong> werd lange tijd geteld in cycli van zestig jaar, telkens gekoppeld aan een dier (het jaar van de draak, van het konijn …). Officiële jaartellingen begonnen vaak opnieuw bij het aantreden van een nieuwe keizer.</li>
+        <li>In het <strong>oude Egypte</strong> was er helemaal geen doorlopend nulpunt. Men telde de jaren per farao: men sprak bijvoorbeeld van "het zevende regeringsjaar van farao Ramses II". Stierf de farao, dan begon de telling weer bij één.</li>
+      </ul>
+      <p>Stel je voor hoe verwarrend dat laatste was voor latere historici! Om uit te rekenen wanneer iets in Egypte precies gebeurde, moesten ze alle farao's en hun regeringsjaren achter elkaar leggen, als een lange ketting. Eén ontbrekende schakel, en de hele berekening klopt niet meer.</p>
+    </div>
+
+    <div class="prose-text">
+      <p>Waarom is dit belangrijk om te weten? Omdat het je iets leert over geschiedenis in het algemeen. "Jaar 2026" voelt voor ons zo vanzelfsprekend als de lucht die we inademen. Maar het is een keuze — een afspraak die mensen op een bepaald moment, op een bepaalde plaats, gemaakt hebben. Voor een moslim in Marokko of een Joodse familie in Antwerpen is het tegelijk een heel ander jaar, en dat is even geldig als het onze.</p>
+      <p>Net zoals de zeven periodes die je eerder leerde, is ook de tijdrekening dus <strong>tijds- en plaatsgebonden</strong>. Een goed historicus beseft dat. Hij weet dat zijn eigen kalender niet "de juiste" is, maar "de onze" — eentje naast vele andere.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">💭 Denkvraag</div>
+      <p class="dv-text">Stel dat de hele wereld morgen zou moeten afspreken om met één nieuwe tijdrekening te beginnen, met een gloednieuw "jaar 0". Welk moment uit de geschiedenis zou jij als nulpunt kiezen, en waarom? Bedenk meteen ook: zou iemand uit een ander land of een andere godsdienst jouw keuze wel een goed idee vinden?</p>
     </div>
   </section>
 

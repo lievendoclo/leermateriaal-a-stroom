@@ -1296,6 +1296,137 @@
     </div>
   </section>
 
+  <!-- ============================================================
+       SECTIE 6: COMPUTATIONEEL DENKEN
+  ============================================================ -->
+  <section class="section-block" id="computationeel-denken">
+    <div class="section-heading">
+      <span class="section-num">6</span>
+      <h2 class="section-title">Computationeel denken</h2>
+    </div>
+
+    <p>De zeef van Eratosthenes uit sectie 1 is meer dan een trucje om priemgetallen te vinden: het is een echt <strong>algoritme</strong>. Wanneer je nadenkt over hoe je zo&rsquo;n stappenplan opbouwt, denk je net zoals een programmeur. Dat noemen we <strong>computationeel denken</strong>: een probleem zo aanpakken dat je het stap voor stap, en desnoods door een computer, kunt laten oplossen.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#119979;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Algoritme</span>
+        <p class="begrip-def">Een <strong>algoritme</strong> is een reeks duidelijke instructies of een stappenplan om een taak uit te voeren of een probleem op te lossen. Een goed algoritme is eindig (het stopt ooit) en eenduidig (bij elke stap is precies duidelijk wat je moet doen).</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Vier denkstappen</h3>
+
+    <p>Computationeel denken steunt op vier principes. We bekijken ze meteen aan de hand van de zeef van Eratosthenes.</p>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#119980;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Decompositie</span>
+        <p class="begrip-def"><strong>Decompositie</strong> betekent een groot probleem opdelen in kleinere, eenvoudigere deelproblemen. &ldquo;Vind alle priemgetallen tot 50&rdquo; splits je in: getallen opschrijven &rarr; veelvouden van 2 wegstrepen &rarr; veelvouden van 3 wegstrepen &rarr; &hellip; &rarr; aflezen wat overblijft.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#119979;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Patroonherkenning</span>
+        <p class="begrip-def"><strong>Patroonherkenning</strong> is gelijkenissen ontdekken zodat je dezelfde aanpak kunt hergebruiken. Het wegstrepen van veelvouden van 2 verloopt net zoals dat van veelvouden van 3 of 5 &mdash; enkel het getal verandert. Je hoeft de stap dus niet telkens opnieuw te bedenken.</p>
+      </div>
+    </div>
+
+    <div class="begrip">
+      <span class="begrip-icon">&#119980;</span>
+      <div class="begrip-body">
+        <span class="begrip-term">Begrip</span>
+        <span class="begrip-name">Abstractie</span>
+        <p class="begrip-def"><strong>Abstractie</strong> betekent overtollige details weglaten en tot de kern komen. Of een vakje nu rood of doorstreept is, doet er niet toe: het enige wat telt, is &ldquo;is dit getal al een veelvoud van een eerder priemgetal of niet?&rdquo;</p>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Het algoritme als stroomdiagram</h3>
+
+    <p>Een <strong>stroomdiagram</strong> (of flowchart) tekent een algoritme als een schema van vakjes en pijlen. Een ruit stelt een ja/nee-vraag voor, een rechthoek een handeling. Hieronder zie je de kern van de zeef van Eratosthenes:</p>
+
+    <div class="svg-container">
+      <svg viewBox="0 0 480 470" width="100%" style="max-width:420px" role="img" aria-labelledby="flow-title">
+        <title id="flow-title">Stroomdiagram van de zeef van Eratosthenes met start, een lus die veelvouden wegstreept en een stopvoorwaarde</title>
+        <defs>
+          <marker id="pijl" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="#1A2B4A"/>
+          </marker>
+        </defs>
+        <rect x="150" y="20" width="180" height="44" rx="22" fill="#1A2B4A"/>
+        <text x="240" y="47" font-family="'Source Sans 3',sans-serif" font-size="14" font-weight="700" fill="#FAF6EF" text-anchor="middle">Start: schrijf 2 t/m n op</text>
+        <line x1="240" y1="64" x2="240" y2="92" stroke="#1A2B4A" stroke-width="1.5" marker-end="url(#pijl)"/>
+        <rect x="160" y="94" width="160" height="42" rx="4" fill="#F2EAD8" stroke="#C8923A"/>
+        <text x="240" y="120" font-family="'Source Sans 3',sans-serif" font-size="14" fill="#3D3425" text-anchor="middle">Kies kleinste getal p</text>
+        <line x1="240" y1="136" x2="240" y2="164" stroke="#1A2B4A" stroke-width="1.5" marker-end="url(#pijl)"/>
+        <polygon points="240,166 350,216 240,266 130,216" fill="#FBF0D0" stroke="#D4A017" stroke-width="1.5"/>
+        <text x="240" y="212" font-family="'Source Sans 3',sans-serif" font-size="13" fill="#3D3425" text-anchor="middle">Is p &times; p</text>
+        <text x="240" y="228" font-family="'Source Sans 3',sans-serif" font-size="13" fill="#3D3425" text-anchor="middle">groter dan n?</text>
+        <line x1="350" y1="216" x2="400" y2="216" stroke="#1A2B4A" stroke-width="1.5" marker-end="url(#pijl)"/>
+        <text x="375" y="208" font-family="'Source Sans 3',sans-serif" font-size="12" font-weight="700" fill="#C1440E" text-anchor="middle">ja</text>
+        <rect x="360" y="350" width="110" height="44" rx="22" fill="#1A2B4A"/>
+        <text x="415" y="370" font-family="'Source Sans 3',sans-serif" font-size="13" font-weight="700" fill="#FAF6EF" text-anchor="middle">Klaar: lees</text>
+        <text x="415" y="386" font-family="'Source Sans 3',sans-serif" font-size="13" font-weight="700" fill="#FAF6EF" text-anchor="middle">priemen af</text>
+        <line x1="400" y1="216" x2="400" y2="350" stroke="#1A2B4A" stroke-width="1.5"/>
+        <line x1="400" y1="350" x2="415" y2="350" stroke="#1A2B4A" stroke-width="1.5" marker-end="url(#pijl)"/>
+        <line x1="240" y1="266" x2="240" y2="298" stroke="#1A2B4A" stroke-width="1.5" marker-end="url(#pijl)"/>
+        <text x="255" y="288" font-family="'Source Sans 3',sans-serif" font-size="12" font-weight="700" fill="#C1440E" text-anchor="middle">nee</text>
+        <rect x="120" y="300" width="240" height="42" rx="4" fill="#F2EAD8" stroke="#C8923A"/>
+        <text x="240" y="326" font-family="'Source Sans 3',sans-serif" font-size="13" fill="#3D3425" text-anchor="middle">Streep alle veelvouden van p weg</text>
+        <rect x="120" y="392" width="240" height="42" rx="4" fill="#F2EAD8" stroke="#C8923A"/>
+        <text x="240" y="418" font-family="'Source Sans 3',sans-serif" font-size="13" fill="#3D3425" text-anchor="middle">Neem volgend niet-doorstreept getal</text>
+        <line x1="240" y1="342" x2="240" y2="392" stroke="#1A2B4A" stroke-width="1.5" marker-end="url(#pijl)"/>
+        <line x1="120" y1="413" x2="70" y2="413" stroke="#1A2B4A" stroke-width="1.5"/>
+        <line x1="70" y1="413" x2="70" y2="216" stroke="#1A2B4A" stroke-width="1.5"/>
+        <line x1="70" y1="216" x2="130" y2="216" stroke="#1A2B4A" stroke-width="1.5" marker-end="url(#pijl)"/>
+      </svg>
+      <span class="svg-caption">Stroomdiagram van de zeef van Eratosthenes. De ruit is een ja/nee-vraag; de pijl die terugloopt vormt een <em>lus</em> die zich herhaalt tot p&times;p groter wordt dan n.</span>
+    </div>
+
+    <h3 class="sub-heading">Hetzelfde in pseudocode</h3>
+
+    <p>Een algoritme kun je ook in <strong>pseudocode</strong> opschrijven: een soort tussentaal tussen gewone taal en een echte programmeertaal. Ze is bedoeld voor mensen, niet voor de computer, maar ligt er al dicht bij.</p>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Pseudocode &mdash; Zeef van Eratosthenes</span>
+      <p class="rv-vraag">Vind alle priemgetallen tot en met n.</p>
+      <pre style="font-family:'Source Sans 3',monospace;font-size:0.92rem;line-height:1.7;background:var(--creme);border-radius:4px;padding:1rem 1.2rem;margin:0;overflow-x:auto;color:var(--text-dark)">schrijf de getallen 2 tot en met n op
+p &larr; 2
+ZOLANG p &times; p &le; n:
+    streep alle veelvouden van p weg (maar niet p zelf)
+    p &larr; eerstvolgende getal dat nog niet is doorstreept
+de overgebleven getallen zijn de priemgetallen</pre>
+    </div>
+
+    <h3 class="sub-heading">Debuggen: fouten opsporen</h3>
+
+    <p>Een algoritme bedenken lukt zelden in &eacute;&eacute;n keer foutloos. <strong>Debuggen</strong> is het opsporen en verbeteren van fouten (&ldquo;bugs&rdquo;) in een algoritme. Je test het stap voor stap met een eenvoudig voorbeeld en kijkt waar het misloopt.</p>
+
+    <div class="rekenvoorbeeld">
+      <span class="rv-label">Rekenvoorbeeld &mdash; Een bug zoeken</span>
+      <p class="rv-vraag">Een leerling schreef: &ldquo;streep p zelf ook weg&rdquo;. Waar loopt het mis?</p>
+      <ul class="rv-stappen">
+        <li>Test met n = 10. Stap 1 kiest p = 2.</li>
+        <li>De foute regel streept ook 2 zelf weg, naast 4, 6, 8, 10.</li>
+        <li>Na afloop ontbreekt 2 bij de overgebleven getallen, terwijl 2 w&eacute;l een priemgetal is.</li>
+        <li>De fout zit in de instructie: je mag de veelvouden wegstrepen, maar <strong>p zelf moet blijven staan</strong>.</li>
+        <li>Verbeter de regel naar &ldquo;streep alle veelvouden van p weg, maar niet p zelf&rdquo; en test opnieuw &rarr; nu klopt het.</li>
+      </ul>
+      <p class="rv-antwoord">Antwoord: de bug zat in het per ongeluk wegstrepen van p zelf. Door met een klein voorbeeld te testen, vind je zo&rsquo;n fout snel.</p>
+    </div>
+
+    <div class="denkvraag" role="note">
+      <div class="dv-header">&#128161; Denkvraag</div>
+      <p class="dv-text">Schrijf zelf een algoritme (in pseudocode of als stroomdiagram) dat nagaat of een gegeven getal even of oneven is. Welke deelstappen zitten erin? Welke vraag (ja/nee) staat centraal?</p>
+    </div>
+  </section>
+
 </div><!-- end page-wrapper -->
 
 <!-- ============================================================
