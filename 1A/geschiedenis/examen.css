@@ -1,0 +1,52 @@
+/* ============================================================
+   examen.css — print-vriendelijke stijl voor het voorbeeldexamen
+   en de verbetersleutel (A4, omgezet naar PDF via headless Chrome).
+============================================================ */
+@page { size: A4; margin: 16mm 16mm 18mm; }
+* { box-sizing: border-box; }
+body { font-family: "Helvetica Neue", Arial, sans-serif; font-size: 11pt; line-height: 1.42; color: #1a1a1a; margin: 0; }
+h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; }
+p { margin: .3em 0; }
+strong { font-weight: 700; }
+
+.exam-header { border-bottom: 3px solid #1A2B4A; padding-bottom: 8px; margin-bottom: 12px; }
+.exam-header .vak { font-size: 9.5pt; letter-spacing: .12em; text-transform: uppercase; color: #C1440E; font-weight: 700; }
+.exam-header h1 { font-size: 20pt; margin: .12em 0; color: #1A2B4A; }
+.exam-header .sub { color: #555; font-size: 10pt; }
+
+.info { width: 100%; border-collapse: collapse; margin: 10px 0 14px; font-size: 10pt; }
+.info td { border: 1px solid #bbb; padding: 5px 8px; }
+.info .lbl { background: #f0ece3; font-weight: 600; width: 16%; white-space: nowrap; }
+
+.instructies { background: #FAF6EF; border: 1px solid #E8DCC8; border-left: 4px solid #D4A017; padding: 9px 12px; font-size: 9.5pt; margin-bottom: 14px; }
+.instructies ul { margin: .3em 0 .1em 1.1em; padding: 0; }
+
+.deel { margin-top: 16px; }
+.deel-titel { background: #1A2B4A; color: #fff; padding: 5px 10px; font-family: Georgia, serif; font-size: 12.5pt; border-radius: 3px; overflow: hidden; }
+.deel-titel .et { float: right; font-size: 8.5pt; font-weight: 400; color: #E8B82A; }
+
+.vraag { margin: 11px 0; break-inside: avoid; }
+.vraag .kop { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.vraag .nr { font-weight: 700; color: #1A2B4A; }
+.punten { font-size: 8.5pt; color: #555; white-space: nowrap; border: 1px solid #ccc; border-radius: 10px; padding: 1px 8px; }
+.keuze { margin: .15em 0 .15em 1.3em; }
+.keuze .vk { display: inline-block; width: 1em; }
+.lijn { border-bottom: 1px dotted #9a9a9a; height: 1.55em; }
+
+.bron { border: 1px solid #999; background: #fbfaf7; padding: 10px 12px; margin: 9px 0; break-inside: avoid; }
+.bron .bron-kop { font-size: 8.5pt; letter-spacing: .1em; text-transform: uppercase; color: #C1440E; font-weight: 700; margin-bottom: 4px; }
+.bron .bron-tekst { font-style: italic; }
+.bron .bron-bij { font-size: 9pt; color: #444; margin-top: 6px; border-top: 1px solid #ddd; padding-top: 4px; font-style: normal; }
+
+.tabel { width: 100%; border-collapse: collapse; margin: 6px 0; font-size: 10pt; }
+.tabel td, .tabel th { border: 1px solid #bbb; padding: 4px 7px; text-align: left; }
+.tabel th { background: #f0ece3; }
+
+.voet { position: fixed; bottom: 5mm; left: 0; right: 0; text-align: center; font-size: 8pt; color: #999; }
+
+/* ---- verbetersleutel ---- */
+.sleutel-band { background: #C1440E; color: #fff; text-align: center; font-weight: 700; letter-spacing: .14em; padding: 4px; font-size: 10pt; text-transform: uppercase; border-radius: 3px; margin-bottom: 10px; }
+.antwoord { background: #eef5ee; border-left: 4px solid #2e7d32; padding: 7px 11px; margin: 6px 0; font-size: 10pt; break-inside: avoid; }
+.antwoord .ptn { font-weight: 700; color: #2e7d32; }
+.antwoord .verdeling { font-size: 8.8pt; color: #555; margin-top: 3px; }
+.totaalbalk { background: #1A2B4A; color: #fff; padding: 6px 10px; border-radius: 3px; font-family: Georgia, serif; margin-top: 14px; }
