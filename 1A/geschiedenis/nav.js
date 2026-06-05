@@ -90,20 +90,25 @@
     document.body.appendChild(nav);
   }
 
-  /* ── "terug naar les"-lintje wanneer geopend vanuit een les ── */
+  /* ── "terug naar les"-knop IN de sticky header wanneer geopend vanuit een les ── */
   (function () {
     var params = new URLSearchParams(window.location.search);
     var les = params.get('les');
     if (!les || !/^\d+$/.test(les)) return;
     var lesFile = 'les_' + (les.length < 2 ? '0' + les : les) + '.html';
-    var bar = document.createElement('a');
-    bar.href = lesFile;
-    bar.style.cssText = 'display:block;background:var(--gold,#D4A017);color:#1A2B4A;' +
-      'text-decoration:none;font-family:"Source Sans 3",sans-serif;font-weight:700;' +
-      'font-size:.9rem;text-align:center;padding:.55rem 1rem;letter-spacing:.02em';
-    bar.textContent = '📘  Onderdeel van Les ' + les + '  ▸  Terug naar de les';
     var hdr = document.querySelector('.site-header');
-    if (hdr && hdr.parentNode) hdr.parentNode.insertBefore(bar, hdr.nextSibling);
-    else document.body.insertBefore(bar, document.body.firstChild);
+    if (!hdr) return;
+    var link = document.createElement('a');
+    link.href = lesFile;
+    link.className = 'les-terug-link';
+    link.textContent = '📘 Terug naar Les ' + les;
+    link.style.cssText = 'background:var(--gold,#D4A017);color:#1A2B4A;' +
+      'text-decoration:none;font-family:"Source Sans 3",sans-serif;font-weight:700;' +
+      'font-size:.8rem;padding:.3rem .85rem;border-radius:14px;white-space:nowrap;' +
+      'letter-spacing:.02em;flex:0 0 auto';
+    /* tussen het linker- en rechterlabel plaatsen (header is flex, blijft sticky) */
+    var firstLabel = hdr.querySelector('.label');
+    if (firstLabel && firstLabel.nextSibling) hdr.insertBefore(link, firstLabel.nextSibling);
+    else hdr.appendChild(link);
   })();
 })();
