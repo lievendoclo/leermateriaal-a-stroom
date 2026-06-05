@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geschiedenis 1A — Leerpad (les per les)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="leerpad.css">
+</head>
+<body>
+<header class="site-header">
+  <a href="index.html" class="label">← Geschiedenis 1A</a>
+  <span class="label label-right">Leerpad</span>
+</header>
+
+<section class="course-hero">
+  <p class="kicker">Geschiedenis · 1A · Leerpad</p>
+  <h1>Volg dit vak les per les</h1>
+  <p class="subtitle">Elke les duurt ongeveer één uur. Werk ze in volgorde af of kies zelf.</p>
+</section>
+
+<div class="voortgangsbalk">
+  <div class="vb-track"><div class="vb-fill" id="vb-fill"></div></div>
+  <div class="vb-label" id="vb-label">0 / 0 lessen afgewerkt</div>
+</div>
+
+<main class="page-wrapper">
+  <p style="text-align:center"><a class="concordantie-link" href="concordantie.html">📋 Bekijk welke eindtermen elke les dekt →</a></p>
+  <div id="leerpad-root"></div>
+</main>
+
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function () {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 400) btn.classList.add('visible'); else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  })();
+</script>
+<script src="lessons.js"></script>
+<script>
+(function () {
+  var KEY = 'gesch-leerpad-voltooid', L = window.LESSONS || [];
+  function load() { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { return []; } }
+  var root = document.getElementById('leerpad-root');
+
+  // groepeer per deel
+  var delen = [];
+  L.forEach(function (les) {
+    var d = delen.find(function (x) { return x.deel === les.deel; });
+    if (!d) { d = { deel: les.deel, title: les.deelTitle, items: [] }; delen.push(d); }
+    d.items.push(les);
+  });
+
+  delen.forEach(function (d) {
+    var h = document.createElement('h2');
+    h.className = 'deel-kop';
+    h.textContent = 'Deel ' + d.deel + ' — ' + d.title;
+    root.appendChild(h);
+    d.items.forEach(function (les) {
+      var a = document.createElement('a');
+      a.href = les.file; a.className = 'les-kaart'; a.setAttribute('data-les', les.n);
+      var chaps = Array.from(new Set(les.sources.map(function (s) { return s.label.split(' · ')[0]; }))).join(', ');
+      a.innerHTML = '<span class="lk-num">' + les.n + '</span>' +
+        '<span class="lk-body"><span class="lk-title">' + les.title + '</span>' +
+        '<span class="lk-meta">⏱ ±' + les.readMin + ' min · ' + chaps + ' · 🎯 ' + les.eindtermen.join(', ') + '</span></span>' +
+        '<span class="lk-check">✓</span>';
+      root.appendChild(a);
+    });
+  });
+
+  function refresh() {
+    var d = load();
+    document.querySelectorAll('.les-kaart').forEach(function (el) {
+      el.classList.toggle('done', d.indexOf(parseInt(el.getAttribute('data-les'), 10)) !== -1);
+    });
+    var pct = L.length ? Math.round(d.length / L.length * 100) : 0;
+    document.getElementById('vb-fill').style.width = pct + '%';
+    document.getElementById('vb-label').textContent = d.length + ' / ' + L.length + ' lessen afgewerkt';
+  }
+  refresh();
+  window.addEventListener('pageshow', refresh);
+})();
+</script>
+</body>
+</html>

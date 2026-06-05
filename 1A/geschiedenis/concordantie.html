@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geschiedenis 1A — Concordantietabel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="leerpad.css">
+</head>
+<body>
+<header class="site-header">
+  <a href="leerpad.html" class="label">← Leerpad</a>
+  <span class="label label-right">Concordantietabel</span>
+</header>
+
+<section class="course-hero">
+  <p class="kicker">Geschiedenis · 1A</p>
+  <h1>Concordantietabel</h1>
+  <p class="subtitle">Welke les dekt welke eindterm historisch bewustzijn (8.1–8.9)?</p>
+</section>
+
+<main class="page-wrapper">
+  <div class="matrix-wrap"><table class="matrix" id="matrix"></table></div>
+  <div class="et-lijst" id="et-lijst"></div>
+  <p id="dekking" style="font-size:.9rem;color:var(--text-light)"></p>
+</main>
+
+<button id="back-to-top" aria-label="Terug naar boven" title="Terug naar boven">&#8593;</button>
+
+<script>
+  (function () {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 400) btn.classList.add('visible'); else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  })();
+</script>
+<script src="lessons.js"></script>
+<script src="eindtermen.js"></script>
+<script>
+(function () {
+  var L = window.LESSONS || [], ET = window.EINDTERMEN || {};
+  var codes = Object.keys(ET).sort();
+
+  // matrix
+  var t = document.getElementById('matrix');
+  var head = '<thead><tr><th class="lesnaam">Les</th>' +
+    codes.map(function (c) { return '<th>' + c + '</th>'; }).join('') + '</tr></thead>';
+  var body = '<tbody>' + L.map(function (les) {
+    return '<tr><td class="lesnaam">' + les.n + '. ' + les.title + '</td>' +
+      codes.map(function (c) { return les.eindtermen.indexOf(c) !== -1 ? '<td class="hit">●</td>' : '<td></td>'; }).join('') + '</tr>';
+  }).join('') + '</tbody>';
+  t.innerHTML = head + body;
+
+  // per eindterm
+  var el = document.getElementById('et-lijst');
+  el.innerHTML = '<h2>Per eindterm</h2>' + codes.map(function (c) {
+    var lessen = L.filter(function (les) { return les.eindtermen.indexOf(c) !== -1; }).map(function (les) { return 'Les ' + les.n; });
+    return '<div class="et-item"><h3>' + c + '</h3><p>' + ET[c] + '</p>' +
+      '<p class="et-lessen">Gedekt in: ' + (lessen.length ? lessen.join(', ') : '⚠ geen enkele les') + '</p></div>';
+  }).join('');
+
+  // dekkingscheck
+  var ongedekt = codes.filter(function (c) { return !L.some(function (les) { return les.eindtermen.indexOf(c) !== -1; }); });
+  document.getElementById('dekking').textContent = ongedekt.length ?
+    ('⚠ Niet gedekt: ' + ongedekt.join(', ')) : ('✓ Alle eindtermen 8.1–8.9 komen in minstens één les aan bod.');
+})();
+</script>
+</body>
+</html>
